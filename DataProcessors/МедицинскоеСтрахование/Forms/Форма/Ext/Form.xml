@@ -1,0 +1,1898 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<Group>Vertical</Group>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шапка</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаExtendedTooltip" id="2"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаОсновные" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основные</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОсновныеExtendedTooltip" id="4"/>
+					<ChildItems>
+						<InputField name="Организация" id="5">
+							<DataPath>Объект.Организация</DataPath>
+							<TitleLocation>Left</TitleLocation>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="7"/>
+							<Events>
+								<Event name="OnChange">ОрганизацияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="СтраховаяКомпания" id="8">
+							<DataPath>Объект.СтраховаяКомпания</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<QuickChoice>false</QuickChoice>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>Отбор.Организация</xr:Name>
+									<xr:DataPath xsi:type="xs:string">1/0:aca431af-cd53-4672-91e5-b58d0b64c6cf</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
+							<ChoiceParameters>
+								<app:item name="Отбор.ИспользоватьЭлектронныйДокументооборотСБанком">
+									<app:value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xs:boolean">true</Value>
+									</app:value>
+								</app:item>
+							</ChoiceParameters>
+							<ContextMenu name="СтраховаяКомпанияКонтекстноеМеню" id="9"/>
+							<ExtendedTooltip name="СтраховаяКомпанияРасширеннаяПодсказка" id="10"/>
+							<Events>
+								<Event name="OnChange">СтраховаяКомпанияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="Подразделение" id="11">
+							<DataPath>Объект.Подразделение</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>Отбор.Владелец</xr:Name>
+									<xr:DataPath xsi:type="xs:string">1/0:aca431af-cd53-4672-91e5-b58d0b64c6cf</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
+							<ContextMenu name="ПодразделениеКонтекстноеМеню" id="12"/>
+							<ExtendedTooltip name="ПодразделениеExtendedTooltip" id="13"/>
+							<Events>
+								<Event name="OnChange">ПодразделениеПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаНастройки" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройки</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="15"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаНастройкиВерх" id="850">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки верх</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаНастройкиВерхРасширеннаяПодсказка" id="851"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаДоговор" id="1491">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Договор</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаДоговорРасширеннаяПодсказка" id="1492"/>
+									<ChildItems>
+										<InputField name="ДоговорСтрахования" id="1493">
+											<DataPath>Объект.ДоговорСтрахования</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<ContextMenu name="ДоговорСтрахованияКонтекстноеМеню" id="1494"/>
+											<ExtendedTooltip name="ДоговорСтрахованияРасширеннаяПодсказка" id="1495"/>
+											<Events>
+												<Event name="OnChange">ДоговорСтрахованияПриИзменении</Event>
+											</Events>
+										</InputField>
+										<UsualGroup name="ДоговорСтрахованияЗакрытГруппа" id="1502">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Договор закрыт</v8:content>
+												</v8:item>
+											</Title>
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<BackColor>style:ЦветФонаПредупрежденияБЗК</BackColor>
+											<ExtendedTooltip name="ДоговорСтрахованияЗакрытГруппаРасширеннаяПодсказка" id="1503"/>
+											<ChildItems>
+												<PictureDecoration name="ДоговорСтрахованияЗакрытКартинка" id="1504">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Договор страхования закрыт картинка</v8:content>
+														</v8:item>
+													</Title>
+													<Picture>
+														<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
+														<xr:LoadTransparent>false</xr:LoadTransparent>
+													</Picture>
+													<FileDragMode>AsFile</FileDragMode>
+													<ContextMenu name="ДоговорСтрахованияЗакрытКартинкаКонтекстноеМеню" id="1505"/>
+													<ExtendedTooltip name="ДоговорСтрахованияЗакрытКартинкаРасширеннаяПодсказка" id="1506"/>
+												</PictureDecoration>
+												<LabelDecoration name="ДоговорСтрахованияЗакрытНадпись" id="1507">
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<TextColor>style:ПоясняющийТекст</TextColor>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Договор страхования закрыт или помечен на удаление. Прикрепления застрахованных ограничены</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ДоговорСтрахованияЗакрытНадписьКонтекстноеМеню" id="1508"/>
+													<ExtendedTooltip name="ДоговорСтрахованияЗакрытНадписьРасширеннаяПодсказка" id="1509"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<InputField name="ДатаНачалаСтрахования" id="862">
+									<DataPath>Объект.ДатаНачалаСтрахования</DataPath>
+									<Visible>false</Visible>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Период</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДатаНачалаСтрахованияКонтекстноеМеню" id="863"/>
+									<ExtendedTooltip name="ДатаНачалаСтрахованияРасширеннаяПодсказка" id="864"/>
+								</InputField>
+								<LabelDecoration name="ДефисПериода" id="843">
+									<Visible>false</Visible>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>-</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДефисПериодаКонтекстноеМеню" id="844"/>
+									<ExtendedTooltip name="ДефисПериодаРасширеннаяПодсказка" id="845"/>
+								</LabelDecoration>
+								<InputField name="ДатаОкончанияСтрахования" id="865">
+									<DataPath>Объект.ДатаОкончанияСтрахования</DataPath>
+									<Visible>false</Visible>
+									<ReadOnly>true</ReadOnly>
+									<TitleLocation>None</TitleLocation>
+									<ContextMenu name="ДатаОкончанияСтрахованияКонтекстноеМеню" id="866"/>
+									<ExtendedTooltip name="ДатаОкончанияСтрахованияРасширеннаяПодсказка" id="867"/>
+								</InputField>
+								<CommandBar name="ГруппаКоманднаяПанельФормы" id="1381">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Командная панель формы</v8:content>
+										</v8:item>
+									</Title>
+									<CommandSource>Form</CommandSource>
+									<ExtendedTooltip name="ГруппаКоманднаяПанельФормыРасширеннаяПодсказка" id="1382"/>
+								</CommandBar>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаУсловияСтрахованияСотрудников" id="1386">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Условия страхования сотрудников</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаУсловияСтрахованияСотрудниковРасширеннаяПодсказка" id="1387"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаУсловияСтрахованияСотрудниковЛевая" id="1388">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Условия страхования сотрудников левая</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаУсловияСтрахованияСотрудниковЛеваяРасширеннаяПодсказка" id="1389"/>
+									<ChildItems>
+										<RadioButtonField name="УсловияСтрахованияСотрудников" id="1383">
+											<DataPath>УсловияСтрахованияСотрудников</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Страховать</v8:content>
+												</v8:item>
+											</Title>
+											<RadioButtonType>Auto</RadioButtonType>
+											<ColumnsCount>1</ColumnsCount>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Всех принятых на работу сотрудников</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">0</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Только сотрудников, попадающих в группу</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">1</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="УсловияСтрахованияСотрудниковКонтекстноеМеню" id="1384"/>
+											<ExtendedTooltip name="УсловияСтрахованияСотрудниковРасширеннаяПодсказка" id="1385"/>
+											<Events>
+												<Event name="OnChange">УсловияСтрахованияСотрудниковПриИзменении</Event>
+											</Events>
+										</RadioButtonField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаУсловияСтрахованияСотрудниковПравая" id="1390">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Условия страхования сотрудников правая</v8:content>
+										</v8:item>
+									</Title>
+									<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаУсловияСтрахованияСотрудниковПраваяРасширеннаяПодсказка" id="1391"/>
+									<ChildItems>
+										<InputField name="ГруппаСотрудников" id="1372">
+											<DataPath>ГруппаСотрудников</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<ContextMenu name="ГруппаСотрудниковКонтекстноеМеню" id="1373"/>
+											<ExtendedTooltip name="ГруппаСотрудниковРасширеннаяПодсказка" id="1374"/>
+											<Events>
+												<Event name="OnChange">ГруппаСотрудниковПриИзменении</Event>
+												<Event name="StartChoice">ГруппаСотрудниковНачалоВыбора</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаСтраницы" id="351">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="352"/>
+			<ChildItems>
+				<Page name="ГруппаПрикреплениеКПрограммамСтрахования" id="106">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прикрепление к программам</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="ГруппаПрикреплениеКПрограммамСтрахованияРасширеннаяПодсказка" id="107"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаНеприкрепленныеСотрудники" id="359">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Неприкрепленные сотрудники</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаНеприкрепленныеСотрудникиРасширеннаяПодсказка" id="360"/>
+							<ChildItems>
+								<Table name="ПрикреплениеСотрудников" id="108">
+									<Representation>List</Representation>
+									<ChangeRowSet>false</ChangeRowSet>
+									<ChangeRowOrder>false</ChangeRowOrder>
+									<RowSelectionMode>Cell</RowSelectionMode>
+									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<SearchOnInput>Use</SearchOnInput>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Объект.ПрикреплениеСотрудников</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Прикрепление сотрудников</v8:content>
+										</v8:item>
+									</Title>
+									<CommandSet>
+										<ExcludedCommand>Add</ExcludedCommand>
+										<ExcludedCommand>Change</ExcludedCommand>
+										<ExcludedCommand>Copy</ExcludedCommand>
+										<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+										<ExcludedCommand>Delete</ExcludedCommand>
+										<ExcludedCommand>EndEdit</ExcludedCommand>
+										<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+										<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+										<ExcludedCommand>SelectAll</ExcludedCommand>
+										<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+									</CommandSet>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ПрикреплениеСотрудниковКонтекстноеМеню" id="109">
+										<Autofill>false</Autofill>
+										<ChildItems>
+											<Button name="ПрикреплениеСотрудниковКонтекстноеМенюОтложитьСотрудниковВПрикреплении" id="1465">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОтложитьСотрудниковВПрикреплении</CommandName>
+												<ExtendedTooltip name="ПрикреплениеСотрудниковКонтекстноеМенюОтложитьСотрудниковВПрикрепленииРасширеннаяПодсказка" id="1466"/>
+											</Button>
+											<Button name="ПрикреплениеСотрудниковКонтекстноеМенюВозобновитьСотрудниковВПрикреплении" id="1463">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ВозобновитьСотрудниковВПрикреплении</CommandName>
+												<ExtendedTooltip name="ПрикреплениеСотрудниковКонтекстноеМенюВозобновитьСотрудниковВПрикрепленииРасширеннаяПодсказка" id="1464"/>
+											</Button>
+											<ButtonGroup name="ГруппаПрикреплениеСотрудниковПоискКонтекстноеМеню" id="130">
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Поиск контекстное меню</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ГруппаПрикреплениеСотрудниковПоискКонтекстноеМенюРасширеннаяПодсказка" id="131"/>
+												<ChildItems>
+													<Button name="ПрикреплениеСотрудниковНайтиКонтекстноеМеню" id="132">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.ПрикреплениеСотрудников.StandardCommand.Find</CommandName>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="ПрикреплениеСотрудниковНайтиКонтекстноеМенюРасширеннаяПодсказка" id="133"/>
+													</Button>
+													<Button name="ПрикреплениеСотрудниковОтменитьПоискКонтекстноеМеню" id="134">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.ПрикреплениеСотрудников.StandardCommand.CancelSearch</CommandName>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="ПрикреплениеСотрудниковОтменитьПоискКонтекстноеМенюРасширеннаяПодсказка" id="135"/>
+													</Button>
+												</ChildItems>
+											</ButtonGroup>
+										</ChildItems>
+									</ContextMenu>
+									<AutoCommandBar name="ПрикреплениеСотрудниковКоманднаяПанель" id="110">
+										<ChildItems>
+											<Button name="ПрикреплениеСотрудниковСформировать" id="144">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ПрикреплениеСотрудниковСформировать</CommandName>
+												<BackColor>style:ВыделеннаяКнопкаФон</BackColor>
+												<Font ref="style:ВажнаяНадписьШрифт" kind="StyleItem"/>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Прикрепить всех</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ПрикреплениеСотрудниковСформироватьРасширеннаяПодсказка" id="145"/>
+											</Button>
+											<Button name="СотрудникиРедактироватьСтрокуПрикрепления" id="1338">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.РедактироватьСтрокуПрикрепления</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Прикрепить сотрудника</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="СотрудникиРедактироватьСтрокуПрикрепленияРасширеннаяПодсказка" id="1339"/>
+											</Button>
+											<Button name="ПрикреплениеСотрудниковОбновить" id="148">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ПрикреплениеСотрудниковОбновить</CommandName>
+												<ExtendedTooltip name="ПрикреплениеСотрудниковОбновитьРасширеннаяПодсказка" id="149"/>
+											</Button>
+											<Button name="ПрикреплениеСотрудниковПоказыватьОтложенныхСтрахователей" id="1194">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ПрикреплениеСотрудниковПоказыватьОтложенныхСтрахователей</CommandName>
+												<ExtendedTooltip name="ПрикреплениеСотрудниковПоказыватьОтложенныхСтрахователейРасширеннаяПодсказка" id="1195"/>
+											</Button>
+											<Button name="ПрикреплениеСотрудниковИсключитьПрикрепленныхСотрудников" id="1510">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ПрикреплениеСотрудниковИсключитьПрикрепленныхСотрудников</CommandName>
+												<ExtendedTooltip name="ПрикреплениеСотрудниковИсключитьПрикрепленныхСотрудниковРасширеннаяПодсказка" id="1511"/>
+											</Button>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="ПрикреплениеСотрудниковРасширеннаяПодсказка" id="111"/>
+									<SearchStringAddition name="ПрикреплениеСотрудниковСтрокаПоиска" id="112">
+										<AdditionSource>
+											<Item>ПрикреплениеСотрудников</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПрикреплениеСотрудниковСтрокаПоискаКонтекстноеМеню" id="113"/>
+										<ExtendedTooltip name="ПрикреплениеСотрудниковСтрокаПоискаРасширеннаяПодсказка" id="114"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ПрикреплениеСотрудниковСостояниеПросмотра" id="115">
+										<AdditionSource>
+											<Item>ПрикреплениеСотрудников</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПрикреплениеСотрудниковСостояниеПросмотраКонтекстноеМеню" id="116"/>
+										<ExtendedTooltip name="ПрикреплениеСотрудниковСостояниеПросмотраРасширеннаяПодсказка" id="117"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ПрикреплениеСотрудниковУправлениеПоиском" id="118">
+										<AdditionSource>
+											<Item>ПрикреплениеСотрудников</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ПрикреплениеСотрудниковУправлениеПоискомКонтекстноеМеню" id="119"/>
+										<ExtendedTooltip name="ПрикреплениеСотрудниковУправлениеПоискомРасширеннаяПодсказка" id="120"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="Selection">ПрикреплениеСотрудниковВыбор</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="ПрикреплениеСотрудниковСотрудник" id="1332">
+											<DataPath>Объект.ПрикреплениеСотрудников.Сотрудник</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<ContextMenu name="ПрикреплениеСотрудниковСотрудникКонтекстноеМеню" id="1333"/>
+											<ExtendedTooltip name="ПрикреплениеСотрудниковСотрудникРасширеннаяПодсказка" id="1334"/>
+										</InputField>
+										<InputField name="ПрикреплениеСотрудниковОснование" id="1392">
+											<DataPath>Объект.ПрикреплениеСотрудников.Основание</DataPath>
+											<ContextMenu name="ПрикреплениеСотрудниковОснованиеКонтекстноеМеню" id="1393"/>
+											<ExtendedTooltip name="ПрикреплениеСотрудниковОснованиеРасширеннаяПодсказка" id="1394"/>
+										</InputField>
+										<InputField name="ПрикреплениеСотрудниковКоманда" id="1335">
+											<DataPath>Объект.ПрикреплениеСотрудников.Команда</DataPath>
+											<Visible>false</Visible>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Отложить прикрепление</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<CellHyperlink>true</CellHyperlink>
+											<AutoEditMode>true</AutoEditMode>
+											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
+											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
+											<TextEdit>false</TextEdit>
+											<ContextMenu name="ПрикреплениеСотрудниковКомандаКонтекстноеМеню" id="1336"/>
+											<ExtendedTooltip name="ПрикреплениеСотрудниковКомандаРасширеннаяПодсказка" id="1337"/>
+										</InputField>
+										<InputField name="ПрикреплениеСотрудниковКомментарий" id="1460">
+											<DataPath>Объект.ПрикреплениеСотрудников.Комментарий</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<ContextMenu name="ПрикреплениеСотрудниковКомментарийКонтекстноеМеню" id="1461"/>
+											<ExtendedTooltip name="ПрикреплениеСотрудниковКомментарийРасширеннаяПодсказка" id="1462"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаОткрепление" id="160">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Открепление от программ</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Открепление от программ страхования</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="ГруппаОткреплениеРасширеннаяПодсказка" id="161"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаСведенияОткрепления" id="671">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сведения открепления</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСведенияОткрепленияРасширеннаяПодсказка" id="672"/>
+							<ChildItems>
+								<Table name="ОткреплениеСотрудников" id="1259">
+									<Representation>List</Representation>
+									<ChangeRowSet>false</ChangeRowSet>
+									<ChangeRowOrder>false</ChangeRowOrder>
+									<RowSelectionMode>Cell</RowSelectionMode>
+									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<SearchOnInput>Use</SearchOnInput>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Объект.ОткреплениеСотрудников</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Открепление сотрудников</v8:content>
+										</v8:item>
+									</Title>
+									<CommandSet>
+										<ExcludedCommand>Add</ExcludedCommand>
+										<ExcludedCommand>Change</ExcludedCommand>
+										<ExcludedCommand>Copy</ExcludedCommand>
+										<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+										<ExcludedCommand>Delete</ExcludedCommand>
+										<ExcludedCommand>EndEdit</ExcludedCommand>
+										<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+										<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+										<ExcludedCommand>SelectAll</ExcludedCommand>
+										<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+									</CommandSet>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ОткреплениеСотрудниковКонтекстноеМеню" id="1260">
+										<ChildItems>
+											<Button name="ОткреплениеСотрудниковКонтекстноеМенюОтложитьСотрудниковВОткреплении" id="1470">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОтложитьСотрудниковВОткреплении</CommandName>
+												<ExtendedTooltip name="ОткреплениеСотрудниковКонтекстноеМенюОтложитьСотрудниковВОткрепленииРасширеннаяПодсказка" id="1471"/>
+											</Button>
+											<Button name="ОткреплениеСотрудниковКонтекстноеМенюВозобновитьСотрудниковВОткреплении" id="1472">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ВозобновитьСотрудниковВОткреплении</CommandName>
+												<ExtendedTooltip name="ОткреплениеСотрудниковКонтекстноеМенюВозобновитьСотрудниковВОткрепленииРасширеннаяПодсказка" id="1473"/>
+											</Button>
+											<ButtonGroup name="ГруппаОткреплениеСотрудниковПоискКонтекстноеМеню" id="1358">
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Поиск контекстное меню</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ГруппаОткреплениеСотрудниковПоискКонтекстноеМенюРасширеннаяПодсказка" id="1359"/>
+												<ChildItems>
+													<Button name="ОткреплениеСотрудниковКонтекстноеМенюНайти" id="1360">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.ОткреплениеСотрудников.StandardCommand.Find</CommandName>
+														<ExtendedTooltip name="ОткреплениеСотрудниковКонтекстноеМенюНайтиРасширеннаяПодсказка" id="1361"/>
+													</Button>
+													<Button name="ОткреплениеСотрудниковКонтекстноеМенюОтменитьПоиск" id="1362">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.ОткреплениеСотрудников.StandardCommand.CancelSearch</CommandName>
+														<ExtendedTooltip name="ОткреплениеСотрудниковКонтекстноеМенюОтменитьПоискРасширеннаяПодсказка" id="1363"/>
+													</Button>
+												</ChildItems>
+											</ButtonGroup>
+										</ChildItems>
+									</ContextMenu>
+									<AutoCommandBar name="ОткреплениеСотрудниковКоманднаяПанель" id="1261">
+										<ChildItems>
+											<Button name="ОткреплениеСотрудниковОткреплениеСотрудниковСформировать" id="1352">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОткреплениеСотрудниковСформировать</CommandName>
+												<BackColor>style:ВыделеннаяКнопкаФон</BackColor>
+												<Font ref="style:ВажнаяНадписьШрифт" kind="StyleItem"/>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Открепить всех</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ОткреплениеСотрудниковОткреплениеСотрудниковСформироватьРасширеннаяПодсказка" id="1353"/>
+											</Button>
+											<Button name="ОткреплениеСотрудниковРедактироватьСтрокуОткрепления" id="1354">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.РедактироватьСтрокуОткрепления</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Открепить сотрудника</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ОткреплениеСотрудниковРедактироватьСтрокуОткрепленияРасширеннаяПодсказка" id="1355"/>
+											</Button>
+											<Button name="ОткреплениеСотрудниковПрикреплениеСотрудниковОбновить" id="1356">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОткреплениеСотрудниковОбновить</CommandName>
+												<ExtendedTooltip name="ОткреплениеСотрудниковПрикреплениеСотрудниковОбновитьРасширеннаяПодсказка" id="1357"/>
+											</Button>
+											<Button name="ОткреплениеСотрудниковПоказыватьОтложенныхСтрахователей" id="1370">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОткреплениеСотрудниковПоказыватьОтложенныхСтрахователей</CommandName>
+												<ExtendedTooltip name="ОткреплениеСотрудниковПоказыватьОтложенныхСтрахователейРасширеннаяПодсказка" id="1371"/>
+											</Button>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="ОткреплениеСотрудниковРасширеннаяПодсказка" id="1262"/>
+									<SearchStringAddition name="ОткреплениеСотрудниковСтрокаПоиска" id="1263">
+										<AdditionSource>
+											<Item>ОткреплениеСотрудников</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ОткреплениеСотрудниковСтрокаПоискаКонтекстноеМеню" id="1264"/>
+										<ExtendedTooltip name="ОткреплениеСотрудниковСтрокаПоискаРасширеннаяПодсказка" id="1265"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ОткреплениеСотрудниковСостояниеПросмотра" id="1266">
+										<AdditionSource>
+											<Item>ОткреплениеСотрудников</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ОткреплениеСотрудниковСостояниеПросмотраКонтекстноеМеню" id="1267"/>
+										<ExtendedTooltip name="ОткреплениеСотрудниковСостояниеПросмотраРасширеннаяПодсказка" id="1268"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ОткреплениеСотрудниковУправлениеПоиском" id="1269">
+										<AdditionSource>
+											<Item>ОткреплениеСотрудников</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ОткреплениеСотрудниковУправлениеПоискомКонтекстноеМеню" id="1270"/>
+										<ExtendedTooltip name="ОткреплениеСотрудниковУправлениеПоискомРасширеннаяПодсказка" id="1271"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="Selection">ОткреплениеСотрудниковВыбор</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="ОткреплениеСотрудниковСотрудник" id="1343">
+											<DataPath>Объект.ОткреплениеСотрудников.Сотрудник</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<ContextMenu name="ОткреплениеСотрудниковСотрудникКонтекстноеМеню" id="1344"/>
+											<ExtendedTooltip name="ОткреплениеСотрудниковСотрудникРасширеннаяПодсказка" id="1345"/>
+										</InputField>
+										<InputField name="ОткреплениеСотрудниковОснование" id="1395">
+											<DataPath>Объект.ОткреплениеСотрудников.Основание</DataPath>
+											<ContextMenu name="ОткреплениеСотрудниковОснованиеКонтекстноеМеню" id="1396"/>
+											<ExtendedTooltip name="ОткреплениеСотрудниковОснованиеРасширеннаяПодсказка" id="1397"/>
+										</InputField>
+										<InputField name="ОткреплениеСотрудниковКоманда" id="1346">
+											<DataPath>Объект.ОткреплениеСотрудников.Команда</DataPath>
+											<Visible>false</Visible>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<CellHyperlink>true</CellHyperlink>
+											<AutoEditMode>true</AutoEditMode>
+											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
+											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
+											<TextEdit>false</TextEdit>
+											<ContextMenu name="ОткреплениеСотрудниковКомандаКонтекстноеМеню" id="1347"/>
+											<ExtendedTooltip name="ОткреплениеСотрудниковКомандаРасширеннаяПодсказка" id="1348"/>
+										</InputField>
+										<InputField name="ОткреплениеСотрудниковДатаОткрепления" id="1349">
+											<DataPath>Объект.ОткреплениеСотрудников.ДатаОткрепления</DataPath>
+											<Visible>false</Visible>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<ContextMenu name="ОткреплениеСотрудниковДатаОткрепленияКонтекстноеМеню" id="1350"/>
+											<ExtendedTooltip name="ОткреплениеСотрудниковДатаОткрепленияРасширеннаяПодсказка" id="1351"/>
+										</InputField>
+										<InputField name="ОткреплениеСотрудниковКомментарий" id="1467">
+											<DataPath>Объект.ОткреплениеСотрудников.Комментарий</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<ContextMenu name="ОткреплениеСотрудниковКомментарийКонтекстноеМеню" id="1468"/>
+											<ExtendedTooltip name="ОткреплениеСотрудниковКомментарийРасширеннаяПодсказка" id="1469"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаИзменениеЛичныхДанных" id="1398">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Изменение личных данных</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<TitleDataPath>КоличествоЗастрахованныхСИзменениями</TitleDataPath>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="ГруппаИзменениеЛичныхДанныхРасширеннаяПодсказка" id="1399"/>
+					<ChildItems>
+						<Table name="ИзменениеПерсональныхДанных" id="1429">
+							<Representation>List</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<SearchOnInput>Use</SearchOnInput>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.ИзменениеПерсональныхДанныхСотрудников</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Изменение личных данных</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+								<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+								<ExcludedCommand>SelectAll</ExcludedCommand>
+								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ИзменениеПерсональныхДанныхКонтекстноеМеню" id="1430">
+								<ChildItems>
+									<Button name="ИзменениеПерсональныхДанныхКонтекстноеМенюОписаниеИзменений" id="1483">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ОписаниеИзменений</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Подробнее</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ИзменениеПерсональныхДанныхКонтекстноеМенюОписаниеИзмененийРасширеннаяПодсказка" id="1484"/>
+									</Button>
+									<ButtonGroup name="ГруппаИзменениеПерсональныхДанныхКонтекстноеМеню" id="1485">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Поиск контекстное меню</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа изменение персональных данных контекстное меню</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="ГруппаИзменениеПерсональныхДанныхКонтекстноеМенюРасширеннаяПодсказка" id="1486"/>
+										<ChildItems>
+											<Button name="ИзменениеПерсональныхДанныхКонтекстноеМенюНайти" id="1487">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.ИзменениеПерсональныхДанных.StandardCommand.Find</CommandName>
+												<ExtendedTooltip name="ИзменениеПерсональныхДанныхКонтекстноеМенюНайтиРасширеннаяПодсказка" id="1488"/>
+											</Button>
+											<Button name="ИзменениеПерсональныхДанныхКонтекстноеМенюОтменитьПоиск" id="1489">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.ИзменениеПерсональныхДанных.StandardCommand.CancelSearch</CommandName>
+												<ExtendedTooltip name="ИзменениеПерсональныхДанныхКонтекстноеМенюОтменитьПоискРасширеннаяПодсказка" id="1490"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+								</ChildItems>
+							</ContextMenu>
+							<AutoCommandBar name="ИзменениеПерсональныхДанныхКоманднаяПанель" id="1431">
+								<ChildItems>
+									<Button name="ИзменениеПерсональныхДанныхЗарегистрироватьИзменениеПерсональныхДанных" id="1451">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ЗарегистрироватьИзменениеПерсональныхДанных</CommandName>
+										<BackColor>style:ВыделеннаяКнопкаФон</BackColor>
+										<Font ref="style:ВажнаяНадписьШрифт" kind="StyleItem"/>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Зарегистрировать</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ИзменениеПерсональныхДанныхЗарегистрироватьИзменениеПерсональныхДанныхРасширеннаяПодсказка" id="1452"/>
+									</Button>
+									<Button name="ИзменениеПерсональныхДанныхИгнорироватьИзменениеПерсональныхДанных" id="1453">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ИгнорироватьИзменениеПерсональныхДанных</CommandName>
+										<ExtendedTooltip name="ИзменениеПерсональныхДанныхИгнорироватьИзменениеПерсональныхДанныхРасширеннаяПодсказка" id="1454"/>
+									</Button>
+									<Button name="ИзменениеЛичныхДанныхИзменениеЛичныхДанныхОбновить" id="1455">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ИзменениеЛичныхДанныхОбновить</CommandName>
+										<ExtendedTooltip name="ИзменениеЛичныхДанныхИзменениеЛичныхДанныхОбновитьРасширеннаяПодсказка" id="1456"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ИзменениеПерсональныхДанныхРасширеннаяПодсказка" id="1432"/>
+							<SearchStringAddition name="ИзменениеПерсональныхДанныхСтрокаПоиска" id="1433">
+								<AdditionSource>
+									<Item>ИзменениеПерсональныхДанных</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИзменениеПерсональныхДанныхСтрокаПоискаКонтекстноеМеню" id="1434"/>
+								<ExtendedTooltip name="ИзменениеПерсональныхДанныхСтрокаПоискаРасширеннаяПодсказка" id="1435"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ИзменениеПерсональныхДанныхСостояниеПросмотра" id="1436">
+								<AdditionSource>
+									<Item>ИзменениеПерсональныхДанных</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИзменениеПерсональныхДанныхСостояниеПросмотраКонтекстноеМеню" id="1437"/>
+								<ExtendedTooltip name="ИзменениеПерсональныхДанныхСостояниеПросмотраРасширеннаяПодсказка" id="1438"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ИзменениеПерсональныхДанныхУправлениеПоиском" id="1439">
+								<AdditionSource>
+									<Item>ИзменениеПерсональныхДанных</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ИзменениеПерсональныхДанныхУправлениеПоискомКонтекстноеМеню" id="1440"/>
+								<ExtendedTooltip name="ИзменениеПерсональныхДанныхУправлениеПоискомРасширеннаяПодсказка" id="1441"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ИзменениеПерсональныхДанныхВыбор</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="ИзменениеПерсональныхДанныхЗастрахованный" id="1477">
+									<DataPath>Объект.ИзменениеПерсональныхДанныхСотрудников.Застрахованный</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ИзменениеПерсональныхДанныхЗастрахованныйКонтекстноеМеню" id="1478"/>
+									<ExtendedTooltip name="ИзменениеПерсональныхДанныхЗастрахованныйРасширеннаяПодсказка" id="1479"/>
+								</InputField>
+								<InputField name="ИзменениеПерсональныхДанныхОписание" id="1480">
+									<DataPath>Объект.ИзменениеПерсональныхДанныхСотрудников.Описание</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Изменения</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ИзменениеПерсональныхДанныхОписаниеКонтекстноеМеню" id="1481"/>
+									<ExtendedTooltip name="ИзменениеПерсональныхДанныхОписаниеРасширеннаяПодсказка" id="1482"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаЖурнал" id="868">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Журнал</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="ГруппаЖурналРасширеннаяПодсказка" id="869"/>
+					<ChildItems>
+						<Table name="МедицинскоеСтрахование" id="1114">
+							<Height>10</Height>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>МедицинскоеСтрахование</DataPath>
+							<RowPictureDataPath>МедицинскоеСтрахование.DefaultPicture</RowPictureDataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Медицинское страхование</v8:content>
+								</v8:item>
+							</Title>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="МедицинскоеСтрахованиеКонтекстноеМеню" id="1115"/>
+							<AutoCommandBar name="МедицинскоеСтрахованиеКоманднаяПанель" id="1116"/>
+							<ExtendedTooltip name="МедицинскоеСтрахованиеРасширеннаяПодсказка" id="1117"/>
+							<SearchStringAddition name="МедицинскоеСтрахованиеСтрокаПоиска" id="1118">
+								<AdditionSource>
+									<Item>МедицинскоеСтрахование</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МедицинскоеСтрахованиеСтрокаПоискаКонтекстноеМеню" id="1119"/>
+								<ExtendedTooltip name="МедицинскоеСтрахованиеСтрокаПоискаРасширеннаяПодсказка" id="1120"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="МедицинскоеСтрахованиеСостояниеПросмотра" id="1121">
+								<AdditionSource>
+									<Item>МедицинскоеСтрахование</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МедицинскоеСтрахованиеСостояниеПросмотраКонтекстноеМеню" id="1122"/>
+								<ExtendedTooltip name="МедицинскоеСтрахованиеСостояниеПросмотраРасширеннаяПодсказка" id="1123"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="МедицинскоеСтрахованиеУправлениеПоиском" id="1124">
+								<AdditionSource>
+									<Item>МедицинскоеСтрахование</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="МедицинскоеСтрахованиеУправлениеПоискомКонтекстноеМеню" id="1125"/>
+								<ExtendedTooltip name="МедицинскоеСтрахованиеУправлениеПоискомРасширеннаяПодсказка" id="1126"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">МедицинскоеСтрахованиеВыбор</Event>
+								<Event name="OnActivateRow">МедицинскоеСтрахованиеПриАктивизацииСтроки</Event>
+								<Event name="OnGetDataAtServer">МедицинскоеСтрахованиеПриПолученииДанныхНаСервере</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="МедицинскоеСтрахованиеДатаОтправки" id="1142">
+									<DataPath>МедицинскоеСтрахование.ДатаОтправки</DataPath>
+									<ContextMenu name="МедицинскоеСтрахованиеДатаОтправкиКонтекстноеМеню" id="1143"/>
+									<ExtendedTooltip name="МедицинскоеСтрахованиеДатаОтправкиРасширеннаяПодсказка" id="1144"/>
+								</LabelField>
+								<LabelField name="МедицинскоеСтрахованиеНомер" id="1133">
+									<DataPath>МедицинскоеСтрахование.Номер</DataPath>
+									<ContextMenu name="МедицинскоеСтрахованиеНомерКонтекстноеМеню" id="1134"/>
+									<ExtendedTooltip name="МедицинскоеСтрахованиеНомерРасширеннаяПодсказка" id="1135"/>
+								</LabelField>
+								<LabelField name="МедицинскоеСтрахованиеТип" id="1177">
+									<DataPath>МедицинскоеСтрахование.Тип</DataPath>
+									<ContextMenu name="МедицинскоеСтрахованиеТипКонтекстноеМеню" id="1178"/>
+									<ExtendedTooltip name="МедицинскоеСтрахованиеТипРасширеннаяПодсказка" id="1179"/>
+								</LabelField>
+								<LabelField name="МедицинскоеСтрахованиеОрганизация" id="1148">
+									<DataPath>МедицинскоеСтрахование.Организация</DataPath>
+									<ContextMenu name="МедицинскоеСтрахованиеОрганизацияКонтекстноеМеню" id="1149"/>
+									<ExtendedTooltip name="МедицинскоеСтрахованиеОрганизацияРасширеннаяПодсказка" id="1150"/>
+								</LabelField>
+								<LabelField name="МедицинскоеСтрахованиеСтраховаяКомпания" id="1378">
+									<DataPath>МедицинскоеСтрахование.СтраховаяКомпания</DataPath>
+									<ContextMenu name="МедицинскоеСтрахованиеСтраховаяКомпанияКонтекстноеМеню" id="1379"/>
+									<ExtendedTooltip name="МедицинскоеСтрахованиеСтраховаяКомпанияРасширеннаяПодсказка" id="1380"/>
+								</LabelField>
+								<InputField name="МедицинскоеСтрахованиеДоговорСтрахования" id="1499">
+									<DataPath>МедицинскоеСтрахование.ДоговорСтрахования</DataPath>
+									<ContextMenu name="МедицинскоеСтрахованиеДоговорСтрахованияКонтекстноеМеню" id="1500"/>
+									<ExtendedTooltip name="МедицинскоеСтрахованиеДоговорСтрахованияРасширеннаяПодсказка" id="1501"/>
+								</InputField>
+								<LabelField name="МедицинскоеСтрахованиеПодразделение" id="1151">
+									<DataPath>МедицинскоеСтрахование.Подразделение</DataPath>
+									<ContextMenu name="МедицинскоеСтрахованиеПодразделениеКонтекстноеМеню" id="1152"/>
+									<ExtendedTooltip name="МедицинскоеСтрахованиеПодразделениеРасширеннаяПодсказка" id="1153"/>
+								</LabelField>
+								<LabelField name="МедицинскоеСтрахованиеКраткийСоставДокумента" id="1158">
+									<DataPath>МедицинскоеСтрахование.КраткийСоставДокумента</DataPath>
+									<ContextMenu name="МедицинскоеСтрахованиеКраткийСоставДокументаКонтекстноеМеню" id="1159"/>
+									<ExtendedTooltip name="МедицинскоеСтрахованиеКраткийСоставДокументаРасширеннаяПодсказка" id="1160"/>
+								</LabelField>
+								<LabelField name="МедицинскоеСтрахованиеОтветственный" id="1161">
+									<DataPath>МедицинскоеСтрахование.Ответственный</DataPath>
+									<ContextMenu name="МедицинскоеСтрахованиеОтветственныйКонтекстноеМеню" id="1162"/>
+									<ExtendedTooltip name="МедицинскоеСтрахованиеОтветственныйРасширеннаяПодсказка" id="1163"/>
+								</LabelField>
+								<LabelField name="МедицинскоеСтрахованиеКомментарий" id="1164">
+									<DataPath>МедицинскоеСтрахование.Комментарий</DataPath>
+									<ContextMenu name="МедицинскоеСтрахованиеКомментарийКонтекстноеМеню" id="1165"/>
+									<ExtendedTooltip name="МедицинскоеСтрахованиеКомментарийРасширеннаяПодсказка" id="1166"/>
+								</LabelField>
+								<LabelField name="МедицинскоеСтрахованиеСсылка" id="1457">
+									<DataPath>МедицинскоеСтрахование.Ссылка</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="МедицинскоеСтрахованиеСсылкаКонтекстноеМеню" id="1458"/>
+									<ExtendedTooltip name="МедицинскоеСтрахованиеСсылкаРасширеннаяПодсказка" id="1459"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.МедицинскоеСтрахование</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Save>
+				<Field>Объект.ДоговорСтрахования</Field>
+				<Field>Объект.Организация</Field>
+				<Field>Объект.Подразделение</Field>
+				<Field>Объект.СтраховаяКомпания</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="МедицинскоеСтрахование" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Медицинское страхование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>МедицинскоеСтрахование.ОбщееСостояние</Field>
+				<Field>МедицинскоеСтрахование.СостояниеОригиналаПервичногоДокумента</Field>
+				<Field>МедицинскоеСтрахование.Ссылка</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	МедицинскоеСтрахование.Ссылка КАК Ссылка,
+	МедицинскоеСтрахование.Дата КАК Дата,
+	МедицинскоеСтрахование.ПометкаУдаления КАК ПометкаУдаления,
+	МедицинскоеСтрахование.Номер КАК Номер,
+	МедицинскоеСтрахование.Проведен КАК Проведен,
+	МедицинскоеСтрахование.Организация КАК Организация,
+	МедицинскоеСтрахование.СтраховаяКомпания КАК СтраховаяКомпания,
+	МедицинскоеСтрахование.ДоговорСтрахования КАК ДоговорСтрахования,
+	МедицинскоеСтрахование.Подразделение КАК Подразделение,
+	МедицинскоеСтрахование.ДатаОтправки КАК ДатаОтправки,
+	МедицинскоеСтрахование.КраткийСоставДокумента КАК КраткийСоставДокумента,
+	МедицинскоеСтрахование.Ответственный КАК Ответственный,
+	МедицинскоеСтрахование.Комментарий КАК Комментарий,
+	МедицинскоеСтрахование.Тип КАК Тип,
+	NULL КАК СостояниеОригиналаПервичногоДокумента,
+	ИСТИНА КАК ОбщееСостояние,
+	0 КАК СостояниеОригиналПолучен
+
+ИЗ
+	ЖурналДокументов.МедицинскоеСтрахование КАК МедицинскоеСтрахование</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Дата</dcssch:dataPath>
+					<dcssch:field>Дата</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Номер</dcssch:dataPath>
+					<dcssch:field>Номер</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Проведен</dcssch:dataPath>
+					<dcssch:field>Проведен</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Организация</dcssch:dataPath>
+					<dcssch:field>Организация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СтраховаяКомпания</dcssch:dataPath>
+					<dcssch:field>СтраховаяКомпания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Подразделение</dcssch:dataPath>
+					<dcssch:field>Подразделение</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаОтправки</dcssch:dataPath>
+					<dcssch:field>ДатаОтправки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КраткийСоставДокумента</dcssch:dataPath>
+					<dcssch:field>КраткийСоставДокумента</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ответственный</dcssch:dataPath>
+					<dcssch:field>Ответственный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Комментарий</dcssch:dataPath>
+					<dcssch:field>Комментарий</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Тип</dcssch:dataPath>
+					<dcssch:field>Тип</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СостояниеОригиналаПервичногоДокумента</dcssch:dataPath>
+					<dcssch:field>СостояниеОригиналаПервичногоДокумента</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние оригинала первичного документа</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОбщееСостояние</dcssch:dataPath>
+					<dcssch:field>ОбщееСостояние</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Общее состояние</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СостояниеОригиналПолучен</dcssch:dataPath>
+					<dcssch:field>СостояниеОригиналПолучен</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние оригинал получен</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДоговорСтрахования</dcssch:dataPath>
+					<dcssch:field>ДоговорСтрахования</dcssch:field>
+				</Field>
+				<MainTable>DocumentJournal.МедицинскоеСтрахование</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ПоказыватьОтложенныхСтрахователей" id="25">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ШкалаВозрастов" id="36">
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ЗначениеОт" id="1">
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>2</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЗначениеДо" id="2">
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>3</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЗначениеПоказателя" id="3">
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="СдвигДатыПрикрепления" id="37">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОткреплятьСотрудниковВОтпускеПоУходуЗаРебенком" id="39">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Получатели" id="40">
+			<Type/>
+		</Attribute>
+		<Attribute name="ГруппаСотрудников" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа сотрудников</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ГруппыСотрудников</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="УсловияСтрахованияСотрудников" id="42">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Условия страхования сотрудников</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользуютсяРасширенияПрограмм" id="43">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Используются расширения программ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИзменениеПерсональныхДанных" id="45">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменение персональных данных</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Застрахованный" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Застрахованный</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Застрахованный</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="Описание" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Описание</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Команда" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Команда</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="КоличествоЗастрахованныхСИзменениями" id="3">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользуетсяЧастичноеУдержание" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Используется частичное удержание</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ШкалаВозрастовДляРодственников" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шкала возрастов для родственников</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ЗначениеОт" id="1">
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>2</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЗначениеДо" id="2">
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>3</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЗначениеПоказателя" id="3">
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ГрафикУдержанийПоДоговору" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>График удержаний по договору</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ЕстьОтложенныеСотрудникиВПрикреплении" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Есть отложенные сотрудники в прикреплении</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьДополнительныеРеквизитыИСведения" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать дополнительные реквизиты и сведения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДоговорЗакрыт" id="47">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Договор закрыт</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПрикреплениеСотрудниковСотрудник</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ПрикреплениеСотрудников.ПрикреплениеКПрограммеСтрахованияОтложено</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Silver</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПрикреплениеСотрудниковОснование</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ПрикреплениеСотрудников.ПрикреплениеКПрограммеСтрахованияОтложено</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Silver</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПрикреплениеСотрудниковКомментарий</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ПрикреплениеСотрудников.ПрикреплениеКПрограммеСтрахованияОтложено</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Silver</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ОткреплениеСотрудниковСотрудник</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ОткреплениеСотрудников.ОткреплениеОтПрограммыСтрахованияОтложено</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Silver</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ОткреплениеСотрудниковОснование</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ОткреплениеСотрудников.ОткреплениеОтПрограммыСтрахованияОтложено</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Silver</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ОткреплениеСотрудниковКомментарий</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ОткреплениеСотрудников.ОткреплениеОтПрограммыСтрахованияОтложено</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Silver</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ПрикреплениеСотрудниковСформировать" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прикрепление сотрудников сформировать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПрикреплениеСформировать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПрикреплениеСотрудниковОбновить" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить список</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>F5</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПрикреплениеСотрудниковОбновить</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПрикреплениеСотрудниковПоказыватьОтложенныхСтрахователей" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать отложенных сотрудников</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать отложенных сотрудников</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ВариантыОтчетовДоступныеВсемПользователям</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ПрикреплениеСотрудниковПоказыватьОтложенныхСтрахователей</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОткреплениеСотрудниковСформировать" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прикрепление отправить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткреплениеСформировать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РедактироватьСтрокуПрикрепления" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать строку</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать строку прикрепления</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РедактироватьСтрокуПрикрепления</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РедактироватьСтрокуОткрепления" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать строку</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать строку открепления</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РедактироватьСтрокуОткрепления</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОткреплениеСотрудниковОбновить" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открепление сотрудников обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить список</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>F5</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОткреплениеСотрудниковОбновить</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОткреплениеСотрудниковПоказыватьОтложенныхСтрахователей" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать отложенных сотрудников</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать отложенных сотрудников</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ВариантыОтчетовДоступныеВсемПользователям</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ОткреплениеСотрудниковПоказыватьОтложенныхСтрахователей</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗарегистрироватьИзменениеПерсональныхДанных" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зарегистрировать изменение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зарегистрировать изменение персональных данных</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗарегистрироватьИзменениеПерсональныхДанных</Action>
+		</Command>
+		<Command name="ИгнорироватьИзменениеПерсональныхДанных" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Игнорировать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Игнорировать изменение персональных данных</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ИгнорироватьИзменениеПерсональныхДанных</Action>
+		</Command>
+		<Command name="ИзменениеЛичныхДанныхОбновить" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить список</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>F5</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ИзменениеЛичныхДанныхОбновить</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОтложитьСотрудниковВПрикреплении" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отложить</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ОтложитьСотрудниковВПрикреплении</Action>
+		</Command>
+		<Command name="ВозобновитьСотрудниковВПрикреплении" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возобновить</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ВозобновитьСотрудниковВПрикреплении</Action>
+		</Command>
+		<Command name="ОтложитьСотрудниковВОткреплении" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отложить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отложить сотрудников в откреплении</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтложитьСотрудниковВОткреплении</Action>
+		</Command>
+		<Command name="ВозобновитьСотрудниковВОткреплении" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возобновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возобновить сотрудников в откреплении</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВозобновитьСотрудниковВОткреплении</Action>
+		</Command>
+		<Command name="ОписаниеИзменений" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Описание изменений</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Описание изменений</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОписаниеИзменений</Action>
+		</Command>
+		<Command name="ПрикреплениеСотрудниковИсключитьПрикрепленныхСотрудников" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исключить прикрепленных сотрудников</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исключить прикрепленных сотрудников</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ДокументОтозван</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПрикреплениеСотрудниковИсключитьПрикрепленныхСотрудников</Action>
+		</Command>
+	</Commands>
+</Form>

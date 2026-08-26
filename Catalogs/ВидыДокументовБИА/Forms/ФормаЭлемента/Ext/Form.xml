@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<WindowOpeningMode>LockOwner</WindowOpeningMode>
+	<Group>Vertical</Group>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+			<Events>
+				<Event name="OnChange">НаименованиеПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="ИдентификаторСвязи" id="44">
+			<DataPath>Объект.ИдентификаторСвязи</DataPath>
+			<Visible>false</Visible>
+			<ContextMenu name="ИдентификаторСвязиКонтекстноеМеню" id="45"/>
+			<ExtendedTooltip name="ИдентификаторСвязиРасширеннаяПодсказка" id="46"/>
+		</InputField>
+		<InputField name="Родитель" id="4">
+			<DataPath>Объект.Parent</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<ContextMenu name="РодительКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<CheckBoxField name="НеВыгружать" id="41">
+			<DataPath>Объект.НеВыгружать</DataPath>
+			<ContextMenu name="НеВыгружатьКонтекстноеМеню" id="42"/>
+			<ExtendedTooltip name="НеВыгружатьРасширеннаяПодсказка" id="43"/>
+		</CheckBoxField>
+		<Table name="ПечатныеФормы" id="19">
+			<RowSelectionMode>Cell</RowSelectionMode>
+			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.ПечатныеФормы</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+			</CommandSet>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ПечатныеФормыКонтекстноеМеню" id="20"/>
+			<AutoCommandBar name="ПечатныеФормыКоманднаяПанель" id="21">
+				<ChildItems>
+					<Button name="ДобавитьПечатнуюФорму" id="52">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДобавитьПечатнуюФорму</CommandName>
+						<ExtendedTooltip name="ДобавитьПечатнуюФормуРасширеннаяПодсказка" id="53"/>
+					</Button>
+					<Button name="ДобавитьВариантОтчета" id="47">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДобавитьВариантОтчета</CommandName>
+						<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
+						<ExtendedTooltip name="ДобавитьВариантОтчетаРасширеннаяПодсказка" id="48"/>
+					</Button>
+					<Button name="ДобавитьРегламентированныйОтчет" id="54">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДобавитьРегламентированныйОтчет</CommandName>
+						<ExtendedTooltip name="ДобавитьРегламентированныйОтчетРасширеннаяПодсказка" id="55"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ПечатныеФормыРасширеннаяПодсказка" id="22"/>
+			<SearchStringAddition name="ПечатныеФормыСтрокаПоиска" id="23">
+				<AdditionSource>
+					<Item>ПечатныеФормы</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПечатныеФормыСтрокаПоискаКонтекстноеМеню" id="24"/>
+				<ExtendedTooltip name="ПечатныеФормыСтрокаПоискаРасширеннаяПодсказка" id="25"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ПечатныеФормыСостояниеПросмотра" id="26">
+				<AdditionSource>
+					<Item>ПечатныеФормы</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПечатныеФормыСостояниеПросмотраКонтекстноеМеню" id="27"/>
+				<ExtendedTooltip name="ПечатныеФормыСостояниеПросмотраРасширеннаяПодсказка" id="28"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ПечатныеФормыУправлениеПоиском" id="29">
+				<AdditionSource>
+					<Item>ПечатныеФормы</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ПечатныеФормыУправлениеПоискомКонтекстноеМеню" id="30"/>
+				<ExtendedTooltip name="ПечатныеФормыУправлениеПоискомРасширеннаяПодсказка" id="31"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ПечатныеФормыНомерСтроки" id="32">
+					<DataPath>Объект.ПечатныеФормы.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ПечатныеФормыНомерСтрокиКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ПечатныеФормыНомерСтрокиРасширеннаяПодсказка" id="34"/>
+				</LabelField>
+				<InputField name="ПечатныеФормыПредставление" id="49">
+					<DataPath>Объект.ПечатныеФормы.Представление</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ПечатныеФормыПредставлениеКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="ПечатныеФормыПредставлениеРасширеннаяПодсказка" id="51"/>
+				</InputField>
+				<InputField name="ПечатныеФормыИдентификаторПечатнойФормы" id="35">
+					<DataPath>Объект.ПечатныеФормы.ИдентификаторПечатнойФормы</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ПечатныеФормыИдентификаторПечатнойФормыКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ПечатныеФормыИдентификаторПечатнойФормыРасширеннаяПодсказка" id="37"/>
+				</InputField>
+				<InputField name="ПечатныеФормыПутьКМакету" id="38">
+					<DataPath>Объект.ПечатныеФормы.ИдентификаторОбъектаМетаданных</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ПечатныеФормыПутьКМакетуКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ПечатныеФормыПутьКМакетуРасширеннаяПодсказка" id="40"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<InputField name="Комментарий" id="16">
+			<DataPath>Объект.Комментарий</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="17"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="18"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ВидыДокументовБИА</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ДобавитьВариантОтчета" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить вариант отчета</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить вариант отчета</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ВариантыОтчетовДоступныеВсемПользователям</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ДобавитьВариантОтчета</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="ДобавитьПечатнуюФорму" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить печатную форму</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить печатную форму</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ПечатьПакетаДокументов</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ДобавитьПечатнуюФорму</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="ДобавитьРегламентированныйОтчет" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регламентированный отчет</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регламентированный отчет</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.РегламентированныйОтчетСдан</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ДобавитьРегламентированныйОтчет</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+</Form>

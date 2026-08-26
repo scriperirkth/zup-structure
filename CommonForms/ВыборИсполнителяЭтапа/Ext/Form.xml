@@ -1,0 +1,781 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Выбор исполнителя этапа</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwner</WindowOpeningMode>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoTitle>false</AutoTitle>
+	<Group>Vertical</Group>
+	<CommandSet>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="Выбрать" id="22">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ВыбратьExtendedTooltip" id="55"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<CheckBoxField name="ЭтапВыполняетсяНесколькимиИсполнителями" id="104">
+			<DataPath>ЭтапВыполняетсяНесколькимиИсполнителями</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<CheckBoxType>CheckBox</CheckBoxType>
+			<ContextMenu name="ЭтапВыполняетсяНесколькимиИсполнителямиКонтекстноеМеню" id="105"/>
+			<ExtendedTooltip name="ЭтапВыполняетсяНесколькимиИсполнителямиРасширеннаяПодсказка" id="106"/>
+			<Events>
+				<Event name="OnChange">ЭтапВыполняетсяНесколькимиИсполнителямиПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
+		<Pages name="Страницы" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыExtendedTooltip" id="56"/>
+			<ChildItems>
+				<Page name="Пользователи" id="24">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пользователи</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="ПользователиExtendedTooltip" id="57"/>
+					<ChildItems>
+						<Table name="СписокПользователи" id="1">
+							<Representation>List</Representation>
+							<SkipOnInput>false</SkipOnInput>
+							<ChoiceMode>true</ChoiceMode>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<Header>false</Header>
+							<HorizontalLinesBWA>false</HorizontalLinesBWA>
+							<VerticalLinesBWA>false</VerticalLinesBWA>
+							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СписокПользователи</DataPath>
+							<RowPictureDataPath>СписокПользователи.НомерКартинки</RowPictureDataPath>
+							<RowsPicture>
+								<xr:Ref>CommonPicture.СостоянияПользователей</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</RowsPicture>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Список пользователи</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSet>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Choose</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Create</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+							</CommandSet>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокПользователиКонтекстноеМеню" id="2"/>
+							<AutoCommandBar name="СписокПользователиКоманднаяПанель" id="3"/>
+							<ExtendedTooltip name="СписокПользователиExtendedTooltip" id="59"/>
+							<SearchStringAddition name="СписокПользователиSearchString" id="65">
+								<AdditionSource>
+									<Item>СписокПользователи</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокПользователиSearchStringContextMenu" id="66"/>
+								<ExtendedTooltip name="СписокПользователиSearchStringExtendedTooltip" id="67"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокПользователиViewStatus" id="68">
+								<AdditionSource>
+									<Item>СписокПользователи</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокПользователиViewStatusContextMenu" id="69"/>
+								<ExtendedTooltip name="СписокПользователиViewStatusExtendedTooltip" id="70"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокПользователиSearchControl" id="71">
+								<AdditionSource>
+									<Item>СписокПользователи</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокПользователиSearchControlContextMenu" id="72"/>
+								<ExtendedTooltip name="СписокПользователиSearchControlExtendedTooltip" id="73"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="ValueChoice">СписокПользователиВыборЗначения</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="Наименование" id="4">
+									<DataPath>СписокПользователи.Description</DataPath>
+									<DefaultItem>true</DefaultItem>
+									<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+									<ExtendedTooltip name="НаименованиеExtendedTooltip" id="60"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Роли" id="25">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Роли исполнителей</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="РолиExtendedTooltip" id="61"/>
+					<ChildItems>
+						<Table name="СписокРоли" id="26">
+							<Representation>List</Representation>
+							<SkipOnInput>false</SkipOnInput>
+							<ChoiceMode>true</ChoiceMode>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<Header>false</Header>
+							<HorizontalLinesBWA>false</HorizontalLinesBWA>
+							<VerticalLinesBWA>false</VerticalLinesBWA>
+							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СписокРоли</DataPath>
+							<RowPictureDataPath>СписокРоли.Картинка</RowPictureDataPath>
+							<RowsPicture>
+								<xr:Ref>CommonPicture.РолиИсполнителейЭтапов</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</RowsPicture>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Список роли</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSet>
+								<ExcludedCommand>Choose</ExcludedCommand>
+							</CommandSet>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокРолиКонтекстноеМеню" id="27"/>
+							<AutoCommandBar name="СписокРолиКоманднаяПанель" id="28"/>
+							<ExtendedTooltip name="СписокРолиExtendedTooltip" id="62"/>
+							<SearchStringAddition name="СписокРолиSearchString" id="74">
+								<AdditionSource>
+									<Item>СписокРоли</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокРолиSearchStringContextMenu" id="75"/>
+								<ExtendedTooltip name="СписокРолиSearchStringExtendedTooltip" id="76"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокРолиViewStatus" id="77">
+								<AdditionSource>
+									<Item>СписокРоли</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокРолиViewStatusContextMenu" id="78"/>
+								<ExtendedTooltip name="СписокРолиViewStatusExtendedTooltip" id="79"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокРолиSearchControl" id="80">
+								<AdditionSource>
+									<Item>СписокРоли</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокРолиSearchControlContextMenu" id="81"/>
+								<ExtendedTooltip name="СписокРолиSearchControlExtendedTooltip" id="82"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="ValueChoice">СписокРолиВыборЗначения</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="НаименованиеРоли" id="29">
+									<DataPath>СписокРоли.Наименование</DataPath>
+									<ContextMenu name="НаименованиеРолиКонтекстноеМеню" id="30"/>
+									<ExtendedTooltip name="НаименованиеРолиExtendedTooltip" id="63"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+						<InputField name="СписокРолиКомментарий" id="53">
+							<DataPath>Items.СписокРоли.CurrentData.Комментарий</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>Left</TitleLocation>
+							<ContextMenu name="СписокРолиКомментарийКонтекстноеМеню" id="54"/>
+							<ExtendedTooltip name="СписокРолиКомментарийExtendedTooltip" id="64"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаИсполнители" id="107">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исполнители</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исполнители</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="СтраницаИсполнителиРасширеннаяПодсказка" id="108"/>
+					<ChildItems>
+						<Table name="Исполнители" id="88">
+							<Representation>List</Representation>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Исполнители</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ИсполнителиКонтекстноеМеню" id="89"/>
+							<AutoCommandBar name="ИсполнителиКоманднаяПанель" id="90"/>
+							<ExtendedTooltip name="ИсполнителиРасширеннаяПодсказка" id="91"/>
+							<SearchStringAddition name="ИсполнителиСтрокаПоиска" id="92">
+								<AdditionSource>
+									<Item>Исполнители</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИсполнителиСтрокаПоискаКонтекстноеМеню" id="93"/>
+								<ExtendedTooltip name="ИсполнителиСтрокаПоискаРасширеннаяПодсказка" id="94"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ИсполнителиСостояниеПросмотра" id="95">
+								<AdditionSource>
+									<Item>Исполнители</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИсполнителиСостояниеПросмотраКонтекстноеМеню" id="96"/>
+								<ExtendedTooltip name="ИсполнителиСостояниеПросмотраРасширеннаяПодсказка" id="97"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ИсполнителиУправлениеПоиском" id="98">
+								<AdditionSource>
+									<Item>Исполнители</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ИсполнителиУправлениеПоискомКонтекстноеМеню" id="99"/>
+								<ExtendedTooltip name="ИсполнителиУправлениеПоискомРасширеннаяПодсказка" id="100"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnStartEdit">ИсполнителиПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="ИсполнителиИсполнительЭтапаСтрокой" id="109">
+									<DataPath>Исполнители.ИсполнительЭтапаСтрокой</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ChoiceButton>true</ChoiceButton>
+									<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ИсполнителиИсполнительЭтапаСтрокойКонтекстноеМеню" id="110"/>
+									<ExtendedTooltip name="ИсполнителиИсполнительЭтапаСтрокойРасширеннаяПодсказка" id="111"/>
+									<Events>
+										<Event name="StartChoice">ИсполнителиИсполнительНачалоВыбора</Event>
+										<Event name="Opening">ИсполнителиИсполнительЭтапаСтрокойОткрытие</Event>
+										<Event name="Clearing">ИсполнителиИсполнительЭтапаСтрокойОчистка</Event>
+										<Event name="ChoiceProcessing">ИсполнителиИсполнительОбработкаВыбора</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<InputField name="ПредставлениеЭтапаКуратора" id="112">
+							<DataPath>ПредставлениеЭтапаКуратора</DataPath>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Куратор имеет право прерывать и восстанавливать задачи исполнителей, при этом задача самого куратора не может быть выполнена при наличии активных курируемых задач</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<ChoiceButton>true</ChoiceButton>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="ПредставлениеЭтапаКуратораКонтекстноеМеню" id="113"/>
+							<ExtendedTooltip name="ПредставлениеЭтапаКуратораРасширеннаяПодсказка" id="114"/>
+							<Events>
+								<Event name="StartChoice">ПредставлениеЭтапаКуратораНачалоВыбора</Event>
+								<Event name="Clearing">ПредставлениеЭтапаКуратораОчистка</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="СписокПользователи" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список пользователи</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>СписокПользователи.Ref</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	Пользователи.Ссылка,
+	Пользователи.ПометкаУдаления,
+	Пользователи.Предопределенный,
+	Пользователи.Наименование,
+	ВЫБОР
+		КОГДА Пользователи.ПометкаУдаления
+			ТОГДА 0
+		ИНАЧЕ 1
+	КОНЕЦ КАК НомерКартинки
+ИЗ
+	Справочник.Пользователи КАК Пользователи
+ГДЕ
+	Пользователи.Недействителен = ЛОЖЬ
+	И Пользователи.Служебный = ЛОЖЬ
+	И Пользователи.ПометкаУдаления = ЛОЖЬ</QueryText>
+				<MainTable>Catalog.Пользователи</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="СписокРоли" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список роли</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>~СписокРоли.Ref</Field>
+				<Field>СписокРоли.ИспользуетсяСОбъектамиАдресации</Field>
+				<Field>СписокРоли.Ссылка</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СправочникРолиИсполнителей.Ссылка КАК Ссылка,
+	СправочникРолиИсполнителей.ВерсияДанных КАК ВерсияДанных,
+	СправочникРолиИсполнителей.ПометкаУдаления КАК ПометкаУдаления,
+	СправочникРолиИсполнителей.Предопределенный КАК Предопределенный,
+	СправочникРолиИсполнителей.Код КАК Код,
+	СправочникРолиИсполнителей.Наименование КАК Наименование,
+	СправочникРолиИсполнителей.ИспользуетсяБезОбъектовАдресации КАК ИспользуетсяБезОбъектовАдресации,
+	СправочникРолиИсполнителей.КраткоеПредставление КАК КраткоеПредставление,
+	СправочникРолиИсполнителей.ИспользуетсяСОбъектамиАдресации КАК ИспользуетсяСОбъектамиАдресации,
+	СправочникРолиИсполнителей.Комментарий КАК Комментарий,
+	СправочникРолиИсполнителей.ТипыДополнительногоОбъектаАдресации КАК ТипыДополнительногоОбъектаАдресации,
+	СправочникРолиИсполнителей.ТипыОсновногоОбъектаАдресации КАК ТипыОсновногоОбъектаАдресации,
+	СправочникРолиИсполнителей.ВнешняяРоль КАК ВнешняяРоль,
+	СправочникРолиИсполнителей.УзелОбмена КАК УзелОбмена,
+	ВЫБОР
+		КОГДА СправочникРолиИсполнителей.ИспользуетсяСОбъектамиАдресации
+			ТОГДА ИСТИНА
+		КОГДА СправочникРолиИсполнителей.Ссылка В
+				(ВЫБРАТЬ ПЕРВЫЕ 1
+					РегистрСведений.ИсполнителиЗадач.РольИсполнителя.Ссылка
+				ИЗ
+					РегистрСведений.ИсполнителиЗадач
+				ГДЕ
+					РегистрСведений.ИсполнителиЗадач.РольИсполнителя = СправочникРолиИсполнителей.Ссылка)
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК ЕстьИсполнители,
+	ВЫБОР
+		КОГДА СправочникРолиИсполнителей.Предопределенный
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК Картинка
+ИЗ
+	Справочник.РолиИсполнителей КАК СправочникРолиИсполнителей
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	"Автор документа",
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	"Автор документа",
+	NULL,
+	NULL,
+	NULL,
+	"Пользователь, создавший документ",
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	2
+ГДЕ
+	&amp;ОткрытиеИзФормыШаблона
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	"Пользователь",
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	"Пользователь, указанный в реквизите",
+	NULL,
+	NULL,
+	NULL,
+	"Пользователь, указанный в реквизите документа",
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	2
+ГДЕ
+	&amp;ОткрытиеИзФормыШаблона
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	"Функция",
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	"Дополнительная функция",
+	NULL,
+	NULL,
+	NULL,
+	"Дополнительная функция, описанная на встроенном языке",
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	3
+ГДЕ
+	&amp;ОткрытиеИзФормыШаблона
+	И &amp;ЕстьПодходящиеФункции</QueryText>
+				<KeyField>Ссылка</KeyField>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">ИспользуетсяБезОбъектовАдресации</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Картинка</dcsset:field>
+							<dcsset:orderType>Desc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Исполнители" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исполнители</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Исполнитель" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исполнитель</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.РолиИсполнителей</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ОсновнойОбъектАдресации" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основной объект адресации</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:Characteristic.ОбъектыАдресацииЗадач</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="ДополнительныйОбъектАдресации" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительный объект адресации</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:Characteristic.ОбъектыАдресацииЗадач</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="ИмяРеквизитаОсновногоОбъектаАдресации" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя реквизита основного объекта адресации</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИмяРеквизитаДополнительногоОбъектаАдресации" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя реквизита дополнительного объекта адресации</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИсполнительЭтапаСтрокой" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исполнитель</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ЭтапВыполняетсяНесколькимиИсполнителями" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Этап выполняется несколькими исполнителями (параллельно)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПредставлениеЭтапаКуратора" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Этап куратора</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИдентификаторЭтапаКуратора" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор этапа куратора</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:UUID</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Выбрать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Выбрать</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="Исполнитель">
+			<Type/>
+		</Parameter>
+		<Parameter name="ТолькоРоли">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="ОткрытиеИзФормыШаблона">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="ИдентификаторДокумента">
+			<Type>
+				<v8:Type>cfg:CatalogRef.ИдентификаторыОбъектовМетаданных</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="ОбязательнаяАдресацияПоИменамРеквизитов">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="ПараметрыВыбораИсполнителя">
+			<Type/>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+	</Parameters>
+	<CommandInterface>
+		<CommandBar>
+			<Item>
+				<Command>0:84aada14-1a22-46de-b6dc-67e663d3a9f7</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
+</Form>

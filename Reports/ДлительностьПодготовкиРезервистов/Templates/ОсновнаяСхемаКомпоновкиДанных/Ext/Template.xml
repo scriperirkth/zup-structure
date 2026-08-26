@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПозицияРезерва</dataPath>
+			<field>ПозицияРезерва</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+			<role>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаНачалаСтатуса</dataPath>
+			<field>ДатаНачалаСтатуса</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата начала статуса</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаОкончанияСтатуса</dataPath>
+			<field>ДатаОкончанияСтатуса</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата окончания статуса</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаВключения</dataPath>
+			<field>ДатаВключения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>В резерве с</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ=dd.MM.yyyy</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДлительностьСтатусаГод</dataPath>
+			<field>ДлительностьСтатусаГод</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Длительность статуса год</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДлительностьСтатусаДень</dataPath>
+			<field>ДлительностьСтатусаДень</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Длительность статуса день</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДлительностьСтатусаМесяц</dataPath>
+			<field>ДлительностьСтатусаМесяц</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Длительность статуса месяц</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Резервист</dataPath>
+			<field>УчастникКадровогоРезерва</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Резервист</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипУчастникаКадровогоРезерва</dataPath>
+			<field>ТипУчастникаКадровогоРезерва</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип участника кадрового резерва</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ИсторияКадровогоРезерва.ПозицияРезерва КАК ПозицияРезерва,
+	ИсторияКадровогоРезерва.УчастникКадровогоРезерва КАК УчастникКадровогоРезерва,
+	ИсторияКадровогоРезерва.Период КАК Период
+ПОМЕСТИТЬ ВТДатыВключенияВРезерв
+ИЗ
+	РегистрСведений.ИсторияКадровогоРезерва КАК ИсторияКадровогоРезерва
+ГДЕ
+	ИсторияКадровогоРезерва.Статус = ЗНАЧЕНИЕ(Перечисление.СостоянияСогласования.Согласовано)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	КадровыйРезерв.Ссылка КАК Ссылка
+ПОМЕСТИТЬ ВТПозицииРезерва
+ИЗ
+	Справочник.КадровыйРезерв КАК КадровыйРезерв
+ГДЕ
+	КадровыйРезерв.ПометкаУдаления = ЛОЖЬ
+	И КадровыйРезерв.ВАрхиве = ЛОЖЬ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	МАКСИМУМ(СтатусыГотовностиРезервистов.РеквизитДопУпорядочивания) КАК РеквизитДопУпорядочивания
+ПОМЕСТИТЬ ВТМаксимальныйНомерСтатуса
+ИЗ
+	Справочник.СтатусыГотовностиРезервистов КАК СтатусыГотовностиРезервистов
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	МАКСИМУМ(СтатусыГотовностиРезервистов.Статус.РеквизитДопУпорядочивания) КАК СтатусРеквизитДопУпорядочивания,
+	ВТПозицииРезерва.Ссылка КАК ПозицияРезерва,
+	СтатусыГотовностиРезервистов.УчастникКадровогоРезерва КАК УчастникКадровогоРезерва,
+	СтатусыГотовностиРезервистов.Статус КАК Статус,
+	СтатусыГотовностиРезервистов.Период КАК Период
+ПОМЕСТИТЬ ВТПредыдущийСтатус
+ИЗ
+	ВТПозицииРезерва КАК ВТПозицииРезерва
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СтатусыГотовностиРезервистов КАК СтатусыГотовностиРезервистов
+		ПО ВТПозицииРезерва.Ссылка = СтатусыГотовностиРезервистов.ПозицияРезерва
+
+СГРУППИРОВАТЬ ПО
+	СтатусыГотовностиРезервистов.Статус,
+	СтатусыГотовностиРезервистов.УчастникКадровогоРезерва,
+	СтатусыГотовностиРезервистов.Период,
+	ВТПозицииРезерва.Ссылка
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ЕСТЬNULL(ВТМаксимальныйНомерСтатуса.РеквизитДопУпорядочивания + 1, 0),
+	ВТПозицииРезерва.Ссылка,
+	ИсторияКадровогоРезерва.УчастникКадровогоРезерва,
+	ЗНАЧЕНИЕ(Справочник.СтатусыГотовностиРезервистов.ПустаяСсылка),
+	ИсторияКадровогоРезерва.Период
+ИЗ
+	ВТПозицииРезерва КАК ВТПозицииРезерва
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.ИсторияКадровогоРезерва КАК ИсторияКадровогоРезерва
+		ПО ВТПозицииРезерва.Ссылка = ИсторияКадровогоРезерва.ПозицияРезерва,
+	ВТМаксимальныйНомерСтатуса КАК ВТМаксимальныйНомерСтатуса
+ГДЕ
+	ИсторияКадровогоРезерва.Статус = ЗНАЧЕНИЕ(Перечисление.СостоянияСогласования.ПустаяСсылка)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ВТПозицииРезерва.Ссылка КАК ПозицияРезерва,
+	СтатусыГотовностиРезервистов.УчастникКадровогоРезерва КАК УчастникКадровогоРезерва,
+	СтатусыГотовностиРезервистов.Статус КАК Статус,
+	СтатусыГотовностиРезервистов.Период КАК Период
+ПОМЕСТИТЬ ВТСтатусыГотовности
+ИЗ
+	ВТПозицииРезерва КАК ВТПозицииРезерва
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СтатусыГотовностиРезервистов КАК СтатусыГотовностиРезервистов
+		ПО ВТПозицииРезерва.Ссылка = СтатусыГотовностиРезервистов.ПозицияРезерва
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТСтатусыГотовности.ПозицияРезерва КАК ПозицияРезерва,
+	ВТСтатусыГотовности.УчастникКадровогоРезерва КАК УчастникКадровогоРезерва,
+	ВТСтатусыГотовности.Статус КАК Статус,
+	ВТСтатусыГотовности.Период КАК ДатаНачалаСтатуса,
+	ВТПредыдущийСтатус.Период КАК ДатаОкончанияСтатуса,
+	РАЗНОСТЬДАТ(ВТСтатусыГотовности.Период, ВЫБОР
+			КОГДА ВТПредыдущийСтатус.Период &lt;&gt; ДАТАВРЕМЯ(1, 1, 1)
+				ТОГДА ВТПредыдущийСтатус.Период
+			ИНАЧЕ &amp;ДатаОкончания
+		КОНЕЦ, МЕСЯЦ) КАК ДлительностьСтатусаМесяц,
+	РАЗНОСТЬДАТ(ВТСтатусыГотовности.Период, ВЫБОР
+			КОГДА ВТПредыдущийСтатус.Период &lt;&gt; ДАТАВРЕМЯ(1, 1, 1)
+				ТОГДА ВТПредыдущийСтатус.Период
+			ИНАЧЕ &amp;ДатаОкончания
+		КОНЕЦ, ДЕНЬ) КАК ДлительностьСтатусаДень,
+	РАЗНОСТЬДАТ(ВТСтатусыГотовности.Период, ВЫБОР
+			КОГДА ВТПредыдущийСтатус.Период &lt;&gt; ДАТАВРЕМЯ(1, 1, 1)
+				ТОГДА ВТПредыдущийСтатус.Период
+			ИНАЧЕ &amp;ДатаОкончания
+		КОНЕЦ, ГОД) КАК ДлительностьСтатусаГод
+ПОМЕСТИТЬ ВТДлительностьСтатусов
+ИЗ
+	ВТСтатусыГотовности КАК ВТСтатусыГотовности
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТПредыдущийСтатус КАК ВТПредыдущийСтатус
+		ПО ВТСтатусыГотовности.ПозицияРезерва = ВТПредыдущийСтатус.ПозицияРезерва
+			И ВТСтатусыГотовности.УчастникКадровогоРезерва = ВТПредыдущийСтатус.УчастникКадровогоРезерва
+			И ВТСтатусыГотовности.Статус.РеквизитДопУпорядочивания &lt; ВТПредыдущийСтатус.СтатусРеквизитДопУпорядочивания
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТДлительностьСтатусов.ПозицияРезерва КАК ПозицияРезерва,
+	ВТДлительностьСтатусов.УчастникКадровогоРезерва КАК УчастникКадровогоРезерва,
+	ВТДлительностьСтатусов.Статус КАК Статус,
+	ВТДлительностьСтатусов.ДатаНачалаСтатуса КАК ДатаНачалаСтатуса,
+	ВТДлительностьСтатусов.ДатаОкончанияСтатуса КАК ДатаОкончанияСтатуса,
+	ВТДатыВключенияВРезерв.Период КАК ДатаВключения,
+	ВТДлительностьСтатусов.ДлительностьСтатусаМесяц КАК ДлительностьСтатусаМесяц,
+	ВТДлительностьСтатусов.ДлительностьСтатусаДень КАК ДлительностьСтатусаДень,
+	ВТДлительностьСтатусов.ДлительностьСтатусаГод КАК ДлительностьСтатусаГод,
+	ТИПЗНАЧЕНИЯ(ВТДлительностьСтатусов.УчастникКадровогоРезерва) КАК ТипУчастникаКадровогоРезерва
+ИЗ
+	ВТДлительностьСтатусов КАК ВТДлительностьСтатусов
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТДатыВключенияВРезерв КАК ВТДатыВключенияВРезерв
+		ПО ВТДлительностьСтатусов.ПозицияРезерва = ВТДатыВключенияВРезерв.ПозицияРезерва
+			И ВТДлительностьСтатусов.УчастникКадровогоРезерва = ВТДатыВключенияВРезерв.УчастникКадровогоРезерва
+ГДЕ
+	ВТДлительностьСтатусов.ДатаНачалаСтатуса МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>СреднийСрокПребыванияМесяц</dataPath>
+		<expression>ВЫБОР КОГДА ДлительностьСтатусаМесяц &gt; 0 ТОГДА ДлительностьСтатусаМесяц КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Срок пребывания (кол-во месяцев)</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=1</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СреднийСрокПребыванияДень</dataPath>
+		<expression>ВЫБОР КОГДА ДлительностьСтатусаДень &gt; 0 ТОГДА ДлительностьСтатусаДень КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Срок пребывания (кол-во дней)</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=1</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СреднийСрокПребыванияГод</dataPath>
+		<expression>ВЫБОР КОГДА ДлительностьСтатусаГод &gt; 0 ТОГДА ДлительностьСтатусаГод КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Срок пребывания (кол-во лет)</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=1</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<totalField>
+		<dataPath>СреднийСрокПребыванияГод</dataPath>
+		<expression>Среднее(СреднийСрокПребыванияГод)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СреднийСрокПребыванияДень</dataPath>
+		<expression>Среднее(СреднийСрокПребыванияДень)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СреднийСрокПребыванияМесяц</dataPath>
+		<expression>Среднее(СреднийСрокПребыванияМесяц)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаНачала</expression>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаОкончания</expression>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>ДлительностьПодготовкиРезервистов</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Длительность подготовки резервистов</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПозицияРезерва</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>fa25eb09-48e8-4985-9f3b-6457903b978a</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</dcscor:value>
+					<dcsset:userSettingID>3ce2a2e0-3a57-4861-ab08-41c030dfe107</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:column>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Статус</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Статус.РеквизитДопУпорядочивания</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Статус</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СреднийСрокПребыванияДень</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+				</dcsset:column>
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ПозицияРезерва</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Резервист</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ДатаВключения</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

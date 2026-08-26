@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<WindowOpeningMode>LockOwner</WindowOpeningMode>
+	<Group>Vertical</Group>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<LabelField name="ПередаютсяПрава" id="27">
+			<DataPath>ПередаютсяПрава</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<TitleLocation>Left</TitleLocation>
+			<Width>40</Width>
+			<Height>4</Height>
+			<MaxHeight>3</MaxHeight>
+			<VerticalStretch>false</VerticalStretch>
+			<ContextMenu name="ПередаютсяПраваКонтекстноеМеню" id="28"/>
+			<ExtendedTooltip name="ПередаютсяПраваРасширеннаяПодсказка" id="29"/>
+		</LabelField>
+		<RadioButtonField name="СпособПередачи" id="30">
+			<DataPath>СпособПередачи</DataPath>
+			<TitleLocation>Left</TitleLocation>
+			<RadioButtonType>Auto</RadioButtonType>
+			<ColumnsCount>1</ColumnsCount>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>От роли к пользователю</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">ОтРолиКПользователю</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>От пользователя к пользователю в рамках одной роли</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">ОтПользователяКПользователюВРамкахРоли</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>От пользователя к пользователю (для задач без ролей)</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">ОтПользователяКПользователю</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="СпособПередачиКонтекстноеМеню" id="31"/>
+			<ExtendedTooltip name="СпособПередачиРасширеннаяПодсказка" id="32"/>
+			<Events>
+				<Event name="OnChange">СпособПередачиПриИзменении</Event>
+			</Events>
+		</RadioButtonField>
+		<InputField name="РольИсполнителей" id="24">
+			<DataPath>РольИсполнителейПредставление</DataPath>
+			<WarningOnEditRepresentation>DontShow</WarningOnEditRepresentation>
+			<ChoiceButton>true</ChoiceButton>
+			<TextEdit>false</TextEdit>
+			<ContextMenu name="РольИсполнителейКонтекстноеМеню" id="25"/>
+			<ExtendedTooltip name="РольИсполнителейРасширеннаяПодсказка" id="26"/>
+			<Events>
+				<Event name="StartChoice">РольИсполнителейНачалоВыбора</Event>
+				<Event name="Opening">РольИсполнителейОткрытие</Event>
+				<Event name="Clearing">РольИсполнителейОчистка</Event>
+				<Event name="ChoiceProcessing">РольИсполнителейОбработкаВыбора</Event>
+			</Events>
+		</InputField>
+		<InputField name="ОтКого" id="4">
+			<DataPath>Запись.ОтКого</DataPath>
+			<OpenButton>false</OpenButton>
+			<CreateButton>false</CreateButton>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ContextMenu name="ОтКогоКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="ОтКогоРасширеннаяПодсказка" id="6"/>
+			<Events>
+				<Event name="OnChange">ОтКогоПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="Кому" id="1">
+			<DataPath>Запись.Кому</DataPath>
+			<OpenButton>false</OpenButton>
+			<CreateButton>false</CreateButton>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ContextMenu name="КомуКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КомуРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<UsualGroup name="ПериодДействия" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период действия</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период действия</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>HorizontalIfPossible</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ПериодДействияРасширеннаяПодсказка" id="23"/>
+			<ChildItems>
+				<InputField name="ДатаНачалаДействия" id="16">
+					<DataPath>Запись.ДатаНачалаДействия</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Действует с</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДатаНачалаДействияКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ДатаНачалаДействияРасширеннаяПодсказка" id="18"/>
+				</InputField>
+				<InputField name="ДатаОкончанияДействия" id="19">
+					<DataPath>Запись.ДатаОкончанияДействия</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>по</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДатаОкончанияДействияКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ДатаОкончанияДействияРасширеннаяПодсказка" id="21"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.НастройкаПередачиПравИсполнителей</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="РольИсполнителейПредставление" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Роль исполнителей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПередаютсяПрава" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Передаются права</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СпособПередачи" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способ передачи</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

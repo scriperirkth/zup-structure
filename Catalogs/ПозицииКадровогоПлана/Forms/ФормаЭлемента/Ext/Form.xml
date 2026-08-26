@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
+	<Group>Vertical</Group>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="КомандаЗаписатьИЗакрыть" id="506">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.КомандаЗаписатьИЗакрыть</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="КомандаЗаписатьИЗакрытьРасширеннаяПодсказка" id="507"/>
+			</Button>
+			<Button name="ФормаЗаписатьИЗакрыть" id="508">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.StandardCommand.WriteAndClose</CommandName>
+				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="509"/>
+			</Button>
+			<Button name="КомандаЗаписать" id="510">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаЗаписать</CommandName>
+				<ExtendedTooltip name="КомандаЗаписатьРасширеннаяПодсказка" id="511"/>
+			</Button>
+			<Button name="ФормаЗаписать" id="512">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.StandardCommand.Write</CommandName>
+				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="513"/>
+			</Button>
+			<ButtonGroup name="ФормаГруппаКомандФормы" id="514">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма группа команд формы</v8:content>
+					</v8:item>
+				</Title>
+				<CommandSource>Form</CommandSource>
+				<ExtendedTooltip name="ФормаГруппаКомандФормыРасширеннаяПодсказка" id="515"/>
+			</ButtonGroup>
+			<Button name="ФормаСправка" id="516">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="517"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Шапка" id="389">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шапка</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ChildItemsWidth>LeftWide</ChildItemsWidth>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ШапкаРасширеннаяПодсказка" id="390"/>
+			<ChildItems>
+				<InputField name="Подразделение" id="39">
+					<DataPath>Объект.Подразделение</DataPath>
+					<ContextMenu name="ПодразделениеКонтекстноеМеню" id="40"/>
+					<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="41"/>
+					<Events>
+						<Event name="OnChange">ПодразделениеПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Наименование" id="1">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<UsualGroup name="ДанныеДолжности" id="404">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Данные должности</v8:content>
+						</v8:item>
+					</Title>
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ДанныеДолжностиРасширеннаяПодсказка" id="405"/>
+					<ChildItems>
+						<InputField name="Должность" id="36">
+							<DataPath>Объект.Должность</DataPath>
+							<ContextMenu name="ДолжностьКонтекстноеМеню" id="37"/>
+							<ExtendedTooltip name="ДолжностьРасширеннаяПодсказка" id="38"/>
+							<Events>
+								<Event name="OnChange">ДолжностьПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПрофильДолжности" id="13">
+							<DataPath>Объект.ПрофильДолжности</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ПрофильДолжностиКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ПрофильДолжностиРасширеннаяПодсказка" id="15"/>
+							<Events>
+								<Event name="OnChange">ПрофильДолжностиПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ИнформацияЗанятостиГруппа" id="416">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Информация занятости</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:ToolTipBackColor</BackColor>
+			<ExtendedTooltip name="ИнформацияЗанятостиГруппаРасширеннаяПодсказка" id="417"/>
+			<ChildItems>
+				<PictureDecoration name="ИнформацияЗанятостиЗаполняется" id="418">
+					<Visible>false</Visible>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Информация занятости заполняется</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>CommonPicture.ДлительнаяОперация16</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="ИнформацияЗанятостиЗаполняетсяКонтекстноеМеню" id="419"/>
+					<ExtendedTooltip name="ИнформацияЗанятостиЗаполняетсяРасширеннаяПодсказка" id="420"/>
+				</PictureDecoration>
+				<LabelDecoration name="ИнформацияЗанятости" id="421">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>
+</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ИнформацияЗанятостиКонтекстноеМеню" id="422"/>
+					<ExtendedTooltip name="ИнформацияЗанятостиРасширеннаяПодсказка" id="423"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаСтраницы" id="387">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="388"/>
+			<ChildItems>
+				<Page name="ПоказателиГруппа" id="324">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Показатели</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="ПоказателиГруппаРасширеннаяПодсказка" id="325"/>
+					<ChildItems>
+						<Table name="ПоказателиКадровогоПланирования" id="469">
+							<Representation>List</Representation>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+							<DataPath>Объект.ПоказателиКадровогоПланирования</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Показатели кадрового планирования</v8:content>
+								</v8:item>
+							</Title>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПоказателиКадровогоПланированияКонтекстноеМеню" id="471"/>
+							<AutoCommandBar name="ПоказателиКадровогоПланированияКоманднаяПанель" id="470"/>
+							<ExtendedTooltip name="ПоказателиКадровогоПланированияРасширеннаяПодсказка" id="472"/>
+							<SearchStringAddition name="ПоказателиКадровогоПланированияСтрокаПоиска" id="473">
+								<AdditionSource>
+									<Item>ПоказателиКадровогоПланирования</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПоказателиКадровогоПланированияСтрокаПоискаКонтекстноеМеню" id="474"/>
+								<ExtendedTooltip name="ПоказателиКадровогоПланированияСтрокаПоискаРасширеннаяПодсказка" id="475"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПоказателиКадровогоПланированияСостояниеПросмотра" id="479">
+								<AdditionSource>
+									<Item>ПоказателиКадровогоПланирования</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПоказателиКадровогоПланированияСостояниеПросмотраКонтекстноеМеню" id="480"/>
+								<ExtendedTooltip name="ПоказателиКадровогоПланированияСостояниеПросмотраРасширеннаяПодсказка" id="481"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПоказателиКадровогоПланированияУправлениеПоиском" id="476">
+								<AdditionSource>
+									<Item>ПоказателиКадровогоПланирования</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПоказателиКадровогоПланированияУправлениеПоискомКонтекстноеМеню" id="477"/>
+								<ExtendedTooltip name="ПоказателиКадровогоПланированияУправлениеПоискомРасширеннаяПодсказка" id="478"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="ПоказателиКадровогоПланированияПоказатель" id="485">
+									<DataPath>Объект.ПоказателиКадровогоПланирования.Показатель</DataPath>
+									<ContextMenu name="ПоказателиКадровогоПланированияПоказательКонтекстноеМеню" id="486"/>
+									<ExtendedTooltip name="ПоказателиКадровогоПланированияПоказательРасширеннаяПодсказка" id="487"/>
+								</InputField>
+								<InputField name="ПоказателиКадровогоПланированияЗначение" id="488">
+									<DataPath>Объект.ПоказателиКадровогоПланирования.Значение</DataPath>
+									<ContextMenu name="ПоказателиКадровогоПланированияЗначениеКонтекстноеМеню" id="489"/>
+									<ExtendedTooltip name="ПоказателиКадровогоПланированияЗначениеРасширеннаяПодсказка" id="490"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ШтатноеРасписаниеПоКадровомуПлануГруппа" id="332">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Штатное расписание по кадровому плану</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Связанные с позицией кадрового плана позиции штатного расписания</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+					<Group>AlwaysHorizontal</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="ШтатноеРасписаниеПоКадровомуПлануГруппаРасширеннаяПодсказка" id="333">
+						<AutoMaxWidth>false</AutoMaxWidth>
+					</ExtendedTooltip>
+					<ChildItems>
+						<Table name="ПозицииШтатногоРасписанияПоКадровомуПлану" id="334">
+							<Representation>List</Representation>
+							<Height>2</Height>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+							<DataPath>ПозицииШтатногоРасписанияПоКадровомуПлану</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПозицииШтатногоРасписанияПоКадровомуПлануКонтекстноеМеню" id="335"/>
+							<AutoCommandBar name="ПозицииШтатногоРасписанияПоКадровомуПлануКоманднаяПанель" id="336">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="ПозицииШтатногоРасписанияПоКадровомуПлануПодбор" id="491">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Подбор</CommandName>
+										<ExtendedTooltip name="ПозицииШтатногоРасписанияПоКадровомуПлануПодборРасширеннаяПодсказка" id="492"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПозицииШтатногоРасписанияПоКадровомуПлануРасширеннаяПодсказка" id="337"/>
+							<SearchStringAddition name="ПозицииШтатногоРасписанияПоКадровомуПлануСтрокаПоиска" id="338">
+								<AdditionSource>
+									<Item>ПозицииШтатногоРасписанияПоКадровомуПлану</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПозицииШтатногоРасписанияПоКадровомуПлануСтрокаПоискаКонтекстноеМеню" id="339"/>
+								<ExtendedTooltip name="ПозицииШтатногоРасписанияПоКадровомуПлануСтрокаПоискаРасширеннаяПодсказка" id="340"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПозицииШтатногоРасписанияПоКадровомуПлануСостояниеПросмотра" id="341">
+								<AdditionSource>
+									<Item>ПозицииШтатногоРасписанияПоКадровомуПлану</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПозицииШтатногоРасписанияПоКадровомуПлануСостояниеПросмотраКонтекстноеМеню" id="342"/>
+								<ExtendedTooltip name="ПозицииШтатногоРасписанияПоКадровомуПлануСостояниеПросмотраРасширеннаяПодсказка" id="343"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПозицииШтатногоРасписанияПоКадровомуПлануУправлениеПоиском" id="344">
+								<AdditionSource>
+									<Item>ПозицииШтатногоРасписанияПоКадровомуПлану</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПозицииШтатногоРасписанияПоКадровомуПлануУправлениеПоискомКонтекстноеМеню" id="345"/>
+								<ExtendedTooltip name="ПозицииШтатногоРасписанияПоКадровомуПлануУправлениеПоискомРасширеннаяПодсказка" id="346"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="ChoiceProcessing">ПозицииШтатногоРасписанияПоКадровомуПлануОбработкаВыбора</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="ПозицииШтатногоРасписанияПоКадровомуПлануПозицияШтатногоРасписания" id="378">
+									<DataPath>ПозицииШтатногоРасписанияПоКадровомуПлану.ПозицияШтатногоРасписания</DataPath>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="ПозицииШтатногоРасписанияПоКадровомуПлануПозицияШтатногоРасписанияКонтекстноеМеню" id="379"/>
+									<ExtendedTooltip name="ПозицииШтатногоРасписанияПоКадровомуПлануПозицияШтатногоРасписанияРасширеннаяПодсказка" id="380"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ФинансовыйУчет" id="498">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Финансовый учет</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<ChildItemsWidth>Equal</ChildItemsWidth>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="ФинансовыйУчетРасширеннаяПодсказка" id="499"/>
+					<ChildItems>
+						<UsualGroup name="ФинансовыйУчетГруппа" id="500">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Финансовый учет расходов на персонал</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>NormalSeparation</Representation>
+							<ExtendedTooltip name="ФинансовыйУчетГруппаРасширеннаяПодсказка" id="501"/>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаДополнительныеРеквизиты" id="493">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительные реквизиты позиции отображаются в  колонках документа Кадровый план</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="ГруппаДополнительныеРеквизитыРасширеннаяПодсказка" id="494">
+						<AutoMaxWidth>false</AutoMaxWidth>
+					</ExtendedTooltip>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ПозицииКадровогоПлана</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПозицииШтатногоРасписанияПоКадровомуПлану" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Позиции штатного расписания по кадровому плану</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordSet.ПозицииШтатногоРасписанияПоКадровомуПлану</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СсылкаНаОбъект" id="13">
+			<Type>
+				<v8:Type>cfg:CatalogRef.ПозицииКадровогоПлана</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Подбор" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор</v8:content>
+				</v8:item>
+			</Title>
+			<Action>Подбор</Action>
+		</Command>
+		<Command name="КомандаЗаписать" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать</v8:content>
+				</v8:item>
+			</Title>
+			<Shortcut>Ctrl+S</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.Write</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаЗаписать</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаЗаписатьИЗакрыть" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать и закрыть</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.WriteAndClose</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаЗаписатьИЗакрыть</Action>
+			<Representation>Text</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>InformationRegister.ПозицииШтатногоРасписанияПоКадровомуПлану.StandardCommand.OpenByValue.ПозицияКадровогоПлана</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

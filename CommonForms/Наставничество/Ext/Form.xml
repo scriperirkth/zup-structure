@@ -1,0 +1,674 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
+	<Group>Vertical</Group>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаНазначитьНаставником" id="69">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.НазначитьНаставником</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаНазначитьНаставникомРасширеннаяПодсказка" id="70"/>
+			</Button>
+			<Button name="ФормаНазначитьНаставника" id="67">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.НазначитьНаставника</CommandName>
+				<ExtendedTooltip name="ФормаНазначитьНаставникаРасширеннаяПодсказка" id="68"/>
+			</Button>
+			<Button name="ФормаИсторияНаставничества" id="71">
+				<Type>CommandBarHyperlink</Type>
+				<CommandName>Form.Command.ИсторияНаставничества</CommandName>
+				<ExtendedTooltip name="ФормаИсторияНаставничестваРасширеннаяПодсказка" id="72"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ДатаСведений" id="64">
+			<DataPath>ДатаСведений</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображать сведения о наставничестве на дату</v8:content>
+				</v8:item>
+			</Title>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ДатаСведенийКонтекстноеМеню" id="65"/>
+			<ExtendedTooltip name="ДатаСведенийРасширеннаяПодсказка" id="66"/>
+			<Events>
+				<Event name="OnChange">ДатаСведенийПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="ГруппаЯвляетсяНаставником" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Является наставником:</v8:content>
+				</v8:item>
+			</Title>
+			<Group>HorizontalIfPossible</Group>
+			<Behavior>Collapsible</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаЯвляетсяНаставникомРасширеннаяПодсказка" id="33"/>
+			<ChildItems>
+				<Table name="ЯвляетсяНаставником" id="1">
+					<AutoMaxHeight>false</AutoMaxHeight>
+					<HeightInTableRows>5</HeightInTableRows>
+					<RowSelectionMode>Cell</RowSelectionMode>
+					<EnableStartDrag>true</EnableStartDrag>
+					<DataPath>ЯвляетсяНаставником</DataPath>
+					<RowPictureDataPath>~ЯвляетсяНаставником.DefaultPicture</RowPictureDataPath>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period>
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+					<ContextMenu name="ЯвляетсяНаставникомКонтекстноеМеню" id="2"/>
+					<AutoCommandBar name="ЯвляетсяНаставникомКоманднаяПанель" id="3">
+						<ChildItems>
+							<Button name="ЯвляетсяНаставникомПрекратитьНаставничество" id="73">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ПрекратитьНаставничество</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Завершить наставничество</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ЯвляетсяНаставникомПрекратитьНаставничествоРасширеннаяПодсказка" id="74"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ЯвляетсяНаставникомРасширеннаяПодсказка" id="4"/>
+					<SearchStringAddition name="ЯвляетсяНаставникомСтрокаПоиска" id="5">
+						<AdditionSource>
+							<Item>ЯвляетсяНаставником</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ЯвляетсяНаставникомСтрокаПоискаКонтекстноеМеню" id="6"/>
+						<ExtendedTooltip name="ЯвляетсяНаставникомСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ЯвляетсяНаставникомСостояниеПросмотра" id="8">
+						<AdditionSource>
+							<Item>ЯвляетсяНаставником</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ЯвляетсяНаставникомСостояниеПросмотраКонтекстноеМеню" id="9"/>
+						<ExtendedTooltip name="ЯвляетсяНаставникомСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ЯвляетсяНаставникомУправлениеПоиском" id="11">
+						<AdditionSource>
+							<Item>ЯвляетсяНаставником</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ЯвляетсяНаставникомУправлениеПоискомКонтекстноеМеню" id="12"/>
+						<ExtendedTooltip name="ЯвляетсяНаставникомУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">ВыборСтрокиДинамическогоСписка</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="ЯвляетсяНаставникомОрганизация" id="26">
+							<DataPath>ЯвляетсяНаставником.Организация</DataPath>
+							<ContextMenu name="ЯвляетсяНаставникомОрганизацияКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="ЯвляетсяНаставникомОрганизацияРасширеннаяПодсказка" id="28"/>
+						</LabelField>
+						<LabelField name="ЯвляетсяНаставникомНаставляемый" id="20">
+							<DataPath>ЯвляетсяНаставником.Наставляемый</DataPath>
+							<ContextMenu name="ЯвляетсяНаставникомНаставляемыйКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="ЯвляетсяНаставникомНаставляемыйРасширеннаяПодсказка" id="22"/>
+						</LabelField>
+						<LabelField name="ЯвляетсяНаставникомДатаНачала" id="14">
+							<DataPath>ЯвляетсяНаставником.ДатаНачала</DataPath>
+							<ContextMenu name="ЯвляетсяНаставникомДатаНачалаКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="ЯвляетсяНаставникомДатаНачалаРасширеннаяПодсказка" id="16"/>
+						</LabelField>
+						<LabelField name="ЯвляетсяНаставникомДатаОкончания" id="17">
+							<DataPath>ЯвляетсяНаставником.ДатаОкончания</DataPath>
+							<ContextMenu name="ЯвляетсяНаставникомДатаОкончанияКонтекстноеМеню" id="18"/>
+							<ExtendedTooltip name="ЯвляетсяНаставникомДатаОкончанияРасширеннаяПодсказка" id="19"/>
+						</LabelField>
+						<CheckBoxField name="ЯвляетсяНаставникомНазначенаДоплата" id="77">
+							<DataPath>ЯвляетсяНаставником.НазначенаДоплата</DataPath>
+							<ContextMenu name="ЯвляетсяНаставникомНазначенаДоплатаКонтекстноеМеню" id="78"/>
+							<ExtendedTooltip name="ЯвляетсяНаставникомНазначенаДоплатаРасширеннаяПодсказка" id="79"/>
+						</CheckBoxField>
+						<LabelField name="ЯвляетсяНаставникомНачисление" id="80">
+							<DataPath>ЯвляетсяНаставником.Начисление</DataPath>
+							<ContextMenu name="ЯвляетсяНаставникомНачислениеКонтекстноеМеню" id="81"/>
+							<ExtendedTooltip name="ЯвляетсяНаставникомНачислениеРасширеннаяПодсказка" id="82"/>
+						</LabelField>
+						<LabelField name="ЯвляетсяНаставникомРегистратор" id="29">
+							<DataPath>ЯвляетсяНаставником.Регистратор</DataPath>
+							<ContextMenu name="ЯвляетсяНаставникомРегистраторКонтекстноеМеню" id="30"/>
+							<ExtendedTooltip name="ЯвляетсяНаставникомРегистраторРасширеннаяПодсказка" id="31"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаЯвляетсяНаставляемым" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Является наставляемым:</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа является наставляемым</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>HorizontalIfPossible</Group>
+			<Behavior>Collapsible</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаЯвляетсяНаставляемымРасширеннаяПодсказка" id="35"/>
+			<ChildItems>
+				<Table name="ЯвляетсяНаставляемым" id="36">
+					<AutoMaxHeight>false</AutoMaxHeight>
+					<HeightInTableRows>5</HeightInTableRows>
+					<RowSelectionMode>Cell</RowSelectionMode>
+					<EnableStartDrag>true</EnableStartDrag>
+					<DataPath>ЯвляетсяНаставляемым</DataPath>
+					<RowPictureDataPath>~ЯвляетсяНаставляемым.DefaultPicture</RowPictureDataPath>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period>
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+					<ContextMenu name="ЯвляетсяНаставляемымКонтекстноеМеню" id="37"/>
+					<AutoCommandBar name="ЯвляетсяНаставляемымКоманднаяПанель" id="38">
+						<ChildItems>
+							<Button name="ЯвляетсяНаставляемымЗавершитьНаставничество" id="75">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ЗавершитьНаставничество</CommandName>
+								<ExtendedTooltip name="ЯвляетсяНаставляемымЗавершитьНаставничествоРасширеннаяПодсказка" id="76"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ЯвляетсяНаставляемымРасширеннаяПодсказка" id="39"/>
+					<SearchStringAddition name="ЯвляетсяНаставляемымСтрокаПоиска" id="40">
+						<AdditionSource>
+							<Item>ЯвляетсяНаставляемым</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ЯвляетсяНаставляемымСтрокаПоискаКонтекстноеМеню" id="41"/>
+						<ExtendedTooltip name="ЯвляетсяНаставляемымСтрокаПоискаРасширеннаяПодсказка" id="42"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ЯвляетсяНаставляемымСостояниеПросмотра" id="43">
+						<AdditionSource>
+							<Item>ЯвляетсяНаставляемым</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ЯвляетсяНаставляемымСостояниеПросмотраКонтекстноеМеню" id="44"/>
+						<ExtendedTooltip name="ЯвляетсяНаставляемымСостояниеПросмотраРасширеннаяПодсказка" id="45"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ЯвляетсяНаставляемымУправлениеПоиском" id="46">
+						<AdditionSource>
+							<Item>ЯвляетсяНаставляемым</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ЯвляетсяНаставляемымУправлениеПоискомКонтекстноеМеню" id="47"/>
+						<ExtendedTooltip name="ЯвляетсяНаставляемымУправлениеПоискомРасширеннаяПодсказка" id="48"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">ВыборСтрокиДинамическогоСписка</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="ЯвляетсяНаставляемымОрганизация" id="58">
+							<DataPath>ЯвляетсяНаставляемым.Организация</DataPath>
+							<ContextMenu name="ЯвляетсяНаставляемымОрганизацияКонтекстноеМеню" id="59"/>
+							<ExtendedTooltip name="ЯвляетсяНаставляемымОрганизацияРасширеннаяПодсказка" id="60"/>
+						</LabelField>
+						<LabelField name="ЯвляетсяНаставляемымНаставник" id="55">
+							<DataPath>ЯвляетсяНаставляемым.Наставник</DataPath>
+							<ContextMenu name="ЯвляетсяНаставляемымНаставникКонтекстноеМеню" id="56"/>
+							<ExtendedTooltip name="ЯвляетсяНаставляемымНаставникРасширеннаяПодсказка" id="57"/>
+						</LabelField>
+						<LabelField name="ЯвляетсяНаставляемымДатаНачала" id="49">
+							<DataPath>ЯвляетсяНаставляемым.ДатаНачала</DataPath>
+							<ContextMenu name="ЯвляетсяНаставляемымДатаНачалаКонтекстноеМеню" id="50"/>
+							<ExtendedTooltip name="ЯвляетсяНаставляемымДатаНачалаРасширеннаяПодсказка" id="51"/>
+						</LabelField>
+						<LabelField name="ЯвляетсяНаставляемымДатаОкончания" id="52">
+							<DataPath>ЯвляетсяНаставляемым.ДатаОкончания</DataPath>
+							<ContextMenu name="ЯвляетсяНаставляемымДатаОкончанияКонтекстноеМеню" id="53"/>
+							<ExtendedTooltip name="ЯвляетсяНаставляемымДатаОкончанияРасширеннаяПодсказка" id="54"/>
+						</LabelField>
+						<CheckBoxField name="ЯвляетсяНаставляемымНазначенаДоплата" id="83">
+							<DataPath>ЯвляетсяНаставляемым.НазначенаДоплата</DataPath>
+							<ContextMenu name="ЯвляетсяНаставляемымНазначенаДоплатаКонтекстноеМеню" id="84"/>
+							<ExtendedTooltip name="ЯвляетсяНаставляемымНазначенаДоплатаРасширеннаяПодсказка" id="85"/>
+						</CheckBoxField>
+						<LabelField name="ЯвляетсяНаставляемымНачисление" id="86">
+							<DataPath>ЯвляетсяНаставляемым.Начисление</DataPath>
+							<ContextMenu name="ЯвляетсяНаставляемымНачислениеКонтекстноеМеню" id="87"/>
+							<ExtendedTooltip name="ЯвляетсяНаставляемымНачислениеРасширеннаяПодсказка" id="88"/>
+						</LabelField>
+						<LabelField name="ЯвляетсяНаставляемымРегистратор" id="61">
+							<DataPath>ЯвляетсяНаставляемым.Регистратор</DataPath>
+							<ContextMenu name="ЯвляетсяНаставляемымРегистраторКонтекстноеМеню" id="62"/>
+							<ExtendedTooltip name="ЯвляетсяНаставляемымРегистраторРасширеннаяПодсказка" id="63"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ЯвляетсяНаставником" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Является наставником</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	НаставничествоСрезПоследних.Организация КАК Организация,
+	НаставничествоСрезПоследних.Наставник КАК Наставник,
+	НаставничествоСрезПоследних.Наставляемый КАК Наставляемый,
+	НаставничествоСрезПоследних.ДатаНачала КАК ДатаНачала,
+	НаставничествоСрезПоследних.ДатаОкончания КАК ДатаОкончания,
+	НаставничествоСрезПоследних.Регистратор КАК Регистратор,
+	ЕСТЬNULL(НазначениеНаставника.НазначитьДоплату, ЛОЖЬ) КАК НазначенаДоплата,
+	ЕСТЬNULL(НазначениеНаставника.Начисление, ЗНАЧЕНИЕ(ПланВидовРасчета.Начисления.ПустаяСсылка)) КАК Начисление
+ИЗ
+	РегистрСведений.Наставничество.СрезПоследних(
+			КОНЕЦПЕРИОДА(&amp;ДатаСведений, ДЕНЬ),
+			Наставник = &amp;УчастникПроцессаНаставничества
+				ИЛИ ВЫРАЗИТЬ(Наставник КАК Справочник.Сотрудники).ФизическоеЛицо = &amp;УчастникПроцессаНаставничества) КАК НаставничествоСрезПоследних
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.НазначениеНаставника КАК НазначениеНаставника
+		ПО НаставничествоСрезПоследних.Регистратор = НазначениеНаставника.Ссылка
+ГДЕ
+	НаставничествоСрезПоследних.Назначен
+	И (НаставничествоСрезПоследних.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+			ИЛИ КОНЕЦПЕРИОДА(НаставничествоСрезПоследних.ДатаОкончания, ДЕНЬ) &gt;= КОНЕЦПЕРИОДА(&amp;ДатаСведений, ДЕНЬ))</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Организация</dcssch:dataPath>
+					<dcssch:field>Организация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаНачала</dcssch:dataPath>
+					<dcssch:field>ДатаНачала</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наставник</dcssch:dataPath>
+					<dcssch:field>Наставник</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наставляемый</dcssch:dataPath>
+					<dcssch:field>Наставляемый</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаОкончания</dcssch:dataPath>
+					<dcssch:field>ДатаОкончания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Регистратор</dcssch:dataPath>
+					<dcssch:field>Регистратор</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПозицияРезерва</dcssch:dataPath>
+					<dcssch:field>ПозицияРезерва</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенаДоплата</dcssch:dataPath>
+					<dcssch:field>НазначенаДоплата</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Назначена доплата</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Начисление</dcssch:dataPath>
+					<dcssch:field>Начисление</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Начисление</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Parameter>
+					<dcssch:name>Период</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>УчастникПроцессаНаставничества</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Участник процесса наставничества</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>cfg:CatalogRef.ФизическиеЛица</v8:Type>
+						<v8:TypeId>1b5aeaf4-1637-419f-9c52-2943694c048e</v8:TypeId>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>false</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>ДатаСведений</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата сведений</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ЯвляетсяНаставляемым" id="3">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	НаставничествоСрезПоследних.Организация КАК Организация,
+	НаставничествоСрезПоследних.Наставник КАК Наставник,
+	НаставничествоСрезПоследних.ДатаНачала КАК ДатаНачала,
+	НаставничествоСрезПоследних.ДатаОкончания КАК ДатаОкончания,
+	НаставничествоСрезПоследних.Регистратор КАК Регистратор,
+	ЕСТЬNULL(НазначениеНаставника.НазначитьДоплату, ЛОЖЬ) КАК НазначенаДоплата,
+	ЕСТЬNULL(НазначениеНаставника.Начисление, ЗНАЧЕНИЕ(ПланВидовРасчета.Начисления.ПустаяСсылка)) КАК Начисление
+ИЗ
+	РегистрСведений.Наставничество.СрезПоследних(
+			КОНЕЦПЕРИОДА(&amp;ДатаСведений, ДЕНЬ),
+			Наставляемый = &amp;УчастникПроцессаНаставничества
+				ИЛИ ВЫРАЗИТЬ(Наставляемый КАК Справочник.Сотрудники).ФизическоеЛицо = &amp;УчастникПроцессаНаставничества) КАК НаставничествоСрезПоследних
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.НазначениеНаставника КАК НазначениеНаставника
+		ПО НаставничествоСрезПоследних.Регистратор = НазначениеНаставника.Ссылка
+ГДЕ
+	НаставничествоСрезПоследних.Назначен
+	И (НаставничествоСрезПоследних.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+			ИЛИ КОНЕЦПЕРИОДА(НаставничествоСрезПоследних.ДатаОкончания, ДЕНЬ) &gt;= КОНЕЦПЕРИОДА(&amp;ДатаСведений, ДЕНЬ))</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Организация</dcssch:dataPath>
+					<dcssch:field>Организация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаНачала</dcssch:dataPath>
+					<dcssch:field>ДатаНачала</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наставник</dcssch:dataPath>
+					<dcssch:field>Наставник</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаОкончания</dcssch:dataPath>
+					<dcssch:field>ДатаОкончания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Регистратор</dcssch:dataPath>
+					<dcssch:field>Регистратор</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наставляемый</dcssch:dataPath>
+					<dcssch:field>Наставляемый</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПозицияРезерва</dcssch:dataPath>
+					<dcssch:field>ПозицияРезерва</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенаДоплата</dcssch:dataPath>
+					<dcssch:field>НазначенаДоплата</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Назначена доплата</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Начисление</dcssch:dataPath>
+					<dcssch:field>Начисление</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Начисление</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Parameter>
+					<dcssch:name>Период</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>УчастникПроцессаНаставничества</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Участник процесса наставничества</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>cfg:CatalogRef.ФизическиеЛица</v8:Type>
+						<v8:TypeId>1b5aeaf4-1637-419f-9c52-2943694c048e</v8:TypeId>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>false</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>ДатаСведений</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата сведений</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ДатаСведений" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата сведений</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="НазначитьНаставника" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначить наставника</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначить наставника</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НазначитьНаставника</Action>
+		</Command>
+		<Command name="НазначитьНаставником" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначить наставником</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначить наставником</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НазначитьНаставником</Action>
+		</Command>
+		<Command name="ПрекратитьНаставничество" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прекратить наставничество</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прекратить наставничество</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПрекратитьНаставничество</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ЯвляетсяНаставником</AssociatedTableElementId>
+		</Command>
+		<Command name="ИсторияНаставничества" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История наставничества</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История наставничества</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ИсторияНаставничества</Action>
+		</Command>
+		<Command name="ЗавершитьНаставничество" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Завершить наставничество</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Завершить наставничество</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗавершитьНаставничество</Action>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="УчастникПроцессаНаставничества">
+			<Type>
+				<v8:Type>cfg:CatalogRef.ФизическиеЛица</v8:Type>
+				<v8:Type>cfg:CatalogRef.Сотрудники</v8:Type>
+				<v8:Type>cfg:CatalogRef.Кандидаты</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+	</Parameters>
+</Form>

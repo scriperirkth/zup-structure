@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Публикация вакансий</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<Group>Vertical</Group>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Опубликовать" id="27">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Опубликовать</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ОпубликоватьРасширеннаяПодсказка" id="28"/>
+			</Button>
+			<Button name="ОбновитьПубликацию" id="34">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОбновитьПубликацию</CommandName>
+				<ExtendedTooltip name="ОбновитьПубликациюРасширеннаяПодсказка" id="35"/>
+			</Button>
+			<Button name="Закрыть" id="22">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="23"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="ГруппаЗагрузкаКлассификаторов" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузка классификаторов</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаЗагрузкаКлассификаторовРасширеннаяПодсказка" id="42"/>
+			<ChildItems>
+				<Page name="ГруппаКлассификаторыЗагружаются" id="43">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Классификаторы загружаются</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="ГруппаКлассификаторыЗагружаютсяРасширеннаяПодсказка" id="44"/>
+					<ChildItems>
+						<PictureDecoration name="КартинкаКлассификаторыЗагружаются" id="45">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Картинка классификаторы загружаются</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Ref>CommonPicture.ДлительнаяОперация16</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<ContextMenu name="КартинкаКлассификаторыЗагружаютсяКонтекстноеМеню" id="46"/>
+							<ExtendedTooltip name="КартинкаКлассификаторыЗагружаютсяРасширеннаяПодсказка" id="47"/>
+						</PictureDecoration>
+						<LabelDecoration name="НадписьКлассификаторыЗагружаются" id="48">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Загружаем классификаторы...</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьКлассификаторыЗагружаютсяКонтекстноеМеню" id="49"/>
+							<ExtendedTooltip name="НадписьКлассификаторыЗагружаютсяРасширеннаяПодсказка" id="50"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаКлассификаторыЗагружены" id="51">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Классификаторы загружены</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="ГруппаКлассификаторыЗагруженыРасширеннаяПодсказка" id="52"/>
+					<ChildItems>
+						<PictureDecoration name="КартинкаКлассификаторыЗагружены" id="55">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Картинка классификаторы загружены</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Ref>CommonPicture.ЗеленыйШар</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<ContextMenu name="КартинкаКлассификаторыЗагруженыКонтекстноеМеню" id="56"/>
+							<ExtendedTooltip name="КартинкаКлассификаторыЗагруженыРасширеннаяПодсказка" id="57"/>
+						</PictureDecoration>
+						<LabelDecoration name="НадписьКлассификаторыЗагружены" id="58">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Классификаторы загружены.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьКлассификаторыЗагруженыКонтекстноеМеню" id="59"/>
+							<ExtendedTooltip name="НадписьКлассификаторыЗагруженыРасширеннаяПодсказка" id="60"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаОшибкаЗагрузкиКлассификаторов" id="53">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ошибка загрузки классификаторов</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="ГруппаОшибкаЗагрузкиКлассификаторовРасширеннаяПодсказка" id="54"/>
+					<ChildItems>
+						<PictureDecoration name="КартинкаОшибкаЗагрузкиКлассификаторов" id="61">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Картинка ошибка загрузки классификаторов</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Ref>CommonPicture.КрасныйШар</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<ContextMenu name="КартинкаОшибкаЗагрузкиКлассификаторовКонтекстноеМеню" id="62"/>
+							<ExtendedTooltip name="КартинкаОшибкаЗагрузкиКлассификаторовРасширеннаяПодсказка" id="63"/>
+						</PictureDecoration>
+						<LabelDecoration name="НадписьОшибкаЗагрузкиКлассификаторов" id="64">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Ошибка загрузки классификаторов.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьОшибкаЗагрузкиКлассификаторовКонтекстноеМеню" id="65"/>
+							<ExtendedTooltip name="НадписьОшибкаЗагрузкиКлассификаторовРасширеннаяПодсказка" id="66"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<Table name="ДеревоНастроек" id="1">
+			<Representation>Tree</Representation>
+			<RowSelectionMode>Cell</RowSelectionMode>
+			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<InitialTreeView>ExpandAllLevels</InitialTreeView>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>ДеревоНастроек</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дерево настроек</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ДеревоНастроекКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="ДеревоНастроекКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ДеревоНастроекРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="ДеревоНастроекСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>ДеревоНастроек</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДеревоНастроекСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="ДеревоНастроекСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДеревоНастроекСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>ДеревоНастроек</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДеревоНастроекСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="ДеревоНастроекСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДеревоНастроекУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>ДеревоНастроек</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ДеревоНастроекУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ДеревоНастроекУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ДеревоНастроекВыбор</Event>
+				<Event name="BeforeAddRow">ДеревоНастроекПередНачаломДобавления</Event>
+				<Event name="BeforeDeleteRow">ДеревоНастроекПередУдалением</Event>
+				<Event name="OnActivateRow">ДеревоНастроекПриАктивизацииСтроки</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="ДеревоНастроекПоказатель" id="24">
+					<DataPath>ДеревоНастроек.Показатель</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ShowInHeader>false</ShowInHeader>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ДеревоНастроекПоказательКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="ДеревоНастроекПоказательРасширеннаяПодсказка" id="26"/>
+				</InputField>
+				<InputField name="ДеревоНастроекВакансияВПрограмме" id="29">
+					<DataPath>ДеревоНастроек.ВакансияВПрограмме</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ДеревоНастроекВакансияВПрограммеКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ДеревоНастроекВакансияВПрограммеРасширеннаяПодсказка" id="31"/>
+				</InputField>
+				<InputField name="ДеревоНастроекПубликацияВакансии" id="17">
+					<DataPath>ДеревоНастроек.ПубликацияВакансии</DataPath>
+					<EditMode>Directly</EditMode>
+					<ContextMenu name="ДеревоНастроекПубликацияВакансииКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ДеревоНастроекПубликацияВакансииРасширеннаяПодсказка" id="19"/>
+					<Events>
+						<Event name="OnChange">ДеревоНастроекПубликацияВакансииПриИзменении</Event>
+						<Event name="StartChoice">ДеревоНастроекПубликацияВакансииНачалоВыбора</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<LabelDecoration name="СсылкаНаВакансию" id="38">
+			<Hyperlink>true</Hyperlink>
+			<ContextMenu name="СсылкаНаВакансиюКонтекстноеМеню" id="39"/>
+			<ExtendedTooltip name="СсылкаНаВакансиюРасширеннаяПодсказка" id="40"/>
+			<Events>
+				<Event name="Click">СсылкаНаВакансиюНажатие</Event>
+			</Events>
+		</LabelDecoration>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ДеревоНастроек" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дерево настроек</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ВакансияВПрограмме" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вакансия в программе</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+						<v8:StringQualifiers>
+							<v8:Length>1000</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПубликацияВакансии" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Публикация вакансии</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:ValueListType</v8:Type>
+						<v8:Type>xs:boolean</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+						<v8:StringQualifiers>
+							<v8:Length>1000</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Показатель" id="3">
+					<Type>
+						<v8:Type>cfg:CatalogRef.Вакансии</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>1000</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТипРеквизита" id="4">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Путь" id="5">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="СтрокаИзменена" id="6">
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ОбязательноеПоле" id="7">
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПубликацияВакансииТекст" id="8">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="СвязанноеПолеПуть" id="9">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВакансияВПрограммеТекст" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вакансия в программе текст</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Вакансия" id="2">
+			<Type>
+				<v8:Type>cfg:CatalogRef.Вакансии</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Сайт" id="3">
+			<Type>
+				<v8:Type>cfg:CatalogRef.ИсточникиИнформацииОКандидатах</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПервичнаяПубликация" id="4">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЭлементыСОдиночнымВыборомИзСписка" id="5">
+			<Type/>
+		</Attribute>
+		<Attribute name="ЭлементыНедоступныеДляРедактирования" id="8">
+			<Type/>
+		</Attribute>
+		<Attribute name="ЭлементыСоСпискомБезКлассификатора" id="9">
+			<Type/>
+		</Attribute>
+		<Attribute name="ЭлементыСМножественнымВыборомИзДерева" id="10">
+			<Type/>
+		</Attribute>
+		<Attribute name="ЭлементыСОдиночнымВыборомИзДерева" id="11">
+			<Type/>
+		</Attribute>
+		<Attribute name="КодАвторизацииHeadHunter" id="12">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЭлементыСоСпециальнойФормойРедактированияСписка" id="13">
+			<Type/>
+		</Attribute>
+		<Attribute name="ЭлементыСМножественнымВыборомИзСписка" id="14">
+			<Type/>
+		</Attribute>
+		<Attribute name="ЭлементыСМногострочнымВводом" id="15">
+			<Type/>
+		</Attribute>
+		<Attribute name="ЭлементыСТекстомВHTML" id="16">
+			<Type/>
+		</Attribute>
+		<Attribute name="Обновление" id="17">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИдентификаторВакансии" id="18">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПовторнаяПубликация" id="19">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеСайтов" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные сайтов</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДеревоНастроек</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДеревоНастроек.СтрокаИзменена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДеревоНастроек</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДеревоНастроек.ВакансияВПрограмме</dcsset:left>
+						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:Field">ДеревоНастроек.ПубликацияВакансии</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДеревоНастроек.Путь</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:string">description</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДеревоНастроек</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДеревоНастроек.ВакансияВПрограмме</dcsset:left>
+						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:Field">ДеревоНастроек.ПубликацияВакансии</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДеревоНастроек.Путь</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:string">name</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="Опубликовать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Опубликовать</v8:content>
+				</v8:item>
+			</Title>
+			<Action>Опубликовать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОбновитьПубликацию" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить публикацию</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ОбновитьПубликацию</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

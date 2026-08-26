@@ -1,0 +1,649 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
+	<Group>Vertical</Group>
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Popup name="ПодменюПечать" id="122">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Печать</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Команды печати</v8:content>
+					</v8:item>
+				</ToolTip>
+				<Picture>
+					<xr:Ref>StdPicture.Print</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<Representation>Picture</Representation>
+				<ExtendedTooltip name="ПодменюПечатьРасширеннаяПодсказка" id="123"/>
+			</Popup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ВерхГруппа" id="95">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Верх</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ВерхГруппаРасширеннаяПодсказка" id="96"/>
+			<ChildItems>
+				<UsualGroup name="ОсновноеГруппа" id="97">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основное</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ОсновноеГруппаРасширеннаяПодсказка" id="98"/>
+					<ChildItems>
+						<InputField name="Организация" id="7">
+							<DataPath>Объект.Организация</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="9"/>
+							<Events>
+								<Event name="OnChange">ОрганизацияПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ДатаНомерГруппа" id="93">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата номер</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ДатаНомерГруппаРасширеннаяПодсказка" id="94"/>
+					<ChildItems>
+						<InputField name="Дата" id="4">
+							<DataPath>Объект.Date</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+							<Events>
+								<Event name="OnChange">ДатаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="Номер" id="1">
+							<DataPath>Объект.Number</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ТипОсмотраГруппа" id="102">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип осмотра</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>WeakSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ТипОсмотраГруппаРасширеннаяПодсказка" id="103"/>
+			<ChildItems>
+				<InputField name="ТипОсмотра" id="28">
+					<DataPath>Объект.ТипОсмотра</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>На</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<HorizontalStretch>false</HorizontalStretch>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип осмотра</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="ТипОсмотраКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ТипОсмотраРасширеннаяПодсказка" id="30"/>
+					<Events>
+						<Event name="OnChange">ТипОсмотраПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ВидОсмотра" id="134">
+					<DataPath>Объект.ВидОсмотра</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>25</MaxWidth>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид осмотра</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="ВидОсмотраКонтекстноеМеню" id="135"/>
+					<ExtendedTooltip name="ВидОсмотраРасширеннаяПодсказка" id="136"/>
+					<Events>
+						<Event name="OnChange">ВидОсмотраПриИзменении</Event>
+					</Events>
+				</InputField>
+				<LabelDecoration name="ТипОсмотраПодпись" id="99">
+					<Visible>false</Visible>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>медицинский осмотр</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ТипОсмотраПодписьКонтекстноеМеню" id="100"/>
+					<ExtendedTooltip name="ТипОсмотраПодписьРасширеннаяПодсказка" id="101"/>
+				</LabelDecoration>
+				<InputField name="ДатаОсмотра" id="124">
+					<DataPath>Объект.ДатаОсмотра</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ContextMenu name="ДатаОсмотраКонтекстноеМеню" id="125"/>
+					<ExtendedTooltip name="ДатаОсмотраРасширеннаяПодсказка" id="126"/>
+				</InputField>
+				<InputField name="МедицинскаяОрганизация" id="19">
+					<DataPath>Объект.МедицинскаяОрганизация</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>в</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Медицинская организация</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="МедицинскаяОрганизацияКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="МедицинскаяОрганизацияРасширеннаяПодсказка" id="21"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="НаправляетсяГруппа" id="104">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Направляется</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="НаправляетсяГруппаРасширеннаяПодсказка" id="105"/>
+			<ChildItems>
+				<UsualGroup name="ФизическоеЛицоГруппа" id="106">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Физическое лицо</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ФизическоеЛицоГруппаРасширеннаяПодсказка" id="107"/>
+					<ChildItems>
+						<InputField name="ФизическоеЛицо" id="10">
+							<DataPath>Объект.ФизическоеЛицо</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Направляется</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сотрудник или кандидат, принимаемый на работу</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ФизическоеЛицоКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ФизическоеЛицоРасширеннаяПодсказка" id="12"/>
+							<Events>
+								<Event name="OnChange">ФизическоеЛицоПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ДатаРождения" id="13">
+							<DataPath>Объект.ДатаРождения</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ДатаРожденияКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ДатаРожденияРасширеннаяПодсказка" id="15"/>
+						</InputField>
+						<InputField name="НомерПолисаОМС" id="142">
+							<DataPath>Объект.НомерПолисаОМС</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>12</MaxWidth>
+							<ContextMenu name="НомерПолисаОМСКонтекстноеМеню" id="143"/>
+							<ExtendedTooltip name="НомерПолисаОМСРасширеннаяПодсказка" id="144"/>
+						</InputField>
+						<InputField name="НомерПолисаДМС" id="175">
+							<DataPath>Объект.НомерПолисаДМС</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>12</MaxWidth>
+							<ContextMenu name="НомерПолисаДМСКонтекстноеМеню" id="176"/>
+							<ExtendedTooltip name="НомерПолисаДМСРасширеннаяПодсказка" id="177"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="РабочееМестоГруппа" id="108">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Рабочее место</v8:content>
+						</v8:item>
+					</Title>
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="РабочееМестоГруппаРасширеннаяПодсказка" id="109"/>
+					<ChildItems>
+						<InputField name="РабочееМесто" id="137">
+							<DataPath>Объект.РабочееМесто</DataPath>
+							<ContextMenu name="РабочееМестоКонтекстноеМеню" id="138"/>
+							<ExtendedTooltip name="РабочееМестоРасширеннаяПодсказка" id="139"/>
+							<Events>
+								<Event name="OnChange">РабочееМестоПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ФакторыГруппа" id="114">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вредные (опасные) производственные факторы и виды работ</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Collapsible</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ExtendedTooltip name="ФакторыГруппаРасширеннаяПодсказка" id="115"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаВредныеФакторыИВидыРабот" id="145">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вредные и (или) опасные производственные факторы и виды работ</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>WeakSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВредныеФакторыИВидыРаботРасширеннаяПодсказка" id="146"/>
+					<ChildItems>
+						<Table name="ВредныеФакторыИВидыРабот" id="147">
+							<Representation>List</Representation>
+							<HeightInTableRows>4</HeightInTableRows>
+							<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+							<MaxRowsCount>4</MaxRowsCount>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<Header>false</Header>
+							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ВредныеФакторыИВидыРабот</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вредные факторы и виды работ</v8:content>
+								</v8:item>
+							</Title>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ВредныеФакторыИВидыРаботКонтекстноеМеню" id="148"/>
+							<AutoCommandBar name="ВредныеФакторыИВидыРаботКоманднаяПанель" id="149"/>
+							<ExtendedTooltip name="ВредныеФакторыИВидыРаботРасширеннаяПодсказка" id="150"/>
+							<SearchStringAddition name="ВредныеФакторыИВидыРаботСтрокаПоиска" id="151">
+								<AdditionSource>
+									<Item>ВредныеФакторыИВидыРабот</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ВредныеФакторыИВидыРаботСтрокаПоискаКонтекстноеМеню" id="152"/>
+								<ExtendedTooltip name="ВредныеФакторыИВидыРаботСтрокаПоискаРасширеннаяПодсказка" id="153"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ВредныеФакторыИВидыРаботСостояниеПросмотра" id="154">
+								<AdditionSource>
+									<Item>ВредныеФакторыИВидыРабот</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="ВредныеФакторыИВидыРаботСостояниеПросмотраКонтекстноеМеню" id="155"/>
+								<ExtendedTooltip name="ВредныеФакторыИВидыРаботСостояниеПросмотраРасширеннаяПодсказка" id="156"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ВредныеФакторыИВидыРаботУправлениеПоиском" id="157">
+								<AdditionSource>
+									<Item>ВредныеФакторыИВидыРабот</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ВредныеФакторыИВидыРаботУправлениеПоискомКонтекстноеМеню" id="158"/>
+								<ExtendedTooltip name="ВредныеФакторыИВидыРаботУправлениеПоискомРасширеннаяПодсказка" id="159"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="AfterDeleteRow">ВредныеФакторыИВидыРаботПослеУдаления</Event>
+								<Event name="OnChange">ВредныеФакторыИВидыРаботПриИзменении</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="ВредныеФакторыИВидыРаботВредныйФактор" id="166">
+									<DataPath>Объект.ВредныеФакторыИВидыРабот.ВредныйФактор</DataPath>
+									<ContextMenu name="ВредныеФакторыИВидыРаботВредныйФакторКонтекстноеМеню" id="167"/>
+									<ExtendedTooltip name="ВредныеФакторыИВидыРаботВредныйФакторРасширеннаяПодсказка" id="168"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаВредныеФакторыИВидыРаботСтарые" id="169">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Недействительные вредные факторы и виды работ по приказу №302н</v8:content>
+						</v8:item>
+					</Title>
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Collapsible</Behavior>
+					<Collapsed>true</Collapsed>
+					<Representation>None</Representation>
+					<ExtendedTooltip name="ГруппаВредныеФакторыИВидыРаботСтарыеРасширеннаяПодсказка" id="170"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаВредныеФакторы" id="51">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вредные и (или) опасные производственные факторы</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>WeakSeparation</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаВредныеФакторыРасширеннаяПодсказка" id="52"/>
+							<ChildItems>
+								<Table name="ВредныеФакторы" id="53">
+									<Representation>List</Representation>
+									<TitleLocation>Top</TitleLocation>
+									<HeightInTableRows>4</HeightInTableRows>
+									<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+									<MaxRowsCount>4</MaxRowsCount>
+									<RowSelectionMode>Cell</RowSelectionMode>
+									<Header>false</Header>
+									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Объект.ВредныеФакторы</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Вредные факторы</v8:content>
+										</v8:item>
+									</Title>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ВредныеФакторыКонтекстноеМеню" id="54"/>
+									<AutoCommandBar name="ВредныеФакторыКоманднаяПанель" id="55"/>
+									<ExtendedTooltip name="ВредныеФакторыРасширеннаяПодсказка" id="56"/>
+									<SearchStringAddition name="ВредныеФакторыСтрокаПоиска" id="57">
+										<AdditionSource>
+											<Item>ВредныеФакторы</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ВредныеФакторыСтрокаПоискаКонтекстноеМеню" id="58"/>
+										<ExtendedTooltip name="ВредныеФакторыСтрокаПоискаРасширеннаяПодсказка" id="59"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ВредныеФакторыСостояниеПросмотра" id="60">
+										<AdditionSource>
+											<Item>ВредныеФакторы</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<HorizontalLocation>Left</HorizontalLocation>
+										<ContextMenu name="ВредныеФакторыСостояниеПросмотраКонтекстноеМеню" id="61"/>
+										<ExtendedTooltip name="ВредныеФакторыСостояниеПросмотраРасширеннаяПодсказка" id="62"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ВредныеФакторыУправлениеПоиском" id="63">
+										<AdditionSource>
+											<Item>ВредныеФакторы</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ВредныеФакторыУправлениеПоискомКонтекстноеМеню" id="64"/>
+										<ExtendedTooltip name="ВредныеФакторыУправлениеПоискомРасширеннаяПодсказка" id="65"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="AfterDeleteRow">ВредныеФакторыПослеУдаления</Event>
+										<Event name="OnChange">ВредныеФакторыПриИзменении</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="ВредныеФакторыВредныйФактор" id="69">
+											<DataPath>Объект.ВредныеФакторы.ВредныйФактор</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<ContextMenu name="ВредныеФакторыВредныйФакторКонтекстноеМеню" id="70"/>
+											<ExtendedTooltip name="ВредныеФакторыВредныйФакторРасширеннаяПодсказка" id="71"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаВидыРабот" id="72">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Виды работ</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>WeakSeparation</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаВидыРаботРасширеннаяПодсказка" id="73"/>
+							<ChildItems>
+								<Table name="ВидыРабот" id="74">
+									<Representation>List</Representation>
+									<TitleLocation>Top</TitleLocation>
+									<HeightInTableRows>4</HeightInTableRows>
+									<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+									<RowSelectionMode>Cell</RowSelectionMode>
+									<Header>false</Header>
+									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Объект.ВидыРабот</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Виды работ</v8:content>
+										</v8:item>
+									</Title>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ВидыРаботКонтекстноеМеню" id="75"/>
+									<AutoCommandBar name="ВидыРаботКоманднаяПанель" id="76"/>
+									<ExtendedTooltip name="ВидыРаботРасширеннаяПодсказка" id="77"/>
+									<SearchStringAddition name="ВидыРаботСтрокаПоиска" id="78">
+										<AdditionSource>
+											<Item>ВидыРабот</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ВидыРаботСтрокаПоискаКонтекстноеМеню" id="79"/>
+										<ExtendedTooltip name="ВидыРаботСтрокаПоискаРасширеннаяПодсказка" id="80"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ВидыРаботСостояниеПросмотра" id="81">
+										<AdditionSource>
+											<Item>ВидыРабот</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<HorizontalLocation>Left</HorizontalLocation>
+										<ContextMenu name="ВидыРаботСостояниеПросмотраКонтекстноеМеню" id="82"/>
+										<ExtendedTooltip name="ВидыРаботСостояниеПросмотраРасширеннаяПодсказка" id="83"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ВидыРаботУправлениеПоиском" id="84">
+										<AdditionSource>
+											<Item>ВидыРабот</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ВидыРаботУправлениеПоискомКонтекстноеМеню" id="85"/>
+										<ExtendedTooltip name="ВидыРаботУправлениеПоискомРасширеннаяПодсказка" id="86"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="AfterDeleteRow">ВидыРаботПослеУдаления</Event>
+										<Event name="OnChange">ВидыРаботПриИзменении</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="ВидыРаботВидРабот" id="90">
+											<DataPath>Объект.ВидыРабот.ВидРабот</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<ContextMenu name="ВидыРаботВидРаботКонтекстноеМеню" id="91"/>
+											<ExtendedTooltip name="ВидыРаботВидРаботРасширеннаяПодсказка" id="92"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаДополнительныеРеквизиты" id="127">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<Group>HorizontalIfPossible</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДополнительныеРеквизитыРасширеннаяПодсказка" id="128"/>
+		</UsualGroup>
+		<UsualGroup name="ПодписиГруппа" id="129">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подписи</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Collapsible</Behavior>
+			<Collapsed>true</Collapsed>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ПодписиГруппаРасширеннаяПодсказка" id="130"/>
+		</UsualGroup>
+		<UsualGroup name="ОтветственныйКомментарийГруппа" id="112">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ответственный и комментарий</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ОтветственныйКомментарийГруппаРасширеннаяПодсказка" id="113"/>
+			<ChildItems>
+				<InputField name="Комментарий" id="46">
+					<DataPath>Объект.Комментарий</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ChoiceButton>true</ChoiceButton>
+					<ContextMenu name="КомментарийКонтекстноеМеню" id="47"/>
+					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="48"/>
+					<Events>
+						<Event name="StartChoice">КомментарийНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<InputField name="Ответственный" id="43">
+					<DataPath>Объект.Ответственный</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="45"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.НаправлениеНаМедицинскийОсмотр</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="ПараметрыПодключаемыхКоманд" id="2">
+			<Type/>
+		</Attribute>
+	</Attributes>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>CommonCommand.ПрисоединенныеФайлы</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

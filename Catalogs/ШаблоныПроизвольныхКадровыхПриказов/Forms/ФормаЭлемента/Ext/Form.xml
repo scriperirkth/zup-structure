@@ -1,0 +1,618 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
+	<Group>Vertical</Group>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаПечатныеФормы" id="109">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПечатныеФормы</CommandName>
+				<ExtendedTooltip name="ФормаПечатныеФормыРасширеннаяПодсказка" id="110"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНаименование" id="153">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеРасширеннаяПодсказка" id="154"/>
+			<ChildItems>
+				<InputField name="Наименование" id="4">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<CheckBoxField name="ВАрхиве" id="129">
+					<DataPath>Объект.ВАрхиве</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шаблон не используется</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<ContextMenu name="ВАрхивеКонтекстноеМеню" id="130"/>
+					<ExtendedTooltip name="ВАрхивеРасширеннаяПодсказка" id="131"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Родитель" id="7">
+			<DataPath>Объект.Parent</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<ContextMenu name="РодительКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<CheckBoxField name="ПоказыватьПодразделение" id="147">
+			<DataPath>Объект.ПоказыватьПодразделение</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<ContextMenu name="ПоказыватьПодразделениеКонтекстноеМеню" id="148"/>
+			<ExtendedTooltip name="ПоказыватьПодразделениеExtendedTooltip" id="149"/>
+			<Events>
+				<Event name="OnChange">ПоказыватьПодразделениеПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
+		<CheckBoxField name="ПроверятьЗаполнениеПодразделения" id="150">
+			<DataPath>Объект.ПроверятьЗаполнениеПодразделения</DataPath>
+			<Enabled>false</Enabled>
+			<TitleLocation>Right</TitleLocation>
+			<ContextMenu name="ПроверятьЗаполнениеПодразделенияКонтекстноеМеню" id="151"/>
+			<ExtendedTooltip name="ПроверятьЗаполнениеПодразделенияExtendedTooltip" id="152"/>
+		</CheckBoxField>
+		<UsualGroup name="ГруппаРеквизиты" id="155">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРеквизитыРасширеннаяПодсказка" id="156"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаРеквизитыДокумента" id="30">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поля документа</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>WeakSeparation</Representation>
+					<ExtendedTooltip name="ГруппаРеквизитыДокументаРасширеннаяПодсказка" id="31"/>
+					<ChildItems>
+						<Table name="РеквизитыДокумента" id="32">
+							<Representation>List</Representation>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>РеквизитыДокумента</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Реквизиты документа</v8:content>
+								</v8:item>
+							</Title>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="РеквизитыДокументаКонтекстноеМеню" id="33"/>
+							<AutoCommandBar name="РеквизитыДокументаКоманднаяПанель" id="34">
+								<ChildItems>
+									<Button name="РеквизитыДокументаПереместитьВверх" id="134">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.РеквизитыДокумента.StandardCommand.MoveUp</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="РеквизитыДокументаПереместитьВверхРасширеннаяПодсказка" id="135"/>
+									</Button>
+									<Button name="РеквизитыДокументаПереместитьВниз" id="136">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.РеквизитыДокумента.StandardCommand.MoveDown</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="РеквизитыДокументаПереместитьВнизРасширеннаяПодсказка" id="137"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="РеквизитыДокументаРасширеннаяПодсказка" id="35"/>
+							<SearchStringAddition name="РеквизитыДокументаСтрокаПоиска" id="36">
+								<AdditionSource>
+									<Item>РеквизитыДокумента</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РеквизитыДокументаСтрокаПоискаКонтекстноеМеню" id="37"/>
+								<ExtendedTooltip name="РеквизитыДокументаСтрокаПоискаРасширеннаяПодсказка" id="38"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РеквизитыДокументаСостояниеПросмотра" id="39">
+								<AdditionSource>
+									<Item>РеквизитыДокумента</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РеквизитыДокументаСостояниеПросмотраКонтекстноеМеню" id="40"/>
+								<ExtendedTooltip name="РеквизитыДокументаСостояниеПросмотраРасширеннаяПодсказка" id="41"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РеквизитыДокументаУправлениеПоиском" id="42">
+								<AdditionSource>
+									<Item>РеквизитыДокумента</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РеквизитыДокументаУправлениеПоискомКонтекстноеМеню" id="43"/>
+								<ExtendedTooltip name="РеквизитыДокументаУправлениеПоискомРасширеннаяПодсказка" id="44"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">РеквизитыДокументаПередНачаломДобавления</Event>
+								<Event name="BeforeDeleteRow">РеквизитыДокументаПередУдалением</Event>
+								<Event name="OnActivateField">РеквизитыДокументаПриАктивизацииПоля</Event>
+								<Event name="BeforeRowChange">РеквизитыДокументаПередНачаломИзменения</Event>
+								<Event name="OnStartEdit">РеквизитыДокументаПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="РеквизитыДокументаНаименование" id="111">
+									<DataPath>РеквизитыДокумента.Наименование</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="РеквизитыДокументаНаименованиеКонтекстноеМеню" id="112"/>
+									<ExtendedTooltip name="РеквизитыДокументаНаименованиеРасширеннаяПодсказка" id="113"/>
+								</InputField>
+								<InputField name="РеквизитыДокументаТипЗначения" id="114">
+									<DataPath>РеквизитыДокумента.ТипЗначения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="РеквизитыДокументаТипЗначенияКонтекстноеМеню" id="115"/>
+									<ExtendedTooltip name="РеквизитыДокументаТипЗначенияРасширеннаяПодсказка" id="116"/>
+								</InputField>
+								<CheckBoxField name="РеквизитыДокументаОбязательноДляЗаполнения" id="117">
+									<DataPath>РеквизитыДокумента.ОбязательноДляЗаполнения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="РеквизитыДокументаОбязательноДляЗаполненияКонтекстноеМеню" id="118"/>
+									<ExtendedTooltip name="РеквизитыДокументаОбязательноДляЗаполненияРасширеннаяПодсказка" id="119"/>
+								</CheckBoxField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитыСпискаСотрудников" id="57">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реквизиты списка сотрудников</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>WeakSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитыСпискаСотрудниковРасширеннаяПодсказка" id="58"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаНесколькоСотрудников" id="145">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Приказ оформляется:</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>WeakSeparation</Representation>
+							<ExtendedTooltip name="ГруппаНесколькоСотрудниковРасширеннаяПодсказка" id="146"/>
+							<ChildItems>
+								<RadioButtonField name="НесколькоСотрудников" id="142">
+									<DataPath>НесколькоСотрудников</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<RadioButtonType>Auto</RadioButtonType>
+									<ColumnsCount>1</ColumnsCount>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>на каждого сотрудника в отдельности</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">0</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>один на несколько сотрудников</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">1</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="НесколькоСотрудниковКонтекстноеМеню" id="143"/>
+									<ExtendedTooltip name="НесколькоСотрудниковРасширеннаяПодсказка" id="144"/>
+									<Events>
+										<Event name="OnChange">НесколькоСотрудниковПриИзменении</Event>
+									</Events>
+								</RadioButtonField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаТаблицаРеквизитыСпискаСотрудников" id="157">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Поля списка сотрудников</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаТаблицаРеквизитыСпискаСотрудниковРасширеннаяПодсказка" id="158"/>
+							<ChildItems>
+								<Table name="РеквизитыСпискаСотрудников" id="59">
+									<Representation>List</Representation>
+									<RowSelectionMode>Cell</RowSelectionMode>
+									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>РеквизитыСпискаСотрудников</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Реквизиты списка сотрудников</v8:content>
+										</v8:item>
+									</Title>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="РеквизитыСпискаСотрудниковКонтекстноеМеню" id="60"/>
+									<AutoCommandBar name="РеквизитыСпискаСотрудниковКоманднаяПанель" id="61">
+										<ChildItems>
+											<Button name="РеквизитыСпискаСотрудниковПереместитьВверх" id="138">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.РеквизитыСпискаСотрудников.StandardCommand.MoveUp</CommandName>
+												<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+												<ExtendedTooltip name="РеквизитыСпискаСотрудниковПереместитьВверхРасширеннаяПодсказка" id="139"/>
+											</Button>
+											<Button name="РеквизитыСпискаСотрудниковПереместитьВниз" id="140">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.РеквизитыСпискаСотрудников.StandardCommand.MoveDown</CommandName>
+												<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+												<ExtendedTooltip name="РеквизитыСпискаСотрудниковПереместитьВнизРасширеннаяПодсказка" id="141"/>
+											</Button>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="РеквизитыСпискаСотрудниковРасширеннаяПодсказка" id="62"/>
+									<SearchStringAddition name="РеквизитыСпискаСотрудниковСтрокаПоиска" id="63">
+										<AdditionSource>
+											<Item>РеквизитыСпискаСотрудников</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="РеквизитыСпискаСотрудниковСтрокаПоискаКонтекстноеМеню" id="64"/>
+										<ExtendedTooltip name="РеквизитыСпискаСотрудниковСтрокаПоискаРасширеннаяПодсказка" id="65"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="РеквизитыСпискаСотрудниковСостояниеПросмотра" id="66">
+										<AdditionSource>
+											<Item>РеквизитыСпискаСотрудников</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="РеквизитыСпискаСотрудниковСостояниеПросмотраКонтекстноеМеню" id="67"/>
+										<ExtendedTooltip name="РеквизитыСпискаСотрудниковСостояниеПросмотраРасширеннаяПодсказка" id="68"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="РеквизитыСпискаСотрудниковУправлениеПоиском" id="69">
+										<AdditionSource>
+											<Item>РеквизитыСпискаСотрудников</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="РеквизитыСпискаСотрудниковУправлениеПоискомКонтекстноеМеню" id="70"/>
+										<ExtendedTooltip name="РеквизитыСпискаСотрудниковУправлениеПоискомРасширеннаяПодсказка" id="71"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="BeforeAddRow">РеквизитыСпискаСотрудниковПередНачаломДобавления</Event>
+										<Event name="BeforeDeleteRow">РеквизитыСпискаСотрудниковПередУдалением</Event>
+										<Event name="OnActivateField">РеквизитыСпискаСотрудниковПриАктивизацииПоля</Event>
+										<Event name="BeforeRowChange">РеквизитыСпискаСотрудниковПередНачаломИзменения</Event>
+										<Event name="OnStartEdit">РеквизитыСпискаСотрудниковПриНачалеРедактирования</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="РеквизитыСпискаСотрудниковНаименование" id="120">
+											<DataPath>РеквизитыСпискаСотрудников.Наименование</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<ContextMenu name="РеквизитыСпискаСотрудниковНаименованиеКонтекстноеМеню" id="121"/>
+											<ExtendedTooltip name="РеквизитыСпискаСотрудниковНаименованиеРасширеннаяПодсказка" id="122"/>
+										</InputField>
+										<InputField name="РеквизитыСпискаСотрудниковТипЗначения" id="123">
+											<DataPath>РеквизитыСпискаСотрудников.ТипЗначения</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<ContextMenu name="РеквизитыСпискаСотрудниковТипЗначенияКонтекстноеМеню" id="124"/>
+											<ExtendedTooltip name="РеквизитыСпискаСотрудниковТипЗначенияРасширеннаяПодсказка" id="125"/>
+										</InputField>
+										<CheckBoxField name="РеквизитыСпискаСотрудниковОбязательноДляЗаполнения" id="126">
+											<DataPath>РеквизитыСпискаСотрудников.ОбязательноДляЗаполнения</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<ContextMenu name="РеквизитыСпискаСотрудниковОбязательноДляЗаполненияКонтекстноеМеню" id="127"/>
+											<ExtendedTooltip name="РеквизитыСпискаСотрудниковОбязательноДляЗаполненияРасширеннаяПодсказка" id="128"/>
+										</CheckBoxField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Подписанты" id="107">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подписывает:</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>WeakSeparation</Representation>
+			<ExtendedTooltip name="ПодписантыРасширеннаяПодсказка" id="108"/>
+			<ChildItems>
+				<CheckBoxField name="ПодписываетРуководитель" id="13">
+					<DataPath>Объект.ПодписываетРуководитель</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Руководитель</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ПодписываетРуководительКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ПодписываетРуководительРасширеннаяПодсказка" id="15"/>
+				</CheckBoxField>
+				<CheckBoxField name="ПодписываетГлавныйБухгалтер" id="16">
+					<DataPath>Объект.ПодписываетГлавныйБухгалтер</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Главный бухгалтер</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ПодписываетГлавныйБухгалтерКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ПодписываетГлавныйБухгалтерРасширеннаяПодсказка" id="18"/>
+				</CheckBoxField>
+				<CheckBoxField name="ПодписываетКассир" id="19">
+					<DataPath>Объект.ПодписываетКассир</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Кассир</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ПодписываетКассирКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ПодписываетКассирРасширеннаяПодсказка" id="21"/>
+				</CheckBoxField>
+				<CheckBoxField name="ПодписываетРуководительКадровойСлужбы" id="22">
+					<DataPath>Объект.ПодписываетРуководительКадровойСлужбы</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Рук. кадр. службы</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ПодписываетРуководительКадровойСлужбыКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ПодписываетРуководительКадровойСлужбыРасширеннаяПодсказка" id="24"/>
+				</CheckBoxField>
+				<CheckBoxField name="ПодписываетБухгалтер" id="25">
+					<DataPath>Объект.ПодписываетБухгалтер</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Бухгалтер</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ПодписываетБухгалтерКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ПодписываетБухгалтерРасширеннаяПодсказка" id="27"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ШаблоныПроизвольныхКадровыхПриказов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="РеквизитыДокумента" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Наименование" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>150</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТипЗначения" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип значения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:TypeDescription</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ОбязательноДляЗаполнения" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обязательно для заполнения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Ссылка" id="4">
+					<Type>
+						<v8:Type>cfg:ChartOfCharacteristicTypesRef.РеквизитыПроизвольныхКадровыхПриказов</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="РеквизитыСпискаСотрудников" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты списка сотрудников</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Наименование" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>150</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТипЗначения" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип значения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:TypeDescription</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ОбязательноДляЗаполнения" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обязательно для заполнения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Ссылка" id="4">
+					<Type>
+						<v8:Type>cfg:ChartOfCharacteristicTypesRef.РеквизитыПроизвольныхКадровыхПриказов</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="УдаленныеРеквизиты" id="5">
+			<Type/>
+		</Attribute>
+		<Attribute name="НесколькоСотрудников" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Несколько сотрудников</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ПечатныеФормы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печатные формы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печатные формы шаблона</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Print</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПечатныеФормы</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

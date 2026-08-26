@@ -1,0 +1,1408 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
+	<Group>Vertical</Group>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ВерхГруппа" id="82">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Верх</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ВерхГруппаРасширеннаяПодсказка" id="83"/>
+			<ChildItems>
+				<UsualGroup name="ЛевоГруппа" id="84">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Лево</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ЛевоГруппаРасширеннаяПодсказка" id="85"/>
+					<ChildItems>
+						<InputField name="Организация" id="38">
+							<DataPath>Организация</DataPath>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ChoiceParameters>
+								<app:item name="ЭтоОхранаТруда">
+									<app:value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xs:boolean">true</Value>
+									</app:value>
+								</app:item>
+								<app:item name="ЭтоМедосмотры">
+									<app:value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xs:boolean">true</Value>
+									</app:value>
+								</app:item>
+							</ChoiceParameters>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="40"/>
+							<Events>
+								<Event name="OnChange">ОрганизацияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="Подразделение" id="47">
+							<DataPath>Подразделение</DataPath>
+							<ClearButton>true</ClearButton>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>Отбор.Владелец</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Организация</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
+							<ContextMenu name="ПодразделениеКонтекстноеМеню" id="48"/>
+							<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="49"/>
+							<Events>
+								<Event name="OnChange">ПодразделениеПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ПравоГруппа" id="86">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Право</v8:content>
+						</v8:item>
+					</Title>
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ПравоГруппаРасширеннаяПодсказка" id="87"/>
+					<ChildItems>
+						<UsualGroup name="ОбновлениеДанныхГруппа" id="162">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обновление данных</v8:content>
+								</v8:item>
+							</Title>
+							<Group>HorizontalIfPossible</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ОбновлениеДанныхГруппаРасширеннаяПодсказка" id="163"/>
+							<ChildItems>
+								<PictureDecoration name="ОбновлениеДанныхКартинка" id="167">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Обновление данных картинка</v8:content>
+										</v8:item>
+									</Title>
+									<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+									<GroupVerticalAlign>Center</GroupVerticalAlign>
+									<Picture>
+										<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="ОбновлениеДанныхКартинкаКонтекстноеМеню" id="168"/>
+									<ExtendedTooltip name="ОбновлениеДанныхКартинкаРасширеннаяПодсказка" id="169"/>
+								</PictureDecoration>
+								<LabelDecoration name="ОбновлениеДанныхНадпись" id="164">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="true">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сведения о периодических осмотрах не актуальны. &lt;link ОбновитьПериодическиеОсмотры&gt;Обновить&lt;/&gt;</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ОбновлениеДанныхНадписьКонтекстноеМеню" id="165"/>
+									<ExtendedTooltip name="ОбновлениеДанныхНадписьРасширеннаяПодсказка" id="166"/>
+									<Events>
+										<Event name="URLProcessing">ОбновлениеДанныхНадписьОбработкаНавигационнойСсылки</Event>
+									</Events>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<CommandBar name="КомандыФормыГруппа" id="88">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Команды формы</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSource>Form</CommandSource>
+							<ExtendedTooltip name="КомандыФормыГруппаРасширеннаяПодсказка" id="89"/>
+						</CommandBar>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="СтраницыГруппа" id="90">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыГруппаРасширеннаяПодсказка" id="91"/>
+			<ChildItems>
+				<Page name="СотрудникиСтраница" id="94">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сотрудники</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="СотрудникиСтраницаРасширеннаяПодсказка" id="95"/>
+					<ChildItems>
+						<UsualGroup name="ПояснениеИспользованияГруппа" id="170">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пояснение использования</v8:content>
+								</v8:item>
+							</Title>
+							<Group>HorizontalIfPossible</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ПояснениеИспользованияГруппаРасширеннаяПодсказка" id="171"/>
+							<ChildItems>
+								<PictureDecoration name="ПояснениеИспользованияКартинка" id="172">
+									<Picture>
+										<xr:Ref>CommonPicture.Информация32</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="ПояснениеИспользованияКартинкаКонтекстноеМеню" id="173"/>
+									<ExtendedTooltip name="ПояснениеИспользованияКартинкаРасширеннаяПодсказка" id="174"/>
+								</PictureDecoration>
+								<LabelDecoration name="ПояснениеИспользованияНадпись" id="175">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="true">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Для выбранной организации не обнаружено &lt;link e1cib/list/Справочник.РабочиеМестаОхраныТруда&gt;рабочих мест&lt;/&gt; с заполненным перечнем вредных (опасных) производственных факторов или видов работ, выполнение которых требует прохождения обязательных медицинских осмотров.
+Заполнить перечень вредных факторов для рабочих мест можно на странице «Рабочие места».</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПояснениеИспользованияНадписьКонтекстноеМеню" id="176"/>
+									<ExtendedTooltip name="ПояснениеИспользованияНадписьРасширеннаяПодсказка" id="177"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<CheckBoxField name="ПоказыватьТолькоБлижайшиеОсмотры" id="191">
+							<DataPath>ПоказыватьТолькоБлижайшиеОсмотры</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Показывать только осмотры, которые необходимо пройти в течение ближайшего месяца</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ContextMenu name="ПоказыватьТолькоБлижайшиеОсмотрыКонтекстноеМеню" id="192"/>
+							<ExtendedTooltip name="ПоказыватьТолькоБлижайшиеОсмотрыРасширеннаяПодсказка" id="193"/>
+							<Events>
+								<Event name="OnChange">ПоказыватьТолькоБлижайшиеОсмотрыПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="ПользовательскиеНастройкиПериодическихОсмотровГруппа" id="189">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пользовательские настройки периодических осмотров</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ПользовательскиеНастройкиПериодическихОсмотровГруппаРасширеннаяПодсказка" id="190"/>
+						</UsualGroup>
+						<Table name="ПериодическиеОсмотры" id="1">
+							<Representation>List</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<HeightInTableRows>8</HeightInTableRows>
+							<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ПериодическиеОсмотры</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Периодические осмотры</v8:content>
+								</v8:item>
+							</Title>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<UserSettingsGroup>ПользовательскиеНастройкиПериодическихОсмотровГруппа</UserSettingsGroup>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="ПериодическиеОсмотрыКонтекстноеМеню" id="2"/>
+							<AutoCommandBar name="ПериодическиеОсмотрыКоманднаяПанель" id="3">
+								<ChildItems>
+									<Button name="ОсмотрыСформироватьНаправления" id="158">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СформироватьНаправления</CommandName>
+										<ExtendedTooltip name="ОсмотрыСформироватьНаправленияРасширеннаяПодсказка" id="159"/>
+									</Button>
+									<Button name="ОсмотрыВвестиЗаключения" id="160">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ВвестиЗаключения</CommandName>
+										<ExtendedTooltip name="ОсмотрыВвестиЗаключенияРасширеннаяПодсказка" id="161"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПериодическиеОсмотрыРасширеннаяПодсказка" id="4"/>
+							<SearchStringAddition name="ПериодическиеОсмотрыСтрокаПоиска" id="5">
+								<AdditionSource>
+									<Item>ПериодическиеОсмотры</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПериодическиеОсмотрыСтрокаПоискаКонтекстноеМеню" id="6"/>
+								<ExtendedTooltip name="ПериодическиеОсмотрыСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПериодическиеОсмотрыСостояниеПросмотра" id="8">
+								<AdditionSource>
+									<Item>ПериодическиеОсмотры</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="ПериодическиеОсмотрыСостояниеПросмотраКонтекстноеМеню" id="9"/>
+								<ExtendedTooltip name="ПериодическиеОсмотрыСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПериодическиеОсмотрыУправлениеПоиском" id="11">
+								<AdditionSource>
+									<Item>ПериодическиеОсмотры</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПериодическиеОсмотрыУправлениеПоискомКонтекстноеМеню" id="12"/>
+								<ExtendedTooltip name="ПериодическиеОсмотрыУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ПериодическиеОсмотрыВыбор</Event>
+								<Event name="OnGetDataAtServer">ПериодическиеОсмотрыПриПолученииДанныхНаСервере</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="ФизическоеЛицо" id="155">
+									<DataPath>ПериодическиеОсмотры.ФизическоеЛицо</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сотрудник</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ФизическоеЛицоКонтекстноеМеню" id="156"/>
+									<ExtendedTooltip name="ФизическоеЛицоРасширеннаяПодсказка" id="157"/>
+								</LabelField>
+								<InputField name="РабочееМесто" id="194">
+									<DataPath>ПериодическиеОсмотры.РабочееМесто</DataPath>
+									<ContextMenu name="РабочееМестоКонтекстноеМеню" id="195"/>
+									<ExtendedTooltip name="РабочееМестоРасширеннаяПодсказка" id="196"/>
+								</InputField>
+								<LabelField name="ДатаПройденногоОсмотра" id="134">
+									<DataPath>ПериодическиеОсмотры.ДатаПройденногоОсмотра</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Последний осмотр</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата последнего пройденного осмотра, освидетельствующего требуемый набор вредных факторов и видов работ текущей позиции</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ContextMenu name="ДатаПройденногоОсмотраКонтекстноеМеню" id="135"/>
+									<ExtendedTooltip name="ДатаПройденногоОсмотраРасширеннаяПодсказка" id="136"/>
+								</LabelField>
+								<LabelField name="ДатаСледующегоОсмотра" id="137">
+									<DataPath>ПериодическиеОсмотры.ДатаСледующегоОсмотра</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Следующий осмотр</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата, не позднее которой сотрудник обязан пройти следующий медицинский осмотр</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ContextMenu name="ДатаСледующегоОсмотраКонтекстноеМеню" id="138"/>
+									<ExtendedTooltip name="ДатаСледующегоОсмотраРасширеннаяПодсказка" id="139"/>
+								</LabelField>
+								<LabelField name="Направление" id="143">
+									<DataPath>ПериодическиеОсмотры.Направление</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Направление</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="НаправлениеКонтекстноеМеню" id="144"/>
+									<ExtendedTooltip name="НаправлениеРасширеннаяПодсказка" id="145"/>
+								</LabelField>
+								<LabelField name="Заключение" id="140">
+									<DataPath>ПериодическиеОсмотры.Заключение</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Заключение</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ЗаключениеКонтекстноеМеню" id="141"/>
+									<ExtendedTooltip name="ЗаключениеРасширеннаяПодсказка" id="142"/>
+								</LabelField>
+								<ColumnGroup name="СостояниеОсмотраГруппаКолонок" id="187">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Состояние осмотра</v8:content>
+										</v8:item>
+									</Title>
+									<Group>InCell</Group>
+									<ExtendedTooltip name="СостояниеОсмотраГруппаКолонокРасширеннаяПодсказка" id="188"/>
+									<ChildItems>
+										<PictureField name="ПредупреждениеКартинка" id="181">
+											<DataPath>ПериодическиеОсмотры.ПредупреждениеКартинка</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Предупреждение картинка</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<ValuesPicture>
+												<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</ValuesPicture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="ПредупреждениеКартинкаКонтекстноеМеню" id="182"/>
+											<ExtendedTooltip name="ПредупреждениеКартинкаРасширеннаяПодсказка" id="183"/>
+										</PictureField>
+										<InputField name="СостояниеОсмотра" id="184">
+											<DataPath>ПериодическиеОсмотры.СостояниеОсмотра</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Состояние осмотра</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="СостояниеОсмотраКонтекстноеМеню" id="185"/>
+											<ExtendedTooltip name="СостояниеОсмотраРасширеннаяПодсказка" id="186"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<LabelField name="РезультатОсмотра" id="152">
+									<DataPath>ПериодическиеОсмотры.РезультатОсмотра</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Результат осмотра</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="РезультатОсмотраКонтекстноеМеню" id="153"/>
+									<ExtendedTooltip name="РезультатОсмотраРасширеннаяПодсказка" id="154"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="РабочиеМестаСтраница" id="92">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Рабочие места</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="РабочиеМестаСтраницаРасширеннаяПодсказка" id="93"/>
+					<ChildItems>
+						<UsualGroup name="ПользовательскиеНастройкиРабочихМестГруппа" id="127">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пользовательские настройки рабочих мест</v8:content>
+								</v8:item>
+							</Title>
+							<Group>HorizontalIfPossible</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ПользовательскиеНастройкиРабочихМестГруппаРасширеннаяПодсказка" id="128"/>
+						</UsualGroup>
+						<Table name="РабочиеМеста" id="96">
+							<Representation>List</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<HeightInTableRows>8</HeightInTableRows>
+							<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>РабочиеМеста</DataPath>
+							<RowPictureDataPath>РабочиеМеста.DefaultPicture</RowPictureDataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Рабочие места</v8:content>
+								</v8:item>
+							</Title>
+							<SearchStringLocation>None</SearchStringLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="РабочиеМестаКонтекстноеМеню" id="97"/>
+							<AutoCommandBar name="РабочиеМестаКоманднаяПанель" id="98"/>
+							<ExtendedTooltip name="РабочиеМестаРасширеннаяПодсказка" id="99"/>
+							<SearchStringAddition name="РабочиеМестаСтрокаПоиска" id="100">
+								<AdditionSource>
+									<Item>РабочиеМеста</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РабочиеМестаСтрокаПоискаКонтекстноеМеню" id="101"/>
+								<ExtendedTooltip name="РабочиеМестаСтрокаПоискаРасширеннаяПодсказка" id="102"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РабочиеМестаСостояниеПросмотра" id="103">
+								<AdditionSource>
+									<Item>РабочиеМеста</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="РабочиеМестаСостояниеПросмотраКонтекстноеМеню" id="104"/>
+								<ExtendedTooltip name="РабочиеМестаСостояниеПросмотраРасширеннаяПодсказка" id="105"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РабочиеМестаУправлениеПоиском" id="106">
+								<AdditionSource>
+									<Item>РабочиеМеста</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РабочиеМестаУправлениеПоискомКонтекстноеМеню" id="107"/>
+								<ExtendedTooltip name="РабочиеМестаУправлениеПоискомРасширеннаяПодсказка" id="108"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">РабочиеМестаВыбор</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="РабочиеМестаНаименование" id="109">
+									<DataPath>РабочиеМеста.Наименование</DataPath>
+									<ContextMenu name="РабочиеМестаНаименованиеКонтекстноеМеню" id="110"/>
+									<ExtendedTooltip name="РабочиеМестаНаименованиеРасширеннаяПодсказка" id="111"/>
+								</LabelField>
+								<InputField name="РабочиеМестаВредныеФакторыПредставление" id="124">
+									<DataPath>РабочиеМеста.ВредныеФакторыПредставление</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Вредные факторы</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="РабочиеМестаВредныеФакторыПредставлениеКонтекстноеМеню" id="125"/>
+									<ExtendedTooltip name="РабочиеМестаВредныеФакторыПредставлениеРасширеннаяПодсказка" id="126"/>
+								</InputField>
+								<InputField name="РабочиеМестаВидыРаботПредставление" id="121">
+									<DataPath>РабочиеМеста.ВидыРаботПредставление</DataPath>
+									<Visible>false</Visible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Виды работ</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="РабочиеМестаВидыРаботПредставлениеКонтекстноеМеню" id="122"/>
+									<ExtendedTooltip name="РабочиеМестаВидыРаботПредставлениеРасширеннаяПодсказка" id="123"/>
+								</InputField>
+								<LabelField name="РабочиеМестаПредставлениеПериодичностиОсмотра" id="178">
+									<DataPath>РабочиеМеста.ПредставлениеПериодичностиОсмотра</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Периодичность осмотров</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Периодичность, не реже которой сотрудники на этой позиции обязаны проходить периодические медицинские осмотры</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ContextMenu name="РабочиеМестаПредставлениеПериодичностиОсмотраКонтекстноеМеню" id="179"/>
+									<ExtendedTooltip name="РабочиеМестаПредставлениеПериодичностиОсмотраРасширеннаяПодсказка" id="180"/>
+								</LabelField>
+								<LabelField name="РабочиеМестаПодразделение" id="118">
+									<DataPath>РабочиеМеста.Подразделение</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="РабочиеМестаПодразделениеКонтекстноеМеню" id="119"/>
+									<ExtendedTooltip name="РабочиеМестаПодразделениеРасширеннаяПодсказка" id="120"/>
+								</LabelField>
+								<LabelField name="РабочиеМестаДолжность" id="115">
+									<DataPath>РабочиеМеста.Должность</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="РабочиеМестаДолжностьКонтекстноеМеню" id="116"/>
+									<ExtendedTooltip name="РабочиеМестаДолжностьРасширеннаяПодсказка" id="117"/>
+								</LabelField>
+								<LabelField name="РабочиеМестаСсылка" id="112">
+									<DataPath>РабочиеМеста.Ссылка</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="РабочиеМестаСсылкаКонтекстноеМеню" id="113"/>
+									<ExtendedTooltip name="РабочиеМестаСсылкаРасширеннаяПодсказка" id="114"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СопоставлениеСтраница" id="197">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Соответствие перечней вредных факторов</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="СопоставлениеСтраницаРасширеннаяПодсказка" id="198"/>
+					<ChildItems>
+						<UsualGroup name="ПояснениеСопоставленияГруппа" id="259">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пояснение сопоставления</v8:content>
+								</v8:item>
+							</Title>
+							<Group>HorizontalIfPossible</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ПояснениеСопоставленияГруппаРасширеннаяПодсказка" id="260"/>
+							<ChildItems>
+								<PictureDecoration name="ПояснениеСопоставленияКартинка" id="261">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Пояснение сопоставления картинка</v8:content>
+										</v8:item>
+									</Title>
+									<Picture>
+										<xr:Ref>CommonPicture.Информация32</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="ПояснениеСопоставленияКартинкаКонтекстноеМеню" id="262"/>
+									<ExtendedTooltip name="ПояснениеСопоставленияКартинкаРасширеннаяПодсказка" id="263"/>
+								</PictureDecoration>
+								<LabelDecoration name="ПояснениеСопоставленияНадпись" id="264">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="true">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Вредные факторы из приказа №302н, которым не удалось автоматически установить однозначное соответствие с вредными факторами из приказа №29н. Для установки соответствия откройте карточку вредного фактора из списка, подтвердите или измените набор вредных факторов из приказа №29н.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПояснениеСопоставленияНадписьКонтекстноеМеню" id="265"/>
+									<ExtendedTooltip name="ПояснениеСопоставленияНадписьРасширеннаяПодсказка" id="266"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<CheckBoxField name="ПоказыватьТолькоТребующиеПодтверждения" id="253">
+							<DataPath>ПоказыватьТолькоТребующиеПодтверждения</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Показывать только вредные факторы приказа № 302н для которых не подтверждено соответствие с вредными факторами из приказа № 29н</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ContextMenu name="ПоказыватьТолькоТребующиеПодтвержденияКонтекстноеМеню" id="254"/>
+							<ExtendedTooltip name="ПоказыватьТолькоТребующиеПодтвержденияРасширеннаяПодсказка" id="255"/>
+							<Events>
+								<Event name="OnChange">ПоказыватьТолькоТребующиеПодтвержденияПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<Table name="СоответствиеПеречнейВредныхФакторов" id="201">
+							<Representation>List</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<HeightInTableRows>8</HeightInTableRows>
+							<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СоответствиеПеречнейВредныхФакторов</DataPath>
+							<RowPictureDataPath>~СоответствиеПеречнейВредныхФакторов.DefaultPicture</RowPictureDataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Соответствие перечней вредных факторов</v8:content>
+								</v8:item>
+							</Title>
+							<SearchStringLocation>None</SearchStringLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СоответствиеПеречнейВредныхФакторовКонтекстноеМеню" id="202"/>
+							<AutoCommandBar name="СоответствиеПеречнейВредныхФакторовКоманднаяПанель" id="203"/>
+							<ExtendedTooltip name="СоответствиеПеречнейВредныхФакторовРасширеннаяПодсказка" id="204"/>
+							<SearchStringAddition name="СоответствиеПеречнейВредныхФакторовСтрокаПоиска" id="205">
+								<AdditionSource>
+									<Item>СоответствиеПеречнейВредныхФакторов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СоответствиеПеречнейВредныхФакторовСтрокаПоискаКонтекстноеМеню" id="206"/>
+								<ExtendedTooltip name="СоответствиеПеречнейВредныхФакторовСтрокаПоискаРасширеннаяПодсказка" id="207"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СоответствиеПеречнейВредныхФакторовСостояниеПросмотра" id="208">
+								<AdditionSource>
+									<Item>СоответствиеПеречнейВредныхФакторов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="СоответствиеПеречнейВредныхФакторовСостояниеПросмотраКонтекстноеМеню" id="209"/>
+								<ExtendedTooltip name="СоответствиеПеречнейВредныхФакторовСостояниеПросмотраРасширеннаяПодсказка" id="210"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СоответствиеПеречнейВредныхФакторовУправлениеПоиском" id="211">
+								<AdditionSource>
+									<Item>СоответствиеПеречнейВредныхФакторов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СоответствиеПеречнейВредныхФакторовУправлениеПоискомКонтекстноеМеню" id="212"/>
+								<ExtendedTooltip name="СоответствиеПеречнейВредныхФакторовУправлениеПоискомРасширеннаяПодсказка" id="213"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СоответствиеПеречнейВредныхФакторовВыбор</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="СоответствиеПеречня302НПеречню29НКод" id="235">
+									<DataPath>СоответствиеПеречнейВредныхФакторов.Код</DataPath>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="СоответствиеПеречня302НПеречню29НКодКонтекстноеМеню" id="236"/>
+									<ExtendedTooltip name="СоответствиеПеречня302НПеречню29НКодРасширеннаяПодсказка" id="237"/>
+								</InputField>
+								<InputField name="СоответствиеПеречня302НПеречню29ННаименование" id="244">
+									<DataPath>СоответствиеПеречнейВредныхФакторов.Наименование</DataPath>
+									<ContextMenu name="СоответствиеПеречня302НПеречню29ННаименованиеКонтекстноеМеню" id="245"/>
+									<ExtendedTooltip name="СоответствиеПеречня302НПеречню29ННаименованиеРасширеннаяПодсказка" id="246"/>
+								</InputField>
+								<InputField name="СоответствиеПеречня302НПеречню29НСсылка" id="256">
+									<DataPath>СоответствиеПеречнейВредныхФакторов.Ссылка</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="СоответствиеПеречня302НПеречню29НСсылкаКонтекстноеМеню" id="257"/>
+									<ExtendedTooltip name="СоответствиеПеречня302НПеречню29НСсылкаРасширеннаяПодсказка" id="258"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.МедицинскиеОсмотры</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Организация" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьНесколькоОрганизацийЗарплатаКадрыРасширенная</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="Подразделение" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подразделение</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ПодразделенияОрганизаций</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РабочиеМеста" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рабочие места</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>~РабочиеМеста.РабочееМесто</Field>
+				<Field>РабочиеМеста.ВидыРаботПредставление</Field>
+				<Field>РабочиеМеста.ВредныеФакторыПредставление</Field>
+				<Field>РабочиеМеста.ЕстьВидыРабот</Field>
+				<Field>РабочиеМеста.ЕстьВредныеФакторы</Field>
+				<Field>РабочиеМеста.Ссылка</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	РабочиеМестаСправочник.Ссылка КАК Ссылка,
+	РабочиеМестаСправочник.Наименование КАК Наименование,
+	РабочиеМестаСправочник.Владелец КАК Организация,
+	РабочиеМестаСправочник.Подразделение КАК Подразделение,
+	РабочиеМестаСправочник.Должность КАК Должность,
+	ВЫБОР
+		КОГДА ИСТИНА В
+			(ВЫБРАТЬ ПЕРВЫЕ 1
+				ИСТИНА
+			ИЗ
+				РегистрСведений.ВредныеФакторыРабочегоМеста КАК ВредныеФакторы
+			ГДЕ
+				ВредныеФакторы.ВидОсмотра = &amp;ВидОсмотра
+				И ВредныеФакторы.РабочееМесто = РабочиеМестаСправочник.Ссылка)
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК ЕстьВредныеФакторы,
+	ВЫБОР
+		КОГДА ИСТИНА В
+			(ВЫБРАТЬ ПЕРВЫЕ 1
+				ИСТИНА
+			ИЗ
+				РегистрСведений.ВидыРаботМедицинскихОсмотровРабочегоМеста КАК ВидыРабот
+			ГДЕ
+				ВидыРабот.ВидОсмотра = &amp;ВидОсмотра
+				И ВидыРабот.РабочееМесто = РабочиеМестаСправочник.Ссылка)
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК ЕстьВидыРабот,
+	ВЫБОР
+		КОГДА ИСТИНА В
+			(ВЫБРАТЬ ПЕРВЫЕ 1
+				ИСТИНА
+			ИЗ
+				РегистрСведений.ВредныеФакторыИВидыРаботРабочегоМеста КАК ВредныеФакторыИВидыРабот
+			ГДЕ
+				ВредныеФакторыИВидыРабот.ВидОсмотра = &amp;ВидОсмотра
+				И ВредныеФакторыИВидыРабот.РабочееМесто = РабочиеМестаСправочник.Ссылка)
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК ЕстьВредныеФакторыИВидыРабот,
+	ВЫБОР
+		КОГДА ИСТИНА В
+			(ВЫБРАТЬ ПЕРВЫЕ 1
+				ИСТИНА
+			ИЗ
+				РегистрСведений.ВредныеФакторыИВидыРаботРабочегоМеста КАК ВредныеФакторыИВидыРабот
+			ГДЕ
+				ВредныеФакторыИВидыРабот.ВидОсмотра = &amp;ВидОсмотра
+				И ВредныеФакторыИВидыРабот.ВидОсмотра = ЗНАЧЕНИЕ(Перечисление.ВидыОбследований.ПсихиатрическоеОсвидетельствование)
+				И ВредныеФакторыИВидыРабот.РабочееМесто = РабочиеМестаСправочник.Ссылка
+				И НЕ ВредныеФакторыИВидыРабот.ВредныйФактор.Однократно)
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК ЕстьУстаревшиеВредныеФакторыИВидыРабот,
+	ПериодичностьОсмотров.ВредныеФакторыПолноеПредставление КАК ВредныеФакторыПредставление,
+	ПериодичностьОсмотров.ВидыРаботПолноеПредставление КАК ВидыРаботПредставление,
+	ПериодичностьОсмотров.ПредставлениеПериодичностиОсмотра КАК ПредставлениеПериодичностиОсмотра,
+	РабочиеМестаСправочник.Подразделение.РеквизитДопУпорядочиванияИерархического КАК
+		ПодразделениеРеквизитДопУпорядочиванияИерархического,
+	РабочиеМестаСправочник.Должность.РеквизитДопУпорядочивания КАК ДолжностьРеквизитДопУпорядочивания
+ИЗ
+	Справочник.РабочиеМестаОхраныТруда КАК РабочиеМестаСправочник
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПериодичностьМедицинскихОсмотровРабочихМест КАК ПериодичностьОсмотров
+		ПО (РабочиеМестаСправочник.Ссылка = ПериодичностьОсмотров.РабочееМесто)
+		И (ПериодичностьОсмотров.ВидОсмотра = &amp;ВидОсмотра)
+ГДЕ
+	РабочиеМестаСправочник.ЭтоГруппа = ЛОЖЬ</QueryText>
+				<MainTable>Catalog.РабочиеМестаОхраныТруда</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>OrGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ЕстьВидыРабот</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ЕстьВредныеФакторы</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ЕстьВредныеФакторыИВидыРабот</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+							</dcsset:item>
+							<dcsset:userSettingID>4e54778c-4ddb-4803-93be-967feb16e786</dcsset:userSettingID>
+							<dcsset:userSettingPresentation xsi:type="xs:string">Показывать только те рабочие места, работа на которых требует периодических осмотров</dcsset:userSettingPresentation>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>ПодразделениеРеквизитДопУпорядочиванияИерархического</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>ДолжностьРеквизитДопУпорядочивания</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Наименование</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ПериодическиеОсмотры" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Периодические осмотры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>ПериодическиеОсмотры.ГоловнаяОрганизация</Field>
+				<Field>ПериодическиеОсмотры.ДатаСледующегоОсмотра</Field>
+				<Field>ПериодическиеОсмотры.ДатаУвольнения</Field>
+				<Field>ПериодическиеОсмотры.ЕстьЗаключение</Field>
+				<Field>ПериодическиеОсмотры.Организация</Field>
+				<Field>ПериодическиеОсмотры.ОсмотрЗавершен</Field>
+				<Field>ПериодическиеОсмотры.ПредупреждениеКартинка</Field>
+				<Field>ПериодическиеОсмотры.РабочееМесто</Field>
+				<Field>ПериодическиеОсмотры.РезультатОсмотра</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ПериодическиеОсмотры.ДатаСледующегоОсмотра КАК ДатаСледующегоОсмотра,
+	ПериодическиеОсмотры.ДатаУвольнения КАК ДатаУвольнения,
+	ПериодическиеОсмотры.ФизическоеЛицо КАК ФизическоеЛицо,
+	ПериодическиеОсмотры.РабочееМесто КАК РабочееМесто,
+	ВЫБОР
+		КОГДА ВыданныеНаправления.Заключение ЕСТЬ NULL
+			ТОГДА ПериодическиеОсмотры.РезультатОсмотра
+		ИНАЧЕ НЕОПРЕДЕЛЕНО
+	КОНЕЦ КАК РезультатОсмотра,
+	ПериодическиеОсмотры.ДатаПройденногоОсмотра КАК ДатаПройденногоОсмотра,
+	ЕСТЬNULL(ВыданныеНаправления.Направление, ПериодическиеОсмотры.Направление) КАК Направление,
+	ЕСТЬNULL(ВыданныеНаправления.Заключение, ПериодическиеОсмотры.Заключение) КАК Заключение,
+	ПериодическиеОсмотры.ГоловнаяОрганизация КАК ГоловнаяОрганизация,
+	ПериодическиеОсмотры.РабочееМесто.Владелец КАК Организация,
+	ПериодическиеОсмотры.РабочееМесто.Подразделение КАК Подразделение,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВыданныеНаправления.Заключение, ПериодическиеОсмотры.Заключение) = ЗНАЧЕНИЕ(Документ.ЗаключениеМедицинскогоОсмотра.ПустаяСсылка)
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК ЕстьЗаключение,
+	ВЫБОР
+		КОГДА ВыданныеНаправления.Заключение ЕСТЬ NULL
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК ОсмотрЗавершен,
+	"" КАК СостояниеОсмотра,
+	0 КАК ПредупреждениеКартинка
+ИЗ
+	РегистрСведений.ПериодическиеМедицинскиеОсмотры КАК ПериодическиеОсмотры
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.ПериодичностьМедицинскихОсмотровРабочихМест КАК ПериодичностьМедицинскихОсмотровРабочихМест
+		ПО ПериодическиеОсмотры.РабочееМесто = ПериодичностьМедицинскихОсмотровРабочихМест.РабочееМесто
+			И (ПериодическиеОсмотры.ВидОсмотра = &amp;ВидОсмотра)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВыданныеНаправленияНаМедицинскийОсмотр.СрезПоследних(, ВидОсмотра = &amp;ВидОсмотра) КАК ВыданныеНаправления
+		ПО (ВыданныеНаправления.ФизическоеЛицо = ПериодическиеОсмотры.ФизическоеЛицо)
+			И (ВыданныеНаправления.РабочееМесто = ПериодическиеОсмотры.РабочееМесто)
+			И (ВыданныеНаправления.Период &gt;= ПериодическиеОсмотры.ДатаПройденногоОсмотра)
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.РабочиеМестаСотрудниковИнтервальный КАК РабочиеМестаСотрудников
+		ПО (РабочиеМестаСотрудников.ДатаОкончания &gt;= КОНЕЦПЕРИОДА(&amp;ТекущаяДата, ДЕНЬ))
+			И (РабочиеМестаСотрудников.ФизическоеЛицо = ПериодическиеОсмотры.ФизическоеЛицо)
+			И (РабочиеМестаСотрудников.РабочееМесто = ПериодическиеОсмотры.РабочееМесто)</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ГоловнаяОрганизация</dcssch:dataPath>
+					<dcssch:field>ГоловнаяОрганизация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>РабочееМесто</dcssch:dataPath>
+					<dcssch:field>РабочееМесто</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаСледующегоОсмотра</dcssch:dataPath>
+					<dcssch:field>ДатаСледующегоОсмотра</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Направление</dcssch:dataPath>
+					<dcssch:field>Направление</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Направление</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ФизическоеЛицо</dcssch:dataPath>
+					<dcssch:field>ФизическоеЛицо</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>РезультатОсмотра</dcssch:dataPath>
+					<dcssch:field>РезультатОсмотра</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Результат осмотра</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВидОсмотра</dcssch:dataPath>
+					<dcssch:field>ВидОсмотра</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаПройденногоОсмотра</dcssch:dataPath>
+					<dcssch:field>ДатаПройденногоОсмотра</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Заключение</dcssch:dataPath>
+					<dcssch:field>Заключение</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заключение</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаУвольнения</dcssch:dataPath>
+					<dcssch:field>ДатаУвольнения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОсмотрЗавершен</dcssch:dataPath>
+					<dcssch:field>ОсмотрЗавершен</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Осмотр завершен</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Организация</dcssch:dataPath>
+					<dcssch:field>Организация</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Подразделение</dcssch:dataPath>
+					<dcssch:field>Подразделение</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подразделение</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЕстьЗаключение</dcssch:dataPath>
+					<dcssch:field>ЕстьЗаключение</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Есть заключение</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СостояниеОсмотра</dcssch:dataPath>
+					<dcssch:field>СостояниеОсмотра</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние осмотра</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПредупреждениеКартинка</dcssch:dataPath>
+					<dcssch:field>ПредупреждениеКартинка</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Предупреждение картинка</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>УдалитьПозиция</dcssch:dataPath>
+					<dcssch:field>УдалитьПозиция</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>ВидОсмотра</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид осмотра</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>cfg:EnumRef.ВидыОбследований</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>ТекущаяДата</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текущая дата</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>Период</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>false</dcssch:useRestriction>
+				</Parameter>
+				<MainTable>InformationRegister.ПериодическиеМедицинскиеОсмотры</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>ДатаСледующегоОсмотра</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>РабочееМесто.Подразделение.РеквизитДопУпорядочиванияИерархического</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>РабочееМесто.Должность.РеквизитДопУпорядочивания</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>ФизическоеЛицо.Наименование</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ПоказыватьТолькоБлижайшиеОсмотры" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать только ближайшие осмотры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидОсмотра" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид осмотра</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ВидыОбследований</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СоответствиеПеречнейВредныхФакторов" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Соответствие перечней вредных факторов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>СоответствиеПеречнейВредныхФакторов.Ссылка</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ВредныеФакторыСправочник.Код КАК Код,
+	ВредныеФакторыСправочник.Наименование КАК Наименование,
+	ВредныеФакторыСправочник.Ссылка КАК Ссылка,
+	ВредныеФакторыСправочник.СоответствиеПодтверждено КАК СоответствиеПодтверждено,
+	ВЫБОР
+		КОГДА ИСТИНА В
+			(ВЫБРАТЬ ПЕРВЫЕ 1
+				ИСТИНА
+			ИЗ
+				РегистрСведений.ВредныеФакторыРабочегоМеста КАК ВредныеФакторыРабочегоМеста
+			ГДЕ
+				ВредныеФакторыРабочегоМеста.ВредныйФактор = ВредныеФакторыСправочник.Ссылка)
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК ЕстьВРабочихМестах
+ИЗ
+	Справочник.ВредныеОпасныеПроизводственныеФакторы КАК ВредныеФакторыСправочник
+ГДЕ
+	НЕ ВредныеФакторыСправочник.ЭтоГруппа
+	И ВредныеФакторыСправочник.ВидОсмотра = &amp;ВидОсмотра
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВидыРаботСправочник.Код,
+	ВидыРаботСправочник.Наименование,
+	ВидыРаботСправочник.Ссылка,
+	ВидыРаботСправочник.СоответствиеПодтверждено,
+	ВЫБОР
+		КОГДА ИСТИНА В
+			(ВЫБРАТЬ ПЕРВЫЕ 1
+				ИСТИНА
+			ИЗ
+				РегистрСведений.ВидыРаботМедицинскихОсмотровРабочегоМеста КАК ВидыРаботМедицинскихОсмотровРабочегоМеста
+			ГДЕ
+				ВидыРаботМедицинскихОсмотровРабочегоМеста.ВидРабот = ВидыРаботСправочник.Ссылка)
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ
+ИЗ
+	Справочник.ВидыРаботМедицинскихОсмотров КАК ВидыРаботСправочник
+ГДЕ
+	ВидыРаботСправочник.ВидОсмотра = &amp;ВидОсмотра
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВидыДеятельностиСправочник.Код,
+	ВидыДеятельностиСправочник.Наименование,
+	ВидыДеятельностиСправочник.Ссылка,
+	ВидыДеятельностиСправочник.СоответствиеПодтверждено,
+	ВЫБОР
+		КОГДА ИСТИНА В
+			(ВЫБРАТЬ ПЕРВЫЕ 1
+				ИСТИНА
+			ИЗ
+				РегистрСведений.ВредныеФакторыИВидыРаботРабочегоМеста КАК ВредныеФакторыИВидыРаботРабочегоМеста
+			ГДЕ
+				ВредныеФакторыИВидыРаботРабочегоМеста.ВредныйФактор = ВидыДеятельностиСправочник.Ссылка)
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ
+ИЗ
+	Справочник.ВредныеОпасныеПроизводственныеФакторыИВыполняемыеРаботы КАК ВидыДеятельностиСправочник
+ГДЕ
+	НЕ ВидыДеятельностиСправочник.ЭтоГруппа
+	И ВидыДеятельностиСправочник.ВАрхиве
+	И ВидыДеятельностиСправочник.ВидОсмотра = &amp;ВидОсмотра</QueryText>
+				<KeyField>Ссылка</KeyField>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ЕстьВРабочихМестах</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Код</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ПоказыватьТолькоТребующиеПодтверждения" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать только требующие подтверждения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекущаяДата" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущая дата</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СформироватьНаправления" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать направления</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать и напечатать направления на медицинский осмотр всем выбранным в списке сотрудникам</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СформироватьНаправления</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ВвестиЗаключения" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ввести заключения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ввести заключения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВвестиЗаключения</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

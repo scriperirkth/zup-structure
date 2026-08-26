@@ -1,0 +1,81 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd">
+	<property xmlns:d2p1="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" name="courseStructure" type="d2p1:courseType"/>
+	<valueType name="baseLanguagesType" variety="List" itemType="xs:language"/>
+	<objectType name="auType" open="true" sequenced="true">
+		<property name="id" type="xs:anyURI" lowerBound="1" form="Attribute"/>
+		<property name="moveOn" lowerBound="0" fixed="false" default="NotApplicable" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<enumeration>NotApplicable</enumeration>
+				<enumeration>Passed</enumeration>
+				<enumeration>Completed</enumeration>
+				<enumeration>CompletedAndPassed</enumeration>
+				<enumeration>CompletedOrPassed</enumeration>
+			</typeDef>
+		</property>
+		<property name="masteryScore" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minInclusive="0" maxInclusive="1"/>
+		</property>
+		<property name="launchMethod" lowerBound="0" fixed="false" default="AnyWindow" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<enumeration>AnyWindow</enumeration>
+				<enumeration>OwnWindow</enumeration>
+			</typeDef>
+		</property>
+		<property name="activityType" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" name="title" type="d3p1:textType"/>
+		<property xmlns:d3p1="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" name="description" type="d3p1:textType"/>
+		<property xmlns:d3p1="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" name="objectives" type="d3p1:referencesObjectivesType" lowerBound="0"/>
+		<property name="url">
+			<typeDef xsi:type="ValueType" base="xs:anyURI" variety="Atomic" minLength="1"/>
+		</property>
+		<property name="launchParameters" type="xs:anyType" lowerBound="0"/>
+		<property name="entitlementKey" type="xs:anyType" lowerBound="0"/>
+	</objectType>
+	<objectType name="blockType" open="true" ordered="false" sequenced="true">
+		<property name="id" type="xs:anyURI" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" name="title" type="d3p1:textType"/>
+		<property xmlns:d3p1="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" name="description" type="d3p1:textType"/>
+		<property xmlns:d3p1="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" name="objectives" type="d3p1:referencesObjectivesType" lowerBound="0"/>
+		<property xmlns:d3p1="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" name="au" type="d3p1:auType" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" name="block" type="d3p1:blockType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="courseType" open="true" ordered="false" sequenced="true">
+		<property name="course">
+			<typeDef xsi:type="ObjectType" open="true" sequenced="true">
+				<property name="id" type="xs:anyURI" lowerBound="1" form="Attribute"/>
+				<property xmlns:d5p1="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" name="title" type="d5p1:textType"/>
+				<property xmlns:d5p1="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" name="description" type="d5p1:textType"/>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" name="objectives" type="d3p1:objectivesType" lowerBound="0"/>
+		<property xmlns:d3p1="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" name="au" type="d3p1:auType" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" name="block" type="d3p1:blockType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="languagesType">
+		<property xmlns:d3p1="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" name="__content" type="d3p1:baseLanguagesType" form="Text"/>
+	</objectType>
+	<objectType name="objectivesType" open="true" sequenced="true">
+		<property name="objective" upperBound="-1">
+			<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+				<property name="id" type="xs:anyURI" lowerBound="1" form="Attribute"/>
+				<property xmlns:d5p1="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" name="title" type="d5p1:textType"/>
+				<property xmlns:d5p1="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" name="description" type="d5p1:textType"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="referencesObjectivesType" open="true" sequenced="true">
+		<property name="objective" upperBound="-1">
+			<typeDef xsi:type="ObjectType">
+				<property name="idref" type="xs:anyURI" lowerBound="0" form="Attribute"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="textType" open="true" sequenced="true">
+		<property name="langstring" upperBound="-1">
+			<typeDef xsi:type="ObjectType">
+				<property name="lang" type="xs:language" lowerBound="0" form="Attribute"/>
+				<property name="__content" type="xs:string" form="Text"/>
+			</typeDef>
+		</property>
+	</objectType>
+</package>

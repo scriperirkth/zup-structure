@@ -1,0 +1,1621 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
+	<Group>Vertical</Group>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ВерхГруппа" id="82">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Верх</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ВерхГруппаРасширеннаяПодсказка" id="83"/>
+			<ChildItems>
+				<UsualGroup name="ЛевоГруппа" id="84">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Лево</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ЛевоГруппаРасширеннаяПодсказка" id="85"/>
+					<ChildItems>
+						<InputField name="Организация" id="38">
+							<DataPath>Организация</DataPath>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ChoiceParameters>
+								<app:item name="ЭтоОхранаТруда">
+									<app:value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xs:boolean">true</Value>
+									</app:value>
+								</app:item>
+								<app:item name="ЭтоОбучениеПоОхранеТруда">
+									<app:value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xs:boolean">true</Value>
+									</app:value>
+								</app:item>
+							</ChoiceParameters>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="40"/>
+							<Events>
+								<Event name="OnChange">ОрганизацияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="Подразделение" id="47">
+							<DataPath>Подразделение</DataPath>
+							<ClearButton>true</ClearButton>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>Отбор.Владелец</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Организация</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
+							<ContextMenu name="ПодразделениеКонтекстноеМеню" id="48"/>
+							<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="49"/>
+							<Events>
+								<Event name="OnChange">ПодразделениеПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ПравоГруппа" id="86">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Право</v8:content>
+						</v8:item>
+					</Title>
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ПравоГруппаРасширеннаяПодсказка" id="87"/>
+					<ChildItems>
+						<UsualGroup name="ОбновлениеДанныхГруппа" id="162">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обновление данных</v8:content>
+								</v8:item>
+							</Title>
+							<Group>HorizontalIfPossible</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ОбновлениеДанныхГруппаРасширеннаяПодсказка" id="163"/>
+							<ChildItems>
+								<PictureDecoration name="ОбновлениеДанныхКартинка" id="167">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Обновление данных картинка</v8:content>
+										</v8:item>
+									</Title>
+									<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+									<GroupVerticalAlign>Center</GroupVerticalAlign>
+									<Picture>
+										<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="ОбновлениеДанныхКартинкаКонтекстноеМеню" id="168"/>
+									<ExtendedTooltip name="ОбновлениеДанныхКартинкаРасширеннаяПодсказка" id="169"/>
+								</PictureDecoration>
+								<LabelDecoration name="ОбновлениеДанныхНадпись" id="164">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="true">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сведения о периодическом обучении по охране труда не актуальны. &lt;link ОбновитьПериодическиеОбучения&gt;Обновить&lt;/&gt;</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ОбновлениеДанныхНадписьКонтекстноеМеню" id="165"/>
+									<ExtendedTooltip name="ОбновлениеДанныхНадписьРасширеннаяПодсказка" id="166"/>
+									<Events>
+										<Event name="URLProcessing">ОбновлениеДанныхНадписьОбработкаНавигационнойСсылки</Event>
+									</Events>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<CommandBar name="КомандыФормыГруппа" id="88">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Команды формы</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSource>Form</CommandSource>
+							<ExtendedTooltip name="КомандыФормыГруппаРасширеннаяПодсказка" id="89"/>
+						</CommandBar>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ПрограммыОбученияГруппа" id="209">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Программы обучения</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ПрограммыОбученияГруппаРасширеннаяПодсказка" id="210"/>
+			<ChildItems>
+				<Table name="ПрограммыОбучения" id="211">
+					<Representation>List</Representation>
+					<DefaultItem>true</DefaultItem>
+					<AutoMaxHeight>false</AutoMaxHeight>
+					<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+					<AutoMaxRowsCount>false</AutoMaxRowsCount>
+					<MaxRowsCount>7</MaxRowsCount>
+					<RowSelectionMode>Cell</RowSelectionMode>
+					<InitialTreeView>ExpandTopLevel</InitialTreeView>
+					<EnableStartDrag>true</EnableStartDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ПрограммыОбучения</DataPath>
+					<RowPictureDataPath>ПрограммыОбучения.DefaultPicture</RowPictureDataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Программы обучения</v8:content>
+						</v8:item>
+					</Title>
+					<CommandSet>
+						<ExcludedCommand>CreateFolder</ExcludedCommand>
+						<ExcludedCommand>HierarchicalList</ExcludedCommand>
+						<ExcludedCommand>LevelDown</ExcludedCommand>
+						<ExcludedCommand>LevelUp</ExcludedCommand>
+						<ExcludedCommand>List</ExcludedCommand>
+						<ExcludedCommand>MoveItem</ExcludedCommand>
+						<ExcludedCommand>Tree</ExcludedCommand>
+					</CommandSet>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period>
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+					<ContextMenu name="ПрограммыОбученияКонтекстноеМеню" id="212">
+						<Autofill>false</Autofill>
+					</ContextMenu>
+					<AutoCommandBar name="ПрограммыОбученияКоманднаяПанель" id="221"/>
+					<ExtendedTooltip name="ПрограммыОбученияРасширеннаяПодсказка" id="222"/>
+					<SearchStringAddition name="ПрограммыОбученияСтрокаПоиска" id="223">
+						<Enabled>false</Enabled>
+						<AdditionSource>
+							<Item>ПрограммыОбучения</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПрограммыОбученияСтрокаПоискаКонтекстноеМеню" id="224"/>
+						<ExtendedTooltip name="ПрограммыОбученияСтрокаПоискаРасширеннаяПодсказка" id="225"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ПрограммыОбученияСостояниеПросмотра" id="226">
+						<Enabled>false</Enabled>
+						<AdditionSource>
+							<Item>ПрограммыОбучения</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<HorizontalLocation>Left</HorizontalLocation>
+						<ContextMenu name="ПрограммыОбученияСостояниеПросмотраКонтекстноеМеню" id="227"/>
+						<ExtendedTooltip name="ПрограммыОбученияСостояниеПросмотраРасширеннаяПодсказка" id="228"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ПрограммыОбученияУправлениеПоиском" id="229">
+						<Enabled>false</Enabled>
+						<AdditionSource>
+							<Item>ПрограммыОбучения</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ПрограммыОбученияУправлениеПоискомКонтекстноеМеню" id="230"/>
+						<ExtendedTooltip name="ПрограммыОбученияУправлениеПоискомРасширеннаяПодсказка" id="231"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="OnActivateRow">ПрограммыОбученияПриАктивизацииСтроки</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="ПрограммыОбученияНаименование" id="278">
+							<DataPath>ПрограммыОбучения.Наименование</DataPath>
+							<ContextMenu name="ПрограммыОбученияНаименованиеКонтекстноеМеню" id="279"/>
+							<ExtendedTooltip name="ПрограммыОбученияНаименованиеРасширеннаяПодсказка" id="280"/>
+						</LabelField>
+						<LabelField name="ПрограммыОбученияПрограммаОбученияМинтруда" id="290">
+							<DataPath>ПрограммыОбучения.ПрограммаОбученияМинтруда</DataPath>
+							<ContextMenu name="ПрограммыОбученияПрограммаОбученияМинтрудаКонтекстноеМеню" id="291"/>
+							<ExtendedTooltip name="ПрограммыОбученияПрограммаОбученияМинтрудаРасширеннаяПодсказка" id="292"/>
+						</LabelField>
+						<LabelField name="ПрограммыОбученияФормаОбучения" id="296">
+							<DataPath>ПрограммыОбучения.ФормаОбучения</DataPath>
+							<ContextMenu name="ПрограммыОбученияФормаОбученияКонтекстноеМеню" id="297"/>
+							<ExtendedTooltip name="ПрограммыОбученияФормаОбученияРасширеннаяПодсказка" id="298"/>
+						</LabelField>
+						<LabelField name="ПрограммыОбученияВсего" id="293">
+							<DataPath>ПрограммыОбучения.Всего</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Всего сотрудников</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПрограммыОбученияВсегоКонтекстноеМеню" id="294"/>
+							<ExtendedTooltip name="ПрограммыОбученияВсегоРасширеннаяПодсказка" id="295"/>
+						</LabelField>
+						<LabelField name="ПрограммыОбученияПросрочено" id="284">
+							<DataPath>ПрограммыОбучения.Просрочено</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Проверка знаний просрочена</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПрограммыОбученияПросроченоКонтекстноеМеню" id="285"/>
+							<ExtendedTooltip name="ПрограммыОбученияПросроченоРасширеннаяПодсказка" id="286"/>
+						</LabelField>
+						<LabelField name="ПрограммыОбученияСсылка" id="287">
+							<DataPath>ПрограммыОбучения.Ссылка</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="ПрограммыОбученияСсылкаКонтекстноеМеню" id="288"/>
+							<ExtendedTooltip name="ПрограммыОбученияСсылкаРасширеннаяПодсказка" id="289"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="СтраницыГруппа" id="90">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыГруппаРасширеннаяПодсказка" id="91"/>
+			<ChildItems>
+				<Page name="СотрудникиСтраница" id="94">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сотрудники</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="СотрудникиСтраницаРасширеннаяПодсказка" id="95"/>
+					<ChildItems>
+						<UsualGroup name="ПояснениеИспользованияГруппа" id="170">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пояснение использования</v8:content>
+								</v8:item>
+							</Title>
+							<Group>HorizontalIfPossible</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ПояснениеИспользованияГруппаРасширеннаяПодсказка" id="171"/>
+							<ChildItems>
+								<PictureDecoration name="ПояснениеИспользованияКартинка" id="172">
+									<Picture>
+										<xr:Ref>CommonPicture.Информация32</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="ПояснениеИспользованияКартинкаКонтекстноеМеню" id="173"/>
+									<ExtendedTooltip name="ПояснениеИспользованияКартинкаРасширеннаяПодсказка" id="174"/>
+								</PictureDecoration>
+								<LabelDecoration name="ПояснениеИспользованияНадпись" id="175">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="true">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Для выбранной организации не обнаружено &lt;link e1cib/list/Справочник.РабочиеМестаОхраныТруда&gt;рабочих мест&lt;/&gt;, работа на которых требует прохождения обязательного обучения по охране труда.
+Назначить обучение для рабочих мест можно на странице «Рабочие места».</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПояснениеИспользованияНадписьКонтекстноеМеню" id="176"/>
+									<ExtendedTooltip name="ПояснениеИспользованияНадписьРасширеннаяПодсказка" id="177"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<CheckBoxField name="ПоказыватьТолькоБлижайшие" id="191">
+							<DataPath>ПоказыватьТолькоБлижайшие</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Показывать только обучения, которые необходимо пройти в течение ближайшего месяца</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ContextMenu name="ПоказыватьТолькоБлижайшиеКонтекстноеМеню" id="192"/>
+							<ExtendedTooltip name="ПоказыватьТолькоБлижайшиеРасширеннаяПодсказка" id="193"/>
+							<Events>
+								<Event name="OnChange">ПоказыватьТолькоБлижайшиеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="ПользовательскиеНастройкиПериодическихОбученийГруппа" id="189">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пользовательские настройки периодических обучений</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ПользовательскиеНастройкиПериодическихОбученийГруппаРасширеннаяПодсказка" id="190"/>
+						</UsualGroup>
+						<Table name="ПериодическиеОбучения" id="1">
+							<Representation>List</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+							<AutoMaxRowsCount>false</AutoMaxRowsCount>
+							<MaxRowsCount>13</MaxRowsCount>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ПериодическиеОбучения</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Периодические обучения</v8:content>
+								</v8:item>
+							</Title>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<UserSettingsGroup>ПользовательскиеНастройкиПериодическихОбученийГруппа</UserSettingsGroup>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="ПериодическиеОбученияКонтекстноеМеню" id="2"/>
+							<AutoCommandBar name="ПериодическиеОбученияКоманднаяПанель" id="3">
+								<ChildItems>
+									<Button name="ОбученияСформироватьОбучение" id="160">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СформироватьОбучение</CommandName>
+										<ExtendedTooltip name="ОбученияСформироватьОбучениеРасширеннаяПодсказка" id="161"/>
+									</Button>
+									<Button name="ОбученияВвестиПроверкуЗнания" id="276">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ВвестиПроверкуЗнания</CommandName>
+										<ExtendedTooltip name="ОбученияВвестиПроверкуЗнанияРасширеннаяПодсказка" id="277"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПериодическиеОбученияРасширеннаяПодсказка" id="4"/>
+							<SearchStringAddition name="ПериодическиеОбученияСтрокаПоиска" id="5">
+								<Enabled>false</Enabled>
+								<AdditionSource>
+									<Item>ПериодическиеОбучения</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПериодическиеОбученияСтрокаПоискаКонтекстноеМеню" id="6"/>
+								<ExtendedTooltip name="ПериодическиеОбученияСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПериодическиеОбученияСостояниеПросмотра" id="8">
+								<Enabled>false</Enabled>
+								<AdditionSource>
+									<Item>ПериодическиеОбучения</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="ПериодическиеОбученияСостояниеПросмотраКонтекстноеМеню" id="9"/>
+								<ExtendedTooltip name="ПериодическиеОбученияСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПериодическиеОбученияУправлениеПоиском" id="11">
+								<Enabled>false</Enabled>
+								<AdditionSource>
+									<Item>ПериодическиеОбучения</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПериодическиеОбученияУправлениеПоискомКонтекстноеМеню" id="12"/>
+								<ExtendedTooltip name="ПериодическиеОбученияУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ПериодическиеОбученияВыбор</Event>
+								<Event name="OnGetDataAtServer">ПериодическиеОбученияПриПолученииДанныхНаСервере</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="Сотрудник" id="155">
+									<DataPath>ПериодическиеОбучения.ФизическоеЛицо</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сотрудник</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="СотрудникКонтекстноеМеню" id="156"/>
+									<ExtendedTooltip name="СотрудникРасширеннаяПодсказка" id="157"/>
+								</LabelField>
+								<InputField name="РабочееМесто" id="194">
+									<DataPath>ПериодическиеОбучения.РабочееМесто</DataPath>
+									<ContextMenu name="РабочееМестоКонтекстноеМеню" id="195"/>
+									<ExtendedTooltip name="РабочееМестоРасширеннаяПодсказка" id="196"/>
+								</InputField>
+								<LabelField name="ДатаПройденнойПроверкиЗнания" id="134">
+									<DataPath>ПериодическиеОбучения.ДатаПройденнойПроверкиЗнания</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата последней проверки</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата последнего пройденного обучения по мероприятию</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ContextMenu name="ДатаПройденнойПроверкиЗнанияКонтекстноеМеню" id="135"/>
+									<ExtendedTooltip name="ДатаПройденнойПроверкиЗнанияРасширеннаяПодсказка" id="136"/>
+								</LabelField>
+								<LabelField name="ДатаСледующейПроверкиЗнания" id="137">
+									<DataPath>ПериодическиеОбучения.ДатаСледующейПроверкиЗнания</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Плановая дата проверки</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата, не позднее которой сотрудник обязан пройти следующую проверку</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ContextMenu name="ДатаСледующейПроверкиЗнанияКонтекстноеМеню" id="138"/>
+									<ExtendedTooltip name="ДатаСледующейПроверкиЗнанияРасширеннаяПодсказка" id="139"/>
+								</LabelField>
+								<LabelField name="Обучение" id="140">
+									<DataPath>ПериодическиеОбучения.Обучение</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Обучение</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ОбучениеКонтекстноеМеню" id="141"/>
+									<ExtendedTooltip name="ОбучениеРасширеннаяПодсказка" id="142"/>
+								</LabelField>
+								<LabelField name="Проверка" id="206">
+									<DataPath>ПериодическиеОбучения.Проверка</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Проверка</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПроверкаКонтекстноеМеню" id="207"/>
+									<ExtendedTooltip name="ПроверкаРасширеннаяПодсказка" id="208"/>
+								</LabelField>
+								<ColumnGroup name="СостояниеОбученияГруппаКолонок" id="187">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Состояние обучения</v8:content>
+										</v8:item>
+									</Title>
+									<Group>InCell</Group>
+									<ExtendedTooltip name="СостояниеОбученияГруппаКолонокРасширеннаяПодсказка" id="188"/>
+									<ChildItems>
+										<PictureField name="ПредупреждениеКартинка" id="181">
+											<DataPath>ПериодическиеОбучения.ПредупреждениеКартинка</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Предупреждение картинка</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<ValuesPicture>
+												<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</ValuesPicture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="ПредупреждениеКартинкаКонтекстноеМеню" id="182"/>
+											<ExtendedTooltip name="ПредупреждениеКартинкаРасширеннаяПодсказка" id="183"/>
+										</PictureField>
+										<InputField name="СостояниеОбучения" id="184">
+											<DataPath>ПериодическиеОбучения.СостояниеОбучения</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Состояние обучения</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="СостояниеОбученияКонтекстноеМеню" id="185"/>
+											<ExtendedTooltip name="СостояниеОбученияРасширеннаяПодсказка" id="186"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<LabelField name="РезультатОбучения" id="152">
+									<DataPath>ПериодическиеОбучения.РезультатОбучения</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Результат обучения</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="РезультатОбученияКонтекстноеМеню" id="153"/>
+									<ExtendedTooltip name="РезультатОбученияРасширеннаяПодсказка" id="154"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="РабочиеМестаСтраница" id="92">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Рабочие места</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="РабочиеМестаСтраницаРасширеннаяПодсказка" id="93"/>
+					<ChildItems>
+						<UsualGroup name="ПользовательскиеНастройкиРабочихМестГруппа" id="127">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пользовательские настройки рабочих мест</v8:content>
+								</v8:item>
+							</Title>
+							<Group>HorizontalIfPossible</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ПользовательскиеНастройкиРабочихМестГруппаРасширеннаяПодсказка" id="128"/>
+						</UsualGroup>
+						<Table name="РабочиеМеста" id="96">
+							<Representation>List</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+							<AutoMaxRowsCount>false</AutoMaxRowsCount>
+							<MaxRowsCount>13</MaxRowsCount>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>РабочиеМеста</DataPath>
+							<RowPictureDataPath>РабочиеМеста.DefaultPicture</RowPictureDataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Рабочие места</v8:content>
+								</v8:item>
+							</Title>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="РабочиеМестаКонтекстноеМеню" id="97"/>
+							<AutoCommandBar name="РабочиеМестаКоманднаяПанель" id="98"/>
+							<ExtendedTooltip name="РабочиеМестаРасширеннаяПодсказка" id="99"/>
+							<SearchStringAddition name="РабочиеМестаСтрокаПоиска" id="100">
+								<Enabled>false</Enabled>
+								<AdditionSource>
+									<Item>РабочиеМеста</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РабочиеМестаСтрокаПоискаКонтекстноеМеню" id="101"/>
+								<ExtendedTooltip name="РабочиеМестаСтрокаПоискаРасширеннаяПодсказка" id="102"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РабочиеМестаСостояниеПросмотра" id="103">
+								<Enabled>false</Enabled>
+								<AdditionSource>
+									<Item>РабочиеМеста</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="РабочиеМестаСостояниеПросмотраКонтекстноеМеню" id="104"/>
+								<ExtendedTooltip name="РабочиеМестаСостояниеПросмотраРасширеннаяПодсказка" id="105"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РабочиеМестаУправлениеПоиском" id="106">
+								<Enabled>false</Enabled>
+								<AdditionSource>
+									<Item>РабочиеМеста</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РабочиеМестаУправлениеПоискомКонтекстноеМеню" id="107"/>
+								<ExtendedTooltip name="РабочиеМестаУправлениеПоискомРасширеннаяПодсказка" id="108"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">РабочиеМестаВыбор</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="РабочиеМестаНаименование" id="109">
+									<DataPath>РабочиеМеста.Наименование</DataPath>
+									<ContextMenu name="РабочиеМестаНаименованиеКонтекстноеМеню" id="110"/>
+									<ExtendedTooltip name="РабочиеМестаНаименованиеРасширеннаяПодсказка" id="111"/>
+								</LabelField>
+								<LabelField name="РабочиеМестаПодразделение" id="118">
+									<DataPath>РабочиеМеста.Подразделение</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="РабочиеМестаПодразделениеКонтекстноеМеню" id="119"/>
+									<ExtendedTooltip name="РабочиеМестаПодразделениеРасширеннаяПодсказка" id="120"/>
+								</LabelField>
+								<LabelField name="РабочиеМестаДолжность" id="115">
+									<DataPath>РабочиеМеста.Должность</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="РабочиеМестаДолжностьКонтекстноеМеню" id="116"/>
+									<ExtendedTooltip name="РабочиеМестаДолжностьРасширеннаяПодсказка" id="117"/>
+								</LabelField>
+								<LabelField name="РабочиеМестаСсылка" id="112">
+									<DataPath>РабочиеМеста.Ссылка</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="РабочиеМестаСсылкаКонтекстноеМеню" id="113"/>
+									<ExtendedTooltip name="РабочиеМестаСсылкаРасширеннаяПодсказка" id="114"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ОбучениеПоОхранеТруда</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Организация" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьНесколькоОрганизацийЗарплатаКадрыРасширенная</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="Подразделение" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подразделение</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ПодразделенияОрганизаций</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РабочиеМеста" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рабочие места</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>РабочиеМеста.Ссылка</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	РабочиеМестаСправочник.Ссылка КАК Ссылка,
+	РабочиеМестаСправочник.Наименование КАК Наименование,
+	РабочиеМестаСправочник.Владелец КАК Организация,
+	РабочиеМестаСправочник.Подразделение КАК Подразделение,
+	РабочиеМестаСправочник.Должность КАК Должность,
+	ВЫБОР
+		КОГДА ИСТИНА В
+			(ВЫБРАТЬ ПЕРВЫЕ 1
+				ИСТИНА
+			ИЗ
+				Справочник.ПрограммыОбученияСотрудниковПоОхранеТруда КАК ПрограммыОбучения
+					ЛЕВОЕ СОЕДИНЕНИЕ Справочник.ПрограммыОбученияСотрудниковПоОхранеТруда.РабочиеМеста КАК РабочиеМестаПрограммОбучения
+					ПО ПрограммыОбучения.Ссылка = РабочиеМестаПрограммОбучения.Ссылка
+			ГДЕ
+				ПрограммыОбучения.Ссылка = &amp;ПрограммаОбучения
+				И ПрограммыОбучения.КонтролироватьПроведение
+				И ВЫБОР
+					КОГДА ПрограммыОбучения.ИспользоватьДляВсехРабочихМест
+						ТОГДА ИСТИНА
+					ИНАЧЕ РабочиеМестаПрограммОбучения.РабочееМесто = РабочиеМестаСправочник.Ссылка
+				КОНЕЦ)
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК ЕстьОбучение,
+	РабочиеМестаСправочник.Подразделение.РеквизитДопУпорядочиванияИерархического КАК
+		ПодразделениеРеквизитДопУпорядочиванияИерархического,
+	РабочиеМестаСправочник.Должность.РеквизитДопУпорядочивания КАК ДолжностьРеквизитДопУпорядочивания
+ИЗ
+	Справочник.РабочиеМестаОхраныТруда КАК РабочиеМестаСправочник
+ГДЕ
+	РабочиеМестаСправочник.ЭтоГруппа = ЛОЖЬ</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наименование</dcssch:dataPath>
+					<dcssch:field>Наименование</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Организация</dcssch:dataPath>
+					<dcssch:field>Организация</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Подразделение</dcssch:dataPath>
+					<dcssch:field>Подразделение</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Должность</dcssch:dataPath>
+					<dcssch:field>Должность</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПодразделениеРеквизитДопУпорядочиванияИерархического</dcssch:dataPath>
+					<dcssch:field>ПодразделениеРеквизитДопУпорядочиванияИерархического</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДолжностьРеквизитДопУпорядочивания</dcssch:dataPath>
+					<dcssch:field>ДолжностьРеквизитДопУпорядочивания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЕстьОбучение</dcssch:dataPath>
+					<dcssch:field>ЕстьОбучение</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Есть обучение</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Владелец</dcssch:dataPath>
+					<dcssch:field>Владелец</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Номер</dcssch:dataPath>
+					<dcssch:field>Номер</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПорядковыйНомер</dcssch:dataPath>
+					<dcssch:field>ПорядковыйНомер</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>УсловияТруда</dcssch:dataPath>
+					<dcssch:field>УсловияТруда</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОсновноеРабочееМесто</dcssch:dataPath>
+					<dcssch:field>ОсновноеРабочееМесто</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НомерВручную</dcssch:dataPath>
+					<dcssch:field>НомерВручную</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВАрхиве</dcssch:dataPath>
+					<dcssch:field>ВАрхиве</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СоответствуетУсловиямТруда</dcssch:dataPath>
+					<dcssch:field>СоответствуетУсловиямТруда</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВзимаютсяВзносыЗаЗанятыхНаРаботахСДосрочнойПенсией</dcssch:dataPath>
+					<dcssch:field>ВзимаютсяВзносыЗаЗанятыхНаРаботахСДосрочнойПенсией</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОснованиеДосрочногоНазначенияПенсии</dcssch:dataPath>
+					<dcssch:field>ОснованиеДосрочногоНазначенияПенсии</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОсобыеУсловияТрудаПФР</dcssch:dataPath>
+					<dcssch:field>ОсобыеУсловияТрудаПФР</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КодПозицииСпискаПФР</dcssch:dataPath>
+					<dcssch:field>КодПозицииСпискаПФР</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыплачиваетсяНадбавкаЗаВредность</dcssch:dataPath>
+					<dcssch:field>ВыплачиваетсяНадбавкаЗаВредность</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПроцентНадбавкиЗаВредность</dcssch:dataPath>
+					<dcssch:field>ПроцентНадбавкиЗаВредность</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КоличествоДнейДополнительногоОтпускаВГод</dcssch:dataPath>
+					<dcssch:field>КоличествоДнейДополнительногоОтпускаВГод</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>УдалитьДолжностьПоШтатномуРасписанию</dcssch:dataPath>
+					<dcssch:field>УдалитьДолжностьПоШтатномуРасписанию</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ХарактерВыполняемыхРаботПФР</dcssch:dataPath>
+					<dcssch:field>ХарактерВыполняемыхРаботПФР</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПервичныеДокументыПФР</dcssch:dataPath>
+					<dcssch:field>ПервичныеДокументыПФР</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВредныеФакторыСопоставлены</dcssch:dataPath>
+					<dcssch:field>ВредныеФакторыСопоставлены</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НормыСИЗСоответствуютДолжности</dcssch:dataPath>
+					<dcssch:field>НормыСИЗСоответствуютДолжности</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СпециальноеРабочееМестоДляИнвалидов</dcssch:dataPath>
+					<dcssch:field>СпециальноеРабочееМестоДляИнвалидов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДополнительныеРеквизиты</dcssch:dataPath>
+					<dcssch:field>ДополнительныеРеквизиты</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Предопределенный</dcssch:dataPath>
+					<dcssch:field>Предопределенный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИмяПредопределенныхДанных</dcssch:dataPath>
+					<dcssch:field>ИмяПредопределенныхДанных</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Родитель</dcssch:dataPath>
+					<dcssch:field>Родитель</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтоГруппа</dcssch:dataPath>
+					<dcssch:field>ЭтоГруппа</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>ПрограммаОбучения</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Программа обучения</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>cfg:CatalogRef.ПрограммыОбученияСотрудниковПоОхранеТруда</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<MainTable>Catalog.РабочиеМестаОхраныТруда</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>OrGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ЕстьОбучение</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+							</dcsset:item>
+							<dcsset:userSettingPresentation xsi:type="xs:string">Показывать только те рабочие места, на которых требуется периодическое обучение</dcsset:userSettingPresentation>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>ПодразделениеРеквизитДопУпорядочиванияИерархического</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>ДолжностьРеквизитДопУпорядочивания</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Наименование</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ПериодическиеОбучения" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Периодические обучения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>ПериодическиеОбучения.ДатаНачалаОбучения</Field>
+				<Field>ПериодическиеОбучения.ДатаОкончанияОбучения</Field>
+				<Field>ПериодическиеОбучения.ДатаСледующейПроверкиЗнания</Field>
+				<Field>ПериодическиеОбучения.ДатаУвольнения</Field>
+				<Field>ПериодическиеОбучения.Обучение</Field>
+				<Field>ПериодическиеОбучения.Проверка</Field>
+				<Field>ПериодическиеОбучения.ПроверкаЗавершена</Field>
+				<Field>ПериодическиеОбучения.РезультатОбучения</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ПериодическиеПроверкиЗнания.ДатаСледующейПроверкиЗнания КАК ДатаСледующейПроверкиЗнания,
+	ПериодическиеПроверкиЗнания.ДатаУвольнения КАК ДатаУвольнения,
+	ПериодическиеПроверкиЗнания.ФизическоеЛицо КАК ФизическоеЛицо,
+	ПериодическиеПроверкиЗнания.РабочееМесто КАК РабочееМесто,
+	ВЫБОР
+		КОГДА СформированныеОбучения.Проверка ЕСТЬ NULL
+			ТОГДА ПериодическиеПроверкиЗнания.РезультатОбучения
+		ИНАЧЕ НЕОПРЕДЕЛЕНО
+	КОНЕЦ КАК РезультатОбучения,
+	ПериодическиеПроверкиЗнания.ДатаПройденнойПроверкиЗнания КАК ДатаПройденнойПроверкиЗнания,
+	ЕСТЬNULL(СформированныеОбучения.Обучение, ПериодическиеПроверкиЗнания.Обучение) КАК Обучение,
+	ЕСТЬNULL(СформированныеОбучения.ДатаНачалаОбучения, ПериодическиеПроверкиЗнания.Обучение.ДатаНачалаОбучения) КАК ДатаНачалаОбучения,
+	ЕСТЬNULL(СформированныеОбучения.ДатаОкончанияОбучения, ПериодическиеПроверкиЗнания.Обучение.ДатаОкончанияОбучения) КАК ДатаОкончанияОбучения,
+	ЕСТЬNULL(СформированныеОбучения.Проверка, ПериодическиеПроверкиЗнания.Проверка) КАК Проверка,
+	ПериодическиеПроверкиЗнания.ГоловнаяОрганизация КАК ГоловнаяОрганизация,
+	ПериодическиеПроверкиЗнания.РабочееМесто.Владелец КАК Организация,
+	ПериодическиеПроверкиЗнания.РабочееМесто.Подразделение КАК Подразделение,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(СформированныеОбучения.Обучение, ПериодическиеПроверкиЗнания.Обучение) = ЗНАЧЕНИЕ(Документ.ОбучениеСотрудниковОхранеТруда.ПустаяСсылка)
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК ЕстьОбучение,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(СформированныеОбучения.Проверка, ПериодическиеПроверкиЗнания.Проверка) = ЗНАЧЕНИЕ(Документ.ПроверкаЗнанияТребованийОхраныТруда.ПустаяСсылка)
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК ЕстьПроверка,
+	ВЫБОР
+		КОГДА ПериодическиеПроверкиЗнания.Проверка &lt;&gt; ЗНАЧЕНИЕ(Документ.ПроверкаЗнанияТребованийОхраныТруда.ПустаяСсылка) И СформированныеОбучения.Проверка ЕСТЬ NULL
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК ПроверкаЗавершена,
+	"" КАК СостояниеОбучения,
+	0 КАК ПредупреждениеКартинка
+ИЗ
+	РегистрСведений.ПериодическиеПроверкиЗнанияТребованийОхраныТруда КАК ПериодическиеПроверкиЗнания
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.ПрограммыОбученияСотрудниковПоОхранеТруда КАК ПрограммыОбученияСотрудниковПоОхранеТруда
+		ПО ПрограммыОбученияСотрудниковПоОхранеТруда.ИспользоватьДляВсехРабочихМест
+		И ПрограммыОбученияСотрудниковПоОхранеТруда.КонтролироватьПроведение
+		И ПериодическиеПроверкиЗнания.ПрограммаОбучения = ПрограммыОбученияСотрудниковПоОхранеТруда.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.ПрограммыОбученияСотрудниковПоОхранеТруда.РабочиеМеста КАК
+			ПрограммыОбученияСотрудниковПоОхранеТрудаРабочиеМеста
+		ПО ПрограммыОбученияСотрудниковПоОхранеТрудаРабочиеМеста.Ссылка.ИспользоватьДляВсехРабочихМест = ЛОЖЬ
+		И ПрограммыОбученияСотрудниковПоОхранеТрудаРабочиеМеста.Ссылка.КонтролироватьПроведение
+		И ВЫБОР
+				КОГДА ПрограммыОбученияСотрудниковПоОхранеТрудаРабочиеМеста.Ссылка.КонтролироватьСменуРабочегоМеста
+					ТОГДА ПрограммыОбученияСотрудниковПоОхранеТрудаРабочиеМеста.РабочееМесто = ПериодическиеПроверкиЗнания.РабочееМесто
+				ИНАЧЕ ИСТИНА
+			КОНЕЦ
+		И ПериодическиеПроверкиЗнания.ПрограммаОбучения = ПрограммыОбученияСотрудниковПоОхранеТрудаРабочиеМеста.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ОбученияСотрудниковОхранеТрудаОжидающиеПроверки.СрезПоследних КАК
+			СформированныеОбучения
+		ПО СформированныеОбучения.ФизическоеЛицо = ПериодическиеПроверкиЗнания.ФизическоеЛицо
+		И ВЫБОР
+				КОГДА ПериодическиеПроверкиЗнания.ПрограммаОбучения.КонтролироватьСменуРабочегоМеста
+					ТОГДА СформированныеОбучения.РабочееМесто = ПериодическиеПроверкиЗнания.РабочееМесто
+				ИНАЧЕ ИСТИНА
+			КОНЕЦ
+		И СформированныеОбучения.ПрограммаОбучения = ПериодическиеПроверкиЗнания.ПрограммаОбучения
+		И СформированныеОбучения.Период &gt;= ПериодическиеПроверкиЗнания.ДатаПройденнойПроверкиЗнания
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.РабочиеМестаСотрудниковИнтервальный КАК РабочиеМестаСотрудников
+		ПО РабочиеМестаСотрудников.ДатаОкончания &gt;= КОНЕЦПЕРИОДА(&amp;ТекущаяДата, ДЕНЬ)
+		И РабочиеМестаСотрудников.ФизическоеЛицо = ПериодическиеПроверкиЗнания.ФизическоеЛицо
+		И РабочиеМестаСотрудников.РабочееМесто = ПериодическиеПроверкиЗнания.РабочееМесто
+ГДЕ
+	ПериодическиеПроверкиЗнания.ПрограммаОбучения = &amp;ПрограммаОбучения
+	И ВЫБОР
+		КОГДА ПрограммыОбученияСотрудниковПоОхранеТруда.Ссылка ЕСТЬ НЕ NULL
+			ТОГДА ИСТИНА
+		КОГДА ПрограммыОбученияСотрудниковПоОхранеТрудаРабочиеМеста.РабочееМесто ЕСТЬ НЕ NULL
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>РабочееМесто</dcssch:dataPath>
+					<dcssch:field>РабочееМесто</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаСледующейПроверкиЗнания</dcssch:dataPath>
+					<dcssch:field>ДатаСледующейПроверкиЗнания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаПройденнойПроверкиЗнания</dcssch:dataPath>
+					<dcssch:field>ДатаПройденнойПроверкиЗнания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаУвольнения</dcssch:dataPath>
+					<dcssch:field>ДатаУвольнения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Организация</dcssch:dataPath>
+					<dcssch:field>Организация</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Подразделение</dcssch:dataPath>
+					<dcssch:field>Подразделение</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подразделение</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СостояниеОбучения</dcssch:dataPath>
+					<dcssch:field>СостояниеОбучения</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние обучения</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПредупреждениеКартинка</dcssch:dataPath>
+					<dcssch:field>ПредупреждениеКартинка</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Предупреждение картинка</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>РезультатОбучения</dcssch:dataPath>
+					<dcssch:field>РезультатОбучения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПрограммаОбучения</dcssch:dataPath>
+					<dcssch:field>ПрограммаОбучения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Проверка</dcssch:dataPath>
+					<dcssch:field>Проверка</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проверка</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ФизическоеЛицо</dcssch:dataPath>
+					<dcssch:field>ФизическоеЛицо</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ГоловнаяОрганизация</dcssch:dataPath>
+					<dcssch:field>ГоловнаяОрганизация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Обучение</dcssch:dataPath>
+					<dcssch:field>Обучение</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЕстьПроверка</dcssch:dataPath>
+					<dcssch:field>ЕстьПроверка</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Есть проверка</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПроверкаЗавершена</dcssch:dataPath>
+					<dcssch:field>ПроверкаЗавершена</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проверка завершена</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЕстьОбучение</dcssch:dataPath>
+					<dcssch:field>ЕстьОбучение</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Есть обучение</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаНачалаОбучения</dcssch:dataPath>
+					<dcssch:field>ДатаНачалаОбучения</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата начала обучения</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаОкончанияОбучения</dcssch:dataPath>
+					<dcssch:field>ДатаОкончанияОбучения</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата окончания обучения</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Parameter>
+					<dcssch:name>ТекущаяДата</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текущая дата</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>Период</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>false</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>ПрограммаОбучения</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Программа обучения</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>cfg:CatalogRef.ПрограммыОбученияСотрудниковПоОхранеТруда</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<MainTable>InformationRegister.ПериодическиеПроверкиЗнанияТребованийОхраныТруда</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>ДатаСледующейПроверкиЗнания</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>РабочееМесто.Подразделение.РеквизитДопУпорядочиванияИерархического</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>РабочееМесто.Должность.РеквизитДопУпорядочивания</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>ФизическоеЛицо.Наименование</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ПоказыватьТолькоБлижайшие" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать только ближайшие</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекущаяДата" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущая дата</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПрограммыОбучения" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Программы обучения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>ПрограммыОбучения.Ссылка</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ПрограммыОбученияСотрудниковПоОхранеТруда.Наименование КАК Наименование,
+	ПрограммыОбученияСотрудниковПоОхранеТруда.ПрограммаОбученияМинтруда КАК ПрограммаОбученияМинтруда,
+	ПрограммыОбученияСотрудниковПоОхранеТруда.ФормаОбучения КАК ФормаОбучения,
+	ПрограммыОбученияСотрудниковПоОхранеТруда.Ссылка КАК Ссылка,
+	КОЛИЧЕСТВО(ПериодическиеПроверкиЗнания.ФизическоеЛицо) КАК Всего,
+	СУММА(ВЫБОР
+		КОГДА ПериодическиеПроверкиЗнания.ДатаСледующейПроверкиЗнания = ДАТАВРЕМЯ(1, 1, 1)
+			ТОГДА 0
+		КОГДА ПериодическиеПроверкиЗнания.ДатаСледующейПроверкиЗнания &lt;= КОНЕЦПЕРИОДА(&amp;ТекущаяДата, ДЕНЬ)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ) КАК Просрочено
+ИЗ
+	Справочник.ПрограммыОбученияСотрудниковПоОхранеТруда КАК ПрограммыОбученияСотрудниковПоОхранеТруда
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.ПериодическиеПроверкиЗнанияТребованийОхраныТруда КАК ПериодическиеПроверкиЗнания
+		ПО ПрограммыОбученияСотрудниковПоОхранеТруда.КонтролироватьПроведение
+		И ПрограммыОбученияСотрудниковПоОхранеТруда.Ссылка = ПериодическиеПроверкиЗнания.ПрограммаОбучения
+		И ПериодическиеПроверкиЗнания.РабочееМесто.Владелец = &amp;Организация
+		И ВЫБОР
+			КОГДА &amp;ЕстьПодразделение
+				ТОГДА ПериодическиеПроверкиЗнания.РабочееМесто.Подразделение = &amp;Подразделение
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.РабочиеМестаСотрудниковИнтервальный КАК РабочиеМестаСотрудников
+		ПО РабочиеМестаСотрудников.ДатаОкончания &gt;= КОНЕЦПЕРИОДА(&amp;ТекущаяДата, ДЕНЬ)
+		И РабочиеМестаСотрудников.ФизическоеЛицо = ПериодическиеПроверкиЗнания.ФизическоеЛицо
+		И РабочиеМестаСотрудников.РабочееМесто = ПериодическиеПроверкиЗнания.РабочееМесто
+СГРУППИРОВАТЬ ПО
+	ПрограммыОбученияСотрудниковПоОхранеТруда.Наименование,
+	ПрограммыОбученияСотрудниковПоОхранеТруда.ПрограммаОбученияМинтруда,
+	ПрограммыОбученияСотрудниковПоОхранеТруда.ФормаОбучения,
+	ПрограммыОбученияСотрудниковПоОхранеТруда.Ссылка</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ФормаОбучения</dcssch:dataPath>
+					<dcssch:field>ФормаОбучения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПрограммаОбученияМинтруда</dcssch:dataPath>
+					<dcssch:field>ПрограммаОбученияМинтруда</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наименование</dcssch:dataPath>
+					<dcssch:field>Наименование</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Просрочено</dcssch:dataPath>
+					<dcssch:field>Просрочено</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Просрочено</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Всего</dcssch:dataPath>
+					<dcssch:field>Всего</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Всего</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КонтролироватьПроведение</dcssch:dataPath>
+					<dcssch:field>КонтролироватьПроведение</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПроводитсяПовторно</dcssch:dataPath>
+					<dcssch:field>ПроводитсяПовторно</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИспользоватьДляВсехРабочихМест</dcssch:dataPath>
+					<dcssch:field>ИспользоватьДляВсехРабочихМест</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КоличествоРаз</dcssch:dataPath>
+					<dcssch:field>КоличествоРаз</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КоличествоПериодов</dcssch:dataPath>
+					<dcssch:field>КоличествоПериодов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Периодичность</dcssch:dataPath>
+					<dcssch:field>Периодичность</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПредставлениеПериода</dcssch:dataPath>
+					<dcssch:field>ПредставлениеПериода</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОбучениеСОтрывомОтПроизводства</dcssch:dataPath>
+					<dcssch:field>ОбучениеСОтрывомОтПроизводства</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КоличествоУчебныхЧасов</dcssch:dataPath>
+					<dcssch:field>КоличествоУчебныхЧасов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>УчебноеЗаведение</dcssch:dataPath>
+					<dcssch:field>УчебноеЗаведение</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Контрагент</dcssch:dataPath>
+					<dcssch:field>Контрагент</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>РабочиеМеста</dcssch:dataPath>
+					<dcssch:field>РабочиеМеста</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДополнительныеРеквизиты</dcssch:dataPath>
+					<dcssch:field>ДополнительныеРеквизиты</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Предопределенный</dcssch:dataPath>
+					<dcssch:field>Предопределенный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИмяПредопределенныхДанных</dcssch:dataPath>
+					<dcssch:field>ИмяПредопределенныхДанных</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>ТекущаяДата</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текущая дата</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>ЕстьПодразделение</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Есть подразделение</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:boolean</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>Подразделение</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подразделение</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>cfg:CatalogRef.ПодразделенияОрганизаций</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>Организация</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<MainTable>Catalog.ПрограммыОбученияСотрудниковПоОхранеТруда</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Просрочено</dcsset:field>
+							<dcsset:orderType>Desc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ВыбраннаяПрограммаОбучения" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбранная программа обучения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ПрограммыОбученияСотрудниковПоОхранеТруда</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СформироватьОбучение" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать обучение</v8:content>
+				</v8:item>
+			</Title>
+			<Action>СформироватьОбучение</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ВвестиПроверкуЗнания" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ввести проверку знания</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ВвестиПроверкуЗнания</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="Организация">
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

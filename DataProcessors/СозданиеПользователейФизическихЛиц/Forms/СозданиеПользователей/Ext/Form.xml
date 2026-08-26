@@ -1,0 +1,980 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
+	<Group>Vertical</Group>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаСоздатьПользователей" id="60">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.СоздатьПользователей</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаСоздатьПользователейРасширеннаяПодсказка" id="61"/>
+			</Button>
+			<Button name="ФормаНастройкиПользователей" id="37">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.НастройкиПользователей</CommandName>
+				<ExtendedTooltip name="ФормаНастройкиПользователейРасширеннаяПодсказка" id="38"/>
+			</Button>
+			<Button name="ФормаНастройкиУведомлений" id="39">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.НастройкиУведомлений</CommandName>
+				<ExtendedTooltip name="ФормаНастройкиУведомленийРасширеннаяПодсказка" id="40"/>
+			</Button>
+			<Button name="ФормаПодборПользователей" id="138">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПодборПользователей</CommandName>
+				<ExtendedTooltip name="ФормаПодборПользователейРасширеннаяПодсказка" id="139"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНастройкиСпискаСотрудников" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки списка сотрудников</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНастройкиСпискаСотрудниковРасширеннаяПодсказка" id="23"/>
+			<ChildItems>
+				<InputField name="Подразделение" id="27">
+					<DataPath>Подразделение</DataPath>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ПодразделениеКонтекстноеМеню" id="28"/>
+					<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="29"/>
+					<Events>
+						<Event name="OnChange">ПодразделениеПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="КатегорияСотрудников" id="55">
+					<DataPath>КатегорияСотрудников</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Показывать</v8:content>
+						</v8:item>
+					</Title>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>всех</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>принятых</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>уволенных</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">2</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="КатегорияСотрудниковКонтекстноеМеню" id="56"/>
+					<ExtendedTooltip name="КатегорияСотрудниковРасширеннаяПодсказка" id="57"/>
+					<Events>
+						<Event name="OnChange">КатегорияСотрудниковПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаСотрудники" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сотрудники</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаСотрудникиРасширеннаяПодсказка" id="21"/>
+			<ChildItems>
+				<Table name="Сотрудники" id="1">
+					<Representation>List</Representation>
+					<RowSelectionMode>Cell</RowSelectionMode>
+					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Сотрудники</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сотрудники</v8:content>
+						</v8:item>
+					</Title>
+					<CommandSet>
+						<ExcludedCommand>Add</ExcludedCommand>
+						<ExcludedCommand>Change</ExcludedCommand>
+						<ExcludedCommand>Copy</ExcludedCommand>
+						<ExcludedCommand>Delete</ExcludedCommand>
+					</CommandSet>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="СотрудникиКонтекстноеМеню" id="2">
+						<ChildItems>
+							<Button name="СотрудникиКонтекстноеМенюСоздатьПользователя" id="108">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьПользователя</CommandName>
+								<ExtendedTooltip name="СотрудникиКонтекстноеМенюСоздатьПользователяРасширеннаяПодсказка" id="109"/>
+							</Button>
+							<Button name="СотрудникиКонтекстноеМенюОтправитьУведомление" id="110">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ОтправитьУведомление</CommandName>
+								<ExtendedTooltip name="СотрудникиКонтекстноеМенюОтправитьУведомлениеРасширеннаяПодсказка" id="111"/>
+							</Button>
+							<Button name="СотрудникиКонтекстноеМенюРазрешитьВходВПрограмму" id="112">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.РазрешитьВходВПрограмму</CommandName>
+								<ExtendedTooltip name="СотрудникиКонтекстноеМенюРазрешитьВходВПрограммуРасширеннаяПодсказка" id="113"/>
+							</Button>
+							<Button name="СотрудникиКонтекстноеМенюЗапретитьВходВПрограмму" id="114">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ЗапретитьВходВПрограмму</CommandName>
+								<ExtendedTooltip name="СотрудникиКонтекстноеМенюЗапретитьВходВПрограммуРасширеннаяПодсказка" id="115"/>
+							</Button>
+						</ChildItems>
+					</ContextMenu>
+					<AutoCommandBar name="СотрудникиКоманднаяПанель" id="3">
+						<Autofill>false</Autofill>
+						<ChildItems>
+							<Button name="СотрудникиСоздатьПользователейВыделенныхСотрудников" id="43">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьПользователя</CommandName>
+								<ExtendedTooltip name="СотрудникиСоздатьПользователейВыделенныхСотрудниковРасширеннаяПодсказка" id="44"/>
+							</Button>
+							<Button name="СотрудникиОтправитьСообщения" id="41">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ОтправитьУведомление</CommandName>
+								<ExtendedTooltip name="СотрудникиОтправитьСообщенияРасширеннаяПодсказка" id="42"/>
+							</Button>
+							<Button name="СотрудникиРазрешитьВходВПрограмму" id="65">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.РазрешитьВходВПрограмму</CommandName>
+								<ExtendedTooltip name="СотрудникиРазрешитьВходВПрограммуРасширеннаяПодсказка" id="66"/>
+							</Button>
+							<Button name="СотрудникиЗапретитьВходВПрограмму" id="58">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ЗапретитьВходВПрограмму</CommandName>
+								<ExtendedTooltip name="СотрудникиЗапретитьВходВПрограммуРасширеннаяПодсказка" id="59"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="СотрудникиРасширеннаяПодсказка" id="4"/>
+					<SearchStringAddition name="СотрудникиСтрокаПоиска" id="116">
+						<AdditionSource>
+							<Item>Сотрудники</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СотрудникиСтрокаПоискаКонтекстноеМеню" id="117"/>
+						<ExtendedTooltip name="СотрудникиСтрокаПоискаРасширеннаяПодсказка" id="118"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="СотрудникиСостояниеПросмотра" id="119">
+						<AdditionSource>
+							<Item>Сотрудники</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СотрудникиСостояниеПросмотраКонтекстноеМеню" id="120"/>
+						<ExtendedTooltip name="СотрудникиСостояниеПросмотраРасширеннаяПодсказка" id="121"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="СотрудникиУправлениеПоиском" id="122">
+						<AdditionSource>
+							<Item>Сотрудники</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="СотрудникиУправлениеПоискомКонтекстноеМеню" id="123"/>
+						<ExtendedTooltip name="СотрудникиУправлениеПоискомРасширеннаяПодсказка" id="124"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">СотрудникиВыбор</Event>
+						<Event name="BeforeDeleteRow">СотрудникиПередУдалением</Event>
+						<Event name="OnActivateRow">СотрудникиПриАктивизацииСтроки</Event>
+						<Event name="ChoiceProcessing">СотрудникиОбработкаВыбора</Event>
+					</Events>
+					<ChildItems>
+						<PictureField name="СотрудникиКартинка" id="93">
+							<DataPath>Сотрудники.Картинка</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>1</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="СотрудникиКартинкаКонтекстноеМеню" id="94"/>
+							<ExtendedTooltip name="СотрудникиКартинкаРасширеннаяПодсказка" id="95"/>
+						</PictureField>
+						<InputField name="СотрудникиСотрудник" id="5">
+							<DataPath>Сотрудники.Сотрудник</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<DropListButton>false</DropListButton>
+							<ChoiceButton>true</ChoiceButton>
+							<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+							<ContextMenu name="СотрудникиСотрудникКонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="СотрудникиСотрудникРасширеннаяПодсказка" id="7"/>
+						</InputField>
+						<InputField name="СотрудникиАдресЭлектроннойПочты" id="17">
+							<DataPath>Сотрудники.АдресЭлектроннойПочты</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СотрудникиАдресЭлектроннойПочтыКонтекстноеМеню" id="18"/>
+							<ExtendedTooltip name="СотрудникиАдресЭлектроннойПочтыРасширеннаяПодсказка" id="19"/>
+						</InputField>
+						<InputField name="СотрудникиДатаОтправки" id="45">
+							<DataPath>Сотрудники.ДатаОтправки</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СотрудникиДатаОтправкиКонтекстноеМеню" id="46"/>
+							<ExtendedTooltip name="СотрудникиДатаОтправкиРасширеннаяПодсказка" id="47"/>
+						</InputField>
+						<InputField name="СотрудникиПользовательОС" id="125">
+							<DataPath>Сотрудники.ПользовательОС</DataPath>
+							<Visible>false</Visible>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ChoiceButton>true</ChoiceButton>
+							<ContextMenu name="СотрудникиПользовательОСКонтекстноеМеню" id="126"/>
+							<ExtendedTooltip name="СотрудникиПользовательОСРасширеннаяПодсказка" id="127"/>
+							<Events>
+								<Event name="StartChoice">СотрудникиПользовательОСНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</Table>
+				<UsualGroup name="ГруппаДанныеСотрудника" id="67">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Данные сотрудника</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДанныеСотрудникаРасширеннаяПодсказка" id="68"/>
+					<ChildItems>
+						<LabelDecoration name="ДекорацияДанныеСотрудникаПустаяСтрока" id="75">
+							<Width>2</Width>
+							<Height>2</Height>
+							<ContextMenu name="ДекорацияДанныеСотрудникаПустаяСтрокаКонтекстноеМеню" id="76"/>
+							<ExtendedTooltip name="ДекорацияДанныеСотрудникаПустаяСтрокаРасширеннаяПодсказка" id="77"/>
+						</LabelDecoration>
+						<UsualGroup name="ГруппаДанныеСотрудникаПодразделение" id="80">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Подразделение</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаДанныеСотрудникаПодразделениеРасширеннаяПодсказка" id="81"/>
+							<ChildItems>
+								<LabelField name="ДанныеСотрудникаПодразделение" id="72">
+									<DataPath>ДанныеСотрудникаПодразделение</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>20</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Hiperlink>true</Hiperlink>
+									<ContextMenu name="ДанныеСотрудникаПодразделениеКонтекстноеМеню" id="73"/>
+									<ExtendedTooltip name="ДанныеСотрудникаПодразделениеРасширеннаяПодсказка" id="74"/>
+								</LabelField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаДанныеСотрудникаПользователь" id="82">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пользователь</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаДанныеСотрудникаПользовательРасширеннаяПодсказка" id="83"/>
+							<ChildItems>
+								<Pages name="СтраницыПользователь" id="99">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страницы пользователь</v8:content>
+										</v8:item>
+									</Title>
+									<PagesRepresentation>None</PagesRepresentation>
+									<ExtendedTooltip name="СтраницыПользовательРасширеннаяПодсказка" id="100"/>
+									<ChildItems>
+										<Page name="СтраницаПользователь" id="101">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Страница пользователь</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Vertical</Group>
+											<ScrollOnCompress>false</ScrollOnCompress>
+											<ExtendedTooltip name="СтраницаПользовательРасширеннаяПодсказка" id="102"/>
+											<ChildItems>
+												<LabelField name="ДанныеСотрудникаПользователь" id="84">
+													<DataPath>ДанныеСотрудникаПользователь</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<Width>20</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<Hiperlink>true</Hiperlink>
+													<ContextMenu name="ДанныеСотрудникаПользовательКонтекстноеМеню" id="85"/>
+													<ExtendedTooltip name="ДанныеСотрудникаПользовательРасширеннаяПодсказка" id="86"/>
+												</LabelField>
+											</ChildItems>
+										</Page>
+										<Page name="СтраницаПользовательНеСоздан" id="103">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Страница пользователь не создан</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Vertical</Group>
+											<ScrollOnCompress>false</ScrollOnCompress>
+											<ExtendedTooltip name="СтраницаПользовательНеСозданРасширеннаяПодсказка" id="104"/>
+											<ChildItems>
+												<LabelDecoration name="ДекорацияПользовательНеСоздан" id="105">
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Пользователь не создан, выбрать</v8:content>
+														</v8:item>
+													</Title>
+													<Hyperlink>true</Hyperlink>
+													<ContextMenu name="ДекорацияПользовательНеСозданКонтекстноеМеню" id="106"/>
+													<ExtendedTooltip name="ДекорацияПользовательНеСозданРасширеннаяПодсказка" id="107"/>
+													<Events>
+														<Event name="Click">ДекорацияПользовательНеСозданНажатие</Event>
+													</Events>
+												</LabelDecoration>
+											</ChildItems>
+										</Page>
+									</ChildItems>
+								</Pages>
+								<LabelField name="ДанныеСотрудникаВходРазрешен" id="90">
+									<DataPath>ДанныеСотрудникаВходРазрешен</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>21</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ДанныеСотрудникаВходРазрешенКонтекстноеМеню" id="91"/>
+									<ExtendedTooltip name="ДанныеСотрудникаВходРазрешенРасширеннаяПодсказка" id="92"/>
+								</LabelField>
+								<UsualGroup name="ГруппаДобавитьПользователяВГруппыДоступа" id="133">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Пользователь не включен в выбранные в настройках группы:</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаДобавитьПользователяВГруппыДоступаРасширеннаяПодсказка" id="134"/>
+									<ChildItems>
+										<LabelDecoration name="НадписьДобавитьПользователяВГруппы" id="128">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<Height>2</Height>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Пользователь не включен в выбранные в настройках группы:</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="НадписьДобавитьПользователяВГруппыКонтекстноеМеню" id="129"/>
+											<ExtendedTooltip name="НадписьДобавитьПользователяВГруппыРасширеннаяПодсказка" id="130"/>
+										</LabelDecoration>
+										<LabelDecoration name="НадписьГруппыДоступа" id="135">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Надпись группы доступа</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="НадписьГруппыДоступаКонтекстноеМеню" id="136"/>
+											<ExtendedTooltip name="НадписьГруппыДоступаРасширеннаяПодсказка" id="137"/>
+										</LabelDecoration>
+										<Button name="ДобавитьПользователяВГруппыДоступа" id="131">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.ДобавитьПользователяВГруппыДоступа</CommandName>
+											<ExtendedTooltip name="ДобавитьПользователяВГруппыДоступаРасширеннаяПодсказка" id="132"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<LabelField name="ДанныеСотрудникаУволен" id="96">
+							<DataPath>ДанныеСотрудникаУволен</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>20</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ДанныеСотрудникаУволенКонтекстноеМеню" id="97"/>
+							<ExtendedTooltip name="ДанныеСотрудникаУволенРасширеннаяПодсказка" id="98"/>
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.СозданиеПользователейФизическихЛиц</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Сотрудники" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сотрудники</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Сотрудник" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сотрудник</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Сотрудники</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Подразделение" id="2">
+					<Type>
+						<v8:Type>cfg:CatalogRef.СтруктураПредприятия</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ФизическоеЛицо" id="3">
+					<Type>
+						<v8:Type>cfg:CatalogRef.ФизическиеЛица</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Пользователь" id="4">
+					<Type>
+						<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+					</Type>
+				</Column>
+				<Column name="АдресЭлектроннойПочты" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>E-mail</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="СписокАдресовЭлектроннойПочты" id="6">
+					<Type/>
+				</Column>
+				<Column name="Фамилия" id="7">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>50</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Имя" id="8">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>50</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Отчество" id="9">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>50</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаОтправки" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата отправки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВходРазрешен" id="11">
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ИдентификаторПользователяИБ" id="12">
+					<Type>
+						<v8:Type>v8:UUID</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Организация" id="13">
+					<Type>
+						<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Уволен" id="14">
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Картинка" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Картинка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8ui:Picture</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПользовательОС" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пользователь ОС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ГруппыДоступа" id="17">
+					<Type/>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Подразделение" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подразделение</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СтруктураПредприятия</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ГруппыДоступа" id="6">
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>cfg:CatalogRef.ГруппыДоступа</v8:Type>
+			</Settings>
+		</Attribute>
+		<Attribute name="ГруппаПользователей" id="7">
+			<Type>
+				<v8:Type>cfg:CatalogRef.ГруппыПользователей</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоказыватьВСпискеВыбора" id="8">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗапрещеноИзменятьПароль" id="9">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РассылатьУведомленияАвтоматически" id="10">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗаголовокУведомления" id="11">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>150</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидАдресаЭлектроннойПочты" id="13">
+			<Type>
+				<v8:Type>cfg:CatalogRef.ВидыКонтактнойИнформации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВключатьВебСсылкуВУведомление" id="14">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ШаблонУведомления" id="15">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КатегорияСотрудников" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Категория сотрудников</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеСотрудникаПодразделение" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные сотрудника подразделение</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СтруктураПредприятия</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеСотрудникаПользователь" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные сотрудника пользователь</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеСотрудникаВходРазрешен" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные сотрудника вход разрешен</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>25</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеСотрудникаУволен" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные сотрудника уволен</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>25</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="АутентификацияOpenID" id="5">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="АутентификацияОС" id="20">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="АутентификацияСтандартная" id="21">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СтруктураПредприятия" id="22">
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Подразделение" id="1">
+					<Type>
+						<v8:Type>cfg:CatalogRef.СтруктураПредприятия</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ПодбиратьПользователейПриОткрытии" id="23">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Сотрудники</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Сотрудники.ВходРазрешен</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Сотрудники.Пользователь</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="false" italic="false" underline="false" strikeout="true" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Сотрудники</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Сотрудники.Уволен</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЗакрытыйДокумент</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="СоздатьПользователей" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать пользователей для всех сотрудников</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать пользователей для всех сотрудников в списке</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПользователей</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="НастройкиПользователей" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки пользователей</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки создания пользователей</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НастройкиПользователей</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="НастройкиУведомлений" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки уведомлений</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки отправки сообщений</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НастройкиУведомлений</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОтправитьУведомление" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить уведомление</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить сообщения выбранным сотрудникам</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтправитьУведомление</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СоздатьПользователя" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать пользователя</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать пользователей для выбранных сотрудников</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПользователя</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗапретитьВходВПрограмму" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запретить вход в программу</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запретить вход в программу выбранным сотрудникам</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗапретитьВходВПрограмму</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РазрешитьВходВПрограмму" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрешить вход в программу</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрешить вход в программу выбранным сотрудникам</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РазрешитьВходВПрограмму</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ДобавитьПользователяВГруппыДоступа" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить в группы доступа</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ДобавитьПользователяВГруппыДоступа</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПодборПользователей" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор пользователей</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор пользователей</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПодборПользователей</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<WindowOpeningMode>LockOwner</WindowOpeningMode>
+	<Group>Vertical</Group>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаПровестиДокументы" id="48">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ПровестиДокументы</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаПровестиДокументыРасширеннаяПодсказка" id="49"/>
+			</Button>
+			<Button name="ФормаОтмена" id="50">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Отмена</CommandName>
+				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="51"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ОснованиеДатаГруппа" id="52">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основание дата группа</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ОснованиеДатаГруппаРасширеннаяПодсказка" id="53"/>
+			<ChildItems>
+				<InputField name="ДокументОснование" id="1">
+					<DataPath>ДокументОснование</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>По документу</v8:content>
+						</v8:item>
+					</Title>
+					<ChoiceButton>false</ChoiceButton>
+					<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="ДатаДокументов" id="54">
+					<DataPath>ДатаДокументов</DataPath>
+					<ContextMenu name="ДатаДокументовКонтекстноеМеню" id="55"/>
+					<ExtendedTooltip name="ДатаДокументовРасширеннаяПодсказка" id="56"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<CheckBoxField name="ВРазрезеИсточников" id="41">
+			<DataPath>ВРазрезеИсточников</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<ContextMenu name="ВРазрезеИсточниковКонтекстноеМеню" id="42"/>
+			<ExtendedTooltip name="ВРазрезеИсточниковРасширеннаяПодсказка" id="43"/>
+			<Events>
+				<Event name="OnChange">ВРазрезеИсточниковПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
+		<Table name="СписокДокументов" id="4">
+			<RowSelectionMode>Cell</RowSelectionMode>
+			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.СписокДокументов</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список документов</v8:content>
+				</v8:item>
+			</Title>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СписокДокументовКонтекстноеМеню" id="5"/>
+			<AutoCommandBar name="СписокДокументовКоманднаяПанель" id="6">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокДокументовРасширеннаяПодсказка" id="7"/>
+			<SearchStringAddition name="СписокДокументовСтрокаПоиска" id="8">
+				<AdditionSource>
+					<Item>СписокДокументов</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокДокументовСтрокаПоискаКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="СписокДокументовСтрокаПоискаРасширеннаяПодсказка" id="10"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокДокументовСостояниеПросмотра" id="11">
+				<AdditionSource>
+					<Item>СписокДокументов</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокДокументовСостояниеПросмотраКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СписокДокументовСостояниеПросмотраРасширеннаяПодсказка" id="13"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокДокументовУправлениеПоиском" id="14">
+				<AdditionSource>
+					<Item>СписокДокументов</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокДокументовУправлениеПоискомКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="СписокДокументовУправлениеПоискомРасширеннаяПодсказка" id="16"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="СписокДокументовНомерСтроки" id="17">
+					<DataPath>Объект.СписокДокументов.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Width>2</Width>
+					<ContextMenu name="СписокДокументовНомерСтрокиКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="СписокДокументовНомерСтрокиРасширеннаяПодсказка" id="19"/>
+				</LabelField>
+				<InputField name="СписокДокументовРегистрацияВНалоговомОргане" id="20">
+					<DataPath>Объект.СписокДокументов.РегистрацияВНалоговомОргане</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Получатель</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокДокументовРегистрацияВНалоговомОрганеКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="СписокДокументовРегистрацияВНалоговомОрганеРасширеннаяПодсказка" id="22"/>
+				</InputField>
+				<ColumnGroup name="Финансирование" id="44">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Финансирование</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ФинансированиеРасширеннаяПодсказка" id="45"/>
+					<ChildItems>
+						<InputField name="СписокДокументовСтатьяФинансирования" id="23">
+							<DataPath>Объект.СписокДокументов.СтатьяФинансирования</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ShowInHeader>false</ShowInHeader>
+							<ShowInFooter>false</ShowInFooter>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СписокДокументовСтатьяФинансированияКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="СписокДокументовСтатьяФинансированияРасширеннаяПодсказка" id="25"/>
+						</InputField>
+						<InputField name="СписокДокументовСтатьяРасходов" id="26">
+							<DataPath>Объект.СписокДокументов.СтатьяРасходов</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ShowInHeader>false</ShowInHeader>
+							<ShowInFooter>false</ShowInFooter>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>5</Width>
+							<ContextMenu name="СписокДокументовСтатьяРасходовКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="СписокДокументовСтатьяРасходовРасширеннаяПодсказка" id="28"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<InputField name="СписокДокументовДатаПлатежа" id="29">
+					<DataPath>Объект.СписокДокументов.ДатаПлатежа</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>8</MaxWidth>
+					<ContextMenu name="СписокДокументовДатаПлатежаКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="СписокДокументовДатаПлатежаРасширеннаяПодсказка" id="31"/>
+				</InputField>
+				<InputField name="СписокДокументовСумма" id="32">
+					<DataPath>Объект.СписокДокументов.Сумма</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокДокументовСуммаКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="СписокДокументовСуммаРасширеннаяПодсказка" id="34"/>
+				</InputField>
+				<ColumnGroup name="РеквизитыПлатежа" id="46">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реквизиты платежа</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="РеквизитыПлатежаРасширеннаяПодсказка" id="47"/>
+					<ChildItems>
+						<InputField name="СписокДокументовПлатежноеПоручениеДата" id="38">
+							<DataPath>Объект.СписокДокументов.ПлатежноеПоручениеДата</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ShowInHeader>false</ShowInHeader>
+							<ShowInFooter>false</ShowInFooter>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>9</MaxWidth>
+							<ContextMenu name="СписокДокументовПлатежноеПоручениеДатаКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="СписокДокументовПлатежноеПоручениеДатаРасширеннаяПодсказка" id="40"/>
+						</InputField>
+						<InputField name="СписокДокументовПлатежноеПоручениеНомер" id="35">
+							<DataPath>Объект.СписокДокументов.ПлатежноеПоручениеНомер</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ShowInHeader>false</ShowInHeader>
+							<ShowInFooter>false</ShowInFooter>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>5</MaxWidth>
+							<ContextMenu name="СписокДокументовПлатежноеПоручениеНомерКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="СписокДокументовПлатежноеПоручениеНомерРасширеннаяПодсказка" id="37"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<InputField name="СписокДокументовСуммаСПревышения" id="57">
+					<DataPath>Объект.СписокДокументов.СуммаСПревышения</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокДокументовСуммаСПревышенияКонтекстноеМеню" id="58"/>
+					<ExtendedTooltip name="СписокДокументовСуммаСПревышенияРасширеннаяПодсказка" id="59"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.СозданиеПеречисленияНДФЛВБюджет</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ДокументОснование" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ основание</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.ВедомостьНаВыплатуЗарплатыРаздатчиком</v8:Type>
+				<v8:Type>cfg:DocumentRef.ВыплатаБывшимСотрудникам</v8:Type>
+				<v8:Type>cfg:DocumentRef.ВедомостьПрочихДоходовВКассу</v8:Type>
+				<v8:Type>cfg:DocumentRef.РегистрацияПрочихДоходов</v8:Type>
+				<v8:Type>cfg:DocumentRef.ДивидендыФизическимЛицам</v8:Type>
+				<v8:Type>cfg:DocumentRef.ВедомостьНаВыплатуЗарплатыПеречислением</v8:Type>
+				<v8:Type>cfg:DocumentRef.ВедомостьНаВыплатуЗарплатыВБанк</v8:Type>
+				<v8:Type>cfg:DocumentRef.ВедомостьПрочихДоходовВБанк</v8:Type>
+				<v8:Type>cfg:DocumentRef.ВедомостьПрочихДоходовПеречислением</v8:Type>
+				<v8:Type>cfg:DocumentRef.ВедомостьНаВыплатуЗарплатыВКассу</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьСтатьиФинансирования" id="3">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьСтатьиРасходов" id="4">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВРазрезеИсточников" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>В разрезе источников финансирования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Организация" id="6">
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПроверкаЗаполненияФинансирования" id="7">
+			<Type/>
+		</Attribute>
+		<Attribute name="ДатаДокументов" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ПровестиДокументы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Провести документы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Провести документы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПровестиДокументы</Action>
+		</Command>
+		<Command name="Отмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
+		</Command>
+	</Commands>
+</Form>
