@@ -1,4 +1,4 @@
-# 🗂️ ## Для Perplexity / AI
+# 🗂️ Для Perplexity / AI
 
 Сначала читай:
 1. AI_RULES.md
