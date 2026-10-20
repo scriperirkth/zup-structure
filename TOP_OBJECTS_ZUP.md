@@ -10,9 +10,10 @@
 
 - Каждый объект должен быть подтверждён в `Configuration.xml`.
 - Путь указывается только после проверки фактической папки.
-- Тематическая принадлежность по имени отмечается `[предположение по имени]`.
+- Тематическая принадлежность по имени отмечается статусом `ПРЕДПОЛОЖЕНИЕ ПО ИМЕНИ`.
 - Назначение, реквизиты, движения и обработчики требуют XML/BSL-подтверждения.
 - Не считать этот файл полным реестром объектов до завершения пообъектной выгрузки.
+- Статусы определены в `AI_RULES.md`, раздел 6. Раскладка файлов объекта — там же, раздел 2.
 
 ## Кадровый учет
 
@@ -55,13 +56,13 @@
 ### Планы видов расчета
 
 | Тип | Путь | Назначение |
-|---|---|---|---|
+|---|---|---|
 | `ChartOfCalculationTypes` | `ChartsOfCalculationTypes/` | Виды начислений и удержаний |
 
 ### Регистры расчета
 
 | Тип | Путь | Назначение |
-|---|---|---|---|
+|---|---|---|
 | `CalculationRegister` | `CalculationRegisters/` | Расчетные записи начислений и удержаний |
 
 ### Поиск объектов
@@ -328,17 +329,17 @@
 | Обработки интеграции | `DataProcessors/` |
 | Общие модули | `CommonModules/` |
 
-### Подтвержденные направления по Configuration.xml
+### Подтверждённые направления по Configuration.xml
 
-- `ChatbotsWebhook` — HTTP-сервис `[подтверждено Configuration.xml]`
-- `DMILService` — web-сервис `[подтверждено Configuration.xml]`
-- `EnterpriseDataExchange1011` — web-сервис `[подтверждено Configuration.xml]`
-- `EnterpriseDataUpload1011` — web-сервис `[подтверждено Configuration.xml]`
-- `Exchange` — web-сервис `[подтверждено Configuration.xml]`
-- `RemoteAdministrationOfExchange` — web-сервис `[подтверждено Configuration.xml]`
-- `XDTOPackageFSSCommon01` — XDTO-пакет `[подтверждено Configuration.xml]`
-- `XDTOPackageFSSELN01` — XDTO-пакет `[подтверждено Configuration.xml]`
-- `XDTOPackageClientBankExchange` — XDTO-пакет `[подтверждено Configuration.xml]`
+- `ChatbotsWebhook` — HTTP-сервис `ПОДТВЕРЖДЕНО СОСТАВОМ`
+- `DMILService` — web-сервис `ПОДТВЕРЖДЕНО СОСТАВОМ`
+- `EnterpriseDataExchange1011` — web-сервис `ПОДТВЕРЖДЕНО СОСТАВОМ`
+- `EnterpriseDataUpload1011` — web-сервис `ПОДТВЕРЖДЕНО СОСТАВОМ`
+- `Exchange` — web-сервис `ПОДТВЕРЖДЕНО СОСТАВОМ`
+- `RemoteAdministrationOfExchange` — web-сервис `ПОДТВЕРЖДЕНО СОСТАВОМ`
+- `XDTOPackageFSSCommon01` — XDTO-пакет `ПОДТВЕРЖДЕНО СОСТАВОМ`
+- `XDTOPackageFSSELN01` — XDTO-пакет `ПОДТВЕРЖДЕНО СОСТАВОМ`
+- `XDTOPackageClientBankExchange` — XDTO-пакет `ПОДТВЕРЖДЕНО СОСТАВОМ`
 
 ## ЭДО
 
@@ -391,19 +392,19 @@
 Новые строки добавляются только после проверки:
 
 ```markdown
-| `<ТочноеИмя>` | `<XML-тип>` | `<Точный путь>` | `[подтверждено Configuration.xml]` |
+| `<ТочноеИмя>` | `<XML-тип>` | `<Точный путь>` | `ПОДТВЕРЖДЕНО СОСТАВОМ` |
 ```
 
 При проверке XML объекта строка дополняется:
 
 ```markdown
-| `<ТочноеИмя>` | `<XML-тип>` | `<Точный путь>` | `[подтверждено XML]` |
+| `<ТочноеИмя>` | `<XML-тип>` | `<Точный путь>` | `ПОДТВЕРЖДЕНО XML` |
 ```
 
 При проверке BSL добавляется путь к найденному модулю:
 
-```markdown
-`Documents/<Имя>/Ext/ObjectModule.bsl`
-`Catalogs/<Имя>/Ext/ManagerModule.bsl`
-`CommonModules/<Имя>/Ext/Module.bsl`
+```text
+Documents/<Имя>/Ext/ObjectModule.bsl
+Catalogs/<Имя>/Ext/ManagerModule.bsl
+CommonModules/<Имя>/Ext/Module.bsl
 ```
