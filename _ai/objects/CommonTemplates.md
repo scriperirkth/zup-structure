@@ -1,6 +1,6 @@
 # CommonTemplates
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
+Построено из коммита: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
 
 | Имя | Тип XML | Путь XML | Каталог | Файлов BSL | Карточка |
 |---|---|---|---|---|---|
@@ -28,14 +28,24 @@
 | КодыКБК | CommonTemplate | CommonTemplates/КодыКБК.xml | да | 0 |  |
 | КомпонентаОбмена359 | CommonTemplate | CommonTemplates/КомпонентаОбмена359.xml | да | 0 |  |
 | КомпонентаПечатиQRКода | CommonTemplate | CommonTemplates/КомпонентаПечатиQRКода.xml | да | 0 |  |
-| КомпонентаПечатиШтрихкодов | CommonTemplate | CommonTemplates/КомпонентаПечатиШтрихкодов.xml | да | 0 |  |
+| КомпонентаПечатиШтрихкодов_10_0_13_9 | CommonTemplate | CommonTemplates/КомпонентаПечатиШтрихкодов_10_0_13_9.xml | да | 0 |  |
 | КомпонентаПоискаСтрок | CommonTemplate | CommonTemplates/КомпонентаПоискаСтрок.xml | да | 0 |  |
 | КомпонентаПолученияКартинкиИзБуфера | CommonTemplate | CommonTemplates/КомпонентаПолученияКартинкиИзБуфера.xml | да | 0 |  |
 | КомпонентаСканированияДокументов_3_0_1_1033 | CommonTemplate | CommonTemplates/КомпонентаСканированияДокументов_3_0_1_1033.xml | да | 0 |  |
+| КомпонентаШиныОтчетности | CommonTemplate | CommonTemplates/КомпонентаШиныОтчетности.xml | да | 0 |  |
 | МакетОпределенияЦвета | CommonTemplate | CommonTemplates/МакетОпределенияЦвета.xml | да | 0 |  |
 | ОбщиеСправочникиРПН | CommonTemplate | CommonTemplates/ОбщиеСправочникиРПН.xml | да | 0 |  |
 | ОписаниеИзмененийСистемы | CommonTemplate | CommonTemplates/ОписаниеИзмененийСистемы.xml | да | 0 |  |
+| ОшибкиПоискКонтрагентов | CommonTemplate | CommonTemplates/ОшибкиПоискКонтрагентов.xml | да | 0 |  |
+| ПФ_MXL_АктСдачиПриемкиВыполненныхРаботУслуг | CommonTemplate | CommonTemplates/ПФ_MXL_АктСдачиПриемкиВыполненныхРаботУслуг.xml | да | 0 |  |
+| ПФ_MXL_ДоплатаЗаДниНетрудоспособности | CommonTemplate | CommonTemplates/ПФ_MXL_ДоплатаЗаДниНетрудоспособности.xml | да | 0 |  |
+| ПФ_MXL_ЗаменаЛетРасчетногоПериода_2024 | CommonTemplate | CommonTemplates/ПФ_MXL_ЗаменаЛетРасчетногоПериода_2024.xml | да | 0 |  |
+| ПФ_MXL_ЗаявлениеОВыдачеСправки | CommonTemplate | CommonTemplates/ПФ_MXL_ЗаявлениеОВыдачеСправки.xml | да | 0 |  |
+| ПФ_MXL_КарточкаУчетаИсполнительногоДокументаСОплатами | CommonTemplate | CommonTemplates/ПФ_MXL_КарточкаУчетаИсполнительногоДокументаСОплатами.xml | да | 0 |  |
+| ПФ_MXL_ЛистокНетрудоспособности | CommonTemplate | CommonTemplates/ПФ_MXL_ЛистокНетрудоспособности.xml | да | 0 |  |
 | ПФ_MXL_МакетШтампаПростойПодписи | CommonTemplate | CommonTemplates/ПФ_MXL_МакетШтампаПростойПодписи.xml | да | 0 |  |
+| ПФ_MXL_ОтпускНаПериодЛечения_2024 | CommonTemplate | CommonTemplates/ПФ_MXL_ОтпускНаПериодЛечения_2024.xml | да | 0 |  |
+| ПФ_MXL_РасчетПособия | CommonTemplate | CommonTemplates/ПФ_MXL_РасчетПособия.xml | да | 0 |  |
 | ПФ_MXL_РасчетныйЛистокНастраиваемый | CommonTemplate | CommonTemplates/ПФ_MXL_РасчетныйЛистокНастраиваемый.xml | да | 0 |  |
 | ПФ_MXL_РасчетныйЛистокПерваяПоловинаМесяца | CommonTemplate | CommonTemplates/ПФ_MXL_РасчетныйЛистокПерваяПоловинаМесяца.xml | да | 0 |  |
 | ПФ_MXL_РасчетныйЛистокСРазбивкойПоИсточникамФинансирования | CommonTemplate | CommonTemplates/ПФ_MXL_РасчетныйЛистокСРазбивкойПоИсточникамФинансирования.xml | да | 0 |  |
@@ -47,6 +57,8 @@
 | ПФ_MXL_СписокПеречисленийНаБанковскиеСчета | CommonTemplate | CommonTemplates/ПФ_MXL_СписокПеречисленийНаБанковскиеСчета.xml | да | 0 |  |
 | ПФ_MXL_СписокПеречисленийНаЛицевыеСчета | CommonTemplate | CommonTemplates/ПФ_MXL_СписокПеречисленийНаЛицевыеСчета.xml | да | 0 |  |
 | ПФ_MXL_СписокПеречисленийПоЗарплатномуПроекту | CommonTemplate | CommonTemplates/ПФ_MXL_СписокПеречисленийПоЗарплатномуПроекту.xml | да | 0 |  |
+| ПФ_MXL_СправкаДляОплатыОтпускаЧАЭС | CommonTemplate | CommonTemplates/ПФ_MXL_СправкаДляОплатыОтпускаЧАЭС.xml | да | 0 |  |
+| ПФ_MXL_СправкаКЗаявлениюОБанкротстве | CommonTemplate | CommonTemplates/ПФ_MXL_СправкаКЗаявлениюОБанкротстве.xml | да | 0 |  |
 | ПФ_MXL_СправкаПоОтпускамСотрудника | CommonTemplate | CommonTemplates/ПФ_MXL_СправкаПоОтпускамСотрудника.xml | да | 0 |  |
 | ПФ_MXL_Т1 | CommonTemplate | CommonTemplates/ПФ_MXL_Т1.xml | да | 0 |  |
 | ПФ_MXL_Т49 | CommonTemplate | CommonTemplates/ПФ_MXL_Т49.xml | да | 0 |  |

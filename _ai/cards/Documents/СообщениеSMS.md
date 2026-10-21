@@ -4,8 +4,8 @@
 - Синоним: Сообщение SMS
 - Источник: Documents/СообщениеSMS.xml
 - Каталог объекта: Documents/СообщениеSMS/ (есть)
-- Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-- Статус: ПОДТВЕРЖДЕНО XML (сгенерировано build_ai_index 1.0; при расхождении верен исходный XML)
+- Построено из коммита: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+- Статус: ПОДТВЕРЖДЕНО XML (сгенерировано rebuild_ai 2.0; при расхождении верен исходный XML)
 - Posting: Deny
 - RealTimePosting: Allow
 - NumberType: String
@@ -18,7 +18,7 @@
 
 ### Реквизиты (12)
 
-| Имя | Синоним | Тип | Обязательно |
+| Имя | Синоним | Тип | FillChecking=ShowError |
 |---|---|---|---|
 | Автор | Автор | CatalogRef.Пользователи |  |
 | Важность | Важность | EnumRef.ВариантыВажностиВзаимодействия |  |
@@ -35,7 +35,7 @@
 
 ### Табличная часть Адресаты (7)
 
-| Имя | Синоним | Тип | Обязательно |
+| Имя | Синоним | Тип | FillChecking=ShowError |
 |---|---|---|---|
 | Контакт | Контакт | Набор DefinedType.КонтактВзаимодействия |  |
 | ПредставлениеКонтакта | Представление контакта | Строка(100) | Да |
@@ -47,7 +47,7 @@
 
 ### Табличная часть НаборыЗначенийДоступа (5)
 
-| Имя | Синоним | Тип | Обязательно |
+| Имя | Синоним | Тип | FillChecking=ShowError |
 |---|---|---|---|
 | НомерНабора | Номер набора | Число(4,0) |  |
 | ЗначениеДоступа | Значение доступа | Набор DefinedType.ЗначениеДоступа |  |
@@ -57,7 +57,7 @@
 
 ### Табличная часть ДополнительныеРеквизиты (3)
 
-| Имя | Синоним | Тип | Обязательно | Связи выбора |
+| Имя | Синоним | Тип | FillChecking=ShowError | Связи выбора |
 |---|---|---|---|---|
 | Свойство | Свойство | ChartOfCharacteristicTypesRef.ДополнительныеРеквизитыИСведения |  |  |
 | Значение | Значение | Набор Characteristic.ДополнительныеРеквизитыИСведения |  | Отбор.Владелец <- Document.СообщениеSMS.TabularSection.ДополнительныеРеквизиты.Attribute.Свойство |
@@ -73,7 +73,11 @@
 
 - Documents/СообщениеSMS/Ext/ManagerModule.bsl (8129 байт)
 - Documents/СообщениеSMS/Ext/ObjectModule.bsl (5741 байт)
-- Documents/СообщениеSMS/Forms/ФормаДокумента/Ext/Form/Module.bsl (60525 байт)
-- Documents/СообщениеSMS/Forms/ФормаСписка/Ext/Form/Module.bsl (5181 байт)
+- Documents/СообщениеSMS/Forms/ФормаДокумента/Ext/Form/Module.bsl (60744 байт)
+- Documents/СообщениеSMS/Forms/ФормаСписка/Ext/Form/Module.bsl (6092 байт)
 
 Методы: _ai/modules/Documents/СообщениеSMS.md
+
+- Source XML SHA-256: 5c2919c887dec6a77a86daa9a41fbe2499cc94c4815820c72dc3891356aeca57
+- This is a generated summary, not the complete XML.
+- FillChecking=ShowError is an XML setting; runtime validation requires BSL analysis.

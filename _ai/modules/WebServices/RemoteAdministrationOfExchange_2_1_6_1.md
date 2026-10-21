@@ -1,18 +1,24 @@
-# Модули: WebServices/RemoteAdministrationOfExchange_2_1_6_1
+# BSL index: WebServices/RemoteAdministrationOfExchange_2_1_6_1
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-Статус: ПОДТВЕРЖДЕНО BSL (сгенерировано build_ai_index 1.0; номера строк относятся к указанному коммиту)
+Generator: rebuild_ai 2.0
+Source snapshot commit: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+Navigation only: read the source method body before describing behavior.
+Header recognition is heuristic, not a complete BSL parser.
+An absent index entry does not prove an absent method.
 
-## WebServices/RemoteAdministrationOfExchange_2_1_6_1/Ext/Module.bsl — Модуль
+## WebServices/RemoteAdministrationOfExchange_2_1_6_1/Ext/Module.bsl
 
-Строк: 256, байт: 16139, методов: 7, экспортных: 0
+- Module: Модуль
+- Lines: 252
+- Bytes: 15987
+- Source SHA-256: 2938cd587d179d12a26015581d5b67c663daf5c50c04bbe78546422b7c417dab
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
 | 15 | Функция | ПолучитьПланыОбменаКонфигурации |  |  |  |
 | 43 | Функция | ЗапланироватьВыполнениеОбменаДанными | ОбластиДляОбменаДаннымиXDTO |  |  |
 | 83 | Функция | ВыполнитьДействиеСценарияОбменаДаннымиВПервойИнформационнойБазе | ИндексСтрокиСценария, СценарийОбменаДаннымиXDTO |  |  |
-| 151 | Функция | ВыполнитьДействиеСценарияОбменаДаннымиВоВторойИнформационнойБазе | ИндексСтрокиСценария, СценарийОбменаДаннымиXDTO |  |  |
-| 219 | Функция | ПроверитьПодключение | СтруктураНастроекXDTO, ВидТранспортаСтрокой, СообщениеОбОшибке |  |  |
-| 237 | Функция | Ping |  |  |  |
-| 245 | Функция | РежимОбменаДанными | СценарийОбменаДанными |  |  |
+| 149 | Функция | ВыполнитьДействиеСценарияОбменаДаннымиВоВторойИнформационнойБазе | ИндексСтрокиСценария, СценарийОбменаДаннымиXDTO |  |  |
+| 215 | Функция | ПроверитьПодключение | СтруктураНастроекXDTO, ВидТранспортаСтрокой, СообщениеОбОшибке |  |  |
+| 233 | Функция | Ping |  |  |  |
+| 241 | Функция | РежимОбменаДанными | СценарийОбменаДанными |  |  |

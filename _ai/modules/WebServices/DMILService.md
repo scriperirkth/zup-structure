@@ -1,12 +1,18 @@
-# Модули: WebServices/DMILService
+# BSL index: WebServices/DMILService
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-Статус: ПОДТВЕРЖДЕНО BSL (сгенерировано build_ai_index 1.0; номера строк относятся к указанному коммиту)
+Generator: rebuild_ai 2.0
+Source snapshot commit: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+Navigation only: read the source method body before describing behavior.
+Header recognition is heuristic, not a complete BSL parser.
+An absent index entry does not prove an absent method.
 
-## WebServices/DMILService/Ext/Module.bsl — Модуль
+## WebServices/DMILService/Ext/Module.bsl
 
-Строк: 17, байт: 998, методов: 1, экспортных: 0
+- Module: Модуль
+- Lines: 17
+- Bytes: 998
+- Source SHA-256: 9594982a7599bef74ef73479172b27a446498f30f7ccfca7ba388cc7512939a7
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
 | 11 | Функция | ОбработатьЗапрос | Запрос |  |  |

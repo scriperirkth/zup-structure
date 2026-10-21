@@ -4,8 +4,8 @@
 - Синоним: Состояния сообщения SMS
 - Источник: Enums/СостоянияСообщенияSMS.xml
 - Каталог объекта: Enums/СостоянияСообщенияSMS/ (нет)
-- Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-- Статус: ПОДТВЕРЖДЕНО XML (сгенерировано build_ai_index 1.0; при расхождении верен исходный XML)
+- Построено из коммита: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+- Статус: ПОДТВЕРЖДЕНО XML (сгенерировано rebuild_ai 2.0; при расхождении верен исходный XML)
 - ChoiceMode: BothWays
 
 ### Значения (10)
@@ -26,3 +26,7 @@
 ### BSL-модули
 
 - не найдено в дереве (проверка: os.walk по Enums/СостоянияСообщенияSMS/)
+
+- Source XML SHA-256: 1ea74eeb970ae8a8e0f1b22bb2473e5615800a18ac1e762f710ba747a4f1194d
+- This is a generated summary, not the complete XML.
+- FillChecking=ShowError is an XML setting; runtime validation requires BSL analysis.

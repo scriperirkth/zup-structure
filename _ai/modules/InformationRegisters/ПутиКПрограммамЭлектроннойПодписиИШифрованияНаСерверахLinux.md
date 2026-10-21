@@ -1,31 +1,43 @@
-# Модули: InformationRegisters/ПутиКПрограммамЭлектроннойПодписиИШифрованияНаСерверахLinux
+# BSL index: InformationRegisters/ПутиКПрограммамЭлектроннойПодписиИШифрованияНаСерверахLinux
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-Статус: ПОДТВЕРЖДЕНО BSL (сгенерировано build_ai_index 1.0; номера строк относятся к указанному коммиту)
+Generator: rebuild_ai 2.0
+Source snapshot commit: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+Navigation only: read the source method body before describing behavior.
+Header recognition is heuristic, not a complete BSL parser.
+An absent index entry does not prove an absent method.
 
-## InformationRegisters/ПутиКПрограммамЭлектроннойПодписиИШифрованияНаСерверахLinux/Commands/ПутиКПрограммеНаСерверахLinux/Ext/CommandModule.bsl — Модуль команды
+## InformationRegisters/ПутиКПрограммамЭлектроннойПодписиИШифрованияНаСерверахLinux/Commands/ПутиКПрограммеНаСерверахLinux/Ext/CommandModule.bsl
 
-Строк: 27, байт: 1742, методов: 1, экспортных: 0
+- Module: Модуль команды
+- Lines: 27
+- Bytes: 1742
+- Source SHA-256: 2ae1e2314b23cc35ed55d68ba995ce1989c1095889574d2bf2638f4fda86be34
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
 | 12 | Процедура | ОбработкаКоманды | ПараметрКоманды, ПараметрыВыполненияКоманды |  | &НаКлиенте |
 
-## InformationRegisters/ПутиКПрограммамЭлектроннойПодписиИШифрованияНаСерверахLinux/Forms/ФормаЗаписи/Ext/Form/Module.bsl — Модуль формы
+## InformationRegisters/ПутиКПрограммамЭлектроннойПодписиИШифрованияНаСерверахLinux/Forms/ФормаЗаписи/Ext/Form/Module.bsl
 
-Строк: 43, байт: 2439, методов: 3, экспортных: 0
+- Module: Модуль формы
+- Lines: 43
+- Bytes: 2439
+- Source SHA-256: 61f9b07d9fb060f335f41c54c7c80675b407052364797c2bd9c447a16a8d7aef
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
 | 12 | Процедура | ПриСозданииНаСервере | Отказ, СтандартнаяОбработка |  | &НаСервере |
 | 27 | Процедура | ПослеЗаписиНаСервере | ТекущийОбъект, ПараметрыЗаписи |  | &НаСервере |
 | 36 | Процедура | ПослеЗаписи | ПараметрыЗаписи |  | &НаКлиенте |
 
-## InformationRegisters/ПутиКПрограммамЭлектроннойПодписиИШифрованияНаСерверахLinux/Forms/ФормаСписка/Ext/Form/Module.bsl — Модуль формы
+## InformationRegisters/ПутиКПрограммамЭлектроннойПодписиИШифрованияНаСерверахLinux/Forms/ФормаСписка/Ext/Form/Module.bsl
 
-Строк: 66, байт: 3555, методов: 4, экспортных: 0
+- Module: Модуль формы
+- Lines: 66
+- Bytes: 3573
+- Source SHA-256: 8ffe1fcffdfc57ad802b1798f7a597b107859f7446ca52982fbdb7410b0e93b6
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
 | 12 | Процедура | ПриСозданииНаСервере | Отказ, СтандартнаяОбработка |  | &НаСервере |
 | 33 | Процедура | СписокПередНачаломИзменения | Элемент, Отказ |  | &НаКлиенте |

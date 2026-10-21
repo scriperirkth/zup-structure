@@ -1,13 +1,19 @@
-# Модули: CommonCommands/НастройкаСинхронизацииMSExchange
+# BSL index: CommonCommands/НастройкаСинхронизацииMSExchange
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-Статус: ПОДТВЕРЖДЕНО BSL (сгенерировано build_ai_index 1.0; номера строк относятся к указанному коммиту)
+Generator: rebuild_ai 2.0
+Source snapshot commit: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+Navigation only: read the source method body before describing behavior.
+Header recognition is heuristic, not a complete BSL parser.
+An absent index entry does not prove an absent method.
 
-## CommonCommands/НастройкаСинхронизацииMSExchange/Ext/CommandModule.bsl — Модуль команды
+## CommonCommands/НастройкаСинхронизацииMSExchange/Ext/CommandModule.bsl
 
-Строк: 45, байт: 2340, методов: 2, экспортных: 0
+- Module: Модуль команды
+- Lines: 45
+- Bytes: 2340
+- Source SHA-256: 63181e0d7edcfc56aaf977f76c036900c8fe72796a3b1db0336e6cc1f9c0db33
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
 | 4 | Процедура | ОбработкаКоманды | ПараметрКоманды, ПараметрыВыполненияКоманды |  | &НаКлиенте |
 | 25 | Функция | КлючФормы |  |  | &НаСервере |

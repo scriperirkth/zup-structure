@@ -1,12 +1,18 @@
-# Модули: HTTPServices/ChatbotsWebhook
+# BSL index: HTTPServices/ChatbotsWebhook
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-Статус: ПОДТВЕРЖДЕНО BSL (сгенерировано build_ai_index 1.0; номера строк относятся к указанному коммиту)
+Generator: rebuild_ai 2.0
+Source snapshot commit: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+Navigation only: read the source method body before describing behavior.
+Header recognition is heuristic, not a complete BSL parser.
+An absent index entry does not prove an absent method.
 
-## HTTPServices/ChatbotsWebhook/Ext/Module.bsl — Модуль
+## HTTPServices/ChatbotsWebhook/Ext/Module.bsl
 
-Строк: 24, байт: 929, методов: 1, экспортных: 0
+- Module: Модуль
+- Lines: 24
+- Bytes: 929
+- Source SHA-256: cc5e1ce555f0ddfc4586a8c7d967724526de8a2a38065878a98b8a71413ef8b3
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
 | 13 | Функция | Any | Запрос |  |  |

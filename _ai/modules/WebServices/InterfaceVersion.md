@@ -1,12 +1,18 @@
-# Модули: WebServices/InterfaceVersion
+# BSL index: WebServices/InterfaceVersion
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-Статус: ПОДТВЕРЖДЕНО BSL (сгенерировано build_ai_index 1.0; номера строк относятся к указанному коммиту)
+Generator: rebuild_ai 2.0
+Source snapshot commit: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+Navigation only: read the source method body before describing behavior.
+Header recognition is heuristic, not a complete BSL parser.
+An absent index entry does not prove an absent method.
 
-## WebServices/InterfaceVersion/Ext/Module.bsl — Модуль
+## WebServices/InterfaceVersion/Ext/Module.bsl
 
-Строк: 64, байт: 3962, методов: 1, экспортных: 0
+- Module: Модуль
+- Lines: 64
+- Bytes: 3962
+- Source SHA-256: a2066706ff22683e70f92604a750e931003fe86298e27f3720476a5ad20fc0e1
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
 | 57 | Функция | GetVersions | InterfaceName |  |  |

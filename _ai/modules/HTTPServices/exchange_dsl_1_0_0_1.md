@@ -1,13 +1,19 @@
-# Модули: HTTPServices/exchange_dsl_1_0_0_1
+# BSL index: HTTPServices/exchange_dsl_1_0_0_1
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-Статус: ПОДТВЕРЖДЕНО BSL (сгенерировано build_ai_index 1.0; номера строк относятся к указанному коммиту)
+Generator: rebuild_ai 2.0
+Source snapshot commit: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+Navigation only: read the source method body before describing behavior.
+Header recognition is heuristic, not a complete BSL parser.
+An absent index entry does not prove an absent method.
 
-## HTTPServices/exchange_dsl_1_0_0_1/Ext/Module.bsl — Модуль
+## HTTPServices/exchange_dsl_1_0_0_1/Ext/Module.bsl
 
-Строк: 359, байт: 18940, методов: 15, экспортных: 0
+- Module: Модуль
+- Lines: 359
+- Bytes: 18940
+- Source SHA-256: f63e5b7c49b4de905b4864ad7959cee11da0cf38ba47bd842e465ecd3956f09a
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
 | 11 | Функция | ВерсияИнтерфейса |  |  |  |
 | 17 | Функция | ПолучитьВерсию_GET | Запрос |  |  |

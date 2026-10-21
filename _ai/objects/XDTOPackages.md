@@ -1,10 +1,9 @@
 # XDTOPackages
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
+Построено из коммита: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
 
 | Имя | Тип XML | Путь XML | Каталог | Файлов BSL | Карточка |
 |---|---|---|---|---|---|
-| AgentScripts | XDTOPackage | XDTOPackages/AgentScripts.xml | да | 0 |  |
 | ApdexExport | XDTOPackage | XDTOPackages/ApdexExport.xml | да | 0 |  |
 | ApdexExport_1_0_0_2 | XDTOPackage | XDTOPackages/ApdexExport_1_0_0_2.xml | да | 0 |  |
 | ApdexExport_1_0_0_3 | XDTOPackage | XDTOPackages/ApdexExport_1_0_0_3.xml | да | 0 |  |

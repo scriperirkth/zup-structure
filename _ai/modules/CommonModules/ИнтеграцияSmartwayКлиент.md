@@ -1,13 +1,19 @@
-# Модули: CommonModules/ИнтеграцияSmartwayКлиент
+# BSL index: CommonModules/ИнтеграцияSmartwayКлиент
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-Статус: ПОДТВЕРЖДЕНО BSL (сгенерировано build_ai_index 1.0; номера строк относятся к указанному коммиту)
+Generator: rebuild_ai 2.0
+Source snapshot commit: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+Navigation only: read the source method body before describing behavior.
+Header recognition is heuristic, not a complete BSL parser.
+An absent index entry does not prove an absent method.
 
-## CommonModules/ИнтеграцияSmartwayКлиент/Ext/Module.bsl — Общий модуль
+## CommonModules/ИнтеграцияSmartwayКлиент/Ext/Module.bsl
 
-Строк: 23, байт: 1139, методов: 2, экспортных: 1
+- Module: Общий модуль
+- Lines: 23
+- Bytes: 1139
+- Source SHA-256: 31e12f4e9f2c4cd9db2c5d1e9b9c0e6875121f656a72c5e4c7e168d08b2d3af3
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
-| 3 | Процедура | ОткрытьСтраницуПоездкиНаСайте | СистемаБронирования, ИдентификаторПоездки, СтандартнаяОбработка | Да |  |
+| 3 | Процедура | ОткрытьСтраницуПоездкиНаСайте | СистемаБронирования, ИдентификаторПоездки, СтандартнаяОбработка | Yes |  |
 | 19 | Функция | АдресЛичногоКабинета |  |  |  |

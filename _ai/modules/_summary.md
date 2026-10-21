@@ -1,29 +1,29 @@
 # Сводка по BSL-модулям
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
+Построено из коммита: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
 
 | Папка | Файлов BSL | Байт |
 |---|---|---|
-| AccumulationRegisters | 117 | 328564 |
-| BusinessProcesses | 74 | 1455306 |
+| AccumulationRegisters | 117 | 328940 |
+| BusinessProcesses | 74 | 1458656 |
 | CalculationRegisters | 4 | 80765 |
-| Catalogs | 2424 | 34611781 |
-| ChartsOfCalculationTypes | 12 | 1986199 |
-| ChartsOfCharacteristicTypes | 39 | 647874 |
-| CommonCommands | 194 | 225888 |
-| CommonForms | 293 | 10599079 |
-| CommonModules | 2279 | 171508440 |
-| Constants | 187 | 245917 |
-| DataProcessors | 1438 | 63651682 |
-| DocumentJournals | 125 | 1059413 |
-| Documents | 1686 | 64583374 |
-| Enums | 115 | 426576 |
-| ExchangePlans | 32 | 428906 |
-| Ext | 3 | 19214 |
-| HTTPServices | 7 | 122108 |
-| InformationRegisters | 2143 | 13797362 |
-| IntegrationServices | 1 | 1738 |
-| Reports | 1192 | 108701067 |
-| SettingsStorages | 21 | 897649 |
-| Tasks | 21 | 313271 |
-| WebServices | 14 | 203414 |
+| Catalogs | 2419 | 34407964 |
+| ChartsOfCalculationTypes | 9 | 694164 |
+| ChartsOfCharacteristicTypes | 39 | 639227 |
+| CommonCommands | 192 | 227525 |
+| CommonForms | 317 | 11546810 |
+| CommonModules | 2238 | 175325541 |
+| Constants | 199 | 251791 |
+| DataProcessors | 1435 | 64675279 |
+| DocumentJournals | 125 | 1099970 |
+| Documents | 1695 | 63147570 |
+| Enums | 116 | 422194 |
+| ExchangePlans | 32 | 425928 |
+| Ext | 4 | 22688 |
+| HTTPServices | 7 | 122974 |
+| InformationRegisters | 2156 | 13871300 |
+| IntegrationServices | 1 | 1784 |
+| Reports | 1070 | 87816004 |
+| SettingsStorages | 21 | 900512 |
+| Tasks | 21 | 324554 |
+| WebServices | 14 | 200250 |

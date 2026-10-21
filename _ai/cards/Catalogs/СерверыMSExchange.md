@@ -4,8 +4,8 @@
 - Синоним: Серверы Microsoft Exchange
 - Источник: Catalogs/СерверыMSExchange.xml
 - Каталог объекта: Catalogs/СерверыMSExchange/ (есть)
-- Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-- Статус: ПОДТВЕРЖДЕНО XML (сгенерировано build_ai_index 1.0; при расхождении верен исходный XML)
+- Построено из коммита: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+- Статус: ПОДТВЕРЖДЕНО XML (сгенерировано rebuild_ai 2.0; при расхождении верен исходный XML)
 - Autonumbering: true
 - CheckUnique: true
 - Hierarchical: false
@@ -20,7 +20,7 @@
 
 ### Реквизиты (9)
 
-| Имя | Синоним | Тип | Обязательно |
+| Имя | Синоним | Тип | FillChecking=ShowError |
 |---|---|---|---|
 | АдресРесурса | Адрес ресурса | Строка(300) | Да |
 | ИспользоватьЗащищенноеСоединение | Использовать защищенное соединение | Булево |  |
@@ -42,3 +42,7 @@
 - Catalogs/СерверыMSExchange/Ext/ManagerModule.bsl (12685 байт)
 
 Методы: _ai/modules/Catalogs/СерверыMSExchange.md
+
+- Source XML SHA-256: 9853cfd7ee96d506853ee0fb264075946b3122910fa84b07cf2edb523bbd73af
+- This is a generated summary, not the complete XML.
+- FillChecking=ShowError is an XML setting; runtime validation requires BSL analysis.

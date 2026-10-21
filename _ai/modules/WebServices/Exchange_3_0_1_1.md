@@ -1,13 +1,19 @@
-# Модули: WebServices/Exchange_3_0_1_1
+# BSL index: WebServices/Exchange_3_0_1_1
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-Статус: ПОДТВЕРЖДЕНО BSL (сгенерировано build_ai_index 1.0; номера строк относятся к указанному коммиту)
+Generator: rebuild_ai 2.0
+Source snapshot commit: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+Navigation only: read the source method body before describing behavior.
+Header recognition is heuristic, not a complete BSL parser.
+An absent index entry does not prove an absent method.
 
-## WebServices/Exchange_3_0_1_1/Ext/Module.bsl — Модуль
+## WebServices/Exchange_3_0_1_1/Ext/Module.bsl
 
-Строк: 139, байт: 8393, методов: 16, экспортных: 0
+- Module: Модуль
+- Lines: 139
+- Bytes: 8393
+- Source SHA-256: 1cef513573f69dff9fcc4366d3e3d1bd613e9e2ecb518b25c27d8d1c9282dfb7
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
 | 15 | Функция | ВыполнитьВыгрузку | ИмяПланаОбмена, КодУзлаИнформационнойБазы, ХранилищеСообщенияОбмена |  |  |
 | 22 | Функция | ВыполнитьВыгрузкуДанных | ИмяПланаОбмена, КодУзлаИнформационнойБазы, ИдентификаторФайлаСтрокой, ДлительнаяОперация, ИдентификаторОперации, ДлительнаяОперацияРазрешена |  |  |

@@ -1,13 +1,19 @@
-# Модули: Constants/ИспользоватьСервисDSS
+# BSL index: Constants/ИспользоватьСервисDSS
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-Статус: ПОДТВЕРЖДЕНО BSL (сгенерировано build_ai_index 1.0; номера строк относятся к указанному коммиту)
+Generator: rebuild_ai 2.0
+Source snapshot commit: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+Navigation only: read the source method body before describing behavior.
+Header recognition is heuristic, not a complete BSL parser.
+An absent index entry does not prove an absent method.
 
-## Constants/ИспользоватьСервисDSS/Ext/ValueManagerModule.bsl — Модуль менеджера значения
+## Constants/ИспользоватьСервисDSS/Ext/ValueManagerModule.bsl
 
-Строк: 50, байт: 2168, методов: 2, экспортных: 0
+- Module: Модуль менеджера значения
+- Lines: 50
+- Bytes: 2168
+- Source SHA-256: 21ad7415fc1022c6b9148739872d3bcefd865d2394880ca6963b6dc3986f2cc6
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
 | 13 | Процедура | ПередЗаписью | Отказ |  |  |
 | 26 | Процедура | ПриЗаписи | Отказ |  |  |

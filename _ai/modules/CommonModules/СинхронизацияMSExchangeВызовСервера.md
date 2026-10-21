@@ -1,12 +1,18 @@
-# Модули: CommonModules/СинхронизацияMSExchangeВызовСервера
+# BSL index: CommonModules/СинхронизацияMSExchangeВызовСервера
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-Статус: ПОДТВЕРЖДЕНО BSL (сгенерировано build_ai_index 1.0; номера строк относятся к указанному коммиту)
+Generator: rebuild_ai 2.0
+Source snapshot commit: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+Navigation only: read the source method body before describing behavior.
+Header recognition is heuristic, not a complete BSL parser.
+An absent index entry does not prove an absent method.
 
-## CommonModules/СинхронизацияMSExchangeВызовСервера/Ext/Module.bsl — Общий модуль
+## CommonModules/СинхронизацияMSExchangeВызовСервера/Ext/Module.bsl
 
-Строк: 27, байт: 1186, методов: 1, экспортных: 1
+- Module: Общий модуль
+- Lines: 27
+- Bytes: 1186
+- Source SHA-256: 9041ee95a9516a68e53f846b353420f7ea4a9f1a83456ed0886d1e620e74e1f2
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
-| 16 | Функция | ПроверитьСоединение | Знач Узел | Да |  |
+| 16 | Функция | ПроверитьСоединение | Знач Узел | Yes |  |

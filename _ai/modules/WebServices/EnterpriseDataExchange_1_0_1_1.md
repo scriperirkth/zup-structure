@@ -1,13 +1,19 @@
-# Модули: WebServices/EnterpriseDataExchange_1_0_1_1
+# BSL index: WebServices/EnterpriseDataExchange_1_0_1_1
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-Статус: ПОДТВЕРЖДЕНО BSL (сгенерировано build_ai_index 1.0; номера строк относятся к указанному коммиту)
+Generator: rebuild_ai 2.0
+Source snapshot commit: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+Navigation only: read the source method body before describing behavior.
+Header recognition is heuristic, not a complete BSL parser.
+An absent index entry does not prove an absent method.
 
-## WebServices/EnterpriseDataExchange_1_0_1_1/Ext/Module.bsl — Модуль
+## WebServices/EnterpriseDataExchange_1_0_1_1/Ext/Module.bsl
 
-Строк: 168, байт: 12169, методов: 9, экспортных: 0
+- Module: Модуль
+- Lines: 168
+- Bytes: 12163
+- Source SHA-256: 255c3487131e9284083e9f2765031765a6cd1d68d184fee47045de57c610ab6f
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
 | 13 | Функция | Ping |  |  |  |
 | 17 | Функция | ПроверкаПодключения | ИмяПланаОбмена, КодУзлаПланаОбмена, СообщениеОбОшибке |  |  |

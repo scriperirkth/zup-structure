@@ -1,15 +1,21 @@
-# Модули: InformationRegisters/НастройкиСинхронизацииDAV
+# BSL index: InformationRegisters/НастройкиСинхронизацииDAV
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-Статус: ПОДТВЕРЖДЕНО BSL (сгенерировано build_ai_index 1.0; номера строк относятся к указанному коммиту)
+Generator: rebuild_ai 2.0
+Source snapshot commit: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+Navigation only: read the source method body before describing behavior.
+Header recognition is heuristic, not a complete BSL parser.
+An absent index entry does not prove an absent method.
 
-## InformationRegisters/НастройкиСинхронизацииDAV/Ext/ManagerModule.bsl — Модуль менеджера
+## InformationRegisters/НастройкиСинхронизацииDAV/Ext/ManagerModule.bsl
 
-Строк: 73, байт: 4167, методов: 4, экспортных: 4
+- Module: Модуль менеджера
+- Lines: 73
+- Bytes: 4167
+- Source SHA-256: eb80a0307f32800ea626891da17db3d0b338cf46310ec49ea9552bfa3ba76dca
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
-| 5 | Функция | НовыеДанныеАвторизации |  | Да |  |
-| 15 | Функция | ДанныеАвторизации | Узел | Да |  |
-| 44 | Процедура | ЗаписатьДанныеАвторизации | Узел, Данные | Да |  |
-| 58 | Процедура | УдалитьДанныеАвторизации | Узел | Да |  |
+| 5 | Функция | НовыеДанныеАвторизации |  | Yes |  |
+| 15 | Функция | ДанныеАвторизации | Узел | Yes |  |
+| 44 | Процедура | ЗаписатьДанныеАвторизации | Узел, Данные | Yes |  |
+| 58 | Процедура | УдалитьДанныеАвторизации | Узел | Yes |  |

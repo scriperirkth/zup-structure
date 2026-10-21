@@ -1,12 +1,11 @@
 # SessionParameters
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
+Построено из коммита: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
 
 | Имя | Тип XML | Путь XML | Каталог | Файлов BSL | Карточка |
 |---|---|---|---|---|---|
 | АвторизованныйПользователь | SessionParameter | SessionParameters/АвторизованныйПользователь.xml | нет | 0 |  |
 | АльтернативныйПодборСпискаСотрудников | SessionParameter | SessionParameters/АльтернативныйПодборСпискаСотрудников.xml | нет | 0 |  |
-| БлокировкаСеансаБТС | SessionParameter | SessionParameters/БлокировкаСеансаБТС.xml | нет | 0 |  |
 | БуферОбмена | SessionParameter | SessionParameters/БуферОбмена.xml | нет | 0 |  |
 | ВерсииШаблоновОграниченияДоступа | SessionParameter | SessionParameters/ВерсииШаблоновОграниченияДоступа.xml | нет | 0 |  |
 | ВерсияРасширений | SessionParameter | SessionParameters/ВерсияРасширений.xml | нет | 0 |  |

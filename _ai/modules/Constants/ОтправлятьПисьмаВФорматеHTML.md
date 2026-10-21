@@ -1,12 +1,18 @@
-# Модули: Constants/ОтправлятьПисьмаВФорматеHTML
+# BSL index: Constants/ОтправлятьПисьмаВФорматеHTML
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-Статус: ПОДТВЕРЖДЕНО BSL (сгенерировано build_ai_index 1.0; номера строк относятся к указанному коммиту)
+Generator: rebuild_ai 2.0
+Source snapshot commit: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+Navigation only: read the source method body before describing behavior.
+Header recognition is heuristic, not a complete BSL parser.
+An absent index entry does not prove an absent method.
 
-## Constants/ОтправлятьПисьмаВФорматеHTML/Ext/ValueManagerModule.bsl — Модуль менеджера значения
+## Constants/ОтправлятьПисьмаВФорматеHTML/Ext/ValueManagerModule.bsl
 
-Строк: 57, байт: 3025, методов: 1, экспортных: 0
+- Module: Модуль менеджера значения
+- Lines: 57
+- Bytes: 3025
+- Source SHA-256: 8569b178bfd4b845b78f327c7b9af3a3077a6dbed62398cb7343f3707203d8a8
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
 | 13 | Процедура | ПриЗаписи | Отказ |  |  |

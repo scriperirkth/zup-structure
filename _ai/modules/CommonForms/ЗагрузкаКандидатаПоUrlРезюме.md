@@ -1,13 +1,19 @@
-# Модули: CommonForms/ЗагрузкаКандидатаПоUrlРезюме
+# BSL index: CommonForms/ЗагрузкаКандидатаПоUrlРезюме
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-Статус: ПОДТВЕРЖДЕНО BSL (сгенерировано build_ai_index 1.0; номера строк относятся к указанному коммиту)
+Generator: rebuild_ai 2.0
+Source snapshot commit: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+Navigation only: read the source method body before describing behavior.
+Header recognition is heuristic, not a complete BSL parser.
+An absent index entry does not prove an absent method.
 
-## CommonForms/ЗагрузкаКандидатаПоUrlРезюме/Ext/Form/Module.bsl — Модуль формы
+## CommonForms/ЗагрузкаКандидатаПоUrlРезюме/Ext/Form/Module.bsl
 
-Строк: 77, байт: 2875, методов: 8, экспортных: 0
+- Module: Модуль формы
+- Lines: 77
+- Bytes: 2875
+- Source SHA-256: 08f3505c5dea49c482430a655de2bb39d587e38604e03ccf2afe25604f512de9
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
 | 4 | Процедура | ПриСозданииНаСервере | Отказ, СтандартнаяОбработка |  | &НаСервере |
 | 9 | Процедура | ПриОткрытии | Отказ |  | &НаКлиенте |

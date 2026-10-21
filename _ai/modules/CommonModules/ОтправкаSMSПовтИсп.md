@@ -1,13 +1,19 @@
-# Модули: CommonModules/ОтправкаSMSПовтИсп
+# BSL index: CommonModules/ОтправкаSMSПовтИсп
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-Статус: ПОДТВЕРЖДЕНО BSL (сгенерировано build_ai_index 1.0; номера строк относятся к указанному коммиту)
+Generator: rebuild_ai 2.0
+Source snapshot commit: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+Navigation only: read the source method body before describing behavior.
+Header recognition is heuristic, not a complete BSL parser.
+An absent index entry does not prove an absent method.
 
-## CommonModules/ОтправкаSMSПовтИсп/Ext/Module.bsl — Общий модуль
+## CommonModules/ОтправкаSMSПовтИсп/Ext/Module.bsl
 
-Строк: 62, байт: 4486, методов: 2, экспортных: 2
+- Module: Общий модуль
+- Lines: 62
+- Bytes: 4486
+- Source SHA-256: b17b41a1a7d7b15854f5988ba118a73bbd8e3c80d69b9bf9ecb2e8bf0509acba
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
-| 11 | Функция | СтатусыДоставки | ИдентификаторыСообщений | Да |  |
-| 55 | Функция | ДоступнаОтправкаSMS |  | Да |  |
+| 11 | Функция | СтатусыДоставки | ИдентификаторыСообщений | Yes |  |
+| 55 | Функция | ДоступнаОтправкаSMS |  | Yes |  |

@@ -1,23 +1,32 @@
-# Модули: Catalogs/ЭкземплярыСервераDSS
+# BSL index: Catalogs/ЭкземплярыСервераDSS
 
-Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-Статус: ПОДТВЕРЖДЕНО BSL (сгенерировано build_ai_index 1.0; номера строк относятся к указанному коммиту)
+Generator: rebuild_ai 2.0
+Source snapshot commit: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+Navigation only: read the source method body before describing behavior.
+Header recognition is heuristic, not a complete BSL parser.
+An absent index entry does not prove an absent method.
 
-## Catalogs/ЭкземплярыСервераDSS/Ext/ManagerModule.bsl — Модуль менеджера
+## Catalogs/ЭкземплярыСервераDSS/Ext/ManagerModule.bsl
 
-Строк: 83, байт: 4534, методов: 3, экспортных: 2
+- Module: Модуль менеджера
+- Lines: 83
+- Bytes: 4534
+- Source SHA-256: c8817922042d935da69da7e9bebc035e1bcec7edd9bc1bccb47a69fbc79e8850
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
-| 23 | Функция | РеквизитыРедактируемыеВГрупповойОбработке |  | Да |  |
-| 40 | Функция | ПоляЕстественногоКлюча |  | Да |  |
+| 23 | Функция | РеквизитыРедактируемыеВГрупповойОбработке |  | Yes |  |
+| 40 | Функция | ПоляЕстественногоКлюча |  | Yes |  |
 | 58 | Процедура | ОбработкаПолученияФормы | ВидФормы, Параметры, ВыбраннаяФорма, ДополнительнаяИнформация, СтандартнаяОбработка |  |  |
 
-## Catalogs/ЭкземплярыСервераDSS/Ext/ObjectModule.bsl — Модуль объекта
+## Catalogs/ЭкземплярыСервераDSS/Ext/ObjectModule.bsl
 
-Строк: 76, байт: 4544, методов: 4, экспортных: 0
+- Module: Модуль объекта
+- Lines: 76
+- Bytes: 4544
+- Source SHA-256: 9be3cedad32a4436f775ae96cf162224473163a8a3aced1f8c0819dc9a669bf2
 
-| Строка | Вид | Имя | Параметры | Экспорт | Директивы |
+| Line | Kind | Name | Parameters | Export | Directives |
 |---|---|---|---|---|---|
 | 13 | Процедура | ПриКопировании | ОбъектКопирования |  |  |
 | 21 | Процедура | ПередЗаписью | Отказ |  |  |

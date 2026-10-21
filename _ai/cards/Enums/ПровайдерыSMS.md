@@ -4,8 +4,8 @@
 - Синоним: Провайдеры SMS
 - Источник: Enums/ПровайдерыSMS.xml
 - Каталог объекта: Enums/ПровайдерыSMS/ (нет)
-- Построено из коммита: 6666cacc9b4d0c0af95da892dfd99e04107ace80
-- Статус: ПОДТВЕРЖДЕНО XML (сгенерировано build_ai_index 1.0; при расхождении верен исходный XML)
+- Построено из коммита: 017fc906aca6a153d10c59368f8fd591aa6a4ee7
+- Статус: ПОДТВЕРЖДЕНО XML (сгенерировано rebuild_ai 2.0; при расхождении верен исходный XML)
 - ChoiceMode: BothWays
 
 ### Значения (7)
@@ -23,3 +23,7 @@
 ### BSL-модули
 
 - не найдено в дереве (проверка: os.walk по Enums/ПровайдерыSMS/)
+
+- Source XML SHA-256: 8af7a4b4b21e7cd24292f04683a65c0a6075ca459be38e883b8fba436022bb4d
+- This is a generated summary, not the complete XML.
+- FillChecking=ShowError is an XML setting; runtime validation requires BSL analysis.
