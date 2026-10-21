@@ -3,7 +3,7 @@
 	<Title>
 		<v8:item>
 			<v8:lang>ru</v8:lang>
-			<v8:content>Очистка настроек пользователей</v8:content>
+			<v8:content>Очистка настроек</v8:content>
 		</v8:item>
 	</Title>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
@@ -50,12 +50,6 @@
 				</Title>
 				<ExtendedTooltip name="ОчиститьРасширеннаяПодсказка" id="67"/>
 			</Button>
-			<Button name="ФормаЗакрыть" id="56">
-				<Type>CommandBarButton</Type>
-				<Representation>Text</Representation>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="68"/>
-			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -63,178 +57,200 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаОчиститьУПользователей" id="28">
+		<UsualGroup name="ГруппаОсновное" id="84">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Очистить настройки:</v8:content>
+					<v8:content>Основное</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>NormalSeparation</Representation>
-			<ExtendedTooltip name="ГруппаОчиститьУПользователейРасширеннаяПодсказка" id="69"/>
+			<HorizontalStretch>false</HorizontalStretch>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОсновноеРасширеннаяПодсказка" id="85"/>
 			<ChildItems>
-				<RadioButtonField name="ПереключательКомуОчищатьНастройки" id="3">
-					<DataPath>ПереключательКомуОчищатьНастройки</DataPath>
+				<UsualGroup name="ГруппаОчиститьУПользователей" id="28">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Кому скопировать</v8:content>
+							<v8:content>Очистить настройки:</v8:content>
 						</v8:item>
 					</Title>
-					<TitleLocation>None</TitleLocation>
-					<RadioButtonType>Auto</RadioButtonType>
-					<ColumnsCount>1</ColumnsCount>
-					<ChoiceList>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>У выбранных пользователей:</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:string">ВыбраннымПользователям</Value>
-							</xr:Value>
-						</xr:Item>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>У всех пользователей</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:string">ВсемПользователям</Value>
-							</xr:Value>
-						</xr:Item>
-					</ChoiceList>
-					<ContextMenu name="ПереключательКомуОчищатьНастройкиКонтекстноеМеню" id="4"/>
-					<ExtendedTooltip name="ПереключательКомуОчищатьНастройкиРасширеннаяПодсказка" id="70"/>
-					<Events>
-						<Event name="OnChange">ПереключательКомуОчищатьНастройкиПриИзменении</Event>
-					</Events>
-				</RadioButtonField>
-				<LabelDecoration name="ВыбратьПользователей" id="58">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>28</MaxWidth>
-					<AutoMaxHeight>false</AutoMaxHeight>
-					<MaxHeight>1</MaxHeight>
-					<VerticalStretch>false</VerticalStretch>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Выбрать</v8:content>
-						</v8:item>
-					</Title>
-					<Hyperlink>true</Hyperlink>
-					<ContextMenu name="ВыбратьПользователейКонтекстноеМеню" id="59"/>
-					<ExtendedTooltip name="ВыбратьПользователейРасширеннаяПодсказка" id="72"/>
-					<Events>
-						<Event name="Click">ВыбратьПользователейНажатие</Event>
-					</Events>
-				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаОчищаемыеНастройки" id="13">
-			<Enabled>false</Enabled>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Что очистить:</v8:content>
-				</v8:item>
-			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>NormalSeparation</Representation>
-			<ExtendedTooltip name="ГруппаОчищаемыеНастройкиРасширеннаяПодсказка" id="73"/>
-			<ChildItems>
-				<RadioButtonField name="ПереключательОчищаемыеНастройки" id="62">
-					<DataPath>ПереключательОчищаемыеНастройки</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Переключатель очищаемые настройки</v8:content>
-						</v8:item>
-					</Title>
-					<TitleLocation>None</TitleLocation>
-					<RadioButtonType>Auto</RadioButtonType>
-					<ColumnsCount>1</ColumnsCount>
-					<ChoiceList>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Все настройки</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:string">ОчиститьВсе</Value>
-							</xr:Value>
-						</xr:Item>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Устаревшие настройки</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:string">УстаревшиеНастройки</Value>
-							</xr:Value>
-						</xr:Item>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Отдельные настройки:</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:string">ОтдельныеНастройки</Value>
-							</xr:Value>
-						</xr:Item>
-					</ChoiceList>
-					<ContextMenu name="ПереключательОчищаемыеНастройкиКонтекстноеМеню" id="63"/>
-					<ExtendedTooltip name="ПереключательОчищаемыеНастройкиРасширеннаяПодсказка" id="74"/>
-					<Events>
-						<Event name="OnChange">ПереключательОчищаемыеНастройкиПриИзменении</Event>
-					</Events>
-				</RadioButtonField>
-				<LabelDecoration name="ВыбратьНастройки" id="60">
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>WeakSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ShowAsCard>true</ShowAsCard>
+					<ExtendedTooltip name="ГруппаОчиститьУПользователейРасширеннаяПодсказка" id="69"/>
+					<ChildItems>
+						<RadioButtonField name="ПереключательКомуОчищатьНастройки" id="3">
+							<DataPath>ПереключательКомуОчищатьНастройки</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Кому очистить</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Top</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<RadioButtonType>Tumbler</RadioButtonType>
+							<ColumnsCount>1</ColumnsCount>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Выбранным пользователям</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">ВыбраннымПользователям</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Всем пользователям</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">ВсемПользователям</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ПереключательКомуОчищатьНастройкиКонтекстноеМеню" id="4"/>
+							<ExtendedTooltip name="ПереключательКомуОчищатьНастройкиРасширеннаяПодсказка" id="70"/>
+							<Events>
+								<Event name="OnChange">ПереключательКомуОчищатьНастройкиПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+						<InputField name="ВыбранныеПользователи" id="80">
+							<DataPath>ВыбранныеПользователи</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Выбранные пользователи</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ВыбранныеПользователиКонтекстноеМеню" id="81"/>
+							<ExtendedTooltip name="ВыбранныеПользователиРасширеннаяПодсказка" id="82"/>
+							<Events>
+								<Event name="StartChoice">ВыбранныеПользователиНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаОчищаемыеНастройки" id="13">
 					<Enabled>false</Enabled>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>32</MaxWidth>
-					<AutoMaxHeight>false</AutoMaxHeight>
-					<MaxHeight>1</MaxHeight>
-					<HorizontalStretch>false</HorizontalStretch>
-					<VerticalStretch>false</VerticalStretch>
-					<Title formatted="false">
+					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Выбрать</v8:content>
+							<v8:content>Что очистить:</v8:content>
 						</v8:item>
 					</Title>
-					<GroupVerticalAlign>Bottom</GroupVerticalAlign>
-					<Hyperlink>true</Hyperlink>
-					<VerticalAlign>Top</VerticalAlign>
-					<ContextMenu name="ВыбратьНастройкиКонтекстноеМеню" id="61"/>
-					<ExtendedTooltip name="ВыбратьНастройкиРасширеннаяПодсказка" id="77"/>
-					<Events>
-						<Event name="Click">ВыбратьНастройки</Event>
-					</Events>
-				</LabelDecoration>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>NormalSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ShowAsCard>true</ShowAsCard>
+					<ExtendedTooltip name="ГруппаОчищаемыеНастройкиРасширеннаяПодсказка" id="73"/>
+					<ChildItems>
+						<RadioButtonField name="ПереключательОчищаемыеНастройки" id="62">
+							<DataPath>ПереключательОчищаемыеНастройки</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Что очистить</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<RadioButtonType>Tumbler</RadioButtonType>
+							<ColumnsCount>1</ColumnsCount>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Все настройки</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">ОчиститьВсе</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Устаревшие</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">УстаревшиеНастройки</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Выбранные</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">ОтдельныеНастройки</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ПереключательОчищаемыеНастройкиКонтекстноеМеню" id="63"/>
+							<ExtendedTooltip name="ПереключательОчищаемыеНастройкиРасширеннаяПодсказка" id="74"/>
+							<Events>
+								<Event name="OnChange">ПереключательОчищаемыеНастройкиПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+						<LabelDecoration name="ВыбратьНастройки" id="60">
+							<Enabled>false</Enabled>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>32</MaxWidth>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<MaxHeight>1</MaxHeight>
+							<HorizontalStretch>false</HorizontalStretch>
+							<VerticalStretch>false</VerticalStretch>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Выбрать настройки</v8:content>
+								</v8:item>
+							</Title>
+							<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+							<Hyperlink>true</Hyperlink>
+							<VerticalAlign>Top</VerticalAlign>
+							<ContextMenu name="ВыбратьНастройкиКонтекстноеМеню" id="61"/>
+							<ExtendedTooltip name="ВыбратьНастройкиРасширеннаяПодсказка" id="77"/>
+							<Events>
+								<Event name="Click">ВыбратьНастройки</Event>
+							</Events>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -343,6 +359,7 @@
 			</ToolTip>
 			<Action>Очистить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ОчиститьИЗакрыть" id="4">
 			<Title>
@@ -359,6 +376,7 @@
 			</ToolTip>
 			<Action>ОчиститьИЗакрыть</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

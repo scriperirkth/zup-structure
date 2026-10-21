@@ -6,13 +6,22 @@
 			<v8:content>Завершение сеанса</v8:content>
 		</v8:item>
 	</Title>
-	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
-	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowTitle>true</ShowTitle>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Продолжить" id="28">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Продолжить</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ПродолжитьРасширеннаяПодсказка" id="29"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -35,8 +44,7 @@
 							<v8:content>Страница ввод пароля</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
+					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="СтраницаВводПароляРасширеннаяПодсказка" id="12"/>
 					<ChildItems>
 						<InputField name="Пароль" id="13">
@@ -48,6 +56,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>Top</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<PasswordMode>true</PasswordMode>
 							<ContextMenu name="ПарольКонтекстноеМеню" id="14"/>
@@ -62,31 +72,90 @@
 							<v8:content>Страница оповещения пользователей</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
+					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="СтраницаОповещенияПользователейРасширеннаяПодсказка" id="71"/>
 					<ChildItems>
-						<LabelDecoration name="ПодтверждениеПодсказка" id="56">
-							<Title formatted="false">
+						<UsualGroup name="ГруппаПредупреждение" id="82">
+							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Работа пользователей завершаемых сеансов будет прекращена, все несохраненные данные будут потеряны</v8:content>
+									<v8:content>Группа предупреждение</v8:content>
 								</v8:item>
 							</Title>
-							<ContextMenu name="ПодтверждениеПодсказкаКонтекстноеМеню" id="57"/>
-							<ExtendedTooltip name="ПодтверждениеПодсказкаРасширеннаяПодсказка" id="58"/>
-						</LabelDecoration>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа предупреждение</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>true</HorizontalStretch>
+							<HorizontalSpacing>Half</HorizontalSpacing>
+							<ShowTitle>false</ShowTitle>
+							<BackColor>pal:FirstBrand</BackColor>
+							<ShowAsCard>true</ShowAsCard>
+							<ExtendedTooltip name="ГруппаПредупреждениеРасширеннаяПодсказка" id="83"/>
+							<ChildItems>
+								<PictureDecoration name="ДекорацияПредупреждениеКартинка" id="84">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Декорация предупреждение картинка</v8:content>
+										</v8:item>
+									</Title>
+									<GroupVerticalAlign>Top</GroupVerticalAlign>
+									<PictureSize>ByFontSize</PictureSize>
+									<Picture>
+										<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ContextMenu name="ДекорацияПредупреждениеКартинкаКонтекстноеМеню" id="85"/>
+									<ExtendedTooltip name="ДекорацияПредупреждениеКартинкаРасширеннаяПодсказка" id="86"/>
+								</PictureDecoration>
+								<LabelDecoration name="ДекорацияПредупреждениеТекст" id="91">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Все несохраненные данные будут потеряны.</v8:content>
+										</v8:item>
+									</Title>
+									<GroupVerticalAlign>Center</GroupVerticalAlign>
+									<ContextMenu name="ДекорацияПредупреждениеТекстКонтекстноеМеню" id="92"/>
+									<ExtendedTooltip name="ДекорацияПредупреждениеТекстРасширеннаяПодсказка" id="93"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
 						<CheckBoxField name="ЗавершитьБезПредупреждения" id="53">
 							<DataPath>ЗавершитьБезПредупреждения</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Завершить сеансы без ожидания в 1 минуту</v8:content>
+								</v8:item>
+							</Title>
 							<TitleLocation>Right</TitleLocation>
+							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>Switcher</CheckBoxType>
 							<ContextMenu name="ЗавершитьБезПредупрежденияКонтекстноеМеню" id="54"/>
 							<ExtendedTooltip name="ЗавершитьБезПредупрежденияРасширеннаяПодсказка" id="55"/>
+							<Events>
+								<Event name="OnChange">ЗавершитьБезПредупрежденияПриИзменении</Event>
+							</Events>
 						</CheckBoxField>
 						<InputField name="СообщениеПользователям" id="59">
 							<DataPath>СообщениеПользователям</DataPath>
-							<TitleLocation>Top</TitleLocation>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MultiLine>true</MultiLine>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сообщение пользователям</v8:content>
+								</v8:item>
+							</InputHint>
 							<ContextMenu name="СообщениеПользователямКонтекстноеМеню" id="60"/>
 							<ExtendedTooltip name="СообщениеПользователямРасширеннаяПодсказка" id="61"/>
 						</InputField>
@@ -100,12 +169,10 @@
 						</v8:item>
 					</Title>
 					<Group>HorizontalIfPossible</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
+					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="СтраницаОжиданиеОповещенияПользователейРасширеннаяПодсказка" id="63"/>
 					<ChildItems>
 						<PictureDecoration name="ОжиданиеОповещенияПользователейКартинка" id="64">
-							<Width>7</Width>
-							<Height>3</Height>
 							<VerticalStretch>true</VerticalStretch>
 							<Title formatted="false">
 								<v8:item>
@@ -146,7 +213,7 @@
 						</v8:item>
 					</Title>
 					<Group>Horizontal</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
+					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="СтраницаОжиданиеЗавершенияСеансовРасширеннаяПодсказка" id="17"/>
 					<ChildItems>
 						<PictureDecoration name="ДекорацияОжиданиеБублик" id="18">
@@ -193,7 +260,7 @@
 						</v8:item>
 					</Title>
 					<Group>Horizontal</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
+					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="СтраницаОшибкаРасширеннаяПодсказка" id="25"/>
 					<ChildItems>
 						<PictureDecoration name="ДекорацияОшибкаКартинка" id="3">
@@ -211,141 +278,13 @@
 						<LabelField name="ТекстОшибки" id="75">
 							<DataPath>ТекстОшибки</DataPath>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<VerticalStretch>true</VerticalStretch>
 							<ContextMenu name="ТекстОшибкиКонтекстноеМеню" id="76"/>
 							<ExtendedTooltip name="ТекстОшибкиРасширеннаяПодсказка" id="77"/>
 						</LabelField>
-					</ChildItems>
-				</Page>
-			</ChildItems>
-		</Pages>
-		<Pages name="ГруппаКомандыСтраницы" id="35">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команды страницы</v8:content>
-				</v8:item>
-			</Title>
-			<PagesRepresentation>None</PagesRepresentation>
-			<ExtendedTooltip name="ГруппаКомандыСтраницыРасширеннаяПодсказка" id="36"/>
-			<ChildItems>
-				<Page name="СтраницаКомандыВводДанных" id="37">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Страница команды ввод данных</v8:content>
-						</v8:item>
-					</Title>
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаКомандыВводДанныхРасширеннаяПодсказка" id="38"/>
-					<ChildItems>
-						<CommandBar name="СтраницаВводПароляКоманднаяПанель" id="26">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Страница ввод пароля командная панель</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalLocation>Right</HorizontalLocation>
-							<ExtendedTooltip name="СтраницаВводПароляКоманднаяПанельРасширеннаяПодсказка" id="27"/>
-							<ChildItems>
-								<Button name="Продолжить" id="28">
-									<Type>CommandBarButton</Type>
-									<DefaultButton>true</DefaultButton>
-									<CommandName>Form.Command.Продолжить</CommandName>
-									<ButtonImportance>Main</ButtonImportance>
-									<ExtendedTooltip name="ПродолжитьРасширеннаяПодсказка" id="29"/>
-								</Button>
-								<Button name="ОтменаВводПароля" id="30">
-									<Type>CommandBarButton</Type>
-									<Representation>PictureAndText</Representation>
-									<CommandName>Form.StandardCommand.Close</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отмена</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ОтменаВводПароляРасширеннаяПодсказка" id="31"/>
-								</Button>
-							</ChildItems>
-						</CommandBar>
-					</ChildItems>
-				</Page>
-				<Page name="СтраницаКомандыОжидание" id="39">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Страница команды ожидание</v8:content>
-						</v8:item>
-					</Title>
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаКомандыОжиданиеРасширеннаяПодсказка" id="40"/>
-					<ChildItems>
-						<CommandBar name="СтраницаОжиданиеКоманднаяПанель" id="41">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Страница ввод пароля командная панель</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalLocation>Right</HorizontalLocation>
-							<ExtendedTooltip name="СтраницаОжиданиеКоманднаяПанельРасширеннаяПодсказка" id="42"/>
-							<ChildItems>
-								<Button name="ОтменаОжидание" id="45">
-									<Type>CommandBarButton</Type>
-									<Representation>PictureAndText</Representation>
-									<CommandName>Form.StandardCommand.Close</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отмена</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ОтменаОжиданиеРасширеннаяПодсказка" id="46"/>
-								</Button>
-							</ChildItems>
-						</CommandBar>
-					</ChildItems>
-				</Page>
-				<Page name="СтраницаКомандыОшибка" id="47">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Страница команды ошибка</v8:content>
-						</v8:item>
-					</Title>
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаКомандыОшибкаРасширеннаяПодсказка" id="48"/>
-					<ChildItems>
-						<CommandBar name="СтраницаОшибкаКоманднаяПанель" id="49">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Страница ввод пароля командная панель</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalLocation>Right</HorizontalLocation>
-							<ExtendedTooltip name="СтраницаОшибкаКоманднаяПанельРасширеннаяПодсказка" id="50"/>
-							<ChildItems>
-								<Button name="ОтменаОшибка" id="51">
-									<Type>CommandBarButton</Type>
-									<Representation>PictureAndText</Representation>
-									<CommandName>Form.StandardCommand.Close</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Закрыть</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ОтменаОшибкаРасширеннаяПодсказка" id="52"/>
-								</Button>
-							</ChildItems>
-						</CommandBar>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -445,7 +384,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Продолжить &gt;&gt;</v8:content>
+					<v8:content>Продолжить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -454,8 +393,14 @@
 					<v8:content>Продолжить</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GoForward</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>Далее</Action>
+			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

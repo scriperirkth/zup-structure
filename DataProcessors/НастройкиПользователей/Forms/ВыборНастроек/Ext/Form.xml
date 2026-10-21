@@ -3,19 +3,38 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<Group>Vertical</Group>
-	<MobileDeviceCommandBarContent>
-		<xr:Item>
-			<xr:Presentation/>
-			<xr:CheckState>0</xr:CheckState>
-			<xr:Value xsi:type="xs:string">КоманднаяПанель</xr:Value>
-		</xr:Item>
-	</MobileDeviceCommandBarContent>
 	<CommandSet>
 		<ExcludedCommand>CustomizeForm</ExcludedCommand>
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Выбрать" id="78">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Выбрать</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="108"/>
+			</Button>
+			<Button name="ФормаОбновить" id="182">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Обновить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обновить</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="183"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnSaveDataInSettingsAtServer">ПриСохраненииДанныхВНастройкахНаСервере</Event>
@@ -38,77 +57,6 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ОтображатьОтчетРасширеннаяПодсказка" id="104"/>
 			<ChildItems>
-				<CommandBar name="КоманднаяПанель" id="51">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Командная панель</v8:content>
-						</v8:item>
-					</Title>
-					<CommandSource>Form</CommandSource>
-					<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="107"/>
-					<ChildItems>
-						<Button name="Выбрать" id="78">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<CommandName>Form.Command.Выбрать</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Выбрать</v8:content>
-								</v8:item>
-							</Title>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="108"/>
-						</Button>
-						<Button name="ПометитьВсе" id="79">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.ПометитьВсе</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Пометить все</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ПометитьВсеРасширеннаяПодсказка" id="109"/>
-						</Button>
-						<Button name="СнятьПометкуСоВсех" id="80">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.СнятьПометкуСоВсех</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Снять пометку со всех</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="СнятьПометкуСоВсехРасширеннаяПодсказка" id="110"/>
-						</Button>
-						<Button name="Открыть" id="61">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.Открыть</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Открыть</v8:content>
-								</v8:item>
-							</Title>
-							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="ОткрытьРасширеннаяПодсказка" id="111"/>
-						</Button>
-						<Button name="ФормаОбновить" id="182">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.Обновить</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Обновить</v8:content>
-								</v8:item>
-							</Title>
-							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="183"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
 				<Pages name="СтраницыДлительнаяОперация" id="170">
 					<Title>
 						<v8:item>
@@ -186,6 +134,7 @@
 												</v8:item>
 											</Title>
 											<Group>Vertical</Group>
+											<TitleDataPath>КоличествоНастроекВнешнегоВида</TitleDataPath>
 											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="ВнешнийВидСтраницаРасширеннаяПодсказка" id="113"/>
 											<ChildItems>
@@ -193,6 +142,7 @@
 													<Representation>Tree</Representation>
 													<ChangeRowSet>false</ChangeRowSet>
 													<ChangeRowOrder>false</ChangeRowOrder>
+													<SelectionMode>SingleRow</SelectionMode>
 													<RowSelectionMode>Cell</RowSelectionMode>
 													<Header>false</Header>
 													<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -226,38 +176,45 @@
 														<ExcludedCommand>Tree</ExcludedCommand>
 													</CommandSet>
 													<SearchStringLocation>Top</SearchStringLocation>
-													<ContextMenu name="ВнешнийВидКонтекстноеМеню" id="30">
+													<ContextMenu name="ВнешнийВидКонтекстноеМеню" id="30"/>
+													<AutoCommandBar name="ВнешнийВидКоманднаяПанель" id="31">
+														<Autofill>false</Autofill>
 														<ChildItems>
-															<Button name="ВнешнийВидКонтекстноеМенюОткрыть" id="76">
+															<Button name="ПометитьВсе" id="79">
 																<Type>CommandBarButton</Type>
-																<CommandName>Form.Command.Открыть</CommandName>
+																<CommandName>Form.Command.ПометитьВсе</CommandName>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Пометить все</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="ПометитьВсеРасширеннаяПодсказка" id="109"/>
+															</Button>
+															<Button name="СнятьПометкуСоВсех" id="80">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.СнятьПометкуСоВсех</CommandName>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Снять пометку со всех</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="СнятьПометкуСоВсехРасширеннаяПодсказка" id="110"/>
+															</Button>
+															<Button name="Открыть" id="61">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.ОткрытьФорму</CommandName>
 																<Title>
 																	<v8:item>
 																		<v8:lang>ru</v8:lang>
 																		<v8:content>Открыть</v8:content>
 																	</v8:item>
 																</Title>
-																<ExtendedTooltip name="ВнешнийВидКонтекстноеМенюОткрытьРасширеннаяПодсказка" id="114"/>
-															</Button>
-															<Button name="ВнешнийВидКонтекстноеМенюКопироватьВБуферОбмена" id="56">
-																<Type>CommandBarButton</Type>
-																<CommandName>Form.Item.ВнешнийВид.StandardCommand.CopyToClipboard</CommandName>
-																<ExtendedTooltip name="ВнешнийВидКонтекстноеМенюКопироватьВБуферОбменаРасширеннаяПодсказка" id="115"/>
-															</Button>
-															<Button name="ВнешнийВидКонтекстноеМенюВыделитьВсе" id="57">
-																<Type>CommandBarButton</Type>
-																<CommandName>Form.Item.ВнешнийВид.StandardCommand.SelectAll</CommandName>
-																<ExtendedTooltip name="ВнешнийВидКонтекстноеМенюВыделитьВсеРасширеннаяПодсказка" id="116"/>
-															</Button>
-															<Button name="ВнешнийВидКонтекстноеМенюВывестиСписок" id="102">
-																<Type>CommandBarButton</Type>
-																<CommandName>Form.Item.ВнешнийВид.StandardCommand.OutputList</CommandName>
-																<ExtendedTooltip name="ВнешнийВидКонтекстноеМенюВывестиСписокРасширеннаяПодсказка" id="117"/>
+																<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+																<ExtendedTooltip name="ОткрытьРасширеннаяПодсказка" id="111"/>
 															</Button>
 														</ChildItems>
-													</ContextMenu>
-													<AutoCommandBar name="ВнешнийВидКоманднаяПанель" id="31">
-														<Autofill>false</Autofill>
 													</AutoCommandBar>
 													<ExtendedTooltip name="ВнешнийВидРасширеннаяПодсказка" id="118"/>
 													<SearchStringAddition name="ВнешнийВидСтрокаПоиска" id="143">
@@ -362,6 +319,7 @@
 												</v8:item>
 											</Title>
 											<Group>Vertical</Group>
+											<TitleDataPath>КоличествоНастроекОтчетов</TitleDataPath>
 											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="НастройкиОтчетовСтраницаРасширеннаяПодсказка" id="123"/>
 											<ChildItems>
@@ -369,6 +327,7 @@
 													<Representation>Tree</Representation>
 													<ChangeRowSet>false</ChangeRowSet>
 													<ChangeRowOrder>false</ChangeRowOrder>
+													<SelectionMode>SingleRow</SelectionMode>
 													<RowSelectionMode>Cell</RowSelectionMode>
 													<Header>false</Header>
 													<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -401,38 +360,45 @@
 														<ExcludedCommand>Tree</ExcludedCommand>
 													</CommandSet>
 													<SearchStringLocation>Top</SearchStringLocation>
-													<ContextMenu name="НастройкиОтчетовДеревоКонтекстноеМеню" id="20">
+													<ContextMenu name="НастройкиОтчетовДеревоКонтекстноеМеню" id="20"/>
+													<AutoCommandBar name="НастройкиОтчетовДеревоКоманднаяПанель" id="21">
+														<Autofill>false</Autofill>
 														<ChildItems>
-															<Button name="НастройкиОтчетовДеревоКонтекстноеМенюОткрыть" id="65">
+															<Button name="НастройкиОтчетовДеревоПометитьВсе" id="202">
 																<Type>CommandBarButton</Type>
-																<CommandName>Form.Command.Открыть</CommandName>
+																<CommandName>Form.Command.ПометитьВсе</CommandName>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Пометить все</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="НастройкиОтчетовДеревоПометитьВсеРасширеннаяПодсказка" id="203"/>
+															</Button>
+															<Button name="НастройкиОтчетовДеревоСнятьПометкуСоВсех" id="204">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.СнятьПометкуСоВсех</CommandName>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Снять пометку со всех</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="НастройкиОтчетовДеревоСнятьПометкуСоВсехРасширеннаяПодсказка" id="205"/>
+															</Button>
+															<Button name="НастройкиОтчетовДеревоОткрытьОтчет" id="206">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.ОткрытьОтчет</CommandName>
 																<Title>
 																	<v8:item>
 																		<v8:lang>ru</v8:lang>
 																		<v8:content>Открыть</v8:content>
 																	</v8:item>
 																</Title>
-																<ExtendedTooltip name="НастройкиОтчетовДеревоКонтекстноеМенюОткрытьРасширеннаяПодсказка" id="124"/>
-															</Button>
-															<Button name="НастройкиОтчетовДеревоКонтекстноеМенюВыделитьВсе" id="53">
-																<Type>CommandBarButton</Type>
-																<CommandName>Form.Item.НастройкиОтчетовДерево.StandardCommand.SelectAll</CommandName>
-																<ExtendedTooltip name="НастройкиОтчетовДеревоКонтекстноеМенюВыделитьВсеРасширеннаяПодсказка" id="125"/>
-															</Button>
-															<Button name="НастройкиОтчетовДеревоКонтекстноеМенюКопироватьВБуферОбмена" id="52">
-																<Type>CommandBarButton</Type>
-																<CommandName>Form.Item.НастройкиОтчетовДерево.StandardCommand.CopyToClipboard</CommandName>
-																<ExtendedTooltip name="НастройкиОтчетовДеревоКонтекстноеМенюКопироватьВБуферОбменаРасширеннаяПодсказка" id="126"/>
-															</Button>
-															<Button name="НастройкиОтчетовДеревоКонтекстноеМенюВывестиСписок" id="101">
-																<Type>CommandBarButton</Type>
-																<CommandName>Form.Item.НастройкиОтчетовДерево.StandardCommand.OutputList</CommandName>
-																<ExtendedTooltip name="НастройкиОтчетовДеревоКонтекстноеМенюВывестиСписокРасширеннаяПодсказка" id="127"/>
+																<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+																<ExtendedTooltip name="НастройкиОтчетовДеревоОткрытьОтчетРасширеннаяПодсказка" id="207"/>
 															</Button>
 														</ChildItems>
-													</ContextMenu>
-													<AutoCommandBar name="НастройкиОтчетовДеревоКоманднаяПанель" id="21">
-														<Autofill>false</Autofill>
 													</AutoCommandBar>
 													<ExtendedTooltip name="НастройкиОтчетовДеревоРасширеннаяПодсказка" id="128"/>
 													<SearchStringAddition name="НастройкиОтчетовДеревоСтрокаПоиска" id="152">
@@ -536,6 +502,7 @@
 												</v8:item>
 											</Title>
 											<Group>Vertical</Group>
+											<TitleDataPath>КоличествоПрочихНастроек</TitleDataPath>
 											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="ПрочиеНастройкиСтраницаРасширеннаяПодсказка" id="133"/>
 											<ChildItems>
@@ -543,6 +510,7 @@
 													<Representation>List</Representation>
 													<ChangeRowSet>false</ChangeRowSet>
 													<ChangeRowOrder>false</ChangeRowOrder>
+													<SelectionMode>SingleRow</SelectionMode>
 													<RowSelectionMode>Cell</RowSelectionMode>
 													<Header>false</Header>
 													<HorizontalScrollBar>DontUse</HorizontalScrollBar>
@@ -577,38 +545,45 @@
 														<ExcludedCommand>Tree</ExcludedCommand>
 													</CommandSet>
 													<SearchStringLocation>Top</SearchStringLocation>
-													<ContextMenu name="ПрочиеНастройкиКонтекстноеМеню" id="87">
+													<ContextMenu name="ПрочиеНастройкиКонтекстноеМеню" id="87"/>
+													<AutoCommandBar name="ПрочиеНастройкиКоманднаяПанель" id="88">
+														<Autofill>false</Autofill>
 														<ChildItems>
-															<Button name="ПрочиеНастройкиКонтекстноеМенюОткрыть" id="100">
+															<Button name="ПрочиеНастройкиПометитьВсе" id="208">
 																<Type>CommandBarButton</Type>
-																<CommandName>Form.Command.Открыть</CommandName>
+																<CommandName>Form.Command.ПометитьВсе</CommandName>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Пометить все</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="ПрочиеНастройкиПометитьВсеРасширеннаяПодсказка" id="209"/>
+															</Button>
+															<Button name="ПрочиеНастройкиСнятьПометкуСоВсех" id="210">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.СнятьПометкуСоВсех</CommandName>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Снять пометку со всех</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="ПрочиеНастройкиСнятьПометкуСоВсехРасширеннаяПодсказка" id="211"/>
+															</Button>
+															<Button name="ПрочиеНастройкиОткрытьОтчет" id="212">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.ОткрытьПрочее</CommandName>
 																<Title>
 																	<v8:item>
 																		<v8:lang>ru</v8:lang>
 																		<v8:content>Открыть</v8:content>
 																	</v8:item>
 																</Title>
-																<ExtendedTooltip name="ПрочиеНастройкиКонтекстноеМенюОткрытьРасширеннаяПодсказка" id="134"/>
-															</Button>
-															<Button name="ПрочиеНастройкиКонтекстноеМенюКопироватьВБуферОбмена" id="98">
-																<Type>CommandBarButton</Type>
-																<CommandName>Form.Item.ПрочиеНастройки.StandardCommand.CopyToClipboard</CommandName>
-																<ExtendedTooltip name="ПрочиеНастройкиКонтекстноеМенюКопироватьВБуферОбменаРасширеннаяПодсказка" id="135"/>
-															</Button>
-															<Button name="ПрочиеНастройкиКонтекстноеМенюВыделитьВсе" id="99">
-																<Type>CommandBarButton</Type>
-																<CommandName>Form.Item.ПрочиеНастройки.StandardCommand.SelectAll</CommandName>
-																<ExtendedTooltip name="ПрочиеНастройкиКонтекстноеМенюВыделитьВсеРасширеннаяПодсказка" id="136"/>
-															</Button>
-															<Button name="ПрочиеНастройкиКонтекстноеМенюВывестиСписок" id="103">
-																<Type>CommandBarButton</Type>
-																<CommandName>Form.Item.ПрочиеНастройки.StandardCommand.OutputList</CommandName>
-																<ExtendedTooltip name="ПрочиеНастройкиКонтекстноеМенюВывестиСписокРасширеннаяПодсказка" id="137"/>
+																<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+																<ExtendedTooltip name="ПрочиеНастройкиОткрытьОтчетРасширеннаяПодсказка" id="213"/>
 															</Button>
 														</ChildItems>
-													</ContextMenu>
-													<AutoCommandBar name="ПрочиеНастройкиКоманднаяПанель" id="88">
-														<Autofill>false</Autofill>
 													</AutoCommandBar>
 													<ExtendedTooltip name="ПрочиеНастройкиРасширеннаяПодсказка" id="138"/>
 													<SearchStringAddition name="ПрочиеНастройкиСтрокаПоиска" id="161">
@@ -1129,7 +1104,7 @@
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
-		<Command name="Открыть" id="4">
+		<Command name="ОткрытьФорму" id="4">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1148,7 +1123,9 @@
 			</Picture>
 			<Action>ОткрытьНастройку</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ВнешнийВид</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="Выбрать" id="8">
 			<Title>
@@ -1168,8 +1145,9 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>Выбрать</Action>
-			<Representation>TextPicture</Representation>
+			<Representation>Text</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПометитьВсе" id="9">
 			<Title>
@@ -1210,6 +1188,52 @@
 			</Picture>
 			<Action>СнятьПометкуСоВсех</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОткрытьОтчет" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть настройку</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.InputFieldOpen</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОткрытьНастройку</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">НастройкиОтчетовДерево</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
+		</Command>
+		<Command name="ОткрытьПрочее" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть настройку</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.InputFieldOpen</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОткрытьНастройку</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ПрочиеНастройки</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

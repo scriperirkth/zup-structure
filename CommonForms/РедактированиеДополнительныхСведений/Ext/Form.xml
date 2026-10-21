@@ -42,7 +42,6 @@
 				<SkipOnInput>false</SkipOnInput>
 				<CommandName>Form.Command.ИзменитьСоставДополнительныхСведений</CommandName>
 				<TextColor>style:ButtonTextColor</TextColor>
-				<BackColor>style:ButtonBackColor</BackColor>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
@@ -131,6 +130,7 @@
 				<Event name="BeforeDeleteRow">ТаблицаЗначенийСвойствПередУдалением</Event>
 				<Event name="BeforeRowChange">ТаблицаЗначенийСвойствПередНачаломИзменения</Event>
 				<Event name="OnStartEdit">ТаблицаЗначенийСвойствПриНачалеРедактирования</Event>
+				<Event name="OnHover">ТаблицаЗначенийСвойствПриНаведении</Event>
 				<Event name="OnChange">ТаблицаЗначенийСвойствПриИзменении</Event>
 			</Events>
 			<ChildItems>
@@ -156,6 +156,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<Width>2</Width>
 							<Height>1</Height>
 							<ValuesPicture>
@@ -171,6 +173,7 @@
 						</PictureField>
 						<InputField name="ТаблицаЗначенийСвойствНаименование" id="16">
 							<DataPath>ТаблицаЗначенийСвойств.Наименование</DataPath>
+							<ReadOnly>true</ReadOnly>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -193,6 +196,8 @@
 							<v8:content>Значение</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ClearButton>true</ClearButton>
 					<Format>
@@ -206,10 +211,11 @@
 				</InputField>
 				<LabelField name="ТаблицаЗначенийСвойствКолонкаВопрос" id="39">
 					<DataPath>ТаблицаЗначенийСвойств.КолонкаВопрос</DataPath>
+					<ReadOnly>true</ReadOnly>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>?</v8:content>
+							<v8:content>Подсказка</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
@@ -218,7 +224,9 @@
 							<v8:content>Подсказка</v8:content>
 						</v8:item>
 					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
 					<CellHyperlink>true</CellHyperlink>
+					<AutoEditMode>true</AutoEditMode>
 					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 					<Width>2</Width>
@@ -394,6 +402,7 @@
 			</Picture>
 			<Action>Записать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ЗаписатьИЗакрыть" id="3">
 			<Title>
@@ -415,6 +424,7 @@
 			<Action>ЗаписатьИЗакрыть</Action>
 			<Representation>Text</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

@@ -10,16 +10,33 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
-	<CommandBarLocation>None</CommandBarLocation>
-	<MobileDeviceCommandBarContent>
-		<xr:Item>
-			<xr:Presentation/>
-			<xr:CheckState>0</xr:CheckState>
-			<xr:Value xsi:type="xs:string">КоманднаяПанель</xr:Value>
-		</xr:Item>
-	</MobileDeviceCommandBarContent>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<ChildItems>
+			<Button name="СохранитьПапку" id="33">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.СохранитьПапку</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сохранить папку</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="СохранитьПапкуРасширеннаяПодсказка" id="38"/>
+			</Button>
+			<Button name="Отмена" id="32">
+				<Type>CommandBarButton</Type>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="39"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -42,18 +59,19 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Укажите каталог, в который необходимо сохранить файлы из папки</v8:content>
+							<v8:content>Каталог для сохранения файлов</v8:content>
 						</v8:item>
 					</Title>
 					<TitleLocation>Top</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
 					<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>40</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>50</MaxWidth>
 					<Wrap>false</Wrap>
 					<ChoiceButton>true</ChoiceButton>
 					<OpenButton>true</OpenButton>
-					<BorderColor>style:BorderColor</BorderColor>
 					<ContextMenu name="КаталогДляСохраненияКонтекстноеМеню" id="3"/>
 					<ExtendedTooltip name="КаталогДляСохраненияРасширеннаяПодсказка" id="36"/>
 					<Events>
@@ -77,49 +95,13 @@
 						</v8:item>
 					</ToolTip>
 					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТранслитерироватьИменаПапокИФайловКонтекстноеМеню" id="42"/>
 					<ExtendedTooltip name="ТранслитерироватьИменаПапокИФайловРасширеннаяПодсказка" id="43"/>
 				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
-		<CommandBar name="КоманднаяПанель" id="30">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="37"/>
-			<ChildItems>
-				<Button name="СохранитьПапку" id="33">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.Command.СохранитьПапку</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Сохранить папку</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="СохранитьПапкуРасширеннаяПодсказка" id="38"/>
-				</Button>
-				<Button name="Отмена" id="32">
-					<Type>CommandBarButton</Type>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.StandardCommand.Cancel</CommandName>
-					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="39"/>
-				</Button>
-				<Button name="Справка" id="31">
-					<Type>CommandBarButton</Type>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.StandardCommand.Help</CommandName>
-					<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="40"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ДеревоФайлов" id="2">
@@ -264,6 +246,7 @@
 			</ToolTip>
 			<Action>СохранитьПапку</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

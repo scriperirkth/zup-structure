@@ -13,6 +13,7 @@
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -26,21 +27,7 @@
 				</v8:item>
 			</Title>
 			<RowFilter xsi:nil="true"/>
-			<ContextMenu name="ТаблицаОбъектовИсправленияКонтекстноеМеню" id="2">
-				<ChildItems>
-					<Button name="ТаблицаОбъектовИсправленияКонтекстноеМенюОткрытьВерсиюДругойПрограммы" id="53">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ОткрытьВерсиюДругойПрограммы</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Показать непринятую версию, полученную из другой информационной базы</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ТаблицаОбъектовИсправленияКонтекстноеМенюОткрытьВерсиюДругойПрограммыРасширеннаяПодсказка" id="54"/>
-					</Button>
-				</ChildItems>
-			</ContextMenu>
+			<ContextMenu name="ТаблицаОбъектовИсправленияКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="ТаблицаОбъектовИсправленияКоманднаяПанель" id="3">
 				<Autofill>false</Autofill>
 				<ChildItems>
@@ -64,6 +51,8 @@
 								<v8:content>Показать отличия</v8:content>
 							</v8:item>
 						</Title>
+						<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 						<ExtendedTooltip name="ТаблицаОбъектовИсправленияПоказатьОтличияРасширеннаяПодсказка" id="46"/>
 					</Button>
 					<Button name="ТаблицаОбъектовИсправленияОткрытьВерсиюКонфликта" id="51">
@@ -75,10 +64,12 @@
 								<v8:content>Показать непринятую версию, полученную из другой информационной базы</v8:content>
 							</v8:item>
 						</Title>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 						<ExtendedTooltip name="ТаблицаОбъектовИсправленияОткрытьВерсиюКонфликтаРасширеннаяПодсказка" id="52"/>
 					</Button>
 					<ButtonGroup name="ТаблицаОбъектовИсправленияКомандаВыделения" id="24">
+						<Visible>false</Visible>
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -142,6 +133,7 @@
 			<ChildItems>
 				<CheckBoxField name="ТаблицаОбъектовИсправленияОбработатьСтроку" id="14">
 					<DataPath>ТаблицаОбъектовИсправления.ОбработатьСтроку</DataPath>
+					<Visible>false</Visible>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -199,12 +191,8 @@
 					<ContextMenu name="ТаблицаОбъектовИсправленияВерсияЭтойПрограммыКонтекстноеМеню" id="43"/>
 					<ExtendedTooltip name="ТаблицаОбъектовИсправленияВерсияЭтойПрограммыРасширеннаяПодсказка" id="44"/>
 				</InputField>
-				<InputField name="ТаблицаОбъектовИсправленияОписаниеОшибки" id="30">
+				<InputField name="ТаблицаОбъектовИсправленияОписаниеОшибки" id="70">
 					<DataPath>ТаблицаОбъектовИсправления.ОписаниеОшибки</DataPath>
-					<UserVisible>
-						<xr:Common>false</xr:Common>
-					</UserVisible>
-					<ReadOnly>true</ReadOnly>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -213,8 +201,9 @@
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ТаблицаОбъектовИсправленияОписаниеОшибкиКонтекстноеМеню" id="31"/>
-					<ExtendedTooltip name="ТаблицаОбъектовИсправленияОписаниеОшибкиРасширеннаяПодсказка" id="32"/>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ТаблицаОбъектовИсправленияОписаниеОшибкиКонтекстноеМеню" id="71"/>
+					<ExtendedTooltip name="ТаблицаОбъектовИсправленияОписаниеОшибкиРасширеннаяПодсказка" id="72"/>
 				</InputField>
 				<CheckBoxField name="ТаблицаОбъектовИсправленияНеудачнаяПопытка" id="33">
 					<DataPath>ТаблицаОбъектовИсправления.НеудачнаяПопытка</DataPath>
@@ -238,6 +227,7 @@
 		</Table>
 		<InputField name="ОписаниеОшибкиПроведенияИзСтроки" id="36">
 			<DataPath>ТаблицаОбъектовИсправления[0].ОписаниеОшибки</DataPath>
+			<Visible>false</Visible>
 			<ReadOnly>true</ReadOnly>
 			<TitleLocation>Top</TitleLocation>
 			<AutoMaxWidth>false</AutoMaxWidth>
@@ -400,12 +390,13 @@
 				</v8:item>
 			</ToolTip>
 			<Picture>
-				<xr:Ref>CommonPicture.ПоказатьОтличия</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
+				<xr:Ref>StdPicture.ShowData</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ПоказатьОтличия</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ТаблицаОбъектовИсправления</AssociatedTableElementId>
 		</Command>
 		<Command name="ОткрытьВерсиюДругойПрограммы" id="6">
 			<Title>
@@ -420,8 +411,13 @@
 					<v8:content>Открыть версию, полученную из другой информационной базы</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.InputFieldOpen</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>ОткрытьВерсиюДругойПрограммы</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ТаблицаОбъектовИсправления</AssociatedTableElementId>
 		</Command>
 		<Command name="ПринятьВерсию" id="4">
 			<Title>

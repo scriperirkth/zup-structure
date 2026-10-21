@@ -12,6 +12,15 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Изменить" id="53">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Изменить</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ИзменитьРасширеннаяПодсказка" id="54"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -74,6 +83,7 @@
 						<Table name="ТаблицаПисем" id="7">
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -84,15 +94,22 @@
 							<ContextMenu name="ТаблицаПисемКонтекстноеМеню" id="8"/>
 							<AutoCommandBar name="ТаблицаПисемКоманднаяПанель" id="9">
 								<ChildItems>
+									<Button name="ТаблицаПисемУстановитьПометки" id="43">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<CommandName>Form.Command.УстановитьПометки</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Выбрать все</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ТаблицаПисемУстановитьПометкиРасширеннаяПодсказка" id="44"/>
+									</Button>
 									<Button name="ТаблицаПисемСнятьПометки" id="41">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.СнятьПометки</CommandName>
 										<ExtendedTooltip name="ТаблицаПисемСнятьПометкиРасширеннаяПодсказка" id="42"/>
-									</Button>
-									<Button name="ТаблицаПисемУстановитьПометки" id="43">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.УстановитьПометки</CommandName>
-										<ExtendedTooltip name="ТаблицаПисемУстановитьПометкиРасширеннаяПодсказка" id="44"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
@@ -130,6 +147,8 @@
 									<TitleLocation>None</TitleLocation>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
+									<CheckBoxType>CheckBox</CheckBoxType>
 									<ContextMenu name="ТаблицаПисемПометкаКонтекстноеМеню" id="21"/>
 									<ExtendedTooltip name="ТаблицаПисемПометкаРасширеннаяПодсказка" id="22"/>
 								</CheckBoxField>
@@ -137,6 +156,7 @@
 									<DataPath>ТаблицаПисем.Дата</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="ТаблицаПисемДатаКонтекстноеМеню" id="27"/>
 									<ExtendedTooltip name="ТаблицаПисемДатаРасширеннаяПодсказка" id="28"/>
 								</LabelField>
@@ -144,6 +164,7 @@
 									<DataPath>ТаблицаПисем.Наименование</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="ТаблицаПисемНаименованиеКонтекстноеМеню" id="30"/>
 									<ExtendedTooltip name="ТаблицаПисемНаименованиеРасширеннаяПодсказка" id="31"/>
 								</LabelField>
@@ -151,6 +172,7 @@
 									<DataPath>ТаблицаПисем.Организация</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="ТаблицаПисемОрганизацияКонтекстноеМеню" id="33"/>
 									<ExtendedTooltip name="ТаблицаПисемОрганизацияРасширеннаяПодсказка" id="34"/>
 								</LabelField>
@@ -164,6 +186,7 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="ТаблицаПисемКодКонтролирующегоОрганаКонтекстноеМеню" id="36"/>
 									<ExtendedTooltip name="ТаблицаПисемКодКонтролирующегоОрганаРасширеннаяПодсказка" id="37"/>
 								</LabelField>
@@ -171,6 +194,7 @@
 									<DataPath>ТаблицаПисем.Комментарий</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="ТаблицаПисемКомментарийКонтекстноеМеню" id="39"/>
 									<ExtendedTooltip name="ТаблицаПисемКомментарийРасширеннаяПодсказка" id="40"/>
 								</LabelField>
@@ -208,51 +232,6 @@
 				</Page>
 			</ChildItems>
 		</Pages>
-		<UsualGroup name="ГруппаПодвал" id="45">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Подвал</v8:content>
-				</v8:item>
-			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПодвалРасширеннаяПодсказка" id="46"/>
-			<ChildItems>
-				<CommandBar name="ГруппаКоманды" id="47">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Команды</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalLocation>Center</HorizontalLocation>
-					<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="48"/>
-					<ChildItems>
-						<Button name="Изменить" id="53">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<CommandName>Form.Command.Изменить</CommandName>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ИзменитьРасширеннаяПодсказка" id="54"/>
-						</Button>
-						<Button name="Закрыть" id="49">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.Close</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Отмена</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="50"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -436,7 +415,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -446,6 +425,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Изменить</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

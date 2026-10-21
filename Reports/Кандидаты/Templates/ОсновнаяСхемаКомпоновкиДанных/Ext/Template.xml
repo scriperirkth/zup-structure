@@ -5,7 +5,7 @@
 		<dataSourceType>Local</dataSourceType>
 	</dataSource>
 	<dataSet xsi:type="DataSetQuery">
-		<name>НаборДанных</name>
+		<name>Кандидаты</name>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Кандидат</dataPath>
 			<field>Кандидат</field>
@@ -309,6 +309,132 @@
 ИЗ
 	Представления_СведенияОКандидатах КАК ДанныеКандидатов</query>
 	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>Комментарии</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Кандидат.Комментарии.Период</dataPath>
+			<field>Период</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Кандидат</dataPath>
+			<field>Кандидат</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Кандидат.Комментарии.Пользователь</dataPath>
+			<field>Пользователь</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пользователь</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Кандидат.Комментарии.Комментарий</dataPath>
+			<field>Комментарий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Кандидат.Комментарии.ЭтапРаботы</dataPath>
+			<field>ЭтапРаботы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Этап работы</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Текст</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Кандидат.Комментарии.ПричинаОтклонения</dataPath>
+			<field>ПричинаОтклонения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Причина отклонения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	КомментарииКандидатов.Период КАК Период,
+	КомментарииКандидатов.Кандидат КАК Кандидат,
+	КомментарииКандидатов.Пользователь КАК Пользователь,
+	КомментарииКандидатов.Комментарий КАК Комментарий,
+	NULL КАК ЭтапРаботы,
+	NULL КАК ПричинаОтклонения
+ИЗ
+	РегистрСведений.КомментарииКандидатов КАК КомментарииКандидатов
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.Кандидаты КАК Кандидаты
+		ПО Кандидаты.Ссылка = КомментарииКандидатов.Кандидат
+		И (КомментарииКандидатов.Пользователь = &amp;Пользователь
+		ИЛИ КомментарииКандидатов.Доступность = ЗНАЧЕНИЕ(Перечисление.ДоступностьКомментарияКандидата.Общедоступный))
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	РаботаСКандидатами.Период КАК Период,
+	РаботаСКандидатами.Кандидат КАК Кандидат,
+	РаботаСКандидатами.Организатор КАК Пользователь,
+	РаботаСКандидатами.Комментарий КАК Комментарий,
+	РаботаСКандидатами.ЭтапРаботы КАК ЭтапРаботы,
+	NULL КАК ПричинаОтклонения
+ИЗ
+	РегистрСведений.РаботаСКандидатами КАК РаботаСКандидатами
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.Кандидаты КАК Кандидаты
+		ПО Кандидаты.Ссылка = РаботаСКандидатами.Кандидат
+ГДЕ
+	ВЫРАЗИТЬ(РаботаСКандидатами.Комментарий КАК СТРОКА(1)) &lt;&gt; """"
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Кандидаты.ДатаРешения КАК Период,
+	Кандидаты.Ссылка КАК Кандидат,
+	Кандидаты.Ответственный КАК Пользователь,
+	Кандидаты.КомментарийРешения КАК Комментарий,
+	NULL КАК ЭтапРаботы,
+	Кандидаты.ПричинаОтклонения КАК ПричинаОтклонения
+ИЗ
+	Справочник.Кандидаты КАК Кандидаты
+ГДЕ
+	ВЫРАЗИТЬ(Кандидаты.КомментарийРешения КАК СТРОКА(1)) &lt;&gt; """"
+	И НЕ Кандидаты.ПометкаУдаления
+
+УПОРЯДОЧИТЬ ПО
+	Кандидат,
+	Период</query>
+	</dataSet>
+	<dataSetLink>
+		<sourceDataSet>Кандидаты</sourceDataSet>
+		<destinationDataSet>Комментарии</destinationDataSet>
+		<sourceExpression>Кандидат</sourceExpression>
+		<destinationExpression>Кандидат</destinationExpression>
+		<required>false</required>
+	</dataSetLink>
 	<calculatedField>
 		<dataPath>РешениеПорядок</dataPath>
 		<expression>ВЫБОР
@@ -352,6 +478,28 @@
 				<v8:content>Ожидаемый доход</v8:content>
 			</v8:item>
 		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>Кандидат.Комментарии.СобытиеКомментария</dataPath>
+		<expression>ВЫБОР
+	КОГДА НЕ Кандидат.Комментарии.ЭтапРаботы ЕСТЬ NULL
+		ТОГДА "Этап: " + ПРЕДСТАВЛЕНИЕ(Кандидат.Комментарии.ЭтапРаботы)
+	КОГДА НЕ Кандидат.Комментарии.ПричинаОтклонения ЕСТЬ NULL
+		ТОГДА "Отклонен по причине: " +  ПРЕДСТАВЛЕНИЕ(Кандидат.Комментарии.ПричинаОтклонения)
+КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Событие комментария</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
 	</calculatedField>
 	<totalField>
 		<dataPath>Кандидатов</dataPath>
@@ -488,6 +636,22 @@
 		<useRestriction>true</useRestriction>
 		<availableAsField>false</availableAsField>
 		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Пользователь</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Пользователь</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Пользователи</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>Пользователи.ТекущийПользователь()</expression>
+		<availableAsField>false</availableAsField>
 	</parameter>
 	<settingsVariant>
 		<dcsset:name>Кандидаты</dcsset:name>
@@ -926,6 +1090,154 @@
 						<dcsset:field>Кандидатов</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>КомментарииПоКандидатам</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Комментарии по кандидатам</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Вакансия</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вакансия</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Кандидат.Комментарии.СобытиеКомментария</dcsset:left>
+					<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Без комментариев вне событий</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+					<dcsset:userSettingID>6c6295ff-47ae-499e-b8f8-f50d5b1c88d6</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Без комментариев вне событий</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Кандидат.Комментарии.ЭтапРаботы</dcsset:left>
+					<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Без комментариев к этапам</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+					<dcsset:userSettingID>0e5d2a55-517f-4bd4-a0bd-6e417ad37269</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Без комментариев к этапам</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Кандидат.Комментарии.ПричинаОтклонения</dcsset:left>
+					<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Без комментариев к причинам отклонения</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+					<dcsset:userSettingID>b9ecfed1-5ed2-4520-93e9-f9284b00a22f</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Без комментариев к причинам отклонения</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Кандидат.Комментарии.Период</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Античный</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарии по кандидатам</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Кандидат</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Кандидат.Комментарии.Комментарий</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Кандидат.Комментарии.Период</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Кандидат.Комментарии.Пользователь</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Кандидат.Комментарии.Комментарий</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Кандидат.Комментарии.СобытиеКомментария</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+				</dcsset:item>
 			</dcsset:item>
 		</dcsset:settings>
 	</settingsVariant>

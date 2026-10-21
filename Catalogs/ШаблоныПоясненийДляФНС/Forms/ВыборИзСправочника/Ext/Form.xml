@@ -6,11 +6,27 @@
 			<v8:content>Выберите значение</v8:content>
 		</v8:item>
 	</Title>
+	<Width>60</Width>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВыбратьЗначение" id="1">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ВыбратьЗначение</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Выбрать</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаВыбратьЗначениеРасширеннаяПодсказка" id="2"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -23,19 +39,6 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="20"/>
 			<ChildItems>
-				<Button name="ФормаВыбратьЗначение" id="1">
-					<Type>UsualButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.ВыбратьЗначение</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Выбрать</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ФормаВыбратьЗначениеРасширеннаяПодсказка" id="2"/>
-				</Button>
 				<CommandBar name="Группа2" id="21">
 					<CommandSource>Item.Таблица</CommandSource>
 					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="22"/>
@@ -46,7 +49,8 @@
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<RowSelectionMode>Cell</RowSelectionMode>
+			<SelectionMode>SingleRow</SelectionMode>
+			<RowSelectionMode>Row</RowSelectionMode>
 			<Header>false</Header>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<DataPath>Таблица</DataPath>
@@ -63,8 +67,6 @@
 				<ExcludedCommand>OutputList</ExcludedCommand>
 				<ExcludedCommand>SearchEverywhere</ExcludedCommand>
 				<ExcludedCommand>SearchHistory</ExcludedCommand>
-				<ExcludedCommand>SelectAll</ExcludedCommand>
-				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
@@ -158,6 +160,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ВыбратьЗначение</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

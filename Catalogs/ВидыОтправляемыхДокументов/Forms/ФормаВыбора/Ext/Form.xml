@@ -30,6 +30,7 @@
 					<CommandBarLocation>None</CommandBarLocation>
 					<SkipOnInput>false</SkipOnInput>
 					<Width>25</Width>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -84,19 +85,24 @@
 						<ContextMenu name="ДеревоУправлениеПоискомКонтекстноеМеню" id="61"/>
 						<ExtendedTooltip name="ДеревоУправлениеПоискомРасширеннаяПодсказка" id="62"/>
 					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">ДеревоВыбор</Event>
+					</Events>
 					<ChildItems>
 						<LabelField name="ДеревоНаименование" id="5">
 							<DataPath>Дерево.Description</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoWidthInTable>None</AutoWidthInTable>
 							<ContextMenu name="ДеревоНаименованиеКонтекстноеМеню" id="6"/>
 							<ExtendedTooltip name="ДеревоНаименованиеРасширеннаяПодсказка" id="63"/>
 						</LabelField>
 					</ChildItems>
 				</Table>
 				<Table name="Список" id="7">
-					<CommandBarLocation>None</CommandBarLocation>
 					<SkipOnInput>false</SkipOnInput>
 					<DefaultItem>true</DefaultItem>
 					<ChoiceMode>true</ChoiceMode>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<EnableStartDrag>true</EnableStartDrag>
 					<EnableDrag>true</EnableDrag>
@@ -106,6 +112,7 @@
 					<SearchStringLocation>None</SearchStringLocation>
 					<ViewStatusLocation>None</ViewStatusLocation>
 					<SearchControlLocation>None</SearchControlLocation>
+					<ShowCommandBar>auto</ShowCommandBar>
 					<AutoRefresh>true</AutoRefresh>
 					<AutoRefreshPeriod>60</AutoRefreshPeriod>
 					<Period>
@@ -121,9 +128,7 @@
 					<UpdateOnDataChange>Auto</UpdateOnDataChange>
 					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 					<ContextMenu name="СписокКонтекстноеМеню" id="8"/>
-					<AutoCommandBar name="СписокКоманднаяПанель" id="9">
-						<Autofill>false</Autofill>
-					</AutoCommandBar>
+					<AutoCommandBar name="СписокКоманднаяПанель" id="9"/>
 					<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="64"/>
 					<SearchStringAddition name="СписокСтрокаПоиска" id="65">
 						<AdditionSource>
@@ -155,27 +160,32 @@
 					<ChildItems>
 						<LabelField name="Код" id="12">
 							<DataPath>Список.Code</DataPath>
+							<AutoWidthInTable>None</AutoWidthInTable>
 							<ContextMenu name="КодКонтекстноеМеню" id="13"/>
 							<ExtendedTooltip name="КодРасширеннаяПодсказка" id="74"/>
 						</LabelField>
 						<LabelField name="Наименование" id="33">
 							<DataPath>Список.Description</DataPath>
+							<AutoWidthInTable>None</AutoWidthInTable>
 							<ContextMenu name="НаименованиеКонтекстноеМеню" id="34"/>
 							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="75"/>
 						</LabelField>
 						<LabelField name="ТипПолучателя" id="48">
 							<DataPath>Список.ТипПолучателя</DataPath>
+							<AutoWidthInTable>None</AutoWidthInTable>
 							<ContextMenu name="ТипПолучателяКонтекстноеМеню" id="49"/>
 							<ExtendedTooltip name="ТипПолучателяРасширеннаяПодсказка" id="76"/>
 						</LabelField>
 						<LabelField name="ТипДокумента" id="50">
 							<DataPath>Список.ТипДокумента</DataPath>
+							<AutoWidthInTable>None</AutoWidthInTable>
 							<ContextMenu name="ТипДокументаКонтекстноеМеню" id="51"/>
 							<ExtendedTooltip name="ТипДокументаРасширеннаяПодсказка" id="77"/>
 						</LabelField>
 						<CheckBoxField name="ЭтоГруппа" id="46">
 							<DataPath>Список.IsFolder</DataPath>
 							<Visible>false</Visible>
+							<AutoWidthInTable>None</AutoWidthInTable>
 							<ContextMenu name="ЭтоГруппаКонтекстноеМеню" id="47"/>
 							<ExtendedTooltip name="ЭтоГруппаРасширеннаяПодсказка" id="78"/>
 						</CheckBoxField>
@@ -198,7 +208,6 @@
 			</ToolTip>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаОписаниеРасширеннаяПодсказка" id="79"/>
 			<ChildItems>
 				<LabelField name="Описание" id="35">

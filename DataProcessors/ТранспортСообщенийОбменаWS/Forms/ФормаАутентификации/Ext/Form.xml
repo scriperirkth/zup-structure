@@ -14,6 +14,32 @@
 	<ShowTitle>false</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ОК" id="51">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ОК</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ОК</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="52"/>
+			</Button>
+			<Button name="Отмена" id="53">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Отмена</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отмена</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="54"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -92,13 +118,18 @@
 													<v8:content>Пароль</v8:content>
 												</v8:item>
 											</Title>
-											<MarkRequiredComplete>true</MarkRequiredComplete>
-											<Width>20</Width>
-											<HorizontalStretch>false</HorizontalStretch>
 											<PasswordMode>true</PasswordMode>
+											<ChoiceButton>true</ChoiceButton>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<ChoiceButtonPicture>
+												<xr:Ref>StdPicture.ShowPassword</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</ChoiceButtonPicture>
 											<ContextMenu name="ПарольКонтекстноеМеню" id="13"/>
 											<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="14"/>
+											<Events>
+												<Event name="StartChoice">ПарольНачалоВыбора</Event>
+											</Events>
 										</InputField>
 										<Button name="ЗабылиПароль" id="15">
 											<Type>Hyperlink</Type>
@@ -128,36 +159,15 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаПредупрежденияДолгойСинхронизацииРасширеннаяПодсказка" id="18"/>
 							<ChildItems>
-								<UsualGroup name="ГруппаДекорацияПредупреждение" id="19">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Декорация предупреждение</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Декорация предупреждения</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Group>Vertical</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаДекорацияПредупреждениеРасширеннаяПодсказка" id="20"/>
-									<ChildItems>
-										<PictureDecoration name="Декорация3" id="21">
-											<Picture>
-												<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
-											</Picture>
-											<FileDragMode>AsFile</FileDragMode>
-											<ContextMenu name="Декорация3КонтекстноеМеню" id="22"/>
-											<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="23"/>
-										</PictureDecoration>
-									</ChildItems>
-								</UsualGroup>
+								<PictureDecoration name="Декорация3" id="21">
+									<Picture>
+										<xr:Ref>StdPicture.DialogInformation</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="Декорация3КонтекстноеМеню" id="22"/>
+									<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="23"/>
+								</PictureDecoration>
 								<UsualGroup name="ГруппаТекстПредупреждение" id="24">
 									<Title>
 										<v8:item>
@@ -200,6 +210,7 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>CheckBox</CheckBoxType>
 											<ContextMenu name="НеНапоминатьОДолгойСинхронизацииКонтекстноеМеню" id="30"/>
 											<ExtendedTooltip name="НеНапоминатьОДолгойСинхронизацииРасширеннаяПодсказка" id="31"/>
 										</CheckBoxField>
@@ -207,53 +218,6 @@
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
-						<LabelDecoration name="Декорация4" id="32">
-							<VerticalStretch>true</VerticalStretch>
-							<ContextMenu name="Декорация4КонтекстноеМеню" id="33"/>
-							<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="34"/>
-						</LabelDecoration>
-						<CommandBar name="КоманднаяПанельВыполненияОбмена" id="35">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Командная панель выполнения обмена</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Командная панель закрыть</v8:content>
-								</v8:item>
-							</ToolTip>
-							<HorizontalLocation>Right</HorizontalLocation>
-							<ExtendedTooltip name="КоманднаяПанельВыполненияОбменаExtendedTooltip" id="36"/>
-							<ChildItems>
-								<Button name="ОК" id="51">
-									<Type>CommandBarButton</Type>
-									<DefaultButton>true</DefaultButton>
-									<CommandName>Form.Command.ОК</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>ОК</v8:content>
-										</v8:item>
-									</Title>
-									<ButtonImportance>Main</ButtonImportance>
-									<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="52"/>
-								</Button>
-								<Button name="Отмена" id="53">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.Отмена</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отмена</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="54"/>
-								</Button>
-							</ChildItems>
-						</CommandBar>
 					</ChildItems>
 				</Page>
 				<Page name="ОжиданиеПроверкиПодключения" id="41">
@@ -297,7 +261,6 @@
 								</PictureDecoration>
 								<LabelDecoration name="СтатусОжиданияЗапускаСинхронизации" id="48">
 									<AutoMaxWidth>false</AutoMaxWidth>
-									<Height>3</Height>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -311,34 +274,6 @@
 								</LabelDecoration>
 							</ChildItems>
 						</UsualGroup>
-						<LabelDecoration name="Декорация5" id="61">
-							<VerticalStretch>true</VerticalStretch>
-							<ContextMenu name="Декорация5КонтекстноеМеню" id="62"/>
-							<ExtendedTooltip name="Декорация5РасширеннаяПодсказка" id="63"/>
-						</LabelDecoration>
-						<CommandBar name="КоманднаяПанельПроверкаПодключения" id="55">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Командная панель выполнения обмена</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalLocation>Right</HorizontalLocation>
-							<ExtendedTooltip name="КоманднаяПанельПроверкаПодключенияРасширеннаяПодсказка" id="56"/>
-							<ChildItems>
-								<Button name="Отмена1" id="59">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.Отмена</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отмена</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="Отмена1РасширеннаяПодсказка" id="60"/>
-								</Button>
-							</ChildItems>
-						</CommandBar>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -456,6 +391,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ОК</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="3">
 			<Title>
@@ -471,6 +407,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Отмена</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

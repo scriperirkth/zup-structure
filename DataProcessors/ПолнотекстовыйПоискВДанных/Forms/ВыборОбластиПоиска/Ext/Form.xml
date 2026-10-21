@@ -28,20 +28,15 @@
 			<Button name="КомандаОК" id="39">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.КомандаОК</CommandName>
+				<CommandName>Form.Command.ВыбратьОбластиПоиска</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>ОК</v8:content>
+						<v8:content>Выбрать</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="КомандаОКРасширеннаяПодсказка" id="40"/>
-			</Button>
-			<Button name="Отмена" id="27">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Cancel</CommandName>
-				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="28"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -57,7 +52,7 @@
 					<v8:content>Область поиска</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>Vertical</Group>
 			<VerticalAlign>Bottom</VerticalAlign>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
@@ -73,7 +68,10 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<RadioButtonType>Auto</RadioButtonType>
+					<Orientation>HorizontalIfPossible</Orientation>
 					<ColumnsCount>1</ColumnsCount>
 					<ChoiceList>
 						<xr:Item>
@@ -109,82 +107,10 @@
 						<Event name="OnChange">ОбластьПоискаПриИзменении</Event>
 					</Events>
 				</RadioButtonField>
-				<CommandBar name="КоманднаяПанель" id="31">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Командная панель</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalLocation>Right</HorizontalLocation>
-					<CommandSource>Item.ДеревоРазделовПоиска</CommandSource>
-					<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="32"/>
-					<ChildItems>
-						<ButtonGroup name="Команды" id="33">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Команды</v8:content>
-								</v8:item>
-							</Title>
-							<Representation>Compact</Representation>
-							<ExtendedTooltip name="КомандыРасширеннаяПодсказка" id="34"/>
-							<ChildItems>
-								<Button name="УстановитьФлажки" id="37">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.УстановитьФлажки</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Установить флажки</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="УстановитьФлажкиРасширеннаяПодсказка" id="38"/>
-								</Button>
-								<Button name="СнятьФлажки" id="35">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.СнятьФлажки</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Снять флажки</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="СнятьФлажкиРасширеннаяПодсказка" id="36"/>
-								</Button>
-							</ChildItems>
-						</ButtonGroup>
-						<Button name="РазвернутьВсе" id="41">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.РазвернутьВсе</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Развернуть</v8:content>
-								</v8:item>
-							</Title>
-							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="РазвернутьВсеРасширеннаяПодсказка" id="42"/>
-						</Button>
-						<Button name="СвернутьВсе" id="43">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.СвернутьВсе</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Свернуть</v8:content>
-								</v8:item>
-							</Title>
-							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="СвернутьВсеРасширеннаяПодсказка" id="44"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 		<Table name="ДеревоРазделовПоиска" id="4">
 			<Representation>Tree</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
 			<SelectionMode>SingleRow</SelectionMode>
@@ -216,8 +142,71 @@
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 				<ExcludedCommand>Tree</ExcludedCommand>
 			</CommandSet>
+			<SearchStringLocation>CommandBar</SearchStringLocation>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<ContextMenu name="ДеревоРазделовПоискаКонтекстноеМеню" id="5"/>
-			<AutoCommandBar name="ДеревоРазделовПоискаКоманднаяПанель" id="6"/>
+			<AutoCommandBar name="ДеревоРазделовПоискаКоманднаяПанель" id="6">
+				<ChildItems>
+					<ButtonGroup name="Команды" id="33">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Команды</v8:content>
+							</v8:item>
+						</Title>
+						<Representation>Compact</Representation>
+						<ExtendedTooltip name="КомандыРасширеннаяПодсказка" id="34"/>
+						<ChildItems>
+							<Button name="УстановитьФлажки" id="37">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.УстановитьФлажки</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Установить флажки</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="УстановитьФлажкиРасширеннаяПодсказка" id="38"/>
+							</Button>
+							<Button name="СнятьФлажки" id="35">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СнятьФлажки</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Снять флажки</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="СнятьФлажкиРасширеннаяПодсказка" id="36"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
+					<Button name="РазвернутьВсе" id="41">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.РазвернутьВсе</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Развернуть</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="РазвернутьВсеРасширеннаяПодсказка" id="42"/>
+					</Button>
+					<Button name="СвернутьВсе" id="43">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СвернутьВсе</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Свернуть</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="СвернутьВсеРасширеннаяПодсказка" id="44"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
 			<ExtendedTooltip name="ДеревоРазделовПоискаРасширеннаяПодсказка" id="7"/>
 			<SearchStringAddition name="ДеревоРазделовПоискаСтрокаПоиска" id="8">
 				<AdditionSource>
@@ -476,21 +465,22 @@
 			<Action>СнятьФлажки</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
-		<Command name="КомандаОК" id="3">
+		<Command name="ВыбратьОбластиПоиска" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Команда ОК</v8:content>
+					<v8:content>Выбрать области поиска</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>КомандаОК</Action>
+			<Action>ВыбратьОбластиПоиска</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="СвернутьВсе" id="4">
 			<Title>

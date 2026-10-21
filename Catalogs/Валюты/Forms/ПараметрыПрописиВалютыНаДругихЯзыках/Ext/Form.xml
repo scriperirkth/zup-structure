@@ -10,39 +10,29 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
+	<CommandBarLocation>Top</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="ФормаЗаписатьИЗакрыть" id="27">
+			<Button name="ФормаПрименить" id="33">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
+				<CommandName>Form.Command.Применить</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Записать и закрыть</v8:content>
+						<v8:content>Применить</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="28"/>
-			</Button>
-			<Button name="ФормаЗаписать" id="29">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Записать</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Записать</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="30"/>
+				<ExtendedTooltip name="ФормаПрименитьРасширеннаяПодсказка" id="34"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -79,7 +69,7 @@
 					<v8:content>Пример прописи суммы</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>NormalSeparation</Representation>
 			<ExtendedTooltip name="ГруппаПримерПрописиРасширеннаяПодсказка" id="20"/>
@@ -92,6 +82,8 @@
 							<v8:content>Сумма</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СуммаЧислоКонтекстноеМеню" id="22"/>
 					<ExtendedTooltip name="СуммаЧислоРасширеннаяПодсказка" id="23"/>
 					<Events>
@@ -107,7 +99,9 @@
 							<v8:content>Сумма прописью</v8:content>
 						</v8:item>
 					</Title>
-					<TitleLocation>Left</TitleLocation>
+					<TitleLocation>Top</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<TextEdit>false</TextEdit>
 					<ContextMenu name="СуммаПрописьюКонтекстноеМеню" id="25"/>
 					<ExtendedTooltip name="СуммаПрописьюРасширеннаяПодсказка" id="26"/>
@@ -218,35 +212,21 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Записать" id="2">
+		<Command name="Применить" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Записать</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Записать</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>Записать</Action>
-		</Command>
-		<Command name="ЗаписатьИЗакрыть" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Записать и закрыть</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Записать и закрыть</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ЗаписатьИЗакрыть</Action>
+			<Action>Применить</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>
@@ -269,11 +249,6 @@
 					<v8:Length>0</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
-			</Type>
-		</Parameter>
-		<Parameter name="ТолькоПросмотр">
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Parameter>
 	</Parameters>

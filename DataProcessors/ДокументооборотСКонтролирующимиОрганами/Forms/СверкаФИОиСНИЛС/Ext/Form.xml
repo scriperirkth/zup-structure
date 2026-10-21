@@ -13,27 +13,32 @@
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Печать" id="14">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Печать</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.Print</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="15"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<Button name="Печать" id="14">
-			<Type>UsualButton</Type>
-			<Representation>PictureAndText</Representation>
-			<CommandName>Form.Command.Печать</CommandName>
-			<Picture>
-				<xr:Ref>StdPicture.Print</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="15"/>
-		</Button>
 		<Table name="ЗастрахованныеЛица" id="1">
 			<Representation>List</Representation>
 			<ReadOnly>true</ReadOnly>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -94,6 +99,7 @@
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<Width>3</Width>
 					<ContextMenu name="ЗастрахованныеЛицаНомерКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="ЗастрахованныеЛицаНомерРасширеннаяПодсказка" id="26"/>
@@ -109,6 +115,7 @@
 					<EditMode>EnterOnInput</EditMode>
 					<AutoCellHeight>true</AutoCellHeight>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<Width>26</Width>
 					<ContextMenu name="ЗастрахованныеЛицаФИОКонтекстноеМеню" id="7"/>
 					<ExtendedTooltip name="ЗастрахованныеЛицаФИОРасширеннаяПодсказка" id="27"/>
@@ -117,6 +124,7 @@
 					<DataPath>ЗастрахованныеЛица.СНИЛС</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<Width>11</Width>
 					<ContextMenu name="ЗастрахованныеЛицаСНИЛСКонтекстноеМеню" id="9"/>
 					<ExtendedTooltip name="ЗастрахованныеЛицаСНИЛСРасширеннаяПодсказка" id="28"/>
@@ -125,6 +133,7 @@
 					<DataPath>ЗастрахованныеЛица.ДатаРождения</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="ЗастрахованныеЛицаДатаРожденияКонтекстноеМеню" id="11"/>
 					<ExtendedTooltip name="ЗастрахованныеЛицаДатаРожденияРасширеннаяПодсказка" id="29"/>
 				</InputField>
@@ -133,6 +142,7 @@
 					<EditMode>EnterOnInput</EditMode>
 					<AutoCellHeight>true</AutoCellHeight>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="ЗастрахованныеЛицаРезультатПроверкиКонтекстноеМеню" id="13"/>
 					<ExtendedTooltip name="ЗастрахованныеЛицаРезультатПроверкиРасширеннаяПодсказка" id="30"/>
 				</InputField>
@@ -465,6 +475,7 @@
 			</ToolTip>
 			<Action>Печать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

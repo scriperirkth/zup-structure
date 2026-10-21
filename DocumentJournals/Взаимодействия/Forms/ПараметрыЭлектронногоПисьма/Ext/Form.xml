@@ -20,11 +20,11 @@
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
 				<DefaultItem>true</DefaultItem>
-				<CommandName>Form.Command.ОК</CommandName>
+				<CommandName>Form.Command.Применить</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Закрыть</v8:content>
+						<v8:content>Применить и закрыть</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
@@ -37,6 +37,85 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<InputField name="Папка" id="26">
+			<DataPath>Папка</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Папка</v8:content>
+				</v8:item>
+			</Title>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<ChoiceParameterLinks>
+				<xr:Link>
+					<xr:Name>Отбор.Владелец</xr:Name>
+					<xr:DataPath xsi:type="xs:string">УчетнаяЗапись</xr:DataPath>
+					<xr:ValueChange>Clear</xr:ValueChange>
+				</xr:Link>
+			</ChoiceParameterLinks>
+			<ContextMenu name="ПапкаКонтекстноеМеню" id="27"/>
+			<ExtendedTooltip name="ПапкаРасширеннаяПодсказка" id="36"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="49">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AutoScreenTypeSensitive</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="50"/>
+			<ChildItems>
+				<CheckBoxField name="УведомитьОДоставке" id="1">
+					<DataPath>УведомитьОДоставке</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомить о доставке</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="УведомитьОДоставкеКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="УведомитьОДоставкеРасширеннаяПодсказка" id="38"/>
+				</CheckBoxField>
+				<CheckBoxField name="УведомитьОПрочтении" id="3">
+					<DataPath>УведомитьОПрочтении</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомить о прочтении</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="УведомитьОПрочтенииКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="УведомитьОПрочтенииРасширеннаяПодсказка" id="39"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<CheckBoxField name="ВключатьТелоИсходногоПисьма" id="23">
+			<DataPath>ВключатьТелоИсходногоПисьма</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включать тело исходного письма</v8:content>
+				</v8:item>
+			</Title>
+			<TitleLocation>Right</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<ContextMenu name="ВключатьТелоИсходногоПисьмаКонтекстноеМеню" id="24"/>
+			<ExtendedTooltip name="ВключатьТелоИсходногоПисьмаРасширеннаяПодсказка" id="35"/>
+		</CheckBoxField>
 		<UsualGroup name="ГруппаДатыНомер" id="22">
 			<Title>
 				<v8:item>
@@ -64,7 +143,7 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаДатыРасширеннаяПодсказка" id="30"/>
 					<ChildItems>
-						<InputField name="Создано" id="9">
+						<LabelField name="Создано" id="9">
 							<DataPath>Создано</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<Title>
@@ -73,11 +152,13 @@
 									<v8:content>Создано</v8:content>
 								</v8:item>
 							</Title>
-							<HorizontalStretch>false</HorizontalStretch>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<UseCopy>true</UseCopy>
 							<ContextMenu name="СозданоКонтекстноеМеню" id="10"/>
 							<ExtendedTooltip name="СозданоРасширеннаяПодсказка" id="31"/>
-						</InputField>
-						<InputField name="ОтправленоПолучено" id="11">
+						</LabelField>
+						<LabelField name="ОтправленоПолучено" id="11">
 							<DataPath>ОтправленоПолучено</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<Title>
@@ -86,10 +167,12 @@
 									<v8:content>Отправлено</v8:content>
 								</v8:item>
 							</Title>
-							<HorizontalStretch>false</HorizontalStretch>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<UseCopy>true</UseCopy>
 							<ContextMenu name="ОтправленоПолученоКонтекстноеМеню" id="12"/>
 							<ExtendedTooltip name="ОтправленоПолученоРасширеннаяПодсказка" id="32"/>
-						</InputField>
+						</LabelField>
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="ГруппаВключатьВнутреннийНомер" id="25">
@@ -105,7 +188,7 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаВключатьВнутреннийНомерРасширеннаяПодсказка" id="33"/>
 					<ChildItems>
-						<InputField name="ВнутреннийНомер" id="6">
+						<LabelField name="ВнутреннийНомер" id="6">
 							<DataPath>ВнутреннийНомер</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<Title>
@@ -114,84 +197,14 @@
 									<v8:content>Внутренний номер</v8:content>
 								</v8:item>
 							</Title>
-							<HorizontalStretch>false</HorizontalStretch>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<UseCopy>true</UseCopy>
 							<ContextMenu name="ВнутреннийНомерКонтекстноеМеню" id="7"/>
 							<ExtendedTooltip name="ВнутреннийНомерРасширеннаяПодсказка" id="34"/>
-						</InputField>
-						<CheckBoxField name="ВключатьТелоИсходногоПисьма" id="23">
-							<DataPath>ВключатьТелоИсходногоПисьма</DataPath>
-							<ReadOnly>true</ReadOnly>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Включать тело исходного письма</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>Right</TitleLocation>
-							<ContextMenu name="ВключатьТелоИсходногоПисьмаКонтекстноеМеню" id="24"/>
-							<ExtendedTooltip name="ВключатьТелоИсходногоПисьмаРасширеннаяПодсказка" id="35"/>
-						</CheckBoxField>
+						</LabelField>
 					</ChildItems>
 				</UsualGroup>
-			</ChildItems>
-		</UsualGroup>
-		<InputField name="Папка" id="26">
-			<DataPath>Папка</DataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Папка</v8:content>
-				</v8:item>
-			</Title>
-			<ChoiceParameterLinks>
-				<xr:Link>
-					<xr:Name>Отбор.Владелец</xr:Name>
-					<xr:DataPath xsi:type="xs:string">УчетнаяЗапись</xr:DataPath>
-					<xr:ValueChange>Clear</xr:ValueChange>
-				</xr:Link>
-			</ChoiceParameterLinks>
-			<ContextMenu name="ПапкаКонтекстноеМеню" id="27"/>
-			<ExtendedTooltip name="ПапкаРасширеннаяПодсказка" id="36"/>
-		</InputField>
-		<UsualGroup name="ГруппаПараметрыОтслеживания" id="5">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Параметры отслеживания</v8:content>
-				</v8:item>
-			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПараметрыОтслеживанияРасширеннаяПодсказка" id="37"/>
-			<ChildItems>
-				<CheckBoxField name="УведомитьОДоставке" id="1">
-					<DataPath>УведомитьОДоставке</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Уведомить о доставке</v8:content>
-						</v8:item>
-					</Title>
-					<TitleLocation>Right</TitleLocation>
-					<ContextMenu name="УведомитьОДоставкеКонтекстноеМеню" id="2"/>
-					<ExtendedTooltip name="УведомитьОДоставкеРасширеннаяПодсказка" id="38"/>
-				</CheckBoxField>
-				<CheckBoxField name="УведомитьОПрочтении" id="3">
-					<DataPath>УведомитьОПрочтении</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Уведомить о прочтении</v8:content>
-						</v8:item>
-					</Title>
-					<TitleLocation>Right</TitleLocation>
-					<ContextMenu name="УведомитьОПрочтенииКонтекстноеМеню" id="4"/>
-					<ExtendedTooltip name="УведомитьОПрочтенииРасширеннаяПодсказка" id="39"/>
-				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
 		<TextDocumentField name="Заголовки" id="17">
@@ -203,6 +216,8 @@
 					<v8:content>Заголовки Интернета</v8:content>
 				</v8:item>
 			</Title>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<ContextMenu name="ЗаголовкиКонтекстноеМеню" id="18"/>
 			<ExtendedTooltip name="ЗаголовкиРасширеннаяПодсказка" id="40"/>
 		</TextDocumentField>
@@ -345,21 +360,22 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ОК" id="1">
+		<Command name="Применить" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Закрыть</v8:content>
+					<v8:content>Применить и закрыть</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

@@ -3,10 +3,53 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаСоздать" id="311">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.StandardCommand.Create</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Новая МЧД</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаСоздатьРасширеннаяПодсказка" id="312"/>
+			</Button>
+			<Button name="СписокСкопировать" id="320">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Item.Список.StandardCommand.Copy</CommandName>
+				<ExtendedTooltip name="СписокСкопироватьРасширеннаяПодсказка" id="321"/>
+			</Button>
+			<Button name="СписокЗагрузитьИзФайла" id="92">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЗагрузитьИзФайла</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Из файла...</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTipRepresentation>None</ToolTipRepresentation>
+				<ExtendedTooltip name="СписокЗагрузитьИзФайлаРасширеннаяПодсказка" id="93"/>
+			</Button>
+			<Button name="СписокЗагрузитьИзРеестраФНС" id="98">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЗагрузитьИзРеестраФНС</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Из реестра ФНС...</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="СписокЗагрузитьИзРеестраФНСРасширеннаяПодсказка" id="99"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -20,7 +63,7 @@
 					<v8:content>Отборы</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>Vertical</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаОтборыРасширеннаяПодсказка" id="53"/>
@@ -37,6 +80,29 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаОтборыПерваяСтрокаРасширеннаяПодсказка" id="127"/>
 					<ChildItems>
+						<InputField name="Сертификат" id="123">
+							<DataPath>Сертификат</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сертификат</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<DropListButton>false</DropListButton>
+							<ChoiceButton>true</ChoiceButton>
+							<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+							<ClearButton>true</ClearButton>
+							<OpenButton>false</OpenButton>
+							<ChoiceForm>Catalog.СертификатыКлючейЭлектроннойПодписиИШифрования.Form.ВыборСертификатаДляПодписанияИлиРасшифровки</ChoiceForm>
+							<ContextMenu name="СертификатКонтекстноеМеню" id="124"/>
+							<ExtendedTooltip name="СертификатРасширеннаяПодсказка" id="125"/>
+							<Events>
+								<Event name="StartChoice">СертификатНачалоВыбора</Event>
+								<Event name="Clearing">СертификатОчистка</Event>
+							</Events>
+						</InputField>
 						<InputField name="ДоверенностиПоРоли" id="70">
 							<DataPath>ДоверенностиПоРоли</DataPath>
 							<Title>
@@ -46,6 +112,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ListChoiceMode>true</ListChoiceMode>
 							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
 							<ChoiceList>
@@ -104,54 +172,14 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>Right</TitleLocation>
-							<TitleHeight>1</TitleHeight>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ТолькоДействующиеКонтекстноеМеню" id="50"/>
 							<ExtendedTooltip name="ТолькоДействующиеРасширеннаяПодсказка" id="51"/>
 							<Events>
 								<Event name="OnChange">ТолькоДействующиеПриИзменении</Event>
 							</Events>
 						</CheckBoxField>
-						<LabelField name="Полномочия" id="136">
-							<DataPath>ПолномочияПредставление</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Полномочия представление</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>None</TitleLocation>
-							<Width>20</Width>
-							<HorizontalStretch>false</HorizontalStretch>
-							<Hiperlink>true</Hiperlink>
-							<ContextMenu name="ПолномочияКонтекстноеМеню" id="137"/>
-							<ExtendedTooltip name="ПолномочияРасширеннаяПодсказка" id="138"/>
-							<Events>
-								<Event name="OnChange">ПолномочияПриИзменении</Event>
-								<Event name="Click">ПолномочияНажатие</Event>
-							</Events>
-						</LabelField>
-						<InputField name="Сертификат" id="123">
-							<DataPath>Сертификат</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Сертификат</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalStretch>true</HorizontalStretch>
-							<DropListButton>false</DropListButton>
-							<ChoiceButton>true</ChoiceButton>
-							<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
-							<ClearButton>true</ClearButton>
-							<OpenButton>false</OpenButton>
-							<ChoiceForm>Catalog.СертификатыКлючейЭлектроннойПодписиИШифрования.Form.ВыборСертификатаДляПодписанияИлиРасшифровки</ChoiceForm>
-							<ContextMenu name="СертификатКонтекстноеМеню" id="124"/>
-							<ExtendedTooltip name="СертификатРасширеннаяПодсказка" id="125"/>
-							<Events>
-								<Event name="StartChoice">СертификатНачалоВыбора</Event>
-								<Event name="Clearing">СертификатОчистка</Event>
-							</Events>
-						</InputField>
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="ГруппаОтборыВтораяСтрока" id="134">
@@ -166,116 +194,83 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаОтборыВтораяСтрокаРасширеннаяПодсказка" id="135"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаДоверитель" id="110">
+						<InputField name="Доверитель" id="218">
+							<DataPath>Доверитель</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Доверитель</v8:content>
 								</v8:item>
 							</Title>
-							<Group>AlwaysHorizontal</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаДоверительРасширеннаяПодсказка" id="111"/>
-							<ChildItems>
-								<LabelDecoration name="ДекорацияДоверитель" id="112">
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Доверитель:</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="ДекорацияДоверительКонтекстноеМеню" id="113"/>
-									<ExtendedTooltip name="ДекорацияДоверительРасширеннаяПодсказка" id="114"/>
-								</LabelDecoration>
-								<InputField name="Доверитель" id="218">
-									<DataPath>Доверитель</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Доверитель</v8:content>
-										</v8:item>
-									</Title>
-									<TitleLocation>None</TitleLocation>
-									<Width>25</Width>
-									<ClearButton>true</ClearButton>
-									<OpenButton>false</OpenButton>
-									<ChooseType>false</ChooseType>
-									<InputHint>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Наименование, ИНН, СНИЛС</v8:content>
-										</v8:item>
-									</InputHint>
-									<ContextMenu name="ДоверительКонтекстноеМеню" id="219"/>
-									<ExtendedTooltip name="ДоверительРасширеннаяПодсказка" id="220"/>
-									<Events>
-										<Event name="OnChange">ДоверительПриИзменении</Event>
-										<Event name="AutoComplete">ДоверительПредставительАвтоПодбор</Event>
-										<Event name="Clearing">ДоверительОчистка</Event>
-										<Event name="ChoiceProcessing">ДоверительПредставительОбработкаВыбора</Event>
-									</Events>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаПредставитель" id="115">
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>25</Width>
+							<ClearButton>true</ClearButton>
+							<OpenButton>false</OpenButton>
+							<ChooseType>false</ChooseType>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименование, ИНН, СНИЛС</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ДоверительКонтекстноеМеню" id="219"/>
+							<ExtendedTooltip name="ДоверительРасширеннаяПодсказка" id="220"/>
+							<Events>
+								<Event name="OnChange">ДоверительПриИзменении</Event>
+								<Event name="AutoComplete">ДоверительПредставительАвтоПодбор</Event>
+								<Event name="Clearing">ДоверительОчистка</Event>
+								<Event name="ChoiceProcessing">ДоверительПредставительОбработкаВыбора</Event>
+							</Events>
+						</InputField>
+						<InputField name="Представитель" id="221">
+							<DataPath>Представитель</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Представитель</v8:content>
 								</v8:item>
 							</Title>
-							<ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>25</Width>
+							<ClearButton>true</ClearButton>
+							<OpenButton>false</OpenButton>
+							<ChooseType>false</ChooseType>
+							<InputHint>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа доверитель</v8:content>
+									<v8:content>Наименование, ИНН, СНИЛС</v8:content>
 								</v8:item>
-							</ToolTip>
-							<Group>AlwaysHorizontal</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаПредставительРасширеннаяПодсказка" id="116"/>
-							<ChildItems>
-								<LabelDecoration name="ДекорацияПредставитель" id="117">
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Представитель:</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="ДекорацияПредставительКонтекстноеМеню" id="118"/>
-									<ExtendedTooltip name="ДекорацияПредставительРасширеннаяПодсказка" id="119"/>
-								</LabelDecoration>
-								<InputField name="Представитель" id="221">
-									<DataPath>Представитель</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Представитель</v8:content>
-										</v8:item>
-									</Title>
-									<TitleLocation>None</TitleLocation>
-									<Width>25</Width>
-									<ClearButton>true</ClearButton>
-									<OpenButton>false</OpenButton>
-									<ChooseType>false</ChooseType>
-									<InputHint>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Наименование, ИНН, СНИЛС</v8:content>
-										</v8:item>
-									</InputHint>
-									<ContextMenu name="ПредставительКонтекстноеМеню" id="222"/>
-									<ExtendedTooltip name="ПредставительРасширеннаяПодсказка" id="223"/>
-									<Events>
-										<Event name="OnChange">ПредставительПриИзменении</Event>
-										<Event name="AutoComplete">ДоверительПредставительАвтоПодбор</Event>
-										<Event name="Clearing">ПредставительОчистка</Event>
-										<Event name="ChoiceProcessing">ДоверительПредставительОбработкаВыбора</Event>
-									</Events>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
+							</InputHint>
+							<ContextMenu name="ПредставительКонтекстноеМеню" id="222"/>
+							<ExtendedTooltip name="ПредставительРасширеннаяПодсказка" id="223"/>
+							<Events>
+								<Event name="OnChange">ПредставительПриИзменении</Event>
+								<Event name="AutoComplete">ДоверительПредставительАвтоПодбор</Event>
+								<Event name="Clearing">ПредставительОчистка</Event>
+								<Event name="ChoiceProcessing">ДоверительПредставительОбработкаВыбора</Event>
+							</Events>
+						</InputField>
+						<LabelField name="Полномочия" id="136">
+							<DataPath>ПолномочияПредставление</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Полномочия представление</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Hiperlink>true</Hiperlink>
+							<ContextMenu name="ПолномочияКонтекстноеМеню" id="137"/>
+							<ExtendedTooltip name="ПолномочияРасширеннаяПодсказка" id="138"/>
+							<Events>
+								<Event name="OnChange">ПолномочияПриИзменении</Event>
+								<Event name="Click">ПолномочияНажатие</Event>
+							</Events>
+						</LabelField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -295,7 +290,6 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>Top</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -313,6 +307,7 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -330,17 +325,6 @@
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4">
 				<ChildItems>
-					<Button name="СписокКонтекстноеМенюВыгрузитьВФайл" id="266">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ВыгрузитьВФайл</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Выгрузить в файл...</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="СписокКонтекстноеМенюВыгрузитьВФайлРасширеннаяПодсказка" id="267"/>
-					</Button>
 					<ButtonGroup name="ДополнительныеКоманды" id="268">
 						<Title>
 							<v8:item>
@@ -354,102 +338,35 @@
 			</ContextMenu>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
 				<ChildItems>
-					<ButtonGroup name="ГруппаОбновить" id="262">
+					<Button name="СписокПолучитьСтатус" id="105">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ОбновитьСтатусИзРеестраФНС</CommandName>
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
-								<v8:content>Обновить</v8:content>
+								<v8:content>Обновить статус из реестра ФНС</v8:content>
 							</v8:item>
 						</Title>
-						<ExtendedTooltip name="ГруппаОбновитьРасширеннаяПодсказка" id="263"/>
-						<ChildItems>
-							<Button name="СписокОбновить" id="260">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Обновить список</v8:content>
-									</v8:item>
-								</Title>
-								<ExtendedTooltip name="СписокОбновитьРасширеннаяПодсказка" id="261"/>
-							</Button>
-							<Button name="СписокПолучитьСтатус" id="105">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.ОбновитьСтатусИзРеестраФНС</CommandName>
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Обновить статус из реестра ФНС</v8:content>
-									</v8:item>
-								</Title>
-								<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-								<ExtendedTooltip name="СписокПолучитьСтатусРасширеннаяПодсказка" id="106"/>
-							</Button>
-						</ChildItems>
-					</ButtonGroup>
-					<ButtonGroup name="СписокГруппа1" id="264">
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="СписокПолучитьСтатусРасширеннаяПодсказка" id="106"/>
+					</Button>
+					<Button name="СписокВыгрузитьВФайл" id="88">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ВыгрузитьВФайл</CommandName>
+						<Picture>
+							<xr:Ref>CommonPicture.Скачать</xr:Ref>
+							<xr:LoadTransparent>false</xr:LoadTransparent>
+						</Picture>
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
-								<v8:content>Группа 1</v8:content>
+								<v8:content>Выгрузить в файл...</v8:content>
 							</v8:item>
 						</Title>
-						<ExtendedTooltip name="СписокГруппа1РасширеннаяПодсказка" id="265"/>
-						<ChildItems>
-							<Popup name="ГруппаЗагрузкаИзВешнихИсточников" id="244">
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Загрузить</v8:content>
-									</v8:item>
-								</Title>
-								<ExtendedTooltip name="ГруппаЗагрузкаИзВешнихИсточниковРасширеннаяПодсказка" id="245"/>
-								<ChildItems>
-									<Button name="СписокЗагрузитьИзФайла" id="92">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ЗагрузитьИзФайла</CommandName>
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Из файла ...</v8:content>
-											</v8:item>
-										</Title>
-										<ToolTipRepresentation>None</ToolTipRepresentation>
-										<ExtendedTooltip name="СписокЗагрузитьИзФайлаРасширеннаяПодсказка" id="93"/>
-									</Button>
-									<Button name="СписокЗагрузитьИзРеестраФНС" id="98">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ЗагрузитьИзРеестраФНС</CommandName>
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Из реестра ФНС ...</v8:content>
-											</v8:item>
-										</Title>
-										<ExtendedTooltip name="СписокЗагрузитьИзРеестраФНСРасширеннаяПодсказка" id="99"/>
-									</Button>
-								</ChildItems>
-							</Popup>
-							<Button name="СписокВыгрузитьВФайл" id="88">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.ВыгрузитьВФайл</CommandName>
-								<Picture>
-									<xr:Ref>CommonPicture.Скачать</xr:Ref>
-									<xr:LoadTransparent>false</xr:LoadTransparent>
-								</Picture>
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Выгрузить в файл...</v8:content>
-									</v8:item>
-								</Title>
-								<ToolTipRepresentation>None</ToolTipRepresentation>
-								<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
-								<ExtendedTooltip name="СписокВыгрузитьВФайлРасширеннаяПодсказка" id="89"/>
-							</Button>
-						</ChildItems>
-					</ButtonGroup>
+						<ToolTipRepresentation>None</ToolTipRepresentation>
+						<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
+						<ExtendedTooltip name="СписокВыгрузитьВФайлРасширеннаяПодсказка" id="89"/>
+					</Button>
 					<Popup name="ПодменюПечать" id="56">
 						<Title>
 							<v8:item>
@@ -506,22 +423,12 @@
 						<Representation>Picture</Representation>
 						<ExtendedTooltip name="ПодменюСоздатьНаОснованииРасширеннаяПодсказка" id="235"/>
 					</Popup>
-					<Button name="ИзменитьФорму" id="84">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-						<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="85"/>
-					</Button>
 					<Button name="СписокСправочникМашиночитаемыеДоверенностиОтменаДоверенности" id="224">
 						<Type>CommandBarButton</Type>
 						<CommandName>Catalog.МашиночитаемыеДоверенности.Command.Отменить</CommandName>
 						<DataPath>Items.Список.CurrentData.Ссылка</DataPath>
 						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 						<ExtendedTooltip name="СписокСправочникМашиночитаемыеДоверенностиОтменаДоверенностиРасширеннаяПодсказка" id="225"/>
-					</Button>
-					<Button name="СписокСправка" id="100">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.Help</CommandName>
-						<ExtendedTooltip name="СписокСправкаРасширеннаяПодсказка" id="101"/>
 					</Button>
 				</ChildItems>
 			</AutoCommandBar>
@@ -553,14 +460,14 @@
 			<Events>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
 				<Event name="OnGetDataAtServer">СписокПриПолученииДанныхНаСервере</Event>
+				<Event name="OnHover">СписокПриНаведении</Event>
 				<Event name="OnChange">ПриОткрытии</Event>
 			</Events>
 			<ChildItems>
 				<LabelField name="НомерДоверенности" id="102">
 					<DataPath>Список.НомерДоверенности</DataPath>
-					<Width>20</Width>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>20</MaxWidth>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="НомерДоверенностиКонтекстноеМеню" id="103"/>
 					<ExtendedTooltip name="НомерДоверенностиРасширеннаяПодсказка" id="104"/>
@@ -568,6 +475,8 @@
 				<LabelField name="Наименование" id="16">
 					<DataPath>Список.Наименование</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="18"/>
 				</LabelField>
@@ -576,11 +485,11 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>С</v8:content>
+							<v8:content>Начало действия</v8:content>
 						</v8:item>
 					</Title>
-					<Width>7</Width>
-					<AutoMaxWidth>false</AutoMaxWidth>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<HorizontalStretch>false</HorizontalStretch>
 					<Format>
 						<v8:item>
@@ -596,11 +505,11 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>По</v8:content>
+							<v8:content>Окончание действия</v8:content>
 						</v8:item>
 					</Title>
-					<Width>7</Width>
-					<AutoMaxWidth>false</AutoMaxWidth>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<HorizontalStretch>false</HorizontalStretch>
 					<Format>
 						<v8:item>
@@ -619,6 +528,8 @@
 							<v8:content>Код НО</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КодНалоговогоОрганаПредставленияКонтекстноеМеню" id="132"/>
 					<ExtendedTooltip name="КодНалоговогоОрганаПредставленияРасширеннаяПодсказка" id="133"/>
 				</LabelField>
@@ -641,6 +552,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ИндексСтатусаВДругомРеестреКонтекстноеМеню" id="230"/>
 							<ExtendedTooltip name="ИндексСтатусаВДругомРеестреРасширеннаяПодсказка" id="231"/>
 						</PictureField>
@@ -652,6 +565,8 @@
 									<v8:content>Статус в другом реестре</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="СтатусВДругомРеестреКонтекстноеМеню" id="227"/>
 							<ExtendedTooltip name="СтатусВДругомРеестреРасширеннаяПодсказка" id="228"/>
 						</InputField>
@@ -682,6 +597,8 @@
 									<v8:content>Возможность передоверия</v8:content>
 								</v8:item>
 							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ВозможностьПередоверияКонтекстноеМеню" id="237"/>
 							<ExtendedTooltip name="ВозможностьПередоверияРасширеннаяПодсказка" id="238"/>
 						</PictureField>
@@ -690,7 +607,7 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Это передоверие</v8:content>
+									<v8:content>Передоверие</v8:content>
 								</v8:item>
 							</Title>
 							<ToolTip>
@@ -699,6 +616,8 @@
 									<v8:content>Это передоверие</v8:content>
 								</v8:item>
 							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ПередовериеКонтекстноеМеню" id="242"/>
 							<ExtendedTooltip name="ПередовериеРасширеннаяПодсказка" id="243"/>
 						</CheckBoxField>
@@ -712,6 +631,8 @@
 							<v8:content>Номер (внутр.)</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КодКонтекстноеМеню" id="129"/>
 					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="130"/>
 				</LabelField>
@@ -726,6 +647,8 @@
 							<v8:content>Состояние</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТехническийСтатусКонтекстноеМеню" id="174"/>
 					<ExtendedTooltip name="ТехническийСтатусРасширеннаяПодсказка" id="175"/>
 				</LabelField>
@@ -734,6 +657,8 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="33"/>
 				</LabelField>
@@ -746,8 +671,7 @@
 					<v8:content>Полномочия доверенности</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Representation>WeakSeparation</Representation>
+			<Group>AutoScreenTypeSensitive</Group>
 			<ExtendedTooltip name="ГруппаПолномочияРасширеннаяПодсказка" id="271"/>
 			<ChildItems>
 				<InputField name="ПолномочияДоверенности" id="275">
@@ -759,10 +683,10 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<Height>12</Height>
-					<AutoMaxHeight>false</AutoMaxHeight>
-					<VerticalStretch>true</VerticalStretch>
 					<MultiLine>true</MultiLine>
 					<HeightControlVariant>UseContentHeight</HeightControlVariant>
 					<ContextMenu name="ПолномочияДоверенностиКонтекстноеМеню" id="276"/>
@@ -793,10 +717,8 @@
 				</v8:item>
 			</Title>
 			<Group>Vertical</Group>
-			<Behavior>Collapsible</Behavior>
+			<Behavior>PopUp</Behavior>
 			<Collapsed>true</Collapsed>
-			<ControlRepresentation>Button</ControlRepresentation>
-			<Representation>None</Representation>
 			<ExtendedTooltip name="ГруппаЛегендаРасширеннаяПодсказка" id="177"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаСрокЧерновикДоверенности" id="178">
@@ -1989,10 +1911,11 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Загрузить из файла</v8:content>
+					<v8:content>Загрузить машиночитаемую доверенность из файла</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>ЗагрузитьИзФайла</Action>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="ВыгрузитьВФайл" id="2">
 			<Title>
@@ -2001,13 +1924,8 @@
 					<v8:content>Выгрузить в файл...</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Выгрузить в файл</v8:content>
-				</v8:item>
-			</ToolTip>
 			<Action>ВыгрузитьВФайл</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
 			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
 		</Command>
 		<Command name="ЗагрузитьИзРеестраФНС" id="3">
@@ -2020,10 +1938,11 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Загрузить из реестра ФНС</v8:content>
+					<v8:content>Загрузить машиночитаемую доверенность из реестра ФНС</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>ЗагрузитьИзРеестраФНС</Action>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="ОбновитьСтатусИзРеестраФНС" id="4">
 			<Title>
@@ -2043,6 +1962,7 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ОбновитьСтатусИзРеестраФНС</Action>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
 		</Command>
 	</Commands>
 	<Parameters>

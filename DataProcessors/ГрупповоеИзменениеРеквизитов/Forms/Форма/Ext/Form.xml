@@ -6,7 +6,55 @@
 	<CommandBarLocation>Bottom</CommandBarLocation>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<HorizontalAlign>Right</HorizontalAlign>
+		<ChildItems>
+			<Button name="ФормаНазад" id="203">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.Назад</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.GoBack</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Назад</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаНазадРасширеннаяПодсказка" id="204"/>
+			</Button>
+			<Button name="ФормаИзменить" id="22">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Изменить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Изменить реквизиты</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаИзменитьРасширеннаяПодсказка" id="71"/>
+			</Button>
+			<Button name="НастроитьПараметрыИзменений" id="44">
+				<Type>CommandBarHyperlink</Type>
+				<Width>21</Width>
+				<CommandName>Form.Command.НастроитьПараметрыИзменения</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.Setting</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Дополнительные параметры</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Supplementary</ButtonImportance>
+				<ExtendedTooltip name="НастроитьПараметрыИзмененийРасширеннаяПодсказка" id="79"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
@@ -56,8 +104,10 @@
 											<v8:content>Изменять</v8:content>
 										</v8:item>
 									</Title>
-									<Width>50</Width>
-									<HorizontalStretch>false</HorizontalStretch>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>true</HorizontalStretch>
 									<ChoiceButton>true</ChoiceButton>
 									<InputHint>
 										<v8:item>
@@ -97,7 +147,7 @@
 								</v8:item>
 							</Title>
 							<HorizontalStretch>true</HorizontalStretch>
-							<Group>HorizontalIfPossible</Group>
+							<Group>AutoScreenTypeSensitive</Group>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаТипОперацииРасширеннаяПодсказка" id="356"/>
@@ -105,6 +155,8 @@
 								<RadioButtonField name="ТипОперации" id="268">
 									<DataPath>Объект.ТипОперации</DataPath>
 									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<RadioButtonType>Tumbler</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
@@ -140,17 +192,6 @@
 										<Event name="OnChange">ВидОперацииПриИзменении</Event>
 									</Events>
 								</RadioButtonField>
-								<SearchStringAddition name="РеквизитыСтрокаПоиска" id="357">
-									<AdditionSource>
-										<Item>РеквизитыОбъекта</Item>
-										<Type>SearchStringRepresentation</Type>
-									</AdditionSource>
-									<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-									<Width>30</Width>
-									<HorizontalStretch>false</HorizontalStretch>
-									<ContextMenu name="РеквизитыСтрокаПоискаКонтекстноеМеню" id="358"/>
-									<ExtendedTooltip name="РеквизитыСтрокаПоискаРасширеннаяПодсказка" id="359"/>
-								</SearchStringAddition>
 							</ChildItems>
 						</UsualGroup>
 						<Pages name="СтраницыВидОперации" id="271">
@@ -183,9 +224,6 @@
 											</Title>
 											<PagesRepresentation>TabsOnTop</PagesRepresentation>
 											<ExtendedTooltip name="СоставОбъектаРасширеннаяПодсказка" id="113"/>
-											<Events>
-												<Event name="OnCurrentPageChange">СоставОбъектаПриСменеСтраницы</Event>
-											</Events>
 											<ChildItems>
 												<Page name="Реквизиты" id="114">
 													<Title>
@@ -202,7 +240,9 @@
 															<Representation>List</Representation>
 															<ChangeRowSet>false</ChangeRowSet>
 															<ChangeRowOrder>false</ChangeRowOrder>
+															<AutoMaxWidth>false</AutoMaxWidth>
 															<Height>5</Height>
+															<SelectionMode>SingleRow</SelectionMode>
 															<RowSelectionMode>Cell</RowSelectionMode>
 															<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 															<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -224,7 +264,31 @@
 															<RowFilter xsi:nil="true"/>
 															<ContextMenu name="РеквизитыОбъектаКонтекстноеМеню" id="117"/>
 															<AutoCommandBar name="РеквизитыОбъектаКоманднаяПанель" id="118">
-																<Autofill>false</Autofill>
+																<ChildItems>
+																	<Popup name="РанееИзмененныеРеквизиты" id="189">
+																		<Title>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>Ранее измененные реквизиты</v8:content>
+																			</v8:item>
+																		</Title>
+																		<ExtendedTooltip name="РанееИзмененныеРеквизитыРасширеннаяПодсказка" id="190"/>
+																		<ChildItems>
+																			<Button name="Заглушка" id="201">
+																				<Type>CommandBarButton</Type>
+																				<Enabled>false</Enabled>
+																				<CommandName>Form.Command.Заглушка</CommandName>
+																				<Title>
+																					<v8:item>
+																						<v8:lang>ru</v8:lang>
+																						<v8:content>&lt;Нет&gt;</v8:content>
+																					</v8:item>
+																				</Title>
+																				<ExtendedTooltip name="ЗаглушкаРасширеннаяПодсказка" id="202"/>
+																			</Button>
+																		</ChildItems>
+																	</Popup>
+																</ChildItems>
 															</AutoCommandBar>
 															<ExtendedTooltip name="РеквизитыОбъектаРасширеннаяПодсказка" id="119"/>
 															<SearchStringAddition name="РеквизитыОбъектаСтрокаПоиска" id="240">
@@ -268,6 +332,7 @@
 																	</Title>
 																	<EditMode>EnterOnInput</EditMode>
 																	<AutoEditMode>true</AutoEditMode>
+																	<AutoMaxWidth>false</AutoMaxWidth>
 																	<ContextMenu name="РеквизитыОбъектаПредставлениеКонтекстноеМеню" id="127"/>
 																	<ExtendedTooltip name="РеквизитыОбъектаПредставлениеРасширеннаяПодсказка" id="128"/>
 																</InputField>
@@ -286,6 +351,7 @@
 																		<xr:LoadTransparent>true</xr:LoadTransparent>
 																	</HeaderPicture>
 																	<AutoEditMode>true</AutoEditMode>
+																	<CheckBoxType>CheckBox</CheckBoxType>
 																	<ContextMenu name="РеквизитыОбъектаИзменятьКонтекстноеМеню" id="124"/>
 																	<ExtendedTooltip name="РеквизитыОбъектаИзменятьРасширеннаяПодсказка" id="125"/>
 																	<Events>
@@ -302,6 +368,7 @@
 																	</Title>
 																	<EditMode>EnterOnInput</EditMode>
 																	<AutoEditMode>true</AutoEditMode>
+																	<AutoMaxWidth>false</AutoMaxWidth>
 																	<ContextMenu name="РеквизитыОбъектаЗначениеКонтекстноеМеню" id="130"/>
 																	<ExtendedTooltip name="РеквизитыОбъектаЗначениеРасширеннаяПодсказка" id="131"/>
 																	<Events>
@@ -319,7 +386,7 @@
 																	<v8:content>Нет реквизитов</v8:content>
 																</v8:item>
 															</Title>
-															<Group>HorizontalIfPossible</Group>
+															<Group>AutoScreenTypeSensitive</Group>
 															<Behavior>Usual</Behavior>
 															<Representation>NormalSeparation</Representation>
 															<ShowTitle>false</ShowTitle>
@@ -387,28 +454,82 @@
 														</v8:item>
 													</Title>
 													<Group>Vertical</Group>
+													<VerticalSpacing>Half</VerticalSpacing>
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
 													<ExtendedTooltip name="ГруппаАлгоритмРасширеннаяПодсказка" id="284"/>
 													<ChildItems>
-														<InputField name="Алгоритм" id="278">
-															<DataPath>Алгоритм</DataPath>
+														<UsualGroup name="ГруппаАлгоритмы" id="415">
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>Алгоритм</v8:content>
+																	<v8:content>Алгоритмы</v8:content>
 																</v8:item>
 															</Title>
-															<InputHint>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Наименование алгоритма</v8:content>
-																</v8:item>
-															</InputHint>
-															<ContextMenu name="АлгоритмКонтекстноеМеню" id="279"/>
-															<ExtendedTooltip name="АлгоритмРасширеннаяПодсказка" id="280"/>
-														</InputField>
+															<Group>AutoScreenTypeSensitive</Group>
+															<HorizontalSpacing>Half</HorizontalSpacing>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ГруппаАлгоритмыРасширеннаяПодсказка" id="416"/>
+															<ChildItems>
+																<InputField name="Алгоритм" id="278">
+																	<DataPath>Алгоритм</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Алгоритм</v8:content>
+																		</v8:item>
+																	</Title>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<InputHint>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Наименование алгоритма</v8:content>
+																		</v8:item>
+																	</InputHint>
+																	<ContextMenu name="АлгоритмКонтекстноеМеню" id="279"/>
+																	<ExtendedTooltip name="АлгоритмРасширеннаяПодсказка" id="280"/>
+																</InputField>
+																<CommandBar name="Алгоритмы" id="337">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Выбрать</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Выбрать из ранее примененных алгоритмов</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+																	<HorizontalStretch>false</HorizontalStretch>
+																	<VerticalStretch>false</VerticalStretch>
+																	<AppearanceMode>CommandBar</AppearanceMode>
+																	<ExtendedTooltip name="АлгоритмыРасширеннаяПодсказка" id="338"/>
+																	<ChildItems>
+																		<Button name="ЗаглушкаАлгоритмы" id="339">
+																			<Type>CommandBarButton</Type>
+																			<Enabled>false</Enabled>
+																			<CommandName>Form.Command.ЗаглушкаАлгоритмы</CommandName>
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>&lt;Нет&gt;</v8:content>
+																				</v8:item>
+																			</Title>
+																			<RepresentationInContextMenu>None</RepresentationInContextMenu>
+																			<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+																			<ExtendedTooltip name="ЗаглушкаАлгоритмыРасширеннаяПодсказка" id="340"/>
+																		</Button>
+																	</ChildItems>
+																</CommandBar>
+															</ChildItems>
+														</UsualGroup>
 														<TextDocumentField name="КодАлгоритма" id="275">
 															<DataPath>КодАлгоритма</DataPath>
 															<Title>
@@ -418,6 +539,8 @@
 																</v8:item>
 															</Title>
 															<TitleLocation>None</TitleLocation>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<Width>20</Width>
 															<Height>5</Height>
 															<ContextMenu name="КодАлгоритмаКонтекстноеМеню" id="276"/>
@@ -438,81 +561,11 @@
 													<ShowTitle>false</ShowTitle>
 													<ExtendedTooltip name="ГруппаРеквизитыДляАлгоритмаРасширеннаяПодсказка" id="286"/>
 													<ChildItems>
-														<Pages name="ГруппаСтраницыДляВыравнивания" id="309">
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Страницы для выравнивания</v8:content>
-																</v8:item>
-															</Title>
-															<PagesRepresentation>None</PagesRepresentation>
-															<ExtendedTooltip name="ГруппаСтраницыДляВыравниванияРасширеннаяПодсказка" id="310"/>
-															<ChildItems>
-																<Page name="СтраницаСНадписьюРеквизиты" id="311">
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>Реквизиты:</v8:content>
-																		</v8:item>
-																	</Title>
-																	<HorizontalStretch>true</HorizontalStretch>
-																	<VerticalStretch>true</VerticalStretch>
-																	<Group>HorizontalIfPossible</Group>
-																	<VerticalAlign>Center</VerticalAlign>
-																	<ScrollOnCompress>false</ScrollOnCompress>
-																	<ExtendedTooltip name="СтраницаСНадписьюРеквизитыРасширеннаяПодсказка" id="312"/>
-																	<ChildItems>
-																		<LabelDecoration name="НадписьРеквизиты" id="303">
-																			<Title formatted="false">
-																				<v8:item>
-																					<v8:lang>ru</v8:lang>
-																					<v8:content>Реквизиты:</v8:content>
-																				</v8:item>
-																			</Title>
-																			<ContextMenu name="НадписьРеквизитыКонтекстноеМеню" id="304"/>
-																			<ExtendedTooltip name="НадписьРеквизитыРасширеннаяПодсказка" id="305"/>
-																		</LabelDecoration>
-																		<SearchStringAddition name="РеквизитыАлгоритмСтрокаПоиска" id="352">
-																			<AdditionSource>
-																				<Item>РеквизитыОбъектаАлгоритм</Item>
-																				<Type>SearchStringRepresentation</Type>
-																			</AdditionSource>
-																			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-																			<Width>20</Width>
-																			<HorizontalStretch>false</HorizontalStretch>
-																			<ContextMenu name="РеквизитыАлгоритмСтрокаПоискаКонтекстноеМеню" id="353"/>
-																			<ExtendedTooltip name="РеквизитыАлгоритмСтрокаПоискаРасширеннаяПодсказка" id="354"/>
-																		</SearchStringAddition>
-																	</ChildItems>
-																</Page>
-																<Page name="СтраницаНевидимая" id="313">
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>Страница невидимая</v8:content>
-																		</v8:item>
-																	</Title>
-																	<Group>Vertical</Group>
-																	<ScrollOnCompress>false</ScrollOnCompress>
-																	<ExtendedTooltip name="СтраницаНевидимаяРасширеннаяПодсказка" id="314"/>
-																	<ChildItems>
-																		<InputField name="ПолеНевидимоеДляВыравнивания" id="349">
-																			<DataPath>Алгоритм</DataPath>
-																			<Title>
-																				<v8:item>
-																					<v8:lang>ru</v8:lang>
-																					<v8:content>Алгоритм</v8:content>
-																				</v8:item>
-																			</Title>
-																			<ContextMenu name="ПолеНевидимоеДляВыравниванияКонтекстноеМеню" id="350"/>
-																			<ExtendedTooltip name="ПолеНевидимоеДляВыравниванияРасширеннаяПодсказка" id="351"/>
-																		</InputField>
-																	</ChildItems>
-																</Page>
-															</ChildItems>
-														</Pages>
 														<Table name="РеквизитыОбъектаАлгоритм" id="315">
 															<Representation>List</Representation>
+															<ReadOnly>true</ReadOnly>
+															<ChangeRowSet>false</ChangeRowSet>
+															<ChangeRowOrder>false</ChangeRowOrder>
 															<Height>3</Height>
 															<SelectionMode>SingleRow</SelectionMode>
 															<RowSelectionMode>Cell</RowSelectionMode>
@@ -538,9 +591,7 @@
 															</Title>
 															<RowFilter xsi:nil="true"/>
 															<ContextMenu name="РеквизитыОбъектаАлгоритмКонтекстноеМеню" id="316"/>
-															<AutoCommandBar name="РеквизитыОбъектаАлгоритмКоманднаяПанель" id="317">
-																<Autofill>false</Autofill>
-															</AutoCommandBar>
+															<AutoCommandBar name="РеквизитыОбъектаАлгоритмКоманднаяПанель" id="317"/>
 															<ExtendedTooltip name="РеквизитыОбъектаАлгоритмРасширеннаяПодсказка" id="318"/>
 															<SearchStringAddition name="РеквизитыОбъектаАлгоритмСтрокаПоиска" id="319">
 																<AdditionSource>
@@ -603,7 +654,7 @@
 											<ThroughAlign>DontUse</ThroughAlign>
 											<ExtendedTooltip name="ПараметрыВыполненияАлгоритмаРасширеннаяПодсказка" id="342"/>
 											<ChildItems>
-												<InputField name="РежимЗаписиОбъекта" id="343">
+												<RadioButtonField name="РежимЗаписиОбъекта" id="343">
 													<DataPath>Объект.ВариантЗаписиОбъекта</DataPath>
 													<Title>
 														<v8:item>
@@ -613,10 +664,9 @@
 													</Title>
 													<TitleHeight>1</TitleHeight>
 													<ToolTipRepresentation>Button</ToolTipRepresentation>
-													<AutoMaxWidth>false</AutoMaxWidth>
-													<MaxWidth>20</MaxWidth>
-													<ListChoiceMode>true</ListChoiceMode>
-													<TextEdit>false</TextEdit>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<RadioButtonType>Tumbler</RadioButtonType>
 													<ChoiceList>
 														<xr:Item>
 															<xr:Presentation/>
@@ -656,14 +706,13 @@
 															</v8:item>
 														</Title>
 													</ExtendedTooltip>
-												</InputField>
-												<InputField name="РежимВыполнения" id="346">
+												</RadioButtonField>
+												<RadioButtonField name="РежимВыполнения" id="346">
 													<DataPath>Объект.РежимВыполнения</DataPath>
 													<ToolTipRepresentation>Button</ToolTipRepresentation>
-													<AutoMaxWidth>false</AutoMaxWidth>
-													<MaxWidth>12</MaxWidth>
-													<ListChoiceMode>true</ListChoiceMode>
-													<TextEdit>false</TextEdit>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<RadioButtonType>Tumbler</RadioButtonType>
 													<ChoiceList>
 														<xr:Item>
 															<xr:Presentation/>
@@ -701,83 +750,13 @@
 															</v8:item>
 														</Title>
 													</ExtendedTooltip>
-												</InputField>
+												</RadioButtonField>
 											</ChildItems>
 										</UsualGroup>
 									</ChildItems>
 								</Page>
 							</ChildItems>
 						</Pages>
-						<CommandBar name="ПанельНастроек" id="187">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Панель настроек</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ПанельНастроекРасширеннаяПодсказка" id="188"/>
-							<ChildItems>
-								<Popup name="Алгоритмы" id="337">
-									<Visible>false</Visible>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Алгоритмы</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="АлгоритмыРасширеннаяПодсказка" id="338"/>
-									<ChildItems>
-										<Button name="ЗаглушкаАлгоритмы" id="339">
-											<Type>CommandBarButton</Type>
-											<Enabled>false</Enabled>
-											<CommandName>Form.Command.ЗаглушкаАлгоритмы</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>&lt;Нет&gt;</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ЗаглушкаАлгоритмыРасширеннаяПодсказка" id="340"/>
-										</Button>
-									</ChildItems>
-								</Popup>
-								<Popup name="РанееИзмененныеРеквизиты" id="189">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Ранее измененные реквизиты</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="РанееИзмененныеРеквизитыРасширеннаяПодсказка" id="190"/>
-									<ChildItems>
-										<Button name="Заглушка" id="201">
-											<Type>CommandBarButton</Type>
-											<Enabled>false</Enabled>
-											<CommandName>Form.Command.Заглушка</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>&lt;Нет&gt;</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ЗаглушкаРасширеннаяПодсказка" id="202"/>
-										</Button>
-									</ChildItems>
-								</Popup>
-								<Button name="НастроитьПараметрыИзменений" id="44">
-									<Type>CommandBarButton</Type>
-									<Width>21</Width>
-									<CommandName>Form.Command.НастроитьПараметрыИзменения</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Дополнительные параметры...</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="НастроитьПараметрыИзмененийРасширеннаяПодсказка" id="79"/>
-								</Button>
-							</ChildItems>
-						</CommandBar>
 						<LabelDecoration name="ПояснениеОНастроенныхИзменениях" id="196">
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<Height>2</Height>
@@ -838,6 +817,7 @@
 									<ChangeRowSet>false</ChangeRowSet>
 									<ChangeRowOrder>false</ChangeRowOrder>
 									<Height>3</Height>
+									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
 									<EnableStartDrag>true</EnableStartDrag>
@@ -1007,6 +987,8 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<AutoMaxWidth>false</AutoMaxWidth>
 											<MultiLine>true</MultiLine>
 											<ChoiceListHeight>1</ChoiceListHeight>
@@ -1026,7 +1008,7 @@
 							<v8:content>Ожидание обработки</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>AutoScreenTypeSensitive</Group>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ОжиданиеОбработкиРасширеннаяПодсказка" id="101"/>
 					<ChildItems>
@@ -1037,7 +1019,7 @@
 									<v8:content>Длительная операция картинка и текст</v8:content>
 								</v8:item>
 							</Title>
-							<Group>HorizontalIfPossible</Group>
+							<Group>AutoScreenTypeSensitive</Group>
 							<VerticalAlign>Center</VerticalAlign>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
@@ -1093,7 +1075,7 @@
 									<v8:content>Успешно завершено</v8:content>
 								</v8:item>
 							</Title>
-							<Group>HorizontalIfPossible</Group>
+							<Group>AutoScreenTypeSensitive</Group>
 							<VerticalAlign>Center</VerticalAlign>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
@@ -1128,73 +1110,6 @@
 				</Page>
 			</ChildItems>
 		</Pages>
-		<UsualGroup name="КоманднаяПанель" id="213">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="214"/>
-			<ChildItems>
-				<CommandBar name="КнопкиСлева" id="209">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Кнопки слева</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="КнопкиСлеваРасширеннаяПодсказка" id="210"/>
-					<ChildItems>
-						<Button name="ФормаНазад" id="203">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.Назад</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>&lt; Назад</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ФормаНазадРасширеннаяПодсказка" id="204"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
-				<CommandBar name="КнопкиСправа" id="211">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Кнопки справа</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalLocation>Right</HorizontalLocation>
-					<ExtendedTooltip name="КнопкиСправаРасширеннаяПодсказка" id="212"/>
-					<ChildItems>
-						<Button name="ФормаИзменить" id="22">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<CommandName>Form.Command.Изменить</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Изменить реквизиты</v8:content>
-								</v8:item>
-							</Title>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ФормаИзменитьРасширеннаяПодсказка" id="71"/>
-						</Button>
-						<Button name="ФормаСправка" id="63">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.Help</CommandName>
-							<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="73"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -1615,6 +1530,18 @@
 				</v8:NumberQualifiers>
 			</Type>
 		</Attribute>
+		<Attribute name="СписокСоМножественнымВыбором" id="2">
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Settings>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="Назад" id="1">
@@ -1632,6 +1559,7 @@
 			</ToolTip>
 			<Action>Назад</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Изменить" id="3">
 			<Title>
@@ -1648,12 +1576,13 @@
 			</ToolTip>
 			<Action>Изменить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="НастроитьПараметрыИзменения" id="6">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Настроить...</v8:content>
+					<v8:content>Дополнительные параметры</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -1664,6 +1593,7 @@
 			</ToolTip>
 			<Action>НастроитьПараметрыИзменения</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Заглушка" id="7">
 			<Title>

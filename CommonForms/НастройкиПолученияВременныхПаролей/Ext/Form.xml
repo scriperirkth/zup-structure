@@ -6,15 +6,13 @@
 			<v8:content>Настройки получения временных паролей</v8:content>
 		</v8:item>
 	</Title>
-	<Width>64</Width>
-	<Height>23</Height>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<AutoURL>false</AutoURL>
-	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
+	<CommandBarLocation>Top</CommandBarLocation>
+	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1" DisplayImportance="VeryHigh">
 		<HorizontalAlign>Center</HorizontalAlign>
 		<Autofill>false</Autofill>
 	</AutoCommandBar>
@@ -24,43 +22,83 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<LabelDecoration name="ДекорацияЗаголовок" id="326">
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<Height>2</Height>
-			<Title formatted="true">
+		<UsualGroup name="ГруппаЗаголовок" id="405">
+			<ShowTitle>false</ShowTitle>
+			<BackColor>pal:LightBlue</BackColor>
+			<ExtendedTooltip name="ГруппаЗаголовокРасширеннаяПодсказка" id="406"/>
+			<ChildItems>
+				<PictureDecoration name="КартинкаЗаголовок" id="407">
+					<PictureSize>ByFontSize</PictureSize>
+					<Picture>
+						<xr:Ref>StdPicture.DialogInformation</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ContextMenu name="КартинкаЗаголовокКонтекстноеМеню" id="408"/>
+					<ExtendedTooltip name="КартинкаЗаголовокРасширеннаяПодсказка" id="409"/>
+				</PictureDecoration>
+				<LabelDecoration name="ДекорацияЗаголовок" id="326">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Title formatted="true">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Для изменения телефона и/или адреса электронной почты укажите их новые значения в полях ниже.</v8:content>
+						</v8:item>
+					</Title>
+					<BackColor>pal:LightBlue</BackColor>
+					<ContextMenu name="ДекорацияЗаголовокКонтекстноеМеню" id="327"/>
+					<ExtendedTooltip name="ДекорацияЗаголовокРасширеннаяПодсказка" id="328"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПояснениеПодтвержденияИзменений" id="410">
+			<ShowTitle>false</ShowTitle>
+			<BackColor>pal:FirstBrand</BackColor>
+			<ExtendedTooltip name="ГруппаПояснениеПодтвержденияИзмененийРасширеннаяПодсказка" id="411"/>
+			<ChildItems>
+				<PictureDecoration name="КартинкаПояснение" id="412">
+					<PictureSize>ByFontSize</PictureSize>
+					<Picture>
+						<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ContextMenu name="КартинкаПояснениеКонтекстноеМеню" id="413"/>
+					<ExtendedTooltip name="КартинкаПояснениеРасширеннаяПодсказка" id="414"/>
+				</PictureDecoration>
+				<LabelDecoration name="ПояснениеПодтвержденияИзменений" id="264">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<Title formatted="true">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Изменения необходимо будет подтвердить, введя код отправленный на +7 999 ***-**-99. 
+Если этот телефон больше недоступен, то воспользуйтесь &lt;link #Инструкция&gt;инструкцией&lt;/&gt;.</v8:content>
+						</v8:item>
+					</Title>
+					<BackColor>pal:Yellow</BackColor>
+					<ContextMenu name="ПояснениеПодтвержденияИзмененийКонтекстноеМеню" id="265"/>
+					<ExtendedTooltip name="ПояснениеПодтвержденияИзмененийРасширеннаяПодсказка" id="266"/>
+					<Events>
+						<Event name="URLProcessing">ПояснениеПодтвержденияИзмененияТелефонаОбработкаНавигационнойСсылки</Event>
+					</Events>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНовыйТелефон" id="417">
+			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Для изменения телефона и/или адреса электронной почты укажите их новые значения в полях ниже.
-
-</v8:content>
+					<v8:content>Группа новый телефон</v8:content>
 				</v8:item>
 			</Title>
-			<ContextMenu name="ДекорацияЗаголовокКонтекстноеМеню" id="327"/>
-			<ExtendedTooltip name="ДекорацияЗаголовокРасширеннаяПодсказка" id="328"/>
-		</LabelDecoration>
-		<LabelDecoration name="ПояснениеПодтвержденияИзменений" id="264">
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<Height>2</Height>
-			<TextColor>#807A59</TextColor>
-			<Title formatted="true">
+			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Изменения необходимо будет подтвердить, введя код отправленный на +7 999 ***-**-99.
-Если этот телефон больше не доступен, то воспользуйтесь &lt;link #Инструкция&gt;инструкцией&lt;/&gt;.</v8:content>
+					<v8:content>Группа новый телефон</v8:content>
 				</v8:item>
-			</Title>
-			<VerticalAlign>Center</VerticalAlign>
-			<ContextMenu name="ПояснениеПодтвержденияИзмененийКонтекстноеМеню" id="265"/>
-			<ExtendedTooltip name="ПояснениеПодтвержденияИзмененийРасширеннаяПодсказка" id="266"/>
-			<Events>
-				<Event name="URLProcessing">ПояснениеПодтвержденияИзмененияТелефонаОбработкаНавигационнойСсылки</Event>
-			</Events>
-		</LabelDecoration>
-		<UsualGroup name="ГруппаНовыйТелефон" id="267">
-			<Group>Horizontal</Group>
-			<Behavior>Usual</Behavior>
+			</ToolTip>
 			<Representation>None</Representation>
-			<ExtendedTooltip name="ГруппаНовыйТелефонРасширеннаяПодсказка" id="268"/>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНовыйТелефонРасширеннаяПодсказка" id="418"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаПарольКартинкаИОтступНовогоТелефона" id="372">
 					<Title>
@@ -75,9 +113,6 @@
 							<v8:content>Группа пароль картинка и отступ нового телефона</v8:content>
 						</v8:item>
 					</ToolTip>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаПарольКартинкаИОтступНовогоТелефонаРасширеннаяПодсказка" id="373"/>
 					<ChildItems>
@@ -88,19 +123,6 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="383"/>
 							<ChildItems>
-								<LabelDecoration name="ЗаголовокНовыйТелефон" id="269">
-									<Width>12</Width>
-									<Height>1</Height>
-									<HorizontalStretch>false</HorizontalStretch>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Телефон:</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="ЗаголовокНовыйТелефонКонтекстноеМеню" id="270"/>
-									<ExtendedTooltip name="ЗаголовокНовыйТелефонРасширеннаяПодсказка" id="271"/>
-								</LabelDecoration>
 								<UsualGroup name="ГруппаНовыйТелефонПолеСКартинкой" id="349">
 									<Title>
 										<v8:item>
@@ -116,15 +138,14 @@
 									</ToolTip>
 									<Height>1</Height>
 									<Group>Horizontal</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаНовыйТелефонПолеСКартинкойРасширеннаяПодсказка" id="350"/>
 									<ChildItems>
 										<InputField name="ТелефонДляПаролей" id="103">
 											<DataPath>ТелефонДляПаролей</DataPath>
-											<TitleLocation>None</TitleLocation>
-											<MarkRequiredComplete>false</MarkRequiredComplete>
+											<TitleLocation>Top</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<AutoMarkIncomplete>false</AutoMarkIncomplete>
@@ -153,23 +174,56 @@
 													<v8:content>Картинка телефон проверен</v8:content>
 												</v8:item>
 											</Title>
-											<GroupVerticalAlign>Center</GroupVerticalAlign>
+											<GroupVerticalAlign>Bottom</GroupVerticalAlign>
 											<Picture>
-												<xr:Abs>Picture.png</xr:Abs>
+												<xr:Ref>CommonPicture.ОтмеченоЗеленая</xr:Ref>
 												<xr:LoadTransparent>false</xr:LoadTransparent>
 											</Picture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="КартинкаТелефонПроверенКонтекстноеМеню" id="285"/>
 											<ExtendedTooltip name="КартинкаТелефонПроверенРасширеннаяПодсказка" id="286"/>
 										</PictureDecoration>
+										<PictureDecoration name="ОтменитьИзменениеТелефона" id="355">
+											<Height>1</Height>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Отменить изменение телефона</v8:content>
+												</v8:item>
+											</Title>
+											<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+											<Hyperlink>true</Hyperlink>
+											<NonselectedPictureText>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Отменить изменение</v8:content>
+												</v8:item>
+											</NonselectedPictureText>
+											<Picture>
+												<xr:Ref>CommonPicture.ОчиститьМонохромная</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</Picture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="ОтменитьИзменениеТелефонаКонтекстноеМеню" id="356"/>
+											<ExtendedTooltip name="ОтменитьИзменениеТелефонаРасширеннаяПодсказка" id="357"/>
+											<Events>
+												<Event name="Click">ОтменитьИзменениеТелефонаНажатие</Event>
+											</Events>
+										</PictureDecoration>
+										<LabelDecoration name="Отступ" id="425">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content> </v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ОтступКонтекстноеМеню" id="426"/>
+											<ExtendedTooltip name="ОтступРасширеннаяПодсказка" id="427"/>
+										</LabelDecoration>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
-						<LabelDecoration name="ОтступНовогоТелефона" id="374">
-							<ContextMenu name="ОтступНовогоТелефонаКонтекстноеМеню" id="375"/>
-							<ExtendedTooltip name="ОтступНовогоТелефонаРасширеннаяПодсказка" id="376"/>
-						</LabelDecoration>
 					</ChildItems>
 				</UsualGroup>
 				<Button name="ПроверитьНомер" id="10">
@@ -185,16 +239,11 @@
 				</Button>
 				<UsualGroup name="ГруппаКодПодтвержденияТелефон" id="277">
 					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаКодПодтвержденияТелефонРасширеннаяПодсказка" id="278"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаКодИОтменаВводаТелефон" id="353">
 							<Group>Horizontal</Group>
-							<VerticalAlign>Center</VerticalAlign>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаКодИОтменаВводаТелефонРасширеннаяПодсказка" id="354"/>
 							<ChildItems>
@@ -208,6 +257,8 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<HorizontalStretch>false</HorizontalStretch>
 									<EditTextUpdate>DontUse</EditTextUpdate>
 									<InputHint>
@@ -223,53 +274,30 @@
 										<Event name="EditTextChange">КодПодтвержденияТелефонИзменениеТекстаРедактирования</Event>
 									</Events>
 								</InputField>
-								<PictureDecoration name="ОтменитьИзменениеТелефона" id="355">
-									<Width>1</Width>
+								<Button name="ОтправитьКодПовторноТелефон" id="338">
+									<Type>Hyperlink</Type>
 									<Height>1</Height>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отменить изменение телефона</v8:content>
-										</v8:item>
-									</Title>
-									<Hyperlink>true</Hyperlink>
-									<NonselectedPictureText>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отменить изменение</v8:content>
-										</v8:item>
-									</NonselectedPictureText>
-									<Picture>
-										<xr:Abs>Picture.png</xr:Abs>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
-									</Picture>
-									<FileDragMode>AsFile</FileDragMode>
-									<ContextMenu name="ОтменитьИзменениеТелефонаКонтекстноеМеню" id="356"/>
-									<ExtendedTooltip name="ОтменитьИзменениеТелефонаРасширеннаяПодсказка" id="357"/>
-									<Events>
-										<Event name="Click">ОтменитьИзменениеТелефонаНажатие</Event>
-									</Events>
-								</PictureDecoration>
+									<CommandName>Form.Command.ОтправитьКодПовторноТелефон</CommandName>
+									<TextColor>#807A76</TextColor>
+									<ExtendedTooltip name="ОтправитьКодПовторноТелефонРасширеннаяПодсказка" id="339"/>
+								</Button>
 							</ChildItems>
 						</UsualGroup>
-						<Button name="ОтправитьКодПовторноТелефон" id="338">
-							<Type>Hyperlink</Type>
-							<CommandName>Form.Command.ОтправитьКодПовторноТелефон</CommandName>
-							<TextColor>#807A76</TextColor>
-							<ExtendedTooltip name="ОтправитьКодПовторноТелефонРасширеннаяПодсказка" id="339"/>
-						</Button>
-						<LabelField name="НадписьОбратногоОтсчетаТелефон" id="335">
-							<DataPath>НадписьОбратногоОтсчета</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<Width>40</Width>
-							<TextColor>#807A76</TextColor>
-							<ContextMenu name="НадписьОбратногоОтсчетаТелефонКонтекстноеМеню" id="336"/>
-							<ExtendedTooltip name="НадписьОбратногоОтсчетаТелефонРасширеннаяПодсказка" id="337"/>
-						</LabelField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
+		<LabelField name="НадписьОбратногоОтсчетаТелефон" id="335">
+			<DataPath>НадписьОбратногоОтсчета</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<TextColor>pal:Gray</TextColor>
+			<ContextMenu name="НадписьОбратногоОтсчетаТелефонКонтекстноеМеню" id="336"/>
+			<ExtendedTooltip name="НадписьОбратногоОтсчетаТелефонРасширеннаяПодсказка" id="337"/>
+		</LabelField>
 		<UsualGroup name="ГруппаНоваяПочта" id="290">
 			<Title>
 				<v8:item>
@@ -278,8 +306,6 @@
 				</v8:item>
 			</Title>
 			<Group>Horizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаНоваяПочтаРасширеннаяПодсказка" id="291"/>
 			<ChildItems>
@@ -296,26 +322,22 @@
 							<v8:content>Группа пароль картинка и отступ новой почты</v8:content>
 						</v8:item>
 					</ToolTip>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаПарольКартинкаИОтступНовойПочтыРасширеннаяПодсказка" id="378"/>
 					<ChildItems>
 						<UsualGroup name="Группа2" id="384">
 							<Group>Horizontal</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="385"/>
 							<ChildItems>
 								<LabelDecoration name="ЗаголовокНоваяПочта" id="292">
-									<Width>12</Width>
+									<Visible>false</Visible>
+									<Width>14</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Электронная почта:</v8:content>
+											<v8:content>Электронная почта</v8:content>
 										</v8:item>
 									</Title>
 									<ContextMenu name="ЗаголовокНоваяПочтаКонтекстноеМеню" id="293"/>
@@ -335,15 +357,20 @@
 										</v8:item>
 									</ToolTip>
 									<Group>Horizontal</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаЭлектроннаяПочтаПолеСКартинкойРасширеннаяПодсказка" id="352"/>
 									<ChildItems>
 										<InputField name="ЭлектроннаяПочтаДляПаролей" id="173">
 											<DataPath>ЭлектроннаяПочтаДляПаролей</DataPath>
-											<TitleLocation>None</TitleLocation>
-											<MarkRequiredComplete>false</MarkRequiredComplete>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Электронная почта</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>Top</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<AutoMarkIncomplete>false</AutoMarkIncomplete>
@@ -372,23 +399,46 @@
 													<v8:content>Картинка электронная почта проверена</v8:content>
 												</v8:item>
 											</Title>
-											<GroupVerticalAlign>Center</GroupVerticalAlign>
+											<GroupVerticalAlign>Bottom</GroupVerticalAlign>
 											<Picture>
-												<xr:Abs>Picture.png</xr:Abs>
+												<xr:Ref>CommonPicture.ОтмеченоЗеленая</xr:Ref>
 												<xr:LoadTransparent>false</xr:LoadTransparent>
 											</Picture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="КартинкаЭлектроннаяПочтаПроверенаКонтекстноеМеню" id="308"/>
 											<ExtendedTooltip name="КартинкаЭлектроннаяПочтаПроверенаРасширеннаяПодсказка" id="309"/>
 										</PictureDecoration>
+										<PictureDecoration name="ОтменитьИзменениеПочты" id="360">
+											<Height>1</Height>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Отменить изменение почты</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Отменить изменение</v8:content>
+												</v8:item>
+											</ToolTip>
+											<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+											<Hyperlink>true</Hyperlink>
+											<Picture>
+												<xr:Ref>CommonPicture.ОчиститьМонохромная</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</Picture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="ОтменитьИзменениеПочтыКонтекстноеМеню" id="361"/>
+											<ExtendedTooltip name="ОтменитьИзменениеПочтыРасширеннаяПодсказка" id="362"/>
+											<Events>
+												<Event name="Click">ОтменитьИзменениеПочтыНажатие</Event>
+											</Events>
+										</PictureDecoration>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
-						<LabelDecoration name="ОтступНовойПочты" id="379">
-							<ContextMenu name="ОтступНовойПочтыКонтекстноеМеню" id="380"/>
-							<ExtendedTooltip name="ОтступНовойПочтыРасширеннаяПодсказка" id="381"/>
-						</LabelDecoration>
 					</ChildItems>
 				</UsualGroup>
 				<Button name="ПроверитьАдрес" id="176">
@@ -409,9 +459,6 @@
 							<v8:content>Группа код подтверждения электронная почта</v8:content>
 						</v8:item>
 					</ToolTip>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаКодПодтвержденияЭлектроннаяПочтаРасширеннаяПодсказка" id="301"/>
 					<ChildItems>
@@ -423,9 +470,6 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Horizontal</Group>
-							<VerticalAlign>Center</VerticalAlign>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаКодИОтменаВводаЭлектроннаяПочтаРасширеннаяПодсказка" id="359"/>
 							<ChildItems>
@@ -439,6 +483,8 @@ mail@mail.ru</v8:content>
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<HorizontalStretch>false</HorizontalStretch>
 									<EditTextUpdate>DontUse</EditTextUpdate>
 									<InputHint>
@@ -454,110 +500,97 @@ mail@mail.ru</v8:content>
 										<Event name="EditTextChange">КодПодтвержденияЭлектроннаяПочтаИзменениеТекстаРедактирования</Event>
 									</Events>
 								</InputField>
-								<PictureDecoration name="ОтменитьИзменениеПочты" id="360">
-									<Width>1</Width>
-									<Height>1</Height>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отменить изменение почты</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отменить изменение</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Hyperlink>true</Hyperlink>
-									<Picture>
-										<xr:Abs>Picture.png</xr:Abs>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
-									</Picture>
-									<FileDragMode>AsFile</FileDragMode>
-									<ContextMenu name="ОтменитьИзменениеПочтыКонтекстноеМеню" id="361"/>
-									<ExtendedTooltip name="ОтменитьИзменениеПочтыРасширеннаяПодсказка" id="362"/>
-									<Events>
-										<Event name="Click">ОтменитьИзменениеПочтыНажатие</Event>
-									</Events>
-								</PictureDecoration>
 							</ChildItems>
 						</UsualGroup>
 						<Button name="ОтправитьКодПовторноЭлектроннаяПочта" id="340">
 							<Type>Hyperlink</Type>
+							<Height>1</Height>
 							<CommandName>Form.Command.ОтправитьКодПовторноЭлектроннаяПочта</CommandName>
 							<TextColor>#807A76</TextColor>
 							<ExtendedTooltip name="ОтправитьКодПовторноЭлектроннаяПочтаРасширеннаяПодсказка" id="341"/>
 						</Button>
-						<LabelField name="НадписьОбратногоОтсчетаЭлектроннаяПочта" id="329">
-							<DataPath>НадписьОбратногоОтсчета</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<Width>40</Width>
-							<TextColor>#807A76</TextColor>
-							<ContextMenu name="НадписьОбратногоОтсчетаЭлектроннаяПочтаКонтекстноеМеню" id="330"/>
-							<ExtendedTooltip name="НадписьОбратногоОтсчетаЭлектроннаяПочтаРасширеннаяПодсказка" id="331"/>
-						</LabelField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
-		<Button name="ПодтвердитьИзменения" id="195">
-			<Type>UsualButton</Type>
-			<CommandName>Form.Command.ПодтвердитьИзменение</CommandName>
-			<ExtendedTooltip name="ПодтвердитьИзмененияРасширеннаяПодсказка" id="196"/>
-		</Button>
-		<UsualGroup name="ГруппаЗаголовкаИКодаСтарогоНомера" id="321">
+		<LabelField name="НадписьОбратногоОтсчетаЭлектроннаяПочта" id="329">
+			<DataPath>НадписьОбратногоОтсчета</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<TextColor>#807A76</TextColor>
+			<ContextMenu name="НадписьОбратногоОтсчетаЭлектроннаяПочтаКонтекстноеМеню" id="330"/>
+			<ExtendedTooltip name="НадписьОбратногоОтсчетаЭлектроннаяПочтаРасширеннаяПодсказка" id="331"/>
+		</LabelField>
+		<UsualGroup name="ГруппаПодтвержденияИзменений" id="399">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подтверждение изменений</v8:content>
+				</v8:item>
+			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа заголовка и кода старого номера</v8:content>
+					<v8:content>Подтверждение изменений</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Height>2</Height>
-			<Group>Horizontal</Group>
-			<VerticalAlign>Top</VerticalAlign>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ExtendedTooltip name="ГруппаЗаголовкаИКодаСтарогоНомераРасширеннаяПодсказка" id="322"/>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПодтвержденияИзмененийРасширеннаяПодсказка" id="400"/>
 			<ChildItems>
-				<LabelDecoration name="ЗаголовокСтарогоНомера" id="323">
-					<Width>12</Width>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Height>2</Height>
-					<Title formatted="false">
+				<UsualGroup name="ГруппаЗаголовкаИКодаСтарогоНомера" id="415">
+					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Код отправлен на
-+7 999 ***-**-99:</v8:content>
+							<v8:content>Группа заголовка и кода старого номера</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="ЗаголовокСтарогоНомераКонтекстноеМеню" id="324"/>
-					<ExtendedTooltip name="ЗаголовокСтарогоНомераРасширеннаяПодсказка" id="325"/>
-				</LabelDecoration>
-				<UsualGroup name="ГруппаПодтвержденияСтарогоНомера" id="313">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа заголовка и кода старого номера</v8:content>
+						</v8:item>
+					</ToolTip>
 					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
+					<VerticalSpacing>None</VerticalSpacing>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПодтвержденияСтарогоНомераРасширеннаяПодсказка" id="314"/>
+					<ExtendedTooltip name="ГруппаЗаголовкаИКодаСтарогоНомераРасширеннаяПодсказка" id="416"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаКодПодтвержденияИТекстОшибкиСтарогоНомера" id="344">
-							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
+						<LabelDecoration name="ЗаголовокСтарогоНомера" id="323">
+							<Width>13</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>2</Height>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Код отправлен на
++7 999 ***-**-99</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокСтарогоНомераКонтекстноеМеню" id="324"/>
+							<ExtendedTooltip name="ЗаголовокСтарогоНомераРасширеннаяПодсказка" id="325"/>
+						</LabelDecoration>
+						<UsualGroup name="Группа4" id="419">
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаКодПодтвержденияИТекстОшибкиСтарогоНомераРасширеннаяПодсказка" id="345"/>
+							<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="420"/>
 							<ChildItems>
 								<InputField name="КодПодтвержденияТелефонСтарый" id="204">
 									<DataPath>КодПодтверждения</DataPath>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Код, отправлен на
+											<v8:content>Код отправлен на
 +7 999 999-99-99</v8:content>
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<Width>17</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<EditTextUpdate>DontUse</EditTextUpdate>
 									<InputHint>
@@ -575,24 +608,57 @@ mail@mail.ru</v8:content>
 								</InputField>
 								<Button name="ОтправитьКодПовторноТелефонСтарый" id="386">
 									<Type>Hyperlink</Type>
+									<GroupVerticalAlign>Center</GroupVerticalAlign>
 									<CommandName>Form.Command.ОтправитьКодПовторноТелефонСтарый</CommandName>
 									<TextColor>#807A76</TextColor>
 									<ExtendedTooltip name="ОтправитьКодПовторноТелефонСтарыйРасширеннаяПодсказка" id="387"/>
 								</Button>
-								<LabelField name="НадписьОбратногоОтсчетаТелефонСтарый" id="388">
-									<DataPath>НадписьОбратногоОтсчета</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<Width>40</Width>
-									<TextColor>#807A76</TextColor>
-									<ContextMenu name="НадписьОбратногоОтсчетаТелефонСтарыйКонтекстноеМеню" id="389"/>
-									<ExtendedTooltip name="НадписьОбратногоОтсчетаТелефонСтарыйРасширеннаяПодсказка" id="390"/>
-								</LabelField>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
+				<UsualGroup name="ГруппаПраво" id="423">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа право</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа право</v8:content>
+						</v8:item>
+					</ToolTip>
+					<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПравоРасширеннаяПодсказка" id="424"/>
+					<ChildItems>
+						<Button name="ПодтвердитьИзменения" id="195" DisplayImportance="VeryHigh">
+							<Type>UsualButton</Type>
+							<Representation>Text</Representation>
+							<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+							<CommandName>Form.Command.ПодтвердитьИзменение</CommandName>
+							<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+							<OnMainServerUnavalableBehavior>DontChangeBehavior</OnMainServerUnavalableBehavior>
+							<ExtendedTooltip name="ПодтвердитьИзмененияРасширеннаяПодсказка" id="196"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
+		<LabelField name="НадписьОбратногоОтсчетаТелефонСтарый" id="388">
+			<DataPath>НадписьОбратногоОтсчета</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<Width>40</Width>
+			<TextColor>#807A76</TextColor>
+			<ContextMenu name="НадписьОбратногоОтсчетаТелефонСтарыйКонтекстноеМеню" id="389"/>
+			<ExtendedTooltip name="НадписьОбратногоОтсчетаТелефонСтарыйРасширеннаяПодсказка" id="390"/>
+		</LabelField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Сертификат" id="2">
@@ -752,6 +818,7 @@ mail@mail.ru</v8:content>
 				</v8:item>
 			</Title>
 			<Action>ПодтвердитьИзменение</Action>
+			<Representation>Text</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ОтправитьКодПовторноЭлектроннаяПочта" id="5">
@@ -761,7 +828,12 @@ mail@mail.ru</v8:content>
 					<v8:content>Отправить код повторно</v8:content>
 				</v8:item>
 			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>ОтправитьКодПовторноЭлектроннаяПочта</Action>
+			<Representation>Picture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ОтправитьКодПовторноТелефон" id="6">
@@ -771,7 +843,12 @@ mail@mail.ru</v8:content>
 					<v8:content>Отправить код повторно</v8:content>
 				</v8:item>
 			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.Reread</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>ОтправитьКодПовторноТелефон</Action>
+			<Representation>Picture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ОтправитьКодПовторноТелефонСтарый" id="4">
@@ -781,7 +858,12 @@ mail@mail.ru</v8:content>
 					<v8:content>Отправить код повторно</v8:content>
 				</v8:item>
 			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>ОтправитьКодПовторноТелефонСтарый</Action>
+			<Representation>Picture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>

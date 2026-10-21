@@ -31,7 +31,7 @@
 						<InputField name="УзелИнформационнойБазы" id="1">
 							<DataPath>Запись.УзелИнформационнойБазы</DataPath>
 							<ReadOnly>true</ReadOnly>
-							<ChoiceButton>false</ChoiceButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 							<ContextMenu name="УзелИнформационнойБазыКонтекстноеМеню" id="2"/>
 							<ExtendedTooltip name="УзелИнформационнойБазыРасширеннаяПодсказка" id="3"/>
 						</InputField>
@@ -56,6 +56,8 @@
 									<v8:content>Место хранения</v8:content>
 								</v8:item>
 							</Title>
+							<Width>41</Width>
+							<HorizontalStretch>false</HorizontalStretch>
 							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
@@ -73,25 +75,13 @@
 									<ToolTip>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Файлы размером более 100 Мб игнорируются</v8:content>
+											<v8:content>Если местом хранения выбрана информационная база, то файлы размером более 100 Мб игнорируются</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
 									<RadioButtonType>Tumbler</RadioButtonType>
+									<HorizontalStretch>true</HorizontalStretch>
 									<ChoiceList>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>На диске</v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:decimal">1</Value>
-											</xr:Value>
-										</xr:Item>
 										<xr:Item>
 											<xr:Presentation/>
 											<xr:CheckState>0</xr:CheckState>
@@ -103,6 +93,19 @@
 													</v8:item>
 												</Presentation>
 												<Value xsi:type="xs:decimal">0</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>На диске</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">1</Value>
 											</xr:Value>
 										</xr:Item>
 									</ChoiceList>
@@ -165,7 +168,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Архив сообщений</v8:content>
+							<v8:content>Сообщения</v8:content>
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
@@ -173,8 +176,9 @@
 					<ExtendedTooltip name="ГруппаАрхивСообщенийРасширеннаяПодсказка" id="32"/>
 					<ChildItems>
 						<Table name="АрхивСообщенийОбменов" id="33">
-							<Height>10</Height>
+							<Height>5</Height>
 							<MultipleChoice>true</MultipleChoice>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<EnableStartDrag>true</EnableStartDrag>
 							<DataPath>АрхивСообщенийОбменов</DataPath>
@@ -198,9 +202,8 @@
 								<ExcludedCommand>LoadDynamicListSettings</ExcludedCommand>
 								<ExcludedCommand>SaveDynamicListSettings</ExcludedCommand>
 								<ExcludedCommand>SearchEverywhere</ExcludedCommand>
-								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 							</CommandSet>
-							<SearchControlLocation>None</SearchControlLocation>
+							<SearchStringLocation>None</SearchStringLocation>
 							<AutoRefresh>false</AutoRefresh>
 							<AutoRefreshPeriod>60</AutoRefreshPeriod>
 							<Period>
@@ -218,7 +221,13 @@
 							<ContextMenu name="АрхивСообщенийОбменовКонтекстноеМеню" id="34"/>
 							<AutoCommandBar name="АрхивСообщенийОбменовКоманднаяПанель" id="35">
 								<ChildItems>
-									<Button name="АрхивСообщенийОбменовСохранить" id="75">
+									<Button name="АрхивСообщенийОбменовОбновить" id="98">
+										<Type>CommandBarButton</Type>
+										<Representation>Text</Representation>
+										<CommandName>Form.Item.АрхивСообщенийОбменов.StandardCommand.Refresh</CommandName>
+										<ExtendedTooltip name="АрхивСообщенийОбменовОбновитьРасширеннаяПодсказка" id="99"/>
+									</Button>
+									<Button name="АрхивСообщенийОбменовКонтекстноеМенюСохранить" id="96">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.Сохранить</CommandName>
 										<Title>
@@ -227,12 +236,14 @@
 												<v8:content>Сохранить</v8:content>
 											</v8:item>
 										</Title>
-										<ExtendedTooltip name="АрхивСообщенийОбменовСохранитьРасширеннаяПодсказка" id="76"/>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+										<ExtendedTooltip name="АрхивСообщенийОбменовКонтекстноеМенюСохранитьРасширеннаяПодсказка" id="97"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="АрхивСообщенийОбменовРасширеннаяПодсказка" id="36"/>
 							<SearchStringAddition name="АрхивСообщенийОбменовСтрокаПоиска" id="37">
+								<Enabled>false</Enabled>
 								<AdditionSource>
 									<Item>АрхивСообщенийОбменов</Item>
 									<Type>SearchStringRepresentation</Type>
@@ -241,6 +252,7 @@
 								<ExtendedTooltip name="АрхивСообщенийОбменовСтрокаПоискаРасширеннаяПодсказка" id="39"/>
 							</SearchStringAddition>
 							<ViewStatusAddition name="АрхивСообщенийОбменовСостояниеПросмотра" id="40">
+								<Enabled>false</Enabled>
 								<AdditionSource>
 									<Item>АрхивСообщенийОбменов</Item>
 									<Type>ViewStatusRepresentation</Type>
@@ -249,6 +261,7 @@
 								<ExtendedTooltip name="АрхивСообщенийОбменовСостояниеПросмотраРасширеннаяПодсказка" id="42"/>
 							</ViewStatusAddition>
 							<SearchControlAddition name="АрхивСообщенийОбменовУправлениеПоиском" id="43">
+								<Enabled>false</Enabled>
 								<AdditionSource>
 									<Item>АрхивСообщенийОбменов</Item>
 									<Type>SearchControl</Type>
@@ -265,28 +278,28 @@
 											<v8:content>Дата создания</v8:content>
 										</v8:item>
 									</Title>
+									<FixingInTable>Left</FixingInTable>
 									<ContextMenu name="АрхивСообщенийОбменовПериодКонтекстноеМеню" id="62"/>
 									<ExtendedTooltip name="АрхивСообщенийОбменовПериодРасширеннаяПодсказка" id="63"/>
 								</LabelField>
 								<LabelField name="АрхивСообщенийОбменовНомерПринятогоСообщения" id="66">
 									<DataPath>АрхивСообщенийОбменов.НомерПринятогоСообщения</DataPath>
+									<FixingInTable>Left</FixingInTable>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<ContextMenu name="АрхивСообщенийОбменовНомерПринятогоСообщенияКонтекстноеМеню" id="67"/>
 									<ExtendedTooltip name="АрхивСообщенийОбменовНомерПринятогоСообщенияРасширеннаяПодсказка" id="68"/>
 								</LabelField>
 								<LabelField name="АрхивСообщенийОбменовРазмерФайла" id="72">
 									<DataPath>АрхивСообщенийОбменов.РазмерФайла</DataPath>
+									<FixingInTable>Left</FixingInTable>
 									<ContextMenu name="АрхивСообщенийОбменовРазмерФайлаКонтекстноеМеню" id="73"/>
 									<ExtendedTooltip name="АрхивСообщенийОбменовРазмерФайлаРасширеннаяПодсказка" id="74"/>
 								</LabelField>
 								<CheckBoxField name="АрхивСообщенийОбменовФайлБольше100Мб" id="79">
 									<DataPath>АрхивСообщенийОбменов.ФайлБольше100Мб</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>&gt; 100 Мб</v8:content>
-										</v8:item>
-									</Title>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
 									<ContextMenu name="АрхивСообщенийОбменовФайлБольше100МбКонтекстноеМеню" id="80"/>
 									<ExtendedTooltip name="АрхивСообщенийОбменовФайлБольше100МбРасширеннаяПодсказка" id="81"/>
 								</CheckBoxField>
@@ -347,6 +360,60 @@
 	Архив.ФайлБольше100Мб КАК ФайлБольше100Мб
 ИЗ
 	РегистрСведений.АрхивСообщенийОбменов КАК Архив</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПолноеИмяФайла</dcssch:dataPath>
+					<dcssch:field>ПолноеИмяФайла</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИмяФайла</dcssch:dataPath>
+					<dcssch:field>ИмяФайла</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>РазмерФайла</dcssch:dataPath>
+					<dcssch:field>РазмерФайла</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Размер (Мб)</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НомерПринятогоСообщения</dcssch:dataPath>
+					<dcssch:field>НомерПринятогоСообщения</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>№ сообщения</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>РасширениеФайла</dcssch:dataPath>
+					<dcssch:field>РасширениеФайла</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Период</dcssch:dataPath>
+					<dcssch:field>Период</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ФайлБольше100Мб</dcssch:dataPath>
+					<dcssch:field>ФайлБольше100Мб</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Файл &gt; 100 (Mб)</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>УзелИнформационнойБазы</dcssch:dataPath>
+					<dcssch:field>УзелИнформационнойБазы</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Хранилище</dcssch:dataPath>
+					<dcssch:field>Хранилище</dcssch:field>
+				</Field>
 				<MainTable>InformationRegister.АрхивСообщенийОбменов</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -407,6 +474,8 @@
 			</Picture>
 			<Action>Сохранить</Action>
 			<Representation>TextPicture</Representation>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">АрхивСообщенийОбменов</AssociatedTableElementId>
 		</Command>
 	</Commands>
 </Form>

@@ -2,7 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
-	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ФормаВыбрать" id="21">
@@ -18,44 +17,6 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="22"/>
 			</Button>
-			<ButtonGroup name="ГруппаКомандФлажки" id="72">
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Команд флажки</v8:content>
-					</v8:item>
-				</Title>
-				<Representation>Compact</Representation>
-				<ExtendedTooltip name="ГруппаКомандФлажкиРасширеннаяПодсказка" id="73"/>
-				<ChildItems>
-					<Button name="НазначениеУстановитьФлажки" id="68">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Назначение.StandardCommand.CheckAll</CommandName>
-						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="НазначениеУстановитьФлажкиРасширеннаяПодсказка" id="69"/>
-					</Button>
-					<Button name="НазначениеСнятьФлажки" id="70">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Назначение.StandardCommand.UncheckAll</CommandName>
-						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="НазначениеСнятьФлажкиРасширеннаяПодсказка" id="71"/>
-					</Button>
-				</ChildItems>
-			</ButtonGroup>
-			<SearchStringAddition name="СтрокаПоиск" id="74">
-				<AdditionSource>
-					<Item>Назначение</Item>
-					<Type>SearchStringRepresentation</Type>
-				</AdditionSource>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Поиск</v8:content>
-					</v8:item>
-				</Title>
-				<ContextMenu name="СтрокаПоискКонтекстноеМеню" id="75"/>
-				<ExtendedTooltip name="СтрокаПоискРасширеннаяПодсказка" id="76"/>
-			</SearchStringAddition>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -64,6 +25,9 @@
 	<ChildItems>
 		<Table name="Назначение" id="47">
 			<Representation>List</Representation>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<Header>false</Header>
 			<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -79,9 +43,28 @@
 					<v8:content>Назначение</v8:content>
 				</v8:item>
 			</Title>
+			<CommandSet>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>Pickup</ExcludedCommand>
+			</CommandSet>
+			<SearchStringLocation>CommandBar</SearchStringLocation>
 			<ContextMenu name="НазначениеКонтекстноеМеню" id="48"/>
 			<AutoCommandBar name="НазначениеКоманднаяПанель" id="49">
-				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="НазначениеУстановитьФлажки" id="83">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Назначение.StandardCommand.CheckAll</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="НазначениеУстановитьФлажкиРасширеннаяПодсказка" id="84"/>
+					</Button>
+					<Button name="НазначениеСнятьФлажки" id="85">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Назначение.StandardCommand.UncheckAll</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="НазначениеСнятьФлажкиРасширеннаяПодсказка" id="86"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="НазначениеРасширеннаяПодсказка" id="50"/>
 			<SearchStringAddition name="НазначениеСтрокаПоиска" id="51">
@@ -129,6 +112,7 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
 							<ContextMenu name="НазначениеПометкаКонтекстноеМеню" id="64"/>
 							<ExtendedTooltip name="НазначениеПометкаРасширеннаяПодсказка" id="65"/>
 						</CheckBoxField>
@@ -181,6 +165,7 @@
 			</ToolTip>
 			<Action>Выбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

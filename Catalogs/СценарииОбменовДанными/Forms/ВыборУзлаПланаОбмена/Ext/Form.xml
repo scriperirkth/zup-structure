@@ -10,6 +10,7 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="ФормаВыбратьУзел" id="29">
 				<Type>CommandBarButton</Type>
@@ -24,17 +25,6 @@
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаВыбратьУзелExtendedTooltip" id="36"/>
-			</Button>
-			<Button name="ФормаИзменитьУзел" id="30">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ИзменитьУзел</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Изменить</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаИзменитьУзелExtendedTooltip" id="37"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -137,7 +127,21 @@
 				</ChildItems>
 			</ContextMenu>
 			<AutoCommandBar name="ДеревоУзловОбменаКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ФормаИзменитьУзел" id="30">
+						<Type>CommandBarButton</Type>
+						<DefaultButton>true</DefaultButton>
+						<CommandName>Form.Command.ИзменитьУзел</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Изменить</v8:content>
+							</v8:item>
+						</Title>
+						<ButtonImportance>Main</ButtonImportance>
+						<ExtendedTooltip name="ФормаИзменитьУзелExtendedTooltip" id="37"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ДеревоУзловОбменаExtendedTooltip" id="43"/>
 			<SearchStringAddition name="ДеревоУзловОбменаСтрокаПоиска" id="48">
@@ -175,7 +179,6 @@
 							<v8:content>Описание узла</v8:content>
 						</v8:item>
 					</Title>
-					<Group>InCell</Group>
 					<ExtendedTooltip name="ДеревоУзловОбменаПометкаНаименованиеExtendedTooltip" id="44"/>
 					<ChildItems>
 						<LabelField name="ДеревоУзловОбменаНаименование" id="4">
@@ -196,6 +199,9 @@
 				</ColumnGroup>
 				<LabelField name="ДеревоУзловОбменаКод" id="31">
 					<DataPath>ДеревоУзловОбмена.Код</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -290,6 +296,7 @@
 			</Picture>
 			<Action>ВыбратьУзел</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ИзменитьУзел" id="2">
 			<Title>
@@ -310,7 +317,9 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ИзменитьУзел</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоУзловОбмена</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

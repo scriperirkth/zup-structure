@@ -18,6 +18,13 @@
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Справка" id="2003">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="2017"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -50,21 +57,14 @@
 					<ContextMenu name="ОписаниеРазделаКонтекстноеМеню" id="1568"/>
 					<ExtendedTooltip name="ОписаниеРазделаРасширеннаяПодсказка" id="2014"/>
 				</LabelDecoration>
-				<CommandBar name="ГруппаСправка" id="2002">
+				<CommandBar name="ГруппаСправкаТакси" id="2097">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Справка</v8:content>
 						</v8:item>
 					</Title>
-					<ExtendedTooltip name="ГруппаСправкаРасширеннаяПодсказка" id="2016"/>
-					<ChildItems>
-						<Button name="Справка" id="2003">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.Help</CommandName>
-							<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="2017"/>
-						</Button>
-					</ChildItems>
+					<ExtendedTooltip name="ГруппаСправкаТаксиРасширеннаяПодсказка" id="2098"/>
 				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
@@ -75,7 +75,7 @@
 					<v8:content>Синхронизация данных</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>AutoScreenTypeSensitive</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ChildItemsWidth>Equal</ChildItemsWidth>
@@ -107,6 +107,9 @@
 							</Title>
 							<TitleLocation>Right</TitleLocation>
 							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>Switcher</CheckBoxType>
 							<ContextMenu name="ИспользоватьСинхронизациюДанныхКонтекстноеМеню" id="412"/>
 							<ExtendedTooltip name="ИспользоватьСинхронизациюДанныхРасширеннаяПодсказка" id="2020">
 								<AutoMaxWidth>false</AutoMaxWidth>
@@ -208,6 +211,9 @@
 							</Title>
 							<TitleLocation>Right</TitleLocation>
 							<ToolTipRepresentation>None</ToolTipRepresentation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>Switcher</CheckBoxType>
 							<ContextMenu name="ИспользоватьДатыЗапретаЗагрузкиКонтекстноеМеню" id="2056"/>
 							<ExtendedTooltip name="ИспользоватьДатыЗапретаЗагрузкиРасширеннаяПодсказка" id="2057">
 								<AutoMaxWidth>false</AutoMaxWidth>
@@ -260,7 +266,7 @@
 					<v8:content>Синхронизация данных дополнительно</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>AutoScreenTypeSensitive</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>NormalSeparation</Representation>
 			<ChildItemsWidth>Equal</ChildItemsWidth>
@@ -380,6 +386,9 @@
 									</Title>
 									<TitleLocation>Right</TitleLocation>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<CheckBoxType>Switcher</CheckBoxType>
 									<ContextMenu name="ИспользоватьОценкуПроизводительностиКонтекстноеМеню" id="2085"/>
 									<ExtendedTooltip name="ИспользоватьОценкуПроизводительностиРасширеннаяПодсказка" id="2086"/>
 									<Events>
@@ -411,7 +420,6 @@
 				</v8:item>
 			</Title>
 			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-			<Width>43</Width>
 			<Group>AlwaysHorizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
@@ -430,6 +438,10 @@
 							<v8:content>Префикс этой информационной базы</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Width>23</Width>
+					<HorizontalStretch>false</HorizontalStretch>
 					<EditTextUpdate>OnValueChange</EditTextUpdate>
 					<ContextMenu name="ПрефиксУзлаРаспределеннойИнформационнойБазыКонтекстноеМеню" id="1996"/>
 					<ExtendedTooltip name="ПрефиксУзлаРаспределеннойИнформационнойБазыРасширеннаяПодсказка" id="2035">
@@ -453,10 +465,11 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Каталог временных файлов кластера серверов 1С:Предприятие:</v8:content>
+					<v8:content>Каталог временных файлов кластера 1С:Предприятие:</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+			<Width>43</Width>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>NormalSeparation</Representation>
@@ -478,6 +491,8 @@
 							<v8:content>Под управлением ОС Windows</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КаталогСообщенийОбменаДаннымиДляWindowsКонтекстноеМеню" id="2043"/>
 					<ExtendedTooltip name="КаталогСообщенийОбменаДаннымиДляWindowsРасширеннаяПодсказка" id="2044"/>
 					<Events>
@@ -492,6 +507,8 @@
 							<v8:content>Под управлением ОС Linux</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КаталогСообщенийОбменаДаннымиДляLinuxКонтекстноеМеню" id="2046"/>
 					<ExtendedTooltip name="КаталогСообщенийОбменаДаннымиДляLinuxРасширеннаяПодсказка" id="2047"/>
 					<Events>
@@ -507,6 +524,7 @@
 					<v8:content>Интерфейс o data</v8:content>
 				</v8:item>
 			</Title>
+			<Width>43</Width>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>NormalSeparation</Representation>

@@ -10,23 +10,36 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
-		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
+		<UsualGroup name="ГруппаПользовательскихНастроек" id="59">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>User settings group</v8:content>
+					<v8:content>Группа пользовательских настроек</v8:content>
 				</v8:item>
 			</Title>
-			<VerticalStretch>false</VerticalStretch>
 			<Group>Vertical</Group>
-			<Representation>WeakSeparation</Representation>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
+			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="60"/>
 		</UsualGroup>
+		<CommandBar name="КоманднаяПанельТакси" id="62">
+			<Visible>false</Visible>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель такси</v8:content>
+				</v8:item>
+			</Title>
+			<CommandSource>Form</CommandSource>
+			<ExtendedTooltip name="КоманднаяПанельТаксиРасширеннаяПодсказка" id="63"/>
+		</CommandBar>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -44,6 +57,7 @@
 				<ExcludedCommand>Copy</ExcludedCommand>
 				<ExcludedCommand>Create</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -57,12 +71,10 @@
 			<ShowRoot>true</ShowRoot>
 			<AllowRootChoice>false</AllowRootChoice>
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
-			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
+			<UserSettingsGroup>ГруппаПользовательскихНастроек</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
-				<Autofill>false</Autofill>
-			</AutoCommandBar>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -95,51 +107,71 @@
 				<LabelField name="Пользователь" id="16">
 					<DataPath>Список.Пользователь</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПользовательКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="18"/>
 				</LabelField>
 				<LabelField name="ВремяСобытия" id="19">
 					<DataPath>Список.ВремяСобытия</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ВремяСобытияКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ВремяСобытияРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="Источник" id="22">
 					<DataPath>Список.Источник</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИсточникКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ИсточникРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 				<LabelField name="СрокНапоминания" id="25">
 					<DataPath>Список.СрокНапоминания</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СрокНапоминанияКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="СрокНапоминанияРасширеннаяПодсказка" id="27"/>
 				</LabelField>
 				<LabelField name="Описание" id="28">
 					<DataPath>Список.Описание</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОписаниеКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="30"/>
 				</LabelField>
 				<LabelField name="СпособУстановкиВремениНапоминания" id="31">
 					<DataPath>Список.СпособУстановкиВремениНапоминания</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СпособУстановкиВремениНапоминанияКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="СпособУстановкиВремениНапоминанияРасширеннаяПодсказка" id="33"/>
 				</LabelField>
 				<LabelField name="ИнтервалВремениНапоминания" id="34">
 					<DataPath>Список.ИнтервалВремениНапоминания</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИнтервалВремениНапоминанияКонтекстноеМеню" id="35"/>
 					<ExtendedTooltip name="ИнтервалВремениНапоминанияРасширеннаяПодсказка" id="36"/>
 				</LabelField>
 				<LabelField name="ИмяРеквизитаИсточника" id="37">
 					<DataPath>Список.ИмяРеквизитаИсточника</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИмяРеквизитаИсточникаКонтекстноеМеню" id="38"/>
 					<ExtendedTooltip name="ИмяРеквизитаИсточникаРасширеннаяПодсказка" id="39"/>
 				</LabelField>
 				<LabelField name="ПредставлениеИсточника" id="40">
 					<DataPath>Список.ПредставлениеИсточника</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПредставлениеИсточникаКонтекстноеМеню" id="41"/>
 					<ExtendedTooltip name="ПредставлениеИсточникаРасширеннаяПодсказка" id="42"/>
 				</LabelField>
 				<LabelField name="Идентификатор" id="43">
 					<DataPath>Список.Идентификатор</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИдентификаторКонтекстноеМеню" id="44"/>
 					<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="45"/>
 				</LabelField>

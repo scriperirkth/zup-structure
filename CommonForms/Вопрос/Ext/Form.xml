@@ -65,47 +65,67 @@
 							<v8:content>Строки</v8:content>
 						</v8:item>
 					</Title>
-					<Width>35</Width>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="СтрокиРасширеннаяПодсказка" id="19"/>
 					<ChildItems>
-						<UsualGroup name="ТекстСообщенияФорматированнаяСтрокаГруппа" id="26">
+						<UsualGroup name="ТекстСообщения" id="26">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Текст сообщения форматированная строка (группа)</v8:content>
+									<v8:content>Текст сообщения</v8:content>
 								</v8:item>
 							</Title>
-							<Group>HorizontalIfPossible</Group>
-							<Representation>NormalSeparation</Representation>
+							<VerticalStretch>true</VerticalStretch>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ТекстСообщенияФорматированнаяСтрокаГруппаРасширеннаяПодсказка" id="27"/>
+							<ScrollOnCompress>true</ScrollOnCompress>
+							<ExtendedTooltip name="ТекстСообщенияРасширеннаяПодсказка" id="27"/>
 							<ChildItems>
-								<LabelDecoration name="ТекстСообщенияФорматированнаяСтрока" id="23">
+								<LabelDecoration name="ТекстСообщенияНадпись" id="23">
 									<Visible>false</Visible>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<AutoMaxHeight>false</AutoMaxHeight>
+									<VerticalStretch>true</VerticalStretch>
 									<Title formatted="true"/>
-									<ContextMenu name="ТекстСообщенияФорматированнаяСтрокаКонтекстноеМеню" id="24"/>
-									<ExtendedTooltip name="ТекстСообщенияФорматированнаяСтрокаРасширеннаяПодсказка" id="25"/>
+									<ContextMenu name="ТекстСообщенияНадписьКонтекстноеМеню" id="24">
+										<ChildItems>
+											<Button name="ТекстСообщенияНадписьКонтекстноеМенюКопироватьВБуфер" id="34">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ТекстСообщенияНадписьКонтекстноеМенюКопироватьВБуфер</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Копировать</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ТекстСообщенияНадписьКонтекстноеМенюКопироватьВБуферРасширеннаяПодсказка" id="35"/>
+											</Button>
+										</ChildItems>
+									</ContextMenu>
+									<ExtendedTooltip name="ТекстСообщенияНадписьРасширеннаяПодсказка" id="25"/>
 								</LabelDecoration>
+								<InputField name="ТекстСообщенияПолеВвода" id="10">
+									<DataPath>ТекстСообщения</DataPath>
+									<SkipOnInput>true</SkipOnInput>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Height>1</Height>
+									<AutoMaxHeight>false</AutoMaxHeight>
+									<VerticalStretch>true</VerticalStretch>
+									<MultiLine>true</MultiLine>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ТекстСообщенияПолеВводаКонтекстноеМеню" id="11"/>
+									<ExtendedTooltip name="ТекстСообщенияПолеВводаРасширеннаяПодсказка" id="21"/>
+									<Events>
+										<Event name="Clearing">ТекстСообщенияПолеВводаОчистка</Event>
+									</Events>
+								</InputField>
 							</ChildItems>
 						</UsualGroup>
-						<InputField name="МногострочныйТекстСообщения" id="10">
-							<DataPath>ТекстСообщения</DataPath>
-							<ReadOnly>true</ReadOnly>
-							<SkipOnInput>true</SkipOnInput>
-							<TitleLocation>None</TitleLocation>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<VerticalStretch>true</VerticalStretch>
-							<MultiLine>true</MultiLine>
-							<BorderColor>style:FormBackColor</BorderColor>
-							<ContextMenu name="МногострочныйТекстСообщенияКонтекстноеМеню" id="11"/>
-							<ExtendedTooltip name="МногострочныйТекстСообщенияРасширеннаяПодсказка" id="21"/>
-						</InputField>
 						<CheckBoxField name="БольшеНеЗадаватьЭтотВопрос" id="3">
 							<DataPath>БольшеНеЗадаватьЭтотВопрос</DataPath>
 							<Title>
@@ -115,6 +135,9 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>Right</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
 							<ContextMenu name="БольшеНеЗадаватьЭтотВопросКонтекстноеМеню" id="4"/>
 							<ExtendedTooltip name="БольшеНеЗадаватьЭтотВопросРасширеннаяПодсказка" id="22"/>
 						</CheckBoxField>
@@ -176,6 +199,22 @@
 			</Type>
 		</Attribute>
 	</Attributes>
+	<Commands>
+		<Command name="ТекстСообщенияНадписьКонтекстноеМенюКопироватьВБуфер" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Копировать</v8:content>
+				</v8:item>
+			</Title>
+			<Shortcut>Ctrl+C</Shortcut>
+			<Picture>
+				<xr:Ref>CommonPicture.СкопироватьВБуферОбмена</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ТекстСообщенияНадписьКонтекстноеМенюКопироватьВБуфер</Action>
+		</Command>
+	</Commands>
 	<Parameters>
 		<Parameter name="Заголовок">
 			<Type>

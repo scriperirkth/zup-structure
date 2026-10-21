@@ -15,38 +15,82 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Center</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ЗаписатьИЗакрыть" id="34">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Записать и закрыть</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ЗаписатьИЗакрытьРасширеннаяПодсказка" id="35"/>
+			</Button>
+			<ButtonGroup name="ФормаГруппаКнопок" id="37">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма группа кнопок</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаГруппаКнопокРасширеннаяПодсказка" id="38"/>
+				<ChildItems>
+					<Button name="ИнформационнаяБазаПеремещена" id="6">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ИнформационнаяБазаПеремещена</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Информационная база перемещена</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ИнформационнаяБазаПеремещенаРасширеннаяПодсказка" id="7"/>
+					</Button>
+					<Button name="ЭтоКопияИнформационнойБазы" id="8">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ЭтоКопияИнформационнойБазы</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Это копия информационной базы</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ЭтоКопияИнформационнойБазыРасширеннаяПодсказка" id="9"/>
+					</Button>
+					<Button name="ФормаПроверятьИмяСервера" id="10">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПроверятьИмяСервера</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Проверять имя сервера</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаПроверятьИмяСервераРасширеннаяПодсказка" id="11"/>
+					</Button>
+				</ChildItems>
+			</ButtonGroup>
+			<Button name="ФормаСправка" id="16">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="17"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<Pages name="ГруппаПараметрыФормы" id="18">
-			<Title>
+		<LabelDecoration name="НадписьПредупреждение" id="1">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<Title formatted="true">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Параметры формы</v8:content>
-				</v8:item>
-			</Title>
-			<PagesRepresentation>None</PagesRepresentation>
-			<ExtendedTooltip name="ГруппаПараметрыФормыРасширеннаяПодсказка" id="19"/>
-			<ChildItems>
-				<Page name="ГруппаПринятиеРешенияОБлокировке" id="20">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Принятие решения о блокировке</v8:content>
-						</v8:item>
-					</Title>
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="ГруппаПринятиеРешенияОБлокировкеРасширеннаяПодсказка" id="21"/>
-					<ChildItems>
-						<LabelDecoration name="НадписьПредупреждение" id="1">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<Title formatted="true">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Работа со всеми внешними ресурсами (синхронизация данных, отправка почты и т.п.), выполняемая по расписанию, 
+					<v8:content>Работа со всеми внешними ресурсами (синхронизация данных, отправка почты и т.п.), выполняемая по расписанию, 
 заблокирована для предотвращения конфликтов с основой информационной базой.
 
 Блокировка выполнена на сервере &lt;b&gt;Server-1C2 &lt;/&gt;в&lt;b&gt; 10.01.2019 15:00 &lt;/&gt;при попытке выполнения регламентного задания &lt;b&gt;Отправка SMS&lt;/&gt;.
@@ -64,137 +108,29 @@
   в роли рабочих серверов, отключите проверку имени компьютера, нажмите &lt;b&gt;Еще - Проверять имя сервера&lt;/&gt;.
 
 Блокировку также можно снять позднее в разделе &lt;b&gt;Администрирование&lt;/&gt;&lt;b&gt; - &lt;/&gt;&lt;b&gt;Обслуживание&lt;/&gt;.</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="НадписьПредупреждениеКонтекстноеМеню" id="2"/>
-							<ExtendedTooltip name="НадписьПредупреждениеРасширеннаяПодсказка" id="3"/>
-							<Events>
-								<Event name="URLProcessing">НадписьПредупреждениеОбработкаНавигационнойСсылки</Event>
-							</Events>
-						</LabelDecoration>
-						<CommandBar name="ГруппаКоманднаяПанель" id="27">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Командная панель</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalLocation>Center</HorizontalLocation>
-							<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="28"/>
-							<ChildItems>
-								<Button name="ИнформационнаяБазаПеремещена" id="6">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.ИнформационнаяБазаПеремещена</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Информационная база перемещена</v8:content>
-										</v8:item>
-									</Title>
-									<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-									<ExtendedTooltip name="ИнформационнаяБазаПеремещенаРасширеннаяПодсказка" id="7"/>
-								</Button>
-								<Button name="ЭтоКопияИнформационнойБазы" id="8">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.ЭтоКопияИнформационнойБазы</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Это копия информационной базы</v8:content>
-										</v8:item>
-									</Title>
-									<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-									<ExtendedTooltip name="ЭтоКопияИнформационнойБазыРасширеннаяПодсказка" id="9"/>
-								</Button>
-								<Popup name="ФормаГруппаЕще" id="14">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Еще</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ФормаГруппаЕщеРасширеннаяПодсказка" id="15"/>
-									<ChildItems>
-										<Button name="ФормаПроверятьИмяСервера" id="10">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.ПроверятьИмяСервера</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Проверять имя сервера</v8:content>
-												</v8:item>
-											</Title>
-											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-											<ExtendedTooltip name="ФормаПроверятьИмяСервераРасширеннаяПодсказка" id="11"/>
-										</Button>
-										<Button name="ФормаСправкаВГруппе" id="12">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.StandardCommand.Help</CommandName>
-											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-											<ExtendedTooltip name="ФормаСправкаВГруппеРасширеннаяПодсказка" id="13"/>
-										</Button>
-									</ChildItems>
-								</Popup>
-								<Button name="ФормаСправка" id="16">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.StandardCommand.Help</CommandName>
-									<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-									<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="17"/>
-								</Button>
-							</ChildItems>
-						</CommandBar>
-					</ChildItems>
-				</Page>
-				<Page name="ГруппаПараметрыБлокировки" id="22">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Параметры блокировки</v8:content>
-						</v8:item>
-					</Title>
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="ГруппаПараметрыБлокировкиРасширеннаяПодсказка" id="23"/>
-					<ChildItems>
-						<CommandBar name="ГруппаКоманднаяПанельПараметры" id="32">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Командная панель параметры</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ГруппаКоманднаяПанельПараметрыРасширеннаяПодсказка" id="33"/>
-							<ChildItems>
-								<Button name="ЗаписатьИЗакрыть" id="34">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Записать и закрыть</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ЗаписатьИЗакрытьРасширеннаяПодсказка" id="35"/>
-								</Button>
-							</ChildItems>
-						</CommandBar>
-						<CheckBoxField name="ПроверятьИмяСервера" id="29">
-							<DataPath>ПроверятьИмяСервера</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Проверять имя сервера</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>Right</TitleLocation>
-							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-							<ContextMenu name="ПроверятьИмяСервераКонтекстноеМеню" id="30"/>
-							<ExtendedTooltip name="ПроверятьИмяСервераРасширеннаяПодсказка" id="31"/>
-						</CheckBoxField>
-					</ChildItems>
-				</Page>
-			</ChildItems>
-		</Pages>
+				</v8:item>
+			</Title>
+			<ContextMenu name="НадписьПредупреждениеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НадписьПредупреждениеРасширеннаяПодсказка" id="3"/>
+			<Events>
+				<Event name="URLProcessing">НадписьПредупреждениеОбработкаНавигационнойСсылки</Event>
+			</Events>
+		</LabelDecoration>
+		<CheckBoxField name="ПроверятьИмяСервера" id="29">
+			<DataPath>ПроверятьИмяСервера</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверять имя сервера</v8:content>
+				</v8:item>
+			</Title>
+			<TitleLocation>Right</TitleLocation>
+			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<ContextMenu name="ПроверятьИмяСервераКонтекстноеМеню" id="30"/>
+			<ExtendedTooltip name="ПроверятьИмяСервераРасширеннаяПодсказка" id="31"/>
+		</CheckBoxField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ПроверятьИмяСервера" id="2">
@@ -234,6 +170,7 @@
 			</ToolTip>
 			<Action>ИнформационнаяБазаПеремещена</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ЭтоКопияИнформационнойБазы" id="2">
 			<Title>
@@ -250,6 +187,7 @@
 			</ToolTip>
 			<Action>ЭтоКопияИнформационнойБазы</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПроверятьИмяСервера" id="3">
 			<Title>
@@ -266,6 +204,7 @@
 			</ToolTip>
 			<Action>ПроверятьИмяСервера</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ЗаписатьИЗакрыть" id="4">
 			<Title>
@@ -282,6 +221,7 @@
 			</ToolTip>
 			<Action>ЗаписатьИЗакрыть</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

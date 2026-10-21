@@ -10,9 +10,42 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ДобавитьФайл" id="4">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+				<CommandName>Form.Command.СоздатьФайл</CommandName>
+				<TextColor>style:ButtonTextColor</TextColor>
+				<BorderColor>style:BorderColor</BorderColor>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Продолжить</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ДобавитьФайлРасширеннаяПодсказка" id="12"/>
+			</Button>
+			<Button name="ФормаОтменаТакси" id="16">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="ФормаОтменаТаксиРасширеннаяПодсказка" id="17"/>
+			</Button>
+			<Button name="Справка" id="9">
+				<Type>CommandBarButton</Type>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="14"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -25,8 +58,10 @@
 					<v8:content>Добавить</v8:content>
 				</v8:item>
 			</Title>
-			<TitleLocation>Top</TitleLocation>
+			<TitleLocation>None</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
 			<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+			<AutoEditMode>true</AutoEditMode>
 			<RadioButtonType>Auto</RadioButtonType>
 			<ColumnsCount>1</ColumnsCount>
 			<ChoiceList>
@@ -37,7 +72,7 @@
 						<Presentation>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
-								<v8:content>Файл с компьютера</v8:content>
+								<v8:content>С компьютера</v8:content>
 							</v8:item>
 						</Presentation>
 						<Value xsi:type="xs:decimal">2</Value>
@@ -60,48 +95,6 @@
 			<ContextMenu name="РежимСозданияКонтекстноеМеню" id="3"/>
 			<ExtendedTooltip name="РежимСозданияРасширеннаяПодсказка" id="10"/>
 		</RadioButtonField>
-		<CommandBar name="ОсновнаяКоманднаяПанель" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Основная командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="ОсновнаяКоманднаяПанельРасширеннаяПодсказка" id="11"/>
-			<ChildItems>
-				<Button name="ДобавитьФайл" id="4">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.Command.СоздатьФайл</CommandName>
-					<TextColor>style:ButtonTextColor</TextColor>
-					<BackColor>style:ButtonBackColor</BackColor>
-					<BorderColor>style:BorderColor</BorderColor>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Добавить</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ДобавитьФайлРасширеннаяПодсказка" id="12"/>
-				</Button>
-				<Button name="Отмена" id="8">
-					<Type>CommandBarButton</Type>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.StandardCommand.Cancel</CommandName>
-					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="13"/>
-				</Button>
-				<Button name="Справка" id="9">
-					<Type>CommandBarButton</Type>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.StandardCommand.Help</CommandName>
-					<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="14"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="РежимСоздания" id="1">
@@ -137,6 +130,7 @@
 			</ToolTip>
 			<Action>СоздатьФайлВыполнить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

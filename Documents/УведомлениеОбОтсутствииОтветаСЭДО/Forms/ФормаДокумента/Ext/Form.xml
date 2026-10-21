@@ -210,6 +210,8 @@
 					<ChildItems>
 						<InputField name="Организация" id="799">
 							<DataPath>Объект.Организация</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>30</MaxWidth>
 							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="800"/>
 							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="801"/>
@@ -219,7 +221,8 @@
 							<ReadOnly>true</ReadOnly>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<MaxWidth>38</MaxWidth>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>30</MaxWidth>
 							<ContextMenu name="СтраховательКонтекстноеМеню" id="392"/>
 							<ExtendedTooltip name="СтраховательРасширеннаяПодсказка" id="393"/>
 						</InputField>
@@ -462,6 +465,65 @@
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
+		<InputField name="ТекстУведомления" id="813">
+			<DataPath>Объект.ТекстУведомления</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<TitleLocation>Left</TitleLocation>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MaxWidth>80</MaxWidth>
+			<AutoMaxHeight>false</AutoMaxHeight>
+			<MaxHeight>3</MaxHeight>
+			<VerticalStretch>false</VerticalStretch>
+			<MultiLine>true</MultiLine>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ТекстУведомленияКонтекстноеМеню" id="814"/>
+			<ExtendedTooltip name="ТекстУведомленияРасширеннаяПодсказка" id="815"/>
+		</InputField>
+		<UsualGroup name="ФизическоеЛицоГруппа" id="839">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Физическое лицо группа</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Физическое лицо группа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>HorizontalIfPossible</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ФизическоеЛицоГруппаРасширеннаяПодсказка" id="840"/>
+			<ChildItems>
+				<InputField name="ФизическоеЛицо" id="657">
+					<DataPath>Объект.ФизическоеЛицо</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>30</MaxWidth>
+					<ContextMenu name="ФизическоеЛицоКонтекстноеМеню" id="658"/>
+					<ExtendedTooltip name="ФизическоеЛицоРасширеннаяПодсказка" id="659"/>
+				</InputField>
+				<InputField name="СотрудникСНИЛС" id="831">
+					<DataPath>Объект.СотрудникСНИЛС</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>12</MaxWidth>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="СотрудникСНИЛСКонтекстноеМеню" id="832"/>
+					<ExtendedTooltip name="СотрудникСНИЛСРасширеннаяПодсказка" id="833"/>
+					<Events>
+						<Event name="OnChange">СотрудникСНИЛСПриИзменении</Event>
+					</Events>
+				</InputField>
+				<Button name="ВсеВходящиеЗапросыПоФизлицу" id="811">
+					<Type>Hyperlink</Type>
+					<Representation>Text</Representation>
+					<CommandName>Form.Command.ВсеВходящиеЗапросыПоФизлицу</CommandName>
+					<ExtendedTooltip name="ВсеВходящиеЗапросыПоФизлицуРасширеннаяПодсказка" id="812"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 		<UsualGroup name="ИдентификаторыГруппа" id="728">
 			<Title>
 				<v8:item>
@@ -489,27 +551,35 @@
 						<Event name="OnChange">НомерПроцессаПриИзменении</Event>
 					</Events>
 				</InputField>
-				<InputField name="ФизическоеЛицо" id="657">
-					<DataPath>Объект.ФизическоеЛицо</DataPath>
-					<ContextMenu name="ФизическоеЛицоКонтекстноеМеню" id="658"/>
-					<ExtendedTooltip name="ФизическоеЛицоРасширеннаяПодсказка" id="659"/>
+				<InputField name="ВходящийЗапросИдентификатор" id="825">
+					<DataPath>Объект.ВходящийЗапросИдентификатор</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>25</MaxWidth>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ВходящийЗапросИдентификаторКонтекстноеМеню" id="826"/>
+					<ExtendedTooltip name="ВходящийЗапросИдентификаторРасширеннаяПодсказка" id="827"/>
+					<Events>
+						<Event name="OnChange">ВходящийЗапросИдентификаторПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ВходящийЗапросДата" id="828">
+					<DataPath>Объект.ВходящийЗапросДата</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата запроса</v8:content>
+						</v8:item>
+					</Title>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>12</MaxWidth>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ВходящийЗапросДатаКонтекстноеМеню" id="829"/>
+					<ExtendedTooltip name="ВходящийЗапросДатаРасширеннаяПодсказка" id="830"/>
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
-		<InputField name="ТекстУведомления" id="813">
-			<DataPath>Объект.ТекстУведомления</DataPath>
-			<ReadOnly>true</ReadOnly>
-			<TitleLocation>Left</TitleLocation>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<MaxWidth>80</MaxWidth>
-			<AutoMaxHeight>false</AutoMaxHeight>
-			<MaxHeight>3</MaxHeight>
-			<VerticalStretch>false</VerticalStretch>
-			<MultiLine>true</MultiLine>
-			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-			<ContextMenu name="ТекстУведомленияКонтекстноеМеню" id="814"/>
-			<ExtendedTooltip name="ТекстУведомленияРасширеннаяПодсказка" id="815"/>
-		</InputField>
 		<UsualGroup name="ВходящийЗапросГруппа" id="816">
 			<Title>
 				<v8:item>
@@ -530,18 +600,364 @@
 			<ChildItems>
 				<LabelField name="ВходящийЗапрос" id="783">
 					<DataPath>Объект.ВходящийЗапрос</DataPath>
+					<ReadOnly>true</ReadOnly>
 					<TitleLocation>None</TitleLocation>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<Hiperlink>true</Hiperlink>
 					<ContextMenu name="ВходящийЗапросКонтекстноеМеню" id="784"/>
 					<ExtendedTooltip name="ВходящийЗапросРасширеннаяПодсказка" id="785"/>
 				</LabelField>
-				<Button name="ВсеВходящиеЗапросыПоФизлицу" id="811">
-					<Type>Hyperlink</Type>
-					<Representation>Text</Representation>
-					<CommandName>Form.Command.ВсеВходящиеЗапросыПоФизлицу</CommandName>
-					<ExtendedTooltip name="ВсеВходящиеЗапросыПоФизлицуРасширеннаяПодсказка" id="812"/>
-				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ВходящийЗапросНеНайденГруппа" id="841">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Входящий запрос не найден группа</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Входящий запрос не найден группа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>HorizontalIfPossible</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:ЦветФонаПредупрежденияБЗК</BackColor>
+			<ExtendedTooltip name="ВходящийЗапросНеНайденГруппаРасширеннаяПодсказка" id="842"/>
+			<ChildItems>
+				<PictureDecoration name="Декорация1" id="843">
+					<Picture>
+						<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="844"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="845"/>
+				</PictureDecoration>
+				<LabelDecoration name="Декорация2" id="846">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>В программе не найден входящий запрос с указанным номером процесса или идентификатором.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="Декорация2КонтекстноеМеню" id="847"/>
+					<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="848"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ВходящееСообщениеГруппа" id="849">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Входящее сообщение группа</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Входящее сообщение группа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ВходящееСообщениеГруппаРасширеннаяПодсказка" id="850"/>
+			<ChildItems>
+				<UsualGroup name="ВходящееСообщениеНеНайденоГруппа" id="851">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Входящее сообщение не найдено группа</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Входящее сообщение не найдено группа</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>HorizontalIfPossible</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ВходящееСообщениеНеНайденоГруппаРасширеннаяПодсказка" id="852"/>
+					<ChildItems>
+						<UsualGroup name="ВходящееСообщениеНеНайденоГруппа2" id="861">
+							<Group>HorizontalIfPossible</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<BackColor>style:ЦветФонаПредупрежденияБЗК</BackColor>
+							<ExtendedTooltip name="ВходящееСообщениеНеНайденоГруппа2РасширеннаяПодсказка" id="862"/>
+							<ChildItems>
+								<PictureDecoration name="Декорация4" id="853">
+									<Picture>
+										<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ContextMenu name="Декорация4КонтекстноеМеню" id="854"/>
+									<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="855"/>
+								</PictureDecoration>
+								<LabelDecoration name="Декорация5" id="856">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>В списке входящих сообщений СЭДО не найдено сообщение с указанным идентификатором.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Декорация5КонтекстноеМеню" id="857"/>
+									<ExtendedTooltip name="Декорация5РасширеннаяПодсказка" id="858"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<Button name="ОбработкаОбщиеФормыСЭДОФССПолучитьСообщенияСЭДОФССЗаПериод" id="859">
+							<Type>Hyperlink</Type>
+							<CommandName>DataProcessor.ОбщиеФормыСЭДОФСС.Command.ПолучитьСообщенияСЭДОФССЗаПериод</CommandName>
+							<ExtendedTooltip name="ОбработкаОбщиеФормыСЭДОФССПолучитьСообщенияСЭДОФССЗаПериодРасширеннаяПодсказка" id="860"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ВходящееСообщениеПоДругомуСтрахователюГруппа" id="863">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Входящее сообщение не найдено группа</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Входящее сообщение не найдено группа</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>HorizontalIfPossible</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ВходящееСообщениеПоДругомуСтрахователюГруппаРасширеннаяПодсказка" id="864"/>
+					<ChildItems>
+						<UsualGroup name="ВходящееСообщениеПоДругомуСтрахователюГруппа2" id="865">
+							<Group>HorizontalIfPossible</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<BackColor>style:ЦветФонаПредупрежденияБЗК</BackColor>
+							<ExtendedTooltip name="ВходящееСообщениеПоДругомуСтрахователюГруппа2РасширеннаяПодсказка" id="866"/>
+							<ChildItems>
+								<PictureDecoration name="Декорация6" id="867">
+									<Picture>
+										<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ContextMenu name="Декорация6КонтекстноеМеню" id="868"/>
+									<ExtendedTooltip name="Декорация6РасширеннаяПодсказка" id="869"/>
+								</PictureDecoration>
+								<LabelField name="ВходящееСообщениеСтрахователь" id="875">
+									<DataPath>ВходящееСообщениеСтрахователь</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сообщение СЭДО найдено в списке входящих другого страхователя</v8:content>
+										</v8:item>
+									</Title>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>25</MaxWidth>
+									<ContextMenu name="ВходящееСообщениеСтраховательКонтекстноеМеню" id="876"/>
+									<ExtendedTooltip name="ВходящееСообщениеСтраховательРасширеннаяПодсказка" id="877"/>
+								</LabelField>
+							</ChildItems>
+						</UsualGroup>
+						<Button name="ОткрытьВходящееСообщение" id="878">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.ОткрытьВходящееСообщение</CommandName>
+							<ExtendedTooltip name="ОткрытьВходящееСообщениеРасширеннаяПодсказка" id="879"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ВходящееСообщениеНеЗагруженоГруппа" id="880">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Входящее сообщение не загружено группа</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Входящее сообщение не загружено группа</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>HorizontalIfPossible</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ВходящееСообщениеНеЗагруженоГруппаРасширеннаяПодсказка" id="881"/>
+					<ChildItems>
+						<UsualGroup name="ВходящееСообщениеНеЗагруженоГруппа2" id="882">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Входящее сообщение не загружено группа2</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Входящее сообщение не загружено группа2</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>HorizontalIfPossible</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<BackColor>style:ЦветФонаПредупрежденияБЗК</BackColor>
+							<ExtendedTooltip name="ВходящееСообщениеНеЗагруженоГруппа2РасширеннаяПодсказка" id="883"/>
+							<ChildItems>
+								<PictureDecoration name="Декорация7" id="884">
+									<Picture>
+										<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ContextMenu name="Декорация7КонтекстноеМеню" id="885"/>
+									<ExtendedTooltip name="Декорация7РасширеннаяПодсказка" id="886"/>
+								</PictureDecoration>
+								<LabelDecoration name="Декорация8" id="887">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Входящее сообщение СЭДО не загружено</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Декорация8КонтекстноеМеню" id="888"/>
+									<ExtendedTooltip name="Декорация8РасширеннаяПодсказка" id="889"/>
+								</LabelDecoration>
+								<LabelField name="ВходящееСообщениеТекстОшибки" id="892">
+									<DataPath>ВходящееСообщениеТекстОшибки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>по причине</v8:content>
+										</v8:item>
+									</Title>
+									<Hiperlink>true</Hiperlink>
+									<ContextMenu name="ВходящееСообщениеТекстОшибкиКонтекстноеМеню" id="893"/>
+									<ExtendedTooltip name="ВходящееСообщениеТекстОшибкиРасширеннаяПодсказка" id="894"/>
+								</LabelField>
+							</ChildItems>
+						</UsualGroup>
+						<Button name="ОткрытьВходящееСообщение1" id="895">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.ОткрытьВходящееСообщение</CommandName>
+							<ExtendedTooltip name="ОткрытьВходящееСообщение1РасширеннаяПодсказка" id="896"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ВходящееСообщениеЗагруженоСОшибкамиГруппа" id="912">
+					<Group>HorizontalIfPossible</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ВходящееСообщениеЗагруженоСОшибкамиГруппаРасширеннаяПодсказка" id="913"/>
+					<ChildItems>
+						<UsualGroup name="ВходящееСообщениеЗагруженоСОшибкамиГруппа2" id="914">
+							<Group>HorizontalIfPossible</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<BackColor>style:ЦветФонаПредупрежденияБЗК</BackColor>
+							<ExtendedTooltip name="ВходящееСообщениеЗагруженоСОшибкамиГруппа2РасширеннаяПодсказка" id="915"/>
+							<ChildItems>
+								<PictureDecoration name="Декорация11" id="916">
+									<Picture>
+										<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ContextMenu name="Декорация11КонтекстноеМеню" id="917"/>
+									<ExtendedTooltip name="Декорация11РасширеннаяПодсказка" id="918"/>
+								</PictureDecoration>
+								<LabelField name="ВходящееСообщениеТекстОшибки1" id="922">
+									<DataPath>ВходящееСообщениеТекстОшибки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Входящее сообщение СЭДО загружено с ошибками</v8:content>
+										</v8:item>
+									</Title>
+									<Hiperlink>true</Hiperlink>
+									<ContextMenu name="ВходящееСообщениеТекстОшибки1КонтекстноеМеню" id="923"/>
+									<ExtendedTooltip name="ВходящееСообщениеТекстОшибки1РасширеннаяПодсказка" id="924"/>
+								</LabelField>
+							</ChildItems>
+						</UsualGroup>
+						<Button name="ОткрытьВходящееСообщение3" id="925">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.ОткрытьВходящееСообщение</CommandName>
+							<ExtendedTooltip name="ОткрытьВходящееСообщение3РасширеннаяПодсказка" id="926"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ВходящееСообщениеСообщениеВПорядкеГруппа" id="897">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Входящее сообщение сообщение в порядке группа</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Входящее сообщение сообщение в порядке группа</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>HorizontalIfPossible</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ВходящееСообщениеСообщениеВПорядкеГруппаРасширеннаяПодсказка" id="898"/>
+					<ChildItems>
+						<UsualGroup name="ВходящееСообщениеСообщениеВПорядкеГруппа2" id="899">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Входящее сообщение сообщение в порядке группа2</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Входящее сообщение сообщение в порядке группа2</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>HorizontalIfPossible</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ВходящееСообщениеСообщениеВПорядкеГруппа2РасширеннаяПодсказка" id="900"/>
+							<ChildItems>
+								<PictureDecoration name="Декорация9" id="901">
+									<Picture>
+										<xr:Ref>StdPicture.Information</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ContextMenu name="Декорация9КонтекстноеМеню" id="902"/>
+									<ExtendedTooltip name="Декорация9РасширеннаяПодсказка" id="903"/>
+								</PictureDecoration>
+								<LabelDecoration name="Декорация10" id="909">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сообщение СЭДО найдено в списке входящих данного страхователя и числится загруженным без ошибок</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Декорация10КонтекстноеМеню" id="910"/>
+									<ExtendedTooltip name="Декорация10РасширеннаяПодсказка" id="911"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<Button name="ОткрытьВходящееСообщение2" id="907">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.ОткрытьВходящееСообщение</CommandName>
+							<ExtendedTooltip name="ОткрытьВходящееСообщение2РасширеннаяПодсказка" id="908"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ОтветНаЗапросГруппа" id="809">
@@ -592,6 +1008,18 @@
 			<ContextMenu name="ОбработанКонтекстноеМеню" id="23"/>
 			<ExtendedTooltip name="ОбработанРасширеннаяПодсказка" id="24"/>
 		</CheckBoxField>
+		<UsualGroup name="ГруппаДополнительныеРеквизиты" id="954">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительно</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаДополнительныеРеквизитыExtendedTooltip" id="955"/>
+		</UsualGroup>
 		<UsualGroup name="ГруппаОтветственныйКомментарий" id="409">
 			<Title>
 				<v8:item>
@@ -821,6 +1249,76 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
+		<Attribute name="ВозможностьРедактирования" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возможность редактирования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЕстьВходящееСообщениеСЭДО" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Есть входящее сообщение СЭДО</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВходящееСообщениеСтрахователь" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Входящее сообщение страхователь</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПолученыСведенияОВходящемСообщении" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получены сведения о входящем сообщении</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВходящееСообщениеНовое" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Входящее сообщение новое</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВходящееСообщениеТекстОшибки" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Входящее сообщение текст ошибки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="ВключитьВозможностьРедактирования" id="1">
@@ -928,6 +1426,21 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ВсеВходящиеЗапросыПоФизлицу</Action>
+		</Command>
+		<Command name="ОткрытьВходящееСообщение" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть входящее сообщение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть входящее сообщение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьВходящееСообщение</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>

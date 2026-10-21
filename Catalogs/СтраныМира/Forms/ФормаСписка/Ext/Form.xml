@@ -22,18 +22,6 @@
 				</Title>
 				<ExtendedTooltip name="СоздатьРасширеннаяПодсказка" id="48"/>
 				<ChildItems>
-					<Button name="СписокСоздать" id="55">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.Create</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Добавить вручную</v8:content>
-							</v8:item>
-						</Title>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="СписокСоздатьРасширеннаяПодсказка" id="56"/>
-					</Button>
 					<Button name="СписокВыбратьИзКлассификатора" id="53">
 						<Type>CommandBarButton</Type>
 						<DefaultButton>true</DefaultButton>
@@ -46,6 +34,18 @@
 						</Title>
 						<ButtonImportance>Main</ButtonImportance>
 						<ExtendedTooltip name="СписокВыбратьИзКлассификатораРасширеннаяПодсказка" id="54"/>
+					</Button>
+					<Button name="СписокСоздать" id="55">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Список.StandardCommand.Create</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Добавить вручную</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="СписокСоздатьРасширеннаяПодсказка" id="56"/>
 					</Button>
 				</ChildItems>
 			</ButtonGroup>
@@ -68,7 +68,7 @@
 						<v8:content>Классификатор стран (ОКСМ)</v8:content>
 					</v8:item>
 				</Title>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 				<ExtendedTooltip name="СписокКлассификаторРасширеннаяПодсказка" id="23"/>
 			</Button>
 			<Button name="СписокИзменитьФорму" id="19">
@@ -146,6 +146,7 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
+			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -198,32 +199,38 @@
 				<LabelField name="Наименование" id="4">
 					<DataPath>Список.Description</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<Width>12</Width>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="28"/>
 				</LabelField>
 				<LabelField name="Код" id="6">
 					<DataPath>Список.Code</DataPath>
-					<Width>5</Width>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КодКонтекстноеМеню" id="7"/>
 					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="29"/>
 				</LabelField>
 				<LabelField name="КодАльфа2" id="8">
 					<DataPath>Список.КодАльфа2</DataPath>
-					<Width>10</Width>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КодАльфа2КонтекстноеМеню" id="9"/>
 					<ExtendedTooltip name="КодАльфа2РасширеннаяПодсказка" id="30"/>
 				</LabelField>
 				<LabelField name="КодАльфа3" id="10">
 					<DataPath>Список.КодАльфа3</DataPath>
-					<Width>10</Width>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КодАльфа3КонтекстноеМеню" id="11"/>
 					<ExtendedTooltip name="КодАльфа3РасширеннаяПодсказка" id="31"/>
 				</LabelField>
 				<CheckBoxField name="УчастникЕАЭС" id="57">
 					<DataPath>Список.УчастникЕАЭС</DataPath>
 					<Enabled>false</Enabled>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="УчастникЕАЭСКонтекстноеМеню" id="58"/>
 					<ExtendedTooltip name="УчастникЕАЭСРасширеннаяПодсказка" id="59"/>
 				</CheckBoxField>
@@ -235,6 +242,8 @@
 							<v8:content>Полное наименование</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НаименованиеПолноеКонтекстноеМеню" id="13"/>
 					<ExtendedTooltip name="НаименованиеПолноеРасширеннаяПодсказка" id="32"/>
 				</LabelField>
@@ -243,6 +252,8 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="34"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="35"/>
 				</LabelField>
@@ -314,7 +325,9 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ОткрытьКлассификатор</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="ВыбратьИзКлассификатора" id="1">
 			<Title>
@@ -336,6 +349,7 @@
 			<Action>ВыбратьИзКлассификатора</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

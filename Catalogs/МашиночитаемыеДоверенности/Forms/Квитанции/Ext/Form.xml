@@ -6,6 +6,7 @@
 		<ChildItems>
 			<Button name="ФормаЗагрузитьИзРеестра" id="25">
 				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.ЗагрузитьИзРеестра</CommandName>
 				<Title>
 					<v8:item>
@@ -13,10 +14,12 @@
 						<v8:content>Загрузить из реестра ФНС</v8:content>
 					</v8:item>
 				</Title>
+				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаЗагрузитьИзРеестраРасширеннаяПодсказка" id="26"/>
 			</Button>
 			<Button name="ФормаОбновить" id="23">
 				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.Обновить</CommandName>
 				<Title>
 					<v8:item>
@@ -25,6 +28,7 @@
 					</v8:item>
 				</Title>
 				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="24"/>
 			</Button>
 		</ChildItems>
@@ -47,17 +51,16 @@
 			<ContextMenu name="ДоверенностьКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="ДоверенностьРасширеннаяПодсказка" id="3"/>
 		</LabelField>
-		<UsualGroup name="ГруппаШапка" id="39">
+		<UsualGroup name="ГруппаШапка" id="46">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Шапка</v8:content>
 				</v8:item>
 			</Title>
-			<Group>Vertical</Group>
-			<Representation>WeakSeparation</Representation>
+			<Group>AutoScreenTypeSensitive</Group>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="40"/>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="47"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаФайлы" id="37">
 					<Title>
@@ -66,7 +69,7 @@
 							<v8:content>Файлы</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>AutoScreenTypeSensitive</Group>
 					<Representation>WeakSeparation</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаФайлыРасширеннаяПодсказка" id="38"/>
@@ -74,10 +77,14 @@
 						<Table name="ФайлыДоверенности" id="4">
 							<Representation>List</Representation>
 							<ReadOnly>true</ReadOnly>
-							<MaxWidth>20</MaxWidth>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<Header>false</Header>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<HorizontalStretch>false</HorizontalStretch>
+							<VerticalStretch>false</VerticalStretch>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<DataPath>ФайлыДоверенности</DataPath>
@@ -87,6 +94,7 @@
 									<v8:content>Файлы доверенности</v8:content>
 								</v8:item>
 							</Title>
+							<AutoMaxCardHeight>false</AutoMaxCardHeight>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="ФайлыДоверенностиКонтекстноеМеню" id="5"/>
 							<AutoCommandBar name="ФайлыДоверенностиКоманднаяПанель" id="6">
@@ -133,7 +141,6 @@
 									<TitleLocation>None</TitleLocation>
 									<EditMode>EnterOnInput</EditMode>
 									<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>2</Width>
 									<Height>1</Height>
 									<HorizontalStretch>false</HorizontalStretch>
@@ -147,7 +154,7 @@
 									<ContextMenu name="ФайлыДоверенностиИндексКартинкиКонтекстноеМеню" id="30"/>
 									<ExtendedTooltip name="ФайлыДоверенностиИндексКартинкиРасширеннаяПодсказка" id="31"/>
 								</PictureField>
-								<InputField name="ФайлыДоверенностиПредставление" id="20">
+								<LabelField name="ФайлыДоверенностиПредставление" id="20">
 									<DataPath>ФайлыДоверенности.Представление</DataPath>
 									<Title>
 										<v8:item>
@@ -156,12 +163,10 @@
 										</v8:item>
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<HorizontalStretch>false</HorizontalStretch>
-									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<Hiperlink>true</Hiperlink>
 									<ContextMenu name="ФайлыДоверенностиПредставлениеКонтекстноеМеню" id="21"/>
 									<ExtendedTooltip name="ФайлыДоверенностиПредставлениеРасширеннаяПодсказка" id="22"/>
-								</InputField>
+								</LabelField>
 							</ChildItems>
 						</Table>
 					</ChildItems>
@@ -173,7 +178,7 @@
 							<v8:content>Просмотр</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>AutoScreenTypeSensitive</Group>
 					<Representation>WeakSeparation</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаПросмотрРасширеннаяПодсказка" id="36"/>
@@ -338,6 +343,7 @@
 			</Picture>
 			<Action>Обновить</Action>
 			<Representation>TextPicture</Representation>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ЗагрузитьИзРеестра" id="2">
 			<Title>
@@ -358,6 +364,7 @@
 			</Picture>
 			<Action>ЗагрузитьИзРеестра</Action>
 			<Representation>TextPicture</Representation>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

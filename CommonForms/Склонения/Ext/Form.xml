@@ -19,26 +19,27 @@
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
 				<DefaultItem>true</DefaultItem>
-				<CommandName>Form.Command.КомандаОК</CommandName>
+				<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>ОК</v8:content>
+						<v8:content>Записать и закрыть</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаКомандаОКРасширеннаяПодсказка" id="26"/>
 			</Button>
-			<Button name="ФормаКомандаОтмена" id="27">
+			<Button name="КомандаПросклонятьПовторно" id="33">
 				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаОтмена</CommandName>
+				<CommandName>Form.Command.КомандаПросклонятьПовторно</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Отмена</v8:content>
+						<v8:content>Просклонять повторно</v8:content>
 					</v8:item>
 				</Title>
-				<ExtendedTooltip name="ФормаКомандаОтменаРасширеннаяПодсказка" id="28"/>
+				<ButtonImportance>Supplementary</ButtonImportance>
+				<ExtendedTooltip name="КомандаПросклонятьПовторноРасширеннаяПодсказка" id="34"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -47,141 +48,155 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<Button name="КомандаПросклонятьПовторно" id="33">
-			<Type>UsualButton</Type>
-			<CommandName>Form.Command.КомандаПросклонятьПовторно</CommandName>
+		<UsualGroup name="ГруппаЭлементы" id="65">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Просклонять повторно</v8:content>
+					<v8:content>Элементы</v8:content>
 				</v8:item>
 			</Title>
-			<ExtendedTooltip name="КомандаПросклонятьПовторноРасширеннаяПодсказка" id="34"/>
-		</Button>
-		<UsualGroup name="ГруппаПадежи" id="29">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Падежи</v8:content>
-				</v8:item>
-			</Title>
+			<HorizontalStretch>false</HorizontalStretch>
 			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПадежиРасширеннаяПодсказка" id="30"/>
+			<ExtendedTooltip name="ГруппаЭлементыРасширеннаяПодсказка" id="66"/>
 			<ChildItems>
-				<InputField name="Именительный" id="4">
-					<DataPath>Именительный</DataPath>
-					<ReadOnly>true</ReadOnly>
+				<UsualGroup name="ГруппаПадежи" id="29">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Именительный (Кто? Что?)</v8:content>
+							<v8:content>Падежи</v8:content>
 						</v8:item>
 					</Title>
-					<Width>40</Width>
-					<MaxWidth>50</MaxWidth>
-					<ContextMenu name="ИменительныйКонтекстноеМеню" id="5"/>
-					<ExtendedTooltip name="ИменительныйРасширеннаяПодсказка" id="6"/>
-				</InputField>
-				<InputField name="Родительный" id="7">
-					<DataPath>Родительный</DataPath>
+					<Group>AutoScreenTypeSensitive</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПадежиРасширеннаяПодсказка" id="30"/>
+					<ChildItems>
+						<UsualGroup name="ПадежиЛево" id="61">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Падежи лево</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ПадежиЛевоРасширеннаяПодсказка" id="62"/>
+							<ChildItems>
+								<InputField name="Именительный" id="4">
+									<DataPath>Именительный</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Именительный (Кто? Что?)</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<MaxWidth>50</MaxWidth>
+									<ContextMenu name="ИменительныйКонтекстноеМеню" id="5"/>
+									<ExtendedTooltip name="ИменительныйРасширеннаяПодсказка" id="6"/>
+								</InputField>
+								<InputField name="Родительный" id="7">
+									<DataPath>Родительный</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Родительный (Кого? Чего?)</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="РодительныйКонтекстноеМеню" id="8"/>
+									<ExtendedTooltip name="РодительныйРасширеннаяПодсказка" id="9"/>
+								</InputField>
+								<InputField name="Дательный" id="10">
+									<DataPath>Дательный</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дательный (Кому? Чему?)</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ДательныйКонтекстноеМеню" id="11"/>
+									<ExtendedTooltip name="ДательныйРасширеннаяПодсказка" id="12"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ПадежиПраво" id="63">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Падежи право</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ПадежиПравоРасширеннаяПодсказка" id="64"/>
+							<ChildItems>
+								<InputField name="Винительный" id="13">
+									<DataPath>Винительный</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Винительный (Кого? Что?)</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ВинительныйКонтекстноеМеню" id="14"/>
+									<ExtendedTooltip name="ВинительныйРасширеннаяПодсказка" id="15"/>
+								</InputField>
+								<InputField name="Творительный" id="16">
+									<DataPath>Творительный</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Творительный (Кем? Чем?)</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ТворительныйКонтекстноеМеню" id="17"/>
+									<ExtendedTooltip name="ТворительныйРасширеннаяПодсказка" id="18"/>
+								</InputField>
+								<InputField name="Предложный" id="19">
+									<DataPath>Предложный</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Предложный (О ком? О чем?)</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ПредложныйКонтекстноеМеню" id="20"/>
+									<ExtendedTooltip name="ПредложныйРасширеннаяПодсказка" id="21"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаИнформационнаяНадписьНедоступностьСервиса" id="47">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Родительный (Кого? Чего?)</v8:content>
+							<v8:content>Информационная надпись недоступность сервиса</v8:content>
 						</v8:item>
 					</Title>
-					<Width>40</Width>
-					<ContextMenu name="РодительныйКонтекстноеМеню" id="8"/>
-					<ExtendedTooltip name="РодительныйРасширеннаяПодсказка" id="9"/>
-				</InputField>
-				<InputField name="Дательный" id="10">
-					<DataPath>Дательный</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Дательный (Кому? Чему?)</v8:content>
-						</v8:item>
-					</Title>
-					<Width>40</Width>
-					<ContextMenu name="ДательныйКонтекстноеМеню" id="11"/>
-					<ExtendedTooltip name="ДательныйРасширеннаяПодсказка" id="12"/>
-				</InputField>
-				<InputField name="Винительный" id="13">
-					<DataPath>Винительный</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Винительный (Кого? Что?)</v8:content>
-						</v8:item>
-					</Title>
-					<Width>40</Width>
-					<ContextMenu name="ВинительныйКонтекстноеМеню" id="14"/>
-					<ExtendedTooltip name="ВинительныйРасширеннаяПодсказка" id="15"/>
-				</InputField>
-				<InputField name="Творительный" id="16">
-					<DataPath>Творительный</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Творительный (Кем? Чем?)</v8:content>
-						</v8:item>
-					</Title>
-					<Width>40</Width>
-					<ContextMenu name="ТворительныйКонтекстноеМеню" id="17"/>
-					<ExtendedTooltip name="ТворительныйРасширеннаяПодсказка" id="18"/>
-				</InputField>
-				<InputField name="Предложный" id="19">
-					<DataPath>Предложный</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Предложный (О ком? О чем?)</v8:content>
-						</v8:item>
-					</Title>
-					<Width>40</Width>
-					<ContextMenu name="ПредложныйКонтекстноеМеню" id="20"/>
-					<ExtendedTooltip name="ПредложныйРасширеннаяПодсказка" id="21"/>
-				</InputField>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаИнформационнаяНадписьНедоступностьСервиса" id="47">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Информационная надпись недоступность сервиса</v8:content>
-				</v8:item>
-			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаИнформационнаяНадписьНедоступностьСервисаРасширеннаяПодсказка" id="48"/>
-			<ChildItems>
-				<PictureDecoration name="ДекорацияКартинкаПредупреждение" id="52">
-					<Picture>
-						<xr:Ref>StdPicture.Information</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</Picture>
-					<FileDragMode>AsFile</FileDragMode>
-					<ContextMenu name="ДекорацияКартинкаПредупреждениеКонтекстноеМеню" id="53"/>
-					<ExtendedTooltip name="ДекорацияКартинкаПредупреждениеРасширеннаяПодсказка" id="54"/>
-				</PictureDecoration>
-				<LabelDecoration name="ДекорацияНадписьДоступностьСервиса" id="49">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<TextColor>style:ПоясняющийТекст</TextColor>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Не удалось просклонять с помощью сервиса Морфер.
-Склонение выполнено с помощью встроенных возможностей приложения.</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ДекорацияНадписьДоступностьСервисаКонтекстноеМеню" id="50"/>
-					<ExtendedTooltip name="ДекорацияНадписьДоступностьСервисаРасширеннаяПодсказка" id="51"/>
-				</LabelDecoration>
+					<HorizontalStretch>true</HorizontalStretch>
+					<Behavior>Usual</Behavior>
+					<Representation>WeakSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаИнформационнаяНадписьНедоступностьСервисаРасширеннаяПодсказка" id="48"/>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -309,27 +324,23 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="КомандаОК" id="1">
+		<Command name="ЗаписатьИЗакрыть" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Записать</v8:content>
+					<v8:content>Записать и закрыть</v8:content>
 				</v8:item>
 			</Title>
-			<Action>КомандаОК</Action>
-			<ModifiesSavedData>true</ModifiesSavedData>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="КомандаОтмена" id="2">
-			<Title>
+			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
+					<v8:content>Записать и закрыть</v8:content>
 				</v8:item>
-			</Title>
-			<Action>КомандаОтмена</Action>
+			</ToolTip>
+			<Action>ЗаписатьИЗакрыть</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="КомандаПросклонятьПовторно" id="3">
 			<Title>
@@ -338,18 +349,12 @@
 					<v8:content>Просклонять повторно</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Просклонять повторно</v8:content>
-				</v8:item>
-			</ToolTip>
 			<Picture>
 				<xr:Ref>CommonPicture.ЗаполнитьФорму</xr:Ref>
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<Action>КомандаПросклонятьПовторно</Action>
-			<Representation>Picture</Representation>
+			<Representation>TextPicture</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>

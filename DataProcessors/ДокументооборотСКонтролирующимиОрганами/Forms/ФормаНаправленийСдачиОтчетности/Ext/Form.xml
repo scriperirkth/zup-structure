@@ -9,9 +9,22 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<CommandBarLocation>Bottom</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="КнопкаОК" id="26">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<DefaultItem>true</DefaultItem>
+				<CommandName>Form.Command.КнопкаОК</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="КнопкаОКExtendedTooltip" id="41"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -54,6 +67,7 @@
 						<Table name="ПолучателиФНС" id="2">
 							<Representation>List</Representation>
 							<Height>13</Height>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Row</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -169,6 +183,7 @@
 												<v8:content>Редактировать</v8:content>
 											</v8:item>
 										</Title>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 										<ExtendedTooltip name="РедактироватьНаправлениеФНСРасширеннаяПодсказка" id="34"/>
 									</Button>
 									<Button name="УдалитьНаправлениеФНС" id="17">
@@ -185,6 +200,7 @@
 												<v8:content>Удалить</v8:content>
 											</v8:item>
 										</Title>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 										<ExtendedTooltip name="УдалитьНаправлениеФНСРасширеннаяПодсказка" id="35"/>
 									</Button>
 									<Button name="ВосстановитьНаправлениеФНС" id="18">
@@ -272,6 +288,7 @@
 						<Table name="ПолучателиФСГС" id="52">
 							<Representation>List</Representation>
 							<Height>13</Height>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Row</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -388,6 +405,7 @@
 												<v8:content>Редактировать</v8:content>
 											</v8:item>
 										</Title>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 										<ExtendedTooltip name="РедактироватьНаправлениеФСГСРасширеннаяПодсказка" id="79"/>
 									</Button>
 									<Button name="УдалитьНаправлениеФСГС" id="80">
@@ -404,6 +422,7 @@
 												<v8:content>Удалить</v8:content>
 											</v8:item>
 										</Title>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 										<ExtendedTooltip name="УдалитьНаправлениеФСГСРасширеннаяПодсказка" id="81"/>
 									</Button>
 									<Button name="ВосстановитьНаправлениеФСГС" id="82">
@@ -466,25 +485,6 @@
 				</Page>
 			</ChildItems>
 		</Pages>
-		<CommandBar name="ГруппаКнопок" id="25">
-			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="ГруппаКнопокExtendedTooltip" id="40"/>
-			<ChildItems>
-				<Button name="КнопкаОК" id="26">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<DefaultItem>true</DefaultItem>
-					<CommandName>Form.Command.КнопкаОК</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="КнопкаОКExtendedTooltip" id="41"/>
-				</Button>
-				<Button name="КнопкаОтмена" id="27">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.КнопкаОтмена</CommandName>
-					<ExtendedTooltip name="КнопкаОтменаExtendedTooltip" id="42"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -689,7 +689,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>РедактироватьНаправлениеФНС</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ПолучателиФНС</AssociatedTableElementId>
 		</Command>
 		<Command name="УдалитьНаправлениеФНС" id="3">
 			<Title>
@@ -705,7 +706,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>УдалитьНаправлениеФНС</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ПолучателиФНС</AssociatedTableElementId>
 		</Command>
 		<Command name="ВосстановитьНаправлениеФНС" id="4">
 			<Title>
@@ -727,7 +729,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Сохранить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -738,22 +740,7 @@
 			</ToolTip>
 			<Action>КнопкаОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="КнопкаОтмена" id="6">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КнопкаОтмена</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ДобавитьНаправлениеФСГС" id="7">
 			<Title>
@@ -785,7 +772,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>РедактироватьНаправлениеФСГС</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ПолучателиФСГС</AssociatedTableElementId>
 		</Command>
 		<Command name="УдалитьНаправлениеФСГС" id="9">
 			<Title>
@@ -801,7 +789,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>УдалитьНаправлениеФСГС</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ПолучателиФСГС</AssociatedTableElementId>
 		</Command>
 		<Command name="ВосстановитьНаправленияФСГС" id="10">
 			<Title>

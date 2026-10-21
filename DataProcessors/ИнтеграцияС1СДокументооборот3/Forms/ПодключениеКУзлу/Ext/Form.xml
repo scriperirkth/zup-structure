@@ -8,8 +8,10 @@
 	</Title>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
+	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
@@ -23,6 +25,7 @@
 			</Button>
 			<Button name="ФормаОтмена" id="10">
 				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
 				<CommandName>Form.StandardCommand.Cancel</CommandName>
 				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="11"/>
 			</Button>
@@ -40,7 +43,7 @@
 				</v8:item>
 			</Title>
 			<Width>60</Width>
-			<HorizontalStretch>false</HorizontalStretch>
+			<HorizontalStretch>true</HorizontalStretch>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
@@ -49,7 +52,16 @@
 			<ChildItems>
 				<InputField name="АдресВебСервиса" id="1">
 					<DataPath>АдресВебСервиса</DataPath>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес, по которому опубликован веб-сервис узла</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
 					<MarkRequiredComplete>true</MarkRequiredComplete>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<HorizontalStretch>true</HorizontalStretch>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -62,22 +74,11 @@
 					<ContextMenu name="АдресВебСервисаКонтекстноеМеню" id="2"/>
 					<ExtendedTooltip name="АдресВебСервисаРасширеннаяПодсказка" id="3"/>
 				</InputField>
-				<LabelDecoration name="ПояснениеАдресВебСервиса" id="25">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<TextColor>style:ПоясняющийТекст</TextColor>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Адрес, по которому опубликован веб-сервис узла.</v8:content>
-						</v8:item>
-					</Title>
-					<VerticalAlign>Top</VerticalAlign>
-					<ContextMenu name="ПояснениеАдресВебСервисаКонтекстноеМеню" id="26"/>
-					<ExtendedTooltip name="ПояснениеАдресВебСервисаРасширеннаяПодсказка" id="27"/>
-				</LabelDecoration>
 				<InputField name="ИмяПользователя" id="4">
 					<DataPath>ИмяПользователя</DataPath>
+					<EditMode>EnterOnInput</EditMode>
 					<MarkRequiredComplete>true</MarkRequiredComplete>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<HorizontalStretch>true</HorizontalStretch>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -86,6 +87,8 @@
 				</InputField>
 				<InputField name="Пароль" id="7">
 					<DataPath>Пароль</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<HorizontalStretch>true</HorizontalStretch>
 					<PasswordMode>true</PasswordMode>
@@ -186,12 +189,8 @@
 					<v8:content>Подключиться</v8:content>
 				</v8:item>
 			</Title>
-			<Picture>
-				<xr:Ref>CommonPicture.Успешно</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
-			</Picture>
 			<Action>Подключиться</Action>
-			<Representation>TextPicture</Representation>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

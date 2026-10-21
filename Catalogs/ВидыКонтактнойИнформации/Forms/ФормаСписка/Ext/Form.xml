@@ -2,23 +2,29 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<CommandSet>
-		<ExcludedCommand>CreateFolder</ExcludedCommand>
-		<ExcludedCommand>MoveItem</ExcludedCommand>
-	</CommandSet>
+	<CommandBarLocation>Top</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="ФормаПерейтиКСписку" id="55">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ПерейтиКСписку</CommandName>
+			<Popup name="ГруппаПользовательскихНастроек" id="42">
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Перейти к списку...</v8:content>
+						<v8:content>Группа пользовательских настроек</v8:content>
 					</v8:item>
 				</Title>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаПерейтиКСпискуРасширеннаяПодсказка" id="56"/>
+				<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="43"/>
+			</Popup>
+			<Button name="ИзменитьФорму" id="81">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+				<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="82"/>
+			</Button>
+			<Button name="ФормаСправка" id="83">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="84"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -26,27 +32,14 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаПользовательскихНастроек" id="42">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа пользовательских настроек</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="43"/>
-		</UsualGroup>
 		<Table name="Список" id="1">
 			<Representation>Tree</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
+			<CommandBarLocation>Top</CommandBarLocation>
 			<SkipOnInput>false</SkipOnInput>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<Header>false</Header>
-			<HorizontalLinesBWA>false</HorizontalLinesBWA>
+			<HorizontalLinesBWA>true</HorizontalLinesBWA>
 			<InitialTreeView>ExpandAllLevels</InitialTreeView>
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
@@ -66,6 +59,7 @@
 				<ExcludedCommand>CreateFolder</ExcludedCommand>
 				<ExcludedCommand>MoveItem</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -96,7 +90,22 @@
 					</Button>
 				</ChildItems>
 			</ContextMenu>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<ChildItems>
+					<Button name="ФормаПерейтиКСписку" id="55">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПерейтиКСписку</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Перейти к списку...</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ФормаПерейтиКСпискуРасширеннаяПодсказка" id="56"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="34"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="46">
 				<AdditionSource>
@@ -135,7 +144,8 @@
 							<v8:content>Вид контактной информации</v8:content>
 						</v8:item>
 					</Title>
-					<HorizontalStretch>false</HorizontalStretch>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="38"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="39"/>
 				</LabelField>
@@ -144,6 +154,8 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="31"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="36"/>
@@ -378,6 +390,10 @@
 					<dcssch:dataPath>ТелефонСДобавочнымНомером</dcssch:dataPath>
 					<dcssch:field>ТелефонСДобавочнымНомером</dcssch:field>
 				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОтредактированныеПредопределенныеРеквизиты</dcssch:dataPath>
+					<dcssch:field>ОтредактированныеПредопределенныеРеквизиты</dcssch:field>
+				</Field>
 				<MainTable>Catalog.ВидыКонтактнойИнформации</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -417,6 +433,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПерейтиКСписку</Action>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

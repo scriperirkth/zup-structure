@@ -8,6 +8,39 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Назад" id="79">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<SkipOnInput>true</SkipOnInput>
+				<CommandName>Form.Command.Назад</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Назад</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="НазадРасширеннаяПодсказка" id="80"/>
+			</Button>
+			<Button name="Зарегистрироваться" id="24">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Зарегистрироваться</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Зарегистрироваться</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ЗарегистрироватьсяРасширеннаяПодсказка" id="25"/>
+			</Button>
+			<Button name="Справка" id="1">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="2"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -31,7 +64,7 @@
 							<v8:content>Требуется создать администратора</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>AutoScreenTypeSensitive</Group>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ТребуетсяСоздатьАдминистратораРасширеннаяПодсказка" id="43"/>
 					<ChildItems>
@@ -70,7 +103,7 @@
 							<v8:content>Требуется разблокировать</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>AutoScreenTypeSensitive</Group>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ТребуетсяРазблокироватьРасширеннаяПодсказка" id="88"/>
 					<ChildItems>
@@ -114,7 +147,7 @@
 							<v8:content>Предложение регистрации</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>AutoScreenTypeSensitive</Group>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ПредложениеРегистрацииРасширеннаяПодсказка" id="16"/>
 					<ChildItems>
@@ -134,6 +167,7 @@
 									<v8:content>Пояснение регистрации</v8:content>
 								</v8:item>
 							</Title>
+							<HorizontalStretch>false</HorizontalStretch>
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>NormalSeparation</Representation>
@@ -168,6 +202,8 @@
 										</v8:item>
 									</ToolTip>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<InputHint>
 										<v8:item>
@@ -197,7 +233,6 @@
 									<Behavior>Collapsible</Behavior>
 									<Collapsed>true</Collapsed>
 									<ControlRepresentation>Button</ControlRepresentation>
-									<Representation>None</Representation>
 									<ExtendedTooltip name="ГруппаВыборСервераВзаимодействияРасширеннаяПодсказка" id="126"/>
 									<ChildItems>
 										<RadioButtonField name="ВыборСервераВзаимодействияДиалог" id="111">
@@ -209,6 +244,15 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Для разблокировки настройки необходимо включить доступ к Интернет-сервисам "Интернет-поддержка и сервисы" — "Разрешить доступ к Интернет-сервисам".</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<RadioButtonType>RadioButtons</RadioButtonType>
 											<ChoiceList>
 												<xr:Item>
@@ -226,51 +270,18 @@
 												</xr:Item>
 											</ChoiceList>
 											<ContextMenu name="ВыборСервераВзаимодействияДиалогКонтекстноеМеню" id="112"/>
-											<ExtendedTooltip name="ВыборСервераВзаимодействияДиалогРасширеннаяПодсказка" id="113"/>
+											<ExtendedTooltip name="ВыборСервераВзаимодействияДиалогРасширеннаяПодсказка" id="113">
+												<Title formatted="false">
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Для разблокировки настройки необходимо включить доступ к Интернет-сервисам "Интернет-поддержка и сервисы" — "Разрешить доступ к Интернет-сервисам".</v8:content>
+													</v8:item>
+												</Title>
+											</ExtendedTooltip>
 											<Events>
 												<Event name="OnChange">ВыборСервераВзаимодействияДиалогПриИзменении</Event>
 											</Events>
 										</RadioButtonField>
-										<UsualGroup name="ГруппаКомментарийРазрешенДоступКИнтернетСервисам" id="127">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Комментарий разрешен доступ к интернет сервисам</v8:content>
-												</v8:item>
-											</Title>
-											<HorizontalStretch>true</HorizontalStretch>
-											<Group>AlwaysHorizontal</Group>
-											<Representation>WeakSeparation</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаКомментарийРазрешенДоступКИнтернетСервисамРасширеннаяПодсказка" id="128"/>
-											<ChildItems>
-												<PictureDecoration name="ДекорацияРазрешенДоступКИнтернетСервисам" id="129">
-													<Title formatted="false">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Декорация разрешен доступ к интернет сервисам</v8:content>
-														</v8:item>
-													</Title>
-													<Picture>
-														<xr:Ref>CommonPicture.ИнформацияПоНедоступнымПолям</xr:Ref>
-														<xr:LoadTransparent>false</xr:LoadTransparent>
-													</Picture>
-													<ContextMenu name="ДекорацияРазрешенДоступКИнтернетСервисамКонтекстноеМеню" id="130"/>
-													<ExtendedTooltip name="ДекорацияРазрешенДоступКИнтернетСервисамРасширеннаяПодсказка" id="131"/>
-												</PictureDecoration>
-												<LabelDecoration name="КомментарийРазрешенДоступКИнтернетСервисам" id="132">
-													<HorizontalStretch>false</HorizontalStretch>
-													<Title formatted="false">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Для разблокировки настройки необходимо включить доступ к Интернет-сервисам "Интернет-поддержка и сервисы" — "Разрешить доступ к Интернет-сервисам".</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="КомментарийРазрешенДоступКИнтернетСервисамКонтекстноеМеню" id="133"/>
-													<ExtendedTooltip name="КомментарийРазрешенДоступКИнтернетСервисамРасширеннаяПодсказка" id="134"/>
-												</LabelDecoration>
-											</ChildItems>
-										</UsualGroup>
 										<RadioButtonField name="ВыборСервераВзаимодействияЛокально" id="114">
 											<DataPath>ВыборСервераВзаимодействия</DataPath>
 											<Title>
@@ -281,6 +292,8 @@
 											</Title>
 											<TitleLocation>None</TitleLocation>
 											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<RadioButtonType>Auto</RadioButtonType>
 											<ChoiceList>
 												<xr:Item>
@@ -323,11 +336,6 @@
 											<ShowTitle>false</ShowTitle>
 											<ExtendedTooltip name="ГруппаЛокальныйСерверВзаимодействияРасширеннаяПодсказка" id="121"/>
 											<ChildItems>
-												<LabelDecoration name="ДекорацияПропуск" id="122">
-													<Width>1</Width>
-													<ContextMenu name="ДекорацияПропускКонтекстноеМеню" id="123"/>
-													<ExtendedTooltip name="ДекорацияПропускРасширеннаяПодсказка" id="124"/>
-												</LabelDecoration>
 												<InputField name="АдресЛокальногоСервераВзаимодействия" id="117">
 													<DataPath>АдресСервераВзаимодействия</DataPath>
 													<Title>
@@ -337,6 +345,9 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<AutoMaxWidth>false</AutoMaxWidth>
 													<InputHint>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -364,6 +375,7 @@
 							<v8:content>Ввод кода регистрации</v8:content>
 						</v8:item>
 					</Title>
+					<HorizontalStretch>false</HorizontalStretch>
 					<Group>Vertical</Group>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ВводКодаРегистрацииРасширеннаяПодсказка" id="11"/>
@@ -388,6 +400,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<InputHint>
 								<v8:item>
@@ -484,86 +498,6 @@
 				</Page>
 			</ChildItems>
 		</Pages>
-		<UsualGroup name="КомандныеПанели" id="85">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командные панели</v8:content>
-				</v8:item>
-			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="КомандныеПанелиРасширеннаяПодсказка" id="86"/>
-			<ChildItems>
-				<CommandBar name="ЛеваяКоманднаяПанель" id="81">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Левая командная панель</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ЛеваяКоманднаяПанельРасширеннаяПодсказка" id="82"/>
-					<ChildItems>
-						<Button name="Назад" id="79">
-							<Type>CommandBarButton</Type>
-							<SkipOnInput>true</SkipOnInput>
-							<CommandName>Form.Command.Назад</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>&lt; Назад</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="НазадРасширеннаяПодсказка" id="80"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
-				<CommandBar name="ПраваяКоманднаяПанель" id="83">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Правая командная панель</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalLocation>Right</HorizontalLocation>
-					<ExtendedTooltip name="ПраваяКоманднаяПанельРасширеннаяПодсказка" id="84"/>
-					<ChildItems>
-						<Button name="Зарегистрироваться" id="24">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<CommandName>Form.Command.Зарегистрироваться</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Зарегистрироваться &gt;</v8:content>
-								</v8:item>
-							</Title>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ЗарегистрироватьсяРасширеннаяПодсказка" id="25"/>
-						</Button>
-						<Button name="Закрыть" id="47">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.Close</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Закрыть</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="48"/>
-						</Button>
-						<Button name="Справка" id="1">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.Help</CommandName>
-							<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="2"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -683,6 +617,7 @@
 			</Title>
 			<Action>Зарегистрироваться</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Назад" id="2">
 			<Title>
@@ -697,8 +632,13 @@
 					<v8:content>Назад</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GoBack</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>Назад</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

@@ -32,6 +32,7 @@
 			</Button>
 			<Button name="ФормаОтмена" id="10">
 				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
 				<CommandName>Form.Command.Отмена</CommandName>
 				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="11"/>
 			</Button>
@@ -115,7 +116,6 @@
 					<DataPath>ПереченьОКТМО[0].ОКТМО</DataPath>
 					<TitleLocation>None</TitleLocation>
 					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-					<MarkRequiredComplete>true</MarkRequiredComplete>
 					<Width>31</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>30</MaxWidth>
@@ -251,70 +251,9 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="НесколькоОКТМОРасширеннаяПодсказка" id="13"/>
 									<ChildItems>
-										<UsualGroup name="КнопкиТаблицыОКТМО" id="14">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Кнопки таблицы ОКТМО</v8:content>
-												</v8:item>
-											</Title>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Кнопки таблицы ОКТМО</v8:content>
-												</v8:item>
-											</ToolTip>
-											<Group>HorizontalIfPossible</Group>
-											<VerticalAlign>Center</VerticalAlign>
-											<Behavior>Usual</Behavior>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="КнопкиТаблицыОКТМОРасширеннаяПодсказка" id="15"/>
-											<ChildItems>
-												<Button name="ПереченьОКТМОПодобрать" id="16">
-													<Type>UsualButton</Type>
-													<CommandName>Form.Command.Подобрать</CommandName>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Выбрать</v8:content>
-														</v8:item>
-													</Title>
-													<ExtendedTooltip name="ПереченьОКТМОПодобратьРасширеннаяПодсказка" id="17"/>
-												</Button>
-												<CommandBar name="НеважныеКнопки" id="18">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Неважные кнопки</v8:content>
-														</v8:item>
-													</Title>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Неважные кнопки</v8:content>
-														</v8:item>
-													</ToolTip>
-													<HorizontalStretch>false</HorizontalStretch>
-													<ExtendedTooltip name="НеважныеКнопкиРасширеннаяПодсказка" id="19"/>
-													<ChildItems>
-														<Button name="Добавить" id="100">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Item.ПереченьОКТМО.StandardCommand.Add</CommandName>
-															<ExtendedTooltip name="ДобавитьРасширеннаяПодсказка" id="101"/>
-														</Button>
-														<Button name="Изменить" id="102">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Item.ПереченьОКТМО.StandardCommand.Change</CommandName>
-															<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-															<ExtendedTooltip name="ИзменитьРасширеннаяПодсказка" id="103"/>
-														</Button>
-													</ChildItems>
-												</CommandBar>
-											</ChildItems>
-										</UsualGroup>
 										<Table name="ПереченьОКТМО" id="81">
 											<Representation>List</Representation>
+											<SelectionMode>SingleRow</SelectionMode>
 											<RowSelectionMode>Cell</RowSelectionMode>
 											<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 											<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -325,6 +264,30 @@
 											<ContextMenu name="ПереченьОКТМОКонтекстноеМеню" id="82"/>
 											<AutoCommandBar name="ПереченьОКТМОКоманднаяПанель" id="83">
 												<Autofill>false</Autofill>
+												<ChildItems>
+													<Button name="ПереченьОКТМОПодобрать" id="16">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.Подобрать</CommandName>
+														<Title>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Выбрать</v8:content>
+															</v8:item>
+														</Title>
+														<ExtendedTooltip name="ПереченьОКТМОПодобратьРасширеннаяПодсказка" id="17"/>
+													</Button>
+													<Button name="Добавить" id="100">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.ПереченьОКТМО.StandardCommand.Add</CommandName>
+														<ExtendedTooltip name="ДобавитьРасширеннаяПодсказка" id="101"/>
+													</Button>
+													<Button name="Изменить" id="102">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.ПереченьОКТМО.StandardCommand.Change</CommandName>
+														<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+														<ExtendedTooltip name="ИзменитьРасширеннаяПодсказка" id="103"/>
+													</Button>
+												</ChildItems>
 											</AutoCommandBar>
 											<ExtendedTooltip name="ПереченьОКТМОРасширеннаяПодсказка" id="84"/>
 											<SearchStringAddition name="ПереченьОКТМОСтрокаПоиска" id="85">
@@ -536,6 +499,7 @@
 			</ToolTip>
 			<Action>Выбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="2">
 			<Title>

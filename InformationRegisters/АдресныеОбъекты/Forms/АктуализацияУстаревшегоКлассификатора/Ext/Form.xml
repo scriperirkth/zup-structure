@@ -11,28 +11,26 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Применить" id="9">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Применить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Применить</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="10"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<LabelDecoration name="НадписьЗаголовка" id="33">
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<MaxWidth>63</MaxWidth>
-			<Title formatted="true">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>
-Адресный классификатор изменен на формат государственного адресного реестра (ГАР), согласно Приказу ФНС России от 13.05.2020 № ЕД-7-6/329@ "Об утверждении формата выгрузки сведений об адресах, содержащихся в Государственном адресном реестре..." , ранее загруженный классификатор стал недействительным. Загрузка новых адресных сведений в приложение занимает длительное время и больше места на компьютере, поэтому для ввода и проверки адресов рекомендуется использовать веб-сервис. С его помощью не потребуется регулярно загружать классификатор и следить за его актуальностью.
-
-
-Выберите один из вариантов:</v8:content>
-				</v8:item>
-			</Title>
-			<TitleHeight>6</TitleHeight>
-			<ContextMenu name="НадписьЗаголовкаКонтекстноеМеню" id="34"/>
-			<ExtendedTooltip name="НадписьЗаголовкаРасширеннаяПодсказка" id="35"/>
-		</LabelDecoration>
 		<RadioButtonField name="ВариантыАктуализации" id="4">
 			<DataPath>ВариантыАктуализации</DataPath>
 			<Title>
@@ -42,6 +40,8 @@
 				</v8:item>
 			</Title>
 			<TitleLocation>None</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<RadioButtonType>Auto</RadioButtonType>
 			<ColumnsCount>1</ColumnsCount>
 			<ChoiceList>
@@ -75,36 +75,6 @@
 			<ContextMenu name="ВариантыАктуализацииКонтекстноеМеню" id="5"/>
 			<ExtendedTooltip name="ВариантыАктуализацииРасширеннаяПодсказка" id="6"/>
 		</RadioButtonField>
-		<CommandBar name="ГруппаКоманднаяПанель" id="7">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="8"/>
-			<ChildItems>
-				<Button name="ОК" id="9">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.ОК</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ОК</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="10"/>
-				</Button>
-				<Button name="Отмена" id="36">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.StandardCommand.Cancel</CommandName>
-					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="37"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ВариантыАктуализации" id="1">
@@ -135,21 +105,22 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ОК" id="1">
+		<Command name="Применить" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ОК</Action>
+			<Action>Применить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

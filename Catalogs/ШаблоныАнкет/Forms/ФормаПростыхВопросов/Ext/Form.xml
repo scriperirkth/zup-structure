@@ -15,7 +15,7 @@
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="КнопкаГотово" id="11">
+			<Button name="КнопкаДобавить" id="11">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
 				<SkipOnInput>false</SkipOnInput>
@@ -23,16 +23,23 @@
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Готово</v8:content>
+						<v8:content>Добавить</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="КнопкаГотовоРасширеннаяПодсказка" id="22"/>
+				<ExtendedTooltip name="КнопкаДобавитьРасширеннаяПодсказка" id="22"/>
 			</Button>
 			<Button name="Закрыть" id="12">
 				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
 				<SkipOnInput>false</SkipOnInput>
 				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отмена</v8:content>
+					</v8:item>
+				</Title>
 				<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="23"/>
 			</Button>
 		</ChildItems>
@@ -51,10 +58,8 @@
 					<v8:content>Элементарный вопрос</v8:content>
 				</v8:item>
 			</Title>
-			<MarkRequiredComplete>true</MarkRequiredComplete>
-			<Width>40</Width>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<HorizontalStretch>false</HorizontalStretch>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 			<AutoMarkIncomplete>true</AutoMarkIncomplete>
 			<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
@@ -64,233 +69,186 @@
 				<Event name="ChoiceProcessing">ЭлементарныйВопросОбработкаВыбора</Event>
 			</Events>
 		</InputField>
-		<UsualGroup name="ГруппаФормулировка" id="49">
+		<InputField name="Формулировка" id="1">
+			<DataPath>Формулировка</DataPath>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Формулировка</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>NormalSeparation</Representation>
-			<ExtendedTooltip name="ГруппаФормулировкаРасширеннаяПодсказка" id="50"/>
-			<ChildItems>
-				<InputField name="Формулировка" id="1">
-					<DataPath>Формулировка</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Формулировка</v8:content>
-						</v8:item>
-					</Title>
-					<TitleLocation>None</TitleLocation>
-					<MarkRequiredComplete>true</MarkRequiredComplete>
-					<Width>40</Width>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MultiLine>true</MultiLine>
-					<ExtendedEdit>true</ExtendedEdit>
-					<AutoMarkIncomplete>true</AutoMarkIncomplete>
-					<ContextMenu name="ФормулировкаКонтекстноеМеню" id="2"/>
-					<ExtendedTooltip name="ФормулировкаРасширеннаяПодсказка" id="16"/>
-				</InputField>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаОбязательный" id="35">
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MaxWidth>80</MaxWidth>
+			<MultiLine>true</MultiLine>
+			<ExtendedEdit>true</ExtendedEdit>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="ФормулировкаКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ФормулировкаРасширеннаяПодсказка" id="16"/>
+		</InputField>
+		<RadioButtonField name="ПризнакОбязательный" id="51">
+			<DataPath>ПризнакОбязательный</DataPath>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Обязательный</v8:content>
+					<v8:content>На этот вопрос</v8:content>
 				</v8:item>
 			</Title>
-			<Group>Vertical</Group>
-			<Representation>NormalSeparation</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаОбязательныйРасширеннаяПодсказка" id="36"/>
-			<ChildItems>
-				<RadioButtonField name="ПризнакОбязательный" id="51">
-					<DataPath>ПризнакОбязательный</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>На этот вопрос</v8:content>
-						</v8:item>
-					</Title>
-					<RadioButtonType>Auto</RadioButtonType>
-					<ColumnsCount>1</ColumnsCount>
-					<ChoiceList>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Необязательно отвечать</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:decimal">0</Value>
-							</xr:Value>
-						</xr:Item>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Обязательно ответить</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:decimal">1</Value>
-							</xr:Value>
-						</xr:Item>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Обязательно ответить или отказаться</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:decimal">2</Value>
-							</xr:Value>
-						</xr:Item>
-					</ChoiceList>
-					<ContextMenu name="ПризнакОбязательныйКонтекстноеМеню" id="52"/>
-					<ExtendedTooltip name="ПризнакОбязательныйРасширеннаяПодсказка" id="53"/>
-					<Events>
-						<Event name="OnChange">ПризнакОбязательныйПриИзменении</Event>
-					</Events>
-				</RadioButtonField>
-				<InputField name="ФормулировкаОтказаОтОтвета" id="42">
-					<DataPath>ФормулировкаОтказаОтОтвета</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Формулировка отказа</v8:content>
-						</v8:item>
-					</Title>
-					<TitleLocation>Left</TitleLocation>
-					<Width>20</Width>
-					<HorizontalStretch>false</HorizontalStretch>
-					<InputHint>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Затрудняюсь ответить</v8:content>
-						</v8:item>
-					</InputHint>
-					<ContextMenu name="ФормулировкаОтказаОтОтветаКонтекстноеМеню" id="43"/>
-					<ExtendedTooltip name="ФормулировкаОтказаОтОтветаРасширеннаяПодсказка" id="44"/>
-				</InputField>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаПодсказка" id="27">
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<RadioButtonType>Tumbler</RadioButtonType>
+			<ColumnsCount>3</ColumnsCount>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Необязательно отвечать</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:decimal">0</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Обязательно ответить</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:decimal">1</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Обязательно ответить или отказаться</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:decimal">2</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="ПризнакОбязательныйКонтекстноеМеню" id="52"/>
+			<ExtendedTooltip name="ПризнакОбязательныйРасширеннаяПодсказка" id="53"/>
+			<Events>
+				<Event name="OnChange">ПризнакОбязательныйПриИзменении</Event>
+			</Events>
+		</RadioButtonField>
+		<InputField name="ФормулировкаОтказаОтОтвета" id="42">
+			<DataPath>ФормулировкаОтказаОтОтвета</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формулировка отказа</v8:content>
+				</v8:item>
+			</Title>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<InputHint>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Затрудняюсь ответить</v8:content>
+				</v8:item>
+			</InputHint>
+			<ContextMenu name="ФормулировкаОтказаОтОтветаКонтекстноеМеню" id="43"/>
+			<ExtendedTooltip name="ФормулировкаОтказаОтОтветаРасширеннаяПодсказка" id="44"/>
+		</InputField>
+		<InputField name="Подсказка" id="32">
+			<DataPath>Подсказка</DataPath>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Подсказка</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AlwaysHorizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>NormalSeparation</Representation>
-			<ExtendedTooltip name="ГруппаПодсказкаРасширеннаяПодсказка" id="28"/>
-			<ChildItems>
-				<InputField name="Подсказка" id="32">
-					<DataPath>Подсказка</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Подсказка</v8:content>
-						</v8:item>
-					</Title>
-					<TitleLocation>None</TitleLocation>
-					<VerticalStretch>false</VerticalStretch>
-					<MultiLine>true</MultiLine>
-					<ExtendedEdit>true</ExtendedEdit>
-					<ContextMenu name="ПодсказкаКонтекстноеМеню" id="33"/>
-					<ExtendedTooltip name="ПодсказкаРасширеннаяПодсказка" id="34"/>
-				</InputField>
-				<RadioButtonField name="СпособОтображенияПодсказки" id="29">
-					<DataPath>СпособОтображенияПодсказки</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Способ отображения подсказки</v8:content>
-						</v8:item>
-					</Title>
-					<TitleLocation>None</TitleLocation>
-					<RadioButtonType>Auto</RadioButtonType>
-					<ColumnsCount>1</ColumnsCount>
-					<ChoiceList>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Контекстная подсказка</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xr:DesignTimeRef">Enum.СпособыОтображенияПодсказок.EnumValue.КонтекстнаяПодсказка</Value>
-							</xr:Value>
-						</xr:Item>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Знак вопроса справа</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xr:DesignTimeRef">Enum.СпособыОтображенияПодсказок.EnumValue.ЗнакВопросаСправа</Value>
-							</xr:Value>
-						</xr:Item>
-					</ChoiceList>
-					<ContextMenu name="СпособОтображенияПодсказкиКонтекстноеМеню" id="30"/>
-					<ExtendedTooltip name="СпособОтображенияПодсказкиРасширеннаяПодсказка" id="31"/>
-				</RadioButtonField>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаЗаметки" id="45">
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MaxWidth>80</MaxWidth>
+			<Height>2</Height>
+			<VerticalStretch>false</VerticalStretch>
+			<MultiLine>true</MultiLine>
+			<ExtendedEdit>true</ExtendedEdit>
+			<ContextMenu name="ПодсказкаКонтекстноеМеню" id="33"/>
+			<ExtendedTooltip name="ПодсказкаРасширеннаяПодсказка" id="34"/>
+		</InputField>
+		<RadioButtonField name="СпособОтображенияПодсказки" id="29">
+			<DataPath>СпособОтображенияПодсказки</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способ отображения подсказки</v8:content>
+				</v8:item>
+			</Title>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<RadioButtonType>Tumbler</RadioButtonType>
+			<ColumnsCount>2</ColumnsCount>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Контекстная подсказка</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.СпособыОтображенияПодсказок.EnumValue.КонтекстнаяПодсказка</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Знак вопроса справа</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.СпособыОтображенияПодсказок.EnumValue.ЗнакВопросаСправа</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="СпособОтображенияПодсказкиКонтекстноеМеню" id="30"/>
+			<ExtendedTooltip name="СпособОтображенияПодсказкиРасширеннаяПодсказка" id="31"/>
+		</RadioButtonField>
+		<InputField name="Заметки" id="24">
+			<DataPath>Заметки</DataPath>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Заметки</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AlwaysHorizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>NormalSeparation</Representation>
-			<ExtendedTooltip name="ГруппаЗаметкиРасширеннаяПодсказка" id="46"/>
-			<ChildItems>
-				<InputField name="Заметки" id="24">
-					<DataPath>Заметки</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Заметки</v8:content>
-						</v8:item>
-					</Title>
-					<TitleLocation>None</TitleLocation>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<VerticalStretch>false</VerticalStretch>
-					<MultiLine>true</MultiLine>
-					<ChoiceButton>true</ChoiceButton>
-					<ContextMenu name="ЗаметкиКонтекстноеМеню" id="25"/>
-					<ExtendedTooltip name="ЗаметкиРасширеннаяПодсказка" id="26"/>
-					<Events>
-						<Event name="StartChoice">ЗаметкиНачалоВыбора</Event>
-					</Events>
-				</InputField>
-			</ChildItems>
-		</UsualGroup>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MaxWidth>80</MaxWidth>
+			<Height>2</Height>
+			<VerticalStretch>false</VerticalStretch>
+			<MultiLine>true</MultiLine>
+			<ChoiceButton>true</ChoiceButton>
+			<ContextMenu name="ЗаметкиКонтекстноеМеню" id="25"/>
+			<ExtendedTooltip name="ЗаметкиРасширеннаяПодсказка" id="26"/>
+			<Events>
+				<Event name="StartChoice">ЗаметкиНачалоВыбора</Event>
+			</Events>
+		</InputField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ЭлементарныйВопрос" id="1">
@@ -441,7 +399,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Перенести в шаблон</v8:content>
+					<v8:content>Добавить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -452,6 +410,14 @@
 			</ToolTip>
 			<Action>ПеренестиВШаблон</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
+	<Parameters>
+		<Parameter name="ЭтоНоваяСтрока">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
 </Form>

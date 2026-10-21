@@ -9,17 +9,6 @@
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="ФормаПроверитьПодключение" id="22">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ПроверитьПодключение</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Проверить подключение</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаПроверитьПодключениеРасширеннаяПодсказка" id="23"/>
-			</Button>
 			<Button name="ФормаГотово" id="20">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
@@ -33,13 +22,40 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаГотовоРасширеннаяПодсказка" id="21"/>
 			</Button>
+			<Button name="ФормаПроверитьПодключение" id="22">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПроверитьПодключение</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Проверить подключение</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаПроверитьПодключениеРасширеннаяПодсказка" id="23"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаПредупреждениеОДвухфакторнойАутентификации" id="40">
+		<InputField name="АдресВебСервиса" id="24">
+			<DataPath>Объект.АдресВебСервиса</DataPath>
+			<ContextMenu name="АдресВебСервисаКонтекстноеМеню" id="25"/>
+			<ExtendedTooltip name="АдресВебСервисаРасширеннаяПодсказка" id="26"/>
+		</InputField>
+		<Button name="ПараметрыДоступаВИнтернет" id="38">
+			<Type>Hyperlink</Type>
+			<CommandName>Form.Command.ПараметрыДоступаВИнтернет</CommandName>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры доступа в Интернет</v8:content>
+				</v8:item>
+			</Title>
+			<ExtendedTooltip name="ПараметрыДоступаВИнтернетРасширеннаяПодсказка" id="39"/>
+		</Button>
+		<UsualGroup name="ГруппаПредупреждениеОДвухфакторнойАутентификации" id="45">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -50,10 +66,10 @@
 			<Group>HorizontalIfPossible</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<BackColor>style:ToolTipBackColor</BackColor>
-			<ExtendedTooltip name="ГруппаПредупреждениеОДвухфакторнойАутентификацииРасширеннаяПодсказка" id="41"/>
+			<BackColor>pal:FirstBrand</BackColor>
+			<ExtendedTooltip name="ГруппаПредупреждениеОДвухфакторнойАутентификацииРасширеннаяПодсказка" id="46"/>
 			<ChildItems>
-				<PictureDecoration name="КартинкаГруппаПредупреждениеОДвухфакторнойАутентификации" id="42">
+				<PictureDecoration name="КартинкаПредупреждениеОДвухфакторнойАутентификации" id="47">
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -61,50 +77,24 @@
 						</v8:item>
 					</Title>
 					<Picture>
-						<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
+						<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
 					</Picture>
-					<ContextMenu name="КартинкаГруппаПредупреждениеОДвухфакторнойАутентификацииКонтекстноеМеню" id="43"/>
-					<ExtendedTooltip name="КартинкаГруппаПредупреждениеОДвухфакторнойАутентификацииРасширеннаяПодсказка" id="44"/>
+					<ContextMenu name="КартинкаПредупреждениеОДвухфакторнойАутентификацииКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="КартинкаПредупреждениеОДвухфакторнойАутентификацииРасширеннаяПодсказка" id="49"/>
 				</PictureDecoration>
-				<LabelDecoration name="НадписьГруппаПредупреждениеОДвухфакторнойАутентификации" id="45">
+				<LabelDecoration name="НадписьПредупреждениеОДвухфакторнойАутентификации" id="50">
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Синхронизация не сможет выполняться, если у пользователя установлена двухфакторная аутентификация.</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="НадписьГруппаПредупреждениеОДвухфакторнойАутентификацииКонтекстноеМеню" id="46"/>
-					<ExtendedTooltip name="НадписьГруппаПредупреждениеОДвухфакторнойАутентификацииРасширеннаяПодсказка" id="47"/>
+					<ContextMenu name="НадписьПредупреждениеОДвухфакторнойАутентификацииКонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="НадписьПредупреждениеОДвухфакторнойАутентификацииРасширеннаяПодсказка" id="52"/>
 				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
-		<InputField name="КаталогОбменаИнформацией" id="12">
-			<TitleLocation>Top</TitleLocation>
-			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-			<Width>40</Width>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<ChoiceButton>true</ChoiceButton>
-			<OpenButton>true</OpenButton>
-			<ContextMenu name="КаталогОбменаИнформациейКонтекстноеМеню" id="13"/>
-			<ExtendedTooltip name="КаталогОбменаИнформациейРасширеннаяПодсказка" id="14">
-				<Title formatted="false">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Укажите локальный или сетевой каталог, который будет использоваться для передачи сообщений обмена.</v8:content>
-					</v8:item>
-				</Title>
-			</ExtendedTooltip>
-			<Events>
-				<Event name="StartChoice">КаталогОбменаИнформациейНачалоВыбора</Event>
-				<Event name="Opening">КаталогОбменаИнформациейОткрытие</Event>
-			</Events>
-		</InputField>
-		<InputField name="АдресВебСервиса" id="24">
-			<DataPath>Объект.АдресВебСервиса</DataPath>
-			<ContextMenu name="АдресВебСервисаКонтекстноеМеню" id="25"/>
-			<ExtendedTooltip name="АдресВебСервисаРасширеннаяПодсказка" id="26"/>
-		</InputField>
 		<InputField name="ИмяПользователь" id="27">
 			<DataPath>Объект.ИмяПользователя</DataPath>
 			<ContextMenu name="ИмяПользовательКонтекстноеМеню" id="28"/>
@@ -117,7 +107,7 @@
 					<v8:content>Пароль</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>Vertical</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаПарольРасширеннаяПодсказка" id="34"/>
@@ -125,8 +115,17 @@
 				<InputField name="Пароль" id="30">
 					<DataPath>Объект.Пароль</DataPath>
 					<PasswordMode>true</PasswordMode>
+					<ChoiceButton>true</ChoiceButton>
+					<ChoiceButtonPicture>
+						<xr:Ref>StdPicture.ShowPassword</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</ChoiceButtonPicture>
 					<ContextMenu name="ПарольКонтекстноеМеню" id="31"/>
 					<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="32"/>
+					<Events>
+						<Event name="EditTextChange">ПарольИзменениеТекстаРедактирования</Event>
+						<Event name="StartChoice">ПарольНачалоВыбора</Event>
+					</Events>
 				</InputField>
 				<CheckBoxField name="ЗапомнитьПароль" id="35">
 					<DataPath>Объект.ЗапомнитьПароль</DataPath>
@@ -136,17 +135,6 @@
 				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
-		<Button name="ПараметрыДоступаВИнтернет" id="38">
-			<Type>Hyperlink</Type>
-			<CommandName>Form.Command.ПараметрыДоступаВИнтернет</CommandName>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Параметры доступа в Интернет</v8:content>
-				</v8:item>
-			</Title>
-			<ExtendedTooltip name="ПараметрыДоступаВИнтернетРасширеннаяПодсказка" id="39"/>
-		</Button>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -171,6 +159,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Готово</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПроверитьПодключение" id="4">
 			<Title>
@@ -186,6 +175,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПроверитьПодключение</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПараметрыДоступаВИнтернет" id="2">
 			<Title>

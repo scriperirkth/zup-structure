@@ -10,6 +10,7 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
@@ -28,17 +29,6 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаСохранитьExtendedTooltip" id="14"/>
 			</Button>
-			<Button name="ФормаОтмена" id="4">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Cancel</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Отмена</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаОтменаExtendedTooltip" id="15"/>
-			</Button>
 			<Button name="ФормаСправка" id="1">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.StandardCommand.Help</CommandName>
@@ -50,12 +40,34 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<InputField name="ПредставлениеНастройки" id="11">
+			<DataPath>ПредставлениеТекущейНастройки</DataPath>
+			<DefaultItem>true</DefaultItem>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя сохраняемой настройки</v8:content>
+				</v8:item>
+			</Title>
+			<TitleLocation>Top</TitleLocation>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя, под которым будут сохранены текущие настройки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="ПредставлениеНастройкиКонтекстноеМеню" id="12"/>
+			<ExtendedTooltip name="ПредставлениеНастройкиExtendedTooltip" id="19"/>
+		</InputField>
 		<Table name="ВариантыНастроек" id="5">
 			<Representation>List</Representation>
 			<TitleLocation>Top</TitleLocation>
-			<CommandBarLocation>None</CommandBarLocation>
+			<CommandBarLocation>Top</CommandBarLocation>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<RowSelectionMode>Cell</RowSelectionMode>
+			<SelectionMode>SingleRow</SelectionMode>
+			<RowSelectionMode>Row</RowSelectionMode>
 			<Header>false</Header>
 			<HorizontalLinesBWA>false</HorizontalLinesBWA>
 			<VerticalLinesBWA>false</VerticalLinesBWA>
@@ -80,15 +92,27 @@
 				<ExcludedCommand>MoveDown</ExcludedCommand>
 				<ExcludedCommand>MoveUp</ExcludedCommand>
 				<ExcludedCommand>Pickup</ExcludedCommand>
-				<ExcludedCommand>SelectAll</ExcludedCommand>
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 				<ExcludedCommand>UncheckAll</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>true</ShowCommandBar>
 			<ContextMenu name="ВариантыНастроекКонтекстноеМеню" id="6"/>
-			<AutoCommandBar name="ВариантыНастроекКоманднаяПанель" id="7"/>
+			<AutoCommandBar name="ВариантыНастроекКоманднаяПанель" id="7">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ВариантыНастроекУдалить" id="44">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ВариантыНастроек.StandardCommand.Delete</CommandName>
+						<RepresentationInContextMenu>OnlyInContextMenu</RepresentationInContextMenu>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+						<ExtendedTooltip name="ВариантыНастроекУдалитьРасширеннаяПодсказка" id="45"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
 			<ExtendedTooltip name="ВариантыНастроекExtendedTooltip" id="17"/>
 			<SearchStringAddition name="ВариантыНастроекSearchString" id="20">
+				<Enabled>false</Enabled>
 				<AdditionSource>
 					<Item>ВариантыНастроек</Item>
 					<Type>SearchStringRepresentation</Type>
@@ -97,6 +121,7 @@
 				<ExtendedTooltip name="ВариантыНастроекSearchStringExtendedTooltip" id="22"/>
 			</SearchStringAddition>
 			<ViewStatusAddition name="ВариантыНастроекViewStatus" id="23">
+				<Enabled>false</Enabled>
 				<AdditionSource>
 					<Item>ВариантыНастроек</Item>
 					<Type>ViewStatusRepresentation</Type>
@@ -105,6 +130,7 @@
 				<ExtendedTooltip name="ВариантыНастроекViewStatusExtendedTooltip" id="25"/>
 			</ViewStatusAddition>
 			<SearchControlAddition name="ВариантыНастроекSearchControl" id="26">
+				<Enabled>false</Enabled>
 				<AdditionSource>
 					<Item>ВариантыНастроек</Item>
 					<Type>SearchControl</Type>
@@ -133,27 +159,6 @@
 				</LabelField>
 			</ChildItems>
 		</Table>
-		<InputField name="ПредставлениеНастройки" id="11">
-			<DataPath>ПредставлениеТекущейНастройки</DataPath>
-			<DefaultItem>true</DefaultItem>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Имя сохраняемой настройки</v8:content>
-				</v8:item>
-			</Title>
-			<TitleLocation>Top</TitleLocation>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Имя, под которым будут сохранены текущие настройки</v8:content>
-				</v8:item>
-			</ToolTip>
-			<MarkRequiredComplete>true</MarkRequiredComplete>
-			<AutoMarkIncomplete>true</AutoMarkIncomplete>
-			<ContextMenu name="ПредставлениеНастройкиКонтекстноеМеню" id="12"/>
-			<ExtendedTooltip name="ПредставлениеНастройкиExtendedTooltip" id="19"/>
-		</InputField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -398,6 +403,7 @@
 			</ToolTip>
 			<Action>СохранитьНастройку</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПроизвестиВыбор" id="2">
 			<Title>

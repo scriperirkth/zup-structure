@@ -2,9 +2,26 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<CommandBarLocation>Top</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="Применить" id="10">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.Применить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Применить</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ПрименитьExtendedTooltip" id="21"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -13,6 +30,7 @@
 			<Representation>List</Representation>
 			<SkipOnInput>false</SkipOnInput>
 			<ChangeRowSet>false</ChangeRowSet>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Row</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -36,13 +54,30 @@
 				<ExcludedCommand>EndEdit</ExcludedCommand>
 				<ExcludedCommand>Find</ExcludedCommand>
 				<ExcludedCommand>OutputList</ExcludedCommand>
-				<ExcludedCommand>SelectAll</ExcludedCommand>
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="ТаблицаСортировкиКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="ТаблицаСортировкиКоманднаяПанель" id="3"/>
+			<AutoCommandBar name="ТаблицаСортировкиКоманднаяПанель" id="3">
+				<ChildItems>
+					<Button name="ТаблицаСортировкиПереместитьВверх" id="41">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ТаблицаСортировки.StandardCommand.MoveUp</CommandName>
+						<RepresentationInContextMenu>OnlyInContextMenu</RepresentationInContextMenu>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+						<ExtendedTooltip name="ТаблицаСортировкиПереместитьВверхРасширеннаяПодсказка" id="42"/>
+					</Button>
+					<Button name="ТаблицаСортировкиПереместитьВниз" id="39">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ТаблицаСортировки.StandardCommand.MoveDown</CommandName>
+						<RepresentationInContextMenu>OnlyInContextMenu</RepresentationInContextMenu>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+						<ExtendedTooltip name="ТаблицаСортировкиПереместитьВнизРасширеннаяПодсказка" id="40"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
 			<ExtendedTooltip name="ТаблицаСортировкиExtendedTooltip" id="16"/>
 			<SearchStringAddition name="ТаблицаСортировкиSearchString" id="23">
 				<AdditionSource>
@@ -79,7 +114,9 @@
 					</Title>
 					<TitleLocation>None</TitleLocation>
 					<EditMode>EnterOnInput</EditMode>
+					<ShowInHeader>false</ShowInHeader>
 					<AutoEditMode>true</AutoEditMode>
+					<CheckBoxType>CheckBox</CheckBoxType>
 					<ContextMenu name="ТаблицаСортировкиИспользованиеКонтекстноеМеню" id="7"/>
 					<ExtendedTooltip name="ТаблицаСортировкиИспользованиеExtendedTooltip" id="17"/>
 				</CheckBoxField>
@@ -92,6 +129,7 @@
 							<v8:content>Имя поля</v8:content>
 						</v8:item>
 					</Title>
+					<TitleLocation>Top</TitleLocation>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТаблицаСортировкиИмяПоляКонтекстноеМеню" id="5"/>
@@ -105,6 +143,7 @@
 							<v8:content>Сортировка</v8:content>
 						</v8:item>
 					</Title>
+					<TitleLocation>Top</TitleLocation>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<DropListButton>true</DropListButton>
@@ -157,45 +196,6 @@
 				</InputField>
 			</ChildItems>
 		</Table>
-		<CommandBar name="ПанельКнопок" id="15">
-			<EnableContentChange>true</EnableContentChange>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Панель кнопок</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="ПанельКнопокExtendedTooltip" id="20"/>
-			<ChildItems>
-				<Button name="Применить" id="10">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.Command.Применить</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Применить</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ПрименитьExtendedTooltip" id="21"/>
-				</Button>
-				<Button name="Отменить" id="14">
-					<Type>CommandBarButton</Type>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.Command.Отменить</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Отмена</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ОтменитьExtendedTooltip" id="22"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ТаблицаСортировки" id="1">
@@ -265,22 +265,7 @@
 			</ToolTip>
 			<Action>Применить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="Отменить" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отменить</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Отменить</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

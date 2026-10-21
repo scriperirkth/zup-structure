@@ -6,11 +6,13 @@
 			<v8:content>Настройки холдинга</v8:content>
 		</v8:item>
 	</Title>
-	<Width>100</Width>
-	<Height>40</Height>
+	<Width>200</Width>
+	<Height>100</Height>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
+	<AutoURL>false</AutoURL>
 	<Group>AlwaysHorizontal</Group>
+	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 	</AutoCommandBar>
@@ -29,6 +31,40 @@
 			<PagesRepresentation>None</PagesRepresentation>
 			<ExtendedTooltip name="ГруппаСтраницыПодключенияРасширеннаяПодсказка" id="82"/>
 			<ChildItems>
+				<Page name="СтраницаЗагрузкаИзДО" id="119">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница загрузка из 1С:Документооборот</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<ShowTitle>false</ShowTitle>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="СтраницаЗагрузкаИзДОРасширеннаяПодсказка" id="120"/>
+					<ChildItems>
+						<PictureDecoration name="ДлительнаяОперацияЗагрузкаИзДОСтраница" id="121">
+							<Picture>
+								<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ДлительнаяОперацияЗагрузкаИзДОСтраницаКонтекстноеМеню" id="122"/>
+							<ExtendedTooltip name="ДлительнаяОперацияЗагрузкаИзДОСтраницаРасширеннаяПодсказка" id="123"/>
+						</PictureDecoration>
+						<LabelDecoration name="ОписаниеЗагрузкаИзДОСтраница" id="124">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Подключение к 1С:Документообороту...</v8:content>
+								</v8:item>
+							</Title>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<ContextMenu name="ОписаниеЗагрузкаИзДОСтраницаКонтекстноеМеню" id="125"/>
+							<ExtendedTooltip name="ОписаниеЗагрузкаИзДОСтраницаРасширеннаяПодсказка" id="126"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
 				<Page name="СтраницаДокументооборотДоступен" id="83">
 					<Title>
 						<v8:item>
@@ -37,11 +73,14 @@
 						</v8:item>
 					</Title>
 					<Group>AlwaysHorizontal</Group>
+					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаДокументооборотДоступенРасширеннаяПодсказка" id="84"/>
 					<ChildItems>
 						<Table name="УзлыКОД" id="1">
 							<Representation>Tree</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Row</RowSelectionMode>
@@ -49,6 +88,7 @@
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<InitialTreeView>ExpandAllLevels</InitialTreeView>
+							<InitialRowActivation>Activate</InitialRowActivation>
 							<EnableDrag>true</EnableDrag>
 							<DataPath>УзлыКОД</DataPath>
 							<RowPictureDataPath>УзлыКОД.Активен</RowPictureDataPath>
@@ -159,8 +199,6 @@
 							<ChildItems>
 								<InputField name="УзлыКОДПредставлениеУзла" id="59">
 									<DataPath>УзлыКОД.ПредставлениеУзла</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 									<ContextMenu name="УзлыКОДПредставлениеУзлаКонтекстноеМеню" id="60"/>
 									<ExtendedTooltip name="УзлыКОДПредставлениеУзлаРасширеннаяПодсказка" id="61"/>
@@ -173,6 +211,8 @@
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<InitialTreeView>ExpandAllLevels</InitialTreeView>
+							<InitialRowActivation>Activate</InitialRowActivation>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<DataPath>ПользователиУзлов</DataPath>
@@ -185,6 +225,7 @@
 								<ExcludedCommand>Add</ExcludedCommand>
 								<ExcludedCommand>CancelSearch</ExcludedCommand>
 								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>ClearTableMarksAppearance</ExcludedCommand>
 								<ExcludedCommand>Copy</ExcludedCommand>
 								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
 								<ExcludedCommand>Delete</ExcludedCommand>
@@ -240,6 +281,18 @@
 										<CommandName>Form.Command.СменитьУзел</CommandName>
 										<ExtendedTooltip name="ПользователиСменитьУзелРасширеннаяПодсказка" id="46"/>
 									</Button>
+									<Button name="ПользователиУзловЗакрепитьУзел" id="143">
+										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
+										<CommandName>Form.Command.ЗакрепитьУзел</CommandName>
+										<ExtendedTooltip name="ПользователиУзловЗакрепитьУзелРасширеннаяПодсказка" id="144"/>
+									</Button>
+									<Button name="ПользователиУзловОткрепитьУзел" id="141">
+										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
+										<CommandName>Form.Command.ОткрепитьУзел</CommandName>
+										<ExtendedTooltip name="ПользователиУзловОткрепитьУзелРасширеннаяПодсказка" id="142"/>
+									</Button>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="ПользователиУзловРасширеннаяПодсказка" id="26"/>
@@ -279,20 +332,23 @@
 										</v8:item>
 									</Title>
 									<Group>InCell</Group>
+									<ShowTitle>true</ShowTitle>
 									<ExtendedTooltip name="ПользователиУзловГруппаПользовательРасширеннаяПодсказка" id="70"/>
 									<ChildItems>
 										<InputField name="ПользователиУзловПользователь" id="50">
 											<DataPath>ПользователиУзлов.Пользователь</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<HorizontalStretch>true</HorizontalStretch>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="ПользователиУзловПользовательКонтекстноеМеню" id="51"/>
 											<ExtendedTooltip name="ПользователиУзловПользовательРасширеннаяПодсказка" id="52"/>
 										</InputField>
 										<InputField name="ПользователиУзловПодразделение" id="66">
 											<DataPath>ПользователиУзлов.Подразделение</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<HorizontalStretch>true</HorizontalStretch>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="ПользователиУзловПодразделениеКонтекстноеМеню" id="67"/>
 											<ExtendedTooltip name="ПользователиУзловПодразделениеРасширеннаяПодсказка" id="68"/>
@@ -301,8 +357,6 @@
 								</ColumnGroup>
 								<InputField name="ПользователиУзловИмяУзла" id="53">
 									<DataPath>ПользователиУзлов.ИмяУзла</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 									<ContextMenu name="ПользователиУзловИмяУзлаКонтекстноеМеню" id="54"/>
 									<ExtendedTooltip name="ПользователиУзловИмяУзлаРасширеннаяПодсказка" id="55"/>
@@ -316,12 +370,13 @@
 											<v8:content>Узел назначен пользователю принудительно</v8:content>
 										</v8:item>
 									</ToolTip>
-									<EditMode>EnterOnInput</EditMode>
 									<HeaderPicture>
 										<xr:Ref>CommonPicture.ЗакрепитьУзел</xr:Ref>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
 									</HeaderPicture>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
+									<Width>2</Width>
+									<HorizontalStretch>false</HorizontalStretch>
 									<ValuesPicture>
 										<xr:Ref>CommonPicture.ЗакрепитьУзел</xr:Ref>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -341,6 +396,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
+					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаДокументооборотНедоступенРасширеннаяПодсказка" id="104"/>
 					<ChildItems>
@@ -369,40 +425,6 @@
 							<Events>
 								<Event name="Click">ДекорацияНастройкиАвторизацииНажатие</Event>
 							</Events>
-						</LabelDecoration>
-					</ChildItems>
-				</Page>
-				<Page name="СтраницаЗагрузкаИзДО" id="119">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Страница загрузка из 1С:Документооборот</v8:content>
-						</v8:item>
-					</Title>
-					<Group>AlwaysHorizontal</Group>
-					<ShowTitle>false</ShowTitle>
-					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаЗагрузкаИзДОРасширеннаяПодсказка" id="120"/>
-					<ChildItems>
-						<PictureDecoration name="ДлительнаяОперацияЗагрузкаИзДОСтраница" id="121">
-							<Picture>
-								<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
-							</Picture>
-							<FileDragMode>AsFile</FileDragMode>
-							<ContextMenu name="ДлительнаяОперацияЗагрузкаИзДОСтраницаКонтекстноеМеню" id="122"/>
-							<ExtendedTooltip name="ДлительнаяОперацияЗагрузкаИзДОСтраницаРасширеннаяПодсказка" id="123"/>
-						</PictureDecoration>
-						<LabelDecoration name="ОписаниеЗагрузкаИзДОСтраница" id="124">
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Получение данных из 1С:Документооборота...</v8:content>
-								</v8:item>
-							</Title>
-							<GroupVerticalAlign>Center</GroupVerticalAlign>
-							<ContextMenu name="ОписаниеЗагрузкаИзДОСтраницаКонтекстноеМеню" id="125"/>
-							<ExtendedTooltip name="ОписаниеЗагрузкаИзДОСтраницаРасширеннаяПодсказка" id="126"/>
 						</LabelDecoration>
 					</ChildItems>
 				</Page>
@@ -686,6 +708,21 @@
 				</Column>
 			</Columns>
 		</Attribute>
+		<Attribute name="СтатусПодключения" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус подключения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="АктивироватьУзел" id="1">
@@ -747,6 +784,9 @@
 			</Picture>
 			<Action>СменитьУзел</Action>
 			<Representation>TextPicture</Representation>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ПользователиУзлов</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ЗакрепитьУзел" id="4">
 			<Title>
@@ -767,6 +807,9 @@
 			</Picture>
 			<Action>ЗакрепитьУзел</Action>
 			<Representation>TextPicture</Representation>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ПользователиУзлов</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ОткрепитьУзел" id="5">
 			<Title>
@@ -787,6 +830,9 @@
 			</Picture>
 			<Action>ОткрепитьУзел</Action>
 			<Representation>TextPicture</Representation>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ПользователиУзлов</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ОткрытьУзел" id="6">
 			<Title>

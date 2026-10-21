@@ -8,31 +8,22 @@
 	</Title>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
+	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
 	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="OK" id="7">
+			<Button name="Выбрать" id="7">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
 				<SkipOnInput>false</SkipOnInput>
-				<CommandName>Form.Command.ОК</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Готово</v8:content>
-					</v8:item>
-				</Title>
+				<CommandName>Form.Command.Выбрать</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="OKРасширеннаяПодсказка" id="10"/>
-			</Button>
-			<Button name="Отмена" id="8">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Отмена</CommandName>
-				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="11"/>
+				<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="10"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -43,6 +34,8 @@
 		<InputField name="Роль" id="5">
 			<DataPath>Роль</DataPath>
 			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<ContextMenu name="РольКонтекстноеМеню" id="6"/>
 			<ExtendedTooltip name="РольExtendedTooltip" id="13"/>
 			<Events>
@@ -52,6 +45,8 @@
 		</InputField>
 		<InputField name="ОсновнойОбъектАдресации" id="1">
 			<DataPath>ОсновнойОбъектАдресации</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<Width>30</Width>
 			<ChoiceButton>true</ChoiceButton>
 			<TextEdit>false</TextEdit>
@@ -65,6 +60,8 @@
 		</InputField>
 		<InputField name="ДополнительныйОбъектАдресации" id="3">
 			<DataPath>ДополнительныйОбъектАдресации</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<Width>30</Width>
 			<ChoiceButton>true</ChoiceButton>
 			<TextEdit>false</TextEdit>
@@ -222,39 +219,36 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
+		<Attribute name="Объект" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ИнтеграцияС1СДокументооборотБазоваяФункциональность</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ОК" id="1">
+		<Command name="Выбрать" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ОК</Action>
+			<Action>Выбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="Отмена" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Отмена</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

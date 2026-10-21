@@ -57,7 +57,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Имя и пароль пользователя приложения в Интернете</v8:content>
+					<v8:content>Имя и пароль пользователя приложения в сервисе (интернете)</v8:content>
 				</v8:item>
 			</Title>
 			<Group>Vertical</Group>
@@ -79,9 +79,8 @@
 							<v8:content>Пользователь приложения в Интернете</v8:content>
 						</v8:item>
 					</ToolTip>
-					<Width>30</Width>
-					<HorizontalStretch>false</HorizontalStretch>
 					<OpenButton>false</OpenButton>
+					<CreateButton>false</CreateButton>
 					<ListChoiceMode>true</ListChoiceMode>
 					<ContextMenu name="ПользовательКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="ПользовательExtendedTooltip" id="26"/>
@@ -93,8 +92,8 @@
 							<v8:content>Пароль</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<Behavior>Usual</Behavior>
+					<Group>AlwaysHorizontal</Group>
+					<HorizontalAlign>Left</HorizontalAlign>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаПарольРасширеннаяПодсказка" id="27"/>
@@ -113,17 +112,24 @@
 									<v8:content>Пароль пользователя приложения в Интернете</v8:content>
 								</v8:item>
 							</ToolTip>
-							<Width>30</Width>
-							<HorizontalStretch>false</HorizontalStretch>
 							<PasswordMode>true</PasswordMode>
+							<ChoiceButton>true</ChoiceButton>
+							<ChoiceButtonPicture>
+								<xr:Ref>StdPicture.ShowPassword</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ChoiceButtonPicture>
 							<ContextMenu name="ПарольКонтекстноеМеню" id="8"/>
 							<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="28"/>
 							<Events>
 								<Event name="OnChange">ПарольПриИзменении</Event>
+								<Event name="StartChoice">ПарольНачалоВыбора</Event>
 							</Events>
 						</InputField>
 						<Button name="ЗабылиПароль" id="12">
 							<Type>Hyperlink</Type>
+							<Height>1</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<GroupHorizontalAlign>Left</GroupHorizontalAlign>
 							<CommandName>Form.Command.ЗабылиПароль</CommandName>
 							<Title>
 								<v8:item>
@@ -135,51 +141,31 @@
 						</Button>
 					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="ГруппаПредупреждение" id="15">
-					<Title>
+				<PictureDecoration name="ДекорацияИконка" id="16">
+					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Предупреждение</v8:content>
+							<v8:content>Декорация иконка</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПредупреждениеРасширеннаяПодсказка" id="30"/>
-					<ChildItems>
-						<PictureDecoration name="ДекорацияИконка" id="16">
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Декорация иконка</v8:content>
-								</v8:item>
-							</Title>
-							<Picture>
-								<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
-							</Picture>
-							<FileDragMode>AsFile</FileDragMode>
-							<ContextMenu name="ДекорацияИконкаКонтекстноеМеню" id="17"/>
-							<ExtendedTooltip name="ДекорацияИконкаРасширеннаяПодсказка" id="31"/>
-						</PictureDecoration>
-						<LabelDecoration name="ДекорацияПояснение" id="18">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<TextColor>style:ПоясняющийТекст</TextColor>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Хранение пароля в приложении небезопасно.
-Для автоматической синхронизации данных с приложением в Интернете
-рекомендуется указывать отдельного пользователя
-с ограниченными правами (только права на синхронизацию данных).</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="ДекорацияПояснениеКонтекстноеМеню" id="19"/>
-							<ExtendedTooltip name="ДекорацияПояснениеРасширеннаяПодсказка" id="32"/>
-						</LabelDecoration>
-					</ChildItems>
-				</UsualGroup>
+					<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
+					<Picture>
+						<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="ДекорацияИконкаКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ДекорацияИконкаРасширеннаяПодсказка" id="31">
+						<HorizontalStretch>true</HorizontalStretch>
+						<Title formatted="false">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Хранение пароля в приложении небезопасно.
+Для автоматической синхронизации данных с приложением в Интернете рекомендуется указывать отдельного пользователя с ограниченными правами (только права на синхронизацию данных).</v8:content>
+							</v8:item>
+						</Title>
+					</ExtendedTooltip>
+				</PictureDecoration>
 			</ChildItems>
 		</UsualGroup>
 		<Button name="ПараметрыДоступаВИнтернет" id="13">
@@ -290,6 +276,7 @@
 			</ToolTip>
 			<Action>ПараметрыДоступаВИнтернет</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПроверитьПодключениеИЗакрыть" id="1">
 			<Title>
@@ -305,6 +292,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПроверитьПодключениеИЗакрыть</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

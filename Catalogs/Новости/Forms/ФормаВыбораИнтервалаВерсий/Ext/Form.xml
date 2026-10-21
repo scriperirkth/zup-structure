@@ -11,7 +11,7 @@
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
 	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ScalingMode>Compact</ScalingMode>
+	<ScalingMode>Normal</ScalingMode>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
@@ -20,14 +20,9 @@
 			<Button name="ФормаКомандаОК" id="36">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.КомандаОК</CommandName>
+				<CommandName>Form.Command.КомандаВыбрать</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаКомандаОКExtendedTooltip" id="41"/>
-			</Button>
-			<Button name="ФормаКомандаОтмена" id="38">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаОтмена</CommandName>
-				<ExtendedTooltip name="ФормаКомандаОтменаExtendedTooltip" id="42"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -35,155 +30,154 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<InputField name="Продукт" id="1">
-			<DataPath>Продукт</DataPath>
-			<ReadOnly>true</ReadOnly>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<AutoMaxHeight>false</AutoMaxHeight>
-			<ContextMenu name="ПродуктКонтекстноеМеню" id="2"/>
-			<ExtendedTooltip name="ПродуктExtendedTooltip" id="43"/>
-		</InputField>
-		<UsualGroup name="ГруппаВерсии" id="13">
-			<EnableContentChange>true</EnableContentChange>
+		<UsualGroup name="ГруппаНастройки" id="75">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Версии</v8:content>
+					<v8:content>Группа настройки</v8:content>
 				</v8:item>
 			</Title>
-			<Group>Horizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
+			<Group>Vertical</Group>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаВерсииExtendedTooltip" id="44"/>
+			<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="76"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаВерсии_Вариант" id="15">
-					<EnableContentChange>true</EnableContentChange>
+				<InputField name="Продукт" id="1">
+					<DataPath>Продукт</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ПродуктКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ПродуктExtendedTooltip" id="43"/>
+				</InputField>
+				<InputField name="ВариантВерсии" id="10">
+					<DataPath>ВариантВерсии</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Вариант версий</v8:content>
+							<v8:content>Вариант настройки</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаВерсии_ВариантExtendedTooltip" id="45"/>
-					<ChildItems>
-						<RadioButtonField name="ВариантВерсии" id="10">
-							<DataPath>ВариантВерсии</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<VerticalAlign>Top</VerticalAlign>
-							<RadioButtonType>Auto</RadioButtonType>
-							<ColumnsCount>1</ColumnsCount>
-							<ChoiceList>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Любая версия</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:decimal">0</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Точная версия</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:decimal">1</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Интервал версий</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:decimal">2</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>От версии и выше</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:decimal">3</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>До версии включительно</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:decimal">4</Value>
-									</xr:Value>
-								</xr:Item>
-							</ChoiceList>
-							<ContextMenu name="ВариантВерсииКонтекстноеМеню" id="11"/>
-							<ExtendedTooltip name="ВариантВерсииExtendedTooltip" id="46"/>
-							<Events>
-								<Event name="OnChange">ВариантВерсииПриИзменении</Event>
-							</Events>
-						</RadioButtonField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаВерсии_Значения" id="17">
-					<EnableContentChange>true</EnableContentChange>
+					<VerticalAlign>Top</VerticalAlign>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Любая версия</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Точная версия</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Интервал версий</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">2</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>От версии и выше</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">3</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>До версии включительно</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">4</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ВариантВерсииКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ВариантВерсииExtendedTooltip" id="46"/>
+					<Events>
+						<Event name="OnChange">ВариантВерсииПриИзменении</Event>
+					</Events>
+				</InputField>
+				<Pages name="ГруппаСтраницы" id="62">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Значения версий</v8:content>
+							<v8:content>Группа страницы</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаВерсии_ЗначенияExtendedTooltip" id="47"/>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="63"/>
 					<ChildItems>
-						<LabelDecoration name="Декорация_ЛюбаяВерсия" id="33">
-							<HorizontalStretch>true</HorizontalStretch>
-							<ContextMenu name="Декорация_ЛюбаяВерсияКонтекстноеМеню" id="34"/>
-							<ExtendedTooltip name="Декорация_ЛюбаяВерсияExtendedTooltip" id="48"/>
-						</LabelDecoration>
-						<InputField name="Версия" id="39">
-							<DataPath>Версия</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<AutoMaxHeight>false</AutoMaxHeight>
-							<Mask>99.99.999.9999</Mask>
-							<ContextMenu name="ВерсияКонтекстноеМеню" id="40"/>
-							<ExtendedTooltip name="ВерсияExtendedTooltip" id="49"/>
-							<Events>
-								<Event name="OnChange">ВерсияПриИзменении</Event>
-							</Events>
-						</InputField>
-						<UsualGroup name="ГруппаИнтервалВерсий" id="25">
+						<Page name="СтраницаЛюбаяВерсия" id="64">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница любая версия</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="СтраницаЛюбаяВерсияРасширеннаяПодсказка" id="65"/>
+							<ChildItems>
+								<LabelDecoration name="ДекорацияЛюбаяВерсия" id="72">
+									<ContextMenu name="ДекорацияЛюбаяВерсияКонтекстноеМеню" id="73"/>
+									<ExtendedTooltip name="ДекорацияЛюбаяВерсияРасширеннаяПодсказка" id="74"/>
+								</LabelDecoration>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаВерсия" id="66">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница версия</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="СтраницаВерсияРасширеннаяПодсказка" id="67"/>
+							<ChildItems>
+								<InputField name="Версия" id="39">
+									<DataPath>Версия</DataPath>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Mask>99.99.999.9999</Mask>
+									<ContextMenu name="ВерсияКонтекстноеМеню" id="40"/>
+									<ExtendedTooltip name="ВерсияExtendedTooltip" id="49"/>
+									<Events>
+										<Event name="OnChange">ВерсияПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаИнтервалВерсий" id="25">
 							<EnableContentChange>true</EnableContentChange>
 							<Title>
 								<v8:item>
@@ -191,15 +185,17 @@
 									<v8:content>Интервал версий</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Horizontal</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаИнтервалВерсийExtendedTooltip" id="50"/>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="СтраницаИнтервалВерсийРасширеннаяПодсказка" id="50"/>
 							<ChildItems>
 								<InputField name="ВерсияОТ_Интервал" id="27">
 									<DataPath>ВерсияОТ</DataPath>
-									<TitleLocation>None</TitleLocation>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Версия от</v8:content>
+										</v8:item>
+									</Title>
 									<Mask>99.99.999.9999</Mask>
 									<ContextMenu name="ВерсияОТ_ИнтервалКонтекстноеМеню" id="28"/>
 									<ExtendedTooltip name="ВерсияОТ_ИнтервалExtendedTooltip" id="51"/>
@@ -209,7 +205,12 @@
 								</InputField>
 								<InputField name="ВерсияДО_Интервал" id="30">
 									<DataPath>ВерсияДО</DataPath>
-									<TitleLocation>None</TitleLocation>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Версия до</v8:content>
+										</v8:item>
+									</Title>
 									<Mask>99.99.999.9999</Mask>
 									<ContextMenu name="ВерсияДО_ИнтервалКонтекстноеМеню" id="31"/>
 									<ExtendedTooltip name="ВерсияДО_ИнтервалExtendedTooltip" id="52"/>
@@ -218,33 +219,61 @@
 									</Events>
 								</InputField>
 							</ChildItems>
-						</UsualGroup>
-						<InputField name="ВерсияОТ" id="19">
-							<DataPath>ВерсияОТ</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<AutoMaxHeight>false</AutoMaxHeight>
-							<Mask>99.99.999.9999</Mask>
-							<ContextMenu name="ВерсияОТКонтекстноеМеню" id="20"/>
-							<ExtendedTooltip name="ВерсияОТExtendedTooltip" id="53"/>
-							<Events>
-								<Event name="OnChange">ВерсияОТПриИзменении</Event>
-							</Events>
-						</InputField>
-						<InputField name="ВерсияДО" id="22">
-							<DataPath>ВерсияДО</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<AutoMaxHeight>false</AutoMaxHeight>
-							<Mask>99.99.999.9999</Mask>
-							<ContextMenu name="ВерсияДОКонтекстноеМеню" id="23"/>
-							<ExtendedTooltip name="ВерсияДОExtendedTooltip" id="54"/>
-							<Events>
-								<Event name="OnChange">ВерсияДОПриИзменении</Event>
-							</Events>
-						</InputField>
+						</Page>
+						<Page name="СтраницаВерсияОт" id="68">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница версия от</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="СтраницаВерсияОтРасширеннаяПодсказка" id="69"/>
+							<ChildItems>
+								<InputField name="ВерсияОТ" id="19">
+									<DataPath>ВерсияОТ</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Версия от</v8:content>
+										</v8:item>
+									</Title>
+									<Mask>99.99.999.9999</Mask>
+									<ContextMenu name="ВерсияОТКонтекстноеМеню" id="20"/>
+									<ExtendedTooltip name="ВерсияОТExtendedTooltip" id="53"/>
+									<Events>
+										<Event name="OnChange">ВерсияОТПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаВерсияДо" id="70">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница версия до</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="СтраницаВерсияДоРасширеннаяПодсказка" id="71"/>
+							<ChildItems>
+								<InputField name="ВерсияДО" id="22">
+									<DataPath>ВерсияДО</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Версия до</v8:content>
+										</v8:item>
+									</Title>
+									<Mask>99.99.999.9999</Mask>
+									<ContextMenu name="ВерсияДОКонтекстноеМеню" id="23"/>
+									<ExtendedTooltip name="ВерсияДОExtendedTooltip" id="54"/>
+									<Events>
+										<Event name="OnChange">ВерсияДОПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Page>
 					</ChildItems>
-				</UsualGroup>
+				</Pages>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -331,11 +360,11 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="КомандаОК" id="1">
+		<Command name="КомандаВыбрать" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -344,24 +373,9 @@
 					<v8:content>Записать и закрыть</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>КомандаОК</Action>
+			<Action>КомандаВыбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="КомандаОтмена" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаОтмена</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

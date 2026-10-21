@@ -24,6 +24,19 @@
 				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 				<ExtendedTooltip name="ФормаКомандаОтправитьРасширеннаяПодсказка" id="111"/>
 			</Button>
+			<Button name="ФормаПровестиИЗакрыть" id="166">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Command.СохранитьИПроверить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Записать и закрыть</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTipRepresentation>None</ToolTipRepresentation>
+				<ExtendedTooltip name="ФормаПровестиИЗакрытьРасширеннаяПодсказка" id="167"/>
+			</Button>
 			<Button name="ФормаЗаписать" id="114">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.StandardCommand.Write</CommandName>
@@ -38,18 +51,6 @@
 				<ToolTipRepresentation>None</ToolTipRepresentation>
 				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 				<ExtendedTooltip name="ФормаСкопироватьРасширеннаяПодсказка" id="117"/>
-			</Button>
-			<Button name="ФормаПровестиИЗакрыть" id="166">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.СохранитьИПроверить</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Записать и закрыть</v8:content>
-					</v8:item>
-				</Title>
-				<ToolTipRepresentation>None</ToolTipRepresentation>
-				<ExtendedTooltip name="ФормаПровестиИЗакрытьРасширеннаяПодсказка" id="167"/>
 			</Button>
 			<ButtonGroup name="ГруппаВыгрузкаИЗагрузка" id="220">
 				<Title>
@@ -138,8 +139,7 @@
 							<ExtendedTooltip name="СостояниеОтправкиРасширеннаяПодсказка" id="66"/>
 							<ChildItems>
 								<LabelDecoration name="НаименованиеЭтапа" id="67">
-									<TextColor>style:FormTextColor</TextColor>
-									<Font ref="style:NormalTextFont" height="11" kind="StyleItem"/>
+									<Font ref="style:TitleLevel3" kind="StyleItem"/>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -219,6 +219,7 @@
 				<UsualGroup name="БлокОшибокИИзвещений" id="90">
 					<HorizontalStretch>true</HorizontalStretch>
 					<Group>Horizontal</Group>
+					<VerticalAlign>Center</VerticalAlign>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -329,272 +330,373 @@
 				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаРеквизитыСтрахователя" id="156">
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
+		<UsualGroup name="ГруппаОбщая" id="309">
+			<Group>AlwaysHorizontal</Group>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаРеквизитыСтрахователяРасширеннаяПодсказка" id="157"/>
+			<ExtendedTooltip name="ГруппаОбщаяРасширеннаяПодсказка" id="310"/>
 			<ChildItems>
-				<UsualGroup name="СведенияОСтрахователе" id="123">
+				<UsualGroup name="ГруппаОбщаяЛевая" id="305">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Сведения о страхователе</v8:content>
+							<v8:content>ЛицоБезДовФЛ</v8:content>
 						</v8:item>
 					</Title>
-					<TitleTextColor>#333333</TitleTextColor>
-					<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-					<Group>AlwaysHorizontal</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ExtendedTooltip name="СведенияОСтрахователеРасширеннаяПодсказка" id="124"/>
-					<ChildItems>
-						<InputField name="Страхователь" id="217">
-							<DataPath>Объект.Страхователь</DataPath>
-							<MarkRequiredComplete>true</MarkRequiredComplete>
-							<ClearButton>true</ClearButton>
-							<AutoMarkIncomplete>true</AutoMarkIncomplete>
-							<ContextMenu name="СтраховательКонтекстноеМеню" id="218"/>
-							<ExtendedTooltip name="СтраховательРасширеннаяПодсказка" id="219"/>
-							<Events>
-								<Event name="OnChange">СтраховательПриИзменении</Event>
-								<Event name="Clearing">СтраховательОчистка</Event>
-							</Events>
-						</InputField>
-						<LabelDecoration name="ДекорацияРеквизитыСтрахователя" id="267">
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Уточнить реквизиты</v8:content>
-								</v8:item>
-							</Title>
-							<Hyperlink>true</Hyperlink>
-							<ContextMenu name="ДекорацияРеквизитыСтрахователяКонтекстноеМеню" id="268"/>
-							<ExtendedTooltip name="ДекорацияРеквизитыСтрахователяРасширеннаяПодсказка" id="269"/>
-							<Events>
-								<Event name="Click">ДекорацияРеквизитыСтрахователяНажатие</Event>
-							</Events>
-						</LabelDecoration>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаСотрудникСтрахователя" id="287">
-					<Group>HorizontalIfPossible</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
+					<ChildrenAlign>ItemsRightTitlesLeft</ChildrenAlign>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаСотрудникСтрахователяРасширеннаяПодсказка" id="288"/>
+					<ExtendedTooltip name="ГруппаОбщаяЛеваяРасширеннаяПодсказка" id="306"/>
 					<ChildItems>
-						<InputField name="СтраховательСотрудник" id="289">
-							<DataPath>Объект.СтраховательСотрудник</DataPath>
+						<UsualGroup name="ГруппаРеквизитыСтрахователя" id="156">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Представитель страхователя</v8:content>
+									<v8:content>Сведения о страхователе</v8:content>
 								</v8:item>
 							</Title>
-							<ToolTipRepresentation>None</ToolTipRepresentation>
-							<ClearButton>true</ClearButton>
-							<ContextMenu name="СтраховательСотрудникКонтекстноеМеню" id="290"/>
-							<ExtendedTooltip name="СтраховательСотрудникРасширеннаяПодсказка" id="291"/>
-							<Events>
-								<Event name="OnChange">СтраховательСотрудникПриИзменении</Event>
-								<Event name="Clearing">СтраховательСотрудникОчистка</Event>
-							</Events>
-						</InputField>
-						<LabelDecoration name="ДекорацияРеквизитыСотрудникаСтрахователя" id="292">
-							<Title formatted="false">
+							<TitleTextColor>#333333</TitleTextColor>
+							<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<ExtendedTooltip name="ГруппаРеквизитыСтрахователяРасширеннаяПодсказка" id="157"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаСтрахователь" id="314">
+									<Group>Vertical</Group>
+									<VerticalSpacing>Half</VerticalSpacing>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаСтраховательРасширеннаяПодсказка" id="315"/>
+									<ChildItems>
+										<InputField name="Страхователь" id="217">
+											<DataPath>Объект.Страхователь</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Страхователь</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTipRepresentation>None</ToolTipRepresentation>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
+											<ClearButton>true</ClearButton>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<ContextMenu name="СтраховательКонтекстноеМеню" id="218"/>
+											<ExtendedTooltip name="СтраховательРасширеннаяПодсказка" id="219">
+												<MaxHeight>11</MaxHeight>
+												<TextColor>style:ЦветГиперссылкиБРО</TextColor>
+												<Hyperlink>true</Hyperlink>
+												<Events>
+													<Event name="Click">ДекорацияРеквизитыСтрахователяНажатие</Event>
+												</Events>
+											</ExtendedTooltip>
+											<Events>
+												<Event name="OnChange">СтраховательПриИзменении</Event>
+												<Event name="Clearing">СтраховательОчистка</Event>
+											</Events>
+										</InputField>
+										<LabelDecoration name="ДекорацияСтрахователь" id="311">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Уточнить реквизиты</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ДекорацияСтраховательКонтекстноеМеню" id="312"/>
+											<ExtendedTooltip name="ДекорацияСтраховательРасширеннаяПодсказка" id="313"/>
+											<Events>
+												<Event name="Click">ДекорацияРеквизитыСтрахователяНажатие</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаСтраховательСотрудник" id="316">
+									<Group>Vertical</Group>
+									<VerticalSpacing>Half</VerticalSpacing>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаСтраховательСотрудникРасширеннаяПодсказка" id="317"/>
+									<ChildItems>
+										<InputField name="СтраховательСотрудник" id="289">
+											<DataPath>Объект.СтраховательСотрудник</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Представитель страхователя</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTipRepresentation>None</ToolTipRepresentation>
+											<ClearButton>true</ClearButton>
+											<ContextMenu name="СтраховательСотрудникКонтекстноеМеню" id="290"/>
+											<ExtendedTooltip name="СтраховательСотрудникРасширеннаяПодсказка" id="291">
+												<TextColor>style:ЦветГиперссылкиБРО</TextColor>
+												<Hyperlink>true</Hyperlink>
+												<Events>
+													<Event name="Click">ДекорацияРеквизитыСотрудникаСтрахователяНажатие</Event>
+												</Events>
+											</ExtendedTooltip>
+											<Events>
+												<Event name="OnChange">СтраховательСотрудникПриИзменении</Event>
+												<Event name="Clearing">СтраховательСотрудникОчистка</Event>
+											</Events>
+										</InputField>
+										<LabelDecoration name="ДекорацияСтраховательСотрудник" id="318">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Уточнить реквизиты</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ДекорацияСтраховательСотрудникКонтекстноеМеню" id="319"/>
+											<ExtendedTooltip name="ДекорацияСтраховательСотрудникРасширеннаяПодсказка" id="320"/>
+											<Events>
+												<Event name="Click">ДекорацияРеквизитыСотрудникаСтрахователяНажатие</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<LabelDecoration name="Отступ1" id="125">
+									<VerticalStretch>false</VerticalStretch>
+									<ContextMenu name="Отступ1КонтекстноеМеню" id="126"/>
+									<ExtendedTooltip name="Отступ1РасширеннаяПодсказка" id="127"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаОбщаяПравая" id="307">
+					<ChildrenAlign>ItemsRightTitlesLeft</ChildrenAlign>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОбщаяПраваяРасширеннаяПодсказка" id="308"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаРеквизитыПредставителя" id="226">
+							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Уточнить реквизиты</v8:content>
+									<v8:content>Сведения об уполномоченном представителе</v8:content>
 								</v8:item>
 							</Title>
-							<Hyperlink>true</Hyperlink>
-							<ContextMenu name="ДекорацияРеквизитыСотрудникаСтрахователяКонтекстноеМеню" id="293"/>
-							<ExtendedTooltip name="ДекорацияРеквизитыСотрудникаСтрахователяРасширеннаяПодсказка" id="294"/>
-							<Events>
-								<Event name="Click">ДекорацияРеквизитыСотрудникаСтрахователяНажатие</Event>
-							</Events>
-						</LabelDecoration>
-					</ChildItems>
-				</UsualGroup>
-				<LabelDecoration name="Отступ1" id="125">
-					<VerticalStretch>false</VerticalStretch>
-					<ContextMenu name="Отступ1КонтекстноеМеню" id="126"/>
-					<ExtendedTooltip name="Отступ1РасширеннаяПодсказка" id="127"/>
-				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаРеквизитыПредставителя" id="226">
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаРеквизитыПредставителяРасширеннаяПодсказка" id="227"/>
-			<ChildItems>
-				<UsualGroup name="СведенияОПредставителе" id="228">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Сведения об уполномоченном представителе</v8:content>
-						</v8:item>
-					</Title>
-					<TitleTextColor>#333333</TitleTextColor>
-					<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ExtendedTooltip name="СведенияОПредставителеРасширеннаяПодсказка" id="229"/>
-					<ChildItems>
-						<UsualGroup name="ГруппаПредставитель" id="270">
-							<Group>HorizontalIfPossible</Group>
+							<TitleTextColor>#333333</TitleTextColor>
+							<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаПредставительРасширеннаяПодсказка" id="271"/>
+							<ExtendedTooltip name="ГруппаРеквизитыПредставителяРасширеннаяПодсказка" id="227"/>
 							<ChildItems>
-								<InputField name="Представитель" id="230">
-									<DataPath>Объект.Представитель</DataPath>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
-									<ClearButton>true</ClearButton>
-									<AutoMarkIncomplete>true</AutoMarkIncomplete>
-									<ContextMenu name="ПредставительКонтекстноеМеню" id="231"/>
-									<ExtendedTooltip name="ПредставительРасширеннаяПодсказка" id="232"/>
-									<Events>
-										<Event name="OnChange">ПредставительПриИзменении</Event>
-										<Event name="Clearing">ПредставительОчистка</Event>
-									</Events>
-								</InputField>
-								<LabelDecoration name="ДекорацияРеквизитыПредставителя" id="272">
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Уточнить реквизиты</v8:content>
-										</v8:item>
-									</Title>
-									<Hyperlink>true</Hyperlink>
-									<ContextMenu name="ДекорацияРеквизитыПредставителяКонтекстноеМеню" id="273"/>
-									<ExtendedTooltip name="ДекорацияРеквизитыПредставителяРасширеннаяПодсказка" id="274"/>
-									<Events>
-										<Event name="Click">ДекорацияРеквизитыПредставителяНажатие</Event>
-									</Events>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаСотрудникПредставителя" id="278">
-							<Group>HorizontalIfPossible</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаСотрудникПредставителяРасширеннаяПодсказка" id="279"/>
-							<ChildItems>
-								<InputField name="ПредставительСотрудник" id="236">
-									<DataPath>Объект.ПредставительСотрудник</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Сотрудник представителя</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTipRepresentation>None</ToolTipRepresentation>
-									<ClearButton>true</ClearButton>
-									<ContextMenu name="ПредставительСотрудникКонтекстноеМеню" id="237"/>
-									<ExtendedTooltip name="ПредставительСотрудникРасширеннаяПодсказка" id="238"/>
-									<Events>
-										<Event name="OnChange">ПредставительСотрудникПриИзменении</Event>
-										<Event name="Clearing">ПредставительСотрудникОчистка</Event>
-									</Events>
-								</InputField>
-								<LabelDecoration name="ДекорацияРеквизитыСотрудникаПредставителя" id="275">
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Уточнить реквизиты</v8:content>
-										</v8:item>
-									</Title>
-									<Hyperlink>true</Hyperlink>
-									<ContextMenu name="ДекорацияРеквизитыСотрудникаПредставителяКонтекстноеМеню" id="276"/>
-									<ExtendedTooltip name="ДекорацияРеквизитыСотрудникаПредставителяРасширеннаяПодсказка" id="277"/>
-									<Events>
-										<Event name="Click">ДекорацияРеквизитыСотрудникаПредставителяНажатие</Event>
-									</Events>
+								<UsualGroup name="ГруппаПредставитель" id="321">
+									<Group>Vertical</Group>
+									<VerticalSpacing>Half</VerticalSpacing>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПредставительРасширеннаяПодсказка" id="322"/>
+									<ChildItems>
+										<InputField name="Представитель" id="230">
+											<DataPath>Объект.Представитель</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Представитель</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTipRepresentation>None</ToolTipRepresentation>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
+											<ClearButton>true</ClearButton>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<ContextMenu name="ПредставительКонтекстноеМеню" id="231"/>
+											<ExtendedTooltip name="ПредставительРасширеннаяПодсказка" id="232">
+												<TextColor>style:ЦветГиперссылкиБРО</TextColor>
+												<Hyperlink>true</Hyperlink>
+												<Events>
+													<Event name="Click">ДекорацияРеквизитыПредставителяНажатие</Event>
+												</Events>
+											</ExtendedTooltip>
+											<Events>
+												<Event name="OnChange">ПредставительПриИзменении</Event>
+												<Event name="Clearing">ПредставительОчистка</Event>
+											</Events>
+										</InputField>
+										<LabelDecoration name="ДекорацияПредставитель" id="325">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Уточнить реквизиты</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ДекорацияПредставительКонтекстноеМеню" id="326"/>
+											<ExtendedTooltip name="ДекорацияПредставительРасширеннаяПодсказка" id="327"/>
+											<Events>
+												<Event name="Click">ДекорацияРеквизитыПредставителяНажатие</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаПредставительСотрудник" id="323">
+									<Group>Vertical</Group>
+									<VerticalSpacing>Half</VerticalSpacing>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПредставительСотрудникРасширеннаяПодсказка" id="324"/>
+									<ChildItems>
+										<InputField name="ПредставительСотрудник" id="236">
+											<DataPath>Объект.ПредставительСотрудник</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Сотрудник представителя</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTipRepresentation>None</ToolTipRepresentation>
+											<ClearButton>true</ClearButton>
+											<ContextMenu name="ПредставительСотрудникКонтекстноеМеню" id="237"/>
+											<ExtendedTooltip name="ПредставительСотрудникРасширеннаяПодсказка" id="238">
+												<TextColor>style:ЦветГиперссылкиБРО</TextColor>
+												<Hyperlink>true</Hyperlink>
+												<Events>
+													<Event name="Click">ДекорацияРеквизитыСотрудникаПредставителяНажатие</Event>
+												</Events>
+											</ExtendedTooltip>
+											<Events>
+												<Event name="OnChange">ПредставительСотрудникПриИзменении</Event>
+												<Event name="Clearing">ПредставительСотрудникОчистка</Event>
+											</Events>
+										</InputField>
+										<LabelDecoration name="ДекорацияПредставительСотрудник" id="328">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Уточнить реквизиты</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ДекорацияПредставительСотрудникКонтекстноеМеню" id="329"/>
+											<ExtendedTooltip name="ДекорацияПредставительСотрудникРасширеннаяПодсказка" id="330"/>
+											<Events>
+												<Event name="Click">ДекорацияРеквизитыСотрудникаПредставителяНажатие</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<LabelDecoration name="Отступ2" id="233">
+									<VerticalStretch>false</VerticalStretch>
+									<ContextMenu name="Отступ2КонтекстноеМеню" id="234"/>
+									<ExtendedTooltip name="Отступ2РасширеннаяПодсказка" id="235"/>
 								</LabelDecoration>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
-				<LabelDecoration name="Отступ2" id="233">
-					<VerticalStretch>false</VerticalStretch>
-					<ContextMenu name="Отступ2КонтекстноеМеню" id="234"/>
-					<ExtendedTooltip name="Отступ2РасширеннаяПодсказка" id="235"/>
-				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаРеквизитыДокумента" id="239">
-			<ToolTip>
+		<UsualGroup name="СведенияОДокументе" id="241">
+			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа реквизиты документа</v8:content>
+					<v8:content>Сведения о документе, подтверждающем полномочия</v8:content>
 				</v8:item>
-			</ToolTip>
-			<Group>Vertical</Group>
+			</Title>
+			<TitleTextColor>#333333</TitleTextColor>
+			<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+			<Group>AlwaysHorizontal</Group>
+			<ChildrenAlign>ItemsRightTitlesLeft</ChildrenAlign>
 			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаРеквизитыДокументаРасширеннаяПодсказка" id="240"/>
+			<ThroughAlign>Use</ThroughAlign>
+			<ExtendedTooltip name="СведенияОДокументеРасширеннаяПодсказка" id="242"/>
 			<ChildItems>
-				<UsualGroup name="СведенияОДокументе" id="241">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Сведения о документе, подтверждающем полномочия</v8:content>
-						</v8:item>
-					</Title>
-					<TitleTextColor>#333333</TitleTextColor>
-					<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+				<UsualGroup name="ГруппаСведенияОДокументеЛевая" id="331">
 					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ExtendedTooltip name="СведенияОДокументеРасширеннаяПодсказка" id="242"/>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаСведенияОДокументеЛеваяРасширеннаяПодсказка" id="332"/>
 					<ChildItems>
 						<InputField name="НаименованиеДокумента" id="252">
 							<DataPath>Объект.НаименованиеДокумента</DataPath>
-							<MarkRequiredComplete>false</MarkRequiredComplete>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименование документа</v8:content>
+								</v8:item>
+							</Title>
 							<AutoMarkIncomplete>false</AutoMarkIncomplete>
 							<ContextMenu name="НаименованиеДокументаКонтекстноеМеню" id="253"/>
 							<ExtendedTooltip name="НаименованиеДокументаРасширеннаяПодсказка" id="254"/>
 						</InputField>
 						<InputField name="НомерДокумента" id="255">
 							<DataPath>Объект.НомерДокумента</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номер документа</v8:content>
+								</v8:item>
+							</Title>
 							<ContextMenu name="НомерДокументаКонтекстноеМеню" id="256"/>
 							<ExtendedTooltip name="НомерДокументаРасширеннаяПодсказка" id="257"/>
 						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаСведенияОДокументеПравя" id="335">
+					<Group>Vertical</Group>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаСведенияОДокументеПравяРасширеннаяПодсказка" id="336"/>
+					<ChildItems>
 						<InputField name="КемВыдан" id="258">
 							<DataPath>Объект.КемВыдан</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Кем выдан</v8:content>
+								</v8:item>
+							</Title>
 							<ContextMenu name="КемВыданКонтекстноеМеню" id="259"/>
 							<ExtendedTooltip name="КемВыданРасширеннаяПодсказка" id="260"/>
 						</InputField>
-						<InputField name="ДатаНачалаДействия" id="261">
-							<DataPath>Объект.ДатаНачалаДействия</DataPath>
-							<ContextMenu name="ДатаНачалаДействияКонтекстноеМеню" id="262"/>
-							<ExtendedTooltip name="ДатаНачалаДействияРасширеннаяПодсказка" id="263"/>
-						</InputField>
-						<InputField name="ДатаОкончанияДействия" id="264">
-							<DataPath>Объект.ДатаОкончанияДействия</DataPath>
-							<ContextMenu name="ДатаОкончанияДействияКонтекстноеМеню" id="265"/>
-							<ExtendedTooltip name="ДатаОкончанияДействияРасширеннаяПодсказка" id="266"/>
-						</InputField>
+						<UsualGroup name="ГруппаСведенияОДокументеДаты" id="333">
+							<Width>42</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<Group>AlwaysHorizontal</Group>
+							<ChildrenAlign>ItemsRightTitlesLeft</ChildrenAlign>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСведенияОДокументеДатыРасширеннаяПодсказка" id="334"/>
+							<ChildItems>
+								<InputField name="ДатаНачалаДействия" id="261">
+									<DataPath>Объект.ДатаНачалаДействия</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата начала действия</v8:content>
+										</v8:item>
+									</Title>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>19</MaxWidth>
+									<ContextMenu name="ДатаНачалаДействияКонтекстноеМеню" id="262"/>
+									<ExtendedTooltip name="ДатаНачалаДействияРасширеннаяПодсказка" id="263"/>
+								</InputField>
+								<InputField name="ДатаОкончанияДействия" id="264">
+									<DataPath>Объект.ДатаОкончанияДействия</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата окончания действия</v8:content>
+										</v8:item>
+									</Title>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>19</MaxWidth>
+									<ContextMenu name="ДатаОкончанияДействияКонтекстноеМеню" id="265"/>
+									<ExtendedTooltip name="ДатаОкончанияДействияРасширеннаяПодсказка" id="266"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
-				<LabelDecoration name="Отступ3" id="249">
-					<VerticalStretch>true</VerticalStretch>
-					<ContextMenu name="Отступ3КонтекстноеМеню" id="250"/>
-					<ExtendedTooltip name="Отступ3РасширеннаяПодсказка" id="251"/>
-				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
+		<LabelDecoration name="Отступ3" id="249">
+			<VerticalStretch>true</VerticalStretch>
+			<ContextMenu name="Отступ3КонтекстноеМеню" id="250"/>
+			<ExtendedTooltip name="Отступ3РасширеннаяПодсказка" id="251"/>
+		</LabelDecoration>
 		<InputField name="Комментарий" id="55">
 			<DataPath>Объект.Комментарий</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий</v8:content>
+				</v8:item>
+			</Title>
+			<TitleLocation>Left</TitleLocation>
 			<EditMode>EnterOnInput</EditMode>
 			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
@@ -811,6 +913,7 @@
 			<Action>КомандаОтправить</Action>
 			<Representation>Text</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="СохранитьИПроверить" id="4">
 			<Title>
@@ -826,6 +929,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СохранитьИПроверить</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Выгрузить" id="6">
 			<Title>

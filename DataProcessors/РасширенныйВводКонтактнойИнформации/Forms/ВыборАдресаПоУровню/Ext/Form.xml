@@ -9,15 +9,18 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<MobileDeviceCommandBarContent>
-		<xr:Item>
-			<xr:Presentation/>
-			<xr:CheckState>0</xr:CheckState>
-			<xr:Value xsi:type="xs:string"/>
-		</xr:Item>
-	</MobileDeviceCommandBarContent>
+	<CommandBarLocation>Top</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Выбрать" id="70">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Item.ВариантыАдреса.StandardCommand.Choose</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="71"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -33,23 +36,20 @@
 				</v8:item>
 			</Title>
 			<Shortcut>Ctrl+F</Shortcut>
+			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
 			<Group>HorizontalIfPossible</Group>
+			<HorizontalAlign>Right</HorizontalAlign>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаКоманднаяПанельСПоискомРасширеннаяПодсказка" id="99"/>
 			<ChildItems>
-				<Button name="Выбрать" id="70">
-					<Type>UsualButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Item.ВариантыАдреса.StandardCommand.Choose</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="71"/>
-				</Button>
 				<SearchStringAddition name="ДополнениеПоиск" id="92">
 					<AdditionSource>
 						<Item>ВариантыАдреса</Item>
 						<Type>SearchStringRepresentation</Type>
 					</AdditionSource>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<HorizontalStretch>true</HorizontalStretch>
 					<ContextMenu name="ДополнениеПоискКонтекстноеМеню" id="93"/>
 					<ExtendedTooltip name="ДополнениеПоискРасширеннаяПодсказка" id="94"/>
 				</SearchStringAddition>
@@ -64,6 +64,10 @@
 					</Title>
 					<TitleLocation>None</TitleLocation>
 					<Shortcut>Ctrl+F</Shortcut>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
 					<ClearButton>true</ClearButton>
 					<EditTextUpdate>DontUse</EditTextUpdate>
 					<InputHint>
@@ -79,16 +83,6 @@
 						<Event name="Clearing">ПоискВВебСервисеОчистка</Event>
 					</Events>
 				</InputField>
-				<CommandBar name="ГруппаЕще" id="100">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Еще</v8:content>
-						</v8:item>
-					</Title>
-					<CommandSource>Form</CommandSource>
-					<ExtendedTooltip name="ГруппаЕщеРасширеннаяПодсказка" id="101"/>
-				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 		<Table name="ВариантыАдреса" id="8">
@@ -439,6 +433,7 @@
 			</Picture>
 			<Action>Предыдущие</Action>
 			<Representation>Picture</Representation>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Следующие" id="3">
 			<Title>
@@ -459,6 +454,7 @@
 			</Picture>
 			<Action>Следующие</Action>
 			<Representation>TextPicture</Representation>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

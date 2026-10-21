@@ -14,6 +14,7 @@
 	<CommandSet>
 		<ExcludedCommand>CustomizeForm</ExcludedCommand>
 	</CommandSet>
+	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
@@ -27,6 +28,7 @@
 			</Button>
 			<Button name="ФормаОтмена" id="30">
 				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
 				<CommandName>Form.Command.Отмена</CommandName>
 				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="31"/>
 			</Button>
@@ -47,6 +49,8 @@
 					<v8:content>Таблица</v8:content>
 				</v8:item>
 			</Title>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<ContextMenu name="ПредставлениеРеквизитаОбъектаИСКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="ПредставлениеРеквизитаОбъектаИСРасширеннаяПодсказка" id="3"/>
@@ -95,42 +99,50 @@
 							<v8:content>Обновлять значение автоматически</v8:content>
 						</v8:item>
 					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОбновлятьКонтекстноеМеню" id="54"/>
 					<ExtendedTooltip name="ОбновлятьРасширеннаяПодсказка" id="55"/>
 				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаВариантПравила" id="4">
+		<UsualGroup name="ГруппаВариантРеквизитОбъектаИЗначение" id="75">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа вариант правила</v8:content>
+					<v8:content>Группа вариант реквизит объекта и значение</v8:content>
 				</v8:item>
 			</Title>
 			<Group>AlwaysHorizontal</Group>
-			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаВариантПравилаРасширеннаяПодсказка" id="5"/>
+			<ExtendedTooltip name="ГруппаВариантРеквизитОбъектаИЗначениеРасширеннаяПодсказка" id="76"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаВариант" id="45">
-					<Width>30</Width>
-					<Group>HorizontalIfPossible</Group>
-					<VerticalSpacing>OneAndHalf</VerticalSpacing>
-					<Behavior>Usual</Behavior>
+				<UsualGroup name="ГруппаВариантРеквизитОбъекта" id="77">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа вариант реквизит объекта</v8:content>
+						</v8:item>
+					</Title>
+					<Width>33</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Group>AlwaysHorizontal</Group>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаВариантРасширеннаяПодсказка" id="46"/>
+					<ExtendedTooltip name="ГруппаВариантРеквизитОбъектаРасширеннаяПодсказка" id="78"/>
 					<ChildItems>
-						<RadioButtonField name="Вариант" id="6">
+						<RadioButtonField name="ВариантРеквизитОбъекта" id="79">
 							<DataPath>Вариант</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Заполнять</v8:content>
+									<v8:content>Вариант реквизит объекта</v8:content>
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<RadioButtonType>Auto</RadioButtonType>
 							<ColumnsCount>1</ColumnsCount>
 							<ChoiceList>
@@ -147,6 +159,73 @@
 										<Value xsi:type="xr:DesignTimeRef">Enum.ВариантыПравилЗаполненияРеквизитов.EnumValue.РеквизитОбъекта</Value>
 									</xr:Value>
 								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ВариантРеквизитОбъектаКонтекстноеМеню" id="80"/>
+							<ExtendedTooltip name="ВариантРеквизитОбъектаРасширеннаяПодсказка" id="81"/>
+							<Events>
+								<Event name="OnChange">ВариантПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="ПредставлениеРеквизитаОбъектаДО" id="11">
+					<DataPath>ПредставлениеРеквизитаОбъектаДО</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ChoiceButton>true</ChoiceButton>
+					<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="ПредставлениеРеквизитаОбъектаДОКонтекстноеМеню" id="12"/>
+					<ExtendedTooltip name="ПредставлениеРеквизитаОбъектаДОРасширеннаяПодсказка" id="13"/>
+					<Events>
+						<Event name="StartChoice">ПредставлениеРеквизитаОбъектаДОНачалоВыбора</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаВариантВыражениеНаВстроенномЯзыкеИЗначение" id="87">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа вариант выражение на встроенном языке и значение</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВариантВыражениеНаВстроенномЯзыкеИЗначениеРасширеннаяПодсказка" id="88"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаВариантВыражениеНаВстроенномЯзыке" id="89">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа вариант выражение на встроенном языке</v8:content>
+						</v8:item>
+					</Title>
+					<Width>33</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Group>AlwaysHorizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВариантВыражениеНаВстроенномЯзыкеРасширеннаяПодсказка" id="90"/>
+					<ChildItems>
+						<RadioButtonField name="ВариантВыражениеНаВстроенномЯзыке" id="91">
+							<DataPath>Вариант</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вариант выражение на встроенном языке</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ColumnsCount>1</ColumnsCount>
+							<ChoiceList>
 								<xr:Item>
 									<xr:Presentation/>
 									<xr:CheckState>0</xr:CheckState>
@@ -160,104 +239,166 @@
 										<Value xsi:type="xr:DesignTimeRef">Enum.ВариантыПравилЗаполненияРеквизитов.EnumValue.ВыражениеНаВстроенномЯзыке</Value>
 									</xr:Value>
 								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>По правилам для отдельных реквизитов</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xr:DesignTimeRef">Enum.ВариантыПравилЗаполненияРеквизитов.EnumValue.РеквизитТаблицы</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Не заполнять</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xr:DesignTimeRef">Enum.ВариантыПравилЗаполненияРеквизитов.EmptyRef</Value>
-									</xr:Value>
-								</xr:Item>
 							</ChoiceList>
-							<ContextMenu name="ВариантКонтекстноеМеню" id="7"/>
-							<ExtendedTooltip name="ВариантРасширеннаяПодсказка" id="8"/>
+							<ContextMenu name="ВариантВыражениеНаВстроенномЯзыкеКонтекстноеМеню" id="92"/>
+							<ExtendedTooltip name="ВариантВыражениеНаВстроенномЯзыкеРасширеннаяПодсказка" id="93"/>
 							<Events>
 								<Event name="OnChange">ВариантПриИзменении</Event>
 							</Events>
 						</RadioButtonField>
 					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="ГруппаПравила" id="9">
-					<Group>Vertical</Group>
-					<VerticalSpacing>Half</VerticalSpacing>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПравилаExtendedTooltip" id="10"/>
-					<ChildItems>
-						<InputField name="ПредставлениеРеквизитаОбъектаДО" id="11">
-							<DataPath>ПредставлениеРеквизитаОбъектаДО</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<ChoiceButton>true</ChoiceButton>
-							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
-							<TextEdit>false</TextEdit>
-							<ContextMenu name="ПредставлениеРеквизитаОбъектаДОКонтекстноеМеню" id="12"/>
-							<ExtendedTooltip name="ПредставлениеРеквизитаОбъектаДОРасширеннаяПодсказка" id="13"/>
-							<Events>
-								<Event name="StartChoice">ПредставлениеРеквизитаОбъектаДОНачалоВыбора</Event>
-							</Events>
-						</InputField>
-						<InputField name="ВычисляемоеВыражение" id="17">
-							<DataPath>ВычисляемоеВыражение</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Место выполнения выражения</v8:content>
-								</v8:item>
-							</ToolTip>
-							<ToolTipRepresentation>Button</ToolTipRepresentation>
-							<Width>50</Width>
-							<MultiLine>false</MultiLine>
-							<ChoiceButton>true</ChoiceButton>
-							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
-							<ChoiceButtonPicture>
-								<xr:Ref>StdPicture.Change</xr:Ref>
-								<xr:LoadTransparent>true</xr:LoadTransparent>
-							</ChoiceButtonPicture>
-							<ContextMenu name="ВычисляемоеВыражениеКонтекстноеМеню" id="18"/>
-							<ExtendedTooltip name="ВычисляемоеВыражениеExtendedTooltip" id="19"/>
-							<Events>
-								<Event name="StartChoice">ВычисляемоеВыражениеНачалоВыбора</Event>
-							</Events>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
+				<InputField name="ВычисляемоеВыражение" id="17">
+					<DataPath>ВычисляемоеВыражение</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Место выполнения выражения</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<MultiLine>false</MultiLine>
+					<ChoiceButton>true</ChoiceButton>
+					<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+					<ChoiceButtonPicture>
+						<xr:Ref>StdPicture.Change</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</ChoiceButtonPicture>
+					<ContextMenu name="ВычисляемоеВыражениеКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ВычисляемоеВыражениеExtendedTooltip" id="19"/>
+					<Events>
+						<Event name="StartChoice">ВычисляемоеВыражениеНачалоВыбора</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаВариантРеквизитТаблицы" id="108">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа вариант реквизит таблицы</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВариантРеквизитТаблицыРасширеннаяПодсказка" id="109"/>
+			<ChildItems>
+				<RadioButtonField name="ВариантРеквизитТаблицы" id="99">
+					<DataPath>Вариант</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вариант реквизит таблицы</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ColumnsCount>1</ColumnsCount>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>По правилам для отдельных реквизитов</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.ВариантыПравилЗаполненияРеквизитов.EnumValue.РеквизитТаблицы</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ВариантРеквизитТаблицыКонтекстноеМеню" id="100"/>
+					<ExtendedTooltip name="ВариантРеквизитТаблицыРасширеннаяПодсказка" id="101"/>
+					<Events>
+						<Event name="OnChange">ВариантПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<LabelDecoration name="ВертикальныйРазделительВариантРеквизитТаблицы" id="110">
+					<Height>1</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<Font ref="style:TextLevel2" height="20" kind="StyleItem" scale="100"/>
+					<ContextMenu name="ВертикальныйРазделительВариантРеквизитТаблицыКонтекстноеМеню" id="111"/>
+					<ExtendedTooltip name="ВертикальныйРазделительВариантРеквизитТаблицыРасширеннаяПодсказка" id="112"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаВариантНеЗаполнять" id="106">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа вариант не заполнять</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВариантНеЗаполнятьРасширеннаяПодсказка" id="107"/>
+			<ChildItems>
+				<RadioButtonField name="ВариантНеЗаполнять" id="95">
+					<DataPath>Вариант</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вариант не заполнять</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ColumnsCount>1</ColumnsCount>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Не заполнять</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.ВариантыПравилЗаполненияРеквизитов.EmptyRef</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ВариантНеЗаполнятьКонтекстноеМеню" id="96"/>
+					<ExtendedTooltip name="ВариантНеЗаполнятьРасширеннаяПодсказка" id="97"/>
+					<Events>
+						<Event name="OnChange">ВариантПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<LabelDecoration name="ВертикальныйРазделительВариантНеЗаполнять" id="103">
+					<Height>1</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<Font ref="style:TextLevel2" height="19" kind="StyleItem" scale="100"/>
+					<ContextMenu name="ВертикальныйРазделительВариантНеЗаполнятьКонтекстноеМеню" id="104"/>
+					<ExtendedTooltip name="ВертикальныйРазделительВариантНеЗаполнятьРасширеннаяПодсказка" id="105"/>
+				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
 		<InputField name="РежимИзмененияДанныхПроведенногоДокумента" id="50">
 			<DataPath>РежимИзмененияДанныхПроведенногоДокумента</DataPath>
 			<TitleLocation>Top</TitleLocation>
-			<Width>24</Width>
-			<AutoMaxWidth>false</AutoMaxWidth>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<Width>28</Width>
 			<MaxWidth>24</MaxWidth>
+			<HorizontalStretch>false</HorizontalStretch>
 			<ListChoiceMode>true</ListChoiceMode>
 			<ContextMenu name="РежимИзмененияДанныхПроведенногоДокументаКонтекстноеМеню" id="51"/>
 			<ExtendedTooltip name="РежимИзмененияДанныхПроведенногоДокументаРасширеннаяПодсказка" id="52"/>
 		</InputField>
-		<LabelDecoration name="ДекорацияРазделитель" id="47">
-			<ContextMenu name="ДекорацияРазделительКонтекстноеМеню" id="48"/>
-			<ExtendedTooltip name="ДекорацияРазделительРасширеннаяПодсказка" id="49"/>
-		</LabelDecoration>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ИмяРеквизитаОбъектаДО" id="3">
@@ -509,7 +650,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -520,6 +661,7 @@
 			</ToolTip>
 			<Action>ОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="2">
 			<Title>
@@ -536,6 +678,7 @@
 			</ToolTip>
 			<Action>Отмена</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

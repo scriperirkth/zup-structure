@@ -12,21 +12,20 @@
 	<Group>Vertical</Group>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="КоманднаяПанельФормыВыбрать" id="33">
 				<Type>CommandBarButton</Type>
 				<Representation>PictureAndText</Representation>
+				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.КоманднаяПанельФормыВыбрать</CommandName>
-				<Picture>
-					<xr:Ref>StdPicture.ChooseValue</xr:Ref>
-					<xr:LoadTransparent>true</xr:LoadTransparent>
-				</Picture>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
 						<v8:content>Выбрать</v8:content>
 					</v8:item>
 				</Title>
+				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="КоманднаяПанельФормыВыбратьРасширеннаяПодсказка" id="57"/>
 			</Button>
 		</ChildItems>
@@ -36,212 +35,250 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<Table name="Сертификаты" id="1">
-			<Representation>List</Representation>
-			<Height>10</Height>
-			<SelectionMode>SingleRow</SelectionMode>
-			<RowSelectionMode>Cell</RowSelectionMode>
-			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-			<AutoInsertNewRow>true</AutoInsertNewRow>
-			<EnableStartDrag>true</EnableStartDrag>
-			<EnableDrag>true</EnableDrag>
-			<FileDragMode>AsFile</FileDragMode>
-			<DataPath>Сертификаты</DataPath>
-			<CommandSet>
-				<ExcludedCommand>Add</ExcludedCommand>
-				<ExcludedCommand>Change</ExcludedCommand>
-				<ExcludedCommand>Copy</ExcludedCommand>
-				<ExcludedCommand>Delete</ExcludedCommand>
-				<ExcludedCommand>EndEdit</ExcludedCommand>
-				<ExcludedCommand>MoveDown</ExcludedCommand>
-				<ExcludedCommand>MoveUp</ExcludedCommand>
-				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
-			</CommandSet>
-			<SearchStringLocation>None</SearchStringLocation>
-			<ViewStatusLocation>None</ViewStatusLocation>
-			<SearchControlLocation>None</SearchControlLocation>
-			<RowFilter xsi:nil="true"/>
-			<ContextMenu name="СертификатыКонтекстноеМеню" id="2">
-				<Autofill>false</Autofill>
-				<ChildItems>
-					<Button name="СертификатыКонтекстноеМенюСортироватьСписокПоВозрастанию" id="139">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Сертификаты.StandardCommand.SortListAsc</CommandName>
-						<ExtendedTooltip name="СертификатыКонтекстноеМенюСортироватьСписокПоВозрастаниюРасширеннаяПодсказка" id="140"/>
-					</Button>
-					<Button name="СертификатыКонтекстноеМенюСортироватьСписокПоУбыванию" id="141">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Сертификаты.StandardCommand.SortListDesc</CommandName>
-						<ExtendedTooltip name="СертификатыКонтекстноеМенюСортироватьСписокПоУбываниюРасширеннаяПодсказка" id="142"/>
-					</Button>
-				</ChildItems>
-			</ContextMenu>
-			<AutoCommandBar name="СертификатыКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
-				<ChildItems>
-					<Button name="ФормаСертификатыКнопкаОткрыть" id="108">
-						<Type>CommandBarButton</Type>
-						<Width>10</Width>
-						<CommandName>Form.Command.СертификатыКнопкаОткрыть</CommandName>
-						<ExtendedTooltip name="ФормаСертификатыКнопкаОткрытьРасширеннаяПодсказка" id="109"/>
-					</Button>
-					<Button name="ПоказыватьПросроченные" id="143">
-						<Type>CommandBarButton</Type>
-						<Check>true</Check>
-						<CommandName>Form.Command.ПоказыватьПросроченные</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Показывать просроченные</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ПоказыватьПросроченныеРасширеннаяПодсказка" id="144"/>
-					</Button>
-					<ButtonGroup name="СертификатыСортировка" id="150">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Сертификаты сортировка</v8:content>
-							</v8:item>
-						</Title>
-						<ToolTip>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Сертификаты сортировка</v8:content>
-							</v8:item>
-						</ToolTip>
-						<Representation>Compact</Representation>
-						<ExtendedTooltip name="СертификатыСортировкаРасширеннаяПодсказка" id="151"/>
+		<UsualGroup name="Колонки" id="170">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Колонки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Колонки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="КолонкиРасширеннаяПодсказка" id="171"/>
+			<ChildItems>
+				<Table name="Сертификаты" id="1">
+					<Representation>List</Representation>
+					<Width>60</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Height>10</Height>
+					<SelectionMode>SingleRow</SelectionMode>
+					<RowSelectionMode>Row</RowSelectionMode>
+					<UseAlternationRowColorBWA>true</UseAlternationRowColorBWA>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<HorizontalStretch>false</HorizontalStretch>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Сертификаты</DataPath>
+					<CommandSet>
+						<ExcludedCommand>Add</ExcludedCommand>
+						<ExcludedCommand>Change</ExcludedCommand>
+						<ExcludedCommand>Copy</ExcludedCommand>
+						<ExcludedCommand>Delete</ExcludedCommand>
+						<ExcludedCommand>EndEdit</ExcludedCommand>
+						<ExcludedCommand>MoveDown</ExcludedCommand>
+						<ExcludedCommand>MoveUp</ExcludedCommand>
+						<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+					</CommandSet>
+					<SearchStringLocation>CommandBar</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="СертификатыКонтекстноеМеню" id="2">
+						<Autofill>false</Autofill>
 						<ChildItems>
-							<Button name="СертификатыСортироватьСписокПоВозрастанию" id="152">
+							<Button name="СертификатыКонтекстноеМенюСортироватьСписокПоВозрастанию" id="139">
 								<Type>CommandBarButton</Type>
-								<Representation>Picture</Representation>
 								<CommandName>Form.Item.Сертификаты.StandardCommand.SortListAsc</CommandName>
-								<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-								<ExtendedTooltip name="СертификатыСортироватьСписокПоВозрастаниюРасширеннаяПодсказка" id="153"/>
+								<ExtendedTooltip name="СертификатыКонтекстноеМенюСортироватьСписокПоВозрастаниюРасширеннаяПодсказка" id="140"/>
 							</Button>
-							<Button name="СертификатыСортироватьСписокПоУбыванию" id="154">
+							<Button name="СертификатыКонтекстноеМенюСортироватьСписокПоУбыванию" id="141">
 								<Type>CommandBarButton</Type>
-								<Representation>Picture</Representation>
 								<CommandName>Form.Item.Сертификаты.StandardCommand.SortListDesc</CommandName>
-								<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-								<ExtendedTooltip name="СертификатыСортироватьСписокПоУбываниюРасширеннаяПодсказка" id="155"/>
+								<ExtendedTooltip name="СертификатыКонтекстноеМенюСортироватьСписокПоУбываниюРасширеннаяПодсказка" id="142"/>
 							</Button>
 						</ChildItems>
-					</ButtonGroup>
-				</ChildItems>
-			</AutoCommandBar>
-			<ExtendedTooltip name="СертификатыРасширеннаяПодсказка" id="64"/>
-			<SearchStringAddition name="СертификатыСтрокаПоиска" id="99">
-				<AdditionSource>
-					<Item>Сертификаты</Item>
-					<Type>SearchStringRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="СертификатыСтрокаПоискаКонтекстноеМеню" id="100"/>
-				<ExtendedTooltip name="СертификатыСтрокаПоискаРасширеннаяПодсказка" id="101"/>
-			</SearchStringAddition>
-			<ViewStatusAddition name="СертификатыСостояниеПросмотра" id="102">
-				<AdditionSource>
-					<Item>Сертификаты</Item>
-					<Type>ViewStatusRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="СертификатыСостояниеПросмотраКонтекстноеМеню" id="103"/>
-				<ExtendedTooltip name="СертификатыСостояниеПросмотраРасширеннаяПодсказка" id="104"/>
-			</ViewStatusAddition>
-			<SearchControlAddition name="СертификатыУправлениеПоиском" id="105">
-				<AdditionSource>
-					<Item>Сертификаты</Item>
-					<Type>SearchControl</Type>
-				</AdditionSource>
-				<ContextMenu name="СертификатыУправлениеПоискомКонтекстноеМеню" id="106"/>
-				<ExtendedTooltip name="СертификатыУправлениеПоискомРасширеннаяПодсказка" id="107"/>
-			</SearchControlAddition>
-			<Events>
-				<Event name="Selection">СертификатыВыбор</Event>
-			</Events>
-			<ChildItems>
-				<InputField name="СертификатыОрганизация" id="110">
-					<DataPath>Сертификаты.O</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="СертификатыОрганизацияКонтекстноеМеню" id="111"/>
-					<ExtendedTooltip name="СертификатыОрганизацияРасширеннаяПодсказка" id="112"/>
-				</InputField>
-				<InputField name="СертификатыИНН" id="113">
-					<DataPath>Сертификаты.OID1_2_643_100_4</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="СертификатыИННКонтекстноеМеню" id="114"/>
-					<ExtendedTooltip name="СертификатыИННРасширеннаяПодсказка" id="115"/>
-				</InputField>
-				<InputField name="СертификатыФИО" id="133">
-					<DataPath>Сертификаты.ФИО</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="СертификатыФИОКонтекстноеМеню" id="134"/>
-					<ExtendedTooltip name="СертификатыФИОРасширеннаяПодсказка" id="135"/>
-				</InputField>
-				<InputField name="СертификатыИННВладельца" id="116">
-					<DataPath>Сертификаты.OID1_2_643_3_131_1_1</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="СертификатыИННВладельцаКонтекстноеМеню" id="117"/>
-					<ExtendedTooltip name="СертификатыИННВладельцаРасширеннаяПодсказка" id="118"/>
-				</InputField>
-				<InputField name="СертификатыСНИЛС" id="119">
-					<DataPath>Сертификаты.OID1_2_643_100_3</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="СертификатыСНИЛСКонтекстноеМеню" id="120"/>
-					<ExtendedTooltip name="СертификатыСНИЛСРасширеннаяПодсказка" id="121"/>
-				</InputField>
-				<InputField name="СертификатыДолдность" id="145">
-					<DataPath>Сертификаты.T</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="СертификатыДолдностьКонтекстноеМеню" id="146"/>
-					<ExtendedTooltip name="СертификатыДолдностьРасширеннаяПодсказка" id="147"/>
-				</InputField>
-				<InputField name="СертификатыДатаНачала" id="14">
-					<DataPath>Сертификаты.ДатаНачала</DataPath>
-					<ReadOnly>true</ReadOnly>
+					</ContextMenu>
+					<AutoCommandBar name="СертификатыКоманднаяПанель" id="3">
+						<ChildItems>
+							<Button name="ФормаСертификатыКнопкаОткрыть" id="108">
+								<Type>CommandBarButton</Type>
+								<Width>10</Width>
+								<CommandName>Form.Command.СертификатыКнопкаОткрыть</CommandName>
+								<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+								<ExtendedTooltip name="ФормаСертификатыКнопкаОткрытьРасширеннаяПодсказка" id="109"/>
+							</Button>
+							<Button name="ПоказыватьПросроченные" id="143">
+								<Type>CommandBarButton</Type>
+								<Check>true</Check>
+								<CommandName>Form.Command.ПоказыватьПросроченные</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Показывать просроченные</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ПоказыватьПросроченныеРасширеннаяПодсказка" id="144"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="СертификатыРасширеннаяПодсказка" id="64"/>
+					<SearchStringAddition name="СертификатыСтрокаПоиска" id="99">
+						<AdditionSource>
+							<Item>Сертификаты</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СертификатыСтрокаПоискаКонтекстноеМеню" id="100"/>
+						<ExtendedTooltip name="СертификатыСтрокаПоискаРасширеннаяПодсказка" id="101"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="СертификатыСостояниеПросмотра" id="102">
+						<AdditionSource>
+							<Item>Сертификаты</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СертификатыСостояниеПросмотраКонтекстноеМеню" id="103"/>
+						<ExtendedTooltip name="СертификатыСостояниеПросмотраРасширеннаяПодсказка" id="104"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="СертификатыУправлениеПоиском" id="105">
+						<AdditionSource>
+							<Item>Сертификаты</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="СертификатыУправлениеПоискомКонтекстноеМеню" id="106"/>
+						<ExtendedTooltip name="СертификатыУправлениеПоискомРасширеннаяПодсказка" id="107"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">СертификатыВыбор</Event>
+					</Events>
+					<ChildItems>
+						<InputField name="СертификатыОрганизация" id="110">
+							<DataPath>Сертификаты.O</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Владелец</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СертификатыОрганизацияКонтекстноеМеню" id="111"/>
+							<ExtendedTooltip name="СертификатыОрганизацияРасширеннаяПодсказка" id="112"/>
+						</InputField>
+						<InputField name="СертификатыДатаОкончания" id="16">
+							<DataPath>Сертификаты.ДатаОкончания</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата окончания</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Format>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДЛФ=D</v8:content>
+								</v8:item>
+							</Format>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДЛФ=D</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="СертификатыДатаОкончанияКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="СертификатыДатаОкончанияРасширеннаяПодсказка" id="80"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+				<UsualGroup name="ГруппаПодробнее" id="172">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Начало действия</v8:content>
+							<v8:content>Сведения о сертификате</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="СертификатыДатаНачалаКонтекстноеМеню" id="15"/>
-					<ExtendedTooltip name="СертификатыДатаНачалаРасширеннаяПодсказка" id="79"/>
-				</InputField>
-				<InputField name="СертификатыДатаОкончания" id="16">
-					<DataPath>Сертификаты.ДатаОкончания</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<Title>
+					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Конец действия</v8:content>
+							<v8:content>Группа подробнее</v8:content>
 						</v8:item>
-					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="СертификатыДатаОкончанияКонтекстноеМеню" id="17"/>
-					<ExtendedTooltip name="СертификатыДатаОкончанияРасширеннаяПодсказка" id="80"/>
-				</InputField>
-				<InputField name="СертификатыСерийныйНомер" id="136">
-					<DataPath>Сертификаты.СерийныйНомер</DataPath>
-					<UserVisible>
-						<xr:Common>false</xr:Common>
-					</UserVisible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="СертификатыСерийныйНомерКонтекстноеМеню" id="137"/>
-					<ExtendedTooltip name="СертификатыСерийныйНомерРасширеннаяПодсказка" id="138"/>
-				</InputField>
+					</ToolTip>
+					<Width>40</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<VerticalStretch>true</VerticalStretch>
+					<Group>Vertical</Group>
+					<ShowAsCard>true</ShowAsCard>
+					<ExtendedTooltip name="ГруппаПодробнееРасширеннаяПодсказка" id="173"/>
+					<ChildItems>
+						<LabelField name="СертификатыO" id="174">
+							<DataPath>Items.Сертификаты.CurrentData.O</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименование</v8:content>
+								</v8:item>
+							</Title>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<UseCopy>true</UseCopy>
+							<ContextMenu name="СертификатыOКонтекстноеМеню" id="175"/>
+							<ExtendedTooltip name="СертификатыOРасширеннаяПодсказка" id="176"/>
+						</LabelField>
+						<LabelField name="СертификатыВладелец" id="196">
+							<DataPath>Items.Сертификаты.CurrentData.ФИО</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Владелец</v8:content>
+								</v8:item>
+							</Title>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<UseCopy>true</UseCopy>
+							<ContextMenu name="СертификатыВладелецКонтекстноеМеню" id="197"/>
+							<ExtendedTooltip name="СертификатыВладелецРасширеннаяПодсказка" id="198"/>
+						</LabelField>
+						<LabelField name="СертификатыСерийныйНомер" id="136">
+							<DataPath>Items.Сертификаты.CurrentData.СерийныйНомер</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<UseCopy>true</UseCopy>
+							<ContextMenu name="СертификатыСерийныйНомерКонтекстноеМеню" id="137"/>
+							<ExtendedTooltip name="СертификатыСерийныйНомерРасширеннаяПодсказка" id="138"/>
+						</LabelField>
+						<LabelField name="СертификатыДатаНачала1" id="188">
+							<DataPath>Items.Сертификаты.CurrentData.ДатаНачала</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата начала</v8:content>
+								</v8:item>
+							</Title>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<UseCopy>true</UseCopy>
+							<ContextMenu name="СертификатыДатаНачала1КонтекстноеМеню" id="189"/>
+							<ExtendedTooltip name="СертификатыДатаНачала1РасширеннаяПодсказка" id="190"/>
+						</LabelField>
+						<LabelField name="СертификатыДатаОкончания1" id="192">
+							<DataPath>Items.Сертификаты.CurrentData.ДатаОкончания</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<UseCopy>true</UseCopy>
+							<ContextMenu name="СертификатыДатаОкончания1КонтекстноеМеню" id="193"/>
+							<ExtendedTooltip name="СертификатыДатаОкончания1РасширеннаяПодсказка" id="194"/>
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
-		</Table>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -494,6 +531,7 @@
 			</ToolTip>
 			<Action>КоманднаяПанельФормыВыбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="СертификатыКнопкаОткрыть" id="1">
 			<Title>
@@ -505,7 +543,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сертификаты кнопка открыть</v8:content>
+					<v8:content>Открыть</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
@@ -514,6 +552,8 @@
 			</Picture>
 			<Action>СертификатыКнопкаОткрыть</Action>
 			<Representation>TextPicture</Representation>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Сертификаты</AssociatedTableElementId>
 		</Command>
 		<Command name="ПоказыватьПросроченные" id="3">
 			<Title>

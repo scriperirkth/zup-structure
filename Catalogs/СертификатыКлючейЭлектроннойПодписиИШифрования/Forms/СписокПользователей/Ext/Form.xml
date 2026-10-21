@@ -6,11 +6,42 @@
 			<v8:content>Используют</v8:content>
 		</v8:item>
 	</Title>
+	<Width>45</Width>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+	</CommandSet>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="СохранитьИзменения" id="30">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<DefaultItem>true</DefaultItem>
+				<CommandName>Form.Command.СохранитьИзменения</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сохранить изменения</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="СохранитьИзмененияРасширеннаяПодсказка" id="31"/>
+			</Button>
+			<Button name="Отмена" id="5">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="6"/>
+			</Button>
+			<Button name="Справка" id="76">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="77"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -51,6 +82,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<RadioButtonType>Auto</RadioButtonType>
 							<ChoiceList>
 								<xr:Item>
@@ -97,6 +130,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<RadioButtonType>Auto</RadioButtonType>
 							<ChoiceList>
 								<xr:Item>
@@ -123,6 +158,9 @@
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -222,8 +260,8 @@
 										</v8:item>
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
-									<ShowInHeader>false</ShowInHeader>
 									<AutoEditMode>true</AutoEditMode>
+									<CheckBoxType>CheckBox</CheckBoxType>
 									<ContextMenu name="ПользователиПометкаКонтекстноеМеню" id="24"/>
 									<ExtendedTooltip name="ПользователиПометкаРасширеннаяПодсказка" id="25"/>
 								</CheckBoxField>
@@ -241,7 +279,7 @@
 									<ContextMenu name="ПользователиПользовательКонтекстноеМеню" id="21"/>
 									<ExtendedTooltip name="ПользователиПользовательРасширеннаяПодсказка" id="22"/>
 								</InputField>
-								<CheckBoxField name="ТаблицаПользователейБезИспользованияКлюча" id="73">
+								<CheckBoxField name="ТаблицаПользователейБезИспользованияКлюча" id="95">
 									<DataPath>ТаблицаПользователей.БезИспользованияКлюча</DataPath>
 									<Title>
 										<v8:item>
@@ -257,8 +295,9 @@
 									</ToolTip>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ТаблицаПользователейБезИспользованияКлючаКонтекстноеМеню" id="74"/>
-									<ExtendedTooltip name="ТаблицаПользователейБезИспользованияКлючаРасширеннаяПодсказка" id="75"/>
+									<CheckBoxType>CheckBox</CheckBoxType>
+									<ContextMenu name="ТаблицаПользователейБезИспользованияКлючаКонтекстноеМеню" id="96"/>
+									<ExtendedTooltip name="ТаблицаПользователейБезИспользованияКлючаРасширеннаяПодсказка" id="97"/>
 									<Events>
 										<Event name="OnChange">ТаблицаПользователейБезИспользованияКлючаПриИзменении</Event>
 									</Events>
@@ -281,6 +320,9 @@
 					<ChildItems>
 						<Table name="ВыбранныеПользователи" id="51">
 							<Representation>List</Representation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<DataPath>ВыбранныеПользователи</DataPath>
@@ -330,10 +372,12 @@
 											<v8:content>Пользователь</v8:content>
 										</v8:item>
 									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ВыбранныеПользователиПользовательКонтекстноеМеню" id="68"/>
 									<ExtendedTooltip name="ВыбранныеПользователиПользовательРасширеннаяПодсказка" id="69"/>
 								</InputField>
-								<CheckBoxField name="ВыбранныеПользователиБезИспользованияКлюча" id="70">
+								<CheckBoxField name="ВыбранныеПользователиБезИспользованияКлюча" id="91">
 									<DataPath>ВыбранныеПользователи.БезИспользованияКлюча</DataPath>
 									<Title>
 										<v8:item>
@@ -349,15 +393,17 @@
 									</ToolTip>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ВыбранныеПользователиБезИспользованияКлючаКонтекстноеМеню" id="71"/>
-									<ExtendedTooltip name="ВыбранныеПользователиБезИспользованияКлючаРасширеннаяПодсказка" id="72"/>
+									<CheckBoxType>CheckBox</CheckBoxType>
+									<ContextMenu name="ВыбранныеПользователиБезИспользованияКлючаКонтекстноеМеню" id="92"/>
+									<ExtendedTooltip name="ВыбранныеПользователиБезИспользованияКлючаРасширеннаяПодсказка" id="93"/>
 								</CheckBoxField>
 							</ChildItems>
 						</Table>
 					</ChildItems>
 				</UsualGroup>
 				<LabelDecoration name="ДекорацияПредупреждение" id="44">
-					<TextColor>style:ПоясняющийТекст</TextColor>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<AutoMaxHeight>false</AutoMaxHeight>
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -369,42 +415,6 @@
 				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
-		<CommandBar name="ГруппаКоманды" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команды</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="2"/>
-			<ChildItems>
-				<Button name="ОК" id="30">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<DefaultItem>true</DefaultItem>
-					<CommandName>Form.Command.ОК</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ОК</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="31"/>
-				</Button>
-				<Button name="Отмена" id="5">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.StandardCommand.Cancel</CommandName>
-					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="6"/>
-				</Button>
-				<Button name="Справка" id="76">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.StandardCommand.Help</CommandName>
-					<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="77"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ТаблицаПользователей" id="1">
@@ -565,20 +575,15 @@
 			<Representation>Picture</Representation>
 			<AssociatedTableElementId xsi:type="xs:string">ТаблицаПользователей</AssociatedTableElementId>
 		</Command>
-		<Command name="ОК" id="3">
+		<Command name="СохранитьИзменения" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Сохранить изменения</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОК</Action>
+			<Action>СохранитьИзменения</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

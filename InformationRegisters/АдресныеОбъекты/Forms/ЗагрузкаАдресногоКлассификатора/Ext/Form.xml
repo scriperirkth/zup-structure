@@ -11,8 +11,53 @@
 	<SaveDataInSettings>UseList</SaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Загрузить" id="10">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Загрузить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Загрузить адресные сведения</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ЗагрузитьРасширеннаяПодсказка" id="11"/>
+			</Button>
+			<Button name="ОбновитьКлассификатор" id="172">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОбновитьКлассификатор</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обновить классификатор</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ОбновитьКлассификаторРасширеннаяПодсказка" id="173"/>
+			</Button>
+			<Button name="ПрерватьЗагрузку" id="78">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПрерватьЗагрузку</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Прервать</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ПрерватьЗагрузкуРасширеннаяПодсказка" id="79"/>
+			</Button>
+			<Button name="ФормаСправка" id="270">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="271"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -42,23 +87,12 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ВыборРегионовЗагрузкиРасширеннаяПодсказка" id="62"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаКоманднаяПанельРегионов" id="206">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Командная панель регионов</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Horizontal</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаКоманднаяПанельРегионовРасширеннаяПодсказка" id="207"/>
-						</UsualGroup>
 						<Table name="СубъектыРФ" id="1">
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<Height>6</Height>
+							<HeightControlVariant>UseHeightInFormRows</HeightControlVariant>
 							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<Header>false</Header>
@@ -188,6 +222,7 @@
 											<TitleLocation>None</TitleLocation>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<CheckBoxType>CheckBox</CheckBoxType>
 											<ContextMenu name="СубъектыРФЗагружатьКонтекстноеМеню" id="21"/>
 											<ExtendedTooltip name="СубъектыРФЗагружатьРасширеннаяПодсказка" id="22"/>
 											<Events>
@@ -250,25 +285,25 @@
 									<v8:content>Подвал субъектов</v8:content>
 								</v8:item>
 							</Title>
-							<Group>HorizontalIfPossible</Group>
+							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаПодвалСубъектовРасширеннаяПодсказка" id="117"/>
 							<ChildItems>
-								<UsualGroup name="ГруппаСтрокаПодвала" id="251">
+								<UsualGroup name="ГруппаСтрокаПодвала" id="314">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
 											<v8:content>Строка подвала</v8:content>
 										</v8:item>
 									</Title>
-									<Group>Vertical</Group>
+									<Group>AutoScreenTypeSensitive</Group>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаСтрокаПодвалаРасширеннаяПодсказка" id="252"/>
+									<ExtendedTooltip name="ГруппаСтрокаПодвалаРасширеннаяПодсказка" id="315"/>
 									<ChildItems>
-										<CheckBoxField name="ЗагружатьПомещения" id="248">
+										<CheckBoxField name="ЗагружатьПомещения" id="310">
 											<DataPath>ЗагружатьПомещения</DataPath>
 											<Title>
 												<v8:item>
@@ -276,75 +311,91 @@
 													<v8:content>Загружать помещения</v8:content>
 												</v8:item>
 											</Title>
-											<TitleLocation>Right</TitleLocation>
 											<ToolTip>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Позволяет выбирать помещения и квартиры при вводе адреса, что необходимо для корректной сдачи отчетности. 
-Загрузка этих сведений увеличит размер адресного классификатора примерно в 2 раза.</v8:content>
+													<v8:content>Включает загрузку помещений для их подбора в приложении и корректной выгрузки адресов на сайт ФНС. При отключении флага объем базы данных будет меньше.</v8:content>
 												</v8:item>
 											</ToolTip>
 											<ToolTipRepresentation>Button</ToolTipRepresentation>
-											<ContextMenu name="ЗагружатьПомещенияКонтекстноеМеню" id="249"/>
-											<ExtendedTooltip name="ЗагружатьПомещенияРасширеннаяПодсказка" id="250"/>
+											<ContextMenu name="ЗагружатьПомещенияКонтекстноеМеню" id="311"/>
+											<ExtendedTooltip name="ЗагружатьПомещенияРасширеннаяПодсказка" id="312"/>
 										</CheckBoxField>
-										<CheckBoxField name="ЗагружатьИсториюИзмененийАдресныхОбъектов" id="190">
-											<DataPath>ЗагружатьИсториюИзмененийАдресныхОбъектов</DataPath>
+										<UsualGroup name="ГруппаВыбраноРегионовДляЗагрузки" id="212">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Загружать историю изменений адресных объектов</v8:content>
+													<v8:content>Выбрано регионов для загрузки</v8:content>
 												</v8:item>
 											</Title>
-											<TitleLocation>Right</TitleLocation>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Загрузка истории переименования, переподчинения или исключения адресных сведений в адресном классификаторе.</v8:content>
-												</v8:item>
-											</ToolTip>
-											<ToolTipRepresentation>Button</ToolTipRepresentation>
-											<ContextMenu name="ЗагружатьИсториюИзмененийАдресныхОбъектовКонтекстноеМеню" id="191"/>
-											<ExtendedTooltip name="ЗагружатьИсториюИзмененийАдресныхОбъектовРасширеннаяПодсказка" id="192"/>
-										</CheckBoxField>
+											<HorizontalStretch>true</HorizontalStretch>
+											<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+											<Group>AlwaysHorizontal</Group>
+											<HorizontalSpacing>Half</HorizontalSpacing>
+											<HorizontalAlign>Right</HorizontalAlign>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаВыбраноРегионовДляЗагрузкиРасширеннаяПодсказка" id="213"/>
+											<ChildItems>
+												<LabelDecoration name="ДекорацияВыбраноРегионов" id="338">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Выбрано регионов:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ДекорацияВыбраноРегионовКонтекстноеМеню" id="339"/>
+													<ExtendedTooltip name="ДекорацияВыбраноРегионовРасширеннаяПодсказка" id="340"/>
+												</LabelDecoration>
+												<LabelField name="ВыбраноРегионовДляЗагрузки" id="51">
+													<DataPath>ВыбраноРегионовДляЗагрузки</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Выбрано регионов</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>None</TitleLocation>
+													<HorizontalAlign>Left</HorizontalAlign>
+													<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<HorizontalStretch>false</HorizontalStretch>
+													<Format>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>ЧН=-</v8:content>
+														</v8:item>
+													</Format>
+													<ContextMenu name="ВыбраноРегионовДляЗагрузкиКонтекстноеМеню" id="52"/>
+													<ExtendedTooltip name="ВыбраноРегионовДляЗагрузкиРасширеннаяПодсказка" id="53"/>
+												</LabelField>
+											</ChildItems>
+										</UsualGroup>
 									</ChildItems>
 								</UsualGroup>
-								<UsualGroup name="ГруппаВыбраноРегионовДляЗагрузки" id="212">
+								<CheckBoxField name="ЗагружатьИсториюИзмененийАдресныхОбъектов" id="190">
+									<DataPath>ЗагружатьИсториюИзмененийАдресныхОбъектов</DataPath>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Выбрано регионов для загрузки</v8:content>
+											<v8:content>Загружать историю изменений адресных объектов</v8:content>
 										</v8:item>
 									</Title>
-									<HorizontalStretch>true</HorizontalStretch>
-									<Group>HorizontalIfPossible</Group>
-									<HorizontalAlign>Right</HorizontalAlign>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаВыбраноРегионовДляЗагрузкиРасширеннаяПодсказка" id="213"/>
-									<ChildItems>
-										<LabelField name="ВыбраноРегионовДляЗагрузки" id="51">
-											<DataPath>ВыбраноРегионовДляЗагрузки</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Выбрано регионов</v8:content>
-												</v8:item>
-											</Title>
-											<Width>2</Width>
-											<HorizontalStretch>false</HorizontalStretch>
-											<Format>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>ЧН=-</v8:content>
-												</v8:item>
-											</Format>
-											<ContextMenu name="ВыбраноРегионовДляЗагрузкиКонтекстноеМеню" id="52"/>
-											<ExtendedTooltip name="ВыбраноРегионовДляЗагрузкиРасширеннаяПодсказка" id="53"/>
-										</LabelField>
-									</ChildItems>
-								</UsualGroup>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Загрузка истории переименования, переподчинения или исключения адресных сведений в адресном классификаторе.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ЗагружатьИсториюИзмененийАдресныхОбъектовКонтекстноеМеню" id="191"/>
+									<ExtendedTooltip name="ЗагружатьИсториюИзмененийАдресныхОбъектовРасширеннаяПодсказка" id="192"/>
+								</CheckBoxField>
 							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="ГруппаИсточникиЗагрузки" id="126">
@@ -376,6 +427,8 @@
 										<RadioButtonField name="ДоступныеИсточникиЗагрузкиСайт" id="121">
 											<DataPath>КодИсточникаЗагрузки</DataPath>
 											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<RadioButtonType>Auto</RadioButtonType>
 											<ItemHeight>1</ItemHeight>
 											<ChoiceList>
@@ -400,7 +453,7 @@
 											</Events>
 										</RadioButtonField>
 										<Button name="АвторизацияНаСайтеПоддержкиПользователей" id="144">
-											<Type>Hyperlink</Type>
+											<Type>UsualButton</Type>
 											<CommandName>Form.Command.ПодключитьИнтернетПоддержку</CommandName>
 											<Title>
 												<v8:item>
@@ -409,6 +462,7 @@
 												</v8:item>
 											</Title>
 											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<ButtonImportance>Supplementary</ButtonImportance>
 											<ExtendedTooltip name="АвторизацияНаСайтеПоддержкиПользователейРасширеннаяПодсказка" id="145">
 												<Title formatted="false">
 													<v8:item>
@@ -428,6 +482,8 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<TextColor>style:ПоясняющийТекст</TextColor>
 											<ContextMenu name="ИнформацияОбОбновлениеКонтекстноеМеню" id="160"/>
 											<ExtendedTooltip name="ИнформацияОбОбновлениеРасширеннаяПодсказка" id="161"/>
@@ -451,6 +507,8 @@
 										<RadioButtonField name="ДоступныеИсточникиЗагрузкиКаталог" id="187">
 											<DataPath>КодИсточникаЗагрузки</DataPath>
 											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<RadioButtonType>Auto</RadioButtonType>
 											<ChoiceList>
 												<xr:Item>
@@ -482,6 +540,8 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ChoiceButton>true</ChoiceButton>
 											<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 											<ChoiceButtonPicture>
@@ -521,33 +581,6 @@
 									</Title>
 									<HorizontalLocation>Right</HorizontalLocation>
 									<ExtendedTooltip name="ГруппаКомандЗагрузкиПанельРасширеннаяПодсказка" id="154"/>
-									<ChildItems>
-										<Button name="Загрузить" id="10">
-											<Type>CommandBarButton</Type>
-											<DefaultButton>true</DefaultButton>
-											<DefaultItem>true</DefaultItem>
-											<CommandName>Form.Command.Загрузить</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Загрузить адресные сведения</v8:content>
-												</v8:item>
-											</Title>
-											<ButtonImportance>Main</ButtonImportance>
-											<ExtendedTooltip name="ЗагрузитьРасширеннаяПодсказка" id="11"/>
-										</Button>
-										<Button name="Отмена" id="133">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.Отмена</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Отмена</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="134"/>
-										</Button>
-									</ChildItems>
 								</CommandBar>
 							</ChildItems>
 						</UsualGroup>
@@ -596,6 +629,8 @@
 									</Title>
 									<TitleLocation>None</TitleLocation>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<ContextMenu name="ТекстОписанияЗагрузкиКонтекстноеМеню" id="74"/>
 									<ExtendedTooltip name="ТекстОписанияЗагрузкиРасширеннаяПодсказка" id="75">
@@ -620,6 +655,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ShowPercent>true</ShowPercent>
 							<ContextMenu name="ПрогрессЗагрузкиКонтекстноеМеню" id="246"/>
 							<ExtendedTooltip name="ПрогрессЗагрузкиРасширеннаяПодсказка" id="247"/>
@@ -648,32 +685,11 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ТекстСостоянияЗагрузкиКонтекстноеМеню" id="89"/>
 									<ExtendedTooltip name="ТекстСостоянияЗагрузкиРасширеннаяПодсказка" id="90"/>
 								</LabelField>
-								<CommandBar name="ГруппаКомандОтменыПанель" id="155">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Команд отмены панель</v8:content>
-										</v8:item>
-									</Title>
-									<HorizontalLocation>Right</HorizontalLocation>
-									<ExtendedTooltip name="ГруппаКомандОтменыПанельРасширеннаяПодсказка" id="156"/>
-									<ChildItems>
-										<Button name="ПрерватьЗагрузку" id="78">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.ПрерватьЗагрузку</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Прервать</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ПрерватьЗагрузкуРасширеннаяПодсказка" id="79"/>
-										</Button>
-									</ChildItems>
-								</CommandBar>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
@@ -742,6 +758,8 @@
 											<TitleLocation>None</TitleLocation>
 											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 											<GroupVerticalAlign>Center</GroupVerticalAlign>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ТекстОписанияЗагрузкиЗавершенияКонтекстноеМеню" id="99"/>
 											<ExtendedTooltip name="ТекстОписанияЗагрузкиЗавершенияРасширеннаяПодсказка" id="100"/>
 										</LabelField>
@@ -758,46 +776,6 @@
 										</Button>
 									</ChildItems>
 								</UsualGroup>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаКомандЗавершения" id="101">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Команд завершения</v8:content>
-								</v8:item>
-							</Title>
-							<VerticalStretch>true</VerticalStretch>
-							<Group>Horizontal</Group>
-							<VerticalAlign>Bottom</VerticalAlign>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаКомандЗавершенияРасширеннаяПодсказка" id="102"/>
-							<ChildItems>
-								<CommandBar name="ГруппаКомандЗавершенияПанель" id="157">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Команд завершения панель</v8:content>
-										</v8:item>
-									</Title>
-									<HorizontalLocation>Right</HorizontalLocation>
-									<ExtendedTooltip name="ГруппаКомандЗавершенияПанельРасширеннаяПодсказка" id="158"/>
-									<ChildItems>
-										<Button name="Закрыть" id="114">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.Отмена</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Закрыть</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="115"/>
-										</Button>
-									</ChildItems>
-								</CommandBar>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
@@ -829,64 +807,6 @@
 							<ContextMenu name="ТекстИндексНеНайденКонтекстноеМеню" id="168"/>
 							<ExtendedTooltip name="ТекстИндексНеНайденРасширеннаяПодсказка" id="169"/>
 						</LabelDecoration>
-						<UsualGroup name="ОбновлениеКлассификатораНиз" id="181">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Обновление классификатора низ</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>=</v8:content>
-								</v8:item>
-							</ToolTip>
-							<VerticalStretch>true</VerticalStretch>
-							<Group>Vertical</Group>
-							<VerticalAlign>Bottom</VerticalAlign>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ОбновлениеКлассификатораНизРасширеннаяПодсказка" id="182"/>
-							<ChildItems>
-								<CommandBar name="КоманднаяПанельОбновление" id="170">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Командная панель обновление</v8:content>
-										</v8:item>
-									</Title>
-									<HorizontalLocation>Right</HorizontalLocation>
-									<ExtendedTooltip name="КоманднаяПанельОбновлениеРасширеннаяПодсказка" id="171"/>
-									<ChildItems>
-										<Button name="ОбновитьКлассификатор" id="172">
-											<Type>CommandBarButton</Type>
-											<DefaultItem>true</DefaultItem>
-											<CommandName>Form.Command.ОбновитьКлассификатор</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Обновить классификатор</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ОбновитьКлассификаторРасширеннаяПодсказка" id="173"/>
-										</Button>
-										<Button name="ОтменаОбновитьКлассификатор" id="177">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.Отмена</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Отмена</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ОтменаОбновитьКлассификаторРасширеннаяПодсказка" id="178"/>
-										</Button>
-									</ChildItems>
-								</CommandBar>
-							</ChildItems>
-						</UsualGroup>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -1169,6 +1089,7 @@
 			</ToolTip>
 			<Action>Загрузить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="УстановитьФлажки" id="3">
 			<Title>
@@ -1225,6 +1146,7 @@
 			</ToolTip>
 			<Action>ПрерватьЗагрузку</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПодключитьИнтернетПоддержку" id="1">
 			<Title>
@@ -1242,16 +1164,6 @@
 			<Action>АвторизацияНаСайтеПоддержкиПользователей</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
-		<Command name="Отмена" id="6">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<Action>ЗакрытьБезПодтверждения</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
 		<Command name="ОбновитьКлассификатор" id="7">
 			<Title>
 				<v8:item>
@@ -1267,6 +1179,7 @@
 			</ToolTip>
 			<Action>ОбновитьКлассификатор</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПроверитьВсеАдреса" id="8">
 			<Title>

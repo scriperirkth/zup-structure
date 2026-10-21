@@ -22,16 +22,11 @@
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>ОК</v8:content>
+						<v8:content>Применить</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаКнопкаОКРасширеннаяПодсказка" id="30"/>
-			</Button>
-			<Button name="ФормаОтмена" id="29">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Cancel</CommandName>
-				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="31"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -48,7 +43,6 @@
 			</Title>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>NormalSeparation</Representation>
 			<ChildItemsWidth>LeftWide</ChildItemsWidth>
 			<ExtendedTooltip name="ГруппаПроксиСерверыРасширеннаяПодсказка" id="33"/>
 			<ChildItems>
@@ -73,6 +67,8 @@
 									<v8:content>HTTP</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="СерверHTTPКонтекстноеМеню" id="5"/>
 							<ExtendedTooltip name="СерверHTTPРасширеннаяПодсказка" id="35"/>
 							<Events>
@@ -87,6 +83,8 @@
 									<v8:content>Порт</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<EditFormat>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -121,6 +119,8 @@
 									<v8:content>HTTPS</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="СерверHTTPSКонтекстноеМеню" id="9"/>
 							<ExtendedTooltip name="СерверHTTPSРасширеннаяПодсказка" id="38"/>
 							<Events>
@@ -135,6 +135,8 @@
 									<v8:content>Порт</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<EditFormat>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -175,6 +177,8 @@
 									<v8:content>FTP</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="СерверFTPКонтекстноеМеню" id="13"/>
 							<ExtendedTooltip name="СерверFTPРасширеннаяПодсказка" id="41"/>
 							<Events>
@@ -189,6 +193,8 @@
 									<v8:content>Порт</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<EditFormat>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -213,6 +219,8 @@
 				</v8:item>
 			</Title>
 			<TitleLocation>Right</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<ContextMenu name="ОдинПроксиДляВсехПротоколовКонтекстноеМеню" id="18"/>
 			<ExtendedTooltip name="ОдинПроксиДляВсехПротоколовРасширеннаяПодсказка" id="32"/>
 			<Events>
@@ -228,11 +236,11 @@
 			</Title>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>NormalSeparation</Representation>
 			<ExtendedTooltip name="ГруппаАдресовИсключенийРасширеннаяПодсказка" id="43"/>
 			<ChildItems>
 				<Table name="АдресаИсключений" id="20">
 					<Representation>List</Representation>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<Header>false</Header>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -291,19 +299,6 @@
 						</InputField>
 					</ChildItems>
 				</Table>
-				<LabelDecoration name="ДекорацияПредупреждениеДляСервера" id="27">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<TextColor>style:ПоясняющийТекст</TextColor>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Адрес сервера может включать символы "*" - произвольные символы,  и "?" - любой одиночный символ.</v8:content>
-						</v8:item>
-					</Title>
-					<VerticalAlign>Top</VerticalAlign>
-					<ContextMenu name="ДекорацияПредупреждениеДляСервераКонтекстноеМеню" id="28"/>
-					<ExtendedTooltip name="ДекорацияПредупреждениеДляСервераРасширеннаяПодсказка" id="46"/>
-				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -485,6 +480,7 @@
 			<Action>КнопкаОК</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>
@@ -573,6 +569,12 @@
 					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
 				</v8:NumberQualifiers>
 			</Type>
+		</Parameter>
+		<Parameter name="НастройкаПроксиНаКлиенте">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
 		</Parameter>
 	</Parameters>
 </Form>

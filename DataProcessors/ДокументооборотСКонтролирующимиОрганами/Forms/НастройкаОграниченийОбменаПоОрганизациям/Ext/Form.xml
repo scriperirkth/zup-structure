@@ -13,6 +13,26 @@
 	<Customizable>false</Customizable>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Изменить" id="26">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Изменить</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ИзменитьРасширеннаяПодсказка" id="27"/>
+			</Button>
+			<Button name="Продолжить" id="24">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Пропустить</CommandName>
+				<ExtendedTooltip name="ПродолжитьРасширеннаяПодсказка" id="25"/>
+			</Button>
+			<Button name="Отмена" id="71">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Command.Отмена</CommandName>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="72"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -62,59 +82,83 @@
 		<UsualGroup name="ГруппаВыборНастройки" id="107">
 			<Group>Vertical</Group>
 			<Representation>WeakSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаВыборНастройкиРасширеннаяПодсказка" id="108"/>
 			<ChildItems>
-				<RadioButtonField name="ВыборВидаНастройки" id="109">
-					<DataPath>ВыборВидаНастройки</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<RadioButtonType>Auto</RadioButtonType>
-					<ChoiceList>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>По организации, выбранной в отборе списка документов</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:decimal">1</Value>
-							</xr:Value>
-						</xr:Item>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>По всем доступным организациям</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:decimal">0</Value>
-							</xr:Value>
-						</xr:Item>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Произвольный выбор из списка организаций</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:decimal">2</Value>
-							</xr:Value>
-						</xr:Item>
-					</ChoiceList>
-					<ContextMenu name="ВыборВидаНастройкиКонтекстноеМеню" id="110"/>
-					<ExtendedTooltip name="ВыборВидаНастройкиРасширеннаяПодсказка" id="111"/>
-					<Events>
-						<Event name="OnChange">ВыборВидаНастройкиПриИзменении</Event>
-					</Events>
-				</RadioButtonField>
+				<UsualGroup name="Группа1" id="120">
+					<Group>AlwaysHorizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="121"/>
+					<ChildItems>
+						<RadioButtonField name="ВыборВидаНастройки" id="109">
+							<DataPath>ВыборВидаНастройки</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>По организации, выбранной в отборе списка документов</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>По всем доступным организациям</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">0</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Произвольный выбор из списка организаций</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">2</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ВыборВидаНастройкиКонтекстноеМеню" id="110"/>
+							<ExtendedTooltip name="ВыборВидаНастройкиРасширеннаяПодсказка" id="111"/>
+							<Events>
+								<Event name="OnChange">ВыборВидаНастройкиПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+						<LabelDecoration name="ДекорацияВсего" id="60">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Выбрано</v8:content>
+								</v8:item>
+							</Title>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+							<HorizontalAlign>Right</HorizontalAlign>
+							<ContextMenu name="ДекорацияВсегоКонтекстноеМеню" id="61"/>
+							<ExtendedTooltip name="ДекорацияВсегоРасширеннаяПодсказка" id="62"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
 				<UsualGroup name="ГруппаОсновное" id="82">
 					<Title>
 						<v8:item>
@@ -128,72 +172,14 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаОсновноеРасширеннаяПодсказка" id="83"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаИтоги" id="76">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Итоги</v8:content>
-								</v8:item>
-							</Title>
-							<Group>AlwaysHorizontal</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаИтогиРасширеннаяПодсказка" id="77"/>
-							<ChildItems>
-								<CommandBar name="ГруппаКомандыТаблицы" id="87">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Команды таблицы</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ГруппаКомандыТаблицыРасширеннаяПодсказка" id="88"/>
-									<ChildItems>
-										<ButtonGroup name="ГруппаПометки" id="89">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Пометки</v8:content>
-												</v8:item>
-											</Title>
-											<Representation>Compact</Representation>
-											<ExtendedTooltip name="ГруппаПометкиРасширеннаяПодсказка" id="90"/>
-											<ChildItems>
-												<Button name="ВыбратьВсе" id="78">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Command.ВыбратьВсе</CommandName>
-													<ExtendedTooltip name="ВыбратьВсеРасширеннаяПодсказка" id="79"/>
-												</Button>
-												<Button name="ИсключитьВсе" id="80">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Command.ИсключитьВсе</CommandName>
-													<ExtendedTooltip name="ИсключитьВсеРасширеннаяПодсказка" id="81"/>
-												</Button>
-											</ChildItems>
-										</ButtonGroup>
-									</ChildItems>
-								</CommandBar>
-								<LabelDecoration name="ДекорацияВсего" id="60">
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<HorizontalStretch>true</HorizontalStretch>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Выбрано</v8:content>
-										</v8:item>
-									</Title>
-									<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-									<HorizontalAlign>Right</HorizontalAlign>
-									<ContextMenu name="ДекорацияВсегоКонтекстноеМеню" id="61"/>
-									<ExtendedTooltip name="ДекорацияВсегоРасширеннаяПодсказка" id="62"/>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
 						<Table name="ТаблицаВыбора" id="34">
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<MaxHeight>6</MaxHeight>
+							<HeightControlVariant>UseHeightInFormRows</HeightControlVariant>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Row</RowSelectionMode>
 							<Header>false</Header>
 							<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -207,6 +193,25 @@
 							<ContextMenu name="ТаблицаВыбораКонтекстноеМеню" id="35"/>
 							<AutoCommandBar name="ТаблицаВыбораКоманднаяПанель" id="36">
 								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="ВыбратьВсе" id="78">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<CommandName>Form.Command.ВыбратьВсе</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Выбрать все</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ВыбратьВсеРасширеннаяПодсказка" id="79"/>
+									</Button>
+									<Button name="ИсключитьВсе" id="80">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ИсключитьВсе</CommandName>
+										<ExtendedTooltip name="ИсключитьВсеРасширеннаяПодсказка" id="81"/>
+									</Button>
+								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="ТаблицаВыбораРасширеннаяПодсказка" id="37"/>
 							<SearchStringAddition name="ТаблицаВыбораСтрокаПоиска" id="38">
@@ -242,6 +247,7 @@
 									<DataPath>ТаблицаВыбора.Пометка</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<CheckBoxType>CheckBox</CheckBoxType>
 									<ThreeState>true</ThreeState>
 									<ContextMenu name="ТаблицаВыбораПометкаКонтекстноеМеню" id="54"/>
 									<ExtendedTooltip name="ТаблицаВыбораПометкаРасширеннаяПодсказка" id="55"/>
@@ -300,10 +306,6 @@
 					<ContextMenu name="ДекорацияИнформацияКонтекстноеМеню" id="97"/>
 					<ExtendedTooltip name="ДекорацияИнформацияРасширеннаяПодсказка" id="98"/>
 				</LabelDecoration>
-				<LabelDecoration name="ДекорацияПустаяИнформация" id="99">
-					<ContextMenu name="ДекорацияПустаяИнформацияКонтекстноеМеню" id="100"/>
-					<ExtendedTooltip name="ДекорацияПустаяИнформацияРасширеннаяПодсказка" id="101"/>
-				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаНастройкиСЭДО" id="102">
@@ -346,39 +348,6 @@
 					<ContextMenu name="ДобавитьОтдельнуюКнопкуОбменаДляСЭДОКонтекстноеМеню" id="105"/>
 					<ExtendedTooltip name="ДобавитьОтдельнуюКнопкуОбменаДляСЭДОРасширеннаяПодсказка" id="106"/>
 				</CheckBoxField>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаПодвал" id="20">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Подвал</v8:content>
-				</v8:item>
-			</Title>
-			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПодвалРасширеннаяПодсказка" id="21"/>
-			<ChildItems>
-				<Button name="Изменить" id="26">
-					<Type>UsualButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.Изменить</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ИзменитьРасширеннаяПодсказка" id="27"/>
-				</Button>
-				<Button name="Продолжить" id="24">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.Пропустить</CommandName>
-					<ExtendedTooltip name="ПродолжитьРасширеннаяПодсказка" id="25"/>
-				</Button>
-				<Button name="Отмена" id="71">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.Отмена</CommandName>
-					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="72"/>
-				</Button>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -579,6 +548,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Изменить</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Пропустить" id="2">
 			<Title>
@@ -594,6 +564,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Пропустить</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ВыбратьВсе" id="4">
 			<Title>
@@ -629,6 +600,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Отмена</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ИсключитьВсе" id="5">
 			<Title>

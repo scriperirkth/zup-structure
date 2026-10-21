@@ -65,28 +65,6 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ПанельКнопокРасширеннаяПодсказка" id="30"/>
 					<ChildItems>
-						<Button name="КнопкаОткрыть" id="11" DisplayImportance="VeryLow">
-							<Type>UsualButton</Type>
-							<CommandName>Form.Command.Открыть</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Открыть</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="КнопкаОткрытьРасширеннаяПодсказка" id="31"/>
-						</Button>
-						<Button name="КнопкаПрекратить" id="9" DisplayImportance="VeryLow">
-							<Type>UsualButton</Type>
-							<CommandName>Form.Command.Прекратить</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Прекратить</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="КнопкаПрекратитьРасширеннаяПодсказка" id="32"/>
-						</Button>
 						<InputField name="СрокПовторногоОповещения" id="12">
 							<DataPath>СрокПовторногоОповещения</DataPath>
 							<Title>
@@ -101,7 +79,8 @@
 									<v8:content>Время, через которое нужно напомнить</v8:content>
 								</v8:item>
 							</ToolTip>
-							<Width>15</Width>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<DropListButton>true</DropListButton>
 							<ClearButton>false</ClearButton>
 							<EditTextUpdate>OnValueChange</EditTextUpdate>
@@ -241,30 +220,6 @@
 					<CommandSource>Form</CommandSource>
 					<ExtendedTooltip name="СтандартныеКомандыРасширеннаяПодсказка" id="69"/>
 					<ChildItems>
-						<Button name="КнопкаОткрытьЕще" id="70">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.Открыть</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Открыть</v8:content>
-								</v8:item>
-							</Title>
-							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="КнопкаОткрытьЕщеРасширеннаяПодсказка" id="71"/>
-						</Button>
-						<Button name="КнопкаПрекратитьЕще" id="72">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.Прекратить</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Прекратить</v8:content>
-								</v8:item>
-							</Title>
-							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="КнопкаПрекратитьЕщеРасширеннаяПодсказка" id="73"/>
-						</Button>
 						<Button name="ФормаОткрытьНастройки" id="74">
 							<Type>CommandBarButton</Type>
 							<CommandName>Form.Command.Настройки</CommandName>
@@ -292,6 +247,7 @@
 			<Header>false</Header>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<RowActionsShowType>ShowOnHover</RowActionsShowType>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
 			<FileDragMode>AsFile</FileDragMode>
@@ -395,6 +351,30 @@
 			</ContextMenu>
 			<AutoCommandBar name="НапоминанияКоманднаяПанель" id="3">
 				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="КнопкаОткрыть" id="11" DisplayImportance="VeryLow">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Открыть</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Открыть</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="КнопкаОткрытьРасширеннаяПодсказка" id="31"/>
+					</Button>
+					<Button name="КнопкаПрекратить" id="9" DisplayImportance="VeryLow">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Прекратить</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прекратить</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="КнопкаПрекратитьРасширеннаяПодсказка" id="32"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="НапоминанияРасширеннаяПодсказка" id="43"/>
 			<SearchStringAddition name="НапоминанияСтрокаПоиска" id="46">
@@ -619,7 +599,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Прекратить</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Напоминания</AssociatedTableElementId>
 		</Command>
 		<Command name="Открыть" id="4">
 			<Title>
@@ -635,7 +616,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаОткрыть</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Напоминания</AssociatedTableElementId>
 		</Command>
 		<Command name="Изменить" id="5">
 			<Title>

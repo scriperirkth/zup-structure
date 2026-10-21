@@ -3,19 +3,13 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<Group>Vertical</Group>
+	<CommandBarLocation>Top</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<CommandSet>
-		<ExcludedCommand>Copy</ExcludedCommand>
 		<ExcludedCommand>Create</ExcludedCommand>
-		<ExcludedCommand>CreateFolder</ExcludedCommand>
-		<ExcludedCommand>Delete</ExcludedCommand>
-		<ExcludedCommand>LevelDown</ExcludedCommand>
-		<ExcludedCommand>LevelUp</ExcludedCommand>
-		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
 	</CommandSet>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
-	</AutoCommandBar>
+	<ShowCommandBar>true</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -33,66 +27,8 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="118"/>
 		</UsualGroup>
-		<CommandBar name="КоманднаяПанель" id="119">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="120"/>
-			<ChildItems>
-				<Button name="ФормаВыполнитьПроверку" id="125">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.ВыполнитьПроверку</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Выполнить проверку</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ФормаВыполнитьПроверкуРасширеннаяПодсказка" id="126"/>
-				</Button>
-				<Button name="ФормаВыполнитьВсеПроверки" id="154">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.ВыполнитьВсеПроверки</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Выполнить все</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ФормаВыполнитьВсеПроверкиРасширеннаяПодсказка" id="155"/>
-				</Button>
-				<ButtonGroup name="ФормаГруппаДействий" id="123">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Форма группа действий</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ФормаГруппаДействийРасширеннаяПодсказка" id="124"/>
-					<ChildItems>
-						<Button name="ФормаВосстановитьПоНачальномуЗаполнению" id="145">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.ВосстановитьПоНачальномуЗаполнению</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Восстановить по начальному заполнению</v8:content>
-								</v8:item>
-							</Title>
-							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="ФормаВосстановитьПоНачальномуЗаполнениюРасширеннаяПодсказка" id="146"/>
-						</Button>
-					</ChildItems>
-				</ButtonGroup>
-			</ChildItems>
-		</CommandBar>
 		<Table name="Список" id="1">
 			<Representation>Tree</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<ChangeRowOrder>false</ChangeRowOrder>
 			<RowSelectionMode>Cell</RowSelectionMode>
@@ -113,6 +49,7 @@
 				<ExcludedCommand>LevelDown</ExcludedCommand>
 				<ExcludedCommand>LevelUp</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>true</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -128,9 +65,10 @@
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<UserSettingsGroup>ГруппаПользовательскихНастроек</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
-			<ContextMenu name="СписокКонтекстноеМеню" id="2">
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
 				<ChildItems>
-					<Button name="СписокКонтекстноеМенюВыполнитьПроверку" id="17">
+					<Button name="ФормаВыполнитьПроверку" id="125">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.ВыполнитьПроверку</CommandName>
 						<Title>
@@ -139,12 +77,39 @@
 								<v8:content>Выполнить проверку</v8:content>
 							</v8:item>
 						</Title>
-						<ExtendedTooltip name="СписокКонтекстноеМенюВыполнитьПроверкуРасширеннаяПодсказка" id="18"/>
+						<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
+						<ExtendedTooltip name="ФормаВыполнитьПроверкуРасширеннаяПодсказка" id="126"/>
+					</Button>
+					<Button name="ФормаВыполнитьВсеПроверки" id="154">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ВыполнитьВсеПроверки</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Выполнить все</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаВыполнитьВсеПроверкиРасширеннаяПодсказка" id="155"/>
+					</Button>
+					<Button name="ФормаВосстановитьПоНачальномуЗаполнению" id="145">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ВосстановитьПоНачальномуЗаполнению</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Восстановить по начальному заполнению</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ФормаВосстановитьПоНачальномуЗаполнениюРасширеннаяПодсказка" id="146"/>
+					</Button>
+					<Button name="Обновить" id="169">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ОбновитьРасширеннаяПодсказка" id="170"/>
 					</Button>
 				</ChildItems>
-			</ContextMenu>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="12"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="19">
@@ -175,15 +140,18 @@
 				<Event name="BeforeAddRow">СписокПередНачаломДобавления</Event>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
 				<Event name="OnGetDataAtServer">СписокПриПолученииДанныхНаСервере</Event>
+				<Event name="OnHover">СписокПриНаведении</Event>
 			</Events>
 			<ChildItems>
 				<CheckBoxField name="Использование" id="100">
 					<DataPath>Список.Использование</DataPath>
 					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
 					<HeaderPicture>
-						<xr:Ref>StdPicture.CheckAll</xr:Ref>
+						<xr:Ref>StdPicture.AppearanceCheckBox</xr:Ref>
 						<xr:LoadTransparent>true</xr:LoadTransparent>
 					</HeaderPicture>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИспользованиеКонтекстноеМеню" id="101"/>
 					<ExtendedTooltip name="ИспользованиеРасширеннаяПодсказка" id="102"/>
 				</CheckBoxField>
@@ -208,6 +176,8 @@
 							<ChildItems>
 								<LabelField name="Наименование" id="127">
 									<DataPath>Список.Наименование</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="НаименованиеКонтекстноеМеню" id="128"/>
 									<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="129"/>
 								</LabelField>
@@ -219,7 +189,9 @@
 											<v8:content>Выполняется</v8:content>
 										</v8:item>
 									</Title>
+									<EditMode>EnterOnInput</EditMode>
 									<AutoCellHeight>true</AutoCellHeight>
+									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<ContextMenu name="РегламентноеЗаданиеПредставлениеКонтекстноеМеню" id="9"/>
 									<ExtendedTooltip name="РегламентноеЗаданиеПредставлениеРасширеннаяПодсказка" id="14"/>
@@ -228,8 +200,10 @@
 						</ColumnGroup>
 						<LabelField name="Причины" id="151">
 							<DataPath>Список.Причины</DataPath>
+							<EditMode>EnterOnInput</EditMode>
 							<AutoCellHeight>true</AutoCellHeight>
 							<ShowInHeader>false</ShowInHeader>
+							<AutoEditMode>true</AutoEditMode>
 							<Height>2</Height>
 							<ContextMenu name="ПричиныКонтекстноеМеню" id="152"/>
 							<ExtendedTooltip name="ПричиныРасширеннаяПодсказка" id="153"/>
@@ -241,50 +215,30 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="137"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="138"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
-		<UsualGroup name="ГруппаРасписание" id="156">
+		<LabelField name="Расписание" id="175">
+			<DataPath>ПредставлениеРасписания</DataPath>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Расписание</v8:content>
+					<v8:content>Представление расписания</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаРасписаниеРасширеннаяПодсказка" id="157"/>
-			<ChildItems>
-				<LabelDecoration name="ПредставлениеОбщегоРасписания" id="114">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>&lt;Представление общего расписания&gt;</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTipRepresentation>Button</ToolTipRepresentation>
-					<VerticalAlign>Center</VerticalAlign>
-					<ContextMenu name="ПредставлениеОбщегоРасписанияКонтекстноеМеню" id="115"/>
-					<ExtendedTooltip name="ПредставлениеОбщегоРасписанияРасширеннаяПодсказка" id="116"/>
-					<Events>
-						<Event name="URLProcessing">ПредставлениеОбщегоРасписанияОбработкаНавигационнойСсылки</Event>
-					</Events>
-				</LabelDecoration>
-				<PictureDecoration name="ИнформацияПоПоследнейПроверке" id="158">
-					<Visible>false</Visible>
-					<Picture>
-						<xr:Ref>StdPicture.Information</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</Picture>
-					<ContextMenu name="ИнформацияПоПоследнейПроверкеКонтекстноеМеню" id="159"/>
-					<ExtendedTooltip name="ИнформацияПоПоследнейПроверкеРасширеннаяПодсказка" id="160"/>
-				</PictureDecoration>
-			</ChildItems>
-		</UsualGroup>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<Hiperlink>true</Hiperlink>
+			<ContextMenu name="РасписаниеКонтекстноеМеню" id="176"/>
+			<ExtendedTooltip name="РасписаниеРасширеннаяПодсказка" id="177"/>
+			<Events>
+				<Event name="Click">РасписаниеНажатие</Event>
+			</Events>
+		</LabelField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Список" id="1">
@@ -361,6 +315,20 @@
 		<Attribute name="ДлительнаяОперация" id="15">
 			<Type/>
 		</Attribute>
+		<Attribute name="ПредставлениеРасписания" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление расписания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:FormattedString</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОбщееРасписание" id="3">
+			<Type/>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="ВыполнитьПроверку" id="1">
@@ -382,7 +350,9 @@
 			</Picture>
 			<Action>ВыполнитьПроверку</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ВосстановитьПоНачальномуЗаполнению" id="2">
 			<Title>

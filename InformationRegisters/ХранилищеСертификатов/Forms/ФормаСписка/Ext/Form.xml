@@ -1,20 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
-	<WindowOpeningMode>DontBlock</WindowOpeningMode>
-	<Group>Vertical</Group>
-	<CommandSet>
-		<ExcludedCommand>Create</ExcludedCommand>
-	</CommandSet>
+	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="ФормаВыгрузитьСертификат" id="37">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ВыгрузитьСертификат</CommandName>
-				<ExtendedTooltip name="ФормаВыгрузитьСертификатРасширеннаяПодсказка" id="38"/>
-			</Button>
 			<Button name="ФормаЗагрузитьСертификат" id="39">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.ЗагрузитьСертификат</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.OpenFile</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Загрузить сертификат</v8:content>
+					</v8:item>
+				</Title>
 				<ExtendedTooltip name="ФормаЗагрузитьСертификатРасширеннаяПодсказка" id="40"/>
 			</Button>
 		</ChildItems>
@@ -30,15 +32,15 @@
 			<VerticalStretch>false</VerticalStretch>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
+			<CommandBarLocation>Top</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
-			<RowSelectionMode>Cell</RowSelectionMode>
+			<SelectionMode>SingleRow</SelectionMode>
+			<UseAlternationRowColorBWA>true</UseAlternationRowColorBWA>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
 			<FileDragMode>AsFile</FileDragMode>
@@ -47,6 +49,7 @@
 			<CommandSet>
 				<ExcludedCommand>Create</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -64,7 +67,26 @@
 			<AllowGettingCurrentRowURL>false</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
-				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ФормаВыгрузитьСертификат" id="37">
+						<Type>CommandBarButton</Type>
+						<Representation>Picture</Representation>
+						<CommandName>Form.Command.ВыгрузитьСертификат</CommandName>
+						<Picture>
+							<xr:Ref>CommonPicture.ВыгрузитьФайлСертификатаМонохромная</xr:Ref>
+							<xr:LoadTransparent>false</xr:LoadTransparent>
+						</Picture>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Выгрузить сертификат</v8:content>
+							</v8:item>
+						</Title>
+						<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+						<ExtendedTooltip name="ФормаВыгрузитьСертификатРасширеннаяПодсказка" id="38"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
@@ -96,42 +118,56 @@
 				<LabelField name="ТипХранилища" id="16">
 					<DataPath>Список.ТипХранилища</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТипХранилищаКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="ТипХранилищаРасширеннаяПодсказка" id="18"/>
-				</LabelField>
-				<LabelField name="Идентификатор" id="19">
-					<DataPath>Список.Идентификатор</DataPath>
-					<DefaultItem>true</DefaultItem>
-					<ContextMenu name="ИдентификаторКонтекстноеМеню" id="20"/>
-					<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="Наименование" id="22">
 					<DataPath>Список.Наименование</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 				<LabelField name="ДатаНачала" id="25">
 					<DataPath>Список.ДатаНачала</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаНачалаКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="ДатаНачалаРасширеннаяПодсказка" id="27"/>
 				</LabelField>
 				<LabelField name="ДатаОкончания" id="28">
 					<DataPath>Список.ДатаОкончания</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаОкончанияКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ДатаОкончанияРасширеннаяПодсказка" id="30"/>
+				</LabelField>
+				<LabelField name="Идентификатор" id="19">
+					<DataPath>Список.Идентификатор</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ИдентификаторКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="Отпечаток" id="31">
 					<DataPath>Список.Отпечаток</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОтпечатокКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="ОтпечатокРасширеннаяПодсказка" id="33"/>
 				</LabelField>
 				<LabelField name="СерийныйНомер" id="34">
 					<DataPath>Список.СерийныйНомер</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СерийныйНомерКонтекстноеМеню" id="35"/>
 					<ExtendedTooltip name="СерийныйНомерРасширеннаяПодсказка" id="36"/>
 				</LabelField>
@@ -185,11 +221,13 @@
 				</v8:item>
 			</ToolTip>
 			<Picture>
-				<xr:Ref>CommonPicture.ВыгрузитьФайлСертификата</xr:Ref>
+				<xr:Ref>CommonPicture.ВыгрузитьФайлСертификатаМонохромная</xr:Ref>
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<Action>ВыгрузитьСертификат</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ЗагрузитьСертификат" id="2">
 			<Title>
@@ -209,7 +247,9 @@
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<Action>ЗагрузитьСертификат</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

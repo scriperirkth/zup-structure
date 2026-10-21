@@ -10,13 +10,7 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаКомандаПересчетСлужебныхДанных" id="31">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаПересчетСлужебныхДанных</CommandName>
-				<ExtendedTooltip name="ФормаКомандаПересчетСлужебныхДанныхРасширеннаяПодсказка" id="32"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -26,20 +20,6 @@
 		<Event name="OnClose">ПриЗакрытии</Event>
 	</Events>
 	<ChildItems>
-		<LabelDecoration name="ДекорацияМодельСервисаРазделенныйСеанс" id="33">
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<AutoMaxHeight>false</AutoMaxHeight>
-			<TextColor>style:SpecialTextColor</TextColor>
-			<Font ref="style:ШрифтМикротекста" kind="StyleItem"/>
-			<Title formatted="false">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>В разделенном сеансе модели сервиса возможности использования обработок ограничены.</v8:content>
-				</v8:item>
-			</Title>
-			<ContextMenu name="ДекорацияМодельСервисаРазделенныйСеансКонтекстноеМеню" id="34"/>
-			<ExtendedTooltip name="ДекорацияМодельСервисаРазделенныйСеансРасширеннаяПодсказка" id="35"/>
-		</LabelDecoration>
 		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
 			<Title>
 				<v8:item>
@@ -56,7 +36,7 @@
 		</UsualGroup>
 		<Table name="НовостиСписок" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
+			<CommandBarLocation>Top</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -64,9 +44,14 @@
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>НовостиСписок</DataPath>
 			<RowPictureDataPath>НовостиСписок.DefaultPicture</RowPictureDataPath>
-			<SearchStringLocation>None</SearchStringLocation>
+			<CommandSet>
+				<ExcludedCommand>Refresh</ExcludedCommand>
+			</CommandSet>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<SearchStringLocation>CommandBar</SearchStringLocation>
 			<ViewStatusLocation>None</ViewStatusLocation>
 			<SearchControlLocation>None</SearchControlLocation>
+			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -84,7 +69,25 @@
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="НовостиСписокКонтекстноеМеню" id="4"/>
 			<AutoCommandBar name="НовостиСписокКоманднаяПанель" id="5">
-				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ФормаКомандаПересчетСлужебныхДанных" id="31">
+						<Type>CommandBarButton</Type>
+						<Representation>PictureAndText</Representation>
+						<CommandName>Form.Command.КомандаПересчетСлужебныхДанных</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.Refresh</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+						<CommandUniqueness>false</CommandUniqueness>
+						<ExtendedTooltip name="ФормаКомандаПересчетСлужебныхДанныхРасширеннаяПодсказка" id="32"/>
+					</Button>
+					<Button name="ФормаИзменитьФорму" id="68">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+						<ExtendedTooltip name="ФормаИзменитьФормуРасширеннаяПодсказка" id="69"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="НовостиСписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="НовостиСписокСтрокаПоиска" id="22">
@@ -140,6 +143,7 @@
 				</LabelField>
 				<LabelField name="ЛентаНовостей" id="13">
 					<DataPath>НовостиСписок.ЛентаНовостей</DataPath>
+					<CellMark>ShapeUnderTextOval</CellMark>
 					<ContextMenu name="ЛентаНовостейКонтекстноеМеню" id="14"/>
 					<ExtendedTooltip name="ЛентаНовостейРасширеннаяПодсказка" id="15"/>
 				</LabelField>
@@ -497,7 +501,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Пересчет служебных данных</v8:content>
+					<v8:content>Обновить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -507,9 +511,13 @@
 В противном случае могут не сработать механизмы: важность, привязка к метаданным, отборы и т.п.</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>КомандаПересчетСлужебныхДанных</Action>
-			<ModifiesSavedData>true</ModifiesSavedData>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<Representation>TextPicture</Representation>
+			<AssociatedTableElementId xsi:type="xs:string">НовостиСписок</AssociatedTableElementId>
 		</Command>
 	</Commands>
 </Form>

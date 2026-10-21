@@ -11,6 +11,33 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаСброситьВсеНастройки" id="29">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.СброситьНастройки</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сбросить настройки</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаСброситьВсеНастройкиРасширеннаяПодсказка" id="30"/>
+			</Button>
+			<Button name="Применить" id="16">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Применить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Применить</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="17"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -30,6 +57,7 @@
 		<Table name="СписокКолонок" id="1">
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -51,7 +79,6 @@
 				<ExcludedCommand>Delete</ExcludedCommand>
 				<ExcludedCommand>EndEdit</ExcludedCommand>
 				<ExcludedCommand>Find</ExcludedCommand>
-				<ExcludedCommand>SelectAll</ExcludedCommand>
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 			</CommandSet>
@@ -117,18 +144,6 @@
 							</Button>
 						</ChildItems>
 					</ButtonGroup>
-					<Button name="ФормаСброситьВсеНастройки" id="29">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.СброситьНастройки</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Сбросить настройки</v8:content>
-							</v8:item>
-						</Title>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="ФормаСброситьВсеНастройкиРасширеннаяПодсказка" id="30"/>
-					</Button>
 				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокКолонокРасширеннаяПодсказка" id="4"/>
@@ -181,6 +196,7 @@
 							<TitleLocation>None</TitleLocation>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
 							<ContextMenu name="СписокКолонокВидимостьКонтекстноеМеню" id="6"/>
 							<ExtendedTooltip name="СписокКолонокВидимостьРасширеннаяПодсказка" id="7"/>
 						</CheckBoxField>
@@ -195,6 +211,7 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<AutoWidthInTable>ByData</AutoWidthInTable>
 							<ContextMenu name="СписокКолонокНаименованиеКонтекстноеМеню" id="9"/>
 							<ExtendedTooltip name="СписокКолонокНаименованиеРасширеннаяПодсказка" id="10"/>
 						</InputField>
@@ -210,12 +227,13 @@
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>ByData</AutoWidthInTable>
 					<ContextMenu name="СписокКолонокСинонимКонтекстноеМеню" id="12"/>
 					<ExtendedTooltip name="СписокКолонокСинонимРасширеннаяПодсказка" id="13"/>
 				</InputField>
 			</ChildItems>
 		</Table>
-		<InputField name="ОписаниеКолонки" id="46">
+		<LabelField name="ОписаниеКолонки" id="46">
 			<DataPath>ОписаниеКолонки</DataPath>
 			<ReadOnly>true</ReadOnly>
 			<Title>
@@ -224,50 +242,13 @@
 					<v8:content>Описание колонки</v8:content>
 				</v8:item>
 			</Title>
-			<TitleLocation>Top</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
-			<Height>3</Height>
-			<MultiLine>true</MultiLine>
+			<UseCopy>true</UseCopy>
 			<ContextMenu name="ОписаниеКолонкиКонтекстноеМеню" id="47"/>
 			<ExtendedTooltip name="ОписаниеКолонкиРасширеннаяПодсказка" id="48"/>
-		</InputField>
-		<CommandBar name="ГруппаКоманднаяПанель" id="14">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="15"/>
-			<ChildItems>
-				<Button name="ОК" id="16">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.ОК</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ОК</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="17"/>
-				</Button>
-				<Button name="Закрыть" id="31">
-					<Type>CommandBarButton</Type>
-					<Representation>Text</Representation>
-					<CommandName>Form.StandardCommand.Close</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Отмена</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="32"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
+		</LabelField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -437,21 +418,22 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ОК" id="2">
+		<Command name="Применить" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ОК</Action>
+			<Action>Применить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="УстановитьФлажки" id="3">
 			<Title>

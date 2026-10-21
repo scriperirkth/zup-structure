@@ -6,14 +6,6 @@
 	<Customizable>false</Customizable>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
-			<Button name="ФормаЗакрыть" id="1">
-				<Type>CommandBarButton</Type>
-				<Representation>Text</Representation>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="21"/>
-			</Button>
 			<Button name="ФормаСохранитьВФайл" id="10">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.СохранитьВФайл</CommandName>
@@ -59,349 +51,418 @@
 				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 				<ExtendedTooltip name="ФормаОткрытьСертификатДляПроверкиПодписиРасширеннаяПодсказка" id="65"/>
 			</Button>
+			<Button name="ФормаОткрытьИнструкцию" id="114">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОткрытьИнструкцию</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Инструкции</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Supplementary</ButtonImportance>
+				<ExtendedTooltip name="ФормаОткрытьИнструкциюРасширеннаяПодсказка" id="115"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<LabelDecoration name="ДекорацияСтатус" id="59">
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<MaxWidth>80</MaxWidth>
+		<Pages name="ГруппаСтраницы" id="124">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
 			<HorizontalStretch>true</HorizontalStretch>
-			<Title formatted="false">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Результат проверки подписи</v8:content>
-				</v8:item>
-			</Title>
-			<BackColor>style:ToolTipBackColor</BackColor>
-			<ContextMenu name="ДекорацияСтатусКонтекстноеМеню" id="60"/>
-			<ExtendedTooltip name="ДекорацияСтатусРасширеннаяПодсказка" id="61"/>
-		</LabelDecoration>
-		<InputField name="ОбоснованиеРучнойПроверкиДополнительныхАтрибутов" id="87">
-			<DataPath>ОбоснованиеРучнойПроверкиДополнительныхАтрибутов</DataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Обоснование достоверности подписи</v8:content>
-				</v8:item>
-			</Title>
-			<TitleLocation>Top</TitleLocation>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<AutoMaxHeight>false</AutoMaxHeight>
-			<MaxHeight>4</MaxHeight>
-			<MultiLine>true</MultiLine>
-			<TextEdit>false</TextEdit>
-			<ContextMenu name="ОбоснованиеРучнойПроверкиДополнительныхАтрибутовКонтекстноеМеню" id="88"/>
-			<ExtendedTooltip name="ОбоснованиеРучнойПроверкиДополнительныхАтрибутовРасширеннаяПодсказка" id="89"/>
-		</InputField>
-		<InputField name="ОписаниеОшибки" id="35">
-			<DataPath>ОписаниеОшибки</DataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Описание ошибки</v8:content>
-				</v8:item>
-			</Title>
-			<TitleLocation>None</TitleLocation>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<AutoMaxHeight>false</AutoMaxHeight>
-			<MaxHeight>4</MaxHeight>
-			<MultiLine>true</MultiLine>
-			<TextEdit>false</TextEdit>
-			<BackColor>style:ЦветФонаВнимание</BackColor>
-			<ContextMenu name="ОписаниеОшибкиКонтекстноеМеню" id="36"/>
-			<ExtendedTooltip name="ОписаниеОшибкиРасширеннаяПодсказка" id="37"/>
-		</InputField>
-		<UsualGroup name="ГруппаМЧД" id="69">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Машиночитаемая доверенность</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Collapsed>true</Collapsed>
-			<Representation>NormalSeparation</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаМЧДРасширеннаяПодсказка" id="70"/>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="125"/>
 			<ChildItems>
-				<LabelDecoration name="МашиночитаемаяДоверенностьДекорация" id="66">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<HorizontalStretch>true</HorizontalStretch>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Машиночитаемая доверенность</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="МашиночитаемаяДоверенностьДекорацияКонтекстноеМеню" id="67"/>
-					<ExtendedTooltip name="МашиночитаемаяДоверенностьДекорацияРасширеннаяПодсказка" id="68"/>
-				</LabelDecoration>
-				<UsualGroup name="ГруппаПротоколПроверки" id="73">
+				<Page name="СтраницаОсновное" id="126">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Протокол проверки МЧД</v8:content>
+							<v8:content>Основное</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<Behavior>Collapsible</Behavior>
-					<Collapsed>true</Collapsed>
-					<ControlRepresentation>Button</ControlRepresentation>
-					<Representation>WeakSeparation</Representation>
-					<ExtendedTooltip name="ГруппаПротоколПроверкиРасширеннаяПодсказка" id="74"/>
-				</UsualGroup>
-			</ChildItems>
-		</UsualGroup>
-		<InputField name="КомуВыданСертификат" id="2">
-			<DataPath>КомуВыданСертификат</DataPath>
-			<ReadOnly>true</ReadOnly>
-			<SkipOnInput>true</SkipOnInput>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Автор подписи</v8:content>
-				</v8:item>
-			</Title>
-			<ContextMenu name="КомуВыданСертификатКонтекстноеМеню" id="3"/>
-			<ExtendedTooltip name="КомуВыданСертификатРасширеннаяПодсказка" id="24"/>
-		</InputField>
-		<InputField name="ТипПодписи" id="52">
-			<DataPath>ТипПодписи</DataPath>
-			<ReadOnly>true</ReadOnly>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Тип подписи</v8:content>
-				</v8:item>
-			</Title>
-			<ContextMenu name="ТипПодписиКонтекстноеМеню" id="53"/>
-			<ExtendedTooltip name="ТипПодписиРасширеннаяПодсказка" id="54"/>
-		</InputField>
-		<InputField name="УстановившийПодпись" id="12">
-			<DataPath>УстановившийПодпись</DataPath>
-			<ReadOnly>true</ReadOnly>
-			<SkipOnInput>true</SkipOnInput>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Установивший подпись</v8:content>
-				</v8:item>
-			</Title>
-			<Width>35</Width>
-			<HorizontalStretch>false</HorizontalStretch>
-			<ContextMenu name="УстановившийПодписьКонтекстноеМеню" id="13"/>
-			<ExtendedTooltip name="УстановившийПодписьРасширеннаяПодсказка" id="26"/>
-		</InputField>
-		<InputField name="ДатаПодписи" id="17">
-			<DataPath>ДатаПодписи</DataPath>
-			<ReadOnly>true</ReadOnly>
-			<SkipOnInput>true</SkipOnInput>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Дата подписи</v8:content>
-				</v8:item>
-			</Title>
-			<ContextMenu name="ДатаПодписиКонтекстноеМеню" id="18"/>
-			<ExtendedTooltip name="ДатаПодписиРасширеннаяПодсказка" id="27"/>
-		</InputField>
-		<InputField name="Комментарий" id="14">
-			<DataPath>Комментарий</DataPath>
-			<ReadOnly>true</ReadOnly>
-			<SkipOnInput>true</SkipOnInput>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Комментарий</v8:content>
-				</v8:item>
-			</Title>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<MultiLine>true</MultiLine>
-			<TextEdit>false</TextEdit>
-			<ContextMenu name="КомментарийКонтекстноеМеню" id="15"/>
-			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="28"/>
-		</InputField>
-		<InputField name="СрокДействияПоследнейМеткиВремени" id="49">
-			<DataPath>СрокДействияПоследнейМеткиВремени</DataPath>
-			<ReadOnly>true</ReadOnly>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Срок действия последней метки времени</v8:content>
-				</v8:item>
-			</Title>
-			<TitleHeight>2</TitleHeight>
-			<ContextMenu name="СрокДействияПоследнейМеткиВремениКонтекстноеМеню" id="50"/>
-			<ExtendedTooltip name="СрокДействияПоследнейМеткиВремениРасширеннаяПодсказка" id="51"/>
-		</InputField>
-		<UsualGroup name="ТехническаяИнформация" id="41">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Техническая информация</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Vertical</Group>
-			<Behavior>Collapsible</Behavior>
-			<Collapsed>true</Collapsed>
-			<ControlRepresentation>Button</ControlRepresentation>
-			<Representation>None</Representation>
-			<ExtendedTooltip name="ТехническаяИнформацияРасширеннаяПодсказка" id="42"/>
-			<ChildItems>
-				<InputField name="АлгоритмПодписиПредупреждение" id="75">
-					<DataPath>АлгоритмПодписи</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Алгоритм подписи</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Алгоритм, которым с помощью закрытой части ключа подписана криптостойкая хеш-сумма данных, вычисленная с помощью алгоритма хеширования.</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ToolTipRepresentation>Button</ToolTipRepresentation>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<AutoMaxHeight>false</AutoMaxHeight>
-					<MaxHeight>2</MaxHeight>
-					<MultiLine>true</MultiLine>
-					<TextEdit>false</TextEdit>
-					<BackColor>style:ЦветФонаВнимание</BackColor>
-					<ContextMenu name="АлгоритмПодписиПредупреждениеКонтекстноеМеню" id="76"/>
-					<ExtendedTooltip name="АлгоритмПодписиПредупреждениеРасширеннаяПодсказка" id="77"/>
-				</InputField>
-				<InputField name="АлгоритмПодписи" id="43">
-					<DataPath>АлгоритмПодписи</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Алгоритм подписи</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Алгоритм, которым с помощью закрытой части ключа подписана криптостойкая хеш-сумма данных, вычисленная с помощью алгоритма хеширования.</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ToolTipRepresentation>Button</ToolTipRepresentation>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<TextEdit>false</TextEdit>
-					<ContextMenu name="АлгоритмПодписиКонтекстноеМеню" id="44"/>
-					<ExtendedTooltip name="АлгоритмПодписиРасширеннаяПодсказка" id="45"/>
-				</InputField>
-				<InputField name="АлгоритмХеширования" id="46">
-					<DataPath>АлгоритмХеширования</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Алгоритм хеширования</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Алгоритм, которым вычислена криптостойкая хеш-сумма данных и затем подписана закрытой частью ключа с помощью алгоритма подписи.</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ToolTipRepresentation>Button</ToolTipRepresentation>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<TextEdit>false</TextEdit>
-					<ContextMenu name="АлгоритмХешированияКонтекстноеМеню" id="47"/>
-					<ExtendedTooltip name="АлгоритмХешированияРасширеннаяПодсказка" id="48"/>
-				</InputField>
-				<UsualGroup name="ГруппаОшибкаМатематическойПроверки" id="90">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Ошибка математической проверки</v8:content>
-						</v8:item>
-					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<Representation>WeakSeparation</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаОшибкаМатематическойПроверкиРасширеннаяПодсказка" id="91"/>
+					<Group>AutoScreenTypeSensitive</Group>
+					<ExtendedTooltip name="СтраницаОсновноеРасширеннаяПодсказка" id="127"/>
 					<ChildItems>
-						<InputField name="ОшибкаМатематическойПроверкиПодписи" id="78">
-							<DataPath>ОшибкаМатематическойПроверкиПодписи</DataPath>
+						<UsualGroup name="ГруппаЛевая" id="118">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Проверка соответствия подписи документу</v8:content>
+									<v8:content>Левая</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Top</TitleLocation>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<AutoMaxHeight>false</AutoMaxHeight>
-							<MaxHeight>2</MaxHeight>
-							<MultiLine>true</MultiLine>
-							<TextEdit>false</TextEdit>
-							<ContextMenu name="ОшибкаМатематическойПроверкиПодписиКонтекстноеМеню" id="79"/>
-							<ExtendedTooltip name="ОшибкаМатематическойПроверкиПодписиРасширеннаяПодсказка" id="80"/>
-						</InputField>
-						<Button name="ОткрытьОписаниеОшибки" id="97">
-							<Type>Hyperlink</Type>
-							<CommandName>Form.Command.ОткрытьОписаниеОшибкиМатематическойПроверки</CommandName>
+							<Group>Vertical</Group>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЛеваяРасширеннаяПодсказка" id="119"/>
+							<ChildItems>
+								<LabelField name="КомуВыданСертификат" id="2">
+									<DataPath>КомуВыданСертификат</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<SkipOnInput>true</SkipOnInput>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Автор подписи</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<UseCopy>true</UseCopy>
+									<ContextMenu name="КомуВыданСертификатКонтекстноеМеню" id="3"/>
+									<ExtendedTooltip name="КомуВыданСертификатРасширеннаяПодсказка" id="24"/>
+								</LabelField>
+								<LabelField name="ТипПодписи" id="52">
+									<DataPath>ТипПодписи</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Тип подписи</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<UseCopy>true</UseCopy>
+									<ContextMenu name="ТипПодписиКонтекстноеМеню" id="53"/>
+									<ExtendedTooltip name="ТипПодписиРасширеннаяПодсказка" id="54"/>
+								</LabelField>
+								<LabelField name="УстановившийПодпись" id="12">
+									<DataPath>УстановившийПодпись</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<SkipOnInput>true</SkipOnInput>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Установивший подпись</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<UseCopy>true</UseCopy>
+									<ContextMenu name="УстановившийПодписьКонтекстноеМеню" id="13"/>
+									<ExtendedTooltip name="УстановившийПодписьРасширеннаяПодсказка" id="26"/>
+								</LabelField>
+								<LabelField name="ДатаПодписи" id="17">
+									<DataPath>ДатаПодписи</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<SkipOnInput>true</SkipOnInput>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата подписи</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<UseCopy>true</UseCopy>
+									<ContextMenu name="ДатаПодписиКонтекстноеМеню" id="18"/>
+									<ExtendedTooltip name="ДатаПодписиРасширеннаяПодсказка" id="27"/>
+								</LabelField>
+								<LabelField name="СрокДействияПоследнейМеткиВремени" id="49">
+									<DataPath>СрокДействияПоследнейМеткиВремени</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Срок действия последней метки времени</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<UseCopy>true</UseCopy>
+									<ContextMenu name="СрокДействияПоследнейМеткиВремениКонтекстноеМеню" id="50"/>
+									<ExtendedTooltip name="СрокДействияПоследнейМеткиВремениРасширеннаяПодсказка" id="51"/>
+								</LabelField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаПравая" id="120">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Подробнее</v8:content>
+									<v8:content>Правая</v8:content>
 								</v8:item>
 							</Title>
-							<ExtendedTooltip name="ОткрытьОписаниеОшибкиРасширеннаяПодсказка" id="98"/>
-						</Button>
+							<Group>Vertical</Group>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПраваяРасширеннаяПодсказка" id="121"/>
+							<ChildItems>
+								<LabelField name="ОбоснованиеРучнойПроверкиДополнительныхАтрибутов" id="87">
+									<DataPath>ОбоснованиеРучнойПроверкиДополнительныхАтрибутов</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Обоснование достоверности подписи</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<VerticalStretch>true</VerticalStretch>
+									<UseCopy>true</UseCopy>
+									<ContextMenu name="ОбоснованиеРучнойПроверкиДополнительныхАтрибутовКонтекстноеМеню" id="88"/>
+									<ExtendedTooltip name="ОбоснованиеРучнойПроверкиДополнительныхАтрибутовРасширеннаяПодсказка" id="89"/>
+								</LabelField>
+								<LabelField name="Комментарий" id="14">
+									<DataPath>Комментарий</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<SkipOnInput>true</SkipOnInput>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Комментарий</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<UseCopy>true</UseCopy>
+									<ContextMenu name="КомментарийКонтекстноеМеню" id="15"/>
+									<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="28"/>
+								</LabelField>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаОшибкаПроверкиДополнительныхАтрибутов" id="92">
+				</Page>
+				<Page name="СтраницаДоверенность" id="130">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Ошибка проверки дополнительных атрибутов</v8:content>
+							<v8:content>Проверка МЧД</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<Representation>WeakSeparation</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаОшибкаПроверкиДополнительныхАтрибутовРасширеннаяПодсказка" id="93"/>
+					<ExtendedTooltip name="СтраницаДоверенностьРасширеннаяПодсказка" id="131"/>
 					<ChildItems>
-						<InputField name="ОшибкаПроверкиДополнительныхАтрибутов" id="81">
-							<DataPath>ОшибкаПроверкиДополнительныхАтрибутов</DataPath>
+						<UsualGroup name="ГруппаМЧД" id="69">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Проверка сертификата подписи</v8:content>
+									<v8:content>Машиночитаемая доверенность</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Top</TitleLocation>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<AutoMaxHeight>false</AutoMaxHeight>
-							<MaxHeight>2</MaxHeight>
-							<MultiLine>true</MultiLine>
-							<TextEdit>false</TextEdit>
-							<ContextMenu name="ОшибкаПроверкиДополнительныхАтрибутовКонтекстноеМеню" id="82"/>
-							<ExtendedTooltip name="ОшибкаПроверкиДополнительныхАтрибутовРасширеннаяПодсказка" id="83"/>
-						</InputField>
-						<Button name="ОткрытьОписаниеОшибкиДополнительныхАтрибутов" id="99">
-							<Type>Hyperlink</Type>
-							<CommandName>Form.Command.ОткрытьОписаниеОшибкиДополнительныхАтрибутов</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Подробнее</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ОткрытьОписаниеОшибкиДополнительныхАтрибутовРасширеннаяПодсказка" id="100"/>
-						</Button>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Collapsed>true</Collapsed>
+							<Representation>NormalSeparation</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаМЧДРасширеннаяПодсказка" id="70"/>
+						</UsualGroup>
 					</ChildItems>
-				</UsualGroup>
+				</Page>
+				<Page name="СтраницаТехническаяИнформация" id="128">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Техническая информация</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AutoScreenTypeSensitive</Group>
+					<ExtendedTooltip name="СтраницаТехническаяИнформацияРасширеннаяПодсказка" id="129"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаЛевая1" id="134">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Левая 1</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЛевая1РасширеннаяПодсказка" id="135"/>
+							<ChildItems>
+								<LabelField name="АлгоритмПодписиПредупреждение" id="75">
+									<DataPath>АлгоритмПодписи</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Алгоритм подписи</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Алгоритм, которым с помощью закрытой части ключа подписана криптостойкая хеш-сумма данных, вычисленная с помощью алгоритма хеширования.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<VerticalStretch>true</VerticalStretch>
+									<BackColor>style:ЦветФонаВнимание</BackColor>
+									<UseCopy>true</UseCopy>
+									<ContextMenu name="АлгоритмПодписиПредупреждениеКонтекстноеМеню" id="76"/>
+									<ExtendedTooltip name="АлгоритмПодписиПредупреждениеРасширеннаяПодсказка" id="77"/>
+								</LabelField>
+								<LabelField name="АлгоритмПодписи" id="43">
+									<DataPath>АлгоритмПодписи</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Алгоритм подписи</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Алгоритм, которым с помощью закрытой части ключа подписана криптостойкая хеш-сумма данных, вычисленная с помощью алгоритма хеширования.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<UseCopy>true</UseCopy>
+									<ContextMenu name="АлгоритмПодписиКонтекстноеМеню" id="44"/>
+									<ExtendedTooltip name="АлгоритмПодписиРасширеннаяПодсказка" id="45"/>
+								</LabelField>
+								<LabelField name="АлгоритмХеширования" id="46">
+									<DataPath>АлгоритмХеширования</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Алгоритм хеширования</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Алгоритм, которым вычислена криптостойкая хеш-сумма данных и затем подписана закрытой частью ключа с помощью алгоритма подписи.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<UseCopy>true</UseCopy>
+									<ContextMenu name="АлгоритмХешированияКонтекстноеМеню" id="47"/>
+									<ExtendedTooltip name="АлгоритмХешированияРасширеннаяПодсказка" id="48"/>
+								</LabelField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаПравая1" id="136">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Правая 1</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПравая1РасширеннаяПодсказка" id="137"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаОшибкаМатематическойПроверки" id="90">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Ошибка математической проверки</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Representation>WeakSeparation</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОшибкаМатематическойПроверкиРасширеннаяПодсказка" id="91"/>
+									<ChildItems>
+										<LabelField name="ОшибкаМатематическойПроверкиПодписи" id="78">
+											<DataPath>ОшибкаМатематическойПроверкиПодписи</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Проверка соответствия подписи документу</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>Top</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<VerticalStretch>true</VerticalStretch>
+											<UseCopy>true</UseCopy>
+											<ContextMenu name="ОшибкаМатематическойПроверкиПодписиКонтекстноеМеню" id="79"/>
+											<ExtendedTooltip name="ОшибкаМатематическойПроверкиПодписиРасширеннаяПодсказка" id="80"/>
+										</LabelField>
+										<Button name="ОткрытьОписаниеОшибки" id="97">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.ОткрытьОписаниеОшибкиМатематическойПроверки</CommandName>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Подробнее</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="ОткрытьОписаниеОшибкиРасширеннаяПодсказка" id="98"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаОшибкаПроверкиДополнительныхАтрибутов" id="92">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Ошибка проверки дополнительных атрибутов</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Representation>WeakSeparation</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОшибкаПроверкиДополнительныхАтрибутовРасширеннаяПодсказка" id="93"/>
+									<ChildItems>
+										<LabelField name="ОшибкаПроверкиДополнительныхАтрибутов" id="81">
+											<DataPath>ОшибкаПроверкиДополнительныхАтрибутов</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Проверка сертификата и дополнительных атрибутов подписи</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>Top</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<VerticalStretch>true</VerticalStretch>
+											<UseCopy>true</UseCopy>
+											<ContextMenu name="ОшибкаПроверкиДополнительныхАтрибутовКонтекстноеМеню" id="82"/>
+											<ExtendedTooltip name="ОшибкаПроверкиДополнительныхАтрибутовРасширеннаяПодсказка" id="83"/>
+										</LabelField>
+										<Button name="ОткрытьОписаниеОшибкиДополнительныхАтрибутов" id="99">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.ОткрытьОписаниеОшибкиДополнительныхАтрибутов</CommandName>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Подробнее</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="ОткрытьОписаниеОшибкиДополнительныхАтрибутовРасширеннаяПодсказка" id="100"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+								<LabelField name="ОписаниеОшибки" id="35">
+									<DataPath>ОписаниеОшибки</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Описание ошибки</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<VerticalStretch>true</VerticalStretch>
+									<BackColor>style:ЦветФонаВнимание</BackColor>
+									<UseCopy>true</UseCopy>
+									<ContextMenu name="ОписаниеОшибкиКонтекстноеМеню" id="36"/>
+									<ExtendedTooltip name="ОписаниеОшибкиРасширеннаяПодсказка" id="37"/>
+								</LabelField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
 			</ChildItems>
-		</UsualGroup>
+		</Pages>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="КомуВыданСертификат" id="1">
@@ -802,6 +863,22 @@
 				</v8:item>
 			</Title>
 			<Action>ОткрытьОписаниеОшибкиДополнительныхАтрибутов</Action>
+		</Command>
+		<Command name="ОткрытьИнструкцию" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Инструкции</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перейти на сайт с информацией о работе с приложениями электронной подписи и шифрования
+</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьИнструкцию</Action>
 		</Command>
 	</Commands>
 	<Parameters>

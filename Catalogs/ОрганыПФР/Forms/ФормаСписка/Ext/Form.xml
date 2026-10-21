@@ -13,6 +13,16 @@
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="СписокКнопкаВыбрать" id="8">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.КомандаСписокВыбрать</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="СписокКнопкаВыбратьРасширеннаяПодсказка" id="15"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -20,6 +30,8 @@
 	</Events>
 	<ChildItems>
 		<Table name="Список" id="1">
+			<CommandBarLocation>Top</CommandBarLocation>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<EnableStartDrag>true</EnableStartDrag>
 			<FileDragMode>AsFile</FileDragMode>
@@ -28,6 +40,7 @@
 			<SearchStringLocation>None</SearchStringLocation>
 			<ViewStatusLocation>None</ViewStatusLocation>
 			<SearchControlLocation>None</SearchControlLocation>
+			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -43,47 +56,7 @@
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
-				<ChildItems>
-					<Button name="СписокКнопкаВыбрать" id="8">
-						<Type>CommandBarButton</Type>
-						<Representation>PictureAndText</Representation>
-						<CommandName>Form.Command.КомандаСписокВыбрать</CommandName>
-						<ExtendedTooltip name="СписокКнопкаВыбратьРасширеннаяПодсказка" id="15"/>
-					</Button>
-					<Button name="СписокКнопкаСоздать" id="9">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.Create</CommandName>
-						<ExtendedTooltip name="СписокКнопкаСоздатьРасширеннаяПодсказка" id="16"/>
-					</Button>
-					<Button name="СписокКнопкаСкопировать" id="10">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.Copy</CommandName>
-						<ExtendedTooltip name="СписокКнопкаСкопироватьРасширеннаяПодсказка" id="17"/>
-					</Button>
-					<Button name="СписокКнопкаИзменить" id="11">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.Change</CommandName>
-						<ExtendedTooltip name="СписокКнопкаИзменитьРасширеннаяПодсказка" id="18"/>
-					</Button>
-					<Button name="СписокКнопкаУстановитьПометкуУдаления" id="12">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.SetDeletionMark</CommandName>
-						<ExtendedTooltip name="СписокКнопкаУстановитьПометкуУдаленияРасширеннаяПодсказка" id="19"/>
-					</Button>
-					<Button name="СписокКнопкаНайти" id="13">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.Find</CommandName>
-						<ExtendedTooltip name="СписокКнопкаНайтиРасширеннаяПодсказка" id="20"/>
-					</Button>
-					<Button name="СписокКнопкаОтменитьПоиск" id="14">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.CancelSearch</CommandName>
-						<ExtendedTooltip name="СписокКнопкаОтменитьПоискРасширеннаяПодсказка" id="21"/>
-					</Button>
-				</ChildItems>
-			</AutoCommandBar>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="22"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="23">
 				<AdditionSource>
@@ -175,12 +148,9 @@
 					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>КомандаСписокВыбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

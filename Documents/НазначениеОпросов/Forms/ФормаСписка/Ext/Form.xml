@@ -24,7 +24,6 @@
 		</UsualGroup>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<SkipOnInput>false</SkipOnInput>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
@@ -39,6 +38,7 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -55,9 +55,7 @@
 			<UserSettingsGroup>ГруппаПользовательскихНастроек</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
-			</AutoCommandBar>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="16"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="34">
 				<AdditionSource>
@@ -85,6 +83,7 @@
 			</SearchControlAddition>
 			<Events>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
+				<Event name="OnHover">СписокПриНаведении</Event>
 			</Events>
 			<ChildItems>
 				<ColumnGroup name="ГруппаНомерДата" id="26">
@@ -96,22 +95,6 @@
 					</Title>
 					<Width>10</Width>
 					<ExtendedTooltip name="ГруппаНомерДатаРасширеннаяПодсказка" id="27"/>
-					<ChildItems>
-						<LabelField name="Номер" id="6">
-							<DataPath>Список.Number</DataPath>
-							<Width>10</Width>
-							<HorizontalStretch>false</HorizontalStretch>
-							<ContextMenu name="НомерКонтекстноеМеню" id="7"/>
-							<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="18"/>
-						</LabelField>
-						<LabelField name="Дата" id="4">
-							<DataPath>Список.Date</DataPath>
-							<DefaultItem>true</DefaultItem>
-							<Width>9</Width>
-							<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
-							<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="17"/>
-						</LabelField>
-					</ChildItems>
 				</ColumnGroup>
 				<ColumnGroup name="ГруппаНаименованиеШаблон" id="28">
 					<Title>
@@ -121,22 +104,6 @@
 						</v8:item>
 					</Title>
 					<ExtendedTooltip name="ГруппаНаименованиеШаблонРасширеннаяПодсказка" id="29"/>
-					<ChildItems>
-						<LabelField name="Наименование" id="14">
-							<DataPath>Список.Наименование</DataPath>
-							<Width>25</Width>
-							<HorizontalStretch>false</HorizontalStretch>
-							<ContextMenu name="НаименованиеКонтекстноеМеню" id="15"/>
-							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="19"/>
-						</LabelField>
-						<LabelField name="ШаблонАнкеты" id="8">
-							<DataPath>Список.ШаблонАнкеты</DataPath>
-							<Width>25</Width>
-							<HorizontalStretch>false</HorizontalStretch>
-							<ContextMenu name="ШаблонАнкетыКонтекстноеМеню" id="9"/>
-							<ExtendedTooltip name="ШаблонАнкетыРасширеннаяПодсказка" id="20"/>
-						</LabelField>
-					</ChildItems>
 				</ColumnGroup>
 				<ColumnGroup name="ГруппаДаты" id="30">
 					<Title>
@@ -146,28 +113,80 @@
 						</v8:item>
 					</Title>
 					<ExtendedTooltip name="ГруппаДатыРасширеннаяПодсказка" id="31"/>
-					<ChildItems>
-						<LabelField name="ДатаНачала" id="10">
-							<DataPath>Список.ДатаНачала</DataPath>
-							<Width>12</Width>
-							<HorizontalStretch>false</HorizontalStretch>
-							<ContextMenu name="ДатаНачалаКонтекстноеМеню" id="11"/>
-							<ExtendedTooltip name="ДатаНачалаРасширеннаяПодсказка" id="21"/>
-						</LabelField>
-						<LabelField name="ДатаОкончания" id="12">
-							<DataPath>Список.ДатаОкончания</DataPath>
-							<Width>12</Width>
-							<HorizontalStretch>false</HorizontalStretch>
-							<ContextMenu name="ДатаОкончанияКонтекстноеМеню" id="13"/>
-							<ExtendedTooltip name="ДатаОкончанияРасширеннаяПодсказка" id="22"/>
-						</LabelField>
-					</ChildItems>
 				</ColumnGroup>
+				<LabelField name="Дата" id="4">
+					<DataPath>Список.Date</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Width>9</Width>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="17"/>
+				</LabelField>
+				<LabelField name="Номер" id="6">
+					<DataPath>Список.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Width>10</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="НомерКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="18"/>
+				</LabelField>
+				<LabelField name="Наименование" id="14">
+					<DataPath>Список.Наименование</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Width>25</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="19"/>
+				</LabelField>
+				<LabelField name="ШаблонАнкеты" id="8">
+					<DataPath>Список.ШаблонАнкеты</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Width>25</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ШаблонАнкетыКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="ШаблонАнкетыРасширеннаяПодсказка" id="20"/>
+				</LabelField>
+				<LabelField name="ДатаНачала" id="10">
+					<DataPath>Список.ДатаНачала</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Начало</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Width>12</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ДатаНачалаКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ДатаНачалаРасширеннаяПодсказка" id="21"/>
+				</LabelField>
+				<LabelField name="ДатаОкончания" id="12">
+					<DataPath>Список.ДатаОкончания</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Окончание</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Width>12</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ДатаОкончанияКонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="ДатаОкончанияРасширеннаяПодсказка" id="22"/>
+				</LabelField>
 				<LabelField name="Ссылка" id="23">
 					<DataPath>Список.Ref</DataPath>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="24"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="25"/>
 				</LabelField>

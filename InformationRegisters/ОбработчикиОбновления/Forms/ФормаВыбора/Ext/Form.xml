@@ -13,44 +13,11 @@
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Готово</v8:content>
+						<v8:content>Выбрать</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаГотовоРасширеннаяПодсказка" id="26"/>
-			</Button>
-			<Button name="ФормаВыбрать" id="27">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Выбрать</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Выбрать</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="28"/>
-			</Button>
-			<Button name="ФормаОтменитьВыбор" id="29">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ОтменитьВыбор</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Отменить выбор</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаОтменитьВыборРасширеннаяПодсказка" id="30"/>
-			</Button>
-			<Button name="ФормаОтменитьВыборВсех" id="53">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ОтменитьВыборВсех</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Отменить выбор всех</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаОтменитьВыборВсехРасширеннаяПодсказка" id="54"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -74,6 +41,7 @@
 		</UsualGroup>
 		<Table name="СписокОбработчиков" id="31">
 			<Representation>List</Representation>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -98,6 +66,30 @@
 			<ContextMenu name="СписокОбработчиковКонтекстноеМеню" id="32"/>
 			<AutoCommandBar name="СписокОбработчиковКоманднаяПанель" id="33">
 				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ФормаВыбратьВсе" id="27">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ВыбратьВсе</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Выбрать все</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаВыбратьВсеРасширеннаяПодсказка" id="28"/>
+					</Button>
+					<Button name="ФормаОтменитьВыборВсех" id="53">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ОтменитьВыборВсех</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отменить выбор всех</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаОтменитьВыборВсехРасширеннаяПодсказка" id="54"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокОбработчиковРасширеннаяПодсказка" id="34"/>
 			<SearchStringAddition name="СписокОбработчиковСтрокаПоиска" id="35">
@@ -277,36 +269,27 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Готово</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
-		<Command name="Выбрать" id="2">
+		<Command name="ВыбратьВсе" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать</v8:content>
+					<v8:content>Выбрать все</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать</v8:content>
+					<v8:content>Выбрать все</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>Выбрать</Action>
-		</Command>
-		<Command name="ОтменитьВыбор" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отменить выбор</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отменить выбор</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОтменитьВыбор</Action>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВыбратьВсе</Action>
+			<Representation>TextPicture</Representation>
 		</Command>
 		<Command name="ОтменитьВыборВсех" id="4">
 			<Title>
@@ -321,7 +304,12 @@
 					<v8:content>Отменить выбор всех</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>ОтменитьВыборВсех</Action>
+			<Representation>TextPicture</Representation>
 		</Command>
 	</Commands>
 	<Parameters>

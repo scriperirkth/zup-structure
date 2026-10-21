@@ -11,9 +11,47 @@
 	<SaveDataInSettings>UseList</SaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ПоказатьРезультатВыгрузки" id="133">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.ПоказатьРезультатВыгрузки</CommandName>
+				<Picture>
+					<xr:Abs>Picture.zip</xr:Abs>
+					<xr:LoadTransparent>false</xr:LoadTransparent>
+				</Picture>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Результат выгрузки</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ПоказатьРезультатВыгрузкиExtendedTooltip" id="224"/>
+			</Button>
+			<Button name="ФормаОткрытьФормуНастроек" id="145">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.ОткрытьФормуНастроек</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Настройки</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаОткрытьФормуНастроекExtendedTooltip" id="223"/>
+			</Button>
+			<Button name="ФормаЗарегистрироватьИОМИПредопределенные" id="314">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЗарегистрироватьИОМИПредопределенные</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаЗарегистрироватьИОМИПредопределенныеРасширеннаяПодсказка" id="315"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnSaveDataInSettingsAtServer">ПриСохраненииДанныхВНастройкахНаСервере</Event>
 		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
@@ -59,102 +97,13 @@
 									<v8:content>Быстрые отборы</v8:content>
 								</v8:item>
 							</Title>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
 							<Group>Horizontal</Group>
+							<HorizontalAlign>Right</HorizontalAlign>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаБыстрыеОтборыРасширеннаяПодсказка" id="200"/>
-							<ChildItems>
-								<InputField name="УзелОбменаСсылка" id="1">
-									<DataPath>УзелОбменаСсылка</DataPath>
-									<HorizontalStretch>false</HorizontalStretch>
-									<DropListButton>false</DropListButton>
-									<ChoiceButton>true</ChoiceButton>
-									<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
-									<ClearButton>false</ClearButton>
-									<SpinButton>false</SpinButton>
-									<OpenButton>false</OpenButton>
-									<CreateButton>false</CreateButton>
-									<ContextMenu name="УзелОбменаСсылкаКонтекстноеМеню" id="2"/>
-									<ExtendedTooltip name="УзелОбменаСсылкаExtendedTooltip" id="201"/>
-									<Events>
-										<Event name="OnChange">УзелОбменаСсылкаПриИзменении</Event>
-										<Event name="StartChoice">УзелОбменаСсылкаНачалоВыбора</Event>
-										<Event name="Clearing">УзелОбменаСсылкаОчистка</Event>
-										<Event name="ChoiceProcessing">УзелОбменаСсылкаОбработкаВыбора</Event>
-									</Events>
-								</InputField>
-								<Button name="ФормаРедактироватьНомераСообщений" id="85">
-									<Type>Hyperlink</Type>
-									<CommandName>Form.Command.РедактироватьНомераСообщений</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>№ отправленного 0, № принятого 0</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ФормаРедактироватьНомераСообщенийExtendedTooltip" id="202"/>
-								</Button>
-								<InputField name="ВариантОтбораПоНомеруСообщения" id="172">
-									<DataPath>ВариантОтбораПоНомеруСообщения</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отображать</v8:content>
-										</v8:item>
-									</Title>
-									<Width>18</Width>
-									<ListChoiceMode>true</ListChoiceMode>
-									<ChooseType>false</ChooseType>
-									<TextEdit>false</TextEdit>
-									<ChoiceList>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Все</v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:decimal">0</Value>
-											</xr:Value>
-										</xr:Item>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Только выгруженные </v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:decimal">1</Value>
-											</xr:Value>
-										</xr:Item>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Только невыгруженные</v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:decimal">2</Value>
-											</xr:Value>
-										</xr:Item>
-									</ChoiceList>
-									<ContextMenu name="ВариантОтбораПоНомеруСообщенияКонтекстноеМеню" id="173"/>
-									<ExtendedTooltip name="ВариантОтбораПоНомеруСообщенияExtendedTooltip" id="203"/>
-									<Events>
-										<Event name="OnChange">ВариантОтбораПоНомеруСообщенияПриИзменении</Event>
-									</Events>
-								</InputField>
-							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="ДанныеРегистрации" id="5">
 							<EnableContentChange>true</EnableContentChange>
@@ -170,322 +119,6 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ДанныеРегистрацииРасширеннаяПодсказка" id="204"/>
 							<ChildItems>
-								<CommandBar name="КоманднаяПанельОбщая" id="95">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Командная панель </v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Общая командная панель</v8:content>
-										</v8:item>
-									</ToolTip>
-									<CommandSource>Form</CommandSource>
-									<ExtendedTooltip name="КоманднаяПанельОбщаяExtendedTooltip" id="205"/>
-									<ChildItems>
-										<Popup name="ДеревоМетаданныхГруппаДобавить" id="39">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Зарегистрировать</v8:content>
-												</v8:item>
-											</Title>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Зарегистрировать объекты выбранных типов</v8:content>
-												</v8:item>
-											</ToolTip>
-											<Picture>
-												<xr:Ref>StdPicture.CreateListItem</xr:Ref>
-												<xr:LoadTransparent>true</xr:LoadTransparent>
-											</Picture>
-											<ExtendedTooltip name="ДеревоМетаданныхГруппаДобавитьExtendedTooltip" id="206"/>
-											<ChildItems>
-												<Button name="ДеревоМетаданныхДобавитьРегистрациюВсехОбъектов" id="40">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Command.ДобавитьРегистрациюВсехОбъектов</CommandName>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Все объекты выбранных типов</v8:content>
-														</v8:item>
-													</Title>
-													<ExtendedTooltip name="ДеревоМетаданныхДобавитьРегистрациюВсехОбъектовExtendedTooltip" id="207"/>
-												</Button>
-												<Button name="ДеревоМетаданныхДобавитьРегистрациюАвтоОбъектов" id="41">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Command.ДобавитьРегистрациюАвтоОбъектов</CommandName>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Объекты выбранных типов с авторегистрацией</v8:content>
-														</v8:item>
-													</Title>
-													<ExtendedTooltip name="ДеревоМетаданныхДобавитьРегистрациюАвтоОбъектовExtendedTooltip" id="208"/>
-												</Button>
-												<ButtonGroup name="ГруппаКомандДобавить" id="183">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Регистрация</v8:content>
-														</v8:item>
-													</Title>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Команды добавления регистрации</v8:content>
-														</v8:item>
-													</ToolTip>
-													<ExtendedTooltip name="ГруппаКомандДобавитьExtendedTooltip" id="209"/>
-													<ChildItems>
-														<Button name="ФормаДобавитьРегистрациюОдногоОбъекта" id="184">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Command.ДобавитьРегистрациюОдногоОбъекта</CommandName>
-															<Picture>
-																<xr:Ref>StdPicture.CreateListItem</xr:Ref>
-																<xr:LoadTransparent>true</xr:LoadTransparent>
-															</Picture>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Одиночный объект</v8:content>
-																</v8:item>
-															</Title>
-															<ExtendedTooltip name="ФормаДобавитьРегистрациюОдногоОбъектаExtendedTooltip" id="210"/>
-														</Button>
-														<Button name="ФормаДобавитьРегистрациюОтбор" id="185">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Command.ДобавитьРегистрациюОтбор</CommandName>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Объекты при помощи отбора</v8:content>
-																</v8:item>
-															</Title>
-															<ExtendedTooltip name="ФормаДобавитьРегистрациюОтборExtendedTooltip" id="211"/>
-														</Button>
-													</ChildItems>
-												</ButtonGroup>
-												<ButtonGroup name="ДеревоМетаданныхГруппа3" id="60">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Регистрация результатов запроса</v8:content>
-														</v8:item>
-													</Title>
-													<ExtendedTooltip name="ДеревоМетаданныхГруппа3ExtendedTooltip" id="212"/>
-													<ChildItems>
-														<Button name="ДеревоМетаданныхДобавитьРегистрациюРезультатаЗапроса" id="59">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Command.ДобавитьРегистрациюРезультатаЗапроса</CommandName>
-															<Picture>
-																<xr:Abs>Picture.png</xr:Abs>
-																<xr:LoadTransparent>false</xr:LoadTransparent>
-															</Picture>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Результаты запроса</v8:content>
-																</v8:item>
-															</Title>
-															<ExtendedTooltip name="ДеревоМетаданныхДобавитьРегистрациюРезультатаЗапросаExtendedTooltip" id="213"/>
-														</Button>
-													</ChildItems>
-												</ButtonGroup>
-											</ChildItems>
-										</Popup>
-										<Popup name="ДеревоМетаданныхГруппаУдалить" id="42">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Отменить регистрацию</v8:content>
-												</v8:item>
-											</Title>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Отменить регистрацию объектов выбранных типов</v8:content>
-												</v8:item>
-											</ToolTip>
-											<Picture>
-												<xr:Ref>StdPicture.DeleteDirectly</xr:Ref>
-												<xr:LoadTransparent>true</xr:LoadTransparent>
-											</Picture>
-											<ExtendedTooltip name="ДеревоМетаданныхГруппаУдалитьExtendedTooltip" id="214"/>
-											<ChildItems>
-												<Button name="ДеревоМетаданныхУдалитьРегистрациюВсехОбъектов" id="43">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Command.УдалитьРегистрациюВсехОбъектов</CommandName>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Всех объектов выбранных типов</v8:content>
-														</v8:item>
-													</Title>
-													<ExtendedTooltip name="ДеревоМетаданныхУдалитьРегистрациюВсехОбъектовExtendedTooltip" id="215"/>
-												</Button>
-												<Button name="ДеревоМетаданныхУдалитьРегистрациюАвтоОбъектов" id="44">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Command.УдалитьРегистрациюАвтоОбъектов</CommandName>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Объектов выбранных типов с авторегистрацией</v8:content>
-														</v8:item>
-													</Title>
-													<ExtendedTooltip name="ДеревоМетаданныхУдалитьРегистрациюАвтоОбъектовExtendedTooltip" id="216"/>
-												</Button>
-												<ButtonGroup name="ГруппаКомандУдалить" id="186">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Отмена регистрации</v8:content>
-														</v8:item>
-													</Title>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Команды удаления регистрации</v8:content>
-														</v8:item>
-													</ToolTip>
-													<ExtendedTooltip name="ГруппаКомандУдалитьExtendedTooltip" id="217"/>
-													<ChildItems>
-														<Button name="ФормаУдалитьРегистрациюОдногоОбъекта" id="187">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Command.УдалитьРегистрациюОдногоОбъекта</CommandName>
-															<Picture>
-																<xr:Ref>StdPicture.DeleteDirectly</xr:Ref>
-																<xr:LoadTransparent>true</xr:LoadTransparent>
-															</Picture>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Одиночного объекта</v8:content>
-																</v8:item>
-															</Title>
-															<ExtendedTooltip name="ФормаУдалитьРегистрациюОдногоОбъектаExtendedTooltip" id="218"/>
-														</Button>
-														<Button name="ФормаУдалитьРегистрациюОтбор" id="188">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Command.УдалитьРегистрациюОтбор</CommandName>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Объектов при помощи отбора</v8:content>
-																</v8:item>
-															</Title>
-															<ExtendedTooltip name="ФормаУдалитьРегистрациюОтборExtendedTooltip" id="219"/>
-														</Button>
-													</ChildItems>
-												</ButtonGroup>
-												<ButtonGroup name="ДеревоМетаданныхГруппа4" id="61">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Отмена регистрации результатов запроса</v8:content>
-														</v8:item>
-													</Title>
-													<ExtendedTooltip name="ДеревоМетаданныхГруппа4ExtendedTooltip" id="220"/>
-													<ChildItems>
-														<Button name="ДеревоМетаданныхУдалитьРегистрациюРезультатаЗапроса" id="62">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Command.УдалитьРегистрациюРезультатаЗапроса</CommandName>
-															<Picture>
-																<xr:Abs>Picture.png</xr:Abs>
-																<xr:LoadTransparent>false</xr:LoadTransparent>
-															</Picture>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Результатов запроса</v8:content>
-																</v8:item>
-															</Title>
-															<ExtendedTooltip name="ДеревоМетаданныхУдалитьРегистрациюРезультатаЗапросаExtendedTooltip" id="221"/>
-														</Button>
-													</ChildItems>
-												</ButtonGroup>
-											</ChildItems>
-										</Popup>
-										<Button name="ОбновитьВсеДанные" id="97">
-											<Type>CommandBarButton</Type>
-											<Representation>PictureAndText</Representation>
-											<CommandName>Form.Command.ОбновитьВсеДанные</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Обновить</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ОбновитьВсеДанныеExtendedTooltip" id="222"/>
-										</Button>
-										<Button name="ФормаОткрытьФормуНастроек" id="145">
-											<Type>CommandBarButton</Type>
-											<Representation>PictureAndText</Representation>
-											<CommandName>Form.Command.ОткрытьФормуНастроек</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Настройки</v8:content>
-												</v8:item>
-											</Title>
-											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-											<ExtendedTooltip name="ФормаОткрытьФормуНастроекExtendedTooltip" id="223"/>
-										</Button>
-										<Button name="ФормаОткрытьФормуРегистрацииНаУзлах" id="182">
-											<Type>CommandBarButton</Type>
-											<Representation>Picture</Representation>
-											<CommandName>Form.Command.ОткрытьФормуРегистрацииНаУзлах</CommandName>
-											<Picture>
-												<xr:Ref>StdPicture.ExchangePlan</xr:Ref>
-												<xr:LoadTransparent>true</xr:LoadTransparent>
-											</Picture>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Регистрация объекта на всех узлах</v8:content>
-												</v8:item>
-											</Title>
-											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-											<ExtendedTooltip name="ФормаОткрытьФормуРегистрацииНаУзлахExtendedTooltip" id="225"/>
-										</Button>
-										<ButtonGroup name="ФормаГруппаКнопокРИБ" id="316">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Форма группа кнопок РИБ</v8:content>
-												</v8:item>
-											</Title>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Группа кнопок РИБ</v8:content>
-												</v8:item>
-											</ToolTip>
-											<ExtendedTooltip name="ФормаГруппаКнопокРИБРасширеннаяПодсказка" id="317"/>
-											<ChildItems>
-												<Button name="ПоказатьРезультатВыгрузки" id="133">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Command.ПоказатьРезультатВыгрузки</CommandName>
-													<Picture>
-														<xr:Abs>Picture.png</xr:Abs>
-														<xr:LoadTransparent>false</xr:LoadTransparent>
-													</Picture>
-													<ExtendedTooltip name="ПоказатьРезультатВыгрузкиExtendedTooltip" id="224"/>
-												</Button>
-												<Button name="ФормаЗарегистрироватьИОМИПредопределенные" id="314">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Command.ЗарегистрироватьИОМИПредопределенные</CommandName>
-													<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-													<ExtendedTooltip name="ФормаЗарегистрироватьИОМИПредопределенныеРасширеннаяПодсказка" id="315"/>
-												</Button>
-											</ChildItems>
-										</ButtonGroup>
-									</ChildItems>
-								</CommandBar>
 								<UsualGroup name="РегистрируемыеОбъекты" id="96">
 									<Title>
 										<v8:item>
@@ -499,477 +132,820 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="РегистрируемыеОбъектыРасширеннаяПодсказка" id="226"/>
 									<ChildItems>
-										<Table name="ДеревоМетаданных" id="6">
-											<Representation>Tree</Representation>
-											<ChangeRowSet>false</ChangeRowSet>
-											<ChangeRowOrder>false</ChangeRowOrder>
-											<Width>32</Width>
-											<SelectionMode>SingleRow</SelectionMode>
-											<RowSelectionMode>Cell</RowSelectionMode>
-											<HorizontalLinesBWA>false</HorizontalLinesBWA>
-											<VerticalLinesBWA>false</VerticalLinesBWA>
-											<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-											<InitialTreeView>ExpandTopLevel</InitialTreeView>
-											<FileDragMode>AsFile</FileDragMode>
-											<DataPath>ДеревоМетаданных</DataPath>
-											<RowPictureDataPath>ДеревоМетаданных.ИндексКартинки</RowPictureDataPath>
-											<RowsPicture>
-												<xr:Abs>RowsPicture.png</xr:Abs>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
-											</RowsPicture>
+										<UsualGroup name="ГруппаДеревоМетаданных" id="634">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Виды объектов регистрации</v8:content>
+													<v8:content>Группа дерево метаданных</v8:content>
 												</v8:item>
 											</Title>
-											<CommandSet>
-												<ExcludedCommand>Add</ExcludedCommand>
-												<ExcludedCommand>Change</ExcludedCommand>
-												<ExcludedCommand>Copy</ExcludedCommand>
-												<ExcludedCommand>Delete</ExcludedCommand>
-												<ExcludedCommand>EndEdit</ExcludedCommand>
-												<ExcludedCommand>HierarchicalList</ExcludedCommand>
-												<ExcludedCommand>List</ExcludedCommand>
-												<ExcludedCommand>MoveDown</ExcludedCommand>
-												<ExcludedCommand>MoveUp</ExcludedCommand>
-												<ExcludedCommand>SortListAsc</ExcludedCommand>
-												<ExcludedCommand>SortListDesc</ExcludedCommand>
-												<ExcludedCommand>Tree</ExcludedCommand>
-											</CommandSet>
-											<ContextMenu name="ДеревоМетаданныхКонтекстноеМеню" id="7">
-												<ChildItems>
-													<ButtonGroup name="ДеревоМетаданныхКонтекстноеМенюГруппа1" id="114">
-														<Title>
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>Добавление по виду объектов</v8:content>
-															</v8:item>
-														</Title>
-														<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюГруппа1ExtendedTooltip" id="227"/>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаДеревоМетаданныхРасширеннаяПодсказка" id="635"/>
+											<ChildItems>
+												<UsualGroup name="ШапкаДереваМетаданных" id="558">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Шапка дерева метаданных</v8:content>
+														</v8:item>
+													</Title>
+													<Group>AlwaysHorizontal</Group>
+													<HorizontalSpacing>Half</HorizontalSpacing>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ШапкаДереваМетаданныхРасширеннаяПодсказка" id="559"/>
+													<ChildItems>
+														<InputField name="УзелОбменаСсылка" id="1">
+															<DataPath>УзелОбменаСсылка</DataPath>
+															<DropListButton>false</DropListButton>
+															<ChoiceButton>true</ChoiceButton>
+															<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+															<ClearButton>false</ClearButton>
+															<SpinButton>false</SpinButton>
+															<OpenButton>false</OpenButton>
+															<CreateButton>false</CreateButton>
+															<Picture>
+																<xr:Ref>StdPicture.ExchangePlan</xr:Ref>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
+															</Picture>
+															<ContextMenu name="УзелОбменаСсылкаКонтекстноеМеню" id="2"/>
+															<ExtendedTooltip name="УзелОбменаСсылкаExtendedTooltip" id="201"/>
+															<Events>
+																<Event name="OnChange">УзелОбменаСсылкаПриИзменении</Event>
+																<Event name="StartChoice">УзелОбменаСсылкаНачалоВыбора</Event>
+																<Event name="Clearing">УзелОбменаСсылкаОчистка</Event>
+																<Event name="ChoiceProcessing">УзелОбменаСсылкаОбработкаВыбора</Event>
+															</Events>
+														</InputField>
+														<UsualGroup name="ГруппаНомераСообщенийУзла" id="638">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа номера сообщений узла</v8:content>
+																</v8:item>
+															</Title>
+															<Group>AlwaysHorizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ГруппаНомераСообщенийУзлаРасширеннаяПодсказка" id="639"/>
+															<ChildItems>
+																<InputField name="НомерОтправленного" id="560">
+																	<DataPath>НомерОтправленного</DataPath>
+																	<TitleLocation>None</TitleLocation>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>№ отправленного сообщения</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Width>7</Width>
+																	<HorizontalStretch>false</HorizontalStretch>
+																	<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+																	<EditFormat>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>ЧФ=Ч</v8:content>
+																		</v8:item>
+																	</EditFormat>
+																	<Picture>
+																		<xr:Abs>Picture.zip</xr:Abs>
+																		<xr:LoadTransparent>false</xr:LoadTransparent>
+																	</Picture>
+																	<ContextMenu name="НомерОтправленногоКонтекстноеМеню" id="561"/>
+																	<ExtendedTooltip name="НомерОтправленногоРасширеннаяПодсказка" id="562"/>
+																	<Events>
+																		<Event name="OnChange">НомерОтправленногоПриИзменении</Event>
+																	</Events>
+																</InputField>
+																<InputField name="НомерПринятого" id="564">
+																	<DataPath>НомерПринятого</DataPath>
+																	<TitleLocation>None</TitleLocation>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>№ принятого сообщения</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Width>7</Width>
+																	<HorizontalStretch>false</HorizontalStretch>
+																	<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+																	<Picture>
+																		<xr:Abs>Picture.zip</xr:Abs>
+																		<xr:LoadTransparent>false</xr:LoadTransparent>
+																	</Picture>
+																	<ContextMenu name="НомерПринятогоКонтекстноеМеню" id="565"/>
+																	<ExtendedTooltip name="НомерПринятогоРасширеннаяПодсказка" id="566"/>
+																	<Events>
+																		<Event name="OnChange">НомерПринятогоПриИзменении</Event>
+																	</Events>
+																</InputField>
+																<PictureDecoration name="РазблокироватьИзменениеНомеровСообщения" id="574">
+																	<Title formatted="false">
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Разблокировать изменение номеров сообщения</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Позволяет включить возможность редактировать номера сообщения</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<GroupVerticalAlign>Center</GroupVerticalAlign>
+																	<Hyperlink>true</Hyperlink>
+																	<Picture>
+																		<xr:Abs>Picture.zip</xr:Abs>
+																		<xr:LoadTransparent>false</xr:LoadTransparent>
+																	</Picture>
+																	<ContextMenu name="РазблокироватьИзменениеНомеровСообщенияКонтекстноеМеню" id="575"/>
+																	<ExtendedTooltip name="РазблокироватьИзменениеНомеровСообщенияРасширеннаяПодсказка" id="576"/>
+																	<Events>
+																		<Event name="Click">РазблокироватьИзменениеНомеровСообщенияНажатие</Event>
+																	</Events>
+																</PictureDecoration>
+																<PictureDecoration name="ЗаблокироватьИзменениеНомеровСообщения" id="640">
+																	<Visible>false</Visible>
+																	<Title formatted="false">
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Заблокировать изменение номеров сообщения</v8:content>
+																		</v8:item>
+																	</Title>
+																	<GroupVerticalAlign>Center</GroupVerticalAlign>
+																	<Hyperlink>true</Hyperlink>
+																	<Picture>
+																		<xr:Abs>Picture.zip</xr:Abs>
+																		<xr:LoadTransparent>false</xr:LoadTransparent>
+																	</Picture>
+																	<ContextMenu name="ЗаблокироватьИзменениеНомеровСообщенияКонтекстноеМеню" id="641"/>
+																	<ExtendedTooltip name="ЗаблокироватьИзменениеНомеровСообщенияРасширеннаяПодсказка" id="642"/>
+																	<Events>
+																		<Event name="Click">ЗаблокироватьИзменениеНомеровСообщенияНажатие</Event>
+																	</Events>
+																</PictureDecoration>
+															</ChildItems>
+														</UsualGroup>
+													</ChildItems>
+												</UsualGroup>
+												<Table name="ДеревоМетаданных" id="6">
+													<Representation>Tree</Representation>
+													<ChangeRowSet>false</ChangeRowSet>
+													<ChangeRowOrder>false</ChangeRowOrder>
+													<SelectionMode>SingleRow</SelectionMode>
+													<RowSelectionMode>Cell</RowSelectionMode>
+													<HorizontalLinesBWA>false</HorizontalLinesBWA>
+													<VerticalLinesBWA>false</VerticalLinesBWA>
+													<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+													<SearchOnInput>Use</SearchOnInput>
+													<InitialListView>Beginning</InitialListView>
+													<InitialTreeView>ExpandTopLevel</InitialTreeView>
+													<InitialRowActivation>Activate</InitialRowActivation>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>ДеревоМетаданных</DataPath>
+													<RowPictureDataPath>ДеревоМетаданных.ИндексКартинки</RowPictureDataPath>
+													<RowsPicture>
+														<xr:Abs>RowsPicture.zip</xr:Abs>
+														<xr:LoadTransparent>false</xr:LoadTransparent>
+													</RowsPicture>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Виды объектов регистрации</v8:content>
+														</v8:item>
+													</Title>
+													<CommandSet>
+														<ExcludedCommand>Add</ExcludedCommand>
+														<ExcludedCommand>Change</ExcludedCommand>
+														<ExcludedCommand>Copy</ExcludedCommand>
+														<ExcludedCommand>Delete</ExcludedCommand>
+														<ExcludedCommand>EndEdit</ExcludedCommand>
+														<ExcludedCommand>HierarchicalList</ExcludedCommand>
+														<ExcludedCommand>List</ExcludedCommand>
+														<ExcludedCommand>MoveDown</ExcludedCommand>
+														<ExcludedCommand>MoveUp</ExcludedCommand>
+														<ExcludedCommand>SortListAsc</ExcludedCommand>
+														<ExcludedCommand>SortListDesc</ExcludedCommand>
+														<ExcludedCommand>Tree</ExcludedCommand>
+													</CommandSet>
+													<SearchStringLocation>CommandBar</SearchStringLocation>
+													<ContextMenu name="ДеревоМетаданныхКонтекстноеМеню" id="7">
 														<ChildItems>
-															<Button name="ДеревоМетаданныхКонтекстноеМенюДобавитьРегистрациюВсехОбъектов" id="115">
+															<ButtonGroup name="ДеревоМетаданныхКонтекстноеМенюГруппа1" id="500">
+																<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюГруппа1РасширеннаяПодсказка" id="501"/>
+																<ChildItems>
+																	<Button name="ДеревоМетаданныхКонтекстноеМенюДобавитьРегистрациюВсехОбъектов" id="502">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.ДобавитьРегистрациюВсехОбъектов</CommandName>
+																		<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюДобавитьРегистрациюВсехОбъектовРасширеннаяПодсказка" id="503"/>
+																	</Button>
+																	<Button name="ДеревоМетаданныхКонтекстноеМенюДобавитьРегистрациюАвтоОбъектов" id="504">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.ДобавитьРегистрациюАвтоОбъектов</CommandName>
+																		<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюДобавитьРегистрациюАвтоОбъектовРасширеннаяПодсказка" id="505"/>
+																	</Button>
+																</ChildItems>
+															</ButtonGroup>
+															<ButtonGroup name="ДеревоМетаданныхКонтекстноеМенюГруппа2" id="506">
+																<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюГруппа2РасширеннаяПодсказка" id="507"/>
+																<ChildItems>
+																	<Button name="ДеревоМетаданныхКонтекстноеМенюУдалитьРегистрациюВсехОбъектов" id="510">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.УдалитьРегистрациюВсехОбъектов</CommandName>
+																		<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюУдалитьРегистрациюВсехОбъектовРасширеннаяПодсказка" id="511"/>
+																	</Button>
+																	<Button name="ДеревоМетаданныхКонтекстноеМенюУдалитьРегистрациюАвтоОбъектов" id="508">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.УдалитьРегистрациюАвтоОбъектов</CommandName>
+																		<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюУдалитьРегистрациюАвтоОбъектовРасширеннаяПодсказка" id="509"/>
+																	</Button>
+																</ChildItems>
+															</ButtonGroup>
+															<Button name="ДеревоМетаданныхКонтекстноеМенюОбновитьВсеДанные" id="649">
 																<Type>CommandBarButton</Type>
-																<CommandName>Form.Command.ДобавитьРегистрациюВсехОбъектов</CommandName>
-																<Picture>
-																	<xr:Ref>StdPicture.CreateListItem</xr:Ref>
-																	<xr:LoadTransparent>true</xr:LoadTransparent>
-																</Picture>
-																<Title>
-																	<v8:item>
-																		<v8:lang>ru</v8:lang>
-																		<v8:content>Зарегистрировать изменения всех объектов выбранных типов</v8:content>
-																	</v8:item>
-																</Title>
-																<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюДобавитьРегистрациюВсехОбъектовExtendedTooltip" id="228"/>
+																<CommandName>Form.Command.ОбновитьВсеДанные</CommandName>
+																<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюОбновитьВсеДанныеРасширеннаяПодсказка" id="650"/>
 															</Button>
-															<Button name="ДеревоМетаданныхКонтекстноеМенюДобавитьРегистрациюАвтоОбъектов" id="116">
-																<Type>CommandBarButton</Type>
-																<CommandName>Form.Command.ДобавитьРегистрациюАвтоОбъектов</CommandName>
-																<Title>
-																	<v8:item>
-																		<v8:lang>ru</v8:lang>
-																		<v8:content>Зарегистрировать изменения объектов выбранных типов с авторегистрацией</v8:content>
-																	</v8:item>
-																</Title>
-																<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюДобавитьРегистрациюАвтоОбъектовExtendedTooltip" id="229"/>
-															</Button>
+															<ButtonGroup name="ДеревоМетаданныхКонтекстноеМенюГруппа3" id="512">
+																<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюГруппа3РасширеннаяПодсказка" id="513"/>
+																<ChildItems>
+																	<Button name="ДеревоМетаданныхКонтекстноеМенюКопироватьВБуферОбмена" id="516">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Item.ДеревоМетаданных.StandardCommand.CopyToClipboard</CommandName>
+																		<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюКопироватьВБуферОбменаРасширеннаяПодсказка" id="517"/>
+																	</Button>
+																	<Button name="ДеревоМетаданныхКонтекстноеМенюВывестиСписок" id="514">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Item.ДеревоМетаданных.StandardCommand.OutputList</CommandName>
+																		<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюВывестиСписокРасширеннаяПодсказка" id="515"/>
+																	</Button>
+																</ChildItems>
+															</ButtonGroup>
 														</ChildItems>
-													</ButtonGroup>
-													<ButtonGroup name="ГруппаКомандДобавить1" id="190">
-														<Title>
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>Добавление объектов</v8:content>
-															</v8:item>
-														</Title>
-														<ExtendedTooltip name="ГруппаКомандДобавить1ExtendedTooltip" id="230"/>
+													</ContextMenu>
+													<AutoCommandBar name="ДеревоМетаданныхКоманднаяПанель" id="8">
 														<ChildItems>
-															<Button name="ДеревоМетаданныхКонтекстноеМенюДобавитьРегистрациюОдногоОбъекта" id="191">
-																<Type>CommandBarButton</Type>
-																<CommandName>Form.Command.ДобавитьРегистрациюОдногоОбъекта</CommandName>
-																<Picture>
-																	<xr:Ref>StdPicture.CreateListItem</xr:Ref>
-																	<xr:LoadTransparent>true</xr:LoadTransparent>
-																</Picture>
+															<Popup name="ДеревоМетаданныхГруппаДобавить" id="462">
 																<Title>
 																	<v8:item>
 																		<v8:lang>ru</v8:lang>
-																		<v8:content>Зарегистрировать изменения одиночного объекта</v8:content>
+																		<v8:content>Зарегистрировать</v8:content>
 																	</v8:item>
 																</Title>
-																<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюДобавитьРегистрациюОдногоОбъектаExtendedTooltip" id="231"/>
+																<ToolTip>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Зарегистрировать объекты выбранных типов</v8:content>
+																	</v8:item>
+																</ToolTip>
+																<ExtendedTooltip name="ДеревоМетаданныхГруппаДобавитьExtendedTooltip" id="463"/>
+																<ChildItems>
+																	<Button name="ДеревоМетаданныхДобавитьРегистрациюВсехОбъектов" id="464">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.ДобавитьРегистрациюВсехОбъектов</CommandName>
+																		<Title>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>Все объекты выбранных типов</v8:content>
+																			</v8:item>
+																		</Title>
+																		<ExtendedTooltip name="ДеревоМетаданныхДобавитьРегистрациюВсехОбъектовExtendedTooltip" id="465"/>
+																	</Button>
+																	<Button name="ДеревоМетаданныхДобавитьРегистрациюАвтоОбъектов" id="466">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.ДобавитьРегистрациюАвтоОбъектов</CommandName>
+																		<Title>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>Объекты выбранных типов с авторегистрацией</v8:content>
+																			</v8:item>
+																		</Title>
+																		<ExtendedTooltip name="ДеревоМетаданныхДобавитьРегистрациюАвтоОбъектовExtendedTooltip" id="467"/>
+																	</Button>
+																	<ButtonGroup name="ДеревоМетаданныхГруппа3" id="474">
+																		<Title>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>Регистрация результатов запроса</v8:content>
+																			</v8:item>
+																		</Title>
+																		<ExtendedTooltip name="ДеревоМетаданныхГруппа3ExtendedTooltip" id="475"/>
+																		<ChildItems>
+																			<Button name="ДеревоМетаданныхДобавитьРегистрациюРезультатаЗапроса" id="476">
+																				<Type>CommandBarButton</Type>
+																				<CommandName>Form.Command.ДобавитьРегистрациюРезультатаЗапроса</CommandName>
+																				<Picture>
+																					<xr:Ref>StdPicture.ShowData</xr:Ref>
+																					<xr:LoadTransparent>true</xr:LoadTransparent>
+																				</Picture>
+																				<Title>
+																					<v8:item>
+																						<v8:lang>ru</v8:lang>
+																						<v8:content>Зарегистрировать с помощью результата запроса</v8:content>
+																					</v8:item>
+																				</Title>
+																				<ExtendedTooltip name="ДеревоМетаданныхДобавитьРегистрациюРезультатаЗапросаExtendedTooltip" id="477"/>
+																			</Button>
+																		</ChildItems>
+																	</ButtonGroup>
+																</ChildItems>
+															</Popup>
+															<Popup name="ДеревоМетаданныхГруппаУдалить" id="478">
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Отменить</v8:content>
+																	</v8:item>
+																</Title>
+																<ToolTip>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Отменить регистрацию объектов выбранных типов</v8:content>
+																	</v8:item>
+																</ToolTip>
+																<ExtendedTooltip name="ДеревоМетаданныхГруппаУдалитьExtendedTooltip" id="479"/>
+																<ChildItems>
+																	<Button name="ДеревоМетаданныхУдалитьРегистрациюВсехОбъектов" id="480">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.УдалитьРегистрациюВсехОбъектов</CommandName>
+																		<Title>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>Всех объектов выбранных типов</v8:content>
+																			</v8:item>
+																		</Title>
+																		<ExtendedTooltip name="ДеревоМетаданныхУдалитьРегистрациюВсехОбъектовExtendedTooltip" id="481"/>
+																	</Button>
+																	<Button name="ДеревоМетаданныхУдалитьРегистрациюАвтоОбъектов" id="482">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.УдалитьРегистрациюАвтоОбъектов</CommandName>
+																		<Title>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>Объектов выбранных типов с авторегистрацией</v8:content>
+																			</v8:item>
+																		</Title>
+																		<ExtendedTooltip name="ДеревоМетаданныхУдалитьРегистрациюАвтоОбъектовExtendedTooltip" id="483"/>
+																	</Button>
+																	<ButtonGroup name="ДеревоМетаданныхГруппа4" id="490">
+																		<Title>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>Отмена регистрации результатов запроса</v8:content>
+																			</v8:item>
+																		</Title>
+																		<ExtendedTooltip name="ДеревоМетаданныхГруппа4ExtendedTooltip" id="491"/>
+																		<ChildItems>
+																			<Button name="ДеревоМетаданныхУдалитьРегистрациюРезультатаЗапроса" id="492">
+																				<Type>CommandBarButton</Type>
+																				<CommandName>Form.Command.УдалитьРегистрациюРезультатаЗапроса</CommandName>
+																				<Picture>
+																					<xr:Ref>StdPicture.ShowData</xr:Ref>
+																					<xr:LoadTransparent>true</xr:LoadTransparent>
+																				</Picture>
+																				<Title>
+																					<v8:item>
+																						<v8:lang>ru</v8:lang>
+																						<v8:content>Отменить регистрацию с помощью результата запроса</v8:content>
+																					</v8:item>
+																				</Title>
+																				<ExtendedTooltip name="ДеревоМетаданныхУдалитьРегистрациюРезультатаЗапросаExtendedTooltip" id="493"/>
+																			</Button>
+																		</ChildItems>
+																	</ButtonGroup>
+																</ChildItems>
+															</Popup>
+															<Button name="ОбновитьВсеДанные" id="97">
+																<Type>CommandBarButton</Type>
+																<Representation>PictureAndText</Representation>
+																<CommandName>Form.Command.ОбновитьВсеДанные</CommandName>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Обновить</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="ОбновитьВсеДанныеExtendedTooltip" id="222"/>
 															</Button>
-															<Button name="ДеревоМетаданныхКонтекстноеМенюДобавитьРегистрациюОтбор" id="192">
+															<Button name="ДеревоМетаданныхДобавитьРегистрациюОтбор" id="494">
 																<Type>CommandBarButton</Type>
 																<CommandName>Form.Command.ДобавитьРегистрациюОтбор</CommandName>
 																<Title>
 																	<v8:item>
 																		<v8:lang>ru</v8:lang>
-																		<v8:content>Зарегистрировать изменения объектов при помощи отбора</v8:content>
+																		<v8:content>Зарегистрировать с помощью отбора</v8:content>
 																	</v8:item>
 																</Title>
-																<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюДобавитьРегистрациюОтборExtendedTooltip" id="232"/>
+																<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																<ExtendedTooltip name="ДеревоМетаданныхДобавитьРегистрациюОтборРасширеннаяПодсказка" id="495"/>
 															</Button>
-														</ChildItems>
-													</ButtonGroup>
-													<ButtonGroup name="ДеревоМетаданныхКонтекстноеМенюГруппа2" id="142">
-														<Title>
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>Отмена регистрации по виду объектов</v8:content>
-															</v8:item>
-														</Title>
-														<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюГруппа2ExtendedTooltip" id="233"/>
-														<ChildItems>
-															<Button name="ДеревоМетаданныхКонтекстноеМенюУдалитьРегистрациюВсехОбъектов" id="143">
-																<Type>CommandBarButton</Type>
-																<CommandName>Form.Command.УдалитьРегистрациюВсехОбъектов</CommandName>
-																<Picture>
-																	<xr:Ref>StdPicture.DeleteDirectly</xr:Ref>
-																	<xr:LoadTransparent>true</xr:LoadTransparent>
-																</Picture>
-																<Title>
-																	<v8:item>
-																		<v8:lang>ru</v8:lang>
-																		<v8:content>Отменить регистрацию изменений всех объектов выбранных типов</v8:content>
-																	</v8:item>
-																</Title>
-																<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюУдалитьРегистрациюВсехОбъектовExtendedTooltip" id="234"/>
-															</Button>
-															<Button name="ДеревоМетаданныхКонтекстноеМенюУдалитьРегистрациюАвтоОбъектов" id="144">
-																<Type>CommandBarButton</Type>
-																<CommandName>Form.Command.УдалитьРегистрациюАвтоОбъектов</CommandName>
-																<Title>
-																	<v8:item>
-																		<v8:lang>ru</v8:lang>
-																		<v8:content>Отменить регистрацию изменений объектов выбранных типов с авторегистрацией</v8:content>
-																	</v8:item>
-																</Title>
-																<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюУдалитьРегистрациюАвтоОбъектовExtendedTooltip" id="235"/>
-															</Button>
-														</ChildItems>
-													</ButtonGroup>
-													<ButtonGroup name="ГруппаКомандУдалить1" id="193">
-														<Title>
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>Отмена регистрации</v8:content>
-															</v8:item>
-														</Title>
-														<ExtendedTooltip name="ГруппаКомандУдалить1ExtendedTooltip" id="236"/>
-														<ChildItems>
-															<Button name="ДеревоМетаданныхКонтекстноеМенюУдалитьРегистрациюОдногоОбъекта" id="194">
-																<Type>CommandBarButton</Type>
-																<CommandName>Form.Command.УдалитьРегистрациюОдногоОбъекта</CommandName>
-																<Picture>
-																	<xr:Ref>StdPicture.DeleteDirectly</xr:Ref>
-																	<xr:LoadTransparent>true</xr:LoadTransparent>
-																</Picture>
-																<Title>
-																	<v8:item>
-																		<v8:lang>ru</v8:lang>
-																		<v8:content>Отменить регистрацию изменений одиночного объекта</v8:content>
-																	</v8:item>
-																</Title>
-																<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюУдалитьРегистрациюОдногоОбъектаExtendedTooltip" id="237"/>
-															</Button>
-															<Button name="ДеревоМетаданныхКонтекстноеМенюУдалитьРегистрациюОтбор" id="195">
+															<Button name="ДеревоМетаданныхУдалитьРегистрациюОтбор" id="518">
 																<Type>CommandBarButton</Type>
 																<CommandName>Form.Command.УдалитьРегистрациюОтбор</CommandName>
 																<Title>
 																	<v8:item>
 																		<v8:lang>ru</v8:lang>
-																		<v8:content>Отменить регистрацию изменений объектов при помощи отбора</v8:content>
+																		<v8:content>Отменить с помощью отбора</v8:content>
 																	</v8:item>
 																</Title>
-																<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюУдалитьРегистрациюОтборExtendedTooltip" id="238"/>
+																<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																<ExtendedTooltip name="ДеревоМетаданныхУдалитьРегистрациюОтборРасширеннаяПодсказка" id="519"/>
 															</Button>
 														</ChildItems>
-													</ButtonGroup>
-													<ButtonGroup name="ДеревоМетаданныхКонтекстноеМенюГруппа3" id="149">
-														<Title>
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>Системное меню</v8:content>
-															</v8:item>
-														</Title>
-														<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюГруппа3ExtendedTooltip" id="239"/>
-														<ChildItems>
-															<Button name="ДеревоМетаданныхКонтекстноеМенюВывестиСписок" id="150">
-																<Type>CommandBarButton</Type>
-																<CommandName>Form.Item.ДеревоМетаданных.StandardCommand.OutputList</CommandName>
-																<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюВывестиСписокExtendedTooltip" id="240"/>
-															</Button>
-															<Button name="ДеревоМетаданныхКонтекстноеМенюКопироватьВБуферОбмена" id="151">
-																<Type>CommandBarButton</Type>
-																<CommandName>Form.Item.ДеревоМетаданных.StandardCommand.CopyToClipboard</CommandName>
-																<ExtendedTooltip name="ДеревоМетаданныхКонтекстноеМенюКопироватьВБуферОбменаExtendedTooltip" id="241"/>
-															</Button>
-														</ChildItems>
-													</ButtonGroup>
-													<Button name="ФормаОткрытьФормуРегистрацииНаУзлахКонтекст" id="324">
-														<Type>CommandBarButton</Type>
-														<Representation>Picture</Representation>
-														<CommandName>Form.Command.ОткрытьФормуРегистрацииНаУзлах</CommandName>
-														<Picture>
-															<xr:Ref>StdPicture.ExchangePlan</xr:Ref>
-															<xr:LoadTransparent>true</xr:LoadTransparent>
-														</Picture>
-														<Title>
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>Регистрация объекта на всех узлах</v8:content>
-															</v8:item>
-														</Title>
-														<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-														<ExtendedTooltip name="ФормаОткрытьФормуРегистрацииНаУзлахКонтекстРасширеннаяПодсказка" id="325"/>
-													</Button>
-												</ChildItems>
-											</ContextMenu>
-											<AutoCommandBar name="ДеревоМетаданныхКоманднаяПанель" id="8">
-												<Autofill>false</Autofill>
-											</AutoCommandBar>
-											<ExtendedTooltip name="ДеревоМетаданныхExtendedTooltip" id="242"/>
-											<SearchStringAddition name="ДеревоМетаданныхСтрокаПоиска" id="326">
-												<AdditionSource>
-													<Item>ДеревоМетаданных</Item>
-													<Type>SearchStringRepresentation</Type>
-												</AdditionSource>
-												<ContextMenu name="ДеревоМетаданныхСтрокаПоискаКонтекстноеМеню" id="327"/>
-												<ExtendedTooltip name="ДеревоМетаданныхСтрокаПоискаРасширеннаяПодсказка" id="328"/>
-											</SearchStringAddition>
-											<ViewStatusAddition name="ДеревоМетаданныхСостояниеПросмотра" id="329">
-												<AdditionSource>
-													<Item>ДеревоМетаданных</Item>
-													<Type>ViewStatusRepresentation</Type>
-												</AdditionSource>
-												<ContextMenu name="ДеревоМетаданныхСостояниеПросмотраКонтекстноеМеню" id="330"/>
-												<ExtendedTooltip name="ДеревоМетаданныхСостояниеПросмотраРасширеннаяПодсказка" id="331"/>
-											</ViewStatusAddition>
-											<SearchControlAddition name="ДеревоМетаданныхУправлениеПоиском" id="332">
-												<AdditionSource>
-													<Item>ДеревоМетаданных</Item>
-													<Type>SearchControl</Type>
-												</AdditionSource>
-												<ContextMenu name="ДеревоМетаданныхУправлениеПоискомКонтекстноеМеню" id="333"/>
-												<ExtendedTooltip name="ДеревоМетаданныхУправлениеПоискомРасширеннаяПодсказка" id="334"/>
-											</SearchControlAddition>
-											<Events>
-												<Event name="OnActivateRow">ДеревоМетаданныхПриАктивизацииСтроки</Event>
-											</Events>
-											<ChildItems>
-												<ColumnGroup name="ДеревоМетаданныхГруппа1" id="9">
-													<EnableContentChange>true</EnableContentChange>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Объекты регистрации</v8:content>
-														</v8:item>
-													</Title>
-													<Group>InCell</Group>
-													<ExtendedTooltip name="ДеревоМетаданныхГруппа1ExtendedTooltip" id="243"/>
+													</AutoCommandBar>
+													<ExtendedTooltip name="ДеревоМетаданныхExtendedTooltip" id="242"/>
+													<SearchStringAddition name="ДеревоМетаданныхСтрокаПоиска" id="326">
+														<Enabled>false</Enabled>
+														<AdditionSource>
+															<Item>ДеревоМетаданных</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ДеревоМетаданныхСтрокаПоискаКонтекстноеМеню" id="327"/>
+														<ExtendedTooltip name="ДеревоМетаданныхСтрокаПоискаРасширеннаяПодсказка" id="328"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="ДеревоМетаданныхСостояниеПросмотра" id="329">
+														<Enabled>false</Enabled>
+														<AdditionSource>
+															<Item>ДеревоМетаданных</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ДеревоМетаданныхСостояниеПросмотраКонтекстноеМеню" id="330"/>
+														<ExtendedTooltip name="ДеревоМетаданныхСостояниеПросмотраРасширеннаяПодсказка" id="331"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="ДеревоМетаданныхУправлениеПоиском" id="332">
+														<Enabled>false</Enabled>
+														<AdditionSource>
+															<Item>ДеревоМетаданных</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="ДеревоМетаданныхУправлениеПоискомКонтекстноеМеню" id="333"/>
+														<ExtendedTooltip name="ДеревоМетаданныхУправлениеПоискомРасширеннаяПодсказка" id="334"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="OnActivateRow">ДеревоМетаданныхПриАктивизацииСтроки</Event>
+													</Events>
 													<ChildItems>
-														<CheckBoxField name="ДеревоМетаданныхПометка" id="16">
-															<DataPath>ДеревоМетаданных.Пометка</DataPath>
-															<TitleLocation>None</TitleLocation>
-															<EditMode>Directly</EditMode>
-															<ShowInFooter>false</ShowInFooter>
-															<ThreeState>true</ThreeState>
-															<ContextMenu name="ДеревоМетаданныхПометкаКонтекстноеМеню" id="17"/>
-															<ExtendedTooltip name="ДеревоМетаданныхПометкаExtendedTooltip" id="244"/>
-															<Events>
-																<Event name="OnChange">ДеревоМетаданныхПометкаПриИзменении</Event>
-															</Events>
-														</CheckBoxField>
-														<LabelField name="ДеревоМетаданныхНаименование" id="10">
-															<DataPath>ДеревоМетаданных.Наименование</DataPath>
+														<ColumnGroup name="ДеревоМетаданныхГруппа1" id="9">
+															<EnableContentChange>true</EnableContentChange>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Объекты регистрации</v8:content>
+																</v8:item>
+															</Title>
+															<Group>InCell</Group>
+															<ExtendedTooltip name="ДеревоМетаданныхГруппа1ExtendedTooltip" id="243"/>
+															<ChildItems>
+																<CheckBoxField name="ДеревоМетаданныхПометка" id="16">
+																	<DataPath>ДеревоМетаданных.Пометка</DataPath>
+																	<TitleLocation>None</TitleLocation>
+																	<EditMode>Directly</EditMode>
+																	<ShowInFooter>false</ShowInFooter>
+																	<ThreeState>true</ThreeState>
+																	<ContextMenu name="ДеревоМетаданныхПометкаКонтекстноеМеню" id="17"/>
+																	<ExtendedTooltip name="ДеревоМетаданныхПометкаExtendedTooltip" id="244"/>
+																	<Events>
+																		<Event name="OnChange">ДеревоМетаданныхПометкаПриИзменении</Event>
+																	</Events>
+																</CheckBoxField>
+																<LabelField name="ДеревоМетаданныхНаименование" id="10">
+																	<DataPath>ДеревоМетаданных.Наименование</DataPath>
+																	<ReadOnly>true</ReadOnly>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Объект конфигурации</v8:content>
+																		</v8:item>
+																	</Title>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
+																	<Width>17</Width>
+																	<ContextMenu name="ДеревоМетаданныхНаименованиеКонтекстноеМеню" id="11"/>
+																	<ExtendedTooltip name="ДеревоМетаданныхНаименованиеExtendedTooltip" id="245"/>
+																</LabelField>
+															</ChildItems>
+														</ColumnGroup>
+														<ColumnGroup name="ДеревоМетаданныхГруппа2" id="26">
 															<ReadOnly>true</ReadOnly>
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>Объект конфигурации</v8:content>
+																	<v8:content>Информация о регистрации</v8:content>
 																</v8:item>
 															</Title>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
-															<Width>17</Width>
-															<ContextMenu name="ДеревоМетаданныхНаименованиеКонтекстноеМеню" id="11"/>
-															<ExtendedTooltip name="ДеревоМетаданныхНаименованиеExtendedTooltip" id="245"/>
-														</LabelField>
+															<Group>InCell</Group>
+															<ExtendedTooltip name="ДеревоМетаданныхГруппа2ExtendedTooltip" id="246"/>
+															<ChildItems>
+																<PictureField name="ДеревоМетаданныхАвторегистрация" id="27">
+																	<DataPath>ДеревоМетаданных.Авторегистрация</DataPath>
+																	<UserVisible>
+																		<xr:Common>false</xr:Common>
+																	</UserVisible>
+																	<ReadOnly>true</ReadOnly>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Авторегистрация</v8:content>
+																		</v8:item>
+																	</Title>
+																	<TitleLocation>None</TitleLocation>
+																	<HorizontalAlign>Left</HorizontalAlign>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
+																	<Width>2</Width>
+																	<HorizontalStretch>false</HorizontalStretch>
+																	<VerticalStretch>false</VerticalStretch>
+																	<ValuesPicture>
+																		<xr:Abs>ValuesPicture.png</xr:Abs>
+																		<xr:LoadTransparent>false</xr:LoadTransparent>
+																	</ValuesPicture>
+																	<FileDragMode>AsFile</FileDragMode>
+																	<ContextMenu name="ДеревоМетаданныхАвторегистрацияКонтекстноеМеню" id="28"/>
+																	<ExtendedTooltip name="ДеревоМетаданныхАвторегистрацияExtendedTooltip" id="247"/>
+																</PictureField>
+																<LabelField name="ДеревоМетаданныхКоличествоИзмененийСтрокой" id="29">
+																	<DataPath>ДеревоМетаданных.КоличествоИзмененийСтрокой</DataPath>
+																	<ReadOnly>true</ReadOnly>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Количество</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Зарегистрировано / не выгружено</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<HorizontalAlign>Left</HorizontalAlign>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
+																	<Width>10</Width>
+																	<Height>1</Height>
+																	<HorizontalStretch>false</HorizontalStretch>
+																	<ContextMenu name="ДеревоМетаданныхКоличествоИзмененийСтрокойКонтекстноеМеню" id="30"/>
+																	<ExtendedTooltip name="ДеревоМетаданныхКоличествоИзмененийСтрокойExtendedTooltip" id="248"/>
+																</LabelField>
+															</ChildItems>
+														</ColumnGroup>
 													</ChildItems>
-												</ColumnGroup>
-												<ColumnGroup name="ДеревоМетаданныхГруппа2" id="26">
-													<ReadOnly>true</ReadOnly>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Информация о регистрации</v8:content>
-														</v8:item>
-													</Title>
-													<Group>InCell</Group>
-													<ExtendedTooltip name="ДеревоМетаданныхГруппа2ExtendedTooltip" id="246"/>
-													<ChildItems>
-														<PictureField name="ДеревоМетаданныхАвторегистрация" id="27">
-															<DataPath>ДеревоМетаданных.Авторегистрация</DataPath>
-															<UserVisible>
-																<xr:Common>false</xr:Common>
-															</UserVisible>
-															<ReadOnly>true</ReadOnly>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Авторегистрация</v8:content>
-																</v8:item>
-															</Title>
-															<TitleLocation>None</TitleLocation>
-															<HorizontalAlign>Left</HorizontalAlign>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
-															<Width>2</Width>
-															<HorizontalStretch>false</HorizontalStretch>
-															<VerticalStretch>false</VerticalStretch>
-															<ValuesPicture>
-																<xr:Abs>ValuesPicture.png</xr:Abs>
-																<xr:LoadTransparent>false</xr:LoadTransparent>
-															</ValuesPicture>
-															<FileDragMode>AsFile</FileDragMode>
-															<ContextMenu name="ДеревоМетаданныхАвторегистрацияКонтекстноеМеню" id="28"/>
-															<ExtendedTooltip name="ДеревоМетаданныхАвторегистрацияExtendedTooltip" id="247"/>
-														</PictureField>
-														<LabelField name="ДеревоМетаданныхКоличествоИзмененийСтрокой" id="29">
-															<DataPath>ДеревоМетаданных.КоличествоИзмененийСтрокой</DataPath>
-															<ReadOnly>true</ReadOnly>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Количество</v8:content>
-																</v8:item>
-															</Title>
-															<ToolTip>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Зарегистрировано / не выгружено</v8:content>
-																</v8:item>
-															</ToolTip>
-															<HorizontalAlign>Left</HorizontalAlign>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
-															<Width>10</Width>
-															<Height>1</Height>
-															<HorizontalStretch>false</HorizontalStretch>
-															<ContextMenu name="ДеревоМетаданныхКоличествоИзмененийСтрокойКонтекстноеМеню" id="30"/>
-															<ExtendedTooltip name="ДеревоМетаданныхКоличествоИзмененийСтрокойExtendedTooltip" id="248"/>
-														</LabelField>
-													</ChildItems>
-												</ColumnGroup>
+												</Table>
 											</ChildItems>
-										</Table>
-										<Pages name="ВариантыСпискаОбъектов" id="45">
+										</UsualGroup>
+										<UsualGroup name="ГруппаСписокОбъектов" id="636">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Регистрация объектов</v8:content>
+													<v8:content>Группа список объектов</v8:content>
 												</v8:item>
 											</Title>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Варианты списка регистрируемых объектов</v8:content>
-												</v8:item>
-											</ToolTip>
-											<PagesRepresentation>None</PagesRepresentation>
-											<ExtendedTooltip name="ВариантыСпискаОбъектовExtendedTooltip" id="249"/>
-											<Events>
-												<Event name="OnCurrentPageChange">ВариантыСпискаОбъектовПриСменеСтраницы</Event>
-											</Events>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаСписокОбъектовРасширеннаяПодсказка" id="637"/>
 											<ChildItems>
-												<Page name="СтраницаКонстанты" id="49">
+												<InputField name="ВариантОтбораПоНомеруСообщения" id="172">
+													<DataPath>ВариантОтбораПоНомеруСообщения</DataPath>
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Константы</v8:content>
+															<v8:content>Отображать</v8:content>
+														</v8:item>
+													</Title>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<MaxWidth>20</MaxWidth>
+													<ListChoiceMode>true</ListChoiceMode>
+													<ChooseType>false</ChooseType>
+													<TextEdit>false</TextEdit>
+													<ChoiceList>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Все</v8:content>
+																	</v8:item>
+																</Presentation>
+																<Value xsi:type="xs:decimal">0</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Только выгруженные </v8:content>
+																	</v8:item>
+																</Presentation>
+																<Value xsi:type="xs:decimal">1</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Только невыгруженные</v8:content>
+																	</v8:item>
+																</Presentation>
+																<Value xsi:type="xs:decimal">2</Value>
+															</xr:Value>
+														</xr:Item>
+													</ChoiceList>
+													<ContextMenu name="ВариантОтбораПоНомеруСообщенияКонтекстноеМеню" id="173"/>
+													<ExtendedTooltip name="ВариантОтбораПоНомеруСообщенияExtendedTooltip" id="203"/>
+													<Events>
+														<Event name="OnChange">ВариантОтбораПоНомеруСообщенияПриИзменении</Event>
+													</Events>
+												</InputField>
+												<Pages name="ВариантыСпискаОбъектов" id="45">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Регистрация объектов</v8:content>
 														</v8:item>
 													</Title>
 													<ToolTip>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Страница данные константы</v8:content>
+															<v8:content>Варианты списка регистрируемых объектов</v8:content>
 														</v8:item>
 													</ToolTip>
-													<Group>Vertical</Group>
-													<ScrollOnCompress>false</ScrollOnCompress>
-													<ExtendedTooltip name="СтраницаКонстантыExtendedTooltip" id="250"/>
+													<Width>60</Width>
+													<Height>50</Height>
+													<PagesRepresentation>None</PagesRepresentation>
+													<ExtendedTooltip name="ВариантыСпискаОбъектовExtendedTooltip" id="249"/>
+													<Events>
+														<Event name="OnCurrentPageChange">ВариантыСпискаОбъектовПриСменеСтраницы</Event>
+													</Events>
 													<ChildItems>
-														<UsualGroup name="ГруппаПользовательскихНастроекКонстанты" id="318">
+														<Page name="СтраницаКонстанты" id="49">
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>Пользовательских настроек константы</v8:content>
+																	<v8:content>Константы</v8:content>
 																</v8:item>
 															</Title>
 															<ToolTip>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>Группа пользовательских настроек констант</v8:content>
+																	<v8:content>Страница данные константы</v8:content>
 																</v8:item>
 															</ToolTip>
 															<Group>Vertical</Group>
-															<Behavior>Usual</Behavior>
-															<Representation>None</Representation>
-															<ShowTitle>false</ShowTitle>
-															<ExtendedTooltip name="ГруппаПользовательскихНастроекКонстантыРасширеннаяПодсказка" id="319"/>
-														</UsualGroup>
-														<Table name="СписокКонстант" id="63">
-															<Representation>List</Representation>
-															<ChangeRowSet>false</ChangeRowSet>
-															<ChangeRowOrder>false</ChangeRowOrder>
-															<RowSelectionMode>Cell</RowSelectionMode>
-															<HorizontalLinesBWA>false</HorizontalLinesBWA>
-															<VerticalLinesBWA>false</VerticalLinesBWA>
-															<InitialListView>Beginning</InitialListView>
-															<EnableStartDrag>true</EnableStartDrag>
-															<FileDragMode>AsFile</FileDragMode>
-															<DataPath>СписокКонстант</DataPath>
-															<RowPictureDataPath>СписокКонстант.ИндексКартинки</RowPictureDataPath>
-															<RowsPicture>
-																<xr:Abs>RowsPicture.png</xr:Abs>
-																<xr:LoadTransparent>false</xr:LoadTransparent>
-															</RowsPicture>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Констант</v8:content>
-																</v8:item>
-															</Title>
-															<AutoRefresh>false</AutoRefresh>
-															<AutoRefreshPeriod>60</AutoRefreshPeriod>
-															<Period>
-																<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
-																<v8:startDate>0001-01-01T00:00:00</v8:startDate>
-																<v8:endDate>0001-01-01T00:00:00</v8:endDate>
-															</Period>
-															<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-															<RestoreCurrentRow>false</RestoreCurrentRow>
-															<TopLevelParent xsi:nil="true"/>
-															<ShowRoot>true</ShowRoot>
-															<AllowRootChoice>false</AllowRootChoice>
-															<UpdateOnDataChange>Auto</UpdateOnDataChange>
-															<UserSettingsGroup>ГруппаПользовательскихНастроекКонстанты</UserSettingsGroup>
-															<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
-															<ContextMenu name="СписокКонстантКонтекстноеМеню" id="64">
-																<Autofill>false</Autofill>
-																<ChildItems>
-																	<ButtonGroup name="СписокКонстантКонтекстноеМенюГруппа1" id="101">
-																		<Title>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Список констант контекстное меню 1</v8:content>
-																			</v8:item>
-																		</Title>
-																		<ExtendedTooltip name="СписокКонстантКонтекстноеМенюГруппа1ExtendedTooltip" id="251"/>
+															<ExtendedTooltip name="СтраницаКонстантыExtendedTooltip" id="250"/>
+															<ChildItems>
+																<UsualGroup name="ГруппаПользовательскихНастроекКонстанты" id="318">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Пользовательских настроек константы</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа пользовательских настроек констант</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Group>Vertical</Group>
+																	<Behavior>Usual</Behavior>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="ГруппаПользовательскихНастроекКонстантыРасширеннаяПодсказка" id="319"/>
+																</UsualGroup>
+																<Table name="СписокКонстант" id="63">
+																	<Representation>List</Representation>
+																	<ChangeRowSet>false</ChangeRowSet>
+																	<ChangeRowOrder>false</ChangeRowOrder>
+																	<RowSelectionMode>Cell</RowSelectionMode>
+																	<HorizontalLinesBWA>false</HorizontalLinesBWA>
+																	<VerticalLinesBWA>false</VerticalLinesBWA>
+																	<InitialListView>Beginning</InitialListView>
+																	<EnableStartDrag>true</EnableStartDrag>
+																	<FileDragMode>AsFile</FileDragMode>
+																	<DataPath>СписокКонстант</DataPath>
+																	<RowPictureDataPath>СписокКонстант.ИндексКартинки</RowPictureDataPath>
+																	<RowsPicture>
+																		<xr:Abs>RowsPicture.zip</xr:Abs>
+																		<xr:LoadTransparent>false</xr:LoadTransparent>
+																	</RowsPicture>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Констант</v8:content>
+																		</v8:item>
+																	</Title>
+																	<AutoRefresh>false</AutoRefresh>
+																	<AutoRefreshPeriod>60</AutoRefreshPeriod>
+																	<Period>
+																		<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+																		<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+																		<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+																	</Period>
+																	<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+																	<RestoreCurrentRow>false</RestoreCurrentRow>
+																	<TopLevelParent xsi:nil="true"/>
+																	<ShowRoot>true</ShowRoot>
+																	<AllowRootChoice>false</AllowRootChoice>
+																	<UpdateOnDataChange>Auto</UpdateOnDataChange>
+																	<UserSettingsGroup>ГруппаПользовательскихНастроекКонстанты</UserSettingsGroup>
+																	<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+																	<ContextMenu name="СписокКонстантКонтекстноеМеню" id="64">
+																		<Autofill>false</Autofill>
 																		<ChildItems>
-																			<Button name="СписокКонстантКонтекстноеМенюДобавитьРегистрациюКонстанты" id="98">
+																			<ButtonGroup name="СписокКонстантКонтекстноеМенюГруппа1" id="101">
+																				<Title>
+																					<v8:item>
+																						<v8:lang>ru</v8:lang>
+																						<v8:content>Список констант контекстное меню 1</v8:content>
+																					</v8:item>
+																				</Title>
+																				<ExtendedTooltip name="СписокКонстантКонтекстноеМенюГруппа1ExtendedTooltip" id="251"/>
+																				<ChildItems>
+																					<Button name="СписокКонстантКонтекстноеМенюДобавитьРегистрациюКонстанты" id="98">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Command.ДобавитьРегистрациюКонстанты</CommandName>
+																						<Picture>
+																							<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+																							<xr:LoadTransparent>true</xr:LoadTransparent>
+																						</Picture>
+																						<Title>
+																							<v8:item>
+																								<v8:lang>ru</v8:lang>
+																								<v8:content>Зарегистрировать изменение константы</v8:content>
+																							</v8:item>
+																						</Title>
+																						<ExtendedTooltip name="СписокКонстантКонтекстноеМенюДобавитьРегистрациюКонстантыExtendedTooltip" id="252"/>
+																					</Button>
+																					<Button name="СписокКонстантКонтекстноеМенюУдалитьРегистрациюКонстанты" id="99">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Command.УдалитьРегистрациюКонстанты</CommandName>
+																						<Picture>
+																							<xr:Ref>StdPicture.DeleteDirectly</xr:Ref>
+																							<xr:LoadTransparent>true</xr:LoadTransparent>
+																						</Picture>
+																						<Title>
+																							<v8:item>
+																								<v8:lang>ru</v8:lang>
+																								<v8:content>Отменить регистрацию</v8:content>
+																							</v8:item>
+																						</Title>
+																						<ExtendedTooltip name="СписокКонстантКонтекстноеМенюУдалитьРегистрациюКонстантыExtendedTooltip" id="253"/>
+																					</Button>
+																				</ChildItems>
+																			</ButtonGroup>
+																			<ButtonGroup name="СписокКонстантКонтекстноеМенюГруппа2" id="152">
+																				<Title>
+																					<v8:item>
+																						<v8:lang>ru</v8:lang>
+																						<v8:content>Список констант контекстное меню 2</v8:content>
+																					</v8:item>
+																				</Title>
+																				<ExtendedTooltip name="СписокКонстантКонтекстноеМенюГруппа2ExtendedTooltip" id="258"/>
+																				<ChildItems>
+																					<Button name="СписокКонстантКонтекстноеМенюНайти" id="153">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Item.СписокКонстант.StandardCommand.Find</CommandName>
+																						<ExtendedTooltip name="СписокКонстантКонтекстноеМенюНайтиExtendedTooltip" id="259"/>
+																					</Button>
+																					<Button name="СписокКонстантКонтекстноеМенюОтменитьПоиск" id="154">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Item.СписокКонстант.StandardCommand.CancelSearch</CommandName>
+																						<ExtendedTooltip name="СписокКонстантКонтекстноеМенюОтменитьПоискExtendedTooltip" id="260"/>
+																					</Button>
+																					<Button name="СписокКонстантКонтекстноеМенюНастройкаСписка" id="155">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Item.СписокКонстант.StandardCommand.ListSettings</CommandName>
+																						<ExtendedTooltip name="СписокКонстантКонтекстноеМенюНастройкаСпискаExtendedTooltip" id="261"/>
+																					</Button>
+																					<Button name="СписокКонстантКонтекстноеМенюВывестиСписок" id="156">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Item.СписокКонстант.StandardCommand.OutputList</CommandName>
+																						<ExtendedTooltip name="СписокКонстантКонтекстноеМенюВывестиСписокExtendedTooltip" id="262"/>
+																					</Button>
+																					<Button name="СписокКонстантКонтекстноеМенюОбновить" id="157">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Item.СписокКонстант.StandardCommand.Refresh</CommandName>
+																						<ExtendedTooltip name="СписокКонстантКонтекстноеМенюОбновитьExtendedTooltip" id="263"/>
+																					</Button>
+																				</ChildItems>
+																			</ButtonGroup>
+																		</ChildItems>
+																	</ContextMenu>
+																	<AutoCommandBar name="СписокКонстантКоманднаяПанель" id="65">
+																		<Autofill>false</Autofill>
+																		<ChildItems>
+																			<Button name="СписокКонстантДобавитьРегистрациюКонстанты" id="597">
 																				<Type>CommandBarButton</Type>
 																				<CommandName>Form.Command.ДобавитьРегистрациюКонстанты</CommandName>
 																				<Picture>
@@ -979,43 +955,39 @@
 																				<Title>
 																					<v8:item>
 																						<v8:lang>ru</v8:lang>
-																						<v8:content>Зарегистрировать изменение константы</v8:content>
+																						<v8:content>Добавить</v8:content>
 																					</v8:item>
 																				</Title>
-																				<ExtendedTooltip name="СписокКонстантКонтекстноеМенюДобавитьРегистрациюКонстантыExtendedTooltip" id="252"/>
+																				<ExtendedTooltip name="СписокКонстантДобавитьРегистрациюКонстантыРасширеннаяПодсказка" id="598"/>
 																			</Button>
-																			<Button name="СписокКонстантКонтекстноеМенюУдалитьРегистрациюКонстанты" id="99">
+																			<Button name="СписокКонстантУдалитьРегистрациюКонстанты" id="599">
 																				<Type>CommandBarButton</Type>
 																				<CommandName>Form.Command.УдалитьРегистрациюКонстанты</CommandName>
 																				<Picture>
-																					<xr:Ref>StdPicture.DeleteDirectly</xr:Ref>
+																					<xr:Ref>StdPicture.Delete</xr:Ref>
 																					<xr:LoadTransparent>true</xr:LoadTransparent>
 																				</Picture>
 																				<Title>
 																					<v8:item>
 																						<v8:lang>ru</v8:lang>
-																						<v8:content>Отменить регистрацию изменений константы</v8:content>
+																						<v8:content>Отменить регистрацию</v8:content>
 																					</v8:item>
 																				</Title>
-																				<ExtendedTooltip name="СписокКонстантКонтекстноеМенюУдалитьРегистрациюКонстантыExtendedTooltip" id="253"/>
+																				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																				<ExtendedTooltip name="СписокКонстантУдалитьРегистрациюКонстантыРасширеннаяПодсказка" id="600"/>
 																			</Button>
-																		</ChildItems>
-																	</ButtonGroup>
-																	<ButtonGroup name="СписокКонстантКонтекстноеМенюГруппа3" id="177">
-																		<Title>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Список констант контекстное меню 3</v8:content>
-																			</v8:item>
-																		</Title>
-																		<ExtendedTooltip name="СписокКонстантКонтекстноеМенюГруппа3ExtendedTooltip" id="254"/>
-																		<ChildItems>
+																			<Button name="СписокКонстантОткрытьФормуРегистрацииНаУзлахКонстант" id="647">
+																				<Type>CommandBarButton</Type>
+																				<CommandName>Form.Command.ОткрытьФормуРегистрацииНаУзлахКонстант</CommandName>
+																				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																				<ExtendedTooltip name="СписокКонстантОткрытьФормуРегистрацииНаУзлахКонстантРасширеннаяПодсказка" id="648"/>
+																			</Button>
 																			<Button name="СписокКонстантКонтекстноеМенюПоказатьРезультатВыгрузки" id="100">
 																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Command.ПоказатьРезультатВыгрузки</CommandName>
+																				<CommandName>Form.Command.ПоказатьРезультатВыгрузкиКонстанты</CommandName>
 																				<Picture>
-																					<xr:Abs>Picture.png</xr:Abs>
-																					<xr:LoadTransparent>false</xr:LoadTransparent>
+																					<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+																					<xr:LoadTransparent>true</xr:LoadTransparent>
 																				</Picture>
 																				<Title>
 																					<v8:item>
@@ -1023,240 +995,302 @@
 																						<v8:content>Результат стандартной выгрузки (РИБ)</v8:content>
 																					</v8:item>
 																				</Title>
+																				<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
+																				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 																				<ExtendedTooltip name="СписокКонстантКонтекстноеМенюПоказатьРезультатВыгрузкиExtendedTooltip" id="255"/>
-																			</Button>
-																			<Button name="СписокКонстантКонтекстноеМенюОткрытьФормуРегистрацииНаУзлах" id="178">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Command.ОткрытьФормуРегистрацииНаУзлах</CommandName>
-																				<Picture>
-																					<xr:Ref>StdPicture.ExchangePlan</xr:Ref>
-																					<xr:LoadTransparent>true</xr:LoadTransparent>
-																				</Picture>
-																				<ExtendedTooltip name="СписокКонстантКонтекстноеМенюОткрытьФормуРегистрацииНаУзлахExtendedTooltip" id="256"/>
 																			</Button>
 																			<Button name="СписокКонстантКонтекстноеМенюРедактироватьНомерСообщенияОбъекта" id="197">
 																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Command.РедактироватьНомерСообщенияОбъекта</CommandName>
+																				<CommandName>Form.Command.РедактироватьНомерСообщенияОбъектаКонстанты</CommandName>
+																				<Picture>
+																					<xr:Ref>StdPicture.Change</xr:Ref>
+																					<xr:LoadTransparent>true</xr:LoadTransparent>
+																				</Picture>
+																				<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
+																				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 																				<ExtendedTooltip name="СписокКонстантКонтекстноеМенюРедактироватьНомерСообщенияОбъектаExtendedTooltip" id="257"/>
 																			</Button>
-																		</ChildItems>
-																	</ButtonGroup>
-																	<ButtonGroup name="СписокКонстантКонтекстноеМенюГруппа2" id="152">
-																		<Title>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Список констант контекстное меню 2</v8:content>
-																			</v8:item>
-																		</Title>
-																		<ExtendedTooltip name="СписокКонстантКонтекстноеМенюГруппа2ExtendedTooltip" id="258"/>
-																		<ChildItems>
-																			<Button name="СписокКонстантКонтекстноеМенюНайти" id="153">
+																			<Button name="СписокКонстантОбновить" id="659">
 																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Item.СписокКонстант.StandardCommand.Find</CommandName>
-																				<ExtendedTooltip name="СписокКонстантКонтекстноеМенюНайтиExtendedTooltip" id="259"/>
-																			</Button>
-																			<Button name="СписокКонстантКонтекстноеМенюОтменитьПоиск" id="154">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Item.СписокКонстант.StandardCommand.CancelSearch</CommandName>
-																				<ExtendedTooltip name="СписокКонстантКонтекстноеМенюОтменитьПоискExtendedTooltip" id="260"/>
-																			</Button>
-																			<Button name="СписокКонстантКонтекстноеМенюНастройкаСписка" id="155">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Item.СписокКонстант.StandardCommand.ListSettings</CommandName>
-																				<ExtendedTooltip name="СписокКонстантКонтекстноеМенюНастройкаСпискаExtendedTooltip" id="261"/>
-																			</Button>
-																			<Button name="СписокКонстантКонтекстноеМенюВывестиСписок" id="156">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Item.СписокКонстант.StandardCommand.OutputList</CommandName>
-																				<ExtendedTooltip name="СписокКонстантКонтекстноеМенюВывестиСписокExtendedTooltip" id="262"/>
-																			</Button>
-																			<Button name="СписокКонстантКонтекстноеМенюОбновить" id="157">
-																				<Type>CommandBarButton</Type>
+																				<Representation>PictureAndText</Representation>
 																				<CommandName>Form.Item.СписокКонстант.StandardCommand.Refresh</CommandName>
-																				<ExtendedTooltip name="СписокКонстантКонтекстноеМенюОбновитьExtendedTooltip" id="263"/>
+																				<Picture>
+																					<xr:Ref>StdPicture.Refresh</xr:Ref>
+																					<xr:LoadTransparent>true</xr:LoadTransparent>
+																				</Picture>
+																				<ExtendedTooltip name="СписокКонстантОбновитьРасширеннаяПодсказка" id="660"/>
 																			</Button>
 																		</ChildItems>
-																	</ButtonGroup>
-																</ChildItems>
-															</ContextMenu>
-															<AutoCommandBar name="СписокКонстантКоманднаяПанель" id="65">
-																<Autofill>false</Autofill>
-															</AutoCommandBar>
-															<ExtendedTooltip name="СписокКонстантExtendedTooltip" id="264"/>
-															<SearchStringAddition name="СписокКонстантСтрокаПоиска" id="335">
-																<AdditionSource>
-																	<Item>СписокКонстант</Item>
-																	<Type>SearchStringRepresentation</Type>
-																</AdditionSource>
-																<ContextMenu name="СписокКонстантСтрокаПоискаКонтекстноеМеню" id="336"/>
-																<ExtendedTooltip name="СписокКонстантСтрокаПоискаРасширеннаяПодсказка" id="337"/>
-															</SearchStringAddition>
-															<ViewStatusAddition name="СписокКонстантСостояниеПросмотра" id="338">
-																<AdditionSource>
-																	<Item>СписокКонстант</Item>
-																	<Type>ViewStatusRepresentation</Type>
-																</AdditionSource>
-																<ContextMenu name="СписокКонстантСостояниеПросмотраКонтекстноеМеню" id="339"/>
-																<ExtendedTooltip name="СписокКонстантСостояниеПросмотраРасширеннаяПодсказка" id="340"/>
-															</ViewStatusAddition>
-															<SearchControlAddition name="СписокКонстантУправлениеПоиском" id="341">
-																<AdditionSource>
-																	<Item>СписокКонстант</Item>
-																	<Type>SearchControl</Type>
-																</AdditionSource>
-																<ContextMenu name="СписокКонстантУправлениеПоискомКонтекстноеМеню" id="342"/>
-																<ExtendedTooltip name="СписокКонстантУправлениеПоискомРасширеннаяПодсказка" id="343"/>
-															</SearchControlAddition>
-															<Events>
-																<Event name="OnActivateRow">СписокКонстантПриАктивизацииСтроки</Event>
-																<Event name="ChoiceProcessing">СписокКонстантОбработкаВыбора</Event>
-															</Events>
-															<ChildItems>
-																<LabelField name="СписокКонстантНаименование" id="66">
-																	<DataPath>СписокКонстант.Наименование</DataPath>
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>Константа</v8:content>
-																		</v8:item>
-																	</Title>
-																	<HorizontalStretch>true</HorizontalStretch>
-																	<ContextMenu name="СписокКонстантНаименованиеКонтекстноеМеню" id="67"/>
-																	<ExtendedTooltip name="СписокКонстантНаименованиеExtendedTooltip" id="265"/>
-																</LabelField>
-																<ColumnGroup name="СписокКонстантГруппа1" id="148">
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>Информация о регистрации</v8:content>
-																		</v8:item>
-																	</Title>
-																	<Group>InCell</Group>
-																	<ExtendedTooltip name="СписокКонстантГруппа1ExtendedTooltip" id="266"/>
+																	</AutoCommandBar>
+																	<ExtendedTooltip name="СписокКонстантExtendedTooltip" id="264"/>
+																	<SearchStringAddition name="СписокКонстантСтрокаПоиска" id="335">
+																		<Enabled>false</Enabled>
+																		<AdditionSource>
+																			<Item>СписокКонстант</Item>
+																			<Type>SearchStringRepresentation</Type>
+																		</AdditionSource>
+																		<ContextMenu name="СписокКонстантСтрокаПоискаКонтекстноеМеню" id="336"/>
+																		<ExtendedTooltip name="СписокКонстантСтрокаПоискаРасширеннаяПодсказка" id="337"/>
+																	</SearchStringAddition>
+																	<ViewStatusAddition name="СписокКонстантСостояниеПросмотра" id="338">
+																		<Enabled>false</Enabled>
+																		<AdditionSource>
+																			<Item>СписокКонстант</Item>
+																			<Type>ViewStatusRepresentation</Type>
+																		</AdditionSource>
+																		<ContextMenu name="СписокКонстантСостояниеПросмотраКонтекстноеМеню" id="339"/>
+																		<ExtendedTooltip name="СписокКонстантСостояниеПросмотраРасширеннаяПодсказка" id="340"/>
+																	</ViewStatusAddition>
+																	<SearchControlAddition name="СписокКонстантУправлениеПоиском" id="341">
+																		<Enabled>false</Enabled>
+																		<AdditionSource>
+																			<Item>СписокКонстант</Item>
+																			<Type>SearchControl</Type>
+																		</AdditionSource>
+																		<ContextMenu name="СписокКонстантУправлениеПоискомКонтекстноеМеню" id="342"/>
+																		<ExtendedTooltip name="СписокКонстантУправлениеПоискомРасширеннаяПодсказка" id="343"/>
+																	</SearchControlAddition>
+																	<Events>
+																		<Event name="OnActivateRow">СписокКонстантПриАктивизацииСтроки</Event>
+																		<Event name="ChoiceProcessing">СписокКонстантОбработкаВыбора</Event>
+																	</Events>
 																	<ChildItems>
-																		<PictureField name="СписокКонстантАвторегистрация" id="146">
-																			<DataPath>СписокКонстант.ИндексКартинкиАвторегистрация</DataPath>
-																			<UserVisible>
-																				<xr:Common>false</xr:Common>
-																			</UserVisible>
-																			<ReadOnly>true</ReadOnly>
+																		<LabelField name="СписокКонстантНаименование" id="66">
+																			<DataPath>СписокКонстант.Наименование</DataPath>
 																			<Title>
 																				<v8:item>
 																					<v8:lang>ru</v8:lang>
-																					<v8:content>Авторегистрация</v8:content>
+																					<v8:content>Константа</v8:content>
 																				</v8:item>
 																			</Title>
-																			<TitleLocation>None</TitleLocation>
-																			<EditMode>Directly</EditMode>
-																			<ValuesPicture>
-																				<xr:Abs>ValuesPicture.png</xr:Abs>
-																				<xr:LoadTransparent>false</xr:LoadTransparent>
-																			</ValuesPicture>
-																			<FileDragMode>AsFile</FileDragMode>
-																			<ContextMenu name="СписокКонстантАвторегистрацияКонтекстноеМеню" id="147"/>
-																			<ExtendedTooltip name="СписокКонстантАвторегистрацияExtendedTooltip" id="267"/>
-																		</PictureField>
-																		<LabelField name="СписокКонстантНомерСообщения" id="68">
-																			<DataPath>СписокКонстант.НомерСообщения</DataPath>
-																			<Title>
-																				<v8:item>
-																					<v8:lang>ru</v8:lang>
-																					<v8:content>№ отправленного</v8:content>
-																				</v8:item>
-																			</Title>
-																			<HorizontalAlign>Left</HorizontalAlign>
-																			<EditMode>Directly</EditMode>
-																			<ContextMenu name="СписокКонстантНомерСообщенияКонтекстноеМеню" id="69"/>
-																			<ExtendedTooltip name="СписокКонстантНомерСообщенияExtendedTooltip" id="268"/>
+																			<HorizontalStretch>true</HorizontalStretch>
+																			<ContextMenu name="СписокКонстантНаименованиеКонтекстноеМеню" id="67"/>
+																			<ExtendedTooltip name="СписокКонстантНаименованиеExtendedTooltip" id="265"/>
 																		</LabelField>
+																		<ColumnGroup name="СписокКонстантГруппа1" id="148">
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Информация о регистрации</v8:content>
+																				</v8:item>
+																			</Title>
+																			<Group>InCell</Group>
+																			<ExtendedTooltip name="СписокКонстантГруппа1ExtendedTooltip" id="266"/>
+																			<ChildItems>
+																				<PictureField name="СписокКонстантАвторегистрация" id="146">
+																					<DataPath>СписокКонстант.ИндексКартинкиАвторегистрация</DataPath>
+																					<UserVisible>
+																						<xr:Common>false</xr:Common>
+																					</UserVisible>
+																					<ReadOnly>true</ReadOnly>
+																					<Title>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Авторегистрация</v8:content>
+																						</v8:item>
+																					</Title>
+																					<TitleLocation>None</TitleLocation>
+																					<EditMode>Directly</EditMode>
+																					<ValuesPicture>
+																						<xr:Abs>ValuesPicture.png</xr:Abs>
+																						<xr:LoadTransparent>false</xr:LoadTransparent>
+																					</ValuesPicture>
+																					<FileDragMode>AsFile</FileDragMode>
+																					<ContextMenu name="СписокКонстантАвторегистрацияКонтекстноеМеню" id="147"/>
+																					<ExtendedTooltip name="СписокКонстантАвторегистрацияExtendedTooltip" id="267"/>
+																				</PictureField>
+																				<LabelField name="СписокКонстантНомерСообщения" id="68">
+																					<DataPath>СписокКонстант.НомерСообщения</DataPath>
+																					<Title>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>№ отправленного</v8:content>
+																						</v8:item>
+																					</Title>
+																					<HorizontalAlign>Left</HorizontalAlign>
+																					<EditMode>Directly</EditMode>
+																					<ContextMenu name="СписокКонстантНомерСообщенияКонтекстноеМеню" id="69"/>
+																					<ExtendedTooltip name="СписокКонстантНомерСообщенияExtendedTooltip" id="268"/>
+																				</LabelField>
+																			</ChildItems>
+																		</ColumnGroup>
 																	</ChildItems>
-																</ColumnGroup>
+																</Table>
 															</ChildItems>
-														</Table>
-													</ChildItems>
-												</Page>
-												<Page name="СтраницаСписокСсылок" id="48">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Ссылки</v8:content>
-														</v8:item>
-													</Title>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Страница списка ссылок</v8:content>
-														</v8:item>
-													</ToolTip>
-													<Group>Vertical</Group>
-													<ScrollOnCompress>false</ScrollOnCompress>
-													<ExtendedTooltip name="СтраницаСписокСсылокExtendedTooltip" id="269"/>
-													<ChildItems>
-														<UsualGroup name="ГруппаПользовательскихНастроекСсылки" id="320">
+														</Page>
+														<Page name="СтраницаСписокСсылок" id="48">
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>Пользовательских настроек ссылки</v8:content>
+																	<v8:content>Ссылки</v8:content>
 																</v8:item>
 															</Title>
 															<ToolTip>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>Группа пользовательских настроек константы</v8:content>
+																	<v8:content>Страница списка ссылок</v8:content>
 																</v8:item>
 															</ToolTip>
 															<Group>Vertical</Group>
-															<Behavior>Usual</Behavior>
-															<Representation>None</Representation>
-															<ShowTitle>false</ShowTitle>
-															<ExtendedTooltip name="ГруппаПользовательскихНастроекСсылкиРасширеннаяПодсказка" id="321"/>
-														</UsualGroup>
-														<Table name="СписокСсылок" id="18">
-															<Representation>List</Representation>
-															<ReadOnly>true</ReadOnly>
-															<ChangeRowSet>false</ChangeRowSet>
-															<ChangeRowOrder>false</ChangeRowOrder>
-															<RowSelectionMode>Cell</RowSelectionMode>
-															<InitialListView>Beginning</InitialListView>
-															<EnableStartDrag>true</EnableStartDrag>
-															<FileDragMode>AsFile</FileDragMode>
-															<DataPath>СписокСсылок</DataPath>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Ссылок</v8:content>
-																</v8:item>
-															</Title>
-															<AutoRefresh>false</AutoRefresh>
-															<AutoRefreshPeriod>60</AutoRefreshPeriod>
-															<Period>
-																<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
-																<v8:startDate>0001-01-01T00:00:00</v8:startDate>
-																<v8:endDate>0001-01-01T00:00:00</v8:endDate>
-															</Period>
-															<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-															<RestoreCurrentRow>true</RestoreCurrentRow>
-															<TopLevelParent xsi:nil="true"/>
-															<ShowRoot>true</ShowRoot>
-															<AllowRootChoice>false</AllowRootChoice>
-															<UpdateOnDataChange>Auto</UpdateOnDataChange>
-															<UserSettingsGroup>ГруппаПользовательскихНастроекСсылки</UserSettingsGroup>
-															<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
-															<ContextMenu name="СписокСсылокКонтекстноеМеню" id="19">
-																<Autofill>false</Autofill>
-																<ChildItems>
-																	<ButtonGroup name="СписокСсылокКонтекстноеМенюГруппа1" id="102">
-																		<Title>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Список ссылок контекстное меню 1</v8:content>
-																			</v8:item>
-																		</Title>
-																		<ExtendedTooltip name="СписокСсылокКонтекстноеМенюГруппа1ExtendedTooltip" id="270"/>
+															<ExtendedTooltip name="СтраницаСписокСсылокExtendedTooltip" id="269"/>
+															<ChildItems>
+																<UsualGroup name="ГруппаПользовательскихНастроекСсылки" id="320">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Пользовательских настроек ссылки</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа пользовательских настроек константы</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Group>Vertical</Group>
+																	<Behavior>Usual</Behavior>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="ГруппаПользовательскихНастроекСсылкиРасширеннаяПодсказка" id="321"/>
+																</UsualGroup>
+																<Table name="СписокСсылок" id="18">
+																	<Representation>List</Representation>
+																	<ChangeRowSet>false</ChangeRowSet>
+																	<ChangeRowOrder>false</ChangeRowOrder>
+																	<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+																	<RowSelectionMode>Cell</RowSelectionMode>
+																	<InitialListView>Beginning</InitialListView>
+																	<EnableStartDrag>true</EnableStartDrag>
+																	<FileDragMode>AsFile</FileDragMode>
+																	<DataPath>СписокСсылок</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Ссылок</v8:content>
+																		</v8:item>
+																	</Title>
+																	<AutoRefresh>false</AutoRefresh>
+																	<AutoRefreshPeriod>60</AutoRefreshPeriod>
+																	<Period>
+																		<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+																		<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+																		<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+																	</Period>
+																	<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+																	<RestoreCurrentRow>true</RestoreCurrentRow>
+																	<TopLevelParent xsi:nil="true"/>
+																	<ShowRoot>true</ShowRoot>
+																	<AllowRootChoice>false</AllowRootChoice>
+																	<UpdateOnDataChange>Auto</UpdateOnDataChange>
+																	<UserSettingsGroup>ГруппаПользовательскихНастроекСсылки</UserSettingsGroup>
+																	<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+																	<ContextMenu name="СписокСсылокКонтекстноеМеню" id="19">
+																		<Autofill>false</Autofill>
 																		<ChildItems>
-																			<Button name="СписокСсылокКонтекстноеМенюДобавитьРегистрациюСсылкиПодбор" id="134">
+																			<ButtonGroup name="СписокСсылокКонтекстноеМенюГруппа1" id="550">
+																				<Title>
+																					<v8:item>
+																						<v8:lang>ru</v8:lang>
+																						<v8:content>Список ссылок контекстное меню</v8:content>
+																					</v8:item>
+																				</Title>
+																				<ExtendedTooltip name="СписокСсылокКонтекстноеМенюГруппа1РасширеннаяПодсказка" id="551"/>
+																				<ChildItems>
+																					<Button name="СписокСсылокКонтекстноеМенюДобавитьРегистрациюСсылки" id="583">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Command.ДобавитьРегистрациюСсылки</CommandName>
+																						<ExtendedTooltip name="СписокСсылокКонтекстноеМенюДобавитьРегистрациюСсылкиРасширеннаяПодсказка" id="584"/>
+																					</Button>
+																					<Button name="СписокСсылокКонтекстноеМенюДобавитьРегистрациюСсылкиОтбор" id="552">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Command.ДобавитьРегистрациюСсылкиОтбор</CommandName>
+																						<ExtendedTooltip name="СписокСсылокКонтекстноеМенюДобавитьРегистрациюСсылкиОтборРасширеннаяПодсказка" id="553"/>
+																					</Button>
+																				</ChildItems>
+																			</ButtonGroup>
+																			<ButtonGroup name="СписокСсылокКонтекстноеМенюГруппа3" id="581">
+																				<Title>
+																					<v8:item>
+																						<v8:lang>ru</v8:lang>
+																						<v8:content>Список ссылок контекстное меню</v8:content>
+																					</v8:item>
+																				</Title>
+																				<ExtendedTooltip name="СписокСсылокКонтекстноеМенюГруппа3РасширеннаяПодсказка" id="582"/>
+																				<ChildItems>
+																					<Button name="СписокСсылокКонтекстноеМенюУдалитьРегистрациюСсылки" id="587">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Command.УдалитьРегистрациюСсылки</CommandName>
+																						<Title>
+																							<v8:item>
+																								<v8:lang>ru</v8:lang>
+																								<v8:content>Отменить регистрацию</v8:content>
+																							</v8:item>
+																						</Title>
+																						<ExtendedTooltip name="СписокСсылокКонтекстноеМенюУдалитьРегистрациюСсылкиРасширеннаяПодсказка" id="588"/>
+																					</Button>
+																					<Button name="СписокСсылокКонтекстноеМенюУдалитьРегистрациюСсылкиОтбор" id="546">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Command.УдалитьРегистрациюСсылкиОтбор</CommandName>
+																						<Title>
+																							<v8:item>
+																								<v8:lang>ru</v8:lang>
+																								<v8:content>Отменить регистрацию с помощью отбора</v8:content>
+																							</v8:item>
+																						</Title>
+																						<ExtendedTooltip name="СписокСсылокКонтекстноеМенюУдалитьРегистрациюСсылкиОтборРасширеннаяПодсказка" id="547"/>
+																					</Button>
+																				</ChildItems>
+																			</ButtonGroup>
+																			<ButtonGroup name="СписокСсылокКонтекстноеМенюГруппа2" id="577">
+																				<Title>
+																					<v8:item>
+																						<v8:lang>ru</v8:lang>
+																						<v8:content>Список ссылок контекстное меню</v8:content>
+																					</v8:item>
+																				</Title>
+																				<ExtendedTooltip name="СписокСсылокКонтекстноеМенюГруппа2РасширеннаяПодсказка" id="578"/>
+																				<ChildItems>
+																					<Button name="СписокСсылокКонтекстноеМенюОткрытьФормуРегистрацииНаУзлах" id="572">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Command.ОткрытьФормуРегистрацииНаУзлах</CommandName>
+																						<ExtendedTooltip name="СписокСсылокКонтекстноеМенюОткрытьФормуРегистрацииНаУзлахРасширеннаяПодсказка" id="573"/>
+																					</Button>
+																				</ChildItems>
+																			</ButtonGroup>
+																			<ButtonGroup name="СписокСсылокКонтекстноеМенюГруппа4" id="589">
+																				<Title>
+																					<v8:item>
+																						<v8:lang>ru</v8:lang>
+																						<v8:content>Список ссылок контекстное меню</v8:content>
+																					</v8:item>
+																				</Title>
+																				<ExtendedTooltip name="СписокСсылокКонтекстноеМенюГруппа4РасширеннаяПодсказка" id="590"/>
+																				<ChildItems>
+																					<Button name="СписокСсылокКонтекстноеМенюНайти" id="655">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Item.СписокСсылок.StandardCommand.Find</CommandName>
+																						<ExtendedTooltip name="СписокСсылокКонтекстноеМенюНайтиРасширеннаяПодсказка" id="656"/>
+																					</Button>
+																					<Button name="СписокСсылокКонтекстноеМенюОтменитьПоиск" id="657">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Item.СписокСсылок.StandardCommand.CancelSearch</CommandName>
+																						<ExtendedTooltip name="СписокСсылокКонтекстноеМенюОтменитьПоискРасширеннаяПодсказка" id="658"/>
+																					</Button>
+																					<Button name="СписокСсылокКонтекстноеМенюВывестиСписок" id="653">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Item.СписокСсылок.StandardCommand.OutputList</CommandName>
+																						<ExtendedTooltip name="СписокСсылокКонтекстноеМенюВывестиСписокРасширеннаяПодсказка" id="654"/>
+																					</Button>
+																				</ChildItems>
+																			</ButtonGroup>
+																		</ChildItems>
+																	</ContextMenu>
+																	<AutoCommandBar name="СписокСсылокКоманднаяПанель" id="20">
+																		<ChildItems>
+																			<Button name="СписокСсылокДобавитьРегистрациюСсылки" id="532">
 																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Command.ДобавитьРегистрациюСсылкиПодбор</CommandName>
+																				<Representation>PictureAndText</Representation>
+																				<CommandName>Form.Command.ДобавитьРегистрациюСсылки</CommandName>
 																				<Picture>
 																					<xr:Ref>StdPicture.CreateListItem</xr:Ref>
 																					<xr:LoadTransparent>true</xr:LoadTransparent>
@@ -1264,296 +1298,370 @@
 																				<Title>
 																					<v8:item>
 																						<v8:lang>ru</v8:lang>
-																						<v8:content>Зарегистрировать изменение объекта</v8:content>
+																						<v8:content>Добавить</v8:content>
 																					</v8:item>
 																				</Title>
-																				<ExtendedTooltip name="СписокСсылокКонтекстноеМенюДобавитьРегистрациюСсылкиПодборExtendedTooltip" id="271"/>
+																				<ExtendedTooltip name="СписокСсылокДобавитьРегистрациюСсылкиРасширеннаяПодсказка" id="533"/>
 																			</Button>
-																			<Button name="СписокСсылокКонтекстноеМенюДобавитьРегистрациюСсылкиОтбор" id="135">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Command.ДобавитьРегистрациюСсылкиОтбор</CommandName>
+																			<Popup name="СписокСсылокГруппаРегистрацияОбъектов" id="530">
 																				<Title>
 																					<v8:item>
 																						<v8:lang>ru</v8:lang>
-																						<v8:content>Зарегистрировать изменения объектов при помощи отбора</v8:content>
+																						<v8:content>Изменить состав</v8:content>
 																					</v8:item>
 																				</Title>
-																				<ExtendedTooltip name="СписокСсылокКонтекстноеМенюДобавитьРегистрациюСсылкиОтборExtendedTooltip" id="272"/>
-																			</Button>
-																			<Button name="СписокСсылокКонтекстноеМенюДобавитьРегистрациюУдаленияОбъекта" id="196">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Command.ДобавитьРегистрациюУдаленияОбъекта</CommandName>
-																				<Title>
+																				<ToolTip>
 																					<v8:item>
 																						<v8:lang>ru</v8:lang>
-																						<v8:content>Зарегистрировать удаление объекта</v8:content>
+																						<v8:content>Список ссылок группа регистрация объектов</v8:content>
 																					</v8:item>
-																				</Title>
-																				<ExtendedTooltip name="СписокСсылокКонтекстноеМенюДобавитьРегистрациюУдаленияОбъектаExtendedTooltip" id="273"/>
-																			</Button>
-																		</ChildItems>
-																	</ButtonGroup>
-																	<ButtonGroup name="СписокСсылокКонтекстноеМенюГруппа3" id="158">
-																		<Title>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Список ссылок контекстное меню 3</v8:content>
-																			</v8:item>
-																		</Title>
-																		<ExtendedTooltip name="СписокСсылокКонтекстноеМенюГруппа3ExtendedTooltip" id="274"/>
-																		<ChildItems>
-																			<Button name="СписокСсылокКонтекстноеМенюУдалитьРегистрациюСсылки" id="105">
+																				</ToolTip>
+																				<ExtendedTooltip name="СписокСсылокГруппаРегистрацияОбъектовРасширеннаяПодсказка" id="531"/>
+																				<ChildItems>
+																					<ButtonGroup name="СписокСсылокГруппа2" id="544">
+																						<Title>
+																							<v8:item>
+																								<v8:lang>ru</v8:lang>
+																								<v8:content>Группа список ссылок</v8:content>
+																							</v8:item>
+																						</Title>
+																						<ExtendedTooltip name="СписокСсылокГруппа2РасширеннаяПодсказка" id="545"/>
+																						<ChildItems>
+																							<Button name="СписокСсылокДобавитьРегистрациюСсылкиОтбор" id="534">
+																								<Type>CommandBarButton</Type>
+																								<CommandName>Form.Command.ДобавитьРегистрациюСсылкиОтбор</CommandName>
+																								<Title>
+																									<v8:item>
+																										<v8:lang>ru</v8:lang>
+																										<v8:content>Зарегистрировать с помощью отбора</v8:content>
+																									</v8:item>
+																								</Title>
+																								<ExtendedTooltip name="СписокСсылокДобавитьРегистрациюСсылкиОтборРасширеннаяПодсказка" id="535"/>
+																							</Button>
+																							<Button name="СписокСсылокДобавитьРегистрациюУдаленияОбъекта" id="542">
+																								<Type>CommandBarButton</Type>
+																								<CommandName>Form.Command.ДобавитьРегистрациюУдаленияОбъекта</CommandName>
+																								<Title>
+																									<v8:item>
+																										<v8:lang>ru</v8:lang>
+																										<v8:content>Зарегистрировать удаление объекта</v8:content>
+																									</v8:item>
+																								</Title>
+																								<ExtendedTooltip name="СписокСсылокДобавитьРегистрациюУдаленияОбъектаРасширеннаяПодсказка" id="543"/>
+																							</Button>
+																						</ChildItems>
+																					</ButtonGroup>
+																					<Button name="СписокСсылокУдалитьРегистрациюСсылкиОтбор" id="540">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Command.УдалитьРегистрациюСсылкиОтбор</CommandName>
+																						<Title>
+																							<v8:item>
+																								<v8:lang>ru</v8:lang>
+																								<v8:content>Отменить регистрацию с помощью отбора</v8:content>
+																							</v8:item>
+																						</Title>
+																						<ExtendedTooltip name="СписокСсылокУдалитьРегистрациюСсылкиОтборРасширеннаяПодсказка" id="541"/>
+																					</Button>
+																				</ChildItems>
+																			</Popup>
+																			<Button name="СписокСсылокОбновить" id="651">
 																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Command.УдалитьРегистрациюСсылки</CommandName>
+																				<Representation>PictureAndText</Representation>
+																				<CommandName>Form.Item.СписокСсылок.StandardCommand.Refresh</CommandName>
 																				<Picture>
-																					<xr:Ref>StdPicture.DeleteDirectly</xr:Ref>
+																					<xr:Ref>StdPicture.Refresh</xr:Ref>
 																					<xr:LoadTransparent>true</xr:LoadTransparent>
 																				</Picture>
-																				<Title>
-																					<v8:item>
-																						<v8:lang>ru</v8:lang>
-																						<v8:content>Отменить регистрацию изменений объекта</v8:content>
-																					</v8:item>
-																				</Title>
-																				<ExtendedTooltip name="СписокСсылокКонтекстноеМенюУдалитьРегистрациюСсылкиExtendedTooltip" id="275"/>
+																				<ExtendedTooltip name="СписокСсылокОбновитьРасширеннаяПодсказка" id="652"/>
 																			</Button>
-																			<Button name="СписокСсылокКонтекстноеМенюУдалитьРегистрациюСсылкиОтбор" id="189">
+																			<Button name="СписокСсылокУдалитьРегистрациюСсылки" id="528">
 																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Command.УдалитьРегистрациюСсылкиОтбор</CommandName>
-																				<Title>
-																					<v8:item>
-																						<v8:lang>ru</v8:lang>
-																						<v8:content>Отменить регистрацию изменения объектов при помощи отбора</v8:content>
-																					</v8:item>
-																				</Title>
-																				<ExtendedTooltip name="СписокСсылокКонтекстноеМенюУдалитьРегистрациюСсылкиОтборExtendedTooltip" id="276"/>
+																				<CommandName>Form.Command.УдалитьРегистрациюСсылки</CommandName>
+																				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																				<ExtendedTooltip name="СписокСсылокУдалитьРегистрациюСсылкиРасширеннаяПодсказка" id="529"/>
 																			</Button>
-																		</ChildItems>
-																	</ButtonGroup>
-																	<ButtonGroup name="СписокСсылокКонтекстноеМенюГруппа4" id="181">
-																		<Title>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Список ссылок контекстное меню 4</v8:content>
-																			</v8:item>
-																		</Title>
-																		<ExtendedTooltip name="СписокСсылокКонтекстноеМенюГруппа4ExtendedTooltip" id="277"/>
-																		<ChildItems>
-																			<Button name="СписокСсылокКонтекстноеМенюПоказатьРезультатВыгрузки" id="106">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Command.ПоказатьРезультатВыгрузки</CommandName>
-																				<Picture>
-																					<xr:Abs>Picture.png</xr:Abs>
-																					<xr:LoadTransparent>false</xr:LoadTransparent>
-																				</Picture>
-																				<Title>
-																					<v8:item>
-																						<v8:lang>ru</v8:lang>
-																						<v8:content>Показать результат выгрузки</v8:content>
-																					</v8:item>
-																				</Title>
-																				<ExtendedTooltip name="СписокСсылокКонтекстноеМенюПоказатьРезультатВыгрузкиExtendedTooltip" id="278"/>
-																			</Button>
-																			<Button name="СписокСсылокКонтекстноеМенюОткрытьФормуРегистрацииНаУзлах" id="137">
+																			<Button name="СписокСсылокОткрытьФормуРегистрацииНаУзлах" id="524">
 																				<Type>CommandBarButton</Type>
 																				<CommandName>Form.Command.ОткрытьФормуРегистрацииНаУзлах</CommandName>
 																				<Picture>
 																					<xr:Ref>StdPicture.ExchangePlan</xr:Ref>
 																					<xr:LoadTransparent>true</xr:LoadTransparent>
 																				</Picture>
-																				<Title>
-																					<v8:item>
-																						<v8:lang>ru</v8:lang>
-																						<v8:content>Регистрация на других узлах</v8:content>
-																					</v8:item>
-																				</Title>
-																				<ExtendedTooltip name="СписокСсылокКонтекстноеМенюОткрытьФормуРегистрацииНаУзлахExtendedTooltip" id="279"/>
+																				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																				<ExtendedTooltip name="СписокСсылокОткрытьФормуРегистрацииНаУзлахРасширеннаяПодсказка" id="525"/>
 																			</Button>
-																			<Button name="СписокСсылокКонтекстноеМенюРедактироватьНомерСообщенияОбъекта" id="198">
+																			<Button name="СписокСсылокРедактироватьНомерСообщенияОбъекта" id="536">
 																				<Type>CommandBarButton</Type>
 																				<CommandName>Form.Command.РедактироватьНомерСообщенияОбъекта</CommandName>
-																				<ExtendedTooltip name="СписокСсылокКонтекстноеМенюРедактироватьНомерСообщенияОбъектаExtendedTooltip" id="280"/>
+																				<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
+																				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+																				<ExtendedTooltip name="СписокСсылокРедактироватьНомерСообщенияОбъектаРасширеннаяПодсказка" id="537"/>
+																			</Button>
+																			<Button name="СписокСсылокПоказатьРезультатВыгрузки" id="548">
+																				<Type>CommandBarButton</Type>
+																				<CommandName>Form.Command.ПоказатьРезультатВыгрузки</CommandName>
+																				<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
+																				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+																				<ExtendedTooltip name="СписокСсылокПоказатьРезультатВыгрузкиРасширеннаяПодсказка" id="549"/>
 																			</Button>
 																		</ChildItems>
-																	</ButtonGroup>
-																	<ButtonGroup name="СписокСсылокКонтекстноеМенюГруппа2" id="136">
-																		<Title>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Список ссылок контекстное меню 2</v8:content>
-																			</v8:item>
-																		</Title>
-																		<ExtendedTooltip name="СписокСсылокКонтекстноеМенюГруппа2ExtendedTooltip" id="281"/>
-																		<ChildItems>
-																			<Button name="СписокСсылокКонтекстноеМенюНайти" id="159">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Item.СписокСсылок.StandardCommand.Find</CommandName>
-																				<ExtendedTooltip name="СписокСсылокКонтекстноеМенюНайтиExtendedTooltip" id="282"/>
-																			</Button>
-																			<Button name="СписокСсылокКонтекстноеМенюОтменитьПоиск" id="160">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Item.СписокСсылок.StandardCommand.CancelSearch</CommandName>
-																				<ExtendedTooltip name="СписокСсылокКонтекстноеМенюОтменитьПоискExtendedTooltip" id="283"/>
-																			</Button>
-																			<Button name="СписокСсылокКонтекстноеМенюНастройкаСписка" id="161">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Item.СписокСсылок.StandardCommand.ListSettings</CommandName>
-																				<ExtendedTooltip name="СписокСсылокКонтекстноеМенюНастройкаСпискаExtendedTooltip" id="284"/>
-																			</Button>
-																			<Button name="СписокСсылокКонтекстноеМенюВывестиСписок" id="162">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Item.СписокСсылок.StandardCommand.OutputList</CommandName>
-																				<ExtendedTooltip name="СписокСсылокКонтекстноеМенюВывестиСписокExtendedTooltip" id="285"/>
-																			</Button>
-																			<Button name="СписокСсылокКонтекстноеМенюОбновить" id="163">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Item.СписокСсылок.StandardCommand.Refresh</CommandName>
-																				<ExtendedTooltip name="СписокСсылокКонтекстноеМенюОбновитьExtendedTooltip" id="286"/>
-																			</Button>
-																		</ChildItems>
-																	</ButtonGroup>
-																</ChildItems>
-															</ContextMenu>
-															<AutoCommandBar name="СписокСсылокКоманднаяПанель" id="20">
-																<Autofill>false</Autofill>
-															</AutoCommandBar>
-															<ExtendedTooltip name="СписокСсылокExtendedTooltip" id="287"/>
-															<SearchStringAddition name="СписокСсылокСтрокаПоиска" id="344">
-																<AdditionSource>
-																	<Item>СписокСсылок</Item>
-																	<Type>SearchStringRepresentation</Type>
-																</AdditionSource>
-																<ContextMenu name="СписокСсылокСтрокаПоискаКонтекстноеМеню" id="345"/>
-																<ExtendedTooltip name="СписокСсылокСтрокаПоискаРасширеннаяПодсказка" id="346"/>
-															</SearchStringAddition>
-															<ViewStatusAddition name="СписокСсылокСостояниеПросмотра" id="347">
-																<AdditionSource>
-																	<Item>СписокСсылок</Item>
-																	<Type>ViewStatusRepresentation</Type>
-																</AdditionSource>
-																<ContextMenu name="СписокСсылокСостояниеПросмотраКонтекстноеМеню" id="348"/>
-																<ExtendedTooltip name="СписокСсылокСостояниеПросмотраРасширеннаяПодсказка" id="349"/>
-															</ViewStatusAddition>
-															<SearchControlAddition name="СписокСсылокУправлениеПоиском" id="350">
-																<AdditionSource>
-																	<Item>СписокСсылок</Item>
-																	<Type>SearchControl</Type>
-																</AdditionSource>
-																<ContextMenu name="СписокСсылокУправлениеПоискомКонтекстноеМеню" id="351"/>
-																<ExtendedTooltip name="СписокСсылокУправлениеПоискомРасширеннаяПодсказка" id="352"/>
-															</SearchControlAddition>
-															<Events>
-																<Event name="Selection">СписокСсылокВыбор</Event>
-																<Event name="OnActivateRow">СписокСсылокПриАктивизацииСтроки</Event>
-																<Event name="ChoiceProcessing">СписокСсылокОбработкаВыбора</Event>
-															</Events>
-															<ChildItems>
-																<LabelField name="СписокСсылокСсылкаПредставление" id="21">
-																	<DataPath>СписокСсылок.Ссылка</DataPath>
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>Данные</v8:content>
-																		</v8:item>
-																	</Title>
-																	<HorizontalStretch>true</HorizontalStretch>
-																	<ContextMenu name="СписокСсылокСсылкаПредставлениеКонтекстноеМеню" id="22"/>
-																	<ExtendedTooltip name="СписокСсылокСсылкаПредставлениеExtendedTooltip" id="288"/>
-																</LabelField>
-																<LabelField name="СписокСсылокНомерСообщения" id="52">
-																	<DataPath>СписокСсылок.НомерСообщения</DataPath>
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>№ отправленного</v8:content>
-																		</v8:item>
-																	</Title>
-																	<ContextMenu name="СписокСсылокНомерСообщенияКонтекстноеМеню" id="53"/>
-																	<ExtendedTooltip name="СписокСсылокНомерСообщенияExtendedTooltip" id="289"/>
-																</LabelField>
+																	</AutoCommandBar>
+																	<ExtendedTooltip name="СписокСсылокExtendedTooltip" id="287"/>
+																	<SearchStringAddition name="СписокСсылокСтрокаПоиска" id="344">
+																		<Enabled>false</Enabled>
+																		<AdditionSource>
+																			<Item>СписокСсылок</Item>
+																			<Type>SearchStringRepresentation</Type>
+																		</AdditionSource>
+																		<ContextMenu name="СписокСсылокСтрокаПоискаКонтекстноеМеню" id="345"/>
+																		<ExtendedTooltip name="СписокСсылокСтрокаПоискаРасширеннаяПодсказка" id="346"/>
+																	</SearchStringAddition>
+																	<ViewStatusAddition name="СписокСсылокСостояниеПросмотра" id="347">
+																		<Enabled>false</Enabled>
+																		<AdditionSource>
+																			<Item>СписокСсылок</Item>
+																			<Type>ViewStatusRepresentation</Type>
+																		</AdditionSource>
+																		<ContextMenu name="СписокСсылокСостояниеПросмотраКонтекстноеМеню" id="348"/>
+																		<ExtendedTooltip name="СписокСсылокСостояниеПросмотраРасширеннаяПодсказка" id="349"/>
+																	</ViewStatusAddition>
+																	<SearchControlAddition name="СписокСсылокУправлениеПоиском" id="350">
+																		<Enabled>false</Enabled>
+																		<AdditionSource>
+																			<Item>СписокСсылок</Item>
+																			<Type>SearchControl</Type>
+																		</AdditionSource>
+																		<ContextMenu name="СписокСсылокУправлениеПоискомКонтекстноеМеню" id="351"/>
+																		<ExtendedTooltip name="СписокСсылокУправлениеПоискомРасширеннаяПодсказка" id="352"/>
+																	</SearchControlAddition>
+																	<Events>
+																		<Event name="Selection">СписокСсылокВыбор</Event>
+																		<Event name="OnActivateRow">СписокСсылокПриАктивизацииСтроки</Event>
+																		<Event name="ChoiceProcessing">СписокСсылокОбработкаВыбора</Event>
+																	</Events>
+																	<ChildItems>
+																		<LabelField name="СписокСсылокСсылкаПредставление" id="21">
+																			<DataPath>СписокСсылок.Ссылка</DataPath>
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Данные</v8:content>
+																				</v8:item>
+																			</Title>
+																			<HorizontalStretch>true</HorizontalStretch>
+																			<ContextMenu name="СписокСсылокСсылкаПредставлениеКонтекстноеМеню" id="22"/>
+																			<ExtendedTooltip name="СписокСсылокСсылкаПредставлениеExtendedTooltip" id="288"/>
+																		</LabelField>
+																		<LabelField name="СписокСсылокНомерСообщения" id="52">
+																			<DataPath>СписокСсылок.НомерСообщения</DataPath>
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>№ отправленного</v8:content>
+																				</v8:item>
+																			</Title>
+																			<ContextMenu name="СписокСсылокНомерСообщенияКонтекстноеМеню" id="53"/>
+																			<ExtendedTooltip name="СписокСсылокНомерСообщенияExtendedTooltip" id="289"/>
+																		</LabelField>
+																	</ChildItems>
+																</Table>
 															</ChildItems>
-														</Table>
-													</ChildItems>
-												</Page>
-												<Page name="СтраницаНаборЗаписей" id="50">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Наборы записей</v8:content>
-														</v8:item>
-													</Title>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Страница набора записей</v8:content>
-														</v8:item>
-													</ToolTip>
-													<Group>Vertical</Group>
-													<ScrollOnCompress>false</ScrollOnCompress>
-													<ExtendedTooltip name="СтраницаНаборЗаписейExtendedTooltip" id="290"/>
-													<ChildItems>
-														<UsualGroup name="ГруппаПользовательскихНастроекНаборЗаписей" id="322">
+														</Page>
+														<Page name="СтраницаНаборЗаписей" id="50">
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>Пользовательских настроек набор записей</v8:content>
+																	<v8:content>Наборы записей</v8:content>
 																</v8:item>
 															</Title>
 															<ToolTip>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>Группа пользовательских настроек константы</v8:content>
+																	<v8:content>Страница набора записей</v8:content>
 																</v8:item>
 															</ToolTip>
 															<Group>Vertical</Group>
-															<Behavior>Usual</Behavior>
-															<Representation>None</Representation>
-															<ShowTitle>false</ShowTitle>
-															<ExtendedTooltip name="ГруппаПользовательскихНастроекНаборЗаписейРасширеннаяПодсказка" id="323"/>
-														</UsualGroup>
-														<Table name="СписокНаборовЗаписей" id="78">
-															<RowInputMode>AfterCurrentRow</RowInputMode>
-															<RowSelectionMode>Cell</RowSelectionMode>
-															<HorizontalLinesBWA>false</HorizontalLinesBWA>
-															<InitialListView>Beginning</InitialListView>
-															<EnableStartDrag>true</EnableStartDrag>
-															<FileDragMode>AsFile</FileDragMode>
-															<DataPath>СписокНаборовЗаписей</DataPath>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Набор записей</v8:content>
-																</v8:item>
-															</Title>
-															<AutoRefresh>false</AutoRefresh>
-															<AutoRefreshPeriod>60</AutoRefreshPeriod>
-															<Period>
-																<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
-																<v8:startDate>0001-01-01T00:00:00</v8:startDate>
-																<v8:endDate>0001-01-01T00:00:00</v8:endDate>
-															</Period>
-															<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-															<RestoreCurrentRow>true</RestoreCurrentRow>
-															<TopLevelParent xsi:nil="true"/>
-															<ShowRoot>true</ShowRoot>
-															<AllowRootChoice>false</AllowRootChoice>
-															<UpdateOnDataChange>Auto</UpdateOnDataChange>
-															<UserSettingsGroup>ГруппаПользовательскихНастроекНаборЗаписей</UserSettingsGroup>
-															<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
-															<ContextMenu name="СписокНаборовЗаписейКонтекстноеМеню" id="79">
-																<Autofill>false</Autofill>
-																<ChildItems>
-																	<ButtonGroup name="СписокНаборовЗаписейКонтекстноеМенюГруппа1" id="164">
-																		<Title>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Список наборов записей контекстное меню группа 1</v8:content>
-																			</v8:item>
-																		</Title>
-																		<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюГруппа1ExtendedTooltip" id="291"/>
+															<ExtendedTooltip name="СтраницаНаборЗаписейExtendedTooltip" id="290"/>
+															<ChildItems>
+																<UsualGroup name="ГруппаПользовательскихНастроекНаборЗаписей" id="322">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Пользовательских настроек набор записей</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа пользовательских настроек константы</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Group>Vertical</Group>
+																	<Behavior>Usual</Behavior>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="ГруппаПользовательскихНастроекНаборЗаписейРасширеннаяПодсказка" id="323"/>
+																</UsualGroup>
+																<Table name="СписокНаборовЗаписей" id="78">
+																	<CommandBarLocation>Top</CommandBarLocation>
+																	<Height>13</Height>
+																	<RowInputMode>AfterCurrentRow</RowInputMode>
+																	<RowSelectionMode>Cell</RowSelectionMode>
+																	<HorizontalLinesBWA>false</HorizontalLinesBWA>
+																	<InitialListView>Beginning</InitialListView>
+																	<EnableStartDrag>true</EnableStartDrag>
+																	<FileDragMode>AsFile</FileDragMode>
+																	<DataPath>СписокНаборовЗаписей</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Набор записей</v8:content>
+																		</v8:item>
+																	</Title>
+																	<CommandSet>
+																		<ExcludedCommand>Refresh</ExcludedCommand>
+																	</CommandSet>
+																	<ShowCommandBar>true</ShowCommandBar>
+																	<AutoRefresh>false</AutoRefresh>
+																	<AutoRefreshPeriod>60</AutoRefreshPeriod>
+																	<Period>
+																		<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+																		<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+																		<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+																	</Period>
+																	<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+																	<RestoreCurrentRow>true</RestoreCurrentRow>
+																	<TopLevelParent xsi:nil="true"/>
+																	<ShowRoot>true</ShowRoot>
+																	<AllowRootChoice>false</AllowRootChoice>
+																	<UpdateOnDataChange>Auto</UpdateOnDataChange>
+																	<UserSettingsGroup>ГруппаПользовательскихНастроекНаборЗаписей</UserSettingsGroup>
+																	<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+																	<ContextMenu name="СписокНаборовЗаписейКонтекстноеМеню" id="79">
+																		<Autofill>false</Autofill>
 																		<ChildItems>
-																			<Button name="СписокНаборовЗаписейКонтекстноеМенюДобавитьРегистрациюНабораЗаписейОтбор" id="138">
+																			<ButtonGroup name="СписокНаборовЗаписейКонтекстноеМенюГруппа1" id="164">
+																				<Title>
+																					<v8:item>
+																						<v8:lang>ru</v8:lang>
+																						<v8:content>Список наборов записей контекстное меню группа 1</v8:content>
+																					</v8:item>
+																				</Title>
+																				<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюГруппа1ExtendedTooltip" id="291"/>
+																				<ChildItems>
+																					<Button name="СписокНаборовЗаписейКонтекстноеМенюДобавитьРегистрациюНабораЗаписейОтбор" id="138">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Command.ДобавитьРегистрациюНабораЗаписейОтбор</CommandName>
+																						<Picture>
+																							<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+																							<xr:LoadTransparent>true</xr:LoadTransparent>
+																						</Picture>
+																						<Title>
+																							<v8:item>
+																								<v8:lang>ru</v8:lang>
+																								<v8:content>Зарегистрировать изменения набора записей</v8:content>
+																							</v8:item>
+																						</Title>
+																						<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюДобавитьРегистрациюНабораЗаписейОтборExtendedTooltip" id="292"/>
+																					</Button>
+																				</ChildItems>
+																			</ButtonGroup>
+																			<ButtonGroup name="СписокНаборовЗаписейКонтекстноеМенюГруппа2" id="165">
+																				<Title>
+																					<v8:item>
+																						<v8:lang>ru</v8:lang>
+																						<v8:content>Список наборов записей контекстное меню группа 2</v8:content>
+																					</v8:item>
+																				</Title>
+																				<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюГруппа2ExtendedTooltip" id="293"/>
+																				<ChildItems>
+																					<Button name="СписокНаборовЗаписейКонтекстноеМенюУдалитьРегистрациюНабораЗаписей" id="139">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Command.УдалитьРегистрациюНабораЗаписей</CommandName>
+																						<Picture>
+																							<xr:Ref>StdPicture.DeleteDirectly</xr:Ref>
+																							<xr:LoadTransparent>true</xr:LoadTransparent>
+																						</Picture>
+																						<Title>
+																							<v8:item>
+																								<v8:lang>ru</v8:lang>
+																								<v8:content>Отменить регистрацию</v8:content>
+																							</v8:item>
+																						</Title>
+																						<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюУдалитьРегистрациюНабораЗаписейExtendedTooltip" id="294"/>
+																					</Button>
+																					<Button name="СписокНаборовЗаписейКонтекстноеМенюУдалитьРегистрациюНабораЗаписейОтбор" id="140">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Command.УдалитьРегистрациюНабораЗаписейОтбор</CommandName>
+																						<Title>
+																							<v8:item>
+																								<v8:lang>ru</v8:lang>
+																								<v8:content>Отменить регистрацию изменений при помощи отбора</v8:content>
+																							</v8:item>
+																						</Title>
+																						<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюУдалитьРегистрациюНабораЗаписейОтборExtendedTooltip" id="295"/>
+																					</Button>
+																				</ChildItems>
+																			</ButtonGroup>
+																			<ButtonGroup name="СписокНаборовЗаписейКонтекстноеМенюГруппа4" id="179">
+																				<Title>
+																					<v8:item>
+																						<v8:lang>ru</v8:lang>
+																						<v8:content>Список наборов записей контекстное меню группа 4</v8:content>
+																					</v8:item>
+																				</Title>
+																				<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюГруппа4ExtendedTooltip" id="296"/>
+																				<ChildItems>
+																					<Button name="СписокНаборовЗаписейКонтекстноеМенюРедактироватьНомерСообщенияОбъекта" id="199">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Command.РедактироватьНомерСообщенияОбъектаНаборЗаписей</CommandName>
+																						<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюРедактироватьНомерСообщенияОбъектаExtendedTooltip" id="299"/>
+																					</Button>
+																				</ChildItems>
+																			</ButtonGroup>
+																			<ButtonGroup name="СписокНаборовЗаписейКонтекстноеМенюГруппа3" id="166">
+																				<Title>
+																					<v8:item>
+																						<v8:lang>ru</v8:lang>
+																						<v8:content>Список наборов записей контекстное меню группа 3</v8:content>
+																					</v8:item>
+																				</Title>
+																				<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюГруппа3ExtendedTooltip" id="300"/>
+																				<ChildItems>
+																					<Button name="СписокНаборовЗаписейКонтекстноеМенюОткрытьФормуРегистрацииНаУзлахНаборЗаписей" id="614">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Command.ОткрытьФормуРегистрацииНаУзлахНаборЗаписей</CommandName>
+																						<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюОткрытьФормуРегистрацииНаУзлахНаборЗаписейРасширеннаяПодсказка" id="615"/>
+																					</Button>
+																					<Button name="СписокНаборовЗаписейКонтекстноеМенюНайти" id="167">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Item.СписокНаборовЗаписей.StandardCommand.Find</CommandName>
+																						<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюНайтиExtendedTooltip" id="301"/>
+																					</Button>
+																					<Button name="СписокНаборовЗаписейКонтекстноеМенюОтменитьПоиск" id="169">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Item.СписокНаборовЗаписей.StandardCommand.CancelSearch</CommandName>
+																						<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюОтменитьПоискExtendedTooltip" id="303"/>
+																					</Button>
+																					<Button name="СписокНаборовЗаписейКонтекстноеМенюНастройкаСписка" id="170">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Item.СписокНаборовЗаписей.StandardCommand.ListSettings</CommandName>
+																						<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюНастройкаСпискаExtendedTooltip" id="304"/>
+																					</Button>
+																					<Button name="СписокНаборовЗаписейКонтекстноеМенюВывестиСписок" id="171">
+																						<Type>CommandBarButton</Type>
+																						<CommandName>Form.Item.СписокНаборовЗаписей.StandardCommand.OutputList</CommandName>
+																						<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюВывестиСписокExtendedTooltip" id="305"/>
+																					</Button>
+																				</ChildItems>
+																			</ButtonGroup>
+																		</ChildItems>
+																	</ContextMenu>
+																	<AutoCommandBar name="СписокНаборовЗаписейКоманднаяПанель" id="80">
+																		<ChildItems>
+																			<Button name="СписокНаборовЗаписейДобавитьРегистрациюНабораЗаписейОтбор" id="620">
 																				<Type>CommandBarButton</Type>
+																				<Representation>PictureAndText</Representation>
 																				<CommandName>Form.Command.ДобавитьРегистрациюНабораЗаписейОтбор</CommandName>
 																				<Picture>
 																					<xr:Ref>StdPicture.CreateListItem</xr:Ref>
@@ -1562,244 +1670,164 @@
 																				<Title>
 																					<v8:item>
 																						<v8:lang>ru</v8:lang>
-																						<v8:content>Зарегистрировать изменения набора записей</v8:content>
+																						<v8:content>Добавить</v8:content>
 																					</v8:item>
 																				</Title>
-																				<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюДобавитьРегистрациюНабораЗаписейОтборExtendedTooltip" id="292"/>
+																				<ExtendedTooltip name="СписокНаборовЗаписейДобавитьРегистрациюНабораЗаписейОтборРасширеннаяПодсказка" id="621"/>
 																			</Button>
-																		</ChildItems>
-																	</ButtonGroup>
-																	<ButtonGroup name="СписокНаборовЗаписейКонтекстноеМенюГруппа2" id="165">
-																		<Title>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Список наборов записей контекстное меню группа 2</v8:content>
-																			</v8:item>
-																		</Title>
-																		<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюГруппа2ExtendedTooltip" id="293"/>
-																		<ChildItems>
-																			<Button name="СписокНаборовЗаписейКонтекстноеМенюУдалитьРегистрациюНабораЗаписей" id="139">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Command.УдалитьРегистрациюНабораЗаписей</CommandName>
-																				<Picture>
-																					<xr:Ref>StdPicture.DeleteDirectly</xr:Ref>
-																					<xr:LoadTransparent>true</xr:LoadTransparent>
-																				</Picture>
-																				<Title>
-																					<v8:item>
-																						<v8:lang>ru</v8:lang>
-																						<v8:content>Отменить регистрацию изменений текущей строки</v8:content>
-																					</v8:item>
-																				</Title>
-																				<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюУдалитьРегистрациюНабораЗаписейExtendedTooltip" id="294"/>
-																			</Button>
-																			<Button name="СписокНаборовЗаписейКонтекстноеМенюУдалитьРегистрациюНабораЗаписейОтбор" id="140">
+																			<Button name="СписокНаборовЗаписейУдалитьРегистрациюНабораЗаписейОтбор" id="622">
 																				<Type>CommandBarButton</Type>
 																				<CommandName>Form.Command.УдалитьРегистрациюНабораЗаписейОтбор</CommandName>
 																				<Title>
 																					<v8:item>
 																						<v8:lang>ru</v8:lang>
-																						<v8:content>Отменить регистрацию изменений при помощи отбора</v8:content>
+																						<v8:content>Отменить регистрацию с помощью отбора</v8:content>
 																					</v8:item>
 																				</Title>
-																				<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюУдалитьРегистрациюНабораЗаписейОтборExtendedTooltip" id="295"/>
+																				<ExtendedTooltip name="СписокНаборовЗаписейУдалитьРегистрациюНабораЗаписейОтборРасширеннаяПодсказка" id="623"/>
+																			</Button>
+																			<Button name="СписокНаборовЗаписейУдалитьРегистрациюНабораЗаписей" id="612">
+																				<Type>CommandBarButton</Type>
+																				<CommandName>Form.Command.УдалитьРегистрациюНабораЗаписей</CommandName>
+																				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																				<ExtendedTooltip name="СписокНаборовЗаписейУдалитьРегистрациюНабораЗаписейРасширеннаяПодсказка" id="613"/>
+																			</Button>
+																			<Button name="СписокНаборовЗаписейОткрытьФормуРегистрацииНаУзлахНаборЗаписей" id="616">
+																				<Type>CommandBarButton</Type>
+																				<CommandName>Form.Command.ОткрытьФормуРегистрацииНаУзлахНаборЗаписей</CommandName>
+																				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																				<ExtendedTooltip name="СписокНаборовЗаписейОткрытьФормуРегистрацииНаУзлахНаборЗаписейРасширеннаяПодсказка" id="617"/>
+																			</Button>
+																			<Button name="СписокНаборовЗаписейРедактироватьНомерСообщенияОбъектаНаборЗаписей" id="618">
+																				<Type>CommandBarButton</Type>
+																				<CommandName>Form.Command.РедактироватьНомерСообщенияОбъектаНаборЗаписей</CommandName>
+																				<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
+																				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+																				<ExtendedTooltip name="СписокНаборовЗаписейРедактироватьНомерСообщенияОбъектаНаборЗаписейРасширеннаяПодсказка" id="619"/>
+																			</Button>
+																			<Button name="СписокНаборовЗаписейПоказатьРезультатВыгрузкиНаборЗаписей" id="624">
+																				<Type>CommandBarButton</Type>
+																				<CommandName>Form.Command.ПоказатьРезультатВыгрузкиНаборЗаписей</CommandName>
+																				<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
+																				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+																				<ExtendedTooltip name="СписокНаборовЗаписейПоказатьРезультатВыгрузкиНаборЗаписейРасширеннаяПодсказка" id="625"/>
 																			</Button>
 																		</ChildItems>
-																	</ButtonGroup>
-																	<ButtonGroup name="СписокНаборовЗаписейКонтекстноеМенюГруппа4" id="179">
-																		<Title>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Список наборов записей контекстное меню группа 4</v8:content>
-																			</v8:item>
-																		</Title>
-																		<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюГруппа4ExtendedTooltip" id="296"/>
-																		<ChildItems>
-																			<Button name="СписокНаборовЗаписейКонтекстноеМенюПоказатьРезультатВыгрузки" id="141">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Command.ПоказатьРезультатВыгрузки</CommandName>
-																				<Picture>
-																					<xr:Abs>Picture.png</xr:Abs>
-																					<xr:LoadTransparent>false</xr:LoadTransparent>
-																				</Picture>
-																				<Title>
-																					<v8:item>
-																						<v8:lang>ru</v8:lang>
-																						<v8:content>Показать результат выгрузки</v8:content>
-																					</v8:item>
-																				</Title>
-																				<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюПоказатьРезультатВыгрузкиExtendedTooltip" id="297"/>
-																			</Button>
-																			<Button name="СписокНаборовЗаписейКонтекстноеМенюОткрытьФормуРегистрацииНаУзлах" id="180">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Command.ОткрытьФормуРегистрацииНаУзлах</CommandName>
-																				<Picture>
-																					<xr:Ref>StdPicture.ExchangePlan</xr:Ref>
-																					<xr:LoadTransparent>true</xr:LoadTransparent>
-																				</Picture>
-																				<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюОткрытьФормуРегистрацииНаУзлахExtendedTooltip" id="298"/>
-																			</Button>
-																			<Button name="СписокНаборовЗаписейКонтекстноеМенюРедактироватьНомерСообщенияОбъекта" id="199">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Command.РедактироватьНомерСообщенияОбъекта</CommandName>
-																				<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюРедактироватьНомерСообщенияОбъектаExtendedTooltip" id="299"/>
-																			</Button>
-																		</ChildItems>
-																	</ButtonGroup>
-																	<ButtonGroup name="СписокНаборовЗаписейКонтекстноеМенюГруппа3" id="166">
-																		<Title>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Список наборов записей контекстное меню группа 3</v8:content>
-																			</v8:item>
-																		</Title>
-																		<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюГруппа3ExtendedTooltip" id="300"/>
-																		<ChildItems>
-																			<Button name="СписокНаборовЗаписейКонтекстноеМенюНайти" id="167">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Item.СписокНаборовЗаписей.StandardCommand.Find</CommandName>
-																				<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюНайтиExtendedTooltip" id="301"/>
-																			</Button>
-																			<Button name="СписокНаборовЗаписейКонтекстноеМенюОбновить" id="168">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Item.СписокНаборовЗаписей.StandardCommand.Refresh</CommandName>
-																				<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюОбновитьExtendedTooltip" id="302"/>
-																			</Button>
-																			<Button name="СписокНаборовЗаписейКонтекстноеМенюОтменитьПоиск" id="169">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Item.СписокНаборовЗаписей.StandardCommand.CancelSearch</CommandName>
-																				<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюОтменитьПоискExtendedTooltip" id="303"/>
-																			</Button>
-																			<Button name="СписокНаборовЗаписейКонтекстноеМенюНастройкаСписка" id="170">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Item.СписокНаборовЗаписей.StandardCommand.ListSettings</CommandName>
-																				<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюНастройкаСпискаExtendedTooltip" id="304"/>
-																			</Button>
-																			<Button name="СписокНаборовЗаписейКонтекстноеМенюВывестиСписок" id="171">
-																				<Type>CommandBarButton</Type>
-																				<CommandName>Form.Item.СписокНаборовЗаписей.StandardCommand.OutputList</CommandName>
-																				<ExtendedTooltip name="СписокНаборовЗаписейКонтекстноеМенюВывестиСписокExtendedTooltip" id="305"/>
-																			</Button>
-																		</ChildItems>
-																	</ButtonGroup>
-																</ChildItems>
-															</ContextMenu>
-															<AutoCommandBar name="СписокНаборовЗаписейКоманднаяПанель" id="80">
-																<Autofill>false</Autofill>
-															</AutoCommandBar>
-															<ExtendedTooltip name="СписокНаборовЗаписейExtendedTooltip" id="306"/>
-															<SearchStringAddition name="СписокНаборовЗаписейСтрокаПоиска" id="353">
-																<AdditionSource>
-																	<Item>СписокНаборовЗаписей</Item>
-																	<Type>SearchStringRepresentation</Type>
-																</AdditionSource>
-																<ContextMenu name="СписокНаборовЗаписейСтрокаПоискаКонтекстноеМеню" id="354"/>
-																<ExtendedTooltip name="СписокНаборовЗаписейСтрокаПоискаРасширеннаяПодсказка" id="355"/>
-															</SearchStringAddition>
-															<ViewStatusAddition name="СписокНаборовЗаписейСостояниеПросмотра" id="356">
-																<AdditionSource>
-																	<Item>СписокНаборовЗаписей</Item>
-																	<Type>ViewStatusRepresentation</Type>
-																</AdditionSource>
-																<ContextMenu name="СписокНаборовЗаписейСостояниеПросмотраКонтекстноеМеню" id="357"/>
-																<ExtendedTooltip name="СписокНаборовЗаписейСостояниеПросмотраРасширеннаяПодсказка" id="358"/>
-															</ViewStatusAddition>
-															<SearchControlAddition name="СписокНаборовЗаписейУправлениеПоиском" id="359">
-																<AdditionSource>
-																	<Item>СписокНаборовЗаписей</Item>
-																	<Type>SearchControl</Type>
-																</AdditionSource>
-																<ContextMenu name="СписокНаборовЗаписейУправлениеПоискомКонтекстноеМеню" id="360"/>
-																<ExtendedTooltip name="СписокНаборовЗаписейУправлениеПоискомРасширеннаяПодсказка" id="361"/>
-															</SearchControlAddition>
-															<Events>
-																<Event name="Selection">СписокНаборовЗаписейВыбор</Event>
-																<Event name="OnActivateRow">СписокНаборовЗаписейПриАктивизацииСтроки</Event>
-																<Event name="ChoiceProcessing">СписокНаборовЗаписейОбработкаВыбора</Event>
-															</Events>
-															<ChildItems>
-																<ColumnGroup name="СписокНаборовЗаписейГруппаИзмерений" id="86">
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>Измерения</v8:content>
-																		</v8:item>
-																	</Title>
-																	<ToolTip>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>Измерения набора записей</v8:content>
-																		</v8:item>
-																	</ToolTip>
-																	<Group>InCell</Group>
-																	<ExtendedTooltip name="СписокНаборовЗаписейГруппаИзмеренийExtendedTooltip" id="307"/>
-																</ColumnGroup>
-																<LabelField name="СписокНаборовЗаписейНомерСообщения" id="83">
-																	<DataPath>СписокНаборовЗаписей.НомерСообщения</DataPath>
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>№ отправленного</v8:content>
-																		</v8:item>
-																	</Title>
-																	<ContextMenu name="СписокНаборовЗаписейНомерСообщенияКонтекстноеМеню" id="84"/>
-																	<ExtendedTooltip name="СписокНаборовЗаписейНомерСообщенияExtendedTooltip" id="308"/>
-																</LabelField>
+																	</AutoCommandBar>
+																	<ExtendedTooltip name="СписокНаборовЗаписейExtendedTooltip" id="306"/>
+																	<SearchStringAddition name="СписокНаборовЗаписейСтрокаПоиска" id="353">
+																		<Enabled>false</Enabled>
+																		<AdditionSource>
+																			<Item>СписокНаборовЗаписей</Item>
+																			<Type>SearchStringRepresentation</Type>
+																		</AdditionSource>
+																		<ContextMenu name="СписокНаборовЗаписейСтрокаПоискаКонтекстноеМеню" id="354"/>
+																		<ExtendedTooltip name="СписокНаборовЗаписейСтрокаПоискаРасширеннаяПодсказка" id="355"/>
+																	</SearchStringAddition>
+																	<ViewStatusAddition name="СписокНаборовЗаписейСостояниеПросмотра" id="356">
+																		<Enabled>false</Enabled>
+																		<AdditionSource>
+																			<Item>СписокНаборовЗаписей</Item>
+																			<Type>ViewStatusRepresentation</Type>
+																		</AdditionSource>
+																		<ContextMenu name="СписокНаборовЗаписейСостояниеПросмотраКонтекстноеМеню" id="357"/>
+																		<ExtendedTooltip name="СписокНаборовЗаписейСостояниеПросмотраРасширеннаяПодсказка" id="358"/>
+																	</ViewStatusAddition>
+																	<SearchControlAddition name="СписокНаборовЗаписейУправлениеПоиском" id="359">
+																		<Enabled>false</Enabled>
+																		<AdditionSource>
+																			<Item>СписокНаборовЗаписей</Item>
+																			<Type>SearchControl</Type>
+																		</AdditionSource>
+																		<ContextMenu name="СписокНаборовЗаписейУправлениеПоискомКонтекстноеМеню" id="360"/>
+																		<ExtendedTooltip name="СписокНаборовЗаписейУправлениеПоискомРасширеннаяПодсказка" id="361"/>
+																	</SearchControlAddition>
+																	<Events>
+																		<Event name="Selection">СписокНаборовЗаписейВыбор</Event>
+																		<Event name="OnActivateRow">СписокНаборовЗаписейПриАктивизацииСтроки</Event>
+																		<Event name="ChoiceProcessing">СписокНаборовЗаписейОбработкаВыбора</Event>
+																	</Events>
+																	<ChildItems>
+																		<ColumnGroup name="СписокНаборовЗаписейГруппаИзмерений" id="86">
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Измерения</v8:content>
+																				</v8:item>
+																			</Title>
+																			<ToolTip>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Измерения набора записей</v8:content>
+																				</v8:item>
+																			</ToolTip>
+																			<Group>InCell</Group>
+																			<ExtendedTooltip name="СписокНаборовЗаписейГруппаИзмеренийExtendedTooltip" id="307"/>
+																		</ColumnGroup>
+																		<LabelField name="СписокНаборовЗаписейНомерСообщения" id="83">
+																			<DataPath>СписокНаборовЗаписей.НомерСообщения</DataPath>
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>№ отправленного</v8:content>
+																				</v8:item>
+																			</Title>
+																			<ContextMenu name="СписокНаборовЗаписейНомерСообщенияКонтекстноеМеню" id="84"/>
+																			<ExtendedTooltip name="СписокНаборовЗаписейНомерСообщенияExtendedTooltip" id="308"/>
+																		</LabelField>
+																	</ChildItems>
+																</Table>
 															</ChildItems>
-														</Table>
-													</ChildItems>
-												</Page>
-												<Page name="СтраницаПустая" id="74">
-													<EnableContentChange>true</EnableContentChange>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Итоги по виду объекта</v8:content>
-														</v8:item>
-													</Title>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Страница итогов</v8:content>
-														</v8:item>
-													</ToolTip>
-													<Group>Vertical</Group>
-													<ScrollOnCompress>false</ScrollOnCompress>
-													<ExtendedTooltip name="СтраницаПустаяExtendedTooltip" id="309"/>
-													<ChildItems>
-														<UsualGroup name="ГруппаПустая" id="77">
+														</Page>
+														<Page name="СтраницаПустая" id="74">
 															<EnableContentChange>true</EnableContentChange>
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>Описание</v8:content>
+																	<v8:content>Итоги по виду объекта</v8:content>
 																</v8:item>
 															</Title>
 															<ToolTip>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>Пустое описание</v8:content>
+																	<v8:content>Страница итогов</v8:content>
 																</v8:item>
 															</ToolTip>
+															<Height>10</Height>
 															<Group>Vertical</Group>
-															<Behavior>Usual</Behavior>
-															<Representation>NormalSeparation</Representation>
-															<ExtendedTooltip name="ГруппаПустаяРасширеннаяПодсказка" id="310"/>
+															<ExtendedTooltip name="СтраницаПустаяExtendedTooltip" id="309"/>
 															<ChildItems>
-																<LabelDecoration name="ДекорацияПустаяСтраница" id="75">
-																	<AutoMaxWidth>false</AutoMaxWidth>
-																	<HorizontalStretch>true</HorizontalStretch>
-																	<VerticalStretch>true</VerticalStretch>
-																	<VerticalAlign>Top</VerticalAlign>
-																	<ContextMenu name="ДекорацияПустаяСтраницаКонтекстноеМеню" id="76"/>
-																	<ExtendedTooltip name="ДекорацияПустаяСтраницаExtendedTooltip" id="311"/>
-																</LabelDecoration>
+																<UsualGroup name="ГруппаПустая" id="77">
+																	<EnableContentChange>true</EnableContentChange>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Описание</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Пустое описание</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Group>Vertical</Group>
+																	<Behavior>Usual</Behavior>
+																	<ExtendedTooltip name="ГруппаПустаяРасширеннаяПодсказка" id="310"/>
+																	<ChildItems>
+																		<LabelDecoration name="ДекорацияПустаяСтраница" id="75">
+																			<VerticalAlign>Top</VerticalAlign>
+																			<ContextMenu name="ДекорацияПустаяСтраницаКонтекстноеМеню" id="76"/>
+																			<ExtendedTooltip name="ДекорацияПустаяСтраницаExtendedTooltip" id="311"/>
+																		</LabelDecoration>
+																	</ChildItems>
+																</UsualGroup>
 															</ChildItems>
-														</UsualGroup>
+														</Page>
 													</ChildItems>
-												</Page>
+												</Pages>
 											</ChildItems>
-										</Pages>
+										</UsualGroup>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -1824,7 +1852,6 @@
 					<ExtendedTooltip name="ОжиданиеРасширеннаяПодсказка" id="379"/>
 					<ChildItems>
 						<PictureDecoration name="ДлительнаяОперация" id="368">
-							<Height>3</Height>
 							<AutoMaxHeight>false</AutoMaxHeight>
 							<MaxHeight>3</MaxHeight>
 							<Title formatted="false">
@@ -1834,7 +1861,7 @@
 								</v8:item>
 							</Title>
 							<Picture>
-								<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
+								<xr:Abs>Picture.zip</xr:Abs>
 								<xr:LoadTransparent>false</xr:LoadTransparent>
 							</Picture>
 							<FileDragMode>AsFile</FileDragMode>
@@ -1843,7 +1870,6 @@
 						</PictureDecoration>
 						<LabelDecoration name="СтатусДлительнойОперации" id="371">
 							<AutoMaxWidth>false</AutoMaxWidth>
-							<Height>3</Height>
 							<AutoMaxHeight>false</AutoMaxHeight>
 							<MaxHeight>3</MaxHeight>
 							<Title formatted="false">
@@ -1861,66 +1887,28 @@
 				</Page>
 			</ChildItems>
 		</Pages>
-		<UsualGroup name="ГруппаДополнительнаяИнформация" id="174">
-			<EnableContentChange>true</EnableContentChange>
-			<Title>
+		<LabelDecoration name="ДекорацияРежимВыборочнойРегистрации" id="380">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Дополнительная информация</v8:content>
+					<v8:content>Режим выборочной регистрации: информация доступна после выбора настройки синхронизации.</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа скрытые данные</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Collapsible</Behavior>
-			<Collapsed>true</Collapsed>
-			<ControlRepresentation>Button</ControlRepresentation>
-			<Representation>None</Representation>
-			<ExtendedTooltip name="ГруппаДополнительнаяИнформацияРасширеннаяПодсказка" id="312"/>
-			<ChildItems>
-				<PictureDecoration name="СкрытаяКартинкаИнформация32" id="175">
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Скрытая картинка информация32</v8:content>
-						</v8:item>
-					</Title>
-					<Picture>
-						<xr:Ref>StdPicture.Information</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</Picture>
-					<FileDragMode>AsFile</FileDragMode>
-					<ContextMenu name="СкрытаяКартинкаИнформация32КонтекстноеМеню" id="176"/>
-					<ExtendedTooltip name="СкрытаяКартинкаИнформация32ExtendedTooltip" id="313"/>
-				</PictureDecoration>
-				<LabelDecoration name="ДекорацияРежимВыборочнойРегистрации" id="380">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Режим выборочной регистрации: информация доступна после выбора настройки синхронизации.</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTipRepresentation>Button</ToolTipRepresentation>
-					<ContextMenu name="ДекорацияРежимВыборочнойРегистрацииКонтекстноеМеню" id="381"/>
-					<ExtendedTooltip name="ДекорацияРежимВыборочнойРегистрацииРасширеннаяПодсказка" id="382">
-						<Title formatted="false">
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Выборочная регистрация объектов – это режим дополнительной проверки, который используется при регистрации объектов (настраивается разработчиками приложениями).
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<ContextMenu name="ДекорацияРежимВыборочнойРегистрацииКонтекстноеМеню" id="381"/>
+			<ExtendedTooltip name="ДекорацияРежимВыборочнойРегистрацииРасширеннаяПодсказка" id="382">
+				<Title formatted="false">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Выборочная регистрация объектов – это режим дополнительной проверки, который используется при регистрации объектов (настраивается разработчиками приложениями).
 Режим "Отключен" – все записываемые объекты считаются измененными и будут зарегистрированы к обмену;
 Режим "Модифицированность" – регистрируем к обмену объекты, у которых были изменения в данных;
 Режим "Согласно правилам xml" – к обменам регистрируем объекты, у которых есть изменения в реквизитах. Список реквизитов получается из правил конвертаций.</v8:content>
-							</v8:item>
-						</Title>
-					</ExtendedTooltip>
-				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
+					</v8:item>
+				</Title>
+			</ExtendedTooltip>
+		</LabelDecoration>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -2308,6 +2296,38 @@
 				<v8:Type>v8:UUID</v8:Type>
 			</Type>
 		</Attribute>
+		<Attribute name="НомерОтправленного" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>№ отправленного</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>6</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НомерПринятого" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>№ принятого</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>6</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="ДобавитьРегистрациюСсылки" id="1">
@@ -2328,23 +2348,30 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ДобавитьРегистрациюСсылки</Action>
+			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="УдалитьРегистрациюСсылки" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Удалить</v8:content>
+					<v8:content>Отменить регистрацию</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Удалить регистрацию ссылки</v8:content>
+					<v8:content>Удалить регистрацию объекта</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Delete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>УдалитьРегистрациюСсылки</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокСсылок</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ОбновитьВсеДанные" id="3">
 			<Title>
@@ -2365,12 +2392,14 @@
 			</Picture>
 			<Action>ОбновитьВсеДанные</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоМетаданных</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="ДобавитьРегистрациюВсехОбъектов" id="4">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Зарегистрировать все объекты выбранных типов</v8:content>
+					<v8:content>Зарегистрировать все объекты</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -2380,7 +2409,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ДобавитьРегистрациюВсехОбъектов</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="ДобавитьРегистрациюАвтоОбъектов" id="5">
 			<Title>
@@ -2397,6 +2426,7 @@
 			</ToolTip>
 			<Action>ДобавитьРегистрациюАвтоОбъектов</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="УдалитьРегистрациюВсехОбъектов" id="6">
 			<Title>
@@ -2412,7 +2442,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>УдалитьРегистрациюВсехОбъектов</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="УдалитьРегистрациюАвтоОбъектов" id="7">
 			<Title>
@@ -2428,7 +2458,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>УдалитьРегистрациюАвтоОбъектов</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="ДобавитьРегистрациюСсылкиПодбор" id="8">
 			<Title>
@@ -2492,6 +2522,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ДобавитьРегистрациюКонстанты</Action>
+			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="УдалитьРегистрациюКонстанты" id="12">
@@ -2507,24 +2538,14 @@
 					<v8:content>Удалить регистрацию константы</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Delete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>УдалитьРегистрациюКонстанты</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="РедактироватьНомераСообщений" id="13">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Редактировать номера сообщений</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Редактировать номера сообщений</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>РедактироватьНомераСообщений</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокКонстант</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ПоказатьРезультатВыгрузки" id="14">
 			<Title>
@@ -2539,8 +2560,14 @@
 					<v8:content>Показать результат выгрузки</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>ПоказатьРезультатВыгрузки</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокСсылок</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ДобавитьРегистрациюСсылкиОтбор" id="15">
 			<Title>
@@ -2572,7 +2599,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>УдалитьРегистрациюСсылкиОтбор</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ДобавитьРегистрациюНабораЗаписейОтбор" id="17">
 			<Title>
@@ -2610,7 +2636,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Удалить регистрацию набора записей</v8:content>
+					<v8:content>Отменить регистрацию</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -2619,8 +2645,14 @@
 					<v8:content>Удалить регистрацию набора записей</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Delete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>УдалитьРегистрациюНабораЗаписей</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокНаборовЗаписей</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ОткрытьФормуРегистрацииНаУзлах" id="20">
 			<Title>
@@ -2635,8 +2667,14 @@
 					<v8:content>Регистрация объекта на всех узлах</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ExchangePlan</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>ОткрытьФормуРегистрацииНаУзлах</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокСсылок</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="ОткрытьФормуНастроек" id="21">
 			<Title>
@@ -2678,17 +2716,23 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Добавить регистрацию отбор</v8:content>
+					<v8:content>Зарегистрировать с помощью отбора</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Добавить регистрацию отбор</v8:content>
+					<v8:content>Зарегистрировать с помощью отбора</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.DataCompositionFilter</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>ДобавитьРегистрациюОтбор</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоМетаданных</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="УдалитьРегистрациюОдногоОбъекта" id="24">
 			<Title>
@@ -2710,17 +2754,22 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Удалить регистрацию отбор</v8:content>
+					<v8:content>Отменить с помощью отбора</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Удалить регистрацию отбор</v8:content>
+					<v8:content>Отменить регистрацию с помощью отбора</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Delete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>УдалитьРегистрациюОтбор</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоМетаданных</AssociatedTableElementId>
 		</Command>
 		<Command name="ДобавитьРегистрациюУдаленияОбъекта" id="26">
 			<Title>
@@ -2756,7 +2805,9 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>РедактироватьНомерСообщенияОбъекта</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокСсылок</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ЗарегистрироватьИОМИПредопределенные" id="28">
 			<Title>
@@ -2773,6 +2824,138 @@
 			</ToolTip>
 			<Action>ЗарегистрироватьИОМИПредопределенные</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоказатьРезультатВыгрузкиКонстанты" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат стандартной выгрузки (РИБ)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать результат выгрузки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПоказатьРезультатВыгрузки</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокКонстант</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
+		</Command>
+		<Command name="РедактироватьНомерСообщенияОбъектаКонстанты" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать номер сообщения объекта</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать номер сообщения объекта</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Change</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>РедактироватьНомерСообщенияОбъекта</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокКонстант</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
+		</Command>
+		<Command name="ОткрытьФормуРегистрацииНаУзлахНаборЗаписей" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть форму регистрации на узлах</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регистрация объекта на всех узлах</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ExchangePlan</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОткрытьФормуРегистрацииНаУзлах</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокНаборовЗаписей</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
+		</Command>
+		<Command name="РедактироватьНомерСообщенияОбъектаНаборЗаписей" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать номер сообщения объекта</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать номер сообщения объекта</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Change</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>РедактироватьНомерСообщенияОбъекта</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокНаборовЗаписей</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
+		</Command>
+		<Command name="ПоказатьРезультатВыгрузкиНаборЗаписей" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат стандартной выгрузки (РИБ)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать результат выгрузки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПоказатьРезультатВыгрузки</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокНаборовЗаписей</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
+		</Command>
+		<Command name="ОткрытьФормуРегистрацииНаУзлахКонстант" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть форму регистрации на узлах</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регистрация объекта на всех узлах</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ExchangePlan</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОткрытьФормуРегистрацииНаУзлах</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокКонстант</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

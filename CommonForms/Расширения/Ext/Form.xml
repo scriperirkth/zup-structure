@@ -7,6 +7,18 @@
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаИзменитьФорму" id="283">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+				<ExtendedTooltip name="ФормаИзменитьФормуРасширеннаяПодсказка" id="284"/>
+			</Button>
+			<Button name="ФормаСправка" id="285">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="286"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -14,332 +26,6 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<CommandBar name="КомандыФормы" id="150">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команды формы</v8:content>
-				</v8:item>
-			</Title>
-			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="КомандыФормыРасширеннаяПодсказка" id="151"/>
-			<ChildItems>
-				<Button name="СписокРасширенийДобавить" id="58">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Item.СписокРасширений.StandardCommand.Add</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Добавить из файла...</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="СписокРасширенийДобавитьРасширеннаяПодсказка" id="59">
-						<Title formatted="false">
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Добавить из файла на компьютере...</v8:content>
-							</v8:item>
-						</Title>
-					</ExtendedTooltip>
-				</Button>
-				<Button name="СписокРасширенийУдалить" id="60">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Item.СписокРасширений.StandardCommand.Delete</CommandName>
-					<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-					<ExtendedTooltip name="СписокРасширенийУдалитьРасширеннаяПодсказка" id="61"/>
-				</Button>
-				<ButtonGroup name="КнопкиСписка" id="56">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Кнопки списка</v8:content>
-						</v8:item>
-					</Title>
-					<CommandSource>Item.СписокРасширений</CommandSource>
-					<ExtendedTooltip name="КнопкиСпискаРасширеннаяПодсказка" id="57"/>
-					<ChildItems>
-						<ButtonGroup name="СписокРасширенийОбновитьИСохранить" id="96">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Расширений обновить и сохранить</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="СписокРасширенийОбновитьИСохранитьРасширеннаяПодсказка" id="97"/>
-							<ChildItems>
-								<Button name="СписокРасширенийОбновитьИзФайла" id="92">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.ОбновитьИзФайла</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Обновить из файла...</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="СписокРасширенийОбновитьИзФайлаРасширеннаяПодсказка" id="93"/>
-								</Button>
-								<Button name="СписокРасширенийСохранитьКак" id="94">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.СохранитьКак</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Сохранить как...</v8:content>
-										</v8:item>
-									</Title>
-									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-									<ExtendedTooltip name="СписокРасширенийСохранитьКакРасширеннаяПодсказка" id="95"/>
-								</Button>
-							</ChildItems>
-						</ButtonGroup>
-						<Button name="СписокРасширенийОбновить" id="68">
-							<Type>CommandBarButton</Type>
-							<Representation>Text</Representation>
-							<CommandName>Form.Command.Обновить</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Обновить</v8:content>
-								</v8:item>
-							</Title>
-							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="СписокРасширенийОбновитьРасширеннаяПодсказка" id="69"/>
-						</Button>
-					</ChildItems>
-				</ButtonGroup>
-				<Popup name="ПодменюВключитьРасширения" id="242">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Включить/выключить расширения</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Включить/выключить выделенные расширения</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Picture>
-						<xr:Ref>StdPicture.CheckAll</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</Picture>
-					<Representation>Picture</Representation>
-					<ExtendedTooltip name="ПодменюВключитьРасширенияРасширеннаяПодсказка" id="243"/>
-					<ChildItems>
-						<Button name="ВключитьРасширения" id="246">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.ВключитьРасширения</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Включить расширения</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ВключитьРасширенияРасширеннаяПодсказка" id="247"/>
-						</Button>
-						<Button name="ВыключитьРасширения" id="244">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.ВыключитьРасширения</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Выключить расширения</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ВыключитьРасширенияРасширеннаяПодсказка" id="245"/>
-						</Button>
-					</ChildItems>
-				</Popup>
-				<Popup name="ПодменюПередаватьВПодчиненныеУзлыРИБ" id="236">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Передавать в подчиненные узлы РИБ</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Включить/выключить передачу в подчиненные узлы РИБ для выделенных расширений</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Picture>
-						<xr:Ref>StdPicture.ExchangePlan</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</Picture>
-					<Representation>Picture</Representation>
-					<ExtendedTooltip name="ПодменюПередаватьВПодчиненныеУзлыРИБРасширеннаяПодсказка" id="237"/>
-					<ChildItems>
-						<Button name="ВключитьПередачуВПодчиненныеУзлыРИБ" id="238">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.ВключитьПередачуВПодчиненныеУзлыРИБ</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Включить передачу в подчиненные узлы РИБ</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ВключитьПередачуВПодчиненныеУзлыРИБРасширеннаяПодсказка" id="239"/>
-						</Button>
-						<Button name="ВыключитьПередачуВПодчиненныеУзлыРИБ" id="240">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.ВыключитьПередачуВПодчиненныеУзлыРИБ</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Выключить передачу в подчиненные узлы РИБ</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ВыключитьПередачуВПодчиненныеУзлыРИБРасширеннаяПодсказка" id="241"/>
-						</Button>
-					</ChildItems>
-				</Popup>
-				<Popup name="ПодменюБезопасныйРежим" id="230">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Безопасный режим</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Включить/выключить безопасный режим для выделенных расширений</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Picture>
-						<xr:Ref>CommonPicture.ЗначокЩита</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</Picture>
-					<Representation>Picture</Representation>
-					<ExtendedTooltip name="ПодменюБезопасныйРежимРасширеннаяПодсказка" id="231"/>
-					<ChildItems>
-						<Button name="ВключитьБезопасныйРежим" id="232">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.ВключитьБезопасныйРежим</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Включить безопасный режим</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ВключитьБезопасныйРежимРасширеннаяПодсказка" id="233"/>
-						</Button>
-						<Button name="ВыключитьБезопасныйРежим" id="234">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.ВыключитьБезопасныйРежим</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Выключить безопасный режим</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ВыключитьБезопасныйРежимРасширеннаяПодсказка" id="235"/>
-						</Button>
-					</ChildItems>
-				</Popup>
-				<Button name="УстановитьОтветственного" id="262">
-					<Type>CommandBarButton</Type>
-					<Representation>Picture</Representation>
-					<CommandName>Form.Command.УстановитьОтветственного</CommandName>
-					<Picture>
-						<xr:Ref>StdPicture.User</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</Picture>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Установить ответственного</v8:content>
-						</v8:item>
-					</Title>
-					<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-					<ExtendedTooltip name="УстановитьОтветственногоРасширеннаяПодсказка" id="263"/>
-				</Button>
-				<Button name="ПроверитьВозможностьПримененияВсехРасширений" id="228">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.ПроверитьВозможностьПримененияВсехРасширений</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Проверить возможность применения всех расширений</v8:content>
-						</v8:item>
-					</Title>
-					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-					<ExtendedTooltip name="ПроверитьВозможностьПримененияВсехРасширенийРасширеннаяПодсказка" id="229"/>
-				</Button>
-				<Button name="ФормаУстановленныеПатчи" id="177">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.УстановленныеПатчи</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Установленные исправления (патчи)</v8:content>
-						</v8:item>
-					</Title>
-					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-					<ExtendedTooltip name="ФормаУстановленныеПатчиРасширеннаяПодсказка" id="178"/>
-				</Button>
-				<Button name="ЗапуститьОбновлениеПараметровРаботыРасширенийВФоне" id="159">
-					<Type>CommandBarButton</Type>
-					<UserVisible>
-						<xr:Common>false</xr:Common>
-					</UserVisible>
-					<CommandName>Form.Command.ЗапуститьОбновлениеПараметровРаботыРасширенийВФоне</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Запустить обновление параметров работы расширений в фоне</v8:content>
-						</v8:item>
-					</Title>
-					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-					<ExtendedTooltip name="ЗапуститьОбновлениеПараметровРаботыРасширенийВФонеРасширеннаяПодсказка" id="160"/>
-				</Button>
-				<Button name="ПоказатьОшибкиФоновогоОбновленияПараметровРаботыРасширений" id="220">
-					<Type>CommandBarButton</Type>
-					<UserVisible>
-						<xr:Common>false</xr:Common>
-					</UserVisible>
-					<CommandName>Form.Command.ПоказатьСобытияФоновогоОбновленияПараметровРаботыРасширений</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Показать события фонового обновления параметров работы расширений</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ПоказатьОшибкиФоновогоОбновленияПараметровРаботыРасширенийРасширеннаяПодсказка" id="221"/>
-				</Button>
-				<Button name="УдалитьУстаревшиеПараметрыРаботыРасширений" id="131">
-					<Type>CommandBarButton</Type>
-					<UserVisible>
-						<xr:Common>false</xr:Common>
-					</UserVisible>
-					<CommandName>Form.Command.УдалитьУстаревшиеПараметрыРаботыРасширений</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Удалить устаревшие параметры работы расширений</v8:content>
-						</v8:item>
-					</Title>
-					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-					<ExtendedTooltip name="УдалитьУстаревшиеПараметрыРаботыРасширенийРасширеннаяПодсказка" id="132"/>
-				</Button>
-				<SearchStringAddition name="СтрокаПоиск" id="225">
-					<AdditionSource>
-						<Item>СписокРасширений</Item>
-						<Type>SearchStringRepresentation</Type>
-					</AdditionSource>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Поиск</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="СтрокаПоискКонтекстноеМеню" id="226"/>
-					<ExtendedTooltip name="СтрокаПоискРасширеннаяПодсказка" id="227"/>
-				</SearchStringAddition>
-			</ChildItems>
-		</CommandBar>
 		<Pages name="СтраницыОбновление" id="101">
 			<Title>
 				<v8:item>
@@ -361,73 +47,9 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаСписокРасширенийРасширеннаяПодсказка" id="109"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаПредупреждение" id="78">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Предупреждение</v8:content>
-								</v8:item>
-							</Title>
-							<Group>HorizontalIfPossible</Group>
-							<VerticalAlign>Center</VerticalAlign>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<BackColor>style:ЦветФонаПредупреждения</BackColor>
-							<ExtendedTooltip name="ГруппаПредупреждениеРасширеннаяПодсказка" id="79"/>
-							<ChildItems>
-								<PictureDecoration name="ПредупреждениеКартинка" id="80">
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Предупреждение картинка</v8:content>
-										</v8:item>
-									</Title>
-									<Picture>
-										<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
-										<xr:LoadTransparent>true</xr:LoadTransparent>
-									</Picture>
-									<FileDragMode>AsFile</FileDragMode>
-									<ContextMenu name="ПредупреждениеКартинкаКонтекстноеМеню" id="81"/>
-									<ExtendedTooltip name="ПредупреждениеКартинкаРасширеннаяПодсказка" id="82"/>
-								</PictureDecoration>
-								<LabelDecoration name="ПредупреждениеОписание" id="83">
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<HorizontalStretch>true</HorizontalStretch>
-									<Title formatted="true">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Чтобы продолжить работу с учетом сделанных изменений, необходимо &lt;link 1&gt;перезапустить&lt;/&gt; приложение.</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="ПредупреждениеОписаниеКонтекстноеМеню" id="84"/>
-									<ExtendedTooltip name="ПредупреждениеОписаниеРасширеннаяПодсказка" id="85"/>
-									<Events>
-										<Event name="URLProcessing">ПредупреждениеОписаниеОбработкаНавигационнойСсылки</Event>
-									</Events>
-								</LabelDecoration>
-								<LabelDecoration name="ПредупреждениеОписание2" id="222">
-									<Visible>false</Visible>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<HorizontalStretch>true</HorizontalStretch>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Чтобы использовать расширения области данных, требуется запустить сеанс с разделителями.
-Изменения расширений для пользователей области данных вступят в силу при их следующем входе в приложение.</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="ПредупреждениеОписание2КонтекстноеМеню" id="223"/>
-									<ExtendedTooltip name="ПредупреждениеОписание2РасширеннаяПодсказка" id="224"/>
-									<Events>
-										<Event name="URLProcessing">ПредупреждениеОписаниеОбработкаНавигационнойСсылки</Event>
-									</Events>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
 						<Table name="СписокРасширений" id="19">
 							<Representation>List</Representation>
-							<CommandBarLocation>None</CommandBarLocation>
+							<CommandBarLocation>Top</CommandBarLocation>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<FileDragMode>AsFile</FileDragMode>
@@ -450,27 +72,22 @@
 								<ExcludedCommand>SortListAsc</ExcludedCommand>
 								<ExcludedCommand>SortListDesc</ExcludedCommand>
 							</CommandSet>
+							<ShowCommandBar>true</ShowCommandBar>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="СписокРасширенийКонтекстноеМеню" id="20">
 								<Autofill>false</Autofill>
 								<ChildItems>
-									<Button name="СписокРасширенийКонтекстноеМенюДобавить" id="113">
+									<Button name="СписокРасширенийКонтекстноеМенюДобавить" id="291">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Item.СписокРасширений.StandardCommand.Add</CommandName>
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Добавить из файла...</v8:content>
-											</v8:item>
-										</Title>
-										<ExtendedTooltip name="СписокРасширенийКонтекстноеМенюДобавитьРасширеннаяПодсказка" id="114"/>
+										<ExtendedTooltip name="СписокРасширенийКонтекстноеМенюДобавитьРасширеннаяПодсказка" id="292"/>
 									</Button>
-									<Button name="СписокРасширенийКонтекстноеМенюУдалить" id="115">
+									<Button name="СписокРасширенийКонтекстноеМенюУдалить" id="293">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Item.СписокРасширений.StandardCommand.Delete</CommandName>
-										<ExtendedTooltip name="СписокРасширенийКонтекстноеМенюУдалитьРасширеннаяПодсказка" id="116"/>
+										<ExtendedTooltip name="СписокРасширенийКонтекстноеМенюУдалитьРасширеннаяПодсказка" id="294"/>
 									</Button>
-									<Button name="СписокРасширенийКонтекстноеМенюОбновитьИзФайла" id="64">
+									<Button name="СписокРасширенийКонтекстноеМенюОбновитьИзФайла" id="295">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.ОбновитьИзФайла</CommandName>
 										<Title>
@@ -479,36 +96,9 @@
 												<v8:content>Обновить из файла...</v8:content>
 											</v8:item>
 										</Title>
-										<ExtendedTooltip name="СписокРасширенийКонтекстноеМенюОбновитьИзФайлаРасширеннаяПодсказка" id="65"/>
+										<ExtendedTooltip name="СписокРасширенийКонтекстноеМенюОбновитьИзФайлаРасширеннаяПодсказка" id="296"/>
 									</Button>
-									<Button name="СписокРасширенийКонтекстноеМенюОбновить" id="138">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.Обновить</CommandName>
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Обновить</v8:content>
-											</v8:item>
-										</Title>
-										<ExtendedTooltip name="СписокРасширенийКонтекстноеМенюОбновитьРасширеннаяПодсказка" id="139"/>
-									</Button>
-									<ButtonGroup name="СписокРасширенийКонтекстноеМенюГруппа" id="119">
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Расширений контекстное меню группа</v8:content>
-											</v8:item>
-										</Title>
-										<ExtendedTooltip name="СписокРасширенийКонтекстноеМенюГруппаРасширеннаяПодсказка" id="120"/>
-										<ChildItems>
-											<Button name="СписокРасширенийКонтекстноеМенюВыделитьВсе" id="117">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Item.СписокРасширений.StandardCommand.SelectAll</CommandName>
-												<ExtendedTooltip name="СписокРасширенийКонтекстноеМенюВыделитьВсеРасширеннаяПодсказка" id="118"/>
-											</Button>
-										</ChildItems>
-									</ButtonGroup>
-									<Button name="СписокРасширенийКонтекстноеМенюСохранитьКак" id="66">
+									<Button name="СписокРасширенийКонтекстноеМенюСохранитьКак" id="287">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.СохранитьКак</CommandName>
 										<Title>
@@ -517,11 +107,321 @@
 												<v8:content>Сохранить как...</v8:content>
 											</v8:item>
 										</Title>
-										<ExtendedTooltip name="СписокРасширенийКонтекстноеМенюСохранитьКакРасширеннаяПодсказка" id="67"/>
+										<ExtendedTooltip name="СписокРасширенийКонтекстноеМенюСохранитьКакРасширеннаяПодсказка" id="288"/>
 									</Button>
 								</ChildItems>
 							</ContextMenu>
-							<AutoCommandBar name="СписокРасширенийКоманднаяПанель" id="21"/>
+							<AutoCommandBar name="СписокРасширенийКоманднаяПанель" id="21">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="СписокРасширенийДобавить" id="58">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.СписокРасширений.StandardCommand.Add</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Добавить из файла...</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="СписокРасширенийДобавитьРасширеннаяПодсказка" id="59">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Добавить из файла на компьютере...</v8:content>
+												</v8:item>
+											</Title>
+										</ExtendedTooltip>
+									</Button>
+									<Button name="СписокРасширенийСохранитьКак" id="94">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СохранитьКак</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Сохранить как...</v8:content>
+											</v8:item>
+										</Title>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="СписокРасширенийСохранитьКакРасширеннаяПодсказка" id="95"/>
+									</Button>
+									<Button name="СписокРасширенийОбновитьИзФайла" id="92">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ОбновитьИзФайла</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Обновить из файла...</v8:content>
+											</v8:item>
+										</Title>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="СписокРасширенийОбновитьИзФайлаРасширеннаяПодсказка" id="93"/>
+									</Button>
+									<Button name="СписокРасширенийУдалить" id="60">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.СписокРасширений.StandardCommand.Delete</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Удалить расширение...</v8:content>
+											</v8:item>
+										</Title>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="СписокРасширенийУдалитьРасширеннаяПодсказка" id="61"/>
+									</Button>
+									<ButtonGroup name="КнопкиСписка" id="56">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Кнопки списка</v8:content>
+											</v8:item>
+										</Title>
+										<CommandSource>Item.СписокРасширений</CommandSource>
+										<ExtendedTooltip name="КнопкиСпискаРасширеннаяПодсказка" id="57"/>
+										<ChildItems>
+											<Button name="СписокРасширенийОбновить" id="68">
+												<Type>CommandBarButton</Type>
+												<Representation>Text</Representation>
+												<CommandName>Form.Command.Обновить</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Обновить</v8:content>
+													</v8:item>
+												</Title>
+												<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+												<ExtendedTooltip name="СписокРасширенийОбновитьРасширеннаяПодсказка" id="69"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<Popup name="ПодменюВключитьРасширения" id="242">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Включить/выключить расширения</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Включить/выключить выделенные расширения</v8:content>
+											</v8:item>
+										</ToolTip>
+										<Picture>
+											<xr:Ref>StdPicture.CheckAll</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<Representation>Picture</Representation>
+										<ExtendedTooltip name="ПодменюВключитьРасширенияРасширеннаяПодсказка" id="243"/>
+										<ChildItems>
+											<Button name="ВключитьРасширения" id="246">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ВключитьРасширения</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Включить расширения</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ВключитьРасширенияРасширеннаяПодсказка" id="247"/>
+											</Button>
+											<Button name="ВыключитьРасширения" id="244">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ВыключитьРасширения</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Выключить расширения</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ВыключитьРасширенияРасширеннаяПодсказка" id="245"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+									<Popup name="ПодменюПередаватьВПодчиненныеУзлыРИБ" id="236">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Передавать в подчиненные узлы РИБ</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Включить/выключить передачу в подчиненные узлы РИБ для выделенных расширений</v8:content>
+											</v8:item>
+										</ToolTip>
+										<Picture>
+											<xr:Ref>StdPicture.ExchangePlan</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<Representation>Picture</Representation>
+										<ExtendedTooltip name="ПодменюПередаватьВПодчиненныеУзлыРИБРасширеннаяПодсказка" id="237"/>
+										<ChildItems>
+											<Button name="ВключитьПередачуВПодчиненныеУзлыРИБ" id="238">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ВключитьПередачуВПодчиненныеУзлыРИБ</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Включить передачу в подчиненные узлы РИБ</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ВключитьПередачуВПодчиненныеУзлыРИБРасширеннаяПодсказка" id="239"/>
+											</Button>
+											<Button name="ВыключитьПередачуВПодчиненныеУзлыРИБ" id="240">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ВыключитьПередачуВПодчиненныеУзлыРИБ</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Выключить передачу в подчиненные узлы РИБ</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ВыключитьПередачуВПодчиненныеУзлыРИБРасширеннаяПодсказка" id="241"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+									<Popup name="ПодменюБезопасныйРежим" id="230">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Безопасный режим</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Включить/выключить безопасный режим для выделенных расширений</v8:content>
+											</v8:item>
+										</ToolTip>
+										<Picture>
+											<xr:Ref>CommonPicture.ЗначокЩита</xr:Ref>
+											<xr:LoadTransparent>false</xr:LoadTransparent>
+										</Picture>
+										<Representation>Picture</Representation>
+										<ExtendedTooltip name="ПодменюБезопасныйРежимРасширеннаяПодсказка" id="231"/>
+										<ChildItems>
+											<Button name="ВключитьБезопасныйРежим" id="232">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ВключитьБезопасныйРежим</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Включить безопасный режим</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ВключитьБезопасныйРежимРасширеннаяПодсказка" id="233"/>
+											</Button>
+											<Button name="ВыключитьБезопасныйРежим" id="234">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ВыключитьБезопасныйРежим</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Выключить безопасный режим</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ВыключитьБезопасныйРежимРасширеннаяПодсказка" id="235"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+									<Button name="УстановитьОтветственного" id="262">
+										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
+										<CommandName>Form.Command.УстановитьОтветственного</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Установить ответственного</v8:content>
+											</v8:item>
+										</Title>
+										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="УстановитьОтветственногоРасширеннаяПодсказка" id="263"/>
+									</Button>
+									<Button name="ПроверитьВозможностьПримененияВсехРасширений" id="228">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПроверитьВозможностьПримененияВсехРасширений</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Проверить возможность применения всех расширений</v8:content>
+											</v8:item>
+										</Title>
+										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="ПроверитьВозможностьПримененияВсехРасширенийРасширеннаяПодсказка" id="229"/>
+									</Button>
+									<Button name="ФормаУстановленныеПатчи" id="177">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.УстановленныеПатчи</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Установленные исправления (патчи)</v8:content>
+											</v8:item>
+										</Title>
+										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="ФормаУстановленныеПатчиРасширеннаяПодсказка" id="178"/>
+									</Button>
+									<Button name="ЗапуститьОбновлениеПараметровРаботыРасширенийВФоне" id="159">
+										<Type>CommandBarButton</Type>
+										<UserVisible>
+											<xr:Common>false</xr:Common>
+										</UserVisible>
+										<CommandName>Form.Command.ЗапуститьОбновлениеПараметровРаботыРасширенийВФоне</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Запустить обновление параметров работы расширений в фоне</v8:content>
+											</v8:item>
+										</Title>
+										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="ЗапуститьОбновлениеПараметровРаботыРасширенийВФонеРасширеннаяПодсказка" id="160"/>
+									</Button>
+									<Button name="ПоказатьОшибкиФоновогоОбновленияПараметровРаботыРасширений" id="220">
+										<Type>CommandBarButton</Type>
+										<UserVisible>
+											<xr:Common>false</xr:Common>
+										</UserVisible>
+										<CommandName>Form.Command.ПоказатьСобытияФоновогоОбновленияПараметровРаботыРасширений</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Показать события фонового обновления параметров работы расширений</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ПоказатьОшибкиФоновогоОбновленияПараметровРаботыРасширенийРасширеннаяПодсказка" id="221"/>
+									</Button>
+									<Button name="УдалитьУстаревшиеПараметрыРаботыРасширений" id="131">
+										<Type>CommandBarButton</Type>
+										<UserVisible>
+											<xr:Common>false</xr:Common>
+										</UserVisible>
+										<CommandName>Form.Command.УдалитьУстаревшиеПараметрыРаботыРасширений</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Удалить устаревшие параметры работы расширений</v8:content>
+											</v8:item>
+										</Title>
+										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="УдалитьУстаревшиеПараметрыРаботыРасширенийРасширеннаяПодсказка" id="132"/>
+									</Button>
+									<SearchStringAddition name="СтрокаПоиск" id="225">
+										<AdditionSource>
+											<Item>СписокРасширений</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Поиск</v8:content>
+											</v8:item>
+										</Title>
+										<ContextMenu name="СтрокаПоискКонтекстноеМеню" id="226"/>
+										<ExtendedTooltip name="СтрокаПоискРасширеннаяПодсказка" id="227"/>
+									</SearchStringAddition>
+								</ChildItems>
+							</AutoCommandBar>
 							<ExtendedTooltip name="СписокРасширенийРасширеннаяПодсказка" id="22"/>
 							<SearchStringAddition name="СписокРасширенийСтрокаПоиска" id="23">
 								<AdditionSource>
@@ -598,33 +498,6 @@
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СписокРасширенийПолученоИзГлавногоУзлаРИБКонтекстноеМеню" id="172"/>
 									<ExtendedTooltip name="СписокРасширенийПолученоИзГлавногоУзлаРИБРасширеннаяПодсказка" id="173"/>
-								</CheckBoxField>
-								<CheckBoxField name="СписокРасширенийПодключать" id="174">
-									<DataPath>СписокРасширений.Подключать</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Подключать</v8:content>
-										</v8:item>
-									</Title>
-									<TitleLocation>None</TitleLocation>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Подключать расширение при входе в приложение</v8:content>
-										</v8:item>
-									</ToolTip>
-									<EditMode>EnterOnInput</EditMode>
-									<HeaderPicture>
-										<xr:Ref>StdPicture.CheckAll</xr:Ref>
-										<xr:LoadTransparent>true</xr:LoadTransparent>
-									</HeaderPicture>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="СписокРасширенийПодключатьКонтекстноеМеню" id="175"/>
-									<ExtendedTooltip name="СписокРасширенийПодключатьРасширеннаяПодсказка" id="176"/>
-									<Events>
-										<Event name="OnChange">СписокРасширенийПодключатьПриИзменении</Event>
-									</Events>
 								</CheckBoxField>
 								<ColumnGroup name="СписокРасширенийНаименование" id="140">
 									<Title>
@@ -707,6 +580,34 @@
 									<ContextMenu name="СписокРасширенийНазначениеКонтекстноеМеню" id="157"/>
 									<ExtendedTooltip name="СписокРасширенийНазначениеРасширеннаяПодсказка" id="158"/>
 								</InputField>
+								<CheckBoxField name="СписокРасширенийПодключать" id="174">
+									<DataPath>СписокРасширений.Подключать</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Подключать</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Подключать расширение при входе в приложение</v8:content>
+										</v8:item>
+									</ToolTip>
+									<EditMode>EnterOnInput</EditMode>
+									<HeaderPicture>
+										<xr:Ref>StdPicture.CheckAll</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>ByData</AutoWidthInTable>
+									<ContextMenu name="СписокРасширенийПодключатьКонтекстноеМеню" id="175"/>
+									<ExtendedTooltip name="СписокРасширенийПодключатьРасширеннаяПодсказка" id="176"/>
+									<Events>
+										<Event name="OnChange">СписокРасширенийПодключатьПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
 								<CheckBoxField name="СписокРасширенийПередаватьВПодчиненныеУзлыРИБ" id="165">
 									<DataPath>СписокРасширений.ПередаватьВПодчиненныеУзлыРИБ</DataPath>
 									<Title>
@@ -728,6 +629,7 @@
 										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</HeaderPicture>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>ByData</AutoWidthInTable>
 									<ContextMenu name="СписокРасширенийПередаватьВПодчиненныеУзлыРИБКонтекстноеМеню" id="166"/>
 									<ExtendedTooltip name="СписокРасширенийПередаватьВПодчиненныеУзлыРИБРасширеннаяПодсказка" id="167"/>
 									<Events>
@@ -766,6 +668,7 @@
 												<xr:LoadTransparent>false</xr:LoadTransparent>
 											</HeaderPicture>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>ByData</AutoWidthInTable>
 											<ContextMenu name="СписокРасширенийБезопасныйРежимФлагКонтекстноеМеню" id="51"/>
 											<ExtendedTooltip name="СписокРасширенийБезопасныйРежимФлагРасширеннаяПодсказка" id="52"/>
 											<Events>
@@ -855,7 +758,6 @@
 									</ToolTip>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
-									<Width>45</Width>
 									<ContextMenu name="СписокРасширенийОтветственныйКонтекстноеМеню" id="257"/>
 									<ExtendedTooltip name="СписокРасширенийОтветственныйРасширеннаяПодсказка" id="258"/>
 									<Events>
@@ -925,6 +827,7 @@
 												</v8:item>
 											</Title>
 											<Group>AlwaysHorizontal</Group>
+											<HorizontalSpacing>Half</HorizontalSpacing>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
@@ -965,6 +868,7 @@
 												</v8:item>
 											</Title>
 											<Group>AlwaysHorizontal</Group>
+											<HorizontalSpacing>Half</HorizontalSpacing>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
@@ -1005,6 +909,7 @@
 												</v8:item>
 											</Title>
 											<Group>AlwaysHorizontal</Group>
+											<HorizontalSpacing>Half</HorizontalSpacing>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
@@ -1046,6 +951,8 @@
 								<InputField name="СписокРасширенийКомментарий" id="248">
 									<DataPath>Items.СписокРасширений.CurrentData.Комментарий</DataPath>
 									<TitleLocation>Top</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<VerticalStretch>false</VerticalStretch>
 									<MultiLine>true</MultiLine>
@@ -1067,6 +974,7 @@
 						</v8:item>
 					</Title>
 					<Group>AlwaysHorizontal</Group>
+					<VerticalAlign>Center</VerticalAlign>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаДлительнаяОперацияРасширеннаяПодсказка" id="104"/>
 					<ChildItems>
@@ -1380,7 +1288,9 @@
 			</Picture>
 			<Action>ОбновитьИзФайлаНаДиске</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокРасширений</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="СохранитьКак" id="2">
 			<Title>
@@ -1392,7 +1302,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить как</v8:content>
+					<v8:content>Сохранить как...</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
@@ -1400,7 +1310,9 @@
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<Action>СохранитьКак</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокРасширений</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="Обновить" id="3">
 			<Title>
@@ -1448,7 +1360,7 @@
 			</ToolTip>
 			<Picture>
 				<xr:Ref>CommonPicture.ВыполнитьРегламентноеЗаданиеВручную</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<Action>ЗапуститьОбновлениеПараметровРаботыРасширенийВФоне</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
@@ -1517,6 +1429,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ВключитьБезопасныйРежим</Action>
+			<AssociatedTableElementId xsi:type="xs:string">СписокРасширений</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ВыключитьБезопасныйРежим" id="10">
 			<Title>
@@ -1532,6 +1446,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ВыключитьБезопасныйРежим</Action>
+			<AssociatedTableElementId xsi:type="xs:string">СписокРасширений</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ВключитьПередачуВПодчиненныеУзлыРИБ" id="11">
 			<Title>
@@ -1547,6 +1463,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ВключитьПередачуВПодчиненныеУзлыРИБ</Action>
+			<AssociatedTableElementId xsi:type="xs:string">СписокРасширений</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ВыключитьПередачуВПодчиненныеУзлыРИБ" id="12">
 			<Title>
@@ -1562,6 +1480,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ВыключитьПередачуВПодчиненныеУзлыРИБ</Action>
+			<AssociatedTableElementId xsi:type="xs:string">СписокРасширений</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ВключитьРасширения" id="13">
 			<Title>
@@ -1577,6 +1497,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ВключитьРасширения</Action>
+			<AssociatedTableElementId xsi:type="xs:string">СписокРасширений</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ВыключитьРасширения" id="14">
 			<Title>
@@ -1592,6 +1514,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ВыключитьРасширения</Action>
+			<AssociatedTableElementId xsi:type="xs:string">СписокРасширений</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="УстановитьОтветственного" id="15">
 			<Title>
@@ -1603,10 +1527,16 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Установить ответственного для выделенных расширений</v8:content>
+					<v8:content>Установить ответственного</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.User</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>УстановитьОтветственного</Action>
+			<AssociatedTableElementId xsi:type="xs:string">СписокРасширений</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 </Form>

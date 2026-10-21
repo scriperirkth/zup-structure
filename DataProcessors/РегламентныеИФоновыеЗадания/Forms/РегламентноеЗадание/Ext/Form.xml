@@ -9,6 +9,7 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<CommandBarLocation>Top</CommandBarLocation>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
@@ -21,6 +22,7 @@
 		<ExcludedCommand>SaveValues</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ЗаписатьИЗакрыть" id="17">
@@ -76,7 +78,7 @@
 							<v8:content>Включение и расписание</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -97,6 +99,9 @@
 									<v8:content>Включено - выполнять задание.</v8:content>
 								</v8:item>
 							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>Switcher</CheckBoxType>
 							<ContextMenu name="ИспользованиеКонтекстноеМеню" id="10"/>
 							<ExtendedTooltip name="ИспользованиеРасширеннаяПодсказка" id="51"/>
 						</CheckBoxField>
@@ -127,6 +132,8 @@
 							<v8:content>Пользовательское представление регламентного задания</v8:content>
 						</v8:item>
 					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="8"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="52"/>
@@ -143,7 +150,7 @@
 					<v8:content>Действия при ошибках</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -154,11 +161,11 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>При ошибках повторять</v8:content>
+							<v8:content>Повторов при ошибке</v8:content>
 						</v8:item>
 					</Title>
-					<TitleHeight>2</TitleHeight>
-					<Width>5</Width>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<SpinButton>true</SpinButton>
 					<ContextMenu name="КоличествоПовторовПриАварийномЗавершенииКонтекстноеМеню" id="14"/>
@@ -169,26 +176,17 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>раз  через</v8:content>
+							<v8:content>Интервал повтора при ошибке, секунд</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>7</Width>
 					<Wrap>false</Wrap>
 					<SpinButton>true</SpinButton>
 					<ContextMenu name="ИнтервалПовтораПриАварийномЗавершенииКонтекстноеМеню" id="12"/>
 					<ExtendedTooltip name="ИнтервалПовтораПриАварийномЗавершенииРасширеннаяПодсказка" id="58"/>
 				</InputField>
-				<LabelDecoration name="ДекорацияСекунд" id="45">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>секунд</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ДекорацияСекундКонтекстноеМеню" id="46"/>
-					<ExtendedTooltip name="ДекорацияСекундРасширеннаяПодсказка" id="59"/>
-				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="Дополнительно" id="25">
@@ -218,6 +216,8 @@
 							<v8:content>Имя пользователя информационной базы для выполнения фонового задания (имеет смысл только для серверной информационной базы)</v8:content>
 						</v8:item>
 					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ClearButton>true</ClearButton>
 					<ListChoiceMode>true</ListChoiceMode>
@@ -240,6 +240,8 @@
 							<v8:content>Ключ</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ContextMenu name="КлючКонтекстноеМеню" id="6"/>
 					<ExtendedTooltip name="КлючРасширеннаяПодсказка" id="63"/>
@@ -261,7 +263,6 @@
 			<ChildItems>
 				<InputField name="СообщенияИОписаниеИнформацииОбОшибке" id="27">
 					<DataPath>СообщенияПользователюИОписаниеИнформацииОбОшибке</DataPath>
-					<ReadOnly>true</ReadOnly>
 					<SkipOnInput>true</SkipOnInput>
 					<Title>
 						<v8:item>
@@ -269,11 +270,13 @@
 							<v8:content>Сообщения или информация об ошибке регламентного задания</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<Height>5</Height>
 					<HorizontalStretch>true</HorizontalStretch>
 					<MultiLine>true</MultiLine>
-					<OpenButton>true</OpenButton>
+					<TextEdit>false</TextEdit>
 					<InputHint>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -296,7 +299,6 @@
 			<Behavior>Collapsible</Behavior>
 			<Collapsed>true</Collapsed>
 			<ControlRepresentation>Button</ControlRepresentation>
-			<Representation>NormalSeparation</Representation>
 			<ThroughAlign>Use</ThroughAlign>
 			<ExtendedTooltip name="ТехническаяИнформацияРасширеннаяПодсказка" id="65"/>
 			<ChildItems>
@@ -319,10 +321,12 @@
 которое нельзя удалить.</v8:content>
 						</v8:item>
 					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПредопределенноеКонтекстноеМеню" id="39"/>
 					<ExtendedTooltip name="ПредопределенноеРасширеннаяПодсказка" id="61"/>
 				</CheckBoxField>
-				<InputField name="ИмяМетаданных" id="19">
+				<LabelField name="ИмяМетаданных" id="19">
 					<DataPath>ИмяМетаданных</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -331,11 +335,13 @@
 							<v8:content>Имя</v8:content>
 						</v8:item>
 					</Title>
-					<Wrap>false</Wrap>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<UseCopy>true</UseCopy>
 					<ContextMenu name="ИмяМетаданныхКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ИмяМетаданныхРасширеннаяПодсказка" id="66"/>
-				</InputField>
-				<InputField name="СинонимМетаданных" id="21">
+				</LabelField>
+				<LabelField name="СинонимМетаданных" id="21">
 					<DataPath>СинонимМетаданных</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<SkipOnInput>true</SkipOnInput>
@@ -345,11 +351,13 @@
 							<v8:content>Синоним</v8:content>
 						</v8:item>
 					</Title>
-					<Wrap>false</Wrap>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<UseCopy>true</UseCopy>
 					<ContextMenu name="СинонимМетаданныхКонтекстноеМеню" id="22"/>
 					<ExtendedTooltip name="СинонимМетаданныхРасширеннаяПодсказка" id="67"/>
-				</InputField>
-				<InputField name="ИмяМетодаМетаданных" id="23">
+				</LabelField>
+				<LabelField name="ИмяМетодаМетаданных" id="23">
 					<DataPath>ИмяМетодаМетаданных</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -358,11 +366,13 @@
 							<v8:content>Имя метода</v8:content>
 						</v8:item>
 					</Title>
-					<Wrap>false</Wrap>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<UseCopy>true</UseCopy>
 					<ContextMenu name="ИмяМетодаМетаданныхКонтекстноеМеню" id="24"/>
 					<ExtendedTooltip name="ИмяМетодаМетаданныхРасширеннаяПодсказка" id="68"/>
-				</InputField>
-				<InputField name="Идентификатор" id="1">
+				</LabelField>
+				<LabelField name="Идентификатор" id="1">
 					<DataPath>Идентификатор</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -371,10 +381,12 @@
 							<v8:content>Идентификатор</v8:content>
 						</v8:item>
 					</Title>
-					<Wrap>false</Wrap>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<UseCopy>true</UseCopy>
 					<ContextMenu name="ИдентификаторКонтекстноеМеню" id="2"/>
 					<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="62"/>
-				</InputField>
+				</LabelField>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -600,6 +612,7 @@
 			<Action>ЗаписатьИЗакрытьВыполнить</Action>
 			<Representation>Text</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="НастроитьРасписание" id="1">
 			<Title>
@@ -642,6 +655,7 @@
 			<Action>Записать</Action>
 			<Representation>Text</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

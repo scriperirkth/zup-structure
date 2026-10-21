@@ -27,7 +27,6 @@
 		</UsualGroup>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<SkipOnInput>false</SkipOnInput>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
@@ -43,8 +42,10 @@
 				</v8:item>
 			</Title>
 			<CommandSet>
+				<ExcludedCommand>Copy</ExcludedCommand>
 				<ExcludedCommand>Create</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -61,9 +62,7 @@
 			<UserSettingsGroup>ГруппаПользовательскихНастроек</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
-			</AutoCommandBar>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="14"/>
 			<SearchStringAddition name="СписокSearchString" id="25">
 				<AdditionSource>
@@ -92,10 +91,13 @@
 			<Events>
 				<Event name="BeforeAddRow">СписокПередНачаломДобавления</Event>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
+				<Event name="OnHover">СписокПриНаведении</Event>
 			</Events>
 			<ChildItems>
 				<LabelField name="Номер" id="6">
 					<DataPath>Список.Номер</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>14</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="НомерКонтекстноеМеню" id="7"/>
@@ -104,6 +106,8 @@
 				<LabelField name="Дата" id="4">
 					<DataPath>Список.Дата</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>9</Width>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="15"/>
@@ -116,6 +120,8 @@
 							<v8:content>Режим</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>10</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="РежимАнкетированияКонтекстноеМеню" id="35"/>
@@ -129,6 +135,8 @@
 							<v8:content>Шаблон</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>25</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="ШаблонАнкетыКонтекстноеМеню" id="38"/>
@@ -136,6 +144,8 @@
 				</LabelField>
 				<LabelField name="Опрос" id="8">
 					<DataPath>Список.Опрос</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>25</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="ОпросКонтекстноеМеню" id="9"/>
@@ -143,6 +153,8 @@
 				</LabelField>
 				<LabelField name="Респондент" id="10">
 					<DataPath>Список.Респондент</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>20</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="РеспондентКонтекстноеМеню" id="11"/>
@@ -153,6 +165,8 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаРедактированияКонтекстноеМеню" id="13"/>
 					<ExtendedTooltip name="ДатаРедактированияРасширеннаяПодсказка" id="19"/>
 				</LabelField>
@@ -161,6 +175,8 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="22"/>
 				</LabelField>

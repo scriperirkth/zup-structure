@@ -3,18 +3,41 @@
 	<Title>
 		<v8:item>
 			<v8:lang>ru</v8:lang>
-			<v8:content>Добавление пользователя</v8:content>
+			<v8:content>Добавление пользователя сервиса</v8:content>
 		</v8:item>
 	</Title>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<AutoURL>false</AutoURL>
-	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+		<ExcludedCommand>Help</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>OpenFromMainServer</ExcludedCommand>
+		<ExcludedCommand>OpenFromStandaloneServer</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+	</CommandSet>
+	<ShowTitle>true</ShowTitle>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаГотово" id="21">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Добавить</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаГотовоРасширеннаяПодсказка" id="22"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -34,74 +57,6 @@
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ЛеваяПанельРасширеннаяПодсказка" id="54"/>
-					<ChildItems>
-						<UsualGroup name="ОсновныеСведения" id="49">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Основные сведения</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>NormalSeparation</Representation>
-							<ExtendedTooltip name="ОсновныеСведенияРасширеннаяПодсказка" id="50"/>
-							<ChildItems>
-								<InputField name="ПолноеИмя" id="1">
-									<DataPath>ПолноеИмя</DataPath>
-									<ContextMenu name="ПолноеИмяКонтекстноеМеню" id="2"/>
-									<ExtendedTooltip name="ПолноеИмяРасширеннаяПодсказка" id="3"/>
-								</InputField>
-								<InputField name="Почта" id="4">
-									<DataPath>Почта</DataPath>
-									<ContextMenu name="ПочтаКонтекстноеМеню" id="5"/>
-									<ExtendedTooltip name="ПочтаРасширеннаяПодсказка" id="6"/>
-									<Events>
-										<Event name="OnChange">ПочтаПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="Логин" id="7">
-									<DataPath>Логин</DataPath>
-									<ContextMenu name="ЛогинКонтекстноеМеню" id="8"/>
-									<ExtendedTooltip name="ЛогинРасширеннаяПодсказка" id="9"/>
-								</InputField>
-								<UsualGroup name="ГруппаПароль" id="72">
-									<Group>HorizontalIfPossible</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаПарольРасширеннаяПодсказка" id="73"/>
-									<ChildItems>
-										<InputField name="ПарольЗакрытый" id="57">
-											<DataPath>Пароль</DataPath>
-											<PasswordMode>true</PasswordMode>
-											<ChoiceButton>true</ChoiceButton>
-											<ContextMenu name="ПарольЗакрытыйКонтекстноеМеню" id="58"/>
-											<ExtendedTooltip name="ПарольЗакрытыйРасширеннаяПодсказка" id="59"/>
-											<Events>
-												<Event name="StartChoice">ПарольНачалоВыбора</Event>
-											</Events>
-										</InputField>
-										<InputField name="ПарольОткрытый" id="74">
-											<DataPath>Пароль</DataPath>
-											<Visible>false</Visible>
-											<ChoiceButton>true</ChoiceButton>
-											<ContextMenu name="ПарольОткрытыйКонтекстноеМеню" id="75"/>
-											<ExtendedTooltip name="ПарольОткрытыйРасширеннаяПодсказка" id="76"/>
-											<Events>
-												<Event name="StartChoice">ПарольОткрытыйНачалоВыбора</Event>
-											</Events>
-										</InputField>
-									</ChildItems>
-								</UsualGroup>
-								<InputField name="Телефон" id="13">
-									<DataPath>Телефон</DataPath>
-									<ContextMenu name="ТелефонКонтекстноеМеню" id="14"/>
-									<ExtendedTooltip name="ТелефонРасширеннаяПодсказка" id="15"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="ПраваяПанель" id="55">
 					<Group>Vertical</Group>
@@ -109,150 +64,153 @@
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ПраваяПанельРасширеннаяПодсказка" id="56"/>
-					<ChildItems>
-						<UsualGroup name="РолиПользователя" id="19">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Роль пользователя</v8:content>
-								</v8:item>
-							</Title>
-							<Group>HorizontalIfPossible</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>NormalSeparation</Representation>
-							<ExtendedTooltip name="РолиПользователяРасширеннаяПодсказка" id="20"/>
-							<ChildItems>
-								<RadioButtonField name="РольПользователя" id="16">
-									<DataPath>РольПользователя</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<RadioButtonType>Auto</RadioButtonType>
-									<ColumnsCount>1</ColumnsCount>
-									<ChoiceList>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Владелец абонента</v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:string">owner</Value>
-											</xr:Value>
-										</xr:Item>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Администратор абонента</v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:string">administrator</Value>
-											</xr:Value>
-										</xr:Item>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Пользователь абонента</v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:string">user</Value>
-											</xr:Value>
-										</xr:Item>
-									</ChoiceList>
-									<ContextMenu name="РольПользователяКонтекстноеМеню" id="17"/>
-									<ExtendedTooltip name="РольПользователяРасширеннаяПодсказка" id="18"/>
-								</RadioButtonField>
-							</ChildItems>
-						</UsualGroup>
-					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="Подвал" id="60">
+		<UsualGroup name="ОсновныеСведения" id="49">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Подвал</v8:content>
+					<v8:content>Основные сведения</v8:content>
 				</v8:item>
 			</Title>
-			<HorizontalStretch>true</HorizontalStretch>
-			<Group>HorizontalIfPossible</Group>
-			<HorizontalAlign>Right</HorizontalAlign>
+			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ПодвалРасширеннаяПодсказка" id="61"/>
+			<ExtendedTooltip name="ОсновныеСведенияРасширеннаяПодсказка" id="50"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаКартинки" id="70">
-					<Visible>false</Visible>
-					<Group>HorizontalIfPossible</Group>
+				<InputField name="ПолноеИмя" id="1">
+					<DataPath>ПолноеИмя</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ПолноеИмяКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ПолноеИмяРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Почта" id="4">
+					<DataPath>Почта</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ПочтаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ПочтаРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="OnChange">ПочтаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Логин" id="7">
+					<DataPath>Логин</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ЛогинКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ЛогинРасширеннаяПодсказка" id="9"/>
+				</InputField>
+				<UsualGroup name="ГруппаПароль" id="72">
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаКартинкиРасширеннаяПодсказка" id="71"/>
+					<ExtendedTooltip name="ГруппаПарольРасширеннаяПодсказка" id="73"/>
 					<ChildItems>
-						<PictureDecoration name="КартинкаЗакрыто" id="67">
-							<Width>2</Width>
-							<Height>1</Height>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Картинка закрыто</v8:content>
-								</v8:item>
-							</Title>
-							<Picture>
-								<xr:Abs>Picture.png</xr:Abs>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
-							</Picture>
-							<ContextMenu name="КартинкаЗакрытоКонтекстноеМеню" id="68"/>
-							<ExtendedTooltip name="КартинкаЗакрытоРасширеннаяПодсказка" id="69"/>
-						</PictureDecoration>
-						<PictureDecoration name="КартинкаОткрыто" id="64">
-							<Width>2</Width>
-							<Height>1</Height>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Картинка открыто</v8:content>
-								</v8:item>
-							</Title>
-							<Picture>
-								<xr:Abs>Picture.png</xr:Abs>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
-							</Picture>
-							<ContextMenu name="КартинкаОткрытоКонтекстноеМеню" id="65"/>
-							<ExtendedTooltip name="КартинкаОткрытоРасширеннаяПодсказка" id="66"/>
-						</PictureDecoration>
+						<InputField name="ПарольЗакрытый" id="57">
+							<DataPath>Пароль</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<PasswordMode>true</PasswordMode>
+							<ChoiceButton>true</ChoiceButton>
+							<ContextMenu name="ПарольЗакрытыйКонтекстноеМеню" id="58"/>
+							<ExtendedTooltip name="ПарольЗакрытыйРасширеннаяПодсказка" id="59"/>
+							<Events>
+								<Event name="StartChoice">ПарольНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПарольОткрытый" id="74">
+							<DataPath>Пароль</DataPath>
+							<Visible>false</Visible>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ChoiceButton>true</ChoiceButton>
+							<ContextMenu name="ПарольОткрытыйКонтекстноеМеню" id="75"/>
+							<ExtendedTooltip name="ПарольОткрытыйРасширеннаяПодсказка" id="76"/>
+							<Events>
+								<Event name="StartChoice">ПарольОткрытыйНачалоВыбора</Event>
+							</Events>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
-				<CommandBar name="Действия" id="62">
-					<HorizontalStretch>false</HorizontalStretch>
-					<HorizontalLocation>Right</HorizontalLocation>
-					<ExtendedTooltip name="ДействияРасширеннаяПодсказка" id="63"/>
-					<ChildItems>
-						<Button name="ФормаГотово" id="21">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<CommandName>Form.Command.Готово</CommandName>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ФормаГотовоРасширеннаяПодсказка" id="22"/>
-						</Button>
-						<Button name="ФормаОтмена" id="23">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.Отмена</CommandName>
-							<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="24"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
+				<InputField name="Телефон" id="13">
+					<DataPath>Телефон</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ТелефонКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ТелефонРасширеннаяПодсказка" id="15"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="РолиПользователя" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Роль пользователя</v8:content>
+				</v8:item>
+			</Title>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="РолиПользователяРасширеннаяПодсказка" id="20"/>
+			<ChildItems>
+				<RadioButtonField name="РольПользователя" id="16">
+					<DataPath>РольПользователя</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Роль пользователя абонента</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<RadioButtonType>Tumbler</RadioButtonType>
+					<ColumnsCount>1</ColumnsCount>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Владелец</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">owner</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Администратор</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">administrator</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Пользователь</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">user</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="РольПользователяКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="РольПользователяРасширеннаяПодсказка" id="18"/>
+				</RadioButtonField>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -459,35 +417,21 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Готово" id="1">
+		<Command name="Добавить" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Готово</v8:content>
+					<v8:content>Добавить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Готово</v8:content>
+					<v8:content>Добавить</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>Готово</Action>
-		</Command>
-		<Command name="Отмена" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Отмена</Action>
+			<Action>Добавить</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

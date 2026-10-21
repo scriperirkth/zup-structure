@@ -13,6 +13,23 @@
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВыбрать" id="8">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаВыбратьExtendedTooltip" id="64"/>
+			</Button>
+			<Button name="СписокСоздать" id="155">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<CommandName>Form.Item.Список.StandardCommand.Create</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="СписокСоздатьРасширеннаяПодсказка" id="156"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -43,6 +60,7 @@
 				<InputField name="ОтборОрганизация" id="91">
 					<DataPath>ОтборОрганизация</DataPath>
 					<ReadOnly>true</ReadOnly>
+					<TitleLocation>Left</TitleLocation>
 					<Width>22</Width>
 					<ChoiceButton>false</ChoiceButton>
 					<OpenButton>false</OpenButton>
@@ -53,6 +71,7 @@
 			</ChildItems>
 		</UsualGroup>
 		<Table name="Список" id="107">
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<EnableStartDrag>true</EnableStartDrag>
 			<FileDragMode>AsFile</FileDragMode>
@@ -76,21 +95,6 @@
 			<AutoCommandBar name="СписокКоманднаяПанель" id="109">
 				<Autofill>false</Autofill>
 				<ChildItems>
-					<Button name="ФормаВыбрать" id="8">
-						<Type>CommandBarButton</Type>
-						<Representation>Text</Representation>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.Выбрать</CommandName>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ФормаВыбратьExtendedTooltip" id="64"/>
-					</Button>
-					<Button name="СписокСоздать" id="155">
-						<Type>CommandBarButton</Type>
-						<Representation>Text</Representation>
-						<CommandName>Form.Item.Список.StandardCommand.Create</CommandName>
-						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="СписокСоздатьРасширеннаяПодсказка" id="156"/>
-					</Button>
 					<Button name="СписокСкопировать" id="149">
 						<Type>CommandBarButton</Type>
 						<Representation>Picture</Representation>
@@ -345,6 +349,7 @@
 			<Action>Выбрать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="СоздатьЭлемент" id="10">
 			<Title>

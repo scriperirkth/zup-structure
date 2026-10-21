@@ -28,6 +28,17 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаВыполнитьДействиеРасширеннаяПодсказка" id="41"/>
 			</Button>
+			<Button name="ФормаНапомнитьЗавтра" id="55">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.НапомнитьЗавтра</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Напомнить завтра</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаНапомнитьЗавтраРасширеннаяПодсказка" id="56"/>
+			</Button>
 			<Button name="ФормаБольшеНеПоказывать" id="8">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.БольшеНеНапоминать</CommandName>
@@ -60,8 +71,6 @@
 			<ExtendedTooltip name="СодержимоеРасширеннаяПодсказка" id="14"/>
 			<ChildItems>
 				<PictureDecoration name="Картинка" id="10">
-					<Width>4</Width>
-					<Height>2</Height>
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -98,7 +107,6 @@
 							</Title>
 							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
-							<Representation>NormalSeparation</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаТекстРасширеннаяПодсказка" id="19"/>
 							<ChildItems>
@@ -128,8 +136,7 @@
 									<v8:content>Варианты действия</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Vertical</Group>
-							<Representation>None</Representation>
+							<Group>AutoScreenTypeSensitive</Group>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаВариантыДействияРасширеннаяПодсказка" id="25"/>
 							<ChildItems>
@@ -138,11 +145,12 @@
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Вариант действия</v8:content>
+											<v8:content>Применить исправление</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>None</TitleLocation>
-									<RadioButtonType>Auto</RadioButtonType>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<RadioButtonType>Tumbler</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
 											<xr:Presentation/>
@@ -151,10 +159,23 @@
 												<Presentation>
 													<v8:item>
 														<v8:lang>ru</v8:lang>
-														<v8:content>Применить исправление прямо сейчас (потребуется перезапуск)</v8:content>
+														<v8:content>Прямо сейчас</v8:content>
 													</v8:item>
 												</Presentation>
 												<Value xsi:type="xs:decimal">0</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>В указанное время</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">1</Value>
 											</xr:Value>
 										</xr:Item>
 									</ChoiceList>
@@ -164,51 +185,21 @@
 										<Event name="OnChange">ВариантПерезапускПриИзменении</Event>
 									</Events>
 								</RadioButtonField>
-								<UsualGroup name="ГруппаЗапланировать" id="35">
+								<UsualGroup name="ГруппаПримечание" id="47">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Запланировать</v8:content>
+											<v8:content>Примечание</v8:content>
 										</v8:item>
 									</Title>
-									<Group>AlwaysHorizontal</Group>
+									<VerticalAlign>Center</VerticalAlign>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаЗапланироватьРасширеннаяПодсказка" id="36"/>
+									<ExtendedTooltip name="ГруппаПримечаниеРасширеннаяПодсказка" id="48"/>
 									<ChildItems>
-										<RadioButtonField name="ВариантЗапланировать" id="29">
-											<DataPath>ВариантДействия</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Вариант действия</v8:content>
-												</v8:item>
-											</Title>
-											<TitleLocation>None</TitleLocation>
-											<RadioButtonType>Auto</RadioButtonType>
-											<ChoiceList>
-												<xr:Item>
-													<xr:Presentation/>
-													<xr:CheckState>0</xr:CheckState>
-													<xr:Value xsi:type="FormChoiceListDesTimeValue">
-														<Presentation>
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>Запланировать перезапуск на указанное время:</v8:content>
-															</v8:item>
-														</Presentation>
-														<Value xsi:type="xs:decimal">1</Value>
-													</xr:Value>
-												</xr:Item>
-											</ChoiceList>
-											<ContextMenu name="ВариантЗапланироватьКонтекстноеМеню" id="30"/>
-											<ExtendedTooltip name="ВариантЗапланироватьРасширеннаяПодсказка" id="31"/>
-											<Events>
-												<Event name="OnChange">ВариантЗапланироватьПриИзменении</Event>
-											</Events>
-										</RadioButtonField>
 										<InputField name="ВремяПерезапуска" id="37">
 											<DataPath>ВремяПерезапуска</DataPath>
+											<Visible>false</Visible>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -216,9 +207,10 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<Width>4</Width>
-											<ChoiceButton>false</ChoiceButton>
-											<SpinButton>true</SpinButton>
+											<ChoiceButton>true</ChoiceButton>
 											<EditFormat>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -230,37 +222,6 @@
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
-								<RadioButtonField name="ВариантНапомнитьЗавтра" id="32">
-									<DataPath>ВариантДействия</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Вариант действия</v8:content>
-										</v8:item>
-									</Title>
-									<TitleLocation>None</TitleLocation>
-									<RadioButtonType>Auto</RadioButtonType>
-									<ChoiceList>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Напомнить завтра</v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:decimal">2</Value>
-											</xr:Value>
-										</xr:Item>
-									</ChoiceList>
-									<ContextMenu name="ВариантНапомнитьЗавтраКонтекстноеМеню" id="33"/>
-									<ExtendedTooltip name="ВариантНапомнитьЗавтраРасширеннаяПодсказка" id="34"/>
-									<Events>
-										<Event name="OnChange">ВариантНапомнитьЗавтраПриИзменении</Event>
-									</Events>
-								</RadioButtonField>
 							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="ГруппаРасписание" id="20">
@@ -272,7 +233,6 @@
 							</Title>
 							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
-							<Representation>NormalSeparation</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаРасписаниеРасширеннаяПодсказка" id="21"/>
 							<ChildItems>
@@ -284,6 +244,8 @@
 											<v8:content>Напоминать о новых исправлениях</v8:content>
 										</v8:item>
 									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<Hiperlink>true</Hiperlink>
 									<ContextMenu name="РасписаниеКонтекстноеМеню" id="16"/>
 									<ExtendedTooltip name="РасписаниеРасширеннаяПодсказка" id="17"/>
@@ -388,6 +350,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>БольшеНеНапоминать</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ВыполнитьДействие" id="4">
 			<Title>
@@ -397,6 +360,23 @@
 				</v8:item>
 			</Title>
 			<Action>ВыполнитьДействие</Action>
+			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="НапомнитьЗавтра" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Напомнить завтра</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Напомнить завтра</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НапомнитьЗавтра</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

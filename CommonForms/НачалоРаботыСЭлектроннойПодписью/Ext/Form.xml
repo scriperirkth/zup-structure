@@ -2,10 +2,27 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<Width>60</Width>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
-	<Group>AlwaysHorizontal</Group>
+	<Group>AutoScreenTypeSensitive</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ПродолжитьРаботу" id="77">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<DefaultButton>true</DefaultButton>
+				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+				<CommandName>Form.Command.ПродолжитьРаботу</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Продолжить работу</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ПродолжитьРаботуРасширеннаяПодсказка" id="78"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -105,6 +122,7 @@
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
+									<VerticalSpacing>Half</VerticalSpacing>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаПроверкиРасширеннаяПодсказка" id="30"/>
@@ -117,6 +135,7 @@
 												</v8:item>
 											</Title>
 											<Group>AlwaysHorizontal</Group>
+											<VerticalSpacing>Half</VerticalSpacing>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
 											<ExtendedTooltip name="ГруппаПроверкаУстановкиРасширения1СРасширеннаяПодсказка" id="32"/>
@@ -130,9 +149,11 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
-													<GroupVerticalAlign>Top</GroupVerticalAlign>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<HorizontalStretch>false</HorizontalStretch>
 													<VerticalStretch>false</VerticalStretch>
+													<PictureSize>Proportionally</PictureSize>
 													<ValuesPicture>
 														<xr:Ref>CommonPicture.СостоянияУстановкиКомпонентДляРаботыСЭП</xr:Ref>
 														<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -143,30 +164,17 @@
 													<ContextMenu name="Расширение1СУстановленоКонтекстноеМеню" id="34"/>
 													<ExtendedTooltip name="Расширение1СУстановленоРасширеннаяПодсказка" id="35"/>
 												</PictureField>
-												<UsualGroup name="ГруппаПроверкаУстановкиРасширения1СПояснение" id="36">
-													<Title>
+												<LabelDecoration name="ДекорацияРасширение1СУстановлено" id="38">
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Группа проверка установки расширения 1С</v8:content>
+															<v8:content>Расширение для работы с 1С:Предприятием установлено</v8:content>
 														</v8:item>
 													</Title>
-													<Group>Vertical</Group>
-													<Representation>None</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаПроверкаУстановкиРасширения1СПояснениеРасширеннаяПодсказка" id="37"/>
-													<ChildItems>
-														<LabelDecoration name="ДекорацияРасширение1СУстановлено" id="38">
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Расширение для работы с 1С:Предприятием установлено</v8:content>
-																</v8:item>
-															</Title>
-															<ContextMenu name="ДекорацияРасширение1СУстановленоКонтекстноеМеню" id="39"/>
-															<ExtendedTooltip name="ДекорацияРасширение1СУстановленоРасширеннаяПодсказка" id="40"/>
-														</LabelDecoration>
-													</ChildItems>
-												</UsualGroup>
+													<ContextMenu name="ДекорацияРасширение1СУстановленоКонтекстноеМеню" id="39"/>
+													<ExtendedTooltip name="ДекорацияРасширение1СУстановленоРасширеннаяПодсказка" id="40"/>
+												</LabelDecoration>
 											</ChildItems>
 										</UsualGroup>
 										<UsualGroup name="ГруппаПроверкаУстановкиРасширенияЭП" id="44">
@@ -177,6 +185,7 @@
 												</v8:item>
 											</Title>
 											<Group>AlwaysHorizontal</Group>
+											<VerticalSpacing>Half</VerticalSpacing>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
 											<ExtendedTooltip name="ГруппаПроверкаУстановкиРасширенияЭПРасширеннаяПодсказка" id="45"/>
@@ -190,9 +199,11 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
-													<GroupVerticalAlign>Top</GroupVerticalAlign>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<HorizontalStretch>false</HorizontalStretch>
 													<VerticalStretch>false</VerticalStretch>
+													<PictureSize>Proportionally</PictureSize>
 													<ValuesPicture>
 														<xr:Ref>CommonPicture.СостоянияУстановкиКомпонентДляРаботыСЭП</xr:Ref>
 														<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -203,30 +214,17 @@
 													<ContextMenu name="РасширениеЭПУстановленоКонтекстноеМеню" id="47"/>
 													<ExtendedTooltip name="РасширениеЭПУстановленоРасширеннаяПодсказка" id="48"/>
 												</PictureField>
-												<UsualGroup name="ГруппаПроверкаУстановкиРасширенияЭППояснение" id="49">
-													<Title>
+												<LabelDecoration name="ДекорацияРасширениеЭПУстановлено" id="51">
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Проверка установки расширения ЭП пояснение</v8:content>
+															<v8:content>Расширение для работы с криптографией установлено</v8:content>
 														</v8:item>
 													</Title>
-													<Group>Vertical</Group>
-													<Representation>None</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаПроверкаУстановкиРасширенияЭППояснениеРасширеннаяПодсказка" id="50"/>
-													<ChildItems>
-														<LabelDecoration name="ДекорацияРасширениеЭПУстановлено" id="51">
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Расширение для работы с криптографией установлено</v8:content>
-																</v8:item>
-															</Title>
-															<ContextMenu name="ДекорацияРасширениеЭПУстановленоКонтекстноеМеню" id="52"/>
-															<ExtendedTooltip name="ДекорацияРасширениеЭПУстановленоРасширеннаяПодсказка" id="53"/>
-														</LabelDecoration>
-													</ChildItems>
-												</UsualGroup>
+													<ContextMenu name="ДекорацияРасширениеЭПУстановленоКонтекстноеМеню" id="52"/>
+													<ExtendedTooltip name="ДекорацияРасширениеЭПУстановленоРасширеннаяПодсказка" id="53"/>
+												</LabelDecoration>
 											</ChildItems>
 										</UsualGroup>
 										<UsualGroup name="ГруппаПроверкаУстановкиКомпоненты" id="16">
@@ -237,6 +235,7 @@
 												</v8:item>
 											</Title>
 											<Group>AlwaysHorizontal</Group>
+											<VerticalSpacing>Half</VerticalSpacing>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
 											<ExtendedTooltip name="ГруппаПроверкаУстановкиКомпонентыРасширеннаяПодсказка" id="17"/>
@@ -250,9 +249,11 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
-													<GroupVerticalAlign>Top</GroupVerticalAlign>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<HorizontalStretch>false</HorizontalStretch>
 													<VerticalStretch>false</VerticalStretch>
+													<PictureSize>Proportionally</PictureSize>
 													<ValuesPicture>
 														<xr:Ref>CommonPicture.СостоянияУстановкиКомпонентДляРаботыСЭП</xr:Ref>
 														<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -263,30 +264,17 @@
 													<ContextMenu name="КомпонентаУстановленаКонтекстноеМеню" id="19"/>
 													<ExtendedTooltip name="КомпонентаУстановленаРасширеннаяПодсказка" id="20"/>
 												</PictureField>
-												<UsualGroup name="ГруппаПроверкаУстановкиКомпонентыПояснение" id="21">
-													<Title>
+												<LabelDecoration name="ДекорацияКомпонентаУстановлена" id="23">
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Группа проверка установки компоненты</v8:content>
+															<v8:content>Компонента установлена</v8:content>
 														</v8:item>
 													</Title>
-													<Group>Vertical</Group>
-													<Representation>None</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаПроверкаУстановкиКомпонентыПояснениеРасширеннаяПодсказка" id="22"/>
-													<ChildItems>
-														<LabelDecoration name="ДекорацияКомпонентаУстановлена" id="23">
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Компонента установлена</v8:content>
-																</v8:item>
-															</Title>
-															<ContextMenu name="ДекорацияКомпонентаУстановленаКонтекстноеМеню" id="24"/>
-															<ExtendedTooltip name="ДекорацияКомпонентаУстановленаРасширеннаяПодсказка" id="25"/>
-														</LabelDecoration>
-													</ChildItems>
-												</UsualGroup>
+													<ContextMenu name="ДекорацияКомпонентаУстановленаКонтекстноеМеню" id="24"/>
+													<ExtendedTooltip name="ДекорацияКомпонентаУстановленаРасширеннаяПодсказка" id="25"/>
+												</LabelDecoration>
 											</ChildItems>
 										</UsualGroup>
 									</ChildItems>
@@ -301,17 +289,13 @@
 								</v8:item>
 							</Title>
 							<Group>HorizontalIfPossible</Group>
+							<HorizontalSpacing>Half</HorizontalSpacing>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаУстановитьОдновременноРасширеннаяПодсказка" id="83"/>
 							<ChildItems>
 								<PictureDecoration name="Отступ1" id="84">
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отступ1</v8:content>
-										</v8:item>
-									</Title>
+									<PictureSize>Proportionally</PictureSize>
 									<Picture>
 										<xr:Ref>CommonPicture.Пустая</xr:Ref>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -320,7 +304,7 @@
 									<ExtendedTooltip name="Отступ1РасширеннаяПодсказка" id="86"/>
 								</PictureDecoration>
 								<Button name="УстановитьВсе" id="59">
-									<Type>UsualButton</Type>
+									<Type>Hyperlink</Type>
 									<AutoMaxHeight>false</AutoMaxHeight>
 									<MaxHeight>1</MaxHeight>
 									<VerticalStretch>true</VerticalStretch>
@@ -329,7 +313,7 @@
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Установить все</v8:content>
+											<v8:content>Установить расширения и компоненту</v8:content>
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>Button</ToolTipRepresentation>
@@ -355,6 +339,7 @@
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
+							<VerticalSpacing>Half</VerticalSpacing>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаПроверкаУстановкиКриптопровайдераРасширеннаяПодсказка" id="13"/>
@@ -405,46 +390,48 @@
 											<v8:content>Состояние установки криптопровайдера</v8:content>
 										</v8:item>
 									</Title>
-									<Group>AlwaysHorizontal</Group>
+									<Group>Vertical</Group>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаСостояниеУстановкиКриптопровайдераРасширеннаяПодсказка" id="104"/>
 									<ChildItems>
-										<PictureField name="КриптопровайдерУстановлен" id="1">
-											<DataPath>СостояниеУстановкиКриптопровайдера</DataPath>
+										<UsualGroup name="ГруппаПроверкаУстановкиКриптопровайдераСостояние" id="14">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Состояние установки криптопровайдера</v8:content>
+													<v8:content>Проверка установки криптопровайдера состояние</v8:content>
 												</v8:item>
 											</Title>
-											<TitleLocation>None</TitleLocation>
-											<GroupVerticalAlign>Top</GroupVerticalAlign>
-											<HorizontalStretch>false</HorizontalStretch>
-											<VerticalStretch>false</VerticalStretch>
-											<ValuesPicture>
-												<xr:Ref>CommonPicture.СостоянияУстановкиКомпонентДляРаботыСЭП</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
-											</ValuesPicture>
-											<Border width="1">
-												<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
-											</Border>
-											<ContextMenu name="КриптопровайдерУстановленКонтекстноеМеню" id="2"/>
-											<ExtendedTooltip name="КриптопровайдерУстановленРасширеннаяПодсказка" id="3"/>
-										</PictureField>
-										<UsualGroup name="ГруппаПроверкаУстановкиКриптопровайдераПояснение" id="14">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Проверка установки криптопровайдера пояснение</v8:content>
-												</v8:item>
-											</Title>
-											<Width>50</Width>
-											<Group>Vertical</Group>
+											<Group>AlwaysHorizontal</Group>
+											<VerticalSpacing>Half</VerticalSpacing>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаПроверкаУстановкиКриптопровайдераПояснениеРасширеннаяПодсказка" id="15"/>
+											<ExtendedTooltip name="ГруппаПроверкаУстановкиКриптопровайдераСостояниеРасширеннаяПодсказка" id="15"/>
 											<ChildItems>
+												<PictureField name="КриптопровайдерУстановлен" id="1">
+													<DataPath>СостояниеУстановкиКриптопровайдера</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Состояние установки криптопровайдера</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>None</TitleLocation>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<HorizontalStretch>false</HorizontalStretch>
+													<VerticalStretch>false</VerticalStretch>
+													<PictureSize>Proportionally</PictureSize>
+													<ValuesPicture>
+														<xr:Ref>CommonPicture.СостоянияУстановкиКомпонентДляРаботыСЭП</xr:Ref>
+														<xr:LoadTransparent>false</xr:LoadTransparent>
+													</ValuesPicture>
+													<Border width="1">
+														<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
+													</Border>
+													<ContextMenu name="КриптопровайдерУстановленКонтекстноеМеню" id="2"/>
+													<ExtendedTooltip name="КриптопровайдерУстановленРасширеннаяПодсказка" id="3"/>
+												</PictureField>
 												<LabelDecoration name="ДекорацияКриптопровайдерУстановлен" id="4">
 													<AutoMaxWidth>false</AutoMaxWidth>
 													<Title formatted="false">
@@ -453,24 +440,20 @@
 															<v8:content>Криптопровайдер установлен</v8:content>
 														</v8:item>
 													</Title>
+													<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 													<ContextMenu name="ДекорацияКриптопровайдерУстановленКонтекстноеМеню" id="5"/>
-													<ExtendedTooltip name="ДекорацияКриптопровайдерУстановленРасширеннаяПодсказка" id="6"/>
-												</LabelDecoration>
-												<LabelDecoration name="ДекорацияКриптопровайдерУстановленПояснение" id="9">
-													<AutoMaxWidth>false</AutoMaxWidth>
-													<VerticalStretch>true</VerticalStretch>
-													<Title formatted="true">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Если планируется работа с усиленной квалифицированной электронной подписью, то на компьютере должно быть установлено сертифицированное приложение (средство криптографической защиты информации).
+													<ExtendedTooltip name="ДекорацияКриптопровайдерУстановленРасширеннаяПодсказка" id="6">
+														<Title formatted="true">
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Если планируется работа с усиленной квалифицированной электронной подписью, то на компьютере должно быть установлено сертифицированное приложение (средство криптографической защиты информации).
 &lt;link %1&gt;Выбрать и установить&lt;/&gt; приложение электронной подписи и шифрования, или библиотеку работы с токенами. После установки может потребоваться перезагрузка.</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="ДекорацияКриптопровайдерУстановленПояснениеКонтекстноеМеню" id="10"/>
-													<ExtendedTooltip name="ДекорацияКриптопровайдерУстановленПояснениеРасширеннаяПодсказка" id="11"/>
-													<Events>
-														<Event name="URLProcessing">ДекорацияКриптопровайдерУстановленПояснениеОбработкаНавигационнойСсылки</Event>
-													</Events>
+															</v8:item>
+														</Title>
+														<Events>
+															<Event name="URLProcessing">ДекорацияКриптопровайдерУстановленРасширеннаяПодсказкаОбработкаНавигационнойСсылки</Event>
+														</Events>
+													</ExtendedTooltip>
 												</LabelDecoration>
 											</ChildItems>
 										</UsualGroup>
@@ -490,6 +473,8 @@
 							<Group>HorizontalIfPossible</Group>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
+							<BackColor>pal:Green</BackColor>
+							<ShowAsCard>true</ShowAsCard>
 							<ExtendedTooltip name="ГруппаПродолжитьРаботуРасширеннаяПодсказка" id="76"/>
 							<ChildItems>
 								<LabelDecoration name="ДекорацияВсеУстановлено" id="79">
@@ -497,26 +482,12 @@
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Все готово для работы с электронной подписью!</v8:content>
+											<v8:content>Все готово для работы с электронной подписью.</v8:content>
 										</v8:item>
 									</Title>
 									<ContextMenu name="ДекорацияВсеУстановленоКонтекстноеМеню" id="80"/>
 									<ExtendedTooltip name="ДекорацияВсеУстановленоРасширеннаяПодсказка" id="81"/>
 								</LabelDecoration>
-								<Button name="ПродолжитьРаботу" id="77">
-									<Type>UsualButton</Type>
-									<DefaultButton>true</DefaultButton>
-									<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-									<CommandName>Form.Command.ПродолжитьРаботу</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Продолжить работу</v8:content>
-										</v8:item>
-									</Title>
-									<ButtonImportance>Main</ButtonImportance>
-									<ExtendedTooltip name="ПродолжитьРаботуРасширеннаяПодсказка" id="78"/>
-								</Button>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
@@ -650,6 +621,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПродолжитьРаботу</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

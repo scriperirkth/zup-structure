@@ -8,10 +8,22 @@
 	</Title>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
-	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowTitle>true</ShowTitle>
+	<ShowCommandBar>true</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВыбрать" id="113">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Item.ОбслуживающиеОрганизации.StandardCommand.Choose</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="114"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -26,10 +38,9 @@
 				</v8:item>
 			</Title>
 			<HorizontalStretch>true</HorizontalStretch>
-			<Group>HorizontalIfPossible</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<BackColor>style:ЦветФонаПредупреждения</BackColor>
+			<BackColor>pal:Orange</BackColor>
 			<ExtendedTooltip name="ГруппаОшибкаПоискаРасширеннаяПодсказка" id="76"/>
 			<ChildItems>
 				<LabelDecoration name="ТекстОшибки" id="77">
@@ -40,16 +51,27 @@
 				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ПанельПоиска" id="37">
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
+		<UsualGroup name="ГруппаФильтр" id="89">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фильтр</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа фильтр</v8:content>
+				</v8:item>
+			</ToolTip>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ПанельПоискаРасширеннаяПодсказка" id="38"/>
+			<ExtendedTooltip name="ГруппаФильтрРасширеннаяПодсказка" id="90"/>
 			<ChildItems>
 				<InputField name="КритерийПоиска" id="29">
 					<DataPath>КритерийПоиска</DataPath>
 					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>14</MaxWidth>
 					<ListChoiceMode>true</ListChoiceMode>
@@ -61,56 +83,22 @@
 				</InputField>
 				<InputField name="ЗначениеПоиска" id="32">
 					<DataPath>ЗначениеПоиска</DataPath>
+					<Enabled>false</Enabled>
 					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>14</MaxWidth>
+					<ChoiceButton>false</ChoiceButton>
+					<ChoiceButtonPicture>
+						<xr:Ref>StdPicture.CustomizeList</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</ChoiceButtonPicture>
 					<ContextMenu name="ЗначениеПоискаКонтекстноеМеню" id="33"/>
 					<ExtendedTooltip name="ЗначениеПоискаРасширеннаяПодсказка" id="34"/>
+					<Events>
+						<Event name="TextEditEnd">ЗначениеПоискаОкончаниеВводаТекста</Event>
+					</Events>
 				</InputField>
-				<Button name="НайтиОрганизации" id="35">
-					<Type>UsualButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.НайтиОрганизации</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="НайтиОрганизацииРасширеннаяПодсказка" id="36"/>
-				</Button>
-				<CommandBar name="КоманднаяПанельОО" id="53">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Командная панель ОО</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="КоманднаяПанельООРасширеннаяПодсказка" id="54"/>
-					<ChildItems>
-						<Button name="Найти" id="61">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Item.ОбслуживающиеОрганизации.StandardCommand.Find</CommandName>
-							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="НайтиРасширеннаяПодсказка" id="62"/>
-						</Button>
-						<Button name="ОтменитьПоиск" id="63">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Item.ОбслуживающиеОрганизации.StandardCommand.CancelSearch</CommandName>
-							<ExtendedTooltip name="ОтменитьПоискРасширеннаяПодсказка" id="64"/>
-						</Button>
-						<Button name="СортироватьСписокПоВозрастанию" id="55">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Item.ОбслуживающиеОрганизации.StandardCommand.SortListAsc</CommandName>
-							<ExtendedTooltip name="СортироватьСписокПоВозрастаниюРасширеннаяПодсказка" id="56"/>
-						</Button>
-						<Button name="СортироватьСписокПоУбыванию" id="57">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Item.ОбслуживающиеОрганизации.StandardCommand.SortListDesc</CommandName>
-							<ExtendedTooltip name="СортироватьСписокПоУбываниюРасширеннаяПодсказка" id="58"/>
-						</Button>
-						<Button name="ВывестиСписок" id="59">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Item.ОбслуживающиеОрганизации.StandardCommand.OutputList</CommandName>
-							<ExtendedTooltip name="ВывестиСписокРасширеннаяПодсказка" id="60"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 		<Pages name="Страницы" id="39">
@@ -120,22 +108,21 @@
 				<Page name="СтраницаОжидание" id="41">
 					<Group>AlwaysHorizontal</Group>
 					<HorizontalSpacing>Half</HorizontalSpacing>
-					<ScrollOnCompress>false</ScrollOnCompress>
+					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="СтраницаОжиданиеРасширеннаяПодсказка" id="42"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаОжидание" id="51">
-							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаОжиданиеРасширеннаяПодсказка" id="52"/>
 							<ChildItems>
 								<PictureDecoration name="КартинкаОжидание" id="45">
-									<Width>2</Width>
+									<Width>3</Width>
 									<Height>1</Height>
-									<PictureSize>Stretch</PictureSize>
+									<PictureSize>Proportionally</PictureSize>
 									<Picture>
-										<xr:Abs>Picture.gif</xr:Abs>
+										<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
 									</Picture>
 									<ContextMenu name="КартинкаОжиданиеКонтекстноеМеню" id="46"/>
@@ -161,51 +148,36 @@
 					</ChildItems>
 				</Page>
 				<Page name="СтраницаСписок" id="43">
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
+					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="СтраницаСписокРасширеннаяПодсказка" id="44"/>
 					<ChildItems>
 						<Table name="ОбслуживающиеОрганизации" id="1">
 							<Representation>Tree</Representation>
 							<CommandBarLocation>None</CommandBarLocation>
+							<ReadOnly>true</ReadOnly>
 							<ChangeRowSet>false</ChangeRowSet>
-							<RowSelectionMode>Cell</RowSelectionMode>
-							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<ChoiceMode>true</ChoiceMode>
+							<SelectionMode>SingleRow</SelectionMode>
+							<RowSelectionMode>Row</RowSelectionMode>
+							<UseAlternationRowColorBWA>true</UseAlternationRowColorBWA>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<DataPath>ОбслуживающиеОрганизации</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>ClearTableMarksAppearance</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+							</CommandSet>
+							<ShowCommandBar>false</ShowCommandBar>
 							<RowFilter xsi:nil="true"/>
-							<ContextMenu name="ОбслуживающиеОрганизацииКонтекстноеМеню" id="2">
-								<Autofill>false</Autofill>
-								<ChildItems>
-									<Button name="ОбслуживающиеОрганизацииКонтекстноеМенюНайти" id="65">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Item.ОбслуживающиеОрганизации.StandardCommand.Find</CommandName>
-										<ExtendedTooltip name="ОбслуживающиеОрганизацииКонтекстноеМенюНайтиРасширеннаяПодсказка" id="66"/>
-									</Button>
-									<Button name="ОбслуживающиеОрганизацииКонтекстноеМенюОтменитьПоиск" id="67">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Item.ОбслуживающиеОрганизации.StandardCommand.CancelSearch</CommandName>
-										<ExtendedTooltip name="ОбслуживающиеОрганизацииКонтекстноеМенюОтменитьПоискРасширеннаяПодсказка" id="68"/>
-									</Button>
-									<Button name="ОбслуживающиеОрганизацииКонтекстноеМенюСортироватьСписокПоВозрастанию" id="69">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Item.ОбслуживающиеОрганизации.StandardCommand.SortListAsc</CommandName>
-										<ExtendedTooltip name="ОбслуживающиеОрганизацииКонтекстноеМенюСортироватьСписокПоВозрастаниюРасширеннаяПодсказка" id="70"/>
-									</Button>
-									<Button name="ОбслуживающиеОрганизацииКонтекстноеМенюСортироватьСписокПоУбыванию" id="71">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Item.ОбслуживающиеОрганизации.StandardCommand.SortListDesc</CommandName>
-										<ExtendedTooltip name="ОбслуживающиеОрганизацииКонтекстноеМенюСортироватьСписокПоУбываниюРасширеннаяПодсказка" id="72"/>
-									</Button>
-									<Button name="ОбслуживающиеОрганизацииКонтекстноеМенюВывестиСписок" id="73">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Item.ОбслуживающиеОрганизации.StandardCommand.OutputList</CommandName>
-										<ExtendedTooltip name="ОбслуживающиеОрганизацииКонтекстноеМенюВывестиСписокРасширеннаяПодсказка" id="74"/>
-									</Button>
-								</ChildItems>
-							</ContextMenu>
+							<ContextMenu name="ОбслуживающиеОрганизацииКонтекстноеМеню" id="2"/>
 							<AutoCommandBar name="ОбслуживающиеОрганизацииКоманднаяПанель" id="3"/>
 							<ExtendedTooltip name="ОбслуживающиеОрганизацииРасширеннаяПодсказка" id="4"/>
 							<SearchStringAddition name="ОбслуживающиеОрганизацииСтрокаПоиска" id="5">
@@ -234,6 +206,7 @@
 								<ExtendedTooltip name="ОбслуживающиеОрганизацииУправлениеПоискомРасширеннаяПодсказка" id="13"/>
 							</SearchControlAddition>
 							<Events>
+								<Event name="ValueChoice">ОбслуживающиеОрганизацииВыборЗначения</Event>
 								<Event name="Selection">ОбслуживающиеОрганизацииВыбор</Event>
 							</Events>
 							<ChildItems>
@@ -466,21 +439,4 @@
 			</Type>
 		</Attribute>
 	</Attributes>
-	<Commands>
-		<Command name="НайтиОрганизации" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Найти</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Найти организации</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>НайтиОрганизации</Action>
-		</Command>
-	</Commands>
 </Form>

@@ -55,6 +55,8 @@
 									<v8:content>Имя файла</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<HorizontalStretch>true</HorizontalStretch>
 							<ChoiceButton>true</ChoiceButton>
@@ -65,70 +67,13 @@
 								<Event name="StartChoice">ИмяФайлаНачалоВыбора</Event>
 							</Events>
 						</InputField>
-						<UsualGroup name="ГруппаПерсональныеНастройки" id="80">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Персональные настройки</v8:content>
-								</v8:item>
-							</Title>
-							<Group>AlwaysHorizontal</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаПерсональныеНастройкиРасширеннаяПодсказка" id="81"/>
-							<ChildItems>
-								<LabelDecoration name="ПерсональныеНастройкиНадпись" id="77">
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Персональные настройки:</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="ПерсональныеНастройкиНадписьКонтекстноеМеню" id="78"/>
-									<ExtendedTooltip name="ПерсональныеНастройкиНадписьРасширеннаяПодсказка" id="79"/>
-								</LabelDecoration>
-								<CommandBar name="КоманднаяПанельПерсональныеНастройки" id="82">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Командная панель персональные настройки</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="КоманднаяПанельПерсональныеНастройкиРасширеннаяПодсказка" id="83"/>
-									<ChildItems>
-										<ButtonGroup name="ПользовательскиеНастройкиГруппаИзменитьФлажки" id="75">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Изменить флажки</v8:content>
-												</v8:item>
-											</Title>
-											<Representation>Compact</Representation>
-											<ExtendedTooltip name="ПользовательскиеНастройкиГруппаИзменитьФлажкиРасширеннаяПодсказка" id="76"/>
-											<ChildItems>
-												<Button name="ПользовательскиеНастройкиУстановитьФлажки" id="23">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.ПерсональныеНастройки.StandardCommand.CheckAll</CommandName>
-													<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-													<ExtendedTooltip name="ПользовательскиеНастройкиУстановитьФлажкиРасширеннаяПодсказка" id="24"/>
-												</Button>
-												<Button name="ПользовательскиеНастройкиСнятьФлажки" id="25">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.ПерсональныеНастройки.StandardCommand.UncheckAll</CommandName>
-													<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-													<ExtendedTooltip name="ПользовательскиеНастройкиСнятьФлажкиРасширеннаяПодсказка" id="26"/>
-												</Button>
-											</ChildItems>
-										</ButtonGroup>
-									</ChildItems>
-								</CommandBar>
-							</ChildItems>
-						</UsualGroup>
 						<Table name="ПерсональныеНастройки" id="4">
 							<Representation>List</Representation>
-							<CommandBarLocation>None</CommandBarLocation>
+							<TitleLocation>Auto</TitleLocation>
+							<CommandBarLocation>Top</CommandBarLocation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<Header>false</Header>
 							<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -156,9 +101,36 @@
 								<ExcludedCommand>SortListAsc</ExcludedCommand>
 								<ExcludedCommand>SortListDesc</ExcludedCommand>
 							</CommandSet>
+							<ShowCommandBar>true</ShowCommandBar>
 							<ContextMenu name="ПерсональныеНастройкиКонтекстноеМеню" id="5"/>
 							<AutoCommandBar name="ПерсональныеНастройкиКоманднаяПанель" id="6">
 								<Autofill>false</Autofill>
+								<ChildItems>
+									<ButtonGroup name="ПользовательскиеНастройкиГруппаИзменитьФлажки" id="75">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Изменить флажки</v8:content>
+											</v8:item>
+										</Title>
+										<Representation>Compact</Representation>
+										<ExtendedTooltip name="ПользовательскиеНастройкиГруппаИзменитьФлажкиРасширеннаяПодсказка" id="76"/>
+										<ChildItems>
+											<Button name="ПользовательскиеНастройкиУстановитьФлажки" id="23">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.ПерсональныеНастройки.StandardCommand.CheckAll</CommandName>
+												<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+												<ExtendedTooltip name="ПользовательскиеНастройкиУстановитьФлажкиРасширеннаяПодсказка" id="24"/>
+											</Button>
+											<Button name="ПользовательскиеНастройкиСнятьФлажки" id="25">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.ПерсональныеНастройки.StandardCommand.UncheckAll</CommandName>
+												<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+												<ExtendedTooltip name="ПользовательскиеНастройкиСнятьФлажкиРасширеннаяПодсказка" id="26"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="ПерсональныеНастройкиРасширеннаяПодсказка" id="7"/>
 							<SearchStringAddition name="ПерсональныеНастройкиСтрокаПоиска" id="8">
@@ -239,6 +211,8 @@
 									<v8:content>Каталог</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<HorizontalStretch>true</HorizontalStretch>
 							<ChoiceButton>true</ChoiceButton>
 							<ContextMenu name="ИмяКаталогаКонтекстноеМеню" id="36"/>
@@ -555,6 +529,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Сохранить</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

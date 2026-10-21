@@ -9,17 +9,6 @@
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="ФормаПроверитьПодключение" id="22">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ПроверитьПодключение</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Проверить подключение</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаПроверитьПодключениеРасширеннаяПодсказка" id="23"/>
-			</Button>
 			<Button name="ФормаГотово" id="20">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
@@ -32,6 +21,17 @@
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаГотовоРасширеннаяПодсказка" id="21"/>
+			</Button>
+			<Button name="ФормаПроверитьПодключение" id="22">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПроверитьПодключение</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Проверить подключение</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаПроверитьПодключениеРасширеннаяПодсказка" id="23"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -61,52 +61,85 @@
 				<Event name="Opening">КаталогОбменаИнформациейОткрытие</Event>
 			</Events>
 		</InputField>
-		<UsualGroup name="Архив" id="4">
+		<UsualGroup name="НастройкаФайлаСообщения" id="31">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Архив</v8:content>
+					<v8:content>Настройка файла сообщения</v8:content>
 				</v8:item>
 			</Title>
-			<HorizontalStretch>true</HorizontalStretch>
 			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>NormalSeparation</Representation>
+			<Collapsed>true</Collapsed>
+			<ControlRepresentation>Button</ControlRepresentation>
+			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="АрхивРасширеннаяПодсказка" id="5"/>
+			<ExtendedTooltip name="НастройкаФайлаСообщенияРасширеннаяПодсказка" id="32"/>
 			<ChildItems>
-				<CheckBoxField name="СжиматьФайлИсходящегоСообщения" id="6">
-					<DataPath>Объект.СжиматьФайлИсходящегоСообщения</DataPath>
-					<TitleLocation>Right</TitleLocation>
-					<ContextMenu name="СжиматьФайлИсходящегоСообщенияКонтекстноеМеню" id="7"/>
-					<ExtendedTooltip name="СжиматьФайлИсходящегоСообщенияРасширеннаяПодсказка" id="8"/>
-					<Events>
-						<Event name="OnChange">СжиматьФайлИсходящегоСообщенияПриИзменении</Event>
-					</Events>
-				</CheckBoxField>
-				<InputField name="ПарольАрхиваСообщенияОбмена" id="9">
-					<DataPath>Объект.ПарольАрхиваСообщенияОбмена</DataPath>
-					<TitleLocation>Top</TitleLocation>
-					<Width>20</Width>
+				<UsualGroup name="Архив" id="37">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Архив</v8:content>
+						</v8:item>
+					</Title>
 					<HorizontalStretch>true</HorizontalStretch>
-					<PasswordMode>true</PasswordMode>
-					<ContextMenu name="ПарольАрхиваСообщенияОбменаКонтекстноеМеню" id="10"/>
-					<ExtendedTooltip name="ПарольАрхиваСообщенияОбменаРасширеннаяПодсказка" id="11"/>
-				</InputField>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>NormalSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="АрхивРасширеннаяПодсказка" id="38"/>
+					<ChildItems>
+						<CheckBoxField name="СжиматьФайлИсходящегоСообщения" id="39">
+							<DataPath>Объект.СжиматьФайлИсходящегоСообщения</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Switcher</CheckBoxType>
+							<ContextMenu name="СжиматьФайлИсходящегоСообщенияКонтекстноеМеню" id="40"/>
+							<ExtendedTooltip name="СжиматьФайлИсходящегоСообщенияРасширеннаяПодсказка" id="41"/>
+							<Events>
+								<Event name="OnChange">СжиматьФайлИсходящегоСообщенияПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="ПарольАрхиваСообщенияОбмена" id="43">
+							<DataPath>Объект.ПарольАрхиваСообщенияОбмена</DataPath>
+							<TitleLocation>Top</TitleLocation>
+							<Width>20</Width>
+							<HorizontalStretch>true</HorizontalStretch>
+							<PasswordMode>true</PasswordMode>
+							<ChoiceButton>true</ChoiceButton>
+							<ChoiceButtonPicture>
+								<xr:Ref>StdPicture.ShowPassword</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ChoiceButtonPicture>
+							<ContextMenu name="ПарольАрхиваСообщенияОбменаКонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="ПарольАрхиваСообщенияОбменаРасширеннаяПодсказка" id="45"/>
+							<Events>
+								<Event name="EditTextChange">ПарольАрхиваСообщенияОбменаИзменениеТекстаРедактирования</Event>
+								<Event name="StartChoice">ПарольАрхиваСообщенияОбменаНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<CheckBoxField name="Транслитерация" id="47">
+					<DataPath>Объект.Транслитерация</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Транслитерация имени</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Транслитерация имён файлов — это преобразование кириллических символов в латинские. Обычно транслитерацию применяют, чтобы улучшить читаемость постоянных ссылок и избежать проблем с отображением и чтением файлов, так как всё в сети заточено под кириллицу.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<ContextMenu name="ТранслитерацияКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="ТранслитерацияРасширеннаяПодсказка" id="49"/>
+				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
-		<CheckBoxField name="Транслитерация" id="24">
-			<DataPath>Объект.Транслитерация</DataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Транслитерация имени файла сообщения обмена</v8:content>
-				</v8:item>
-			</Title>
-			<TitleLocation>Right</TitleLocation>
-			<ContextMenu name="ТранслитерацияКонтекстноеМеню" id="25"/>
-			<ExtendedTooltip name="ТранслитерацияРасширеннаяПодсказка" id="26"/>
-		</CheckBoxField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -131,6 +164,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Готово</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПроверитьПодключение" id="4">
 			<Title>
@@ -146,6 +180,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПроверитьПодключение</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

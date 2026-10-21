@@ -11,8 +11,42 @@
 	<SaveDataInSettings>UseList</SaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Очистить" id="10">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Очистить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Очистить адресные сведения</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ОчиститьРасширеннаяПодсказка" id="11"/>
+			</Button>
+			<Button name="ПрерватьОчистку" id="78">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПрерватьОчистку</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Прервать</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ПрерватьОчисткуРасширеннаяПодсказка" id="79"/>
+			</Button>
+			<Button name="ФормаСправка" id="165">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="166"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -45,6 +79,7 @@
 							<Representation>Tree</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<Header>false</Header>
 							<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -70,7 +105,6 @@
 								<ExcludedCommand>EndEdit</ExcludedCommand>
 								<ExcludedCommand>MoveDown</ExcludedCommand>
 								<ExcludedCommand>MoveUp</ExcludedCommand>
-								<ExcludedCommand>SelectAll</ExcludedCommand>
 							</CommandSet>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="СубъектыРФКонтекстноеМеню" id="2"/>
@@ -243,6 +277,8 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>Right</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ПоказыватьТолькоЗагруженныеРегионыКонтекстноеМеню" id="141"/>
 									<ExtendedTooltip name="ПоказыватьТолькоЗагруженныеРегионыРасширеннаяПодсказка" id="142"/>
 									<Events>
@@ -269,10 +305,13 @@
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Регионов</v8:content>
+													<v8:content>Выбрано регионов</v8:content>
 												</v8:item>
 											</Title>
+											<TitleLocation>Left</TitleLocation>
 											<HorizontalAlign>Left</HorizontalAlign>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<Width>2</Width>
 											<Format>
 												<v8:item>
@@ -309,21 +348,6 @@
 									</Title>
 									<HorizontalLocation>Right</HorizontalLocation>
 									<ExtendedTooltip name="ГруппаКомандЗагрузкиПанельРасширеннаяПодсказка" id="129"/>
-									<ChildItems>
-										<Button name="Очистить" id="10">
-											<Type>CommandBarButton</Type>
-											<DefaultButton>true</DefaultButton>
-											<CommandName>Form.Command.Очистить</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Очистить адресные сведения</v8:content>
-												</v8:item>
-											</Title>
-											<ButtonImportance>Main</ButtonImportance>
-											<ExtendedTooltip name="ОчиститьРасширеннаяПодсказка" id="11"/>
-										</Button>
-									</ChildItems>
 								</CommandBar>
 							</ChildItems>
 						</UsualGroup>
@@ -372,6 +396,8 @@
 									</Title>
 									<TitleLocation>None</TitleLocation>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ТекстОписанияОчисткиКонтекстноеМеню" id="74"/>
 									<ExtendedTooltip name="ТекстОписанияОчисткиРасширеннаяПодсказка" id="75">
 										<AutoMaxWidth>false</AutoMaxWidth>
@@ -410,32 +436,11 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ТекстСостоянияЗагрузкиКонтекстноеМеню" id="89"/>
 									<ExtendedTooltip name="ТекстСостоянияЗагрузкиРасширеннаяПодсказка" id="90"/>
 								</LabelField>
-								<CommandBar name="ГруппаКомандОтменыПанель" id="130">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Команд отмены панель</v8:content>
-										</v8:item>
-									</Title>
-									<HorizontalLocation>Right</HorizontalLocation>
-									<ExtendedTooltip name="ГруппаКомандОтменыПанельРасширеннаяПодсказка" id="131"/>
-									<ChildItems>
-										<Button name="ПрерватьОчистку" id="78">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.ПрерватьОчистку</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Прервать</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ПрерватьОчисткуРасширеннаяПодсказка" id="79"/>
-										</Button>
-									</ChildItems>
-								</CommandBar>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
@@ -491,44 +496,11 @@
 									<TitleLocation>None</TitleLocation>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 									<GroupVerticalAlign>Center</GroupVerticalAlign>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ТекстОписанияОчисткиЗавершенияКонтекстноеМеню" id="99"/>
 									<ExtendedTooltip name="ТекстОписанияОчисткиЗавершенияРасширеннаяПодсказка" id="100"/>
 								</LabelField>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаКомандЗавершения" id="101">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Команд завершения</v8:content>
-								</v8:item>
-							</Title>
-							<VerticalStretch>true</VerticalStretch>
-							<Group>Horizontal</Group>
-							<VerticalAlign>Bottom</VerticalAlign>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаКомандЗавершенияРасширеннаяПодсказка" id="102"/>
-							<ChildItems>
-								<CommandBar name="ГруппаКомандЗавершенияПанель" id="132">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Команд завершения панель</v8:content>
-										</v8:item>
-									</Title>
-									<HorizontalLocation>Right</HorizontalLocation>
-									<ExtendedTooltip name="ГруппаКомандЗавершенияПанельРасширеннаяПодсказка" id="133"/>
-									<ChildItems>
-										<Button name="Закрыть" id="114">
-											<Type>CommandBarButton</Type>
-											<Representation>Text</Representation>
-											<CommandName>Form.StandardCommand.Close</CommandName>
-											<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="115"/>
-										</Button>
-									</ChildItems>
-								</CommandBar>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
@@ -675,6 +647,7 @@
 			</ToolTip>
 			<Action>Очистить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="УстановитьФлажки" id="3">
 			<Title>
@@ -731,6 +704,7 @@
 			</ToolTip>
 			<Action>ПрерватьОчистку</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ОтметитьЗагруженные" id="1">
 			<Title>

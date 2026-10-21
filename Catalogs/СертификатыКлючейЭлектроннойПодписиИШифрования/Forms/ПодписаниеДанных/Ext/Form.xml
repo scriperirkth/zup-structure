@@ -6,15 +6,14 @@
 			<v8:content>Подписание данных</v8:content>
 		</v8:item>
 	</Title>
-	<Width>56</Width>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
+	<CommandSet>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
-		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -46,6 +45,8 @@
 							<v8:content>Данные</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<Hiperlink>true</Hiperlink>
 					<ContextMenu name="ПредставлениеДанныхКонтекстноеМеню" id="19"/>
@@ -55,6 +56,19 @@
 					</Events>
 				</LabelField>
 			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКомандыПодтверждения" id="458">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команды подтверждения</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<VerticalStretch>true</VerticalStretch>
+			<VerticalAlign>Bottom</VerticalAlign>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКомандыПодтвержденияРасширеннаяПодсказка" id="459"/>
 		</UsualGroup>
 		<UsualGroup name="ГруппаТипПодписи" id="475">
 			<Title>
@@ -79,6 +93,8 @@
 						</v8:item>
 					</Title>
 					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ListChoiceMode>true</ListChoiceMode>
 					<TextEdit>false</TextEdit>
 					<ContextMenu name="ТипПодписиКонтекстноеМеню" id="478"/>
@@ -89,23 +105,20 @@
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаПодписаниеИКомментарий" id="452">
+		<UsualGroup name="ГруппаПодписаниеИКомментарий" id="378">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Подписание и комментарий</v8:content>
+					<v8:content>Введите пароль закрытого ключа сертификата</v8:content>
 				</v8:item>
 			</Title>
-			<HorizontalStretch>true</HorizontalStretch>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<United>false</United>
 			<ShowTitle>false</ShowTitle>
 			<ThroughAlign>Use</ThroughAlign>
-			<ExtendedTooltip name="ГруппаПодписаниеИКомментарийРасширеннаяПодсказка" id="453"/>
+			<ExtendedTooltip name="ГруппаПодписаниеИКомментарийРасширеннаяПодсказка" id="379"/>
 			<ChildItems>
-				<RadioButtonField name="ТипПодписанта" id="525">
+				<RadioButtonField name="ТипПодписанта" id="554">
 					<DataPath>ТипПодписанта</DataPath>
 					<Visible>false</Visible>
 					<Title>
@@ -115,7 +128,10 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>None</TitleLocation>
-					<RadioButtonType>Auto</RadioButtonType>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<RadioButtonType>Tumbler</RadioButtonType>
+					<Orientation>HorizontalIfPossible</Orientation>
 					<ChoiceList>
 						<xr:Item>
 							<xr:Presentation/>
@@ -131,13 +147,13 @@
 							</xr:Value>
 						</xr:Item>
 					</ChoiceList>
-					<ContextMenu name="ТипПодписантаКонтекстноеМеню" id="526"/>
-					<ExtendedTooltip name="ТипПодписантаРасширеннаяПодсказка" id="527"/>
+					<ContextMenu name="ТипПодписантаКонтекстноеМеню" id="555"/>
+					<ExtendedTooltip name="ТипПодписантаРасширеннаяПодсказка" id="556"/>
 					<Events>
 						<Event name="OnChange">ТипПодписантаПриИзменении</Event>
 					</Events>
 				</RadioButtonField>
-				<Pages name="СтраницыПодписание" id="518">
+				<Pages name="СтраницыПодписание" id="532">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -145,20 +161,18 @@
 						</v8:item>
 					</Title>
 					<PagesRepresentation>None</PagesRepresentation>
-					<ExtendedTooltip name="СтраницыПодписаниеРасширеннаяПодсказка" id="519"/>
+					<ExtendedTooltip name="СтраницыПодписаниеРасширеннаяПодсказка" id="533"/>
 					<ChildItems>
-						<Page name="СтраницаПодписание" id="528">
+						<Page name="СтраницаПодписание" id="534">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Страница подписание</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Vertical</Group>
-							<ScrollOnCompress>false</ScrollOnCompress>
-							<ExtendedTooltip name="СтраницаПодписаниеРасширеннаяПодсказка" id="529"/>
+							<ExtendedTooltip name="СтраницаПодписаниеРасширеннаяПодсказка" id="535"/>
 							<ChildItems>
-								<UsualGroup name="ГруппаПодписание" id="378">
+								<UsualGroup name="ГруппаПодписание" id="557">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -166,10 +180,9 @@
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
-									<Representation>WeakSeparation</Representation>
-									<ExtendedTooltip name="ГруппаПодписаниеРасширеннаяПодсказка" id="379"/>
+									<ExtendedTooltip name="ГруппаПодписаниеРасширеннаяПодсказка" id="558"/>
 									<ChildItems>
-										<UsualGroup name="ГруппаПоля" id="433" DisplayImportance="High">
+										<UsualGroup name="ГруппаПоля" id="433">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -177,6 +190,7 @@
 												</v8:item>
 											</Title>
 											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
 											<ExtendedTooltip name="ГруппаПоляРасширеннаяПодсказка" id="434"/>
@@ -189,6 +203,8 @@
 															<v8:content>Сертификат</v8:content>
 														</v8:item>
 													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<AutoMaxWidth>false</AutoMaxWidth>
 													<DropListButton>false</DropListButton>
 													<ChoiceButton>true</ChoiceButton>
@@ -208,74 +224,16 @@
 														<Event name="ChoiceProcessing">СертификатОбработкаВыбора</Event>
 													</Events>
 												</InputField>
-												<UsualGroup name="ГруппаДополнительныеСведения" id="488">
-													<Visible>false</Visible>
+												<UsualGroup name="ГруппаВажныеСообщенияСертификат" id="552">
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Дополнительные сведения</v8:content>
+															<v8:content>Важные сообщения сертификат</v8:content>
 														</v8:item>
 													</Title>
-													<Group>HorizontalIfPossible</Group>
-													<Behavior>Usual</Behavior>
-													<Representation>WeakSeparation</Representation>
+													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаДополнительныеСведенияРасширеннаяПодсказка" id="489"/>
-													<ChildItems>
-														<LabelDecoration name="ДекорацияДополнительныеСведения" id="493">
-															<AutoMaxWidth>false</AutoMaxWidth>
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Неквалифицированный сертификат: выпущен удостоверяющим центром, не аккредитованным на момент выпуска сертификата.</v8:content>
-																</v8:item>
-															</Title>
-															<BackColor>style:ToolTipBackColor</BackColor>
-															<ContextMenu name="ДекорацияДополнительныеСведенияКонтекстноеМеню" id="494"/>
-															<ExtendedTooltip name="ДекорацияДополнительныеСведенияРасширеннаяПодсказка" id="495"/>
-														</LabelDecoration>
-													</ChildItems>
-												</UsualGroup>
-												<UsualGroup name="ГруппаОтозван" id="483">
-													<Visible>false</Visible>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Отозван</v8:content>
-														</v8:item>
-													</Title>
-													<Group>HorizontalIfPossible</Group>
-													<Behavior>Usual</Behavior>
-													<Representation>WeakSeparation</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаОтозванРасширеннаяПодсказка" id="484"/>
-													<ChildItems>
-														<PictureDecoration name="ДекорацияОтозван" id="480">
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Декорация отозван</v8:content>
-																</v8:item>
-															</Title>
-															<Picture>
-																<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
-																<xr:LoadTransparent>false</xr:LoadTransparent>
-															</Picture>
-															<ContextMenu name="ДекорацияОтозванКонтекстноеМеню" id="481"/>
-															<ExtendedTooltip name="ДекорацияОтозванРасширеннаяПодсказка" id="482"/>
-														</PictureDecoration>
-														<LabelDecoration name="ДекорацияОтозванНадпись" id="485">
-															<AutoMaxWidth>false</AutoMaxWidth>
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Сертификат помечен в приложении как отозванный. Выберите другой сертификат.</v8:content>
-																</v8:item>
-															</Title>
-															<ContextMenu name="ДекорацияОтозванНадписьКонтекстноеМеню" id="486"/>
-															<ExtendedTooltip name="ДекорацияОтозванНадписьРасширеннаяПодсказка" id="487"/>
-														</LabelDecoration>
-													</ChildItems>
+													<ExtendedTooltip name="ГруппаВажныеСообщенияСертификатРасширеннаяПодсказка" id="553"/>
 												</UsualGroup>
 												<UsualGroup name="ГруппаПароль" id="454">
 													<Title>
@@ -284,7 +242,7 @@
 															<v8:content>Пароль</v8:content>
 														</v8:item>
 													</Title>
-													<Group>HorizontalIfPossible</Group>
+													<Group>AlwaysHorizontal</Group>
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
@@ -298,7 +256,8 @@
 																	<v8:content>Пароль</v8:content>
 																</v8:item>
 															</Title>
-															<HorizontalStretch>false</HorizontalStretch>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<Wrap>false</Wrap>
 															<PasswordMode>true</PasswordMode>
 															<ChoiceButton>true</ChoiceButton>
@@ -331,6 +290,8 @@
 																</v8:item>
 															</ToolTip>
 															<ToolTipRepresentation>Button</ToolTipRepresentation>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ЗапомнитьПарольКонтекстноеМеню" id="325"/>
 															<ExtendedTooltip name="ЗапомнитьПарольРасширеннаяПодсказка" id="326"/>
 															<Events>
@@ -362,12 +323,10 @@
 															<ChildItems>
 																<LabelDecoration name="ПояснениеУсиленногоПароля" id="440">
 																	<AutoMaxWidth>false</AutoMaxWidth>
-																	<TextColor>style:ПоясняющийТекст</TextColor>
-																	<Title formatted="false">
+																	<Title formatted="true">
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
-																			<v8:content>Нажмите Подписать, чтобы перейти к вводу пароля.
-</v8:content>
+																			<v8:content>Нажмите &lt;b&gt;Подписать&lt;/&gt;, чтобы перейти к вводу пароля.</v8:content>
 																		</v8:item>
 																	</Title>
 																	<ToolTipRepresentation>Button</ToolTipRepresentation>
@@ -417,11 +376,9 @@
 									<v8:content>Страница отправить на подписание</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Vertical</Group>
-							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОтправитьНаПодписаниеРасширеннаяПодсказка" id="537"/>
 							<ChildItems>
-								<InputField name="Подписант" id="533">
+								<InputField name="Подписант" id="544">
 									<DataPath>Подписант</DataPath>
 									<Title>
 										<v8:item>
@@ -430,10 +387,12 @@
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<ChooseType>false</ChooseType>
-									<ContextMenu name="ПодписантКонтекстноеМеню" id="534"/>
-									<ExtendedTooltip name="ПодписантРасширеннаяПодсказка" id="535">
+									<ContextMenu name="ПодписантКонтекстноеМеню" id="545"/>
+									<ExtendedTooltip name="ПодписантРасширеннаяПодсказка" id="546">
 										<AutoMaxWidth>false</AutoMaxWidth>
 									</ExtendedTooltip>
 									<Events>
@@ -455,6 +414,7 @@
 									<ListChoiceMode>true</ListChoiceMode>
 									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 									<ChooseType>false</ChooseType>
+									<TextSize>Enlarged</TextSize>
 									<ContextMenu name="ВидМобильнойПодписиКонтекстноеМеню" id="539"/>
 									<ExtendedTooltip name="ВидМобильнойПодписиРасширеннаяПодсказка" id="540"/>
 									<Events>
@@ -473,13 +433,14 @@
 									<ChoiceButton>false</ChoiceButton>
 									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 									<ChooseType>false</ChooseType>
+									<TextSize>Enlarged</TextSize>
 									<ContextMenu name="НастройкаОтправкиКонтекстноеМеню" id="542"/>
 									<ExtendedTooltip name="НастройкаОтправкиРасширеннаяПодсказка" id="543"/>
 									<Events>
 										<Event name="OnChange">НастройкаОтправкиПриИзменении</Event>
 									</Events>
 								</InputField>
-								<CheckBoxField name="ПакетнаяОтправка" id="530">
+								<CheckBoxField name="ПакетнаяОтправка" id="548">
 									<DataPath>ПакетнаяОтправка</DataPath>
 									<Title>
 										<v8:item>
@@ -489,8 +450,10 @@
 									</Title>
 									<TitleLocation>Right</TitleLocation>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-									<ContextMenu name="ПакетнаяОтправкаКонтекстноеМеню" id="531"/>
-									<ExtendedTooltip name="ПакетнаяОтправкаРасширеннаяПодсказка" id="532">
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ПакетнаяОтправкаКонтекстноеМеню" id="549"/>
+									<ExtendedTooltip name="ПакетнаяОтправкаРасширеннаяПодсказка" id="550">
 										<AutoMaxWidth>false</AutoMaxWidth>
 										<Title formatted="false">
 											<v8:item>
@@ -511,121 +474,63 @@
 							<v8:content>Доверенность</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<Representation>NormalSeparation</Representation>
+					<Group>AutoScreenTypeSensitive</Group>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаДоверенностьРасширеннаяПодсказка" id="497"/>
 					<ChildItems>
-						<Pages name="ГруппаСтраницы" id="504">
+						<CheckBoxField name="ПоДоверенности" id="498">
+							<DataPath>ПоДоверенности</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Страницы</v8:content>
+									<v8:content>По доверенности</v8:content>
 								</v8:item>
 							</Title>
-							<PagesRepresentation>None</PagesRepresentation>
-							<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="505"/>
-							<ChildItems>
-								<Page name="СтраницаБезДоверенности" id="510">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Страница выбор доверенности</v8:content>
-										</v8:item>
-									</Title>
-									<Group>AlwaysHorizontal</Group>
-									<ScrollOnCompress>false</ScrollOnCompress>
-									<ExtendedTooltip name="СтраницаБезДоверенностиРасширеннаяПодсказка" id="511"/>
-									<ChildItems>
-										<CheckBoxField name="ПоДоверенности1" id="515">
-											<DataPath>ПоДоверенности</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>По доверенности</v8:content>
-												</v8:item>
-											</Title>
-											<TitleLocation>Right</TitleLocation>
-											<GroupVerticalAlign>Center</GroupVerticalAlign>
-											<ContextMenu name="ПоДоверенности1КонтекстноеМеню" id="516"/>
-											<ExtendedTooltip name="ПоДоверенности1РасширеннаяПодсказка" id="517"/>
-											<Events>
-												<Event name="OnChange">ВыборДоверенностиПриИзменении</Event>
-											</Events>
-										</CheckBoxField>
-									</ChildItems>
-								</Page>
-								<Page name="СтраницаВыборДоверенности" id="508">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Страница выбор доверенности</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Страница без доверенности</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Group>AlwaysHorizontal</Group>
-									<ScrollOnCompress>false</ScrollOnCompress>
-									<ExtendedTooltip name="СтраницаВыборДоверенностиРасширеннаяПодсказка" id="509"/>
-									<ChildItems>
-										<CheckBoxField name="ПоДоверенности" id="498">
-											<DataPath>ПоДоверенности</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>По доверенности:</v8:content>
-												</v8:item>
-											</Title>
-											<TitleLocation>Right</TitleLocation>
-											<GroupVerticalAlign>Center</GroupVerticalAlign>
-											<ContextMenu name="ПоДоверенностиКонтекстноеМеню" id="499"/>
-											<ExtendedTooltip name="ПоДоверенностиРасширеннаяПодсказка" id="500"/>
-											<Events>
-												<Event name="OnChange">ВыборДоверенностиПриИзменении</Event>
-											</Events>
-										</CheckBoxField>
-										<InputField name="МашиночитаемаяДоверенность" id="501">
-											<DataPath>МашиночитаемаяДоверенность</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Машиночитаемая доверенность</v8:content>
-												</v8:item>
-											</Title>
-											<TitleLocation>None</TitleLocation>
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<DropListButton>true</DropListButton>
-											<ChooseType>false</ChooseType>
-											<ChoiceParameterLinks>
-												<xr:Link>
-													<xr:Name>СертификатПредставителя</xr:Name>
-													<xr:DataPath xsi:type="xs:string">Сертификат</xr:DataPath>
-													<xr:ValueChange>Clear</xr:ValueChange>
-												</xr:Link>
-											</ChoiceParameterLinks>
-											<ChoiceParameters>
-												<app:item name="ТолькоДействующие">
-													<app:value xsi:type="FormChoiceListDesTimeValue">
-														<Presentation/>
-														<Value xsi:type="xs:boolean">true</Value>
-													</app:value>
-												</app:item>
-											</ChoiceParameters>
-											<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
-											<ContextMenu name="МашиночитаемаяДоверенностьКонтекстноеМеню" id="502"/>
-											<ExtendedTooltip name="МашиночитаемаяДоверенностьРасширеннаяПодсказка" id="503"/>
-											<Events>
-												<Event name="OnChange">МашиночитаемаяДоверенностьПриИзменении</Event>
-											</Events>
-										</InputField>
-									</ChildItems>
-								</Page>
-							</ChildItems>
-						</Pages>
+							<TitleLocation>Right</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ПоДоверенностиКонтекстноеМеню" id="499"/>
+							<ExtendedTooltip name="ПоДоверенностиРасширеннаяПодсказка" id="500"/>
+							<Events>
+								<Event name="OnChange">ВыборДоверенностиПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="МашиночитаемаяДоверенность" id="501">
+							<DataPath>МашиночитаемаяДоверенность</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Машиночитаемая доверенность</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<DropListButton>true</DropListButton>
+							<ChooseType>false</ChooseType>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>СертификатПредставителя</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Сертификат</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
+							<ChoiceParameters>
+								<app:item name="ТолькоДействующие">
+									<app:value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xs:boolean">true</Value>
+									</app:value>
+								</app:item>
+							</ChoiceParameters>
+							<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+							<ContextMenu name="МашиночитаемаяДоверенностьКонтекстноеМеню" id="502"/>
+							<ExtendedTooltip name="МашиночитаемаяДоверенностьРасширеннаяПодсказка" id="503"/>
+							<Events>
+								<Event name="OnChange">МашиночитаемаяДоверенностьПриИзменении</Event>
+							</Events>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="ГруппаКонтейнер" id="468">
@@ -650,9 +555,9 @@
 							<v8:content>Комментарий к подписи</v8:content>
 						</v8:item>
 					</Title>
-					<TitleHeight>2</TitleHeight>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<Height>1</Height>
 					<ContextMenu name="КомментарийКонтекстноеМеню" id="409"/>
 					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="410"/>
 				</InputField>
@@ -671,7 +576,7 @@
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаКоманды" id="456">
+		<UsualGroup name="ГруппаКоманды" id="530">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -679,68 +584,26 @@
 				</v8:item>
 			</Title>
 			<HorizontalStretch>true</HorizontalStretch>
-			<Group>AlwaysHorizontal</Group>
-			<Behavior>Usual</Behavior>
+			<VerticalStretch>true</VerticalStretch>
+			<VerticalAlign>Bottom</VerticalAlign>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="457"/>
+			<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="531"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаКомандыПодтверждения" id="458">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Команды подтверждения</v8:content>
-						</v8:item>
-					</Title>
-					<Group>AlwaysHorizontal</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаКомандыПодтвержденияРасширеннаяПодсказка" id="459"/>
-				</UsualGroup>
-				<CommandBar name="ГруппаОсновныеКоманды" id="460">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Основные команды</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalStretch>false</HorizontalStretch>
+				<Button name="Подписать" id="462">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
 					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-					<ExtendedTooltip name="ГруппаОсновныеКомандыРасширеннаяПодсказка" id="461"/>
-					<ChildItems>
-						<Button name="Подписать" id="462">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<CommandName>Form.Command.Подписать</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Подписать</v8:content>
-								</v8:item>
-							</Title>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ПодписатьРасширеннаяПодсказка" id="463"/>
-						</Button>
-						<Button name="Отмена" id="464">
-							<Type>CommandBarButton</Type>
-							<Representation>Text</Representation>
-							<CommandName>Form.StandardCommand.Close</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Отмена</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="465"/>
-						</Button>
-						<Button name="ФормаСправка" id="466">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.Help</CommandName>
-							<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="467"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
+					<CommandName>Form.Command.Подписать</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подписать</v8:content>
+						</v8:item>
+					</Title>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ПодписатьРасширеннаяПодсказка" id="463"/>
+				</Button>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -1048,6 +911,7 @@
 			</Title>
 			<Action>Подписать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

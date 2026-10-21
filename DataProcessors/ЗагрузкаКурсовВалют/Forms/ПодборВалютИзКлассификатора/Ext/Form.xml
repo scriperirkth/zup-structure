@@ -2,7 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
 	<MobileDeviceCommandBarContent>
 		<xr:Item>
 			<xr:Presentation/>
@@ -10,8 +9,25 @@
 			<xr:Value xsi:type="xs:string">СписокВалютКоманднаяПанель</xr:Value>
 		</xr:Item>
 	</MobileDeviceCommandBarContent>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="Выбрать" id="14">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Выбрать</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="24"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -75,39 +91,24 @@
 				</ChildItems>
 			</ContextMenu>
 			<AutoCommandBar name="СписокВалютКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
 				<ChildItems>
-					<Button name="Выбрать" id="14">
-						<Type>CommandBarButton</Type>
-						<Representation>Text</Representation>
-						<DefaultButton>true</DefaultButton>
-						<SkipOnInput>false</SkipOnInput>
-						<CommandName>Form.Command.Выбрать</CommandName>
+					<SearchStringAddition name="СтрокаПоиска" id="58">
+						<AdditionSource>
+							<Item>СписокВалют</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
-								<v8:content>Выбрать</v8:content>
+								<v8:content>Строка поиска</v8:content>
 							</v8:item>
 						</Title>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="24"/>
-					</Button>
-					<Button name="Найти" id="12">
-						<Type>CommandBarButton</Type>
-						<SkipOnInput>false</SkipOnInput>
-						<CommandName>Form.Item.СписокВалют.StandardCommand.Find</CommandName>
-						<ExtendedTooltip name="НайтиРасширеннаяПодсказка" id="25"/>
-					</Button>
-					<Button name="ОтменитьПоиск" id="13">
-						<Type>CommandBarButton</Type>
-						<SkipOnInput>false</SkipOnInput>
-						<CommandName>Form.Item.СписокВалют.StandardCommand.CancelSearch</CommandName>
-						<ExtendedTooltip name="ОтменитьПоискРасширеннаяПодсказка" id="26"/>
-					</Button>
-					<Button name="ФормаСправка" id="17">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.Help</CommandName>
-						<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="27"/>
-					</Button>
+						<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+						<HorizontalStretch>false</HorizontalStretch>
+						<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="59"/>
+						<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="60"/>
+					</SearchStringAddition>
 				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокВалютРасширеннаяПодсказка" id="28"/>
@@ -147,8 +148,8 @@
 							<v8:content>Цифр. код</v8:content>
 						</v8:item>
 					</Title>
-					<Width>9</Width>
-					<HorizontalStretch>false</HorizontalStretch>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ContextMenu name="КодВалютыКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="КодВалютыРасширеннаяПодсказка" id="29"/>
@@ -161,8 +162,8 @@
 							<v8:content>Симв. код</v8:content>
 						</v8:item>
 					</Title>
-					<Width>9</Width>
-					<HorizontalStretch>false</HorizontalStretch>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ContextMenu name="КраткоеНаименованиеКонтекстноеМеню" id="7"/>
 					<ExtendedTooltip name="КраткоеНаименованиеРасширеннаяПодсказка" id="30"/>
@@ -175,8 +176,8 @@
 							<v8:content>Наименование валюты</v8:content>
 						</v8:item>
 					</Title>
-					<Width>20</Width>
-					<HorizontalStretch>false</HorizontalStretch>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="9"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="31"/>
@@ -189,6 +190,8 @@
 							<v8:content>Страны и территории</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ContextMenu name="СтраныИТерриторииКонтекстноеМеню" id="11"/>
 					<ExtendedTooltip name="СтраныИТерриторииРасширеннаяПодсказка" id="32"/>
@@ -208,10 +211,13 @@
 							<v8:content>Курс валюты может быть загружен из Интернета</v8:content>
 						</v8:item>
 					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
 					<HeaderPicture>
-						<xr:Ref>StdPicture.Refresh</xr:Ref>
+						<xr:Ref>StdPicture.GeographicalSchema</xr:Ref>
 						<xr:LoadTransparent>true</xr:LoadTransparent>
 					</HeaderPicture>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="ЗагружаетсяКонтекстноеМеню" id="16"/>
 					<ExtendedTooltip name="ЗагружаетсяРасширеннаяПодсказка" id="33"/>
 				</CheckBoxField>
@@ -333,6 +339,7 @@
 			</Picture>
 			<Action>ВыбратьВыполнить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

@@ -6,11 +6,13 @@
 			<v8:content>Выбор исполнителя</v8:content>
 		</v8:item>
 	</Title>
-	<Width>100</Width>
-	<Height>40</Height>
+	<Width>200</Width>
+	<Height>100</Height>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
+	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
+	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ФормаВыбрать" id="22">
@@ -52,57 +54,10 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
+					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаПользователиExtendedTooltip" id="37"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаИнформация" id="77">
-							<Visible>false</Visible>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Информация</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalStretch>true</HorizontalStretch>
-							<Group>HorizontalIfPossible</Group>
-							<VerticalAlign>Center</VerticalAlign>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаИнформацияРасширеннаяПодсказка" id="78"/>
-							<ChildItems>
-								<PictureDecoration name="ИнформацияКартинка" id="79">
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Информация картинка</v8:content>
-										</v8:item>
-									</Title>
-									<Picture>
-										<xr:Ref>StdPicture.Information</xr:Ref>
-										<xr:LoadTransparent>true</xr:LoadTransparent>
-									</Picture>
-									<FileDragMode>AsFile</FileDragMode>
-									<ContextMenu name="ИнформацияКартинкаКонтекстноеМеню" id="80"/>
-									<ExtendedTooltip name="ИнформацияКартинкаРасширеннаяПодсказка" id="81"/>
-								</PictureDecoration>
-								<LabelDecoration name="ИнформацияОписание" id="82">
-									<Width>50</Width>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<HorizontalStretch>true</HorizontalStretch>
-									<TextColor>style:ТекстИнформационнойНадписи</TextColor>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Показана первая 1000 сотрудников. Выберите подразделение для более точного поиска.</v8:content>
-										</v8:item>
-									</Title>
-									<VerticalAlign>Center</VerticalAlign>
-									<ContextMenu name="ИнформацияОписаниеКонтекстноеМеню" id="83"/>
-									<ExtendedTooltip name="ИнформацияОписаниеРасширеннаяПодсказка" id="84"/>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
 						<CommandBar name="ГруппаПоиск" id="29">
 							<Title>
 								<v8:item>
@@ -114,12 +69,12 @@
 							<ChildItems>
 								<Button name="Найти" id="31">
 									<Type>CommandBarButton</Type>
-									<CommandName>Form.Item.ТаблицаПользователей.StandardCommand.Find</CommandName>
+									<CommandName>Form.Item.ТаблицаСотрудников.StandardCommand.Find</CommandName>
 									<ExtendedTooltip name="НайтиExtendedTooltip" id="39"/>
 								</Button>
 								<Button name="ОтменитьПоиск" id="32">
 									<Type>CommandBarButton</Type>
-									<CommandName>Form.Item.ТаблицаПользователей.StandardCommand.CancelSearch</CommandName>
+									<CommandName>Form.Item.ТаблицаСотрудников.StandardCommand.CancelSearch</CommandName>
 									<ExtendedTooltip name="ОтменитьПоискExtendedTooltip" id="40"/>
 								</Button>
 							</ChildItems>
@@ -131,7 +86,7 @@
 									<v8:content>Группа списки</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Horizontal</Group>
+							<Group>AlwaysHorizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -143,7 +98,8 @@
 									<ChangeRowOrder>false</ChangeRowOrder>
 									<Width>30</Width>
 									<HeightInTableRows>10</HeightInTableRows>
-									<RowSelectionMode>Cell</RowSelectionMode>
+									<SelectionMode>SingleRow</SelectionMode>
+									<RowSelectionMode>Row</RowSelectionMode>
 									<Header>false</Header>
 									<HorizontalLinesBWA>false</HorizontalLinesBWA>
 									<VerticalLinesBWA>false</VerticalLinesBWA>
@@ -163,7 +119,6 @@
 										</v8:item>
 									</Title>
 									<SearchStringLocation>None</SearchStringLocation>
-									<ViewStatusLocation>None</ViewStatusLocation>
 									<SearchControlLocation>None</SearchControlLocation>
 									<ContextMenu name="ДеревоКонтекстноеМеню" id="25"/>
 									<AutoCommandBar name="ДеревоКоманднаяПанель" id="26">
@@ -215,20 +170,21 @@
 										</InputField>
 									</ChildItems>
 								</Table>
-								<Table name="ТаблицаПользователей" id="4">
+								<Table name="ТаблицаСотрудников" id="4">
 									<Representation>List</Representation>
 									<ChangeRowSet>false</ChangeRowSet>
 									<ChangeRowOrder>false</ChangeRowOrder>
 									<HeightInTableRows>10</HeightInTableRows>
-									<RowSelectionMode>Cell</RowSelectionMode>
+									<SelectionMode>SingleRow</SelectionMode>
+									<RowSelectionMode>Row</RowSelectionMode>
 									<Header>false</Header>
 									<HorizontalLinesBWA>false</HorizontalLinesBWA>
 									<VerticalLinesBWA>false</VerticalLinesBWA>
 									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
 									<FileDragMode>AsFile</FileDragMode>
-									<DataPath>ТаблицаПользователей</DataPath>
-									<RowPictureDataPath>ТаблицаПользователей.Картинка</RowPictureDataPath>
+									<DataPath>ТаблицаСотрудников</DataPath>
+									<RowPictureDataPath>ТаблицаСотрудников.Картинка</RowPictureDataPath>
 									<RowsPicture>
 										<xr:Ref>CommonPicture.СостояниеПользователя02</xr:Ref>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -249,49 +205,47 @@
 										<ExcludedCommand>MoveDown</ExcludedCommand>
 										<ExcludedCommand>MoveUp</ExcludedCommand>
 										<ExcludedCommand>OutputList</ExcludedCommand>
-										<ExcludedCommand>SelectAll</ExcludedCommand>
 										<ExcludedCommand>SortListAsc</ExcludedCommand>
 										<ExcludedCommand>SortListDesc</ExcludedCommand>
 									</CommandSet>
 									<SearchStringLocation>None</SearchStringLocation>
-									<ViewStatusLocation>None</ViewStatusLocation>
 									<SearchControlLocation>None</SearchControlLocation>
 									<RowFilter xsi:nil="true"/>
-									<ContextMenu name="ТаблицаПользователейКонтекстноеМеню" id="5"/>
-									<AutoCommandBar name="ТаблицаПользователейКоманднаяПанель" id="6">
+									<ContextMenu name="ТаблицаСотрудниковКонтекстноеМеню" id="5"/>
+									<AutoCommandBar name="ТаблицаСотрудниковКоманднаяПанель" id="6">
 										<Autofill>false</Autofill>
 									</AutoCommandBar>
-									<ExtendedTooltip name="ТаблицаПользователейРасширеннаяПодсказка" id="44"/>
-									<SearchStringAddition name="ТаблицаПользователейСтрокаПоиска" id="59">
+									<ExtendedTooltip name="ТаблицаСотрудниковРасширеннаяПодсказка" id="44"/>
+									<SearchStringAddition name="ТаблицаСотрудниковСтрокаПоиска" id="59">
 										<AdditionSource>
-											<Item>ТаблицаПользователей</Item>
+											<Item>ТаблицаСотрудников</Item>
 											<Type>SearchStringRepresentation</Type>
 										</AdditionSource>
-										<ContextMenu name="ТаблицаПользователейСтрокаПоискаКонтекстноеМеню" id="60"/>
-										<ExtendedTooltip name="ТаблицаПользователейСтрокаПоискаРасширеннаяПодсказка" id="61"/>
+										<ContextMenu name="ТаблицаСотрудниковСтрокаПоискаКонтекстноеМеню" id="60"/>
+										<ExtendedTooltip name="ТаблицаСотрудниковСтрокаПоискаРасширеннаяПодсказка" id="61"/>
 									</SearchStringAddition>
-									<ViewStatusAddition name="ТаблицаПользователейСостояниеПросмотра" id="62">
+									<ViewStatusAddition name="ТаблицаСотрудниковСостояниеПросмотра" id="62">
 										<AdditionSource>
-											<Item>ТаблицаПользователей</Item>
+											<Item>ТаблицаСотрудников</Item>
 											<Type>ViewStatusRepresentation</Type>
 										</AdditionSource>
-										<ContextMenu name="ТаблицаПользователейСостояниеПросмотраКонтекстноеМеню" id="63"/>
-										<ExtendedTooltip name="ТаблицаПользователейСостояниеПросмотраРасширеннаяПодсказка" id="64"/>
+										<ContextMenu name="ТаблицаСотрудниковСостояниеПросмотраКонтекстноеМеню" id="63"/>
+										<ExtendedTooltip name="ТаблицаСотрудниковСостояниеПросмотраРасширеннаяПодсказка" id="64"/>
 									</ViewStatusAddition>
-									<SearchControlAddition name="ТаблицаПользователейУправлениеПоиском" id="65">
+									<SearchControlAddition name="ТаблицаСотрудниковУправлениеПоиском" id="65">
 										<AdditionSource>
-											<Item>ТаблицаПользователей</Item>
+											<Item>ТаблицаСотрудников</Item>
 											<Type>SearchControl</Type>
 										</AdditionSource>
-										<ContextMenu name="ТаблицаПользователейУправлениеПоискомКонтекстноеМеню" id="66"/>
-										<ExtendedTooltip name="ТаблицаПользователейУправлениеПоискомРасширеннаяПодсказка" id="67"/>
+										<ContextMenu name="ТаблицаСотрудниковУправлениеПоискомКонтекстноеМеню" id="66"/>
+										<ExtendedTooltip name="ТаблицаСотрудниковУправлениеПоискомРасширеннаяПодсказка" id="67"/>
 									</SearchControlAddition>
 									<Events>
-										<Event name="Selection">ТаблицаПользователейВыбор</Event>
+										<Event name="Selection">ТаблицаСотрудниковВыбор</Event>
 									</Events>
 									<ChildItems>
-										<InputField name="ПользователиПользовательПредставление" id="7">
-											<DataPath>ТаблицаПользователей.Пользователь</DataPath>
+										<InputField name="ТаблицаСотрудниковСотрудник" id="7">
+											<DataPath>ТаблицаСотрудников.Сотрудник</DataPath>
 											<ReadOnly>true</ReadOnly>
 											<Title>
 												<v8:item>
@@ -302,8 +256,8 @@
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
 											<TextEdit>false</TextEdit>
-											<ContextMenu name="ПользователиПользовательПредставлениеКонтекстноеМеню" id="8"/>
-											<ExtendedTooltip name="ПользователиПользовательПредставлениеExtendedTooltip" id="45"/>
+											<ContextMenu name="ТаблицаСотрудниковСотрудникКонтекстноеМеню" id="8"/>
+											<ExtendedTooltip name="ТаблицаСотрудниковСотрудникРасширеннаяПодсказка" id="45"/>
 										</InputField>
 									</ChildItems>
 								</Table>
@@ -319,15 +273,15 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
+					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаРолиExtendedTooltip" id="46"/>
 					<ChildItems>
 						<Table name="Роли" id="13">
 							<Representation>List</Representation>
-							<ChangeRowSet>false</ChangeRowSet>
-							<ChangeRowOrder>false</ChangeRowOrder>
 							<HeightInTableRows>10</HeightInTableRows>
-							<RowSelectionMode>Cell</RowSelectionMode>
+							<SelectionMode>SingleRow</SelectionMode>
+							<RowSelectionMode>Row</RowSelectionMode>
 							<Header>false</Header>
 							<HorizontalLinesBWA>false</HorizontalLinesBWA>
 							<VerticalLinesBWA>false</VerticalLinesBWA>
@@ -352,12 +306,10 @@
 								<ExcludedCommand>MoveDown</ExcludedCommand>
 								<ExcludedCommand>MoveUp</ExcludedCommand>
 								<ExcludedCommand>OutputList</ExcludedCommand>
-								<ExcludedCommand>SelectAll</ExcludedCommand>
 								<ExcludedCommand>SortListAsc</ExcludedCommand>
 								<ExcludedCommand>SortListDesc</ExcludedCommand>
 							</CommandSet>
 							<SearchStringLocation>None</SearchStringLocation>
-							<ViewStatusLocation>None</ViewStatusLocation>
 							<SearchControlLocation>None</SearchControlLocation>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="РолиКонтекстноеМеню" id="14"/>
@@ -410,7 +362,7 @@
 		</Pages>
 	</ChildItems>
 	<Attributes>
-		<Attribute name="ТаблицаПользователей" id="1">
+		<Attribute name="ТаблицаСотрудников" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -421,7 +373,7 @@
 				<v8:Type>v8:ValueTable</v8:Type>
 			</Type>
 			<Columns>
-				<Column name="Пользователь" id="1">
+				<Column name="Сотрудник" id="1">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -436,11 +388,11 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="ПользовательТип" id="2">
+				<Column name="СотрудникТип" id="2">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Пользователь тип</v8:content>
+							<v8:content>Сотрудник тип</v8:content>
 						</v8:item>
 					</Title>
 					<Type>
@@ -451,11 +403,11 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="ПользовательID" id="3">
+				<Column name="СотрудникID" id="3">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Пользователь ID</v8:content>
+							<v8:content>Сотрудник ID</v8:content>
 						</v8:item>
 					</Title>
 					<Type>
@@ -922,13 +874,8 @@
 					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>Выбрать</Action>
-			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

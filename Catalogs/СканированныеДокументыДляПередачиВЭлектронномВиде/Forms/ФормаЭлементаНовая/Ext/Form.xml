@@ -37,16 +37,9 @@
 				</ToolTip>
 				<ExtendedTooltip name="КоманднаяПанельОсновнаяРасширеннаяПодсказка" id="505"/>
 				<ChildItems>
-					<Button name="ФормаЗаписатьИЗакрыть" id="387">
-						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.StandardCommand.WriteAndClose</CommandName>
-						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="388"/>
-					</Button>
 					<Button name="ФормаЗаписатьИЗакрытьСкан" id="567">
 						<Type>CommandBarButton</Type>
+						<DefaultButton>true</DefaultButton>
 						<CommandName>Form.Command.ЗаписатьИЗакрытьСкан</CommandName>
 						<Title>
 							<v8:item>
@@ -54,7 +47,14 @@
 								<v8:content>Добавить в ответ на требование</v8:content>
 							</v8:item>
 						</Title>
+						<ButtonImportance>Main</ButtonImportance>
 						<ExtendedTooltip name="ФормаЗаписатьИЗакрытьСканРасширеннаяПодсказка" id="568"/>
+					</Button>
+					<Button name="ФормаЗаписатьИЗакрыть" id="387">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.WriteAndClose</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="388"/>
 					</Button>
 					<Button name="ФормаЗаписать" id="389">
 						<Type>CommandBarButton</Type>
@@ -247,11 +247,13 @@
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
+							<BackColor>style:ЦветФонаТаблицы</BackColor>
 							<ExtendedTooltip name="ГруппаСписокВложенийРасширеннаяПодсказка" id="396"/>
 							<ChildItems>
 								<Table name="ТаблицаФайлов" id="47">
 									<Representation>List</Representation>
 									<AutoMaxRowsCount>false</AutoMaxRowsCount>
+									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Row</RowSelectionMode>
 									<AutoAddIncomplete>false</AutoAddIncomplete>
 									<EnableDrag>true</EnableDrag>
@@ -323,7 +325,7 @@
 													<v8:content>N</v8:content>
 												</v8:item>
 											</Title>
-											<HorizontalAlign>Center</HorizontalAlign>
+											<AutoWidthInTable>ByData</AutoWidthInTable>
 											<Width>4</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<TextEdit>false</TextEdit>
@@ -339,12 +341,14 @@
 													<v8:content>Файл</v8:content>
 												</v8:item>
 											</Title>
+											<AutoWidthInTable>ByData</AutoWidthInTable>
 											<ContextMenu name="ТаблицаФайловСоставноеПолеКонтекстноеМеню" id="53"/>
 											<ExtendedTooltip name="ТаблицаФайловСоставноеПолеРасширеннаяПодсказка" id="154"/>
 										</LabelField>
 										<InputField name="ТаблицаФайловВидPDF" id="578">
 											<DataPath>ТаблицаФайлов.ВидPDF</DataPath>
 											<EditMode>Directly</EditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ListChoiceMode>true</ListChoiceMode>
 											<ChoiceList>
 												<xr:Item>
@@ -379,7 +383,7 @@
 												</v8:item>
 											</Title>
 											<EditMode>Directly</EditMode>
-											<MarkRequiredComplete>false</MarkRequiredComplete>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<DropListButton>false</DropListButton>
 											<ChoiceButton>true</ChoiceButton>
 											<ClearButton>true</ClearButton>
@@ -550,7 +554,6 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>Top</TitleLocation>
-							<MarkRequiredComplete>true</MarkRequiredComplete>
 							<DropListButton>true</DropListButton>
 							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ChooseType>false</ChooseType>
@@ -577,163 +580,65 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаРевизитыНеРастягиваютсяЛевоРасширеннаяПодсказка" id="533"/>
 									<ChildItems>
-										<UsualGroup name="ГруппаСведенияДокумента" id="549">
+										<InputField name="СведенияДокумента" id="559">
+											<DataPath>Объект.СведенияДокумента</DataPath>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Группа сведения документа основания</v8:content>
+													<v8:content>Наименование, реквизиты или иные признаки документа-источника</v8:content>
 												</v8:item>
 											</Title>
-											<ToolTip>
+											<TitleLocation>Top</TitleLocation>
+											<ToolTipRepresentation>None</ToolTipRepresentation>
+											<MaxWidth>52</MaxWidth>
+											<HorizontalStretch>true</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<ChoiceButton>true</ChoiceButton>
+											<ClearButton>false</ClearButton>
+											<OpenButton>false</OpenButton>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<InputHint>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Группа сведения документа основания</v8:content>
+													<v8:content>Выберите из списка или укажите своими словами</v8:content>
 												</v8:item>
-											</ToolTip>
-											<HorizontalStretch>true</HorizontalStretch>
-											<Group>Vertical</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>WeakSeparation</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ThroughAlign>Use</ThroughAlign>
-											<ExtendedTooltip name="ГруппаСведенияДокументаРасширеннаяПодсказка" id="550"/>
-											<ChildItems>
-												<UsualGroup name="Группа2" id="551">
-													<Group>HorizontalIfPossible</Group>
-													<Behavior>Usual</Behavior>
-													<Representation>WeakSeparation</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="552"/>
-													<ChildItems>
-														<LabelDecoration name="ЗаголовокДокумента" id="553">
-															<AutoMaxWidth>false</AutoMaxWidth>
-															<MaxWidth>52</MaxWidth>
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Наименование, реквизиты или иные признаки документа-источника:</v8:content>
-																</v8:item>
-															</Title>
-															<ContextMenu name="ЗаголовокДокументаКонтекстноеМеню" id="554"/>
-															<ExtendedTooltip name="ЗаголовокДокументаРасширеннаяПодсказка" id="555"/>
-														</LabelDecoration>
-													</ChildItems>
-												</UsualGroup>
-												<InputField name="СведенияДокумента" id="559">
-													<DataPath>Объект.СведенияДокумента</DataPath>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Наименование, реквизиты или иные признаки документа-основания </v8:content>
-														</v8:item>
-													</Title>
-													<TitleLocation>None</TitleLocation>
-													<ToolTipRepresentation>None</ToolTipRepresentation>
-													<MarkRequiredComplete>true</MarkRequiredComplete>
-													<MaxWidth>52</MaxWidth>
-													<Height>2</Height>
-													<HorizontalStretch>true</HorizontalStretch>
-													<VerticalStretch>false</VerticalStretch>
-													<MultiLine>true</MultiLine>
-													<ChoiceButton>true</ChoiceButton>
-													<ClearButton>false</ClearButton>
-													<OpenButton>false</OpenButton>
-													<AutoMarkIncomplete>true</AutoMarkIncomplete>
-													<InputHint>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Выберите из списка или введите произвольный текст</v8:content>
-														</v8:item>
-													</InputHint>
-													<ContextMenu name="СведенияДокументаКонтекстноеМеню" id="560"/>
-													<ExtendedTooltip name="СведенияДокументаРасширеннаяПодсказка" id="561"/>
-													<Events>
-														<Event name="OnChange">СведенияДокументаПриИзменении</Event>
-														<Event name="StartChoice">СведенияДокументаНачалоВыбора</Event>
-													</Events>
-												</InputField>
-											</ChildItems>
-										</UsualGroup>
-										<UsualGroup name="ГруппаСведенияДокументаОснования" id="516">
+											</InputHint>
+											<ContextMenu name="СведенияДокументаКонтекстноеМеню" id="560"/>
+											<ExtendedTooltip name="СведенияДокументаРасширеннаяПодсказка" id="561"/>
+											<Events>
+												<Event name="OnChange">СведенияДокументаПриИзменении</Event>
+												<Event name="StartChoice">СведенияДокументаНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="СведенияДокументаОснования" id="541">
+											<DataPath>Объект.СведенияДокументаОснования</DataPath>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Группа сведения документа основания</v8:content>
+													<v8:content>Наименование, реквизиты или иные признаки документа- основания (необязательно)</v8:content>
 												</v8:item>
 											</Title>
+											<TitleLocation>Top</TitleLocation>
 											<ToolTip>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Группа сведения документа основания</v8:content>
+													<v8:content>Договор, заказ-наряд, счет на оплату, заявка покупателя или иной первичный документ, подтверждающий возникновение договорных отношений между участниками сделки</v8:content>
 												</v8:item>
 											</ToolTip>
+											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<MaxWidth>52</MaxWidth>
+											<Height>1</Height>
 											<HorizontalStretch>true</HorizontalStretch>
-											<Group>Vertical</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>WeakSeparation</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ThroughAlign>Use</ThroughAlign>
-											<ExtendedTooltip name="ГруппаСведенияДокументаОснованияРасширеннаяПодсказка" id="517"/>
-											<ChildItems>
-												<UsualGroup name="Группа1" id="547">
-													<Group>HorizontalIfPossible</Group>
-													<Behavior>Usual</Behavior>
-													<Representation>WeakSeparation</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="548"/>
-													<ChildItems>
-														<LabelDecoration name="ЗаголовокДокументаОснования" id="544">
-															<MaxWidth>50</MaxWidth>
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Наименование, реквизиты или иные признаки документа- основания (необязательно):</v8:content>
-																</v8:item>
-															</Title>
-															<ContextMenu name="ЗаголовокДокументаОснованияКонтекстноеМеню" id="545"/>
-															<ExtendedTooltip name="ЗаголовокДокументаОснованияРасширеннаяПодсказка" id="546"/>
-														</LabelDecoration>
-														<LabelDecoration name="ПодсказкаДокументаОснования" id="518">
-															<HorizontalStretch>false</HorizontalStretch>
-															<ToolTip>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Договор, заказ-наряд, счет на оплату, заявка покупателя или иной первичный документ, подтверждающий возникновение договорных отношений между участниками сделки</v8:content>
-																</v8:item>
-															</ToolTip>
-															<ToolTipRepresentation>Button</ToolTipRepresentation>
-															<VerticalAlign>Bottom</VerticalAlign>
-															<ContextMenu name="ПодсказкаДокументаОснованияКонтекстноеМеню" id="519"/>
-															<ExtendedTooltip name="ПодсказкаДокументаОснованияРасширеннаяПодсказка" id="520"/>
-														</LabelDecoration>
-													</ChildItems>
-												</UsualGroup>
-												<InputField name="СведенияДокументаОснования" id="541">
-													<DataPath>Объект.СведенияДокументаОснования</DataPath>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Наименование, реквизиты или иные признаки документа-основания </v8:content>
-														</v8:item>
-													</Title>
-													<TitleLocation>None</TitleLocation>
-													<ToolTipRepresentation>None</ToolTipRepresentation>
-													<MaxWidth>52</MaxWidth>
-													<Height>2</Height>
-													<HorizontalStretch>true</HorizontalStretch>
-													<VerticalStretch>false</VerticalStretch>
-													<MultiLine>true</MultiLine>
-													<InputHint>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Введите произвольный текст</v8:content>
-														</v8:item>
-													</InputHint>
-													<ContextMenu name="СведенияДокументаОснованияКонтекстноеМеню" id="542"/>
-													<ExtendedTooltip name="СведенияДокументаОснованияРасширеннаяПодсказка" id="543"/>
-												</InputField>
-											</ChildItems>
-										</UsualGroup>
+											<VerticalStretch>false</VerticalStretch>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Укажите своими словами</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="СведенияДокументаОснованияКонтекстноеМеню" id="542"/>
+											<ExtendedTooltip name="СведенияДокументаОснованияРасширеннаяПодсказка" id="543"/>
+										</InputField>
 										<UsualGroup name="ГруппаЭП" id="565">
 											<Title>
 												<v8:item>
@@ -1427,6 +1332,7 @@
 			</ToolTip>
 			<Action>ЗаписатьИЗакрытьСкан</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

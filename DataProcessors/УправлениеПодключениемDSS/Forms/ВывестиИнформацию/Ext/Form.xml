@@ -12,11 +12,35 @@
 	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
-	<CommandBarLocation>None</CommandBarLocation>
+	<CommandBarLocation>Bottom</CommandBarLocation>
 	<ConversationsRepresentation>DontShow</ConversationsRepresentation>
-	<ShowCommandBar>false</ShowCommandBar>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<ButtonGroup name="ГруппаВопросы" id="34">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Вопросы</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ГруппаВопросыРасширеннаяПодсказка" id="35"/>
+			</ButtonGroup>
+			<Button name="ЖурналОшибок" id="23">
+				<Type>CommandBarButton</Type>
+				<SkipOnInput>true</SkipOnInput>
+				<AutoMaxWidth>false</AutoMaxWidth>
+				<CommandName>Form.Command.ЖурналОшибок</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Перейти в журнал регистрации</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Supplementary</ButtonImportance>
+				<ExtendedTooltip name="ЖурналОшибокРасширеннаяПодсказка" id="24"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -95,6 +119,8 @@
 											<v8:content>Код ошибки</v8:content>
 										</v8:item>
 									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="КодОшибкиКонтекстноеМеню" id="18"/>
 									<ExtendedTooltip name="КодОшибкиРасширеннаяПодсказка" id="19"/>
 								</LabelField>
@@ -109,10 +135,11 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<Height>3</Height>
 									<MultiLine>true</MultiLine>
-									<BorderColor>style:FormBackColor</BorderColor>
 									<ContextMenu name="СодержаниеОшибкиКонтекстноеМеню" id="37"/>
 									<ExtendedTooltip name="СодержаниеОшибкиРасширеннаяПодсказка" id="38"/>
 								</InputField>
@@ -141,71 +168,6 @@
 						</Page>
 					</ChildItems>
 				</Pages>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаКоманда" id="8">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команды</v8:content>
-				</v8:item>
-			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКомандаРасширеннаяПодсказка" id="9"/>
-			<ChildItems>
-				<Button name="ЖурналОшибок" id="23">
-					<Type>Hyperlink</Type>
-					<SkipOnInput>true</SkipOnInput>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<CommandName>Form.Command.ЖурналОшибок</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Перейти в журнал регистрации</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ЖурналОшибокРасширеннаяПодсказка" id="24"/>
-				</Button>
-				<CommandBar name="ГруппаЗакрыть" id="25">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Кнопка закрыть</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalLocation>Right</HorizontalLocation>
-					<ExtendedTooltip name="ГруппаЗакрытьРасширеннаяПодсказка" id="26"/>
-					<ChildItems>
-						<Button name="Закрыть" id="6">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<SkipOnInput>false</SkipOnInput>
-							<DefaultItem>true</DefaultItem>
-							<CommandName>Form.Command.Закрыть</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Закрыть</v8:content>
-								</v8:item>
-							</Title>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="7"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
-				<CommandBar name="ГруппаВопросы" id="34">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Вопросы</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalLocation>Center</HorizontalLocation>
-					<ExtendedTooltip name="ГруппаВопросыРасширеннаяПодсказка" id="35"/>
-				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -237,7 +199,7 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="ТаймАут" id="2">
+		<Attribute name="Таймаут" id="2">
 			<Type>
 				<v8:Type>xs:decimal</v8:Type>
 				<v8:NumberQualifiers>
@@ -273,21 +235,6 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Закрыть" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Закрыть</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Закрыть</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОК</Action>
-		</Command>
 		<Command name="ЖурналОшибок" id="2">
 			<Title>
 				<v8:item>
@@ -295,13 +242,8 @@
 					<v8:content>Журнал ошибок</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Журнал ошибок</v8:content>
-				</v8:item>
-			</ToolTip>
 			<Action>ЖурналОшибок</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>
@@ -341,7 +283,7 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Parameter>
-		<Parameter name="ТаймАут">
+		<Parameter name="Таймаут">
 			<Type>
 				<v8:Type>xs:decimal</v8:Type>
 				<v8:NumberQualifiers>

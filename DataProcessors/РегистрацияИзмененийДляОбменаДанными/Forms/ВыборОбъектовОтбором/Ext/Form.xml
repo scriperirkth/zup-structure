@@ -9,14 +9,30 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаВыбратьТекущуюСтроку" id="92">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ВыбратьТекущуюСтроку</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаВыбратьТекущуюСтрокуРасширеннаяПодсказка" id="93"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<InputField name="СписокДанныхКомпоновщикНастроекНастройкиОтбор" id="96">
+			<DataPath>СписокДанных.SettingsComposer.Settings.Filter</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="СписокДанныхКомпоновщикНастроекНастройкиОтборКонтекстноеМеню" id="97"/>
+			<ExtendedTooltip name="СписокДанныхКомпоновщикНастроекНастройкиОтборРасширеннаяПодсказка" id="98"/>
+		</InputField>
 		<UsualGroup name="Группа1" id="18">
+			<Visible>false</Visible>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -25,13 +41,16 @@
 			</Title>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ShowAsCard>true</ShowAsCard>
 			<ExtendedTooltip name="Группа1ExtendedTooltip" id="40"/>
 			<ChildItems>
 				<Table name="Отбор" id="15">
 					<Representation>Tree</Representation>
 					<Autofill>true</Autofill>
-					<Height>6</Height>
+					<HeightInTableRows>1</HeightInTableRows>
+					<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<InitialTreeView>ExpandAllLevels</InitialTreeView>
@@ -152,7 +171,8 @@
 			<CommandBarLocation>Bottom</CommandBarLocation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<Height>5</Height>
+			<HeightInTableRows>10</HeightInTableRows>
+			<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<EnableStartDrag>true</EnableStartDrag>
 			<FileDragMode>AsFile</FileDragMode>
@@ -181,33 +201,6 @@
 			<ContextMenu name="СписокДанныхКонтекстноеМеню" id="11">
 				<Autofill>false</Autofill>
 				<ChildItems>
-					<Button name="СписокДанныхКонтекстноеМенюВыбратьОтобранныеЗначения" id="23">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ВыбратьОтобранныеЗначения</CommandName>
-						<Picture>
-							<xr:Ref>StdPicture.ChooseValue</xr:Ref>
-							<xr:LoadTransparent>true</xr:LoadTransparent>
-						</Picture>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Выбрать все отобранные</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="СписокДанныхКонтекстноеМенюВыбратьОтобранныеЗначенияExtendedTooltip" id="49"/>
-					</Button>
-					<Button name="СписокДанныхКонтекстноеМенюВыбратьТекущуюСтроку" id="24">
-						<Type>CommandBarButton</Type>
-						<Representation>Text</Representation>
-						<CommandName>Form.Command.ВыбратьТекущуюСтроку</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Выбрать текущие данные</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="СписокДанныхКонтекстноеМенюВыбратьТекущуюСтрокуExtendedTooltip" id="50"/>
-					</Button>
 					<ButtonGroup name="СписокДанныхКонтекстноеМенюГруппа2" id="31">
 						<Title>
 							<v8:item>
@@ -274,53 +267,12 @@
 			</ContextMenu>
 			<AutoCommandBar name="СписокДанныхКоманднаяПанель" id="12">
 				<HorizontalAlign>Right</HorizontalAlign>
-				<Autofill>false</Autofill>
 				<ChildItems>
-					<Button name="СписокДанныхВыбратьОтобранныеЗначения" id="22">
+					<Button name="СписокДанныхОткрытьТекущийОбъект" id="88">
 						<Type>CommandBarButton</Type>
-						<Representation>PictureAndText</Representation>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.ВыбратьОтобранныеЗначения</CommandName>
-						<Picture>
-							<xr:Ref>StdPicture.ChooseValue</xr:Ref>
-							<xr:LoadTransparent>true</xr:LoadTransparent>
-						</Picture>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Выбрать все</v8:content>
-							</v8:item>
-						</Title>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="СписокДанныхВыбратьОтобранныеЗначенияExtendedTooltip" id="59"/>
-					</Button>
-					<Button name="СписокДанныхВыбратьТекущуюСтроку" id="21">
-						<Type>CommandBarButton</Type>
-						<Representation>Text</Representation>
-						<CommandName>Form.Command.ВыбратьТекущуюСтроку</CommandName>
-						<Picture>
-							<xr:Ref>StdPicture.ChooseValue</xr:Ref>
-							<xr:LoadTransparent>true</xr:LoadTransparent>
-						</Picture>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Выбрать</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="СписокДанныхВыбратьТекущуюСтрокуExtendedTooltip" id="60"/>
-					</Button>
-					<Button name="СписокДанныхЗакрыть" id="20">
-						<Type>CommandBarButton</Type>
-						<Representation>Text</Representation>
-						<CommandName>Form.StandardCommand.Close</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Закрыть</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="СписокДанныхЗакрытьExtendedTooltip" id="61"/>
+						<CommandName>Form.Command.ОткрытьТекущийОбъект</CommandName>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+						<ExtendedTooltip name="СписокДанныхОткрытьТекущийОбъектРасширеннаяПодсказка" id="89"/>
 					</Button>
 				</ChildItems>
 			</AutoCommandBar>
@@ -416,6 +368,7 @@
 			</ToolTip>
 			<Action>ВыбратьОтобранныеЗначения</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ВыбратьТекущуюСтроку" id="2">
 			<Title>
@@ -432,6 +385,7 @@
 			</ToolTip>
 			<Action>ВыбратьТекущуюСтроку</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ОткрытьТекущийОбъект" id="3">
 			<Title>
@@ -446,8 +400,14 @@
 					<v8:content>Открыть текущий объект</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.InputFieldOpen</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>ОткрытьТекущийОбъект</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокДанных</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

@@ -2,11 +2,10 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<SaveWindowSettings>false</SaveWindowSettings>
-	<Group>Vertical</Group>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
-	</AutoCommandBar>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -19,12 +18,12 @@
 			</Title>
 			<VerticalStretch>false</VerticalStretch>
 			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
+			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="26"/>
 		</UsualGroup>
 		<Table name="Источник" id="5">
+			<CommandBarLocation>Top</CommandBarLocation>
 			<ReadOnly>true</ReadOnly>
 			<ChoiceMode>true</ChoiceMode>
 			<SelectionMode>SingleRow</SelectionMode>
@@ -37,6 +36,7 @@
 					<v8:content>Источник</v8:content>
 				</v8:item>
 			</Title>
+			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -53,20 +53,7 @@
 			<UserSettingsGroup>ГруппаПользовательскихНастроек</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="ИсточникКонтекстноеМеню" id="6"/>
-			<AutoCommandBar name="ИсточникКоманднаяПанель" id="7">
-				<ChildItems>
-					<Button name="ФормаИзменитьФорму" id="18">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-						<ExtendedTooltip name="ФормаИзменитьФормуРасширеннаяПодсказка" id="19"/>
-					</Button>
-					<Button name="ФормаСправка" id="20">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.Help</CommandName>
-						<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="21"/>
-					</Button>
-				</ChildItems>
-			</AutoCommandBar>
+			<AutoCommandBar name="ИсточникКоманднаяПанель" id="7"/>
 			<ExtendedTooltip name="ИсточникРасширеннаяПодсказка" id="8"/>
 			<SearchStringAddition name="ИсточникСтрокаПоиска" id="9">
 				<AdditionSource>
@@ -95,6 +82,8 @@
 			<ChildItems>
 				<PictureField name="СтандартнаяКартинка" id="22">
 					<DataPath>Источник.DefaultPicture</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СтандартнаяКартинкаКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="СтандартнаяКартинкаРасширеннаяПодсказка" id="24"/>
 				</PictureField>

@@ -6,13 +6,15 @@
 			<v8:content>Исполнение</v8:content>
 		</v8:item>
 	</Title>
-	<Width>70</Width>
+	<Width>200</Width>
+	<Height>40</Height>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
-	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
+	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
@@ -46,6 +48,7 @@
 			</Button>
 			<Button name="ФормаОтмена" id="841">
 				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
 				<AutoMaxWidth>false</AutoMaxWidth>
 				<CommandName>Form.StandardCommand.Cancel</CommandName>
 				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
@@ -95,7 +98,8 @@
 									<v8:content>№ пункта</v8:content>
 								</v8:item>
 							</ToolTip>
-							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<InputHint>
 								<v8:item>
@@ -139,8 +143,11 @@
 							<v8:content>Описание поручения</v8:content>
 						</v8:item>
 					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<Height>2</Height>
+					<VerticalStretch>false</VerticalStretch>
 					<MultiLine>true</MultiLine>
 					<InputHint>
 						<v8:item>
@@ -233,6 +240,11 @@
 				</CommandBar>
 				<InputField name="Срок" id="861">
 					<DataPath>Срок</DataPath>
+					<TitleLocation>Left</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Width>10</Width>
+					<HorizontalStretch>false</HorizontalStretch>
 					<ChoiceButton>false</ChoiceButton>
 					<SpinButton>false</SpinButton>
 					<EditFormat>
@@ -253,6 +265,7 @@
 			<Representation>List</Representation>
 			<Width>15</Width>
 			<HeightInTableRows>3</HeightInTableRows>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -271,12 +284,10 @@
 				<ExcludedCommand>MoveUp</ExcludedCommand>
 				<ExcludedCommand>OutputList</ExcludedCommand>
 				<ExcludedCommand>SearchEverywhere</ExcludedCommand>
-				<ExcludedCommand>SelectAll</ExcludedCommand>
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 			</CommandSet>
 			<SearchStringLocation>None</SearchStringLocation>
-			<ViewStatusLocation>None</ViewStatusLocation>
 			<SearchControlLocation>None</SearchControlLocation>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="ИсполнителиИсполненияКонтекстноеМеню" id="141">
@@ -332,10 +343,13 @@
 				<PictureField name="ИсполнителиИсполненияНомерКартинки" id="854">
 					<DataPath>ИсполнителиИсполнения.НомерКартинки</DataPath>
 					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
 					<HeaderPicture>
-						<xr:Ref>CommonPicture.РезультатыВыполненияДействийШапка</xr:Ref>
+						<xr:Ref>CommonPicture.РезультатыВыполненияПроцессовИЗадачЗаголовок</xr:Ref>
 						<xr:LoadTransparent>false</xr:LoadTransparent>
 					</HeaderPicture>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<Width>2</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ValuesPicture>
 						<xr:Ref>CommonPicture.КоллекцияРезультатыВыполненияДействий</xr:Ref>
@@ -352,11 +366,15 @@
 						</v8:item>
 					</Title>
 					<Group>InCell</Group>
+					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ИсполнителиИсполненияГруппаExtendedTooltip" id="484"/>
 					<ChildItems>
 						<PictureField name="ИсполнителиИсполненияОтветственный" id="851">
 							<DataPath>ИсполнителиИсполнения.Ответственный</DataPath>
+							<EditMode>EnterOnInput</EditMode>
 							<ShowInHeader>false</ShowInHeader>
+							<AutoWidthInTable>None</AutoWidthInTable>
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<ValuesPicture>
 								<xr:Ref>CommonPicture.ОтветственныйИсполнитель</xr:Ref>
 								<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -367,8 +385,6 @@
 						<InputField name="ИсполнителиИсполненияИсполнитель" id="886">
 							<DataPath>ИсполнителиИсполнения.ИсполнительПредставление</DataPath>
 							<EditMode>EnterOnInput</EditMode>
-							<MarkRequiredComplete>true</MarkRequiredComplete>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>24</Width>
 							<ChoiceButton>true</ChoiceButton>
 							<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
@@ -398,8 +414,8 @@
 					</ToolTip>
 					<ToolTipRepresentation>Balloon</ToolTipRepresentation>
 					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<Width>25</Width>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<Width>9</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<VerticalStretch>false</VerticalStretch>
 					<ChoiceButton>false</ChoiceButton>
@@ -413,6 +429,7 @@
 				</InputField>
 				<InputField name="ИсполнителиИсполненияОписаниеОсобое" id="891">
 					<DataPath>ИсполнителиИсполнения.ОписаниеОсобое</DataPath>
+					<EditMode>EnterOnInput</EditMode>
 					<Width>35</Width>
 					<MultiLine>true</MultiLine>
 					<ContextMenu name="ИсполнителиИсполненияОписаниеОсобоеКонтекстноеМеню" id="892"/>
@@ -486,6 +503,8 @@
 													<v8:content>Проверить</v8:content>
 												</v8:item>
 											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<DropListButton>false</DropListButton>
 											<ChoiceButton>true</ChoiceButton>
 											<CreateButton>false</CreateButton>
@@ -510,7 +529,6 @@
 								</UsualGroup>
 								<InputField name="СрокОбработкиРезультатовИсполненияПредставление" id="818">
 									<DataPath>СрокОбработкиРезультатовИсполненияПредставление</DataPath>
-									<TitleLocation>Left</TitleLocation>
 									<TitleHeight>1</TitleHeight>
 									<ToolTip>
 										<v8:item>
@@ -519,6 +537,8 @@
 										</v8:item>
 									</ToolTip>
 									<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<VerticalStretch>false</VerticalStretch>
@@ -556,6 +576,8 @@
 									<v8:content>Автор</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ChoiceButton>true</ChoiceButton>
 							<ContextMenu name="АвторИсполненияКонтекстноеМеню" id="895"/>
 							<ExtendedTooltip name="АвторИсполненияРасширеннаяПодсказка" id="896"/>
@@ -575,6 +597,8 @@
 									<v8:content>Контролер</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ChoiceButton>true</ChoiceButton>
 							<ContextMenu name="КонтролерИсполненияКонтекстноеМеню" id="160"/>
 							<ExtendedTooltip name="КонтролерИсполненияExtendedTooltip" id="502"/>
@@ -1629,6 +1653,18 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
+		<Attribute name="Объект" id="117">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ИнтеграцияС1СДокументооборот3</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:use>false</dcsset:use>
@@ -1730,7 +1766,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаписатьИЗакрыть</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПродолжитьДиалог" id="40">
 			<Title>
@@ -1746,6 +1782,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПродолжитьДиалог</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="РазныеСроки" id="1">
 			<Title>

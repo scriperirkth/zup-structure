@@ -6,14 +6,29 @@
 			<v8:content>Выбрать квартиру, офис</v8:content>
 		</v8:item>
 	</Title>
-	<WindowOpeningMode>DontBlock</WindowOpeningMode>
+	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Top</CommandBarLocation>
-	<ShowTitle>false</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВыбрать" id="57">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Выбрать</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="58"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -22,11 +37,11 @@
 	<ChildItems>
 		<Table name="СписокАдресныхОбъектов" id="3">
 			<Representation>Tree</Representation>
-			<ChangeRowSet>false</ChangeRowSet>
-			<ChangeRowOrder>false</ChangeRowOrder>
 			<SelectionMode>SingleRow</SelectionMode>
-			<RowSelectionMode>Row</RowSelectionMode>
+			<RowSelectionMode>Cell</RowSelectionMode>
 			<Header>false</Header>
+			<HorizontalLinesBWA>false</HorizontalLinesBWA>
+			<VerticalLinesBWA>false</VerticalLinesBWA>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -50,26 +65,10 @@
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="СписокАдресныхОбъектовКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокАдресныхОбъектовКоманднаяПанель" id="5">
-				<ChildItems>
-					<Button name="ФормаВыбрать" id="57">
-						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.Выбрать</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Выбрать</v8:content>
-							</v8:item>
-						</Title>
-						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="58"/>
-					</Button>
-				</ChildItems>
-			</AutoCommandBar>
+			<AutoCommandBar name="СписокАдресныхОбъектовКоманднаяПанель" id="5"/>
 			<ExtendedTooltip name="СписокАдресныхОбъектовРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокАдресныхОбъектовСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -109,7 +108,8 @@
 							<v8:content>Квартира, офис</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>Directly</EditMode>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокАдресныхОбъектовПомещениеКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="СписокАдресныхОбъектовПомещениеРасширеннаяПодсказка" id="18"/>
 				</InputField>
@@ -231,6 +231,7 @@
 			</ToolTip>
 			<Action>Выбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Найти" id="2">
 			<Title>

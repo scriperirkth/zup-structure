@@ -9,8 +9,31 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаПродолжить" id="42">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Подтвердить</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаПродолжитьРасширеннаяПодсказка" id="43"/>
+			</Button>
+			<Button name="ФормаСправка" id="152">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="153"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -54,6 +77,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<RadioButtonType>Auto</RadioButtonType>
 							<ChoiceList>
 								<xr:Item>
@@ -100,6 +125,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<RadioButtonType>Auto</RadioButtonType>
 							<ChoiceList>
 								<xr:Item>
@@ -131,6 +158,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<RadioButtonType>Tumbler</RadioButtonType>
 							<ChoiceList>
 								<xr:Item>
@@ -153,7 +182,7 @@
 										<Presentation>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
-												<v8:content>Не найден в списке</v8:content>
+												<v8:content>Не найдена в списке</v8:content>
 											</v8:item>
 										</Presentation>
 										<Value xsi:type="xs:string">Восстановить</Value>
@@ -182,7 +211,7 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Выбор</v8:content>
+									<v8:content>Выбор существующей</v8:content>
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
@@ -202,22 +231,13 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаСписокВыбораСодержимоеРасширеннаяПодсказка" id="97"/>
 									<ChildItems>
-										<CommandBar name="ГруппаКомандыСпискаВыбора" id="128">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Команды списка</v8:content>
-												</v8:item>
-											</Title>
-											<CommandSource>Item.СписокВыбор</CommandSource>
-											<ExtendedTooltip name="ГруппаКомандыСпискаВыбораРасширеннаяПодсказка" id="129"/>
-										</CommandBar>
 										<Table name="СписокВыбор" id="98">
-											<CommandBarLocation>None</CommandBarLocation>
+											<CommandBarLocation>Top</CommandBarLocation>
 											<HeightInTableRows>10</HeightInTableRows>
 											<ChoiceMode>true</ChoiceMode>
 											<RowSelectionMode>Cell</RowSelectionMode>
 											<Header>false</Header>
+											<HeaderHeight>3</HeaderHeight>
 											<EnableStartDrag>true</EnableStartDrag>
 											<DataPath>СписокВыбор</DataPath>
 											<RowPictureDataPath>СписокВыбор.DefaultPicture</RowPictureDataPath>
@@ -227,6 +247,11 @@
 													<v8:content>Выбор</v8:content>
 												</v8:item>
 											</Title>
+											<CommandSet>
+												<ExcludedCommand>Choose</ExcludedCommand>
+												<ExcludedCommand>Delete</ExcludedCommand>
+											</CommandSet>
+											<ShowCommandBar>true</ShowCommandBar>
 											<AutoRefresh>false</AutoRefresh>
 											<AutoRefreshPeriod>60</AutoRefreshPeriod>
 											<Period>
@@ -274,6 +299,8 @@
 											<ChildItems>
 												<LabelField name="СписокВыборНаименование" id="111">
 													<DataPath>СписокВыбор.Наименование</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="СписокВыборНаименованиеКонтекстноеМеню" id="112"/>
 													<ExtendedTooltip name="СписокВыборНаименованиеРасширеннаяПодсказка" id="113"/>
 												</LabelField>
@@ -282,6 +309,8 @@
 													<UserVisible>
 														<xr:Common>false</xr:Common>
 													</UserVisible>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="СсылкаКонтекстноеМеню" id="131"/>
 													<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="132"/>
 												</InputField>
@@ -295,7 +324,7 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Создать новую учетную запись</v8:content>
+									<v8:content>Создание новой</v8:content>
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
@@ -311,7 +340,8 @@
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<DropListButton>true</DropListButton>
 									<ListChoiceMode>true</ListChoiceMode>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -338,11 +368,12 @@
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Логин учетной записи</v8:content>
+													<v8:content>Логин</v8:content>
 												</v8:item>
 											</Title>
 											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-											<MarkRequiredComplete>true</MarkRequiredComplete>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<DropListButton>true</DropListButton>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ContextMenu name="ЛогинКонтекстноеМеню" id="19"/>
@@ -359,36 +390,6 @@
 				</Pages>
 			</ChildItems>
 		</UsualGroup>
-		<CommandBar name="ГруппаКоманды" id="40">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команды</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="41"/>
-			<ChildItems>
-				<Button name="Подтвердить" id="42">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.Подтвердить</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ОК</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ПодтвердитьРасширеннаяПодсказка" id="43"/>
-				</Button>
-				<Button name="Отмена" id="44">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.StandardCommand.Cancel</CommandName>
-					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="45"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ЛогинУчетнойЗаписи" id="3">
@@ -585,34 +586,21 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Подтвердить" id="1">
+		<Command name="Выбрать" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Подтвердить</v8:content>
+					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>Подтвердить</Action>
-		</Command>
-		<Command name="Продолжить" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Продолжить</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Продолжить</v8:content>
-				</v8:item>
-			</ToolTip>
+			<Action>ПодтвердитьВыбор</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

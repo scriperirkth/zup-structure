@@ -3,7 +3,30 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВключитьРасписание" id="42">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ВключитьРаботуПоРасписанию</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Включить работу по расписанию</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаВключитьРасписаниеРасширеннаяПодсказка" id="43"/>
+			</Button>
+			<Button name="ФормаОтключитьРасписание" id="44">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОтключитьРаботуПоРасписанию</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отключить работу по расписанию</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаОтключитьРасписаниеРасширеннаяПодсказка" id="45"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<ChildItems>
 		<UsualGroup name="ГруппаПользовательскихНастроек" id="22">
@@ -19,26 +42,8 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="23"/>
 		</UsualGroup>
-		<CommandBar name="КоманднаяПанель" id="24">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="25"/>
-			<ChildItems>
-				<Button name="ФормаВключитьОтключитьРегламентноеЗадание" id="12">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.ВключитьОтключитьРегламентноеЗадание</CommandName>
-					<ExtendedTooltip name="ФормаВключитьОтключитьРегламентноеЗаданиеExtendedTooltip" id="14"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<SkipOnInput>false</SkipOnInput>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
@@ -51,6 +56,13 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
+			<CommandSet>
+				<ExcludedCommand>Copy</ExcludedCommand>
+			</CommandSet>
+			<SearchStringLocation>CommandBar</SearchStringLocation>
+			<ViewStatusLocation>Top</ViewStatusLocation>
+			<SearchControlLocation>CommandBar</SearchControlLocation>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -71,11 +83,30 @@
 					<Button name="СписокКонтекстноеМенюВключитьОтключитьРегламентноеЗадание" id="13">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.ВключитьОтключитьРегламентноеЗадание</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Изменить выполнение по расписанию</v8:content>
+							</v8:item>
+						</Title>
 						<ExtendedTooltip name="СписокКонтекстноеМенюВключитьОтключитьРегламентноеЗаданиеExtendedTooltip" id="15"/>
 					</Button>
 				</ChildItems>
 			</ContextMenu>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<ChildItems>
+					<Button name="СписокОбновить" id="46">
+						<Type>CommandBarButton</Type>
+						<Representation>PictureAndText</Representation>
+						<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.Refresh</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="СписокОбновитьРасширеннаяПодсказка" id="47"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокExtendedTooltip" id="16"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="26">
 				<AdditionSource>
@@ -86,6 +117,7 @@
 				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="28"/>
 			</SearchStringAddition>
 			<ViewStatusAddition name="СписокСостояниеПросмотра" id="29">
+				<Enabled>false</Enabled>
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>ViewStatusRepresentation</Type>
@@ -101,22 +133,12 @@
 				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="33"/>
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="34"/>
 			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СписокВыбор</Event>
+			</Events>
 			<ChildItems>
-				<PictureField name="ИспользоватьРегламентноеЗадание" id="8">
-					<DataPath>Список.ИспользоватьРегламентноеЗадание</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<Width>2</Width>
-					<HorizontalStretch>false</HorizontalStretch>
-					<ValuesPicture>
-						<xr:Ref>StdPicture.ScheduledJob</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</ValuesPicture>
-					<FileDragMode>AsFile</FileDragMode>
-					<ContextMenu name="ИспользоватьРегламентноеЗаданиеКонтекстноеМеню" id="9"/>
-					<ExtendedTooltip name="ИспользоватьРегламентноеЗаданиеExtendedTooltip" id="17"/>
-				</PictureField>
 				<InputField name="Наименование" id="4">
-					<DataPath>Список.Description</DataPath>
+					<DataPath>Список.Наименование</DataPath>
 					<DefaultItem>true</DefaultItem>
 					<Title>
 						<v8:item>
@@ -128,8 +150,29 @@
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="18"/>
 				</InputField>
+				<CheckBoxField name="ИспользоватьРегламентноеЗадание" id="8">
+					<DataPath>Список.ИспользоватьРегламентноеЗадание</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Включить / отключить выполнение синхронизации по расписанию</v8:content>
+						</v8:item>
+					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<CellHyperlink>true</CellHyperlink>
+					<HeaderPicture>
+						<xr:Ref>StdPicture.ScheduledJob</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</HeaderPicture>
+					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
+					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
+					<CheckBoxType>Switcher</CheckBoxType>
+					<ContextMenu name="ИспользоватьРегламентноеЗаданиеКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="ИспользоватьРегламентноеЗаданиеExtendedTooltip" id="17"/>
+				</CheckBoxField>
 				<LabelField name="Ссылка" id="19">
-					<DataPath>Список.Ref</DataPath>
+					<DataPath>Список.Ссылка</DataPath>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
@@ -146,12 +189,95 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
-				<Field>Список.DeletionMark</Field>
-				<Field>Список.Ref</Field>
+				<Field>Список.ПометкаУдаления</Field>
+				<Field>Список.Ссылка</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
-				<ManualQuery>false</ManualQuery>
+				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СправочникСценарииОбменовДанными.Ссылка,
+	СправочникСценарииОбменовДанными.ПометкаУдаления,
+	СправочникСценарииОбменовДанными.Код,
+	СправочникСценарииОбменовДанными.Наименование,
+	СправочникСценарииОбменовДанными.ИспользоватьРегламентноеЗадание,
+	СправочникСценарииОбменовДанными.Комментарий,
+	СправочникСценарииОбменовДанными.РегламентноеЗаданиеGUID,
+	СправочникСценарииОбменовДанными.ОтключенАвтоматически,
+	СправочникСценарииОбменовДанными.НастройкиОбмена,
+	СправочникСценарииОбменовДанными.Предопределенный,
+	СправочникСценарииОбменовДанными.ИмяПредопределенныхДанных
+	
+ИЗ
+	Справочник.СценарииОбменовДанными КАК СправочникСценарииОбменовДанными</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НастройкиОбмена.Ссылка</dcssch:dataPath>
+					<dcssch:field>НастройкиОбмена.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НастройкиОбмена.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>НастройкиОбмена.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Комментарий</dcssch:dataPath>
+					<dcssch:field>Комментарий</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Код</dcssch:dataPath>
+					<dcssch:field>Код</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наименование</dcssch:dataPath>
+					<dcssch:field>Наименование</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>НастройкиОбмена</dcssch:dataPath>
+					<dcssch:field>НастройкиОбмена</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИспользоватьРегламентноеЗадание</dcssch:dataPath>
+					<dcssch:field>ИспользоватьРегламентноеЗадание</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>РегламентноеЗаданиеGUID</dcssch:dataPath>
+					<dcssch:field>РегламентноеЗаданиеGUID</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОтключенАвтоматически</dcssch:dataPath>
+					<dcssch:field>ОтключенАвтоматически</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НастройкиОбмена.УзелИнформационнойБазы</dcssch:dataPath>
+					<dcssch:field>НастройкиОбмена.УзелИнформационнойБазы</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НастройкиОбмена.УдалитьВидТранспортаОбмена</dcssch:dataPath>
+					<dcssch:field>НастройкиОбмена.УдалитьВидТранспортаОбмена</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НастройкиОбмена.ВыполняемоеДействие</dcssch:dataPath>
+					<dcssch:field>НастройкиОбмена.ВыполняемоеДействие</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НастройкиОбмена.ИдентификаторТранспорта</dcssch:dataPath>
+					<dcssch:field>НастройкиОбмена.ИдентификаторТранспорта</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Предопределенный</dcssch:dataPath>
+					<dcssch:field>Предопределенный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИмяПредопределенныхДанных</dcssch:dataPath>
+					<dcssch:field>ИмяПредопределенныхДанных</dcssch:field>
+				</Field>
 				<MainTable>Catalog.СценарииОбменовДанными</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -177,7 +303,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Включить / отключить выполнение синхронизации по расписанию</v8:content>
+					<v8:content>Изменить выполнение по расписанию</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -191,7 +317,46 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ВключитьОтключитьРегламентноеЗадание</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
+		</Command>
+		<Command name="ВключитьРаботуПоРасписанию" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включить работу по расписанию</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включить работу по расписанию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВключитьРасписание</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
+		</Command>
+		<Command name="ОтключитьРаботуПоРасписанию" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отключить работу по расписанию</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отключить работу по расписанию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтключитьРасписание</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 </Form>

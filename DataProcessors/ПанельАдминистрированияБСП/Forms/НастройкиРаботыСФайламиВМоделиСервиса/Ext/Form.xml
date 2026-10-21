@@ -18,6 +18,13 @@
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Справка" id="15">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="16"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -48,21 +55,14 @@
 					<ContextMenu name="ОписаниеРазделаКонтекстноеМеню" id="11"/>
 					<ExtendedTooltip name="ОписаниеРазделаРасширеннаяПодсказка" id="12"/>
 				</LabelDecoration>
-				<CommandBar name="ГруппаСправка" id="13">
+				<CommandBar name="ГруппаСправкаТакси" id="59">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Справка</v8:content>
 						</v8:item>
 					</Title>
-					<ExtendedTooltip name="ГруппаСправкаРасширеннаяПодсказка" id="14"/>
-					<ChildItems>
-						<Button name="Справка" id="15">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.Help</CommandName>
-							<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="16"/>
-						</Button>
-					</ChildItems>
+					<ExtendedTooltip name="ГруппаСправкаТаксиРасширеннаяПодсказка" id="60"/>
 				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
@@ -83,7 +83,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Общие параметры для всех областей данных</v8:content>
+							<v8:content>Ограничения, которые применяются для всех областей данных и имеют приоритет над настройками администраторов</v8:content>
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
@@ -91,18 +91,6 @@
 					<Representation>WeakSeparation</Representation>
 					<ExtendedTooltip name="ОбщиеПараметрыДляВсехОбластейДанныхРасширеннаяПодсказка" id="20"/>
 					<ChildItems>
-						<LabelDecoration name="ПояснениеОбщиеПараметрыДляВсехОбластейДанных" id="21">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<TextColor>style:ПоясняющийТекст</TextColor>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Ограничения, которое применяются для всех областей данных и имеют приоритет над настройками администраторов.</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="ПояснениеОбщиеПараметрыДляВсехОбластейДанныхКонтекстноеМеню" id="22"/>
-							<ExtendedTooltip name="ПояснениеОбщиеПараметрыДляВсехОбластейДанныхРасширеннаяПодсказка" id="23"/>
-						</LabelDecoration>
 						<UsualGroup name="ГруппаМаксимальныйРазмерФайла" id="24">
 							<Title>
 								<v8:item>
@@ -157,18 +145,6 @@
 												<Event name="OnChange">МаксимальныйРазмерФайлаПриИзменении</Event>
 											</Events>
 										</InputField>
-										<LabelDecoration name="ДекорацияМб1" id="31">
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<SkipOnInput>false</SkipOnInput>
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Мбайт</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="ДекорацияМб1КонтекстноеМеню" id="32"/>
-											<ExtendedTooltip name="ДекорацияМб1РасширеннаяПодсказка" id="33"/>
-										</LabelDecoration>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -209,6 +185,15 @@
 													<v8:content>Расширения, запрещенные для загрузки</v8:content>
 												</v8:item>
 											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Расширения файлов, для которых будет запрещена загрузка в папки приложения. Указываются через "пробел".</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<HorizontalStretch>true</HorizontalStretch>
 											<ContextMenu name="СписокЗапрещенныхРасширенийКонтекстноеМеню" id="39"/>
 											<ExtendedTooltip name="СписокЗапрещенныхРасширенийРасширеннаяПодсказка" id="40"/>
@@ -216,23 +201,9 @@
 												<Event name="OnChange">СписокЗапрещенныхРасширенийПриИзменении</Event>
 											</Events>
 										</InputField>
-										<LabelDecoration name="ПояснениеЗапретЗагрузкиФайловПоРасширению" id="41">
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<TextColor>style:ПоясняющийТекст</TextColor>
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Расширения файлов, для которых будет запрещена загрузка в папки приложения.
-Указываются через "пробел".</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="ПояснениеЗапретЗагрузкиФайловПоРасширениюКонтекстноеМеню" id="42"/>
-											<ExtendedTooltip name="ПояснениеЗапретЗагрузкиФайловПоРасширениюРасширеннаяПодсказка" id="43"/>
-										</LabelDecoration>
 									</ChildItems>
 								</UsualGroup>
 								<UsualGroup name="ГруппаСписокРасширенийФайловOpenDocument" id="44">
-									<Visible>false</Visible>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -254,26 +225,21 @@
 													<v8:content>Расширения файлов ODF</v8:content>
 												</v8:item>
 											</Title>
-											<AutoMaxWidth>false</AutoMaxWidth>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Расширения файлов открытого формата документов для офисных приложений. Указываются через "пробел".</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="СписокРасширенийФайловOpenDocumentКонтекстноеМеню" id="47"/>
 											<ExtendedTooltip name="СписокРасширенийФайловOpenDocumentРасширеннаяПодсказка" id="48"/>
 											<Events>
 												<Event name="OnChange">СписокРасширенийФайловOpenDocumentПриИзменении</Event>
 											</Events>
 										</InputField>
-										<LabelDecoration name="ПояснениеСписокРасширенийФайловOpenDocument" id="49">
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<TextColor>style:ПоясняющийТекст</TextColor>
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Расширения файлов открытого формата документов для офисных приложений.
-Указываются через "пробел".</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="ПояснениеСписокРасширенийФайловOpenDocumentКонтекстноеМеню" id="50"/>
-											<ExtendedTooltip name="ПояснениеСписокРасширенийФайловOpenDocumentРасширеннаяПодсказка" id="51"/>
-										</LabelDecoration>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>

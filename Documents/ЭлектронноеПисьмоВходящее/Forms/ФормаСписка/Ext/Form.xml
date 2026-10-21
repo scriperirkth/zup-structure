@@ -3,9 +3,7 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<CommandSet>
-		<ExcludedCommand>Copy</ExcludedCommand>
 		<ExcludedCommand>Create</ExcludedCommand>
-		<ExcludedCommand>Delete</ExcludedCommand>
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
@@ -29,7 +27,6 @@
 		</UsualGroup>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -47,6 +44,7 @@
 				<ExcludedCommand>Copy</ExcludedCommand>
 				<ExcludedCommand>Create</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -64,7 +62,29 @@
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="СписокДокументЭлектронноеПисьмоВходящееОтветить" id="36">
+						<Type>CommandBarButton</Type>
+						<CommandName>Document.ЭлектронноеПисьмоВходящее.Command.Ответить</CommandName>
+						<DataPath>Items.Список.CurrentData.Ref</DataPath>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="СписокДокументЭлектронноеПисьмоВходящееОтветитьРасширеннаяПодсказка" id="37"/>
+					</Button>
+					<Button name="СписокДокументЭлектронноеПисьмоВходящееОтветитьВсем" id="38">
+						<Type>CommandBarButton</Type>
+						<CommandName>Document.ЭлектронноеПисьмоВходящее.Command.ОтветитьВсем</CommandName>
+						<DataPath>Items.Список.CurrentData.Ref</DataPath>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="СписокДокументЭлектронноеПисьмоВходящееОтветитьВсемРасширеннаяПодсказка" id="39"/>
+					</Button>
+					<Button name="СписокДокументЭлектронноеПисьмоВходящееПереслать" id="40">
+						<Type>CommandBarButton</Type>
+						<CommandName>Document.ЭлектронноеПисьмоВходящее.Command.Переслать</CommandName>
+						<DataPath>Items.Список.CurrentData.Ref</DataPath>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="СписокДокументЭлектронноеПисьмоВходящееПереслатьРасширеннаяПодсказка" id="41"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="12"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="21">
@@ -93,11 +113,14 @@
 			</SearchControlAddition>
 			<Events>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
+				<Event name="OnHover">СписокПриНаведении</Event>
 			</Events>
 			<ChildItems>
 				<LabelField name="Дата" id="4">
 					<DataPath>Список.Date</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>9</Width>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="13"/>
@@ -110,12 +133,16 @@
 							<v8:content>Отправитель</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>30</Width>
 					<ContextMenu name="ОтправительПредставлениеКонтекстноеМеню" id="11"/>
 					<ExtendedTooltip name="ОтправительПредставлениеРасширеннаяПодсказка" id="14"/>
 				</LabelField>
 				<LabelField name="Тема" id="8">
 					<DataPath>Список.Тема</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТемаКонтекстноеМеню" id="9"/>
 					<ExtendedTooltip name="ТемаРасширеннаяПодсказка" id="15"/>
 				</LabelField>
@@ -124,6 +151,8 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="18"/>
 				</LabelField>

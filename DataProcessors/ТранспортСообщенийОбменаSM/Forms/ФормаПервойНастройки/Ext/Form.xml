@@ -1,7 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Выберите приложение для синхронизации</v8:content>
+		</v8:item>
+	</Title>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<SaveWindowSettings>false</SaveWindowSettings>
+	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
 	<ShowCommandBar>true</ShowCommandBar>
@@ -11,13 +18,15 @@
 		<ChildItems>
 			<Button name="ФормаГотово" id="1">
 				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.Готово</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Готово</v8:content>
+						<v8:content>Выбрать</v8:content>
 					</v8:item>
 				</Title>
+				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаГотовоРасширеннаяПодсказка" id="2"/>
 			</Button>
 		</ChildItems>
@@ -55,29 +64,6 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаКоманднаяПанельСписокПриложенийРасширеннаяПодсказка" id="14"/>
 					<ChildItems>
-						<CommandBar name="ГруппаКоманднаяПанельСписокПриложенийСлева" id="15">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Командная панель список приложений слева</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalStretch>false</HorizontalStretch>
-							<ExtendedTooltip name="ГруппаКоманднаяПанельСписокПриложенийСлеваРасширеннаяПодсказка" id="16"/>
-							<ChildItems>
-								<Button name="ПриложенияВСервисеОбновитьСписокДоступныхПриложений" id="17">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.ОбновитьСписокДоступныхПриложений</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Обновить</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ПриложенияВСервисеОбновитьСписокДоступныхПриложенийРасширеннаяПодсказка" id="18"/>
-								</Button>
-							</ChildItems>
-						</CommandBar>
 						<Pages name="ПанельПриложенияВСервисе" id="19">
 							<Title>
 								<v8:item>
@@ -107,7 +93,7 @@
 												</v8:item>
 											</Title>
 											<Picture>
-												<xr:Ref>CommonPicture.ДлительнаяОперация16</xr:Ref>
+												<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
 												<xr:LoadTransparent>false</xr:LoadTransparent>
 											</Picture>
 											<FileDragMode>AsFile</FileDragMode>
@@ -146,8 +132,8 @@
 												</v8:item>
 											</Title>
 											<Picture>
-												<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</Picture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ДекорацияПриложенияОшибкаКартинкаКонтекстноеМеню" id="32"/>
@@ -171,7 +157,6 @@
 				</UsualGroup>
 				<Table name="ПриложенияВСервисе" id="37">
 					<Representation>List</Representation>
-					<CommandBarLocation>None</CommandBarLocation>
 					<ReadOnly>true</ReadOnly>
 					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
@@ -203,11 +188,27 @@
 						<ExcludedCommand>MoveUp</ExcludedCommand>
 						<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 					</CommandSet>
+					<ShowCommandBar>auto</ShowCommandBar>
 					<RowFilter xsi:nil="true"/>
 					<ContextMenu name="ПриложенияВСервисеКонтекстноеМеню" id="38"/>
-					<AutoCommandBar name="ПриложенияВСервисеКоманднаяПанель" id="39"/>
+					<AutoCommandBar name="ПриложенияВСервисеКоманднаяПанель" id="39">
+						<ChildItems>
+							<Button name="ПриложенияВСервисеОбновитьСписокДоступныхПриложений" id="17">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ОбновитьСписокДоступныхПриложений</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Обновить</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ПриложенияВСервисеОбновитьСписокДоступныхПриложенийРасширеннаяПодсказка" id="18"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
 					<ExtendedTooltip name="ПриложенияВСервисеРасширеннаяПодсказка" id="40"/>
 					<SearchStringAddition name="ПриложенияВСервисеСтрокаПоиска" id="41">
+						<Enabled>false</Enabled>
 						<AdditionSource>
 							<Item>ПриложенияВСервисе</Item>
 							<Type>SearchStringRepresentation</Type>
@@ -216,6 +217,7 @@
 						<ExtendedTooltip name="ПриложенияВСервисеСтрокаПоискаРасширеннаяПодсказка" id="43"/>
 					</SearchStringAddition>
 					<ViewStatusAddition name="ПриложенияВСервисеСостояниеПросмотра" id="44">
+						<Enabled>false</Enabled>
 						<AdditionSource>
 							<Item>ПриложенияВСервисе</Item>
 							<Type>ViewStatusRepresentation</Type>
@@ -224,6 +226,7 @@
 						<ExtendedTooltip name="ПриложенияВСервисеСостояниеПросмотраРасширеннаяПодсказка" id="46"/>
 					</ViewStatusAddition>
 					<SearchControlAddition name="ПриложенияВСервисеУправлениеПоиском" id="47">
+						<Enabled>false</Enabled>
 						<AdditionSource>
 							<Item>ПриложенияВСервисе</Item>
 							<Type>SearchControl</Type>
@@ -245,8 +248,23 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>15</MaxWidth>
 							<ContextMenu name="ПриложенияВСервисеНаименованиеПриложенияКонтекстноеМеню" id="51"/>
 							<ExtendedTooltip name="ПриложенияВСервисеНаименованиеПриложенияРасширеннаяПодсказка" id="52"/>
+						</InputField>
+						<InputField name="ПриложенияВСервисеОбластьДанных" id="56">
+							<DataPath>ПриложенияВСервисе.ОбластьДанных</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Область данных</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ПриложенияВСервисеОбластьДанныхКонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="ПриложенияВСервисеОбластьДанныхРасширеннаяПодсказка" id="58"/>
 						</InputField>
 						<InputField name="ПриложенияВСервисеПрефикс" id="53">
 							<DataPath>ПриложенияВСервисе.Префикс</DataPath>
@@ -261,19 +279,6 @@
 							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ПриложенияВСервисеПрефиксКонтекстноеМеню" id="54"/>
 							<ExtendedTooltip name="ПриложенияВСервисеПрефиксРасширеннаяПодсказка" id="55"/>
-						</InputField>
-						<InputField name="ПриложенияВСервисеОбластьДанных" id="56">
-							<DataPath>ПриложенияВСервисе.ОбластьДанных</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Область данных</v8:content>
-								</v8:item>
-							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="ПриложенияВСервисеОбластьДанныхКонтекстноеМеню" id="57"/>
-							<ExtendedTooltip name="ПриложенияВСервисеОбластьДанныхРасширеннаяПодсказка" id="58"/>
 						</InputField>
 					</ChildItems>
 				</Table>
@@ -545,7 +550,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Готово</v8:content>
+					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -555,6 +560,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Готово</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ОбновитьСписокДоступныхПриложений" id="3">
 			<Title>

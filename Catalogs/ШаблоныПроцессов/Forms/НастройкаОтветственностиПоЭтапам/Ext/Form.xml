@@ -9,31 +9,6 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ФормаКомандаОК" id="25">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.КомандаОК</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаКомандаОКExtendedTooltip" id="46"/>
-			</Button>
-			<Button name="ФормаКомандаОтмена" id="24">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Отмена</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаКомандаОтменаExtendedTooltip" id="47"/>
-			</Button>
-			<Button name="Справка" id="26">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<ExtendedTooltip name="СправкаExtendedTooltip" id="48"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
@@ -84,8 +59,7 @@
 							<ChildItems>
 								<LabelDecoration name="ПредупреждениеОНаличииОтсутвующихРеквизитов1" id="117">
 									<AutoMaxWidth>false</AutoMaxWidth>
-									<Height>1</Height>
-									<TextColor>web:FireBrick</TextColor>
+									<TextColor>pal:Red</TextColor>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -103,8 +77,7 @@
 								</Button>
 								<LabelDecoration name="ПредупреждениеОНаличииОтсутвующихРеквизитов2" id="122">
 									<AutoMaxWidth>false</AutoMaxWidth>
-									<Height>1</Height>
-									<TextColor>web:FireBrick</TextColor>
+									<TextColor>pal:Red</TextColor>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -232,7 +205,7 @@
 									</ChildItems>
 								</CommandBar>
 								<LabelDecoration name="ЗаголовокДерево" id="87">
-									<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+									<Font ref="style:TextLevel3" kind="StyleItem"/>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -251,7 +224,7 @@
 							<ChangeRowOrder>false</ChangeRowOrder>
 							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
-							<HorizontalLinesBWA>false</HorizontalLinesBWA>
+							<HorizontalLinesBWA>true</HorizontalLinesBWA>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
@@ -315,6 +288,7 @@
 									<DataPath>РеквизитыДокумента.ПометкаОтветственность</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ThreeState>true</ThreeState>
 									<ContextMenu name="РеквизитыПометкаОтветственностьКонтекстноеМеню" id="69"/>
 									<ExtendedTooltip name="РеквизитыПометкаОтветственностьРасширеннаяПодсказка" id="70"/>
@@ -326,6 +300,7 @@
 									<DataPath>РеквизитыДокумента.ПометкаДоступность</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ThreeState>true</ThreeState>
 									<ContextMenu name="РеквизитыПометкаДоступностьКонтекстноеМеню" id="91"/>
 									<ExtendedTooltip name="РеквизитыПометкаДоступностьРасширеннаяПодсказка" id="92"/>
@@ -337,6 +312,7 @@
 									<DataPath>РеквизитыДокумента.ПометкаИзменение</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ThreeState>true</ThreeState>
 									<ContextMenu name="РеквизитыПометкаИзменениеКонтекстноеМеню" id="108"/>
 									<ExtendedTooltip name="РеквизитыПометкаИзменениеРасширеннаяПодсказка" id="109"/>
@@ -354,6 +330,7 @@
 									</ToolTip>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ThreeState>true</ThreeState>
 									<ContextMenu name="РеквизитыПометкаОбязательныйКонтекстноеМеню" id="102"/>
 									<ExtendedTooltip name="РеквизитыПометкаОбязательныйРасширеннаяПодсказка" id="103"/>
@@ -464,10 +441,65 @@
 										<Event name="OnChange">ВключатьВШтампВизуализацииЭППриИзменении</Event>
 									</Events>
 								</CheckBoxField>
+								<InputField name="РежимПодписанияФорм" id="1072">
+									<DataPath>РежимПодписанияФорм</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Выбранные</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">0</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Все</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">1</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="РежимПодписанияФормКонтекстноеМеню" id="1073"/>
+									<ExtendedTooltip name="РежимПодписанияФормРасширеннаяПодсказка" id="1074"/>
+									<Events>
+										<Event name="OnChange">РежимПодписанияФормПриИзменении</Event>
+									</Events>
+								</InputField>
 								<CheckBoxField name="ВсеФормы" id="345">
 									<DataPath>ВсеФормы</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<CheckBoxType>Tumbler</CheckBoxType>
+									<Visible>false</Visible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Все формы</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Рекомендуется отключить флажок "Все формы" и отметить только необходимые для подписания формы в списке</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<CheckBoxType>Switcher</CheckBoxType>
 									<EditFormat>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -523,11 +555,12 @@
 						</UsualGroup>
 						<Table name="ПервичныеДокументы" id="294">
 							<Representation>Tree</Representation>
-							<CommandBarLocation>None</CommandBarLocation>
+							<CommandBarLocation>Top</CommandBarLocation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
 							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
+							<HorizontalLinesBWA>true</HorizontalLinesBWA>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
@@ -538,6 +571,28 @@
 								<xr:Ref>CommonPicture.ПиктограммыЗонОтветственности</xr:Ref>
 								<xr:LoadTransparent>true</xr:LoadTransparent>
 							</RowsPicture>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>ClearTableMarksAppearance</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+								<ExcludedCommand>HierarchicalList</ExcludedCommand>
+								<ExcludedCommand>List</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>OutputList</ExcludedCommand>
+								<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+								<ExcludedCommand>SearchHistory</ExcludedCommand>
+								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+								<ExcludedCommand>Tree</ExcludedCommand>
+							</CommandSet>
+							<ShowCommandBar>true</ShowCommandBar>
 							<ContextMenu name="ПервичныеДокументыКонтекстноеМеню" id="295"/>
 							<AutoCommandBar name="ПервичныеДокументыКоманднаяПанель" id="296"/>
 							<ExtendedTooltip name="ПервичныеДокументыРасширеннаяПодсказка" id="297"/>
@@ -703,8 +758,7 @@
 							<ChildItems>
 								<LabelDecoration name="ПредупреждениеОНаличииОтсутвующихСтатусов" id="228">
 									<AutoMaxWidth>false</AutoMaxWidth>
-									<Height>1</Height>
-									<TextColor>web:FireBrick</TextColor>
+									<TextColor>pal:Red</TextColor>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -824,7 +878,7 @@
 											<ExtendedTooltip name="ГруппаДекорацияЗачеркнутаяРасширеннаяПодсказка" id="199"/>
 											<ChildItems>
 												<LabelDecoration name="ДекорацияЗачеркнутая" id="188">
-													<Font ref="style:NormalTextFont" bold="false" italic="false" underline="false" strikeout="true" kind="StyleItem"/>
+													<Font ref="style:TextLevel3" kind="StyleItem"/>
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -852,21 +906,41 @@
 						</UsualGroup>
 						<Table name="РезультатыВыполнения" id="131">
 							<Representation>List</Representation>
+							<CommandBarLocation>Top</CommandBarLocation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
+							<HorizontalLinesBWA>true</HorizontalLinesBWA>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<FileDragMode>AsFile</FileDragMode>
 							<DataPath>РезультатыВыполнения</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>ClearTableMarksAppearance</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>OutputList</ExcludedCommand>
+								<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+								<ExcludedCommand>SearchHistory</ExcludedCommand>
+								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+							</CommandSet>
 							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+							<ShowCommandBar>true</ShowCommandBar>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="РезультатыВыполненияКонтекстноеМеню" id="132"/>
-							<AutoCommandBar name="РезультатыВыполненияКоманднаяПанель" id="133">
-								<Autofill>false</Autofill>
-							</AutoCommandBar>
+							<AutoCommandBar name="РезультатыВыполненияКоманднаяПанель" id="133"/>
 							<ExtendedTooltip name="РезультатыВыполненияРасширеннаяПодсказка" id="134">
 								<AutoMaxWidth>false</AutoMaxWidth>
 								<Title formatted="false">
@@ -964,8 +1038,7 @@
 							<ChildItems>
 								<LabelDecoration name="ПредупреждениеОНаличииОтсутвующихСтатусов1" id="245">
 									<AutoMaxWidth>false</AutoMaxWidth>
-									<Height>1</Height>
-									<TextColor>web:FireBrick</TextColor>
+									<TextColor>pal:Red</TextColor>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -985,20 +1058,40 @@
 						</UsualGroup>
 						<Table name="РезультатыВыполнения1" id="273">
 							<Representation>List</Representation>
+							<CommandBarLocation>Top</CommandBarLocation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
+							<HorizontalLinesBWA>true</HorizontalLinesBWA>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<FileDragMode>AsFile</FileDragMode>
 							<DataPath>РезультатыВыполнения</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>ClearTableMarksAppearance</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>OutputList</ExcludedCommand>
+								<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+								<ExcludedCommand>SearchHistory</ExcludedCommand>
+								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+							</CommandSet>
+							<ShowCommandBar>true</ShowCommandBar>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="РезультатыВыполнения1КонтекстноеМеню" id="274"/>
-							<AutoCommandBar name="РезультатыВыполнения1КоманднаяПанель" id="275">
-								<Autofill>false</Autofill>
-							</AutoCommandBar>
+							<AutoCommandBar name="РезультатыВыполнения1КоманднаяПанель" id="275"/>
 							<ExtendedTooltip name="РезультатыВыполнения1РасширеннаяПодсказка" id="276"/>
 							<SearchStringAddition name="РезультатыВыполнения1СтрокаПоиска" id="277">
 								<AdditionSource>
@@ -1134,11 +1227,10 @@
 									<TitleLocation>Top</TitleLocation>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<Header>false</Header>
-									<HorizontalLinesBWA>false</HorizontalLinesBWA>
+									<HorizontalLinesBWA>true</HorizontalLinesBWA>
 									<VerticalLinesBWA>false</VerticalLinesBWA>
 									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
-									<HorizontalStretch>false</HorizontalStretch>
 									<DataPath>РасшифровкаПрисоединенныхФайлов</DataPath>
 									<RowPictureDataPath>РасшифровкаПрисоединенныхФайлов.Picture</RowPictureDataPath>
 									<Title>
@@ -1237,6 +1329,48 @@
 				</Page>
 			</ChildItems>
 		</Pages>
+		<UsualGroup name="ГруппаКоманды" id="494">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команды</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<VerticalStretch>true</VerticalStretch>
+			<VerticalAlign>Bottom</VerticalAlign>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="495"/>
+			<ChildItems>
+				<Button name="ФормаКомандаОК" id="25">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<CommandName>Form.Command.КомандаОК</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ФормаКомандаОКExtendedTooltip" id="46"/>
+				</Button>
+				<Button name="ФормаКомандаОтмена" id="24">
+					<Type>UsualButton</Type>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отмена</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ФормаКомандаОтменаExtendedTooltip" id="47"/>
+				</Button>
+				<Button name="Справка" id="26">
+					<Type>UsualButton</Type>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<CommandName>Form.StandardCommand.Help</CommandName>
+					<ExtendedTooltip name="СправкаExtendedTooltip" id="48"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ТекущийЭтапСтрокой" id="3">
@@ -2134,6 +2268,22 @@
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Settings>
+		</Attribute>
+		<Attribute name="РежимПодписанияФорм" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим подписания форм</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
 		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>

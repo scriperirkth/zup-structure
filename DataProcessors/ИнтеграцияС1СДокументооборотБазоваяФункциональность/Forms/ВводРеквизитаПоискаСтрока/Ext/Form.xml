@@ -8,8 +8,10 @@
 	</Title>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
+	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
@@ -28,6 +30,7 @@
 			</Button>
 			<Button name="ФормаОтмена" id="3">
 				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
 				<CommandName>Form.Command.Отмена</CommandName>
 				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="4"/>
 			</Button>
@@ -37,17 +40,13 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<InputField name="Значение" id="5">
-			<DataPath>Значение</DataPath>
-			<TitleLocation>None</TitleLocation>
-			<Width>36</Width>
-			<ContextMenu name="ЗначениеКонтекстноеМеню" id="6"/>
-			<ExtendedTooltip name="ЗначениеРасширеннаяПодсказка" id="7"/>
-		</InputField>
 		<RadioButtonField name="ВидСравнения" id="8">
 			<DataPath>ВидСравнения</DataPath>
 			<TitleLocation>None</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<RadioButtonType>RadioButtons</RadioButtonType>
+			<Orientation>HorizontalIfPossible</Orientation>
 			<ChoiceList>
 				<xr:Item>
 					<xr:Presentation/>
@@ -79,6 +78,18 @@
 			<ContextMenu name="ВидСравненияКонтекстноеМеню" id="9"/>
 			<ExtendedTooltip name="ВидСравненияРасширеннаяПодсказка" id="10"/>
 		</RadioButtonField>
+		<InputField name="Значение" id="5">
+			<DataPath>Значение</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<Height>2</Height>
+			<MaxHeight>5</MaxHeight>
+			<MultiLine>true</MultiLine>
+			<ContextMenu name="ЗначениеКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="ЗначениеРасширеннаяПодсказка" id="7"/>
+		</InputField>
 		<LabelDecoration name="ДекорацияРазделитель" id="21">
 			<HorizontalStretch>true</HorizontalStretch>
 			<ContextMenu name="ДекорацияРазделительКонтекстноеМеню" id="22"/>
@@ -128,7 +139,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -139,6 +150,7 @@
 			</ToolTip>
 			<Action>ОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="2">
 			<Title>
@@ -155,6 +167,7 @@
 			</ToolTip>
 			<Action>Отмена</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Искать" id="3">
 			<Title>
@@ -176,6 +189,7 @@
 			<Action>Искать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

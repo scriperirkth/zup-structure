@@ -9,7 +9,7 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
+	<HorizontalAlign>Right</HorizontalAlign>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
@@ -23,9 +23,36 @@
 		<ExcludedCommand>SaveValues</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="КомандаЗагрузитьНовости" id="14">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.КомандаОбновитьСписокНовостей</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обновить</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="КомандаЗагрузитьНовостиExtendedTooltip" id="514"/>
+			</Button>
+			<Button name="КомандаНастройки" id="127">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.КомандаНастройкиПоказаНовостей</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Настройки</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Supplementary</ButtonImportance>
+				<ExtendedTooltip name="КомандаНастройкиExtendedTooltip" id="560"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -51,6 +78,46 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаНовостиExtendedTooltip" id="509"/>
 			<ChildItems>
+				<UsualGroup name="ГруппаПоиск" id="448">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поиск</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПоискExtendedTooltip" id="553"/>
+					<ChildItems>
+						<InputField name="СтрокаПоиска" id="450">
+							<DataPath>СтрокаПоиска</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Shortcut>Alt+Shift+F</Shortcut>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="451"/>
+							<ExtendedTooltip name="СтрокаПоискаExtendedTooltip" id="554"/>
+							<Events>
+								<Event name="OnChange">СтрокаПоискаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<Button name="КомандаПоиск" id="453">
+							<Type>UsualButton</Type>
+							<Representation>Picture</Representation>
+							<CommandName>Form.Command.КомандаПоиск</CommandName>
+							<ButtonImportance>Supplementary</ButtonImportance>
+							<ExtendedTooltip name="КомандаПоискExtendedTooltip" id="555"/>
+						</Button>
+						<Button name="КомандаРасширенныйПоиск" id="482">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.КомандаРасширенныйПоиск</CommandName>
+							<ButtonImportance>Supplementary</ButtonImportance>
+							<ExtendedTooltip name="КомандаРасширенныйПоискExtendedTooltip" id="556"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
 				<UsualGroup name="ГруппаНовостиПредпросмотр" id="417">
 					<Title>
 						<v8:item>
@@ -77,69 +144,6 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="БлокСписокПапокExtendedTooltip" id="511"/>
 							<ChildItems>
-								<UsualGroup name="ГруппаАктуальность" id="455">
-									<EnableContentChange>true</EnableContentChange>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Актуальность</v8:content>
-										</v8:item>
-									</Title>
-									<HorizontalStretch>true</HorizontalStretch>
-									<VerticalStretch>false</VerticalStretch>
-									<Group>Horizontal</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаАктуальностьExtendedTooltip" id="512"/>
-									<ChildItems>
-										<CommandBar name="КоманднаяПанельАктуальность" id="508">
-											<EnableContentChange>true</EnableContentChange>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Командная панель Папки</v8:content>
-												</v8:item>
-											</Title>
-											<HorizontalStretch>false</HorizontalStretch>
-											<VerticalStretch>false</VerticalStretch>
-											<ExtendedTooltip name="КоманднаяПанельАктуальностьExtendedTooltip" id="513"/>
-											<ChildItems>
-												<Button name="КомандаЗагрузитьНовости" id="14">
-													<Type>CommandBarButton</Type>
-													<Representation>Picture</Representation>
-													<CommandName>Form.Command.КомандаОбновитьСписокНовостей</CommandName>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Загрузить новости</v8:content>
-														</v8:item>
-													</Title>
-													<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-													<ExtendedTooltip name="КомандаЗагрузитьНовостиExtendedTooltip" id="514"/>
-												</Button>
-											</ChildItems>
-										</CommandBar>
-										<LabelField name="ИнфоАктуальностьИнформации" id="146">
-											<DataPath>ИнфоАктуальностьИнформации</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<TitleLocation>None</TitleLocation>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Время последнего обновления списка новостей</v8:content>
-												</v8:item>
-											</ToolTip>
-											<HorizontalAlign>Left</HorizontalAlign>
-											<HorizontalStretch>true</HorizontalStretch>
-											<VerticalStretch>false</VerticalStretch>
-											<TextColor>style:ЦветМикротекста</TextColor>
-											<Font ref="style:ШрифтМикротекста" kind="StyleItem"/>
-											<ContextMenu name="ИнфоАктуальностьИнформацииКонтекстноеМеню" id="147"/>
-											<ExtendedTooltip name="ИнфоАктуальностьИнформацииExtendedTooltip" id="515"/>
-										</LabelField>
-									</ChildItems>
-								</UsualGroup>
 								<Table name="Папки" id="467">
 									<Representation>Tree</Representation>
 									<CommandBarLocation>Top</CommandBarLocation>
@@ -154,17 +158,27 @@
 									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 									<FileDragMode>AsFile</FileDragMode>
 									<DataPath>Папки</DataPath>
-									<Font ref="style:ШрифтНовостей" kind="StyleItem"/>
 									<CommandSet>
 										<ExcludedCommand>Add</ExcludedCommand>
+										<ExcludedCommand>CancelSearch</ExcludedCommand>
 										<ExcludedCommand>Change</ExcludedCommand>
+										<ExcludedCommand>ClearTableMarksAppearance</ExcludedCommand>
 										<ExcludedCommand>Copy</ExcludedCommand>
+										<ExcludedCommand>CopyToClipboard</ExcludedCommand>
 										<ExcludedCommand>Delete</ExcludedCommand>
 										<ExcludedCommand>EndEdit</ExcludedCommand>
+										<ExcludedCommand>Find</ExcludedCommand>
+										<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+										<ExcludedCommand>HierarchicalList</ExcludedCommand>
+										<ExcludedCommand>List</ExcludedCommand>
 										<ExcludedCommand>MoveDown</ExcludedCommand>
 										<ExcludedCommand>MoveUp</ExcludedCommand>
+										<ExcludedCommand>OutputList</ExcludedCommand>
+										<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+										<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 										<ExcludedCommand>SortListAsc</ExcludedCommand>
 										<ExcludedCommand>SortListDesc</ExcludedCommand>
+										<ExcludedCommand>Tree</ExcludedCommand>
 									</CommandSet>
 									<SearchStringLocation>None</SearchStringLocation>
 									<ViewStatusLocation>None</ViewStatusLocation>
@@ -241,12 +255,6 @@
 													</Button>
 												</ChildItems>
 											</ButtonGroup>
-											<Button name="ПапкиКонтекстноеМенюКопировать" id="502">
-												<Type>CommandBarButton</Type>
-												<Visible>false</Visible>
-												<CommandName>Form.Item.Папки.StandardCommand.CopyToClipboard</CommandName>
-												<ExtendedTooltip name="ПапкиКонтекстноеМенюКопироватьExtendedTooltip" id="520"/>
-											</Button>
 										</ChildItems>
 									</ContextMenu>
 									<AutoCommandBar name="ПапкиКоманднаяПанель" id="469">
@@ -301,26 +309,41 @@
 													<AutoEditMode>true</AutoEditMode>
 													<HorizontalStretch>false</HorizontalStretch>
 													<VerticalStretch>false</VerticalStretch>
-													<Font ref="style:ШрифтНовостей" kind="StyleItem"/>
 													<FileDragMode>AsFile</FileDragMode>
 													<ContextMenu name="ПапкиИконкаКонтекстноеМеню" id="475"/>
 													<ExtendedTooltip name="ПапкиИконкаExtendedTooltip" id="523"/>
 												</PictureField>
-												<InputField name="ПапкиПредставление" id="472">
+												<InputField name="ПапкиПредставление" id="696">
 													<DataPath>Папки.Представление</DataPath>
 													<ReadOnly>true</ReadOnly>
 													<TitleLocation>None</TitleLocation>
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
-													<Font ref="style:ШрифтНовостей" kind="StyleItem"/>
-													<ContextMenu name="ПапкиПредставлениеКонтекстноеМеню" id="473"/>
-													<ExtendedTooltip name="ПапкиПредставлениеExtendedTooltip" id="524"/>
+													<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+													<ContextMenu name="ПапкиПредставлениеКонтекстноеМеню" id="697"/>
+													<ExtendedTooltip name="ПапкиПредставлениеРасширеннаяПодсказка" id="698"/>
 												</InputField>
 											</ChildItems>
 										</ColumnGroup>
 									</ChildItems>
 								</Table>
+								<LabelField name="ИнфоАктуальностьИнформации" id="146">
+									<DataPath>ИнфоАктуальностьИнформации</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<TitleLocation>None</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Время последнего обновления списка новостей</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalAlign>Left</HorizontalAlign>
+									<HorizontalStretch>true</HorizontalStretch>
+									<VerticalStretch>false</VerticalStretch>
+									<ContextMenu name="ИнфоАктуальностьИнформацииКонтекстноеМеню" id="147"/>
+									<ExtendedTooltip name="ИнфоАктуальностьИнформацииExtendedTooltip" id="515"/>
+								</LabelField>
 							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="ГруппаБлоковНовостей" id="477">
@@ -336,92 +359,6 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаБлоковНовостейExtendedTooltip" id="525"/>
 							<ChildItems>
-								<UsualGroup name="ГруппаНовостиКоманды" id="497">
-									<EnableContentChange>true</EnableContentChange>
-									<Group>Horizontal</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаНовостиКомандыExtendedTooltip" id="526"/>
-									<ChildItems>
-										<CommandBar name="ГруппаНовостиКоманднаяПанель" id="494">
-											<EnableContentChange>true</EnableContentChange>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Командная панель Новости</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ГруппаНовостиКоманднаяПанельExtendedTooltip" id="527"/>
-											<ChildItems>
-												<Button name="КомандаОткрытьНовость" id="491">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Command.КомандаОткрытьНовость</CommandName>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Открыть</v8:content>
-														</v8:item>
-													</Title>
-													<ExtendedTooltip name="КомандаОткрытьНовостьExtendedTooltip" id="528"/>
-												</Button>
-												<Popup name="ГруппаПрочтенные" id="496">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Отметить как...</v8:content>
-														</v8:item>
-													</Title>
-													<ExtendedTooltip name="ГруппаПрочтенныеExtendedTooltip" id="529"/>
-													<ChildItems>
-														<Button name="КомандаОтметитьКакПрочтенные" id="490">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Command.КомандаОтметитьКакПрочтенные</CommandName>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>прочтенные</v8:content>
-																</v8:item>
-															</Title>
-															<ExtendedTooltip name="КомандаОтметитьКакПрочтенныеExtendedTooltip" id="530"/>
-														</Button>
-														<Button name="КомандаОтметитьКакНепрочтенные" id="489">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Command.КомандаОтметитьКакНепрочтенные</CommandName>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>непрочтенные</v8:content>
-																</v8:item>
-															</Title>
-															<ExtendedTooltip name="КомандаОтметитьКакНепрочтенныеExtendedTooltip" id="531"/>
-														</Button>
-													</ChildItems>
-												</Popup>
-											</ChildItems>
-										</CommandBar>
-										<LabelField name="ИнфоДоступКВебИТС" id="152">
-											<DataPath>ИнфоДоступКВебИТС</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<TitleLocation>None</TitleLocation>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Если Вы вошли в веб-ИТС,
-то Вам будут доступны
-некоторые новости и другие возможности.</v8:content>
-												</v8:item>
-											</ToolTip>
-											<HorizontalAlign>Right</HorizontalAlign>
-											<VerticalAlign>Top</VerticalAlign>
-											<Height>1</Height>
-											<HorizontalStretch>true</HorizontalStretch>
-											<VerticalStretch>false</VerticalStretch>
-											<ContextMenu name="ИнфоДоступКВебИТСКонтекстноеМеню" id="153"/>
-											<ExtendedTooltip name="ИнфоДоступКВебИТСExtendedTooltip" id="532"/>
-										</LabelField>
-									</ChildItems>
-								</UsualGroup>
 								<UsualGroup name="БлокСписокНовостейИНовость" id="498">
 									<Title>
 										<v8:item>
@@ -460,20 +397,30 @@
 													<InitialListView>Beginning</InitialListView>
 													<FileDragMode>AsFile</FileDragMode>
 													<DataPath>Новости</DataPath>
-													<Font ref="style:ШрифтНовостей" kind="StyleItem"/>
 													<CommandSet>
 														<ExcludedCommand>Add</ExcludedCommand>
+														<ExcludedCommand>CancelSearch</ExcludedCommand>
 														<ExcludedCommand>Change</ExcludedCommand>
+														<ExcludedCommand>ClearTableMarksAppearance</ExcludedCommand>
 														<ExcludedCommand>Copy</ExcludedCommand>
+														<ExcludedCommand>CopyToClipboard</ExcludedCommand>
 														<ExcludedCommand>EndEdit</ExcludedCommand>
+														<ExcludedCommand>Find</ExcludedCommand>
+														<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
 														<ExcludedCommand>MoveDown</ExcludedCommand>
 														<ExcludedCommand>MoveUp</ExcludedCommand>
+														<ExcludedCommand>OutputList</ExcludedCommand>
+														<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+														<ExcludedCommand>SelectAll</ExcludedCommand>
+														<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+														<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 														<ExcludedCommand>SortListAsc</ExcludedCommand>
 														<ExcludedCommand>SortListDesc</ExcludedCommand>
 													</CommandSet>
 													<SearchStringLocation>None</SearchStringLocation>
 													<ViewStatusLocation>None</ViewStatusLocation>
 													<SearchControlLocation>None</SearchControlLocation>
+													<CurrentRowUse>SelectionPresentation</CurrentRowUse>
 													<RowFilter xsi:nil="true"/>
 													<ContextMenu name="НовостиКонтекстноеМеню" id="317">
 														<Autofill>false</Autofill>
@@ -569,12 +516,108 @@
 																		<v8:content>Удалить / восстановить</v8:content>
 																	</v8:item>
 																</Title>
+																<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 																<ExtendedTooltip name="НовостиКонтекстноеМенюУдалитьРасширеннаяПодсказка" id="563"/>
 															</Button>
 														</ChildItems>
 													</ContextMenu>
 													<AutoCommandBar name="НовостиКоманднаяПанель" id="318">
 														<Autofill>false</Autofill>
+														<ChildItems>
+															<Button name="КомандаОткрытьНовость" id="491">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.КомандаОткрытьНовость</CommandName>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Открыть</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="КомандаОткрытьНовостьExtendedTooltip" id="528"/>
+															</Button>
+															<Popup name="ГруппаПрочтенные" id="496">
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Отметить как</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="ГруппаПрочтенныеExtendedTooltip" id="529"/>
+																<ChildItems>
+																	<Button name="КомандаОтметитьКакПрочтенные" id="490">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.КомандаОтметитьКакПрочтенные</CommandName>
+																		<Title>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>Прочтенные</v8:content>
+																			</v8:item>
+																		</Title>
+																		<ExtendedTooltip name="КомандаОтметитьКакПрочтенныеExtendedTooltip" id="530"/>
+																	</Button>
+																	<Button name="КомандаОтметитьКакНепрочтенные" id="489">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.КомандаОтметитьКакНепрочтенные</CommandName>
+																		<Title>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>Непрочтенные</v8:content>
+																			</v8:item>
+																		</Title>
+																		<ExtendedTooltip name="КомандаОтметитьКакНепрочтенныеExtendedTooltip" id="531"/>
+																	</Button>
+																</ChildItems>
+															</Popup>
+															<Popup name="НовостиГруппаПомеченные" id="646">
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Пометка</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="НовостиГруппаПомеченныеРасширеннаяПодсказка" id="647"/>
+																<ChildItems>
+																	<Button name="НовостиУстановитьПометку0" id="648">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.КомандаУстановитьПометку0</CommandName>
+																		<Title>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>Снять пометку</v8:content>
+																			</v8:item>
+																		</Title>
+																		<ExtendedTooltip name="НовостиУстановитьПометку0РасширеннаяПодсказка" id="649"/>
+																	</Button>
+																	<Button name="НовостиУстановитьПометку1" id="650">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.КомандаУстановитьПометку1</CommandName>
+																		<Title>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>Установить пометку</v8:content>
+																			</v8:item>
+																		</Title>
+																		<ExtendedTooltip name="НовостиУстановитьПометку1РасширеннаяПодсказка" id="651"/>
+																	</Button>
+																</ChildItems>
+															</Popup>
+															<Button name="НовостиКомандаПрочитатьПозжеУдалитьИзСписка" id="642">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.КомандаПрочитатьПозжеУдалитьИзСписка</CommandName>
+																<ExtendedTooltip name="НовостиКомандаПрочитатьПозжеУдалитьИзСпискаРасширеннаяПодсказка" id="643"/>
+															</Button>
+															<Button name="НовостиКомандаПрочитатьПозжеДобавитьВСписок" id="644">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.КомандаПрочитатьПозжеДобавитьВСписок</CommandName>
+																<ExtendedTooltip name="НовостиКомандаПрочитатьПозжеДобавитьВСписокРасширеннаяПодсказка" id="645"/>
+															</Button>
+															<Button name="НовостиУдалить" id="718">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.Новости.StandardCommand.Delete</CommandName>
+																<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+																<ExtendedTooltip name="НовостиУдалитьРасширеннаяПодсказка" id="719"/>
+															</Button>
+														</ChildItems>
 													</AutoCommandBar>
 													<ExtendedTooltip name="НовостиExtendedTooltip" id="541"/>
 													<SearchStringAddition name="НовостиСтрокаПоиска" id="575">
@@ -665,7 +708,6 @@
 																			<Width>10</Width>
 																			<Height>2</Height>
 																			<VerticalStretch>false</VerticalStretch>
-																			<Font ref="style:ШрифтНовостей" kind="StyleItem"/>
 																			<ContextMenu name="НовостиДатаПубликацииКонтекстноеМеню" id="399"/>
 																			<ExtendedTooltip name="НовостиДатаПубликацииExtendedTooltip" id="545"/>
 																		</LabelField>
@@ -694,7 +736,6 @@
 																					<Width>40</Width>
 																					<Height>2</Height>
 																					<VerticalStretch>false</VerticalStretch>
-																					<Font ref="style:ШрифтНовостей" kind="StyleItem"/>
 																					<ContextMenu name="НовостиНаименованиеКонтекстноеМеню" id="396"/>
 																					<ExtendedTooltip name="НовостиНаименованиеExtendedTooltip" id="547"/>
 																				</LabelField>
@@ -711,7 +752,6 @@
 																					<Width>40</Width>
 																					<Height>2</Height>
 																					<MultiLine>true</MultiLine>
-																					<Font ref="style:ШрифтМикротекста" kind="StyleItem"/>
 																					<ContextMenu name="НовостиПодзаголовокКонтекстноеМеню" id="506"/>
 																					<ExtendedTooltip name="НовостиПодзаголовокExtendedTooltip" id="548"/>
 																				</InputField>
@@ -734,6 +774,7 @@
 																				<xr:Ref>CommonPicture.ПометкаНовостиФлагКонтур</xr:Ref>
 																				<xr:LoadTransparent>false</xr:LoadTransparent>
 																			</HeaderPicture>
+																			<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
 																			<AutoEditMode>true</AutoEditMode>
 																			<Width>1</Width>
 																			<HorizontalStretch>false</HorizontalStretch>
@@ -789,112 +830,6 @@
 						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="ГруппаНиз" id="446">
-					<HorizontalStretch>true</HorizontalStretch>
-					<VerticalStretch>false</VerticalStretch>
-					<Group>Horizontal</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаНизExtendedTooltip" id="552"/>
-					<ChildItems>
-						<UsualGroup name="ГруппаПоиск" id="448">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Поиск</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalStretch>false</HorizontalStretch>
-							<VerticalStretch>false</VerticalStretch>
-							<Group>Horizontal</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаПоискExtendedTooltip" id="553"/>
-							<ChildItems>
-								<InputField name="СтрокаПоиска" id="450">
-									<DataPath>СтрокаПоиска</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<Shortcut>Alt+Shift+F</Shortcut>
-									<HorizontalStretch>true</HorizontalStretch>
-									<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="451"/>
-									<ExtendedTooltip name="СтрокаПоискаExtendedTooltip" id="554"/>
-									<Events>
-										<Event name="OnChange">СтрокаПоискаПриИзменении</Event>
-									</Events>
-								</InputField>
-								<Button name="КомандаПоиск" id="453">
-									<Type>UsualButton</Type>
-									<Representation>Picture</Representation>
-									<CommandName>Form.Command.КомандаПоиск</CommandName>
-									<ExtendedTooltip name="КомандаПоискExtendedTooltip" id="555"/>
-								</Button>
-								<Button name="КомандаРасширенныйПоиск" id="482">
-									<Type>Hyperlink</Type>
-									<Representation>Text</Representation>
-									<CommandName>Form.Command.КомандаРасширенныйПоиск</CommandName>
-									<ExtendedTooltip name="КомандаРасширенныйПоискExtendedTooltip" id="556"/>
-								</Button>
-							</ChildItems>
-						</UsualGroup>
-						<LabelDecoration name="ДекорацияРазделитель" id="480">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<AutoMaxHeight>false</AutoMaxHeight>
-							<HorizontalStretch>true</HorizontalStretch>
-							<VerticalStretch>false</VerticalStretch>
-							<ContextMenu name="ДекорацияРазделительКонтекстноеМеню" id="481"/>
-							<ExtendedTooltip name="ДекорацияРазделительExtendedTooltip" id="557"/>
-						</LabelDecoration>
-						<UsualGroup name="ГруппаНастройки" id="457">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Настройки</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalStretch>false</HorizontalStretch>
-							<VerticalStretch>false</VerticalStretch>
-							<Group>Horizontal</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаНастройкиExtendedTooltip" id="558"/>
-							<ChildItems>
-								<UsualGroup name="ГруппаКомандаНастройки" id="483">
-									<EnableContentChange>true</EnableContentChange>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Команда настройки</v8:content>
-										</v8:item>
-									</Title>
-									<HorizontalStretch>false</HorizontalStretch>
-									<VerticalStretch>false</VerticalStretch>
-									<Group>Horizontal</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаКомандаНастройкиExtendedTooltip" id="559"/>
-									<ChildItems>
-										<Button name="КомандаНастройки" id="127">
-											<Type>UsualButton</Type>
-											<Representation>PictureAndText</Representation>
-											<CommandName>Form.Command.КомандаНастройкиПоказаНовостей</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Настройки</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="КомандаНастройкиExtendedTooltip" id="560"/>
-										</Button>
-									</ChildItems>
-								</UsualGroup>
-							</ChildItems>
-						</UsualGroup>
-					</ChildItems>
-				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -930,21 +865,6 @@
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Инфо актуальность информации</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
-			</Type>
-		</Attribute>
-		<Attribute name="ИнфоДоступКВебИТС" id="13">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Доступ к ВебИТС</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1809,17 +1729,6 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="ШрифтСтиляОбычный" id="26">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Шрифт стиля обычный</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>v8ui:Font</v8:Type>
-			</Type>
-		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="КомандаОбновитьСписокНовостей" id="1">
@@ -1883,7 +1792,9 @@
 			</Picture>
 			<Action>КомандаОткрытьНовость</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Новости</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="КомандаПоиск" id="4">
 			<Title>
@@ -1926,7 +1837,7 @@
 			<Action>КомандаУстановитьПометку</Action>
 			<Representation>TextPicture</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Новости</AssociatedTableElementId>
 		</Command>
 		<Command name="КомандаУстановитьПометку0" id="6">
 			<Title>
@@ -1948,7 +1859,7 @@
 			<Action>КомандаУстановитьПометку</Action>
 			<Representation>TextPicture</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Новости</AssociatedTableElementId>
 		</Command>
 		<Command name="КомандаОтметитьКакПрочтенные" id="7">
 			<Title>
@@ -1966,7 +1877,7 @@
 			<Action>КомандаИзменитьПризнакПрочтенности</Action>
 			<Representation>TextPicture</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Новости</AssociatedTableElementId>
 		</Command>
 		<Command name="КомандаРасширенныйПоиск" id="8">
 			<Title>
@@ -1982,11 +1893,11 @@
 				</v8:item>
 			</ToolTip>
 			<Picture>
-				<xr:Ref>StdPicture.Find</xr:Ref>
+				<xr:Ref>StdPicture.CustomizeList</xr:Ref>
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>КомандаРасширенныйПоиск</Action>
-			<Representation>TextPicture</Representation>
+			<Representation>Picture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="КомандаОтметитьКакНепрочтенные" id="9">
@@ -2005,7 +1916,7 @@
 			<Action>КомандаИзменитьПризнакПрочтенности</Action>
 			<Representation>TextPicture</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Новости</AssociatedTableElementId>
 		</Command>
 		<Command name="КомандаУдалитьИзСпискаНовостей" id="10">
 			<Title>
@@ -2085,6 +1996,7 @@
 				</v8:item>
 			</Title>
 			<Action>КомандаУправлениеПодпиской</Action>
+			<AssociatedTableElementId xsi:type="xs:string">Новости</AssociatedTableElementId>
 		</Command>
 		<Command name="КомандаОтписаться" id="15">
 			<Title>
@@ -2098,6 +2010,7 @@
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<Action>КомандаУправлениеПодпиской</Action>
+			<AssociatedTableElementId xsi:type="xs:string">Новости</AssociatedTableElementId>
 		</Command>
 		<Command name="КомандаОповещенияСистемаВзаимодействия" id="16">
 			<Title>
@@ -2128,7 +2041,6 @@
 			<Action>КомандаПрочитатьПозже</Action>
 			<Representation>TextPicture</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<CurrentRowUse>Use</CurrentRowUse>
 			<AssociatedTableElementId xsi:type="xs:string">Новости</AssociatedTableElementId>
 		</Command>
 		<Command name="КомандаПрочитатьПозжеУдалитьИзСписка" id="18">
@@ -2145,7 +2057,6 @@
 			<Action>КомандаПрочитатьПозже</Action>
 			<Representation>TextPicture</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<CurrentRowUse>DontUse</CurrentRowUse>
 			<AssociatedTableElementId xsi:type="xs:string">Новости</AssociatedTableElementId>
 		</Command>
 	</Commands>

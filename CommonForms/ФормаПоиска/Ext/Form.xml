@@ -10,62 +10,12 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
-	<CommandBarLocation>None</CommandBarLocation>
-	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="СостояниеПоиска" id="75">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Состояние поиска</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalStretch>true</HorizontalStretch>
-			<Group>AlwaysHorizontal</Group>
-			<VerticalAlign>Center</VerticalAlign>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<BackColor>style:ЦветФонаПредупреждения</BackColor>
-			<ExtendedTooltip name="СостояниеПоискаРасширеннаяПодсказка" id="76"/>
-			<ChildItems>
-				<PictureDecoration name="СостояниеПоискаПредупреждение" id="77">
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Состояние поиска предупреждение</v8:content>
-						</v8:item>
-					</Title>
-					<Picture>
-						<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</Picture>
-					<FileDragMode>AsFile</FileDragMode>
-					<ContextMenu name="СостояниеПоискаПредупреждениеКонтекстноеМеню" id="78"/>
-					<ExtendedTooltip name="СостояниеПоискаПредупреждениеРасширеннаяПодсказка" id="79"/>
-				</PictureDecoration>
-				<LabelField name="СостояниеПоискаПредставление" id="80">
-					<DataPath>СостояниеПоискаПредставление</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Состояние поиска представление</v8:content>
-						</v8:item>
-					</Title>
-					<TitleLocation>None</TitleLocation>
-					<VerticalAlign>Center</VerticalAlign>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<ContextMenu name="СостояниеПоискаПредставлениеКонтекстноеМеню" id="81"/>
-					<ExtendedTooltip name="СостояниеПоискаПредставлениеРасширеннаяПодсказка" id="82"/>
-				</LabelField>
-			</ChildItems>
-		</UsualGroup>
 		<UsualGroup name="Шапка" id="42" DisplayImportance="VeryHigh">
 			<Title>
 				<v8:item>
@@ -94,7 +44,9 @@
 							<v8:content>Введите искомый текст или часть фразы</v8:content>
 						</v8:item>
 					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
 					<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>40</MaxWidth>
 					<Wrap>false</Wrap>
@@ -106,7 +58,6 @@
 							<v8:AllowedLength>Variable</v8:AllowedLength>
 						</v8:StringQualifiers>
 					</AvailableTypes>
-					<BorderColor>style:BorderColor</BorderColor>
 					<InputHint>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -127,7 +78,6 @@
 					<Width>10</Width>
 					<Height>1</Height>
 					<CommandName>Form.Command.ВыполнитьПоиск</CommandName>
-					<BackColor>style:ButtonBackColor</BackColor>
 					<BorderColor>style:BorderColor</BorderColor>
 					<Title>
 						<v8:item>
@@ -137,15 +87,6 @@
 					</Title>
 					<ButtonImportance>Main</ButtonImportance>
 					<ExtendedTooltip name="НайтиРасширеннаяПодсказка" id="54"/>
-				</Button>
-				<Button name="Справка" id="44">
-					<Type>UsualButton</Type>
-					<Representation>Picture</Representation>
-					<CommandName>Form.StandardCommand.Help</CommandName>
-					<TextColor>style:ButtonTextColor</TextColor>
-					<BackColor>style:ButtonBackColor</BackColor>
-					<BorderColor>style:BorderColor</BorderColor>
-					<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="55"/>
 				</Button>
 			</ChildItems>
 		</UsualGroup>
@@ -170,7 +111,8 @@
 							<v8:content>Область поиска</v8:content>
 						</v8:item>
 					</Title>
-					<AutoMaxWidth>false</AutoMaxWidth>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Hiperlink>true</Hiperlink>
 					<ContextMenu name="ОбластиПоискаПредставлениеКонтекстноеМеню" id="71"/>
 					<ExtendedTooltip name="ОбластиПоискаПредставлениеРасширеннаяПодсказка" id="72"/>
@@ -194,6 +136,16 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаИнформацияОНайденномРасширеннаяПодсказка" id="56"/>
 			<ChildItems>
+				<LabelField name="ИнформацияОНайденномПредставление" id="16">
+					<DataPath>ИнформацияОНайденномПредставление</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+					<AutoEditMode>true</AutoEditMode>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ИнформацияОНайденномПредставлениеКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ИнформацияОНайденномПредставлениеРасширеннаяПодсказка" id="60"/>
+				</LabelField>
 				<CommandBar name="ГруппаНавигация" id="51">
 					<Title>
 						<v8:item>
@@ -208,7 +160,6 @@
 							<Type>CommandBarButton</Type>
 							<SkipOnInput>false</SkipOnInput>
 							<CommandName>Form.Command.Предыдущие</CommandName>
-							<BackColor>style:ButtonBackColor</BackColor>
 							<BorderColor>style:BorderColor</BorderColor>
 							<Title>
 								<v8:item>
@@ -216,14 +167,13 @@
 									<v8:content>Предыдущие</v8:content>
 								</v8:item>
 							</Title>
+							<ButtonImportance>Supplementary</ButtonImportance>
 							<ExtendedTooltip name="ПредыдущиеРасширеннаяПодсказка" id="58"/>
 						</Button>
 						<Button name="Следующие" id="9">
 							<Type>CommandBarButton</Type>
-							<Representation>PictureAndText</Representation>
 							<SkipOnInput>false</SkipOnInput>
 							<CommandName>Form.Command.Следующие</CommandName>
-							<BackColor>style:ButtonBackColor</BackColor>
 							<BorderColor>style:BorderColor</BorderColor>
 							<Title>
 								<v8:item>
@@ -231,35 +181,43 @@
 									<v8:content>Следующие</v8:content>
 								</v8:item>
 							</Title>
+							<ButtonImportance>Supplementary</ButtonImportance>
 							<ExtendedTooltip name="СледующиеРасширеннаяПодсказка" id="59"/>
 						</Button>
 					</ChildItems>
 				</CommandBar>
-				<LabelField name="ИнформацияОНайденномПредставление" id="16">
-					<DataPath>ИнформацияОНайденномПредставление</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-					<TextColor>style:ПоясняющийТекст</TextColor>
-					<ContextMenu name="ИнформацияОНайденномПредставлениеКонтекстноеМеню" id="17"/>
-					<ExtendedTooltip name="ИнформацияОНайденномПредставлениеРасширеннаяПодсказка" id="60"/>
-				</LabelField>
 			</ChildItems>
 		</UsualGroup>
-		<HTMLDocumentField name="РезультатыПоиска" id="39" DisplayImportance="VeryHigh">
-			<DataPath>РезультатыПоискаПредставление</DataPath>
+		<UsualGroup name="ГруппаРезультатыПоиска" id="88">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Результаты поиска представление</v8:content>
+					<v8:content>Результаты поиска</v8:content>
 				</v8:item>
 			</Title>
-			<TitleLocation>None</TitleLocation>
-			<ContextMenu name="РезультатыПоискаКонтекстноеМеню" id="40"/>
-			<ExtendedTooltip name="РезультатыПоискаРасширеннаяПодсказка" id="61"/>
-			<Events>
-				<Event name="OnClick">HTMLТекстПриНажатии</Event>
-			</Events>
-		</HTMLDocumentField>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ShowAsCard>true</ShowAsCard>
+			<ScrollOnCompress>true</ScrollOnCompress>
+			<ExtendedTooltip name="ГруппаРезультатыПоискаРасширеннаяПодсказка" id="89"/>
+			<ChildItems>
+				<FormattedDocumentField name="РезультатыПоиска" id="90" DisplayImportance="VeryHigh">
+					<DataPath>РезультатыПоискаДокумент</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Результаты поиска</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="РезультатыПоискаКонтекстноеМеню" id="91"/>
+					<ExtendedTooltip name="РезультатыПоискаРасширеннаяПодсказка" id="92"/>
+				</FormattedDocumentField>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -293,18 +251,8 @@
 			</Type>
 		</Attribute>
 		<Attribute name="РезультатыПоискаПредставление" id="14">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Результаты поиска представление</v8:content>
-				</v8:item>
-			</Title>
 			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
+				<v8:Type>v8ui:FormattedString</v8:Type>
 			</Type>
 		</Attribute>
 		<Attribute name="КонтейнерСостояний" id="6">
@@ -315,21 +263,6 @@
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Области поиска представление</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
-			</Type>
-		</Attribute>
-		<Attribute name="СостояниеПоискаПредставление" id="17">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Состояние поиска представление</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -410,6 +343,26 @@
 		</Attribute>
 		<Attribute name="РезультатыПоиска" id="15">
 			<Type/>
+		</Attribute>
+		<Attribute name="РезультатыПоискаДокумент" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результаты поиска документ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:fd="http://v8.1c.ru/8.2/data/formatted-document">fd:FormattedDocument</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СостояниеПоискаПредставление" id="17">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
 		</Attribute>
 	</Attributes>
 	<Commands>

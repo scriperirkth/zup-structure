@@ -10,8 +10,40 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаПрименить" id="61">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Применить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Применить</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаПрименитьРасширеннаяПодсказка" id="62"/>
+			</Button>
+			<Button name="ИсторияВыбрать" id="50" DisplayImportance="VeryHigh">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Выбрать</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ИсторияВыбратьРасширеннаяПодсказка" id="51"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -19,6 +51,7 @@
 	<ChildItems>
 		<Table name="История" id="1">
 			<Representation>List</Representation>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -65,18 +98,6 @@
 			</ContextMenu>
 			<AutoCommandBar name="ИсторияКоманднаяПанель" id="3">
 				<ChildItems>
-					<Button name="ИсторияВыбрать" id="50" DisplayImportance="VeryHigh">
-						<Type>CommandBarButton</Type>
-						<Visible>false</Visible>
-						<CommandName>Form.Command.Выбрать</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Выбрать</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ИсторияВыбратьРасширеннаяПодсказка" id="51"/>
-					</Button>
 					<Button name="ИсторияДобавить" id="22" DisplayImportance="Usual">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Item.История.StandardCommand.Add</CommandName>
@@ -165,6 +186,8 @@
 							<v8:content>Представление</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ChoiceButton>true</ChoiceButton>
 					<ChooseType>false</ChooseType>
 					<TextEdit>false</TextEdit>
@@ -195,43 +218,6 @@
 				</InputField>
 			</ChildItems>
 		</Table>
-		<CommandBar name="ГруппаКоманднаяПанель" id="36">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="37"/>
-			<ChildItems>
-				<Button name="ОК" id="40" DisplayImportance="VeryHigh">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<DefaultItem>true</DefaultItem>
-					<CommandName>Form.Command.ОК</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ОК</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="41"/>
-				</Button>
-				<Button name="Отмена" id="38">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.Отмена</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Отмена</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="39"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -393,37 +379,22 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ОК" id="1">
+		<Command name="Применить" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ОК</Action>
+			<Action>Применить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="Отмена" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Отмена</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Выбрать" id="3">
 			<Title>
@@ -440,6 +411,7 @@
 			</ToolTip>
 			<Action>Выбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

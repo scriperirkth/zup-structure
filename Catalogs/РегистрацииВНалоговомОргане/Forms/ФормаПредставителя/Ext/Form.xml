@@ -26,11 +26,6 @@
 				<CommandName>Form.Command.Записать</CommandName>
 				<ExtendedTooltip name="ФормаЗаписатьExtendedTooltip" id="57"/>
 			</Button>
-			<Button name="ФормаСправка" id="55">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<ExtendedTooltip name="ФормаСправкаExtendedTooltip" id="58"/>
-			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -60,21 +55,15 @@
 			<BackColor>#FCEB9F</BackColor>
 			<ExtendedTooltip name="ГруппаПользовательРасширеннаяПодсказка" id="103"/>
 			<ChildItems>
-				<LabelDecoration name="ЗаголовокПользователь" id="119">
-					<Font bold="true" kind="AutoFont"/>
-					<Title formatted="false">
+				<InputField name="Пользователь" id="82">
+					<DataPath>Пользователь</DataPath>
+					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Пользователь</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="ЗаголовокПользовательКонтекстноеМеню" id="120"/>
-					<ExtendedTooltip name="ЗаголовокПользовательРасширеннаяПодсказка" id="121"/>
-				</LabelDecoration>
-				<InputField name="Пользователь" id="82">
-					<DataPath>Пользователь</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<MarkRequiredComplete>true</MarkRequiredComplete>
+					<TitleLocation>Left</TitleLocation>
 					<Width>23</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<HorizontalStretch>false</HorizontalStretch>
@@ -102,7 +91,6 @@
 			<Width>70</Width>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<Height>2</Height>
-			<TextColor>style:ПоясняющийТекст</TextColor>
 			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -144,56 +132,35 @@
 					<Group>AlwaysHorizontal</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
+					<United>false</United>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаФизическоеЛицоРасширеннаяПодсказка" id="64"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаПредставительФизическоеЛицо" id="100">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа представитель физическое лицо</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа представитель физическое лицо</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Width>22</Width>
-							<Group>HorizontalIfPossible</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаПредставительФизическоеЛицоРасширеннаяПодсказка" id="101"/>
-							<ChildItems>
-								<RadioButtonField name="ПредставительФизическоеЛицо" id="77">
-									<DataPath>ПредставительЮридическоеЛицо</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<RadioButtonType>Auto</RadioButtonType>
-									<ChoiceList>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Физическое лицо</v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:decimal">0</Value>
-											</xr:Value>
-										</xr:Item>
-									</ChoiceList>
-									<ContextMenu name="ПредставительФизическоеЛицоКонтекстноеМеню" id="78"/>
-									<ExtendedTooltip name="ПредставительФизическоеЛицоРасширеннаяПодсказка" id="79"/>
-									<Events>
-										<Event name="OnChange">ПредставительЮридическоеЛицоПриИзменении</Event>
-									</Events>
-								</RadioButtonField>
-							</ChildItems>
-						</UsualGroup>
+						<RadioButtonField name="ПредставительФизическоеЛицо" id="77">
+							<DataPath>ПредставительЮридическоеЛицо</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Физическое лицо</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">0</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ПредставительФизическоеЛицоКонтекстноеМеню" id="78"/>
+							<ExtendedTooltip name="ПредставительФизическоеЛицоРасширеннаяПодсказка" id="79"/>
+							<Events>
+								<Event name="OnChange">ПредставительЮридическоеЛицоПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
 						<InputField name="ФизическоеЛицо" id="32">
 							<DataPath>ФизическоеЛицо</DataPath>
 							<TitleLocation>None</TitleLocation>
@@ -220,257 +187,124 @@
 							<v8:content>Группа физическое лицо</v8:content>
 						</v8:item>
 					</ToolTip>
-					<Group>Vertical</Group>
+					<Group>AlwaysHorizontal</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
+					<United>false</United>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаЮридическоеЛицоРасширеннаяПодсказка" id="81"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаЮридическоеЛицоГоризонтальная1" id="91">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа юридическое лицо горизонтальная1</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа юридическое лицо горизонтальная1</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>AlwaysHorizontal</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаЮридическоеЛицоГоризонтальная1РасширеннаяПодсказка" id="92"/>
-							<ChildItems>
-								<UsualGroup name="ГруппаПредставительЮридическоеЛицо" id="98">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа представитель юридическое лицо</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа представитель юридическое лицо</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Width>22</Width>
-									<Group>HorizontalIfPossible</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаПредставительЮридическоеЛицоРасширеннаяПодсказка" id="99"/>
-									<ChildItems>
-										<RadioButtonField name="ПредставительЮридическоеЛицо" id="28">
-											<DataPath>ПредставительЮридическоеЛицо</DataPath>
-											<TitleLocation>None</TitleLocation>
-											<RadioButtonType>Auto</RadioButtonType>
-											<ChoiceList>
-												<xr:Item>
-													<xr:Presentation/>
-													<xr:CheckState>0</xr:CheckState>
-													<xr:Value xsi:type="FormChoiceListDesTimeValue">
-														<Presentation>
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>Юридическое лицо</v8:content>
-															</v8:item>
-														</Presentation>
-														<Value xsi:type="xs:decimal">1</Value>
-													</xr:Value>
-												</xr:Item>
-											</ChoiceList>
-											<ContextMenu name="ПредставительЮридическоеЛицоКонтекстноеМеню" id="29"/>
-											<ExtendedTooltip name="ПредставительЮридическоеЛицоExtendedTooltip" id="63"/>
-											<Events>
-												<Event name="OnChange">ПредставительЮридическоеЛицоПриИзменении</Event>
-											</Events>
-										</RadioButtonField>
-									</ChildItems>
-								</UsualGroup>
-								<InputField name="ЮридическоеЛицо" id="34">
-									<DataPath>ЮридическоеЛицо</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<ContextMenu name="ЮридическоеЛицоКонтекстноеМеню" id="35"/>
-									<ExtendedTooltip name="ЮридическоеЛицоExtendedTooltip" id="66"/>
-									<Events>
-										<Event name="OnChange">ЮридическоеЛицоПриИзменении</Event>
-									</Events>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаЮридическоеЛицоГоризонтальная2" id="93">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа юридическое лицо горизонтальная2</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа юридическое лицо горизонтальная2</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>HorizontalIfPossible</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаЮридическоеЛицоГоризонтальная2РасширеннаяПодсказка" id="94"/>
-							<ChildItems>
-								<LabelDecoration name="ЗаголовокУполномоченноеЛицо" id="95">
-									<Width>22</Width>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>ФИО уполномоченного лица:</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="ЗаголовокУполномоченноеЛицоКонтекстноеМеню" id="96"/>
-									<ExtendedTooltip name="ЗаголовокУполномоченноеЛицоРасширеннаяПодсказка" id="97"/>
-								</LabelDecoration>
-								<InputField name="УполномоченноеЛицоПредставителя" id="17">
-									<DataPath>УполномоченноеЛицоПредставителя</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>ФИО уполномоченного лица</v8:content>
-										</v8:item>
-									</Title>
-									<TitleLocation>None</TitleLocation>
-									<TitleHeight>2</TitleHeight>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<ContextMenu name="УполномоченноеЛицоПредставителяКонтекстноеМеню" id="18"/>
-									<ExtendedTooltip name="УполномоченноеЛицоПредставителяExtendedTooltip" id="70"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
+						<RadioButtonField name="ПредставительЮридическоеЛицо" id="28">
+							<DataPath>ПредставительЮридическоеЛицо</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Юридическое лицо</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ПредставительЮридическоеЛицоКонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="ПредставительЮридическоеЛицоExtendedTooltip" id="63"/>
+							<Events>
+								<Event name="OnChange">ПредставительЮридическоеЛицоПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+						<InputField name="ЮридическоеЛицо" id="34">
+							<DataPath>ЮридическоеЛицо</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="ЮридическоеЛицоКонтекстноеМеню" id="35"/>
+							<ExtendedTooltip name="ЮридическоеЛицоExtendedTooltip" id="66"/>
+							<Events>
+								<Event name="OnChange">ЮридическоеЛицоПриИзменении</Event>
+							</Events>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаДокументПредставителя" id="36">
-			<EnableContentChange>true</EnableContentChange>
+		<InputField name="УполномоченноеЛицоПредставителя" id="17">
+			<DataPath>УполномоченноеЛицоПредставителя</DataPath>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Номер, дата и вид документа, подтверждающего полномочия</v8:content>
+					<v8:content>ФИО уполномоченного лица</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа документ представителя</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Group>Horizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаДокументПредставителяРасширеннаяПодсказка" id="72"/>
-			<ChildItems>
-				<LabelDecoration name="ЗаголовокДокумент" id="88">
-					<Width>22</Width>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Номер, дата и вид документа или единый регистрационный номер машиночитаемой доверенности:</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ЗаголовокДокументКонтекстноеМеню" id="89"/>
-					<ExtendedTooltip name="ЗаголовокДокументРасширеннаяПодсказка" id="90"/>
-				</LabelDecoration>
-				<InputField name="ДокументПредставителя" id="19">
-					<DataPath>ДокументПредставителя</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<TitleHeight>2</TitleHeight>
-					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Height>2</Height>
-					<MultiLine>true</MultiLine>
-					<ContextMenu name="ДокументПредставителяКонтекстноеМеню" id="20"/>
-					<ExtendedTooltip name="ДокументПредставителяExtendedTooltip" id="71">
-						<Title formatted="false">
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Доверенность или иной документ, подтверждающий полномочия</v8:content>
-							</v8:item>
-						</Title>
-					</ExtendedTooltip>
-				</InputField>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаДоверенность" id="46">
-			<EnableContentChange>true</EnableContentChange>
+			<TitleHeight>1</TitleHeight>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="УполномоченноеЛицоПредставителяКонтекстноеМеню" id="18"/>
+			<ExtendedTooltip name="УполномоченноеЛицоПредставителяExtendedTooltip" id="70"/>
+		</InputField>
+		<InputField name="Доверенность" id="44">
+			<DataPath>Доверенность</DataPath>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Доверенность для электронного документооборота с налоговым органом</v8:content>
+					<v8:content>Доверенность</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
+			<TitleHeight>1</TitleHeight>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ClearButton>true</ClearButton>
+			<ChoiceParameterLinks>
+				<xr:Link>
+					<xr:Name>Отбор.Владелец</xr:Name>
+					<xr:DataPath xsi:type="xs:string">Владелец</xr:DataPath>
+					<xr:ValueChange>Clear</xr:ValueChange>
+				</xr:Link>
+			</ChoiceParameterLinks>
+			<ContextMenu name="ДоверенностьКонтекстноеМеню" id="45"/>
+			<ExtendedTooltip name="ДоверенностьExtendedTooltip" id="75">
+				<AutoMaxWidth>false</AutoMaxWidth>
+				<Title formatted="false">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Доверенность для электронного документооборота с налоговым органом</v8:content>
+					</v8:item>
+				</Title>
+			</ExtendedTooltip>
+			<Events>
+				<Event name="OnChange">ДоверенностьПриИзменении</Event>
+				<Event name="Opening">ДоверенностьОткрытие</Event>
+			</Events>
+		</InputField>
+		<InputField name="ДокументПредставителя" id="19">
+			<DataPath>ДокументПредставителя</DataPath>
+			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа доверенность</v8:content>
+					<v8:content>Номер, дата и вид документа или единый рег. номер МЧД</v8:content>
 				</v8:item>
-			</ToolTip>
-			<Group>Horizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаДоверенностьРасширеннаяПодсказка" id="76"/>
-			<ChildItems>
-				<LabelDecoration name="ЗаголовокДоверенность" id="85">
-					<Width>22</Width>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Доверенность:</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ЗаголовокДоверенностьКонтекстноеМеню" id="86"/>
-					<ExtendedTooltip name="ЗаголовокДоверенностьРасширеннаяПодсказка" id="87"/>
-				</LabelDecoration>
-				<InputField name="Доверенность" id="44">
-					<DataPath>Доверенность</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<TitleHeight>1</TitleHeight>
-					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<ClearButton>true</ClearButton>
-					<ChoiceParameterLinks>
-						<xr:Link>
-							<xr:Name>Отбор.Владелец</xr:Name>
-							<xr:DataPath xsi:type="xs:string">Владелец</xr:DataPath>
-							<xr:ValueChange>Clear</xr:ValueChange>
-						</xr:Link>
-					</ChoiceParameterLinks>
-					<ContextMenu name="ДоверенностьКонтекстноеМеню" id="45"/>
-					<ExtendedTooltip name="ДоверенностьExtendedTooltip" id="75">
-						<AutoMaxWidth>false</AutoMaxWidth>
-						<Title formatted="false">
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Доверенность для электронного документооборота с налоговым органом</v8:content>
-							</v8:item>
-						</Title>
-					</ExtendedTooltip>
-					<Events>
-						<Event name="OnChange">ДоверенностьПриИзменении</Event>
-						<Event name="Opening">ДоверенностьОткрытие</Event>
-					</Events>
-				</InputField>
-			</ChildItems>
-		</UsualGroup>
+			</Title>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<GroupVerticalAlign>Center</GroupVerticalAlign>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ДокументПредставителяКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="ДокументПредставителяExtendedTooltip" id="71">
+				<Title formatted="false">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Доверенность или иной документ, подтверждающий полномочия</v8:content>
+					</v8:item>
+				</Title>
+			</ExtendedTooltip>
+		</InputField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ПредставительЮридическоеЛицо" id="2">
@@ -673,7 +507,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Записать</v8:content>
+					<v8:content>Сохранить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -684,6 +518,7 @@
 			</ToolTip>
 			<Action>Записать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ЗаписатьИЗакрыть" id="2">
 			<Title>
@@ -705,6 +540,7 @@
 			<Action>ЗаписатьИЗакрыть</Action>
 			<Representation>Text</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

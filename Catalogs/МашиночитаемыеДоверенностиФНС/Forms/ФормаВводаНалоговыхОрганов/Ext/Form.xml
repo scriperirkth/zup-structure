@@ -29,6 +29,7 @@
 			</Button>
 			<Button name="ФормаКнопкаОтмена" id="22">
 				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
 				<CommandName>Form.StandardCommand.Close</CommandName>
 				<Title>
 					<v8:item>
@@ -47,7 +48,7 @@
 		<RadioButtonField name="ТипНалоговыхОргановДействия" id="43">
 			<DataPath>ТипНалоговыхОргановДействия</DataPath>
 			<TitleLocation>None</TitleLocation>
-			<RadioButtonType>Auto</RadioButtonType>
+			<RadioButtonType>Tumbler</RadioButtonType>
 			<ColumnsCount>1</ColumnsCount>
 			<ChoiceList>
 				<xr:Item>
@@ -86,7 +87,7 @@
 		<Table name="НалоговыеОрганыДействия" id="24">
 			<Representation>List</Representation>
 			<ChoiceMode>true</ChoiceMode>
-			<MultipleChoice>true</MultipleChoice>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<HorizontalLinesBWA>false</HorizontalLinesBWA>
 			<VerticalLinesBWA>false</VerticalLinesBWA>
@@ -121,22 +122,24 @@
 						<ChildItems>
 							<Button name="УстановитьФлажки" id="48">
 								<Type>CommandBarButton</Type>
+								<Representation>PictureAndText</Representation>
 								<CommandName>Form.Command.УстановитьФлажки</CommandName>
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
-										<v8:content>Установить флажки</v8:content>
+										<v8:content>Выбрать все</v8:content>
 									</v8:item>
 								</Title>
 								<ExtendedTooltip name="УстановитьФлажкиРасширеннаяПодсказка" id="49"/>
 							</Button>
 							<Button name="СнятьФлажки" id="50">
 								<Type>CommandBarButton</Type>
+								<Representation>Picture</Representation>
 								<CommandName>Form.Command.СнятьФлажки</CommandName>
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
-										<v8:content>Снять флажки</v8:content>
+										<v8:content>Убрать все</v8:content>
 									</v8:item>
 								</Title>
 								<ExtendedTooltip name="СнятьФлажкиРасширеннаяПодсказка" id="51"/>
@@ -180,6 +183,8 @@
 					<DataPath>НалоговыеОрганыДействия.Пометка</DataPath>
 					<TitleLocation>None</TitleLocation>
 					<EditMode>Directly</EditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<CheckBoxType>CheckBox</CheckBoxType>
 					<ContextMenu name="НалоговыеОрганыДействияПометкаКонтекстноеМеню" id="53"/>
 					<ExtendedTooltip name="НалоговыеОрганыДействияПометкаРасширеннаяПодсказка" id="54"/>
 				</CheckBoxField>
@@ -187,6 +192,7 @@
 					<DataPath>НалоговыеОрганыДействия.Код</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="НалоговыеОрганыДействияКодКонтекстноеМеню" id="56"/>
 					<ExtendedTooltip name="НалоговыеОрганыДействияКодРасширеннаяПодсказка" id="57"/>
 				</InputField>
@@ -194,6 +200,7 @@
 					<DataPath>НалоговыеОрганыДействия.Наименование</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="НалоговыеОрганыДействияНаименованиеКонтекстноеМеню" id="59"/>
 					<ExtendedTooltip name="НалоговыеОрганыДействияНаименованиеРасширеннаяПодсказка" id="60"/>
 				</InputField>
@@ -286,6 +293,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Сохранить</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="СнятьФлажки" id="3">
 			<Title>
@@ -311,7 +319,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Установить флажки</v8:content>
+					<v8:content>Выбрать все</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>

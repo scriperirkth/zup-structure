@@ -604,6 +604,36 @@
 								<InputField name="НачисленияСотрудник" id="30">
 									<DataPath>Объект.Начисления.Сотрудник</DataPath>
 									<Width>10</Width>
+									<ChoiceParameterLinks>
+										<xr:Link>
+											<xr:Name>Отбор.НачалоПериодаПримененияОтбора</xr:Name>
+											<xr:DataPath xsi:type="xs:string">Объект.МесяцНачисления</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+										<xr:Link>
+											<xr:Name>Отбор.ОкончаниеПериодаПримененияОтбора</xr:Name>
+											<xr:DataPath xsi:type="xs:string">Объект.ОкончаниеПериодаНачисления</xr:DataPath>
+											<xr:ValueChange>DontChange</xr:ValueChange>
+										</xr:Link>
+										<xr:Link>
+											<xr:Name>Отбор.ТекущаяОрганизация</xr:Name>
+											<xr:DataPath xsi:type="xs:string">Объект.Организация</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+										<xr:Link>
+											<xr:Name>Отбор.ТекущееПодразделение</xr:Name>
+											<xr:DataPath xsi:type="xs:string">Объект.Подразделение</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+									</ChoiceParameterLinks>
+									<ChoiceParameters>
+										<app:item name="УчитыватьОтборПоПодразделению">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xs:boolean">true</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
 									<ContextMenu name="НачисленияСотрудникКонтекстноеМеню" id="31"/>
 									<ExtendedTooltip name="НачисленияСотрудникExtendedTooltip" id="467"/>
 									<Events>
@@ -619,6 +649,32 @@
 								<InputField name="НачисленияНачисление" id="32">
 									<DataPath>Объект.Начисления.Начисление</DataPath>
 									<Width>10</Width>
+									<ChoiceParameters>
+										<app:item name="Отбор.ВидДокументаНачисления">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДокументовНачисления.EmptyRef</Value>
+											</app:value>
+										</app:item>
+										<app:item name="Отбор.НачисляетсяПриРасчетеПервойПоловиныМесяца">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xs:boolean">true</Value>
+											</app:value>
+										</app:item>
+										<app:item name="Отбор.ВАрхиве">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xs:boolean">false</Value>
+											</app:value>
+										</app:item>
+										<app:item name="Отбор.ЯвляетсяЛьготой">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xs:boolean">false</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
 									<ContextMenu name="НачисленияНачислениеКонтекстноеМеню" id="33"/>
 									<ExtendedTooltip name="НачисленияНачислениеExtendedTooltip" id="469"/>
 									<Events>
@@ -849,6 +905,14 @@
 								</InputField>
 								<InputField name="УдержанияУдержание" id="176">
 									<DataPath>Объект.Удержания.Удержание</DataPath>
+									<ChoiceParameters>
+										<app:item name="Отбор.УчаствуетВРасчетеПервойПоловиныМесяца">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xs:boolean">true</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
 									<ContextMenu name="УдержанияУдержаниеКонтекстноеМеню" id="177"/>
 									<ExtendedTooltip name="УдержанияУдержаниеExtendedTooltip" id="500"/>
 									<Events>
@@ -925,6 +989,23 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<ChoiceParameterLinks>
+												<xr:Link>
+													<xr:Name>Отбор.Организация</xr:Name>
+													<xr:DataPath xsi:type="xs:string">Объект.Организация</xr:DataPath>
+													<xr:ValueChange>Clear</xr:ValueChange>
+												</xr:Link>
+												<xr:Link>
+													<xr:Name>Отбор.Удержание</xr:Name>
+													<xr:DataPath xsi:type="xs:string">Items.Удержания.CurrentData.Удержание</xr:DataPath>
+													<xr:ValueChange>Clear</xr:ValueChange>
+												</xr:Link>
+												<xr:Link>
+													<xr:Name>Отбор.ФизическоеЛицо</xr:Name>
+													<xr:DataPath xsi:type="xs:string">Items.Удержания.CurrentData.ФизическоеЛицо</xr:DataPath>
+													<xr:ValueChange>Clear</xr:ValueChange>
+												</xr:Link>
+											</ChoiceParameterLinks>
 											<ContextMenu name="УдержанияДокументОснованиеКонтекстноеМеню" id="195"/>
 											<ExtendedTooltip name="УдержанияДокументОснованиеExtendedTooltip" id="506"/>
 											<Events>

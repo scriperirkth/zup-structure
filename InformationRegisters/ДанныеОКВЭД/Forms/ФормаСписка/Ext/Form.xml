@@ -1,90 +1,91 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<Width>100</Width>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<CommandSet>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>Close</ExcludedCommand>
+		<ExcludedCommand>Help</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>OpenFromMainServer</ExcludedCommand>
+		<ExcludedCommand>OpenFromStandaloneServer</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Выбрать" id="35">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="36"/>
+			</Button>
+			<Button name="Обновить" id="157">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Обновить</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ОбновитьРасширеннаяПодсказка" id="158"/>
+			</Button>
+			<Button name="ИзменитьФорму" id="85">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+				<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="86"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаОшибки" id="61">
+		<UsualGroup name="ГруппаКоманднаяПанельСПоиском" id="61">
+			<EnableContentChange>true</EnableContentChange>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Ошибки</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalStretch>true</HorizontalStretch>
-			<Group>AlwaysHorizontal</Group>
-			<VerticalAlign>Center</VerticalAlign>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<BackColor>style:ToolTipBackColor</BackColor>
-			<ExtendedTooltip name="ГруппаОшибкиРасширеннаяПодсказка" id="62"/>
-			<ChildItems>
-				<PictureDecoration name="КартинкаОшибка" id="63">
-					<Picture>
-						<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</Picture>
-					<ContextMenu name="КартинкаОшибкаКонтекстноеМеню" id="64"/>
-					<ExtendedTooltip name="КартинкаОшибкаРасширеннаяПодсказка" id="65"/>
-				</PictureDecoration>
-				<LabelDecoration name="ДекорацияОшибка" id="66">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<HorizontalStretch>true</HorizontalStretch>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Текст ошибки</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ДекорацияОшибкаКонтекстноеМеню" id="67"/>
-					<ExtendedTooltip name="ДекорацияОшибкаРасширеннаяПодсказка" id="68"/>
-					<Events>
-						<Event name="URLProcessing">ДекорацияОшибкаОбработкаНавигационнойСсылки</Event>
-					</Events>
-				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="КоманднаяПанельФормы" id="29">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель формы</v8:content>
+					<v8:content>Командная панель с поиском</v8:content>
 				</v8:item>
 			</Title>
 			<Group>AlwaysHorizontal</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="КоманднаяПанельФормыРасширеннаяПодсказка" id="30"/>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельСПоискомРасширеннаяПодсказка" id="62"/>
 			<ChildItems>
-				<Button name="Выбрать" id="35">
-					<Type>UsualButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.Выбрать</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="36"/>
-				</Button>
-				<CommandBar name="КоманднаяПанельОКВЭД" id="37">
+				<CommandBar name="ГруппаКоманднаяПанельЛево" id="72">
+					<EnableContentChange>true</EnableContentChange>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Командная панель ОКВЭД</v8:content>
+							<v8:content>Лево</v8:content>
 						</v8:item>
 					</Title>
-					<ExtendedTooltip name="КоманднаяПанельОКВЭДРасширеннаяПодсказка" id="38"/>
+					<HorizontalStretch>false</HorizontalStretch>
+					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+					<ExtendedTooltip name="ГруппаКоманднаяПанельЛевоРасширеннаяПодсказка" id="73"/>
 					<ChildItems>
+						<Button name="ВыбратьКоманднаяПанельТаблицы" id="81">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.Выбрать</CommandName>
+							<ExtendedTooltip name="ВыбратьКоманднаяПанельТаблицыРасширеннаяПодсказка" id="82"/>
+						</Button>
 						<ButtonGroup name="СвернутьРазвернутьВсе" id="43">
+							<EnableContentChange>true</EnableContentChange>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Свернуть/развернуть все</v8:content>
 								</v8:item>
 							</Title>
+							<HorizontalStretch>false</HorizontalStretch>
 							<Representation>Compact</Representation>
 							<ExtendedTooltip name="СвернутьРазвернутьВсеРасширеннаяПодсказка" id="44"/>
 							<ChildItems>
@@ -102,78 +103,53 @@
 						</ButtonGroup>
 					</ChildItems>
 				</CommandBar>
-				<UsualGroup name="КоманднаяПанельИПоиск" id="33">
+				<InputField name="СтрокаПоиска" id="23">
+					<DataPath>СтрокаПоиска</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ClearButton>true</ClearButton>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поиск</v8:content>
+						</v8:item>
+					</InputHint>
+					<Picture>
+						<xr:Ref>StdPicture.Find</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="25"/>
+					<Events>
+						<Event name="OnChange">СтрокаПоискаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<CommandBar name="ГруппаЕще" id="83">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Командная панель и поиск</v8:content>
+							<v8:content>Еще</v8:content>
 						</v8:item>
 					</Title>
-					<Width>18</Width>
-					<HorizontalStretch>true</HorizontalStretch>
-					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-					<Group>AlwaysHorizontal</Group>
-					<HorizontalAlign>Right</HorizontalAlign>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="КоманднаяПанельИПоискРасширеннаяПодсказка" id="34"/>
+					<HorizontalStretch>false</HorizontalStretch>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<ExtendedTooltip name="ГруппаЕщеРасширеннаяПодсказка" id="84"/>
 					<ChildItems>
-						<InputField name="СтрокаПоиска" id="23">
-							<DataPath>СтрокаПоиска</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-							<ClearButton>true</ClearButton>
-							<InputHint>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Поиск</v8:content>
-								</v8:item>
-							</InputHint>
-							<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="24"/>
-							<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="25"/>
-							<Events>
-								<Event name="OnChange">СтрокаПоискаПриИзменении</Event>
-							</Events>
-						</InputField>
-						<SearchStringAddition name="ДополнениеСтрокаПоиска" id="26">
-							<Visible>false</Visible>
-							<AdditionSource>
-								<Item>Дерево</Item>
-								<Type>SearchStringRepresentation</Type>
-							</AdditionSource>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Строка поиска</v8:content>
-								</v8:item>
-							</Title>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<MaxWidth>25</MaxWidth>
-							<ContextMenu name="ДополнениеСтрокаПоискаКонтекстноеМеню" id="27"/>
-							<ExtendedTooltip name="ДополнениеСтрокаПоискаРасширеннаяПодсказка" id="28"/>
-						</SearchStringAddition>
-						<CommandBar name="СтандартнаяКоманднаяПанель" id="31">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Стандартная командная панель</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalStretch>false</HorizontalStretch>
-							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-							<CommandSource>Form</CommandSource>
-							<ExtendedTooltip name="СтандартнаяКоманднаяПанельРасширеннаяПодсказка" id="32"/>
-							<ChildItems>
-								<Button name="Обновить" id="48">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.Обновить</CommandName>
-									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-									<ExtendedTooltip name="ОбновитьРасширеннаяПодсказка" id="49"/>
-								</Button>
-							</ChildItems>
-						</CommandBar>
+						<Button name="ОбновитьКоманднаяПанельТаблицы" id="159">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.Обновить</CommandName>
+							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="ОбновитьКоманднаяПанельТаблицыРасширеннаяПодсказка" id="160"/>
+						</Button>
+						<Button name="ИзменитьФормуКоманднаяПанельТаблицы" id="87">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+							<ExtendedTooltip name="ИзменитьФормуКоманднаяПанельТаблицыРасширеннаяПодсказка" id="88"/>
+						</Button>
 					</ChildItems>
-				</UsualGroup>
+				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 		<Table name="Дерево" id="1">
@@ -182,13 +158,32 @@
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
 			<RowSelectionMode>Row</RowSelectionMode>
-			<HorizontalLinesBWA>false</HorizontalLinesBWA>
-			<VerticalLinesBWA>false</VerticalLinesBWA>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
 			<DataPath>Дерево</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>CancelSearch</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>ClearTableMarksAppearance</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>Find</ExcludedCommand>
+				<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+				<ExcludedCommand>HierarchicalList</ExcludedCommand>
+				<ExcludedCommand>List</ExcludedCommand>
+				<ExcludedCommand>MoveDown</ExcludedCommand>
+				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+				<ExcludedCommand>SearchHistory</ExcludedCommand>
+				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+				<ExcludedCommand>SortListAsc</ExcludedCommand>
+				<ExcludedCommand>SortListDesc</ExcludedCommand>
+				<ExcludedCommand>Tree</ExcludedCommand>
+			</CommandSet>
 			<ContextMenu name="ДеревоКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="ДеревоКоманднаяПанель" id="3">
 				<Autofill>false</Autofill>
@@ -224,9 +219,11 @@
 			<ChildItems>
 				<InputField name="ДеревоРаздел" id="20">
 					<DataPath>Дерево.Раздел</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<Width>3</Width>
 					<ContextMenu name="ДеревоРазделКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="ДеревоРазделРасширеннаяПодсказка" id="22"/>
 				</InputField>
@@ -234,7 +231,6 @@
 					<DataPath>Дерево.Код</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<Width>12</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>8</MaxWidth>
 					<ContextMenu name="ДеревоКодКонтекстноеМеню" id="15"/>
@@ -244,20 +240,20 @@
 					<DataPath>Дерево.Наименование</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<TextEdit>false</TextEdit>
 					<ContextMenu name="ДеревоНаименованиеКонтекстноеМеню" id="18"/>
 					<ExtendedTooltip name="ДеревоНаименованиеРасширеннаяПодсказка" id="19"/>
 				</InputField>
-				<InputField name="ДеревоКлассПрофессиональногоРиска" id="69">
+				<InputField name="ДеревоКлассПрофессиональногоРиска" id="161">
 					<DataPath>Дерево.КлассПрофессиональногоРиска</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-					<ContextMenu name="ДеревоКлассПрофессиональногоРискаКонтекстноеМеню" id="70"/>
-					<ExtendedTooltip name="ДеревоКлассПрофессиональногоРискаРасширеннаяПодсказка" id="71"/>
+					<ContextMenu name="ДеревоКлассПрофессиональногоРискаКонтекстноеМеню" id="162"/>
+					<ExtendedTooltip name="ДеревоКлассПрофессиональногоРискаРасширеннаяПодсказка" id="163"/>
 				</InputField>
 			</ChildItems>
 		</Table>
-		<UsualGroup name="ГруппаОписание" id="56">
+		<UsualGroup name="ГруппаОписание" id="133">
 			<EnableContentChange>true</EnableContentChange>
 			<Title>
 				<v8:item>
@@ -269,16 +265,18 @@
 			<Behavior>Collapsible</Behavior>
 			<ControlRepresentation>Button</ControlRepresentation>
 			<Representation>NormalSeparation</Representation>
-			<ExtendedTooltip name="ГруппаОписаниеРасширеннаяПодсказка" id="57"/>
+			<ExtendedTooltip name="ГруппаОписаниеРасширеннаяПодсказка" id="134"/>
 			<ChildItems>
-				<InputField name="ДеревоОписание" id="53">
+				<InputField name="ДеревоОписание" id="135">
 					<DataPath>Items.Дерево.CurrentData.Описание</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<TitleLocation>None</TitleLocation>
 					<AutoMaxWidth>false</AutoMaxWidth>
+					<Height>2</Height>
+					<HorizontalStretch>true</HorizontalStretch>
 					<MultiLine>true</MultiLine>
-					<ContextMenu name="ДеревоОписаниеКонтекстноеМеню" id="54"/>
-					<ExtendedTooltip name="ДеревоОписаниеРасширеннаяПодсказка" id="55"/>
+					<ContextMenu name="ДеревоОписаниеКонтекстноеМеню" id="136"/>
+					<ExtendedTooltip name="ДеревоОписаниеРасширеннаяПодсказка" id="137"/>
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
@@ -351,7 +349,7 @@
 						<v8:Type>xs:boolean</v8:Type>
 					</Type>
 				</Column>
-				<Column name="Описание" id="6">
+				<Column name="Описание" id="5">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -366,7 +364,7 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="ТипЗначения" id="8">
+				<Column name="ТипЗначения" id="6">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -381,7 +379,7 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="КлассПрофессиональногоРиска" id="5">
+				<Column name="КлассПрофессиональногоРиска" id="7">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -467,6 +465,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Выбрать</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="СвернутьВсе" id="2">
 			<Title>

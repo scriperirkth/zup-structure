@@ -9,6 +9,9 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<CommandSet>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ФормаСохранитьИЗакрыть" id="34">
@@ -43,6 +46,17 @@
 		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<LabelDecoration name="ДекорацияПояснение" id="145">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автоматический REST-сервис предназначен для взаимодействия прикладных решений на платформе 1С:Предприятие и сторонних систем (например, для интеграции с Интернет-магазином, корпоративными информационными системами или пакетной загрузки данных в приложение). REST-сервис позволяет получать данные, изменять их, создавать новые объекты (например, справочники и документы) и удалять существующие. </v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ДекорацияПояснениеКонтекстноеМеню" id="146"/>
+			<ExtendedTooltip name="ДекорацияПояснениеРасширеннаяПодсказка" id="147"/>
+		</LabelDecoration>
 		<UsualGroup name="Группа1" id="116">
 			<Title>
 				<v8:item>
@@ -50,21 +64,13 @@
 					<v8:content>Настройки</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTipRepresentation>ShowTop</ToolTipRepresentation>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
 			<HorizontalStretch>true</HorizontalStretch>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>WeakSeparation</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="117">
-				<AutoMaxWidth>false</AutoMaxWidth>
-				<Title formatted="false">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Автоматический REST-сервис предназначен для взаимодействия прикладных решений на платформе 1С:Предприятие и сторонних систем (например, для интеграции с Интернет-магазином, корпоративными информационными системами или пакетной загрузки данных в приложение). REST-сервис позволяет получать данные, изменять их, создавать новые объекты (например, справочники и документы) и удалять существующие. </v8:content>
-					</v8:item>
-				</Title>
-			</ExtendedTooltip>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="117"/>
 			<ChildItems>
 				<Pages name="ГруппаСтраницы" id="104">
 					<Title>
@@ -101,7 +107,6 @@
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
-									<BackColor>style:ФонУправляющегоПоля</BackColor>
 									<ExtendedTooltip name="ГруппаИспользованиеРасширеннаяПодсказка" id="78"/>
 									<ChildItems>
 										<CheckBoxField name="СоздатьПользователяСтандартногоИнтерфейсаOData" id="74">
@@ -113,9 +118,11 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>Right</TitleLocation>
-											<ToolTipRepresentation>ShowTop</ToolTipRepresentation>
+											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 											<VerticalAlign>Center</VerticalAlign>
-											<CheckBoxType>CheckBox</CheckBoxType>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<CheckBoxType>Switcher</CheckBoxType>
 											<ContextMenu name="СоздатьПользователяСтандартногоИнтерфейсаODataКонтекстноеМеню" id="75"/>
 											<ExtendedTooltip name="СоздатьПользователяСтандартногоИнтерфейсаODataРасширеннаяПодсказка" id="76">
 												<AutoMaxWidth>false</AutoMaxWidth>
@@ -141,7 +148,6 @@
 											<v8:content>Имя пользователя и пароль</v8:content>
 										</v8:item>
 									</Title>
-									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>NormalSeparation</Representation>
@@ -149,66 +155,79 @@
 									<ExtendedTooltip name="ИмяПользователяИПарольРасширеннаяПодсказка" id="40">
 										<AutoMaxWidth>false</AutoMaxWidth>
 										<HorizontalStretch>true</HorizontalStretch>
-										<Title formatted="false">
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>В целях безопасности при использовании автоматического REST-сервиса, не передавайте имя и пароль этого пользователя третьим лицам без необходимости, так как использование REST-сервиса позволяет выполнять чтение и изменение данных приложения. Сообщайте их только надежным лицам и используйте в сторонних приложениях, которым доверяете.</v8:content>
-											</v8:item>
-										</Title>
 										<VerticalAlign>Top</VerticalAlign>
 									</ExtendedTooltip>
 									<ChildItems>
-										<InputField name="ИмяПользователя" id="41">
-											<DataPath>ИмяПользователя</DataPath>
+										<UsualGroup name="Реквизиты" id="166">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Имя пользователя</v8:content>
+													<v8:content>Реквизиты</v8:content>
 												</v8:item>
 											</Title>
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<ContextMenu name="ИмяПользователяКонтекстноеМеню" id="42"/>
-											<ExtendedTooltip name="ИмяПользователяРасширеннаяПодсказка" id="43"/>
-										</InputField>
-										<UsualGroup name="ПарольИПодтверждение" id="60">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Пароль и подтверждение</v8:content>
-												</v8:item>
-											</Title>
-											<Group>Horizontal</Group>
-											<Behavior>Usual</Behavior>
+											<HorizontalStretch>false</HorizontalStretch>
+											<Group>Vertical</Group>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ПарольИПодтверждениеРасширеннаяПодсказка" id="61"/>
+											<ExtendedTooltip name="РеквизитыРасширеннаяПодсказка" id="167"/>
 											<ChildItems>
-												<InputField name="Пароль" id="44">
-													<DataPath>Пароль</DataPath>
+												<InputField name="ИмяПользователя" id="41">
+													<DataPath>ИмяПользователя</DataPath>
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Пароль</v8:content>
+															<v8:content>Имя пользователя</v8:content>
 														</v8:item>
 													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<AutoMaxWidth>false</AutoMaxWidth>
-													<PasswordMode>true</PasswordMode>
-													<ContextMenu name="ПарольКонтекстноеМеню" id="45"/>
-													<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="46"/>
+													<ContextMenu name="ИмяПользователяКонтекстноеМеню" id="42"/>
+													<ExtendedTooltip name="ИмяПользователяРасширеннаяПодсказка" id="43"/>
 												</InputField>
-												<InputField name="ПодтверждениеПароля" id="57">
-													<DataPath>ПодтверждениеПароля</DataPath>
+												<UsualGroup name="ПарольИПодтверждение" id="60">
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Подтверждение</v8:content>
+															<v8:content>Пароль и подтверждение</v8:content>
 														</v8:item>
 													</Title>
-													<AutoMaxWidth>false</AutoMaxWidth>
-													<PasswordMode>true</PasswordMode>
-													<ContextMenu name="ПодтверждениеПароляКонтекстноеМеню" id="58"/>
-													<ExtendedTooltip name="ПодтверждениеПароляРасширеннаяПодсказка" id="59"/>
-												</InputField>
+													<Group>Horizontal</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ПарольИПодтверждениеРасширеннаяПодсказка" id="61"/>
+													<ChildItems>
+														<InputField name="Пароль" id="44">
+															<DataPath>Пароль</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Пароль</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<PasswordMode>true</PasswordMode>
+															<ContextMenu name="ПарольКонтекстноеМеню" id="45"/>
+															<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="46"/>
+														</InputField>
+														<InputField name="ПодтверждениеПароля" id="57">
+															<DataPath>ПодтверждениеПароля</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Подтверждение</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<PasswordMode>true</PasswordMode>
+															<ContextMenu name="ПодтверждениеПароляКонтекстноеМеню" id="58"/>
+															<ExtendedTooltip name="ПодтверждениеПароляРасширеннаяПодсказка" id="59"/>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
 											</ChildItems>
 										</UsualGroup>
 									</ChildItems>
@@ -222,21 +241,27 @@
 									<v8:content>Состав</v8:content>
 								</v8:item>
 							</Title>
-							<ToolTipRepresentation>ShowTop</ToolTipRepresentation>
+							<ToolTipRepresentation>ShowAuto</ToolTipRepresentation>
 							<Group>Vertical</Group>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СоставРасширеннаяПодсказка" id="109">
 								<AutoMaxWidth>false</AutoMaxWidth>
 								<HorizontalStretch>true</HorizontalStretch>
-								<Title formatted="true">
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>В списке перечислены объекты, доступ к которым может быть предоставлен через автоматический REST-сервис.
-Требуемый состав объектов можно уточнить у разработчика стороннего приложения, которое будет подключаться к этому приложению через автоматический REST-сервис. &lt;link https://its.1c.eu/db/v8323doc#bookmark:dev:ti000001358&gt;Информация для разработчиков&lt;/&gt;</v8:content>
-									</v8:item>
-								</Title>
+								<Title formatted="true"/>
 							</ExtendedTooltip>
 							<ChildItems>
+								<LabelDecoration name="НадписьСоставПояснение" id="159">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>В списке перечислены объекты, доступ к которым может быть предоставлен через автоматический REST-сервис.
+Требуемый состав объектов можно уточнить у разработчика стороннего приложения, которое будет подключаться к этому приложению через автоматический REST-сервис.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="НадписьСоставПояснениеКонтекстноеМеню" id="160"/>
+									<ExtendedTooltip name="НадписьСоставПояснениеРасширеннаяПодсказка" id="161"/>
+								</LabelDecoration>
 								<Table name="ОбъектыМетаданных" id="1">
 									<Representation>Tree</Representation>
 									<ChangeRowSet>false</ChangeRowSet>
@@ -275,6 +300,17 @@
 													</v8:item>
 												</Title>
 												<ExtendedTooltip name="ОбъектыМетаданныхЗагрузитьМетаданныеРасширеннаяПодсказка" id="128"/>
+											</Button>
+											<Button name="ОбъектыМетаданныхИнструкции" id="162">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОткрытьИнструкцию</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Инструкции...</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ОбъектыМетаданныхИнструкцииРасширеннаяПодсказка" id="163"/>
 											</Button>
 										</ChildItems>
 									</AutoCommandBar>
@@ -316,7 +352,6 @@
 													<v8:content>Объект метаданных</v8:content>
 												</v8:item>
 											</Title>
-											<HorizontalStretch>false</HorizontalStretch>
 											<Group>InCell</Group>
 											<ExtendedTooltip name="ОбъектыМетаданныхГруппаРасширеннаяПодсказка" id="33"/>
 											<ChildItems>
@@ -347,6 +382,7 @@
 													<TitleLocation>None</TitleLocation>
 													<EditMode>EnterOnInput</EditMode>
 													<AutoEditMode>true</AutoEditMode>
+													<CheckBoxType>CheckBox</CheckBoxType>
 													<ContextMenu name="ОбъектыМетаданныхИспользованиеКонтекстноеМеню" id="30"/>
 													<ExtendedTooltip name="ОбъектыМетаданныхИспользованиеРасширеннаяПодсказка" id="31"/>
 													<Events>
@@ -433,21 +469,19 @@
 											<v8:content>Легенда для колонки Примечание</v8:content>
 										</v8:item>
 									</Title>
-									<Group>HorizontalIfPossible</Group>
-									<Behavior>Collapsible</Behavior>
+									<Group>AutoScreenTypeSensitive</Group>
+									<Behavior>PopUp</Behavior>
 									<Collapsed>true</Collapsed>
-									<ControlRepresentation>Button</ControlRepresentation>
 									<Representation>None</Representation>
 									<ExtendedTooltip name="ГруппаПодсказкаРасширеннаяПодсказка" id="130"/>
 									<ChildItems>
 										<LabelDecoration name="ДекорацияПодсказка" id="131">
 											<AutoMaxWidth>false</AutoMaxWidth>
-											<TextColor>style:ПоясняющийТекст</TextColor>
 											<Title formatted="true">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>· &lt;b&gt;Подчиненный объект&lt;/&gt; - объект используется при работе пользователей с приложением не непосредственно, а при работе с другими объектами. Предоставление доступа к таким объектам является штатной ситуацией.
-· &lt;b&gt;Доступен только для чтения&lt;/&gt; - данные объекта могут быть только прочитаны через REST-сервис.
+													<v8:content>&lt;b&gt;Подчиненный объект&lt;/&gt; - объект используется при работе пользователей с приложением не непосредственно, а при работе с другими объектами. Предоставление доступа к таким объектам является штатной ситуацией.
+&lt;b&gt;Доступен только для чтения&lt;/&gt; - данные объекта могут быть только прочитаны через REST-сервис.
 
 В списке отображаются только объекты, доступные при текущих настройках приложения.</v8:content>
 												</v8:item>
@@ -718,6 +752,7 @@
 			</ToolTip>
 			<Action>СохранитьИЗакрыть</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Сохранить" id="2">
 			<Title>
@@ -734,6 +769,7 @@
 			</ToolTip>
 			<Action>Сохранить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ЗагрузитьМетаданные" id="5">
 			<Title>
@@ -750,6 +786,21 @@
 			</ToolTip>
 			<Action>ЗагрузитьМетаданные</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОткрытьИнструкцию" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Инструкции...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть инструкцию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьИнструкцию</Action>
 		</Command>
 	</Commands>
 </Form>

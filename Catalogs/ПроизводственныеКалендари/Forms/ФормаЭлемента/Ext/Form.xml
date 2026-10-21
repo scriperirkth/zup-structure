@@ -67,7 +67,7 @@
 					<v8:content>Основные реквизиты</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>AutoScreenTypeSensitive</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -82,6 +82,8 @@
 				</InputField>
 				<InputField name="Код" id="14">
 					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КодКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="32"/>
 				</InputField>
@@ -93,6 +95,8 @@
 							<v8:content>Год</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<SpinButton>true</SpinButton>
 					<EditFormat>
 						<v8:item>
@@ -132,6 +136,8 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ЕстьБазовыйКалендарьКонтекстноеМеню" id="53"/>
 					<ExtendedTooltip name="ЕстьБазовыйКалендарьРасширеннаяПодсказка" id="54"/>
 					<Events>
@@ -141,6 +147,8 @@
 				<InputField name="БазовыйКалендарь" id="55">
 					<DataPath>Объект.БазовыйКалендарь</DataPath>
 					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="БазовыйКалендарьКонтекстноеМеню" id="56"/>
 					<ExtendedTooltip name="БазовыйКалендарьРасширеннаяПодсказка" id="57"/>
 					<Events>
@@ -156,182 +164,174 @@
 					<v8:content>Календарь</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>AutoScreenTypeSensitive</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="КалендарьГруппаРасширеннаяПодсказка" id="34"/>
 			<ChildItems>
-				<UsualGroup name="НерабочиеПериодыГруппа" id="58">
+				<UsualGroup name="ГруппаОсновное" id="76">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Нерабочие периоды</v8:content>
+							<v8:content>Основное</v8:content>
 						</v8:item>
 					</Title>
-					<HorizontalStretch>true</HorizontalStretch>
-					<Group>HorizontalIfPossible</Group>
-					<Behavior>Usual</Behavior>
+					<Width>70</Width>
+					<Group>Vertical</Group>
 					<Representation>None</Representation>
-					<BackColor>style:НерабочийПериодПроизводственногоКалендаряФон</BackColor>
-					<ExtendedTooltip name="НерабочиеПериодыГруппаРасширеннаяПодсказка" id="59"/>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОсновноеРасширеннаяПодсказка" id="77"/>
 					<ChildItems>
-						<PictureDecoration name="НерабочиеПериодыКартинка" id="60">
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Нерабочие периоды картинка</v8:content>
-								</v8:item>
-							</Title>
-							<Picture>
-								<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
-								<xr:LoadTransparent>true</xr:LoadTransparent>
-							</Picture>
-							<ContextMenu name="НерабочиеПериодыКартинкаКонтекстноеМеню" id="61"/>
-							<ExtendedTooltip name="НерабочиеПериодыКартинкаРасширеннаяПодсказка" id="62"/>
-						</PictureDecoration>
-						<LabelDecoration name="НерабочиеПериодыТекст" id="63">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Нерабочие периоды текст</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="НерабочиеПериодыТекстКонтекстноеМеню" id="64"/>
-							<ExtendedTooltip name="НерабочиеПериодыТекстРасширеннаяПодсказка" id="65"/>
-						</LabelDecoration>
-					</ChildItems>
-				</UsualGroup>
-				<CalendarField name="Календарь" id="5">
-					<DataPath>Календарь</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Календарь</v8:content>
-						</v8:item>
-					</Title>
-					<TitleLocation>None</TitleLocation>
-					<Width>1</Width>
-					<Height>1</Height>
-					<ShowCurrentDate>false</ShowCurrentDate>
-					<WidthInMonths>4</WidthInMonths>
-					<HeightInMonths>0</HeightInMonths>
-					<ContextMenu name="КалендарьКонтекстноеМеню" id="6">
-						<ChildItems>
-							<Button name="КалендарьКонтекстноеМенюИзменитьДень" id="10">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.ИзменитьДень</CommandName>
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Изменить день</v8:content>
-									</v8:item>
-								</Title>
-								<ExtendedTooltip name="КалендарьКонтекстноеМенюИзменитьДеньРасширеннаяПодсказка" id="35"/>
-							</Button>
-							<Button name="КалендарьКонтекстноеМенюПеренестиДень" id="13">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.ПеренестиДень</CommandName>
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Перенести день</v8:content>
-									</v8:item>
-								</Title>
-								<ExtendedTooltip name="КалендарьКонтекстноеМенюПеренестиДеньРасширеннаяПодсказка" id="36"/>
-							</Button>
-						</ChildItems>
-					</ContextMenu>
-					<ExtendedTooltip name="КалендарьРасширеннаяПодсказка" id="37"/>
-					<Events>
-						<Event name="OnPeriodOutput">КалендарьПриВыводеПериода</Event>
-					</Events>
-				</CalendarField>
-				<LabelField name="ПредставлениеПереносов" id="18">
-					<DataPath>ПредставлениеПереносов</DataPath>
-					<Visible>false</Visible>
-					<ReadOnly>true</ReadOnly>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Переносы дней</v8:content>
-						</v8:item>
-					</Title>
-					<TitleLocation>Top</TitleLocation>
-					<TextColor>style:ПоясняющийТекст</TextColor>
-					<ContextMenu name="ПредставлениеПереносовКонтекстноеМеню" id="19"/>
-					<ExtendedTooltip name="ПредставлениеПереносовРасширеннаяПодсказка" id="38"/>
-				</LabelField>
-				<Table name="СписокПереносов" id="20">
-					<Representation>List</Representation>
-					<TitleLocation>Top</TitleLocation>
-					<CommandBarLocation>None</CommandBarLocation>
-					<ReadOnly>true</ReadOnly>
-					<ChangeRowSet>false</ChangeRowSet>
-					<ChangeRowOrder>false</ChangeRowOrder>
-					<RowSelectionMode>Cell</RowSelectionMode>
-					<Header>false</Header>
-					<HorizontalLinesBWA>false</HorizontalLinesBWA>
-					<VerticalLinesBWA>false</VerticalLinesBWA>
-					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-					<AutoInsertNewRow>true</AutoInsertNewRow>
-					<FileDragMode>AsFile</FileDragMode>
-					<DataPath>СписокПереносов</DataPath>
-					<RowPictureDataPath>СписокПереносов.Picture</RowPictureDataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Переносы выходных дней</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="СписокПереносовКонтекстноеМеню" id="21">
-						<Autofill>false</Autofill>
-					</ContextMenu>
-					<AutoCommandBar name="СписокПереносовКоманднаяПанель" id="22"/>
-					<ExtendedTooltip name="СписокПереносовРасширеннаяПодсказка" id="39"/>
-					<SearchStringAddition name="СписокПереносовСтрокаПоиска" id="41">
-						<AdditionSource>
-							<Item>СписокПереносов</Item>
-							<Type>SearchStringRepresentation</Type>
-						</AdditionSource>
-						<ContextMenu name="СписокПереносовСтрокаПоискаКонтекстноеМеню" id="42"/>
-						<ExtendedTooltip name="СписокПереносовСтрокаПоискаРасширеннаяПодсказка" id="43"/>
-					</SearchStringAddition>
-					<ViewStatusAddition name="СписокПереносовСостояниеПросмотра" id="44">
-						<AdditionSource>
-							<Item>СписокПереносов</Item>
-							<Type>ViewStatusRepresentation</Type>
-						</AdditionSource>
-						<ContextMenu name="СписокПереносовСостояниеПросмотраКонтекстноеМеню" id="45"/>
-						<ExtendedTooltip name="СписокПереносовСостояниеПросмотраРасширеннаяПодсказка" id="46"/>
-					</ViewStatusAddition>
-					<SearchControlAddition name="СписокПереносовУправлениеПоиском" id="47">
-						<AdditionSource>
-							<Item>СписокПереносов</Item>
-							<Type>SearchControl</Type>
-						</AdditionSource>
-						<ContextMenu name="СписокПереносовУправлениеПоискомКонтекстноеМеню" id="48"/>
-						<ExtendedTooltip name="СписокПереносовУправлениеПоискомРасширеннаяПодсказка" id="49"/>
-					</SearchControlAddition>
-					<ChildItems>
-						<LabelField name="СписокПереносовПредставление" id="23">
-							<DataPath>СписокПереносов.Presentation</DataPath>
+						<CalendarField name="Календарь" id="5">
+							<DataPath>Календарь</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Представление</v8:content>
+									<v8:content>Календарь</v8:content>
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<Height>2</Height>
-							<ContextMenu name="СписокПереносовПредставлениеКонтекстноеМеню" id="24"/>
-							<ExtendedTooltip name="СписокПереносовПредставлениеРасширеннаяПодсказка" id="40"/>
+							<Width>1</Width>
+							<Height>1</Height>
+							<ShowCurrentDate>false</ShowCurrentDate>
+							<WidthInMonths>4</WidthInMonths>
+							<HeightInMonths>0</HeightInMonths>
+							<ContextMenu name="КалендарьКонтекстноеМеню" id="6">
+								<ChildItems>
+									<Button name="КалендарьКонтекстноеМенюИзменитьДень" id="10">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ИзменитьДень</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Изменить день</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="КалендарьКонтекстноеМенюИзменитьДеньРасширеннаяПодсказка" id="35"/>
+									</Button>
+									<Button name="КалендарьКонтекстноеМенюПеренестиДень" id="13">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПеренестиДень</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Перенести день</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="КалендарьКонтекстноеМенюПеренестиДеньРасширеннаяПодсказка" id="36"/>
+									</Button>
+								</ChildItems>
+							</ContextMenu>
+							<ExtendedTooltip name="КалендарьРасширеннаяПодсказка" id="37"/>
+							<Events>
+								<Event name="OnPeriodOutput">КалендарьПриВыводеПериода</Event>
+							</Events>
+						</CalendarField>
+						<LabelField name="ПредставлениеПереносов" id="18">
+							<DataPath>ПредставлениеПереносов</DataPath>
+							<Visible>false</Visible>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Переносы дней</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Top</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<ContextMenu name="ПредставлениеПереносовКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="ПредставлениеПереносовРасширеннаяПодсказка" id="38"/>
 						</LabelField>
 					</ChildItems>
-				</Table>
+				</UsualGroup>
+				<UsualGroup name="ГруппаПереносы" id="78">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Переносы</v8:content>
+						</v8:item>
+					</Title>
+					<Width>30</Width>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПереносыРасширеннаяПодсказка" id="79"/>
+					<ChildItems>
+						<Table name="СписокПереносов" id="20">
+							<Representation>List</Representation>
+							<TitleLocation>Top</TitleLocation>
+							<CommandBarLocation>None</CommandBarLocation>
+							<ReadOnly>true</ReadOnly>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<Header>false</Header>
+							<HorizontalLinesBWA>false</HorizontalLinesBWA>
+							<VerticalLinesBWA>false</VerticalLinesBWA>
+							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СписокПереносов</DataPath>
+							<RowPictureDataPath>СписокПереносов.Picture</RowPictureDataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Переносы выходных дней</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="СписокПереносовКонтекстноеМеню" id="21">
+								<Autofill>false</Autofill>
+							</ContextMenu>
+							<AutoCommandBar name="СписокПереносовКоманднаяПанель" id="22"/>
+							<ExtendedTooltip name="СписокПереносовРасширеннаяПодсказка" id="39"/>
+							<SearchStringAddition name="СписокПереносовСтрокаПоиска" id="41">
+								<AdditionSource>
+									<Item>СписокПереносов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокПереносовСтрокаПоискаКонтекстноеМеню" id="42"/>
+								<ExtendedTooltip name="СписокПереносовСтрокаПоискаРасширеннаяПодсказка" id="43"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокПереносовСостояниеПросмотра" id="44">
+								<AdditionSource>
+									<Item>СписокПереносов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокПереносовСостояниеПросмотраКонтекстноеМеню" id="45"/>
+								<ExtendedTooltip name="СписокПереносовСостояниеПросмотраРасширеннаяПодсказка" id="46"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокПереносовУправлениеПоиском" id="47">
+								<AdditionSource>
+									<Item>СписокПереносов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокПереносовУправлениеПоискомКонтекстноеМеню" id="48"/>
+								<ExtendedTooltip name="СписокПереносовУправлениеПоискомРасширеннаяПодсказка" id="49"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="СписокПереносовПредставление" id="23">
+									<DataPath>СписокПереносов.Presentation</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Представление</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="СписокПереносовПредставлениеКонтекстноеМеню" id="24"/>
+									<ExtendedTooltip name="СписокПереносовПредставлениеРасширеннаяПодсказка" id="40"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>

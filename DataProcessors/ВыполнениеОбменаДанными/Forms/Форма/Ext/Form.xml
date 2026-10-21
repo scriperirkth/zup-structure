@@ -6,7 +6,7 @@
 	<Group>Vertical</Group>
 	<AutoFillCheck>false</AutoFillCheck>
 	<Customizable>false</Customizable>
-	<CommandBarLocation>None</CommandBarLocation>
+	<CommandBarLocation>Top</CommandBarLocation>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
@@ -19,10 +19,76 @@
 		<ExcludedCommand>SaveValues</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<ShowCommandBar>false</ShowCommandBar>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаПродолжитьСинхронизацию" id="318">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ПродолжитьСинхронизацию</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Продолжить</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаПродолжитьСинхронизациюРасширеннаяПодсказка" id="319"/>
+			</Button>
+			<Button name="ФормаУстановитьОбновление" id="324">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.УстановитьОбновление</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Установить обновление</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаУстановитьОбновлениеРасширеннаяПодсказка" id="325"/>
+			</Button>
+			<Button name="ФормаПерезапуститьПрограмму" id="320">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ПерезапуститьПрограмму</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Перезапустить приложение</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаПерезапуститьПрограммуРасширеннаяПодсказка" id="321"/>
+			</Button>
+			<Button name="ФормаОтменитьОчередьИПродолжить" id="322">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ОтменитьОчередьИПродолжить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Далее</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаОтменитьОчередьИПродолжитьРасширеннаяПодсказка" id="323"/>
+			</Button>
+			<Button name="ФормаЗавершитьСинхронизацию" id="316">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ЗавершитьСинхронизацию</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Завершить синхронизацию</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаЗавершитьСинхронизациюРасширеннаяПодсказка" id="317"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -81,15 +147,14 @@
 								</PictureDecoration>
 								<LabelDecoration name="СтатусНедоступностьСинхронизации" id="209">
 									<AutoMaxWidth>false</AutoMaxWidth>
-									<Height>3</Height>
 									<Title formatted="true">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>
-Невозможно запустить синхронизацию данных.
+											<v8:content>Невозможно запустить синхронизацию данных.
 Повторите попытку позже или &lt;link ОжидатьВозможностьСинхронизации&gt;ожидайте такую возможность...&lt;/&gt;</v8:content>
 										</v8:item>
 									</Title>
+									<GroupVerticalAlign>Center</GroupVerticalAlign>
 									<VerticalAlign>Center</VerticalAlign>
 									<ContextMenu name="СтатусНедоступностьСинхронизацииКонтекстноеМеню" id="210"/>
 									<ExtendedTooltip name="СтатусНедоступностьСинхронизацииРасширеннаяПодсказка" id="211"/>
@@ -119,7 +184,6 @@
 									<v8:content>Группа</v8:content>
 								</v8:item>
 							</Title>
-							<VerticalStretch>true</VerticalStretch>
 							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
@@ -142,7 +206,6 @@
 									<ExtendedTooltip name="ЗадачаВОчередиРасширеннаяПодсказка" id="226"/>
 								</PictureDecoration>
 								<LabelDecoration name="СтатусЗадачаВОчереди" id="227">
-									<AutoMaxWidth>false</AutoMaxWidth>
 									<HorizontalStretch>true</HorizontalStretch>
 									<Title formatted="true">
 										<v8:item>
@@ -150,43 +213,11 @@
 											<v8:content>Для узла уже выполняется синхронизация.</v8:content>
 										</v8:item>
 									</Title>
+									<GroupVerticalAlign>Center</GroupVerticalAlign>
 									<VerticalAlign>Center</VerticalAlign>
 									<ContextMenu name="СтатусЗадачаВОчередиКонтекстноеМеню" id="228"/>
 									<ExtendedTooltip name="СтатусЗадачаВОчередиРасширеннаяПодсказка" id="229"/>
 								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="Группа4" id="230">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalStretch>true</HorizontalStretch>
-							<Group>HorizontalIfPossible</Group>
-							<HorizontalAlign>Right</HorizontalAlign>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="231"/>
-							<ChildItems>
-								<Button name="ОтменитьОчередьИПродолжить" id="234">
-									<Type>UsualButton</Type>
-									<CommandName>Form.Command.ОтменитьОчередьИПродолжить</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Далее</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ОтменитьОчередьИПродолжитьРасширеннаяПодсказка" id="235"/>
-								</Button>
-								<Button name="Закрыть1" id="232">
-									<Type>UsualButton</Type>
-									<CommandName>Form.StandardCommand.Close</CommandName>
-									<ExtendedTooltip name="Закрыть1РасширеннаяПодсказка" id="233"/>
-								</Button>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
@@ -231,8 +262,6 @@
 									<ExtendedTooltip name="ДлительнаяОперация1РасширеннаяПодсказка" id="196"/>
 								</PictureDecoration>
 								<LabelDecoration name="СтатусОжиданияЗапускаСинхронизации" id="197">
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<Height>3</Height>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -240,6 +269,7 @@
 Пожалуйста, подождите...</v8:content>
 										</v8:item>
 									</Title>
+									<GroupVerticalAlign>Center</GroupVerticalAlign>
 									<VerticalAlign>Center</VerticalAlign>
 									<ContextMenu name="СтатусОжиданияЗапускаСинхронизацииКонтекстноеМеню" id="198"/>
 									<ExtendedTooltip name="СтатусОжиданияЗапускаСинхронизацииРасширеннаяПодсказка" id="199"/>
@@ -287,8 +317,6 @@
 									<ExtendedTooltip name="ДлительнаяОперацияExtendedTooltip" id="98"/>
 								</PictureDecoration>
 								<LabelDecoration name="СтатусЗагрузкиДанных" id="6">
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<Height>3</Height>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -296,6 +324,7 @@
 Пожалуйста, подождите...</v8:content>
 										</v8:item>
 									</Title>
+									<GroupVerticalAlign>Center</GroupVerticalAlign>
 									<VerticalAlign>Center</VerticalAlign>
 									<ContextMenu name="СтатусЗагрузкиДанныхКонтекстноеМеню" id="7"/>
 									<ExtendedTooltip name="СтатусЗагрузкиДанныхExtendedTooltip" id="99"/>
@@ -334,14 +363,13 @@
 											<ExtendedTooltip name="Декорация5РасширеннаяПодсказка" id="275"/>
 										</PictureDecoration>
 										<PictureDecoration name="Декорация9" id="285">
-											<Width>3</Width>
-											<Height>2</Height>
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
 													<v8:content>Декорация9</v8:content>
 												</v8:item>
 											</Title>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
 											<PictureSize>Proportionally</PictureSize>
 											<Picture>
 												<xr:Ref>StdPicture.Information</xr:Ref>
@@ -353,7 +381,6 @@
 										</PictureDecoration>
 										<LabelDecoration name="Декорация11" id="288">
 											<AutoMaxWidth>false</AutoMaxWidth>
-											<Height>3</Height>
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -365,36 +392,6 @@
 											<ContextMenu name="Декорация11КонтекстноеМеню" id="289"/>
 											<ExtendedTooltip name="Декорация11РасширеннаяПодсказка" id="290"/>
 										</LabelDecoration>
-									</ChildItems>
-								</UsualGroup>
-								<UsualGroup name="Группа7" id="280">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа</v8:content>
-										</v8:item>
-									</Title>
-									<Group>HorizontalIfPossible</Group>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="281"/>
-									<ChildItems>
-										<LabelDecoration name="Декорация6" id="282">
-											<HorizontalStretch>true</HorizontalStretch>
-											<ContextMenu name="Декорация6КонтекстноеМеню" id="283"/>
-											<ExtendedTooltip name="Декорация6РасширеннаяПодсказка" id="284"/>
-										</LabelDecoration>
-										<Button name="ЗавершитьСинхронизацию" id="276">
-											<Type>UsualButton</Type>
-											<CommandName>Form.Command.ЗавершитьСинхронизацию</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Завершить синхронизацию</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ЗавершитьСинхронизациюРасширеннаяПодсказка" id="277"/>
-										</Button>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -551,14 +548,13 @@
 											<ExtendedTooltip name="КартинкаОбменЗавершенУспешноExtendedTooltip" id="103"/>
 										</PictureDecoration>
 										<LabelDecoration name="СтатусОбменЗавершенУспешно" id="15">
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<Height>2</Height>
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
 													<v8:content>Синхронизация данных завершена.</v8:content>
 												</v8:item>
 											</Title>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
 											<VerticalAlign>Center</VerticalAlign>
 											<ContextMenu name="СтатусОбменЗавершенУспешноКонтекстноеМеню" id="16"/>
 											<ExtendedTooltip name="СтатусОбменЗавершенУспешноExtendedTooltip" id="104"/>
@@ -583,16 +579,16 @@
 													<v8:content>Картинка обмен завершен с ошибкой</v8:content>
 												</v8:item>
 											</Title>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
 											<Picture>
-												<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</Picture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="КартинкаОбменЗавершенСОшибкойКонтекстноеМеню" id="21"/>
 											<ExtendedTooltip name="КартинкаОбменЗавершенСОшибкойExtendedTooltip" id="106"/>
 										</PictureDecoration>
 										<LabelDecoration name="СтатусОбменЗавершенСОшибкой" id="22">
-											<AutoMaxWidth>false</AutoMaxWidth>
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -600,6 +596,7 @@
 Обратитесь к администратору.</v8:content>
 												</v8:item>
 											</Title>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
 											<VerticalAlign>Center</VerticalAlign>
 											<ContextMenu name="СтатусОбменЗавершенСОшибкойКонтекстноеМеню" id="23"/>
 											<ExtendedTooltip name="СтатусОбменЗавершенСОшибкойExtendedTooltip" id="107"/>
@@ -624,9 +621,10 @@
 													<v8:content>Картинка обмен завершен с ошибкой</v8:content>
 												</v8:item>
 											</Title>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
 											<Picture>
-												<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</Picture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="КартинкаОбменЗавершенСОшибкой1КонтекстноеМеню" id="30"/>
@@ -653,7 +651,8 @@
 															<v8:content>Не удалось синхронизировать данные.</v8:content>
 														</v8:item>
 													</Title>
-													<VerticalAlign>Bottom</VerticalAlign>
+													<GroupVerticalAlign>Center</GroupVerticalAlign>
+													<VerticalAlign>Center</VerticalAlign>
 													<ContextMenu name="СтатусОбменЗавершенСОшибкойДляАдминистратораКонтекстноеМеню" id="32"/>
 													<ExtendedTooltip name="СтатусОбменЗавершенСОшибкойДляАдминистратораExtendedTooltip" id="111"/>
 												</LabelDecoration>
@@ -697,8 +696,8 @@
 												</v8:item>
 											</Title>
 											<Picture>
-												<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</Picture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="КартинкаОбменЗавершенСОшибкой2КонтекстноеМеню" id="83"/>
@@ -734,8 +733,8 @@
 												</v8:item>
 											</Title>
 											<Picture>
-												<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</Picture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="КартинкаТребуетсяОбновлениеКонтекстноеМеню" id="37"/>
@@ -818,8 +817,8 @@
 									<ChildItems>
 										<PictureDecoration name="КартинкаОшибкаРасхожденияВерсий" id="159">
 											<Picture>
-												<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</Picture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="КартинкаОшибкаРасхожденияВерсийКонтекстноеМеню" id="160"/>
@@ -850,9 +849,10 @@
 													<v8:content>Картинка ошибка назначение идентификатора для узла</v8:content>
 												</v8:item>
 											</Title>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
 											<Picture>
-												<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</Picture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="КартинкаОшибкаНазначениеИдентификатораДляУзлаКонтекстноеМеню" id="215"/>
@@ -895,9 +895,10 @@
 													<v8:content>Картинка требуется перезагрузка</v8:content>
 												</v8:item>
 											</Title>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
 											<Picture>
-												<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</Picture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="КартинкаТребуетсяПерезагрузкаКонтекстноеМеню" id="239"/>
@@ -915,181 +916,6 @@
 											<ContextMenu name="ТекстТребуетсяПерезагрузкаКонтекстноеМеню" id="251"/>
 											<ExtendedTooltip name="ТекстТребуетсяПерезагрузкаРасширеннаяПодсказка" id="252"/>
 										</LabelDecoration>
-									</ChildItems>
-								</Page>
-							</ChildItems>
-						</Pages>
-						<Pages name="ПанельДействий" id="45">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Панель действий</v8:content>
-								</v8:item>
-							</Title>
-							<PagesRepresentation>None</PagesRepresentation>
-							<ExtendedTooltip name="ПанельДействийExtendedTooltip" id="123"/>
-							<ChildItems>
-								<Page name="ДействияЗакрыть" id="46">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Действия закрыть</v8:content>
-										</v8:item>
-									</Title>
-									<Group>Vertical</Group>
-									<ScrollOnCompress>false</ScrollOnCompress>
-									<ExtendedTooltip name="ДействияЗакрытьExtendedTooltip" id="124"/>
-									<ChildItems>
-										<CommandBar name="КоманднаяПанельЗакрыть" id="47">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Командная панель закрыть</v8:content>
-												</v8:item>
-											</Title>
-											<HorizontalLocation>Right</HorizontalLocation>
-											<ExtendedTooltip name="КоманднаяПанельЗакрытьExtendedTooltip" id="125"/>
-											<ChildItems>
-												<Button name="ФормаЗакрыть" id="48">
-													<Type>CommandBarButton</Type>
-													<Representation>Text</Representation>
-													<CommandName>Form.StandardCommand.Close</CommandName>
-													<ExtendedTooltip name="ФормаЗакрытьExtendedTooltip" id="126"/>
-												</Button>
-											</ChildItems>
-										</CommandBar>
-									</ChildItems>
-								</Page>
-								<Page name="ДействияУстановитьЗакрыть" id="49">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Действия установить закрыть</v8:content>
-										</v8:item>
-									</Title>
-									<Group>Vertical</Group>
-									<ScrollOnCompress>false</ScrollOnCompress>
-									<ExtendedTooltip name="ДействияУстановитьЗакрытьExtendedTooltip" id="127"/>
-									<ChildItems>
-										<CommandBar name="КоманднаяПанельУстановитьЗакрыть" id="50">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Командная панель установить закрыть</v8:content>
-												</v8:item>
-											</Title>
-											<HorizontalLocation>Right</HorizontalLocation>
-											<ExtendedTooltip name="КоманднаяПанельУстановитьЗакрытьExtendedTooltip" id="128"/>
-											<ChildItems>
-												<Button name="УстановитьОбновление" id="51">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Command.УстановитьОбновление</CommandName>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Установить обновление</v8:content>
-														</v8:item>
-													</Title>
-													<ExtendedTooltip name="УстановитьОбновлениеExtendedTooltip" id="129"/>
-												</Button>
-												<Button name="ФормаЗакрыть1" id="52">
-													<Type>CommandBarButton</Type>
-													<Representation>Text</Representation>
-													<CommandName>Form.StandardCommand.Close</CommandName>
-													<ExtendedTooltip name="ФормаЗакрыть1ExtendedTooltip" id="130"/>
-												</Button>
-											</ChildItems>
-										</CommandBar>
-									</ChildItems>
-								</Page>
-								<Page name="ДействияПродолжитьОтмена" id="162">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Действия продолжить отмена</v8:content>
-										</v8:item>
-									</Title>
-									<Group>Vertical</Group>
-									<ScrollOnCompress>false</ScrollOnCompress>
-									<ExtendedTooltip name="ДействияПродолжитьОтменаРасширеннаяПодсказка" id="163"/>
-									<ChildItems>
-										<CommandBar name="КоманднаяПанельПродолжитьОтмена" id="164">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Командная панель продолжить отмена</v8:content>
-												</v8:item>
-											</Title>
-											<HorizontalLocation>Right</HorizontalLocation>
-											<ExtendedTooltip name="КоманднаяПанельПродолжитьОтменаРасширеннаяПодсказка" id="165"/>
-											<ChildItems>
-												<Button name="ПродолжитьСинхронизацию" id="168">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Command.ПродолжитьСинхронизацию</CommandName>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Продолжить</v8:content>
-														</v8:item>
-													</Title>
-													<ExtendedTooltip name="ПродолжитьСинхронизациюРасширеннаяПодсказка" id="169"/>
-												</Button>
-												<Button name="Закрыть" id="166">
-													<Type>CommandBarButton</Type>
-													<Representation>Text</Representation>
-													<CommandName>Form.StandardCommand.Close</CommandName>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Отмена</v8:content>
-														</v8:item>
-													</Title>
-													<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="167"/>
-												</Button>
-											</ChildItems>
-										</CommandBar>
-									</ChildItems>
-								</Page>
-								<Page name="ДействияПерезагрузить" id="253">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Действия перезагрузить</v8:content>
-										</v8:item>
-									</Title>
-									<Group>Vertical</Group>
-									<ScrollOnCompress>false</ScrollOnCompress>
-									<ExtendedTooltip name="ДействияПерезагрузитьРасширеннаяПодсказка" id="254"/>
-									<ChildItems>
-										<CommandBar name="КоманднаяПанельПерезагрузить" id="255">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Командная панель перезагрузить</v8:content>
-												</v8:item>
-											</Title>
-											<HorizontalLocation>Right</HorizontalLocation>
-											<ExtendedTooltip name="КоманднаяПанельПерезагрузитьРасширеннаяПодсказка" id="256"/>
-											<ChildItems>
-												<Button name="ПерезапуститьПрограмму" id="261">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Command.ПерезапуститьПрограмму</CommandName>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Перезапустить приложение</v8:content>
-														</v8:item>
-													</Title>
-													<ExtendedTooltip name="ПерезапуститьПрограммуРасширеннаяПодсказка" id="262"/>
-												</Button>
-												<Button name="ФормаЗакрыть3" id="259">
-													<Type>CommandBarButton</Type>
-													<Representation>Text</Representation>
-													<CommandName>Form.StandardCommand.Close</CommandName>
-													<ExtendedTooltip name="ФормаЗакрыть3РасширеннаяПодсказка" id="260"/>
-												</Button>
-											</ChildItems>
-										</CommandBar>
 									</ChildItems>
 								</Page>
 							</ChildItems>
@@ -1172,6 +998,15 @@
 					</Type>
 				</Column>
 				<Column name="ИмяОбработчикаПриПереходеНазад" id="3">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="КомандыНавигации" id="4">
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
@@ -1543,6 +1378,7 @@
 			</ToolTip>
 			<Action>УстановитьОбновление</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ВыполнитьОбмен" id="4">
 			<Title>
@@ -1575,6 +1411,7 @@
 			</ToolTip>
 			<Action>ПродолжитьСинхронизацию</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ОтменитьОчередьИПродолжить" id="6">
 			<Title>
@@ -1590,6 +1427,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ОтменитьОчередьИПродолжить</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПерезапуститьПрограмму" id="7">
 			<Title>
@@ -1605,6 +1443,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПерезапуститьПрограмму</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ЗавершитьСинхронизацию" id="8">
 			<Title>
@@ -1620,6 +1459,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗавершитьСинхронизацию</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

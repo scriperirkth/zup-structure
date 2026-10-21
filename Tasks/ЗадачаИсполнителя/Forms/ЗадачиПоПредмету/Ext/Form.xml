@@ -10,9 +10,7 @@
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
-	</AutoCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
@@ -20,77 +18,20 @@
 		<Event name="BeforeLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<CommandBar name="ГруппаПользовательскихНастроек" id="130">
+		<UsualGroup name="ГруппаПользовательскихНастроек" id="181">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Группа пользовательских настроек</v8:content>
 				</v8:item>
 			</Title>
-			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="131"/>
-		</CommandBar>
-		<CommandBar name="КоманднаяПанельСписка" id="50">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель списка</v8:content>
-				</v8:item>
-			</Title>
-			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="КоманднаяПанельСпискаРасширеннаяПодсказка" id="65"/>
-			<ChildItems>
-				<ButtonGroup name="ГруппаПринятьКИсполнению" id="120">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Принять к исполнению</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ГруппаПринятьКИсполнениюРасширеннаяПодсказка" id="121"/>
-					<ChildItems>
-						<Button name="ПринятьКИсполнению" id="122">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.Изменить</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>К исполнению</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ПринятьКИсполнениюРасширеннаяПодсказка" id="123"/>
-						</Button>
-						<Button name="ОтменитьПринятиеКИсполнению" id="124">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.Обновить</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Обновить</v8:content>
-								</v8:item>
-							</Title>
-							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="ОтменитьПринятиеКИсполнениюРасширеннаяПодсказка" id="125"/>
-						</Button>
-						<Button name="ЗадачаЗадачаИсполнителяВыполнено" id="126">
-							<Type>CommandBarButton</Type>
-							<CommandName>Task.ЗадачаИсполнителя.Command.Выполнено</CommandName>
-							<DataPath>Items.Список.CurrentData.ОсновнойОбъектАдресации</DataPath>
-							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="ЗадачаЗадачаИсполнителяВыполненоРасширеннаяПодсказка" id="127"/>
-						</Button>
-						<Button name="ЗадачаЗадачаИсполнителяПеренаправить" id="128">
-							<Type>CommandBarButton</Type>
-							<CommandName>Task.ЗадачаИсполнителя.Command.Перенаправить</CommandName>
-							<DataPath>Items.Список.CurrentData.ОсновнойОбъектАдресации</DataPath>
-							<ExtendedTooltip name="ЗадачаЗадачаИсполнителяПеренаправитьРасширеннаяПодсказка" id="129"/>
-						</Button>
-					</ChildItems>
-				</ButtonGroup>
-			</ChildItems>
-		</CommandBar>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="182"/>
+		</UsualGroup>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
+			<CommandBarLocation>Top</CommandBarLocation>
 			<SkipOnInput>false</SkipOnInput>
 			<DefaultItem>true</DefaultItem>
 			<ChangeRowSet>false</ChangeRowSet>
@@ -106,6 +47,7 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
+			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -121,7 +63,24 @@
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<ChildItems>
+					<Button name="ЗадачаИсполнителяВыполнено" id="126">
+						<Type>CommandBarButton</Type>
+						<CommandName>Task.ЗадачаИсполнителя.Command.Выполнено</CommandName>
+						<DataPath>Items.Список.CurrentData.Ref</DataPath>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ЗадачаИсполнителяВыполненоРасширеннаяПодсказка" id="127"/>
+					</Button>
+					<Button name="ЗадачаИсполнителяПеренаправить" id="128">
+						<Type>CommandBarButton</Type>
+						<CommandName>Task.ЗадачаИсполнителя.Command.Перенаправить</CommandName>
+						<DataPath>Items.Список.CurrentData.Ref</DataPath>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ЗадачаИсполнителяПеренаправитьРасширеннаяПодсказка" id="129"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="66"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="132">
 				<AdditionSource>
@@ -149,275 +108,212 @@
 			</SearchControlAddition>
 			<Events>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
+				<Event name="OnHover">СписокПриНаведении</Event>
 			</Events>
 			<ChildItems>
-				<ColumnGroup name="ГруппаВажность" id="99">
+				<PictureField name="ВажностьКартинка" id="52">
+					<DataPath>Список.ВажностьКартинка</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Важность</v8:content>
 						</v8:item>
 					</Title>
-					<ExtendedTooltip name="ГруппаВажностьРасширеннаяПодсказка" id="100"/>
-					<ChildItems>
-						<PictureField name="ВажностьКартинка" id="52">
-							<DataPath>Список.ВажностьКартинка</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Важность</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>None</TitleLocation>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Важность</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Shortcut>Ctrl+S</Shortcut>
-							<HeaderPicture>
-								<xr:Ref>CommonPicture.ВосклицательныйЗнакСерый</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
-							</HeaderPicture>
-							<Width>2</Width>
-							<HorizontalStretch>false</HorizontalStretch>
-							<ValuesPicture>
-								<xr:Ref>CommonPicture.КоллекцияВариантыВажности</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
-							</ValuesPicture>
-							<FileDragMode>AsFile</FileDragMode>
-							<ContextMenu name="ВажностьКартинкаКонтекстноеМеню" id="53"/>
-							<ExtendedTooltip name="ВажностьКартинкаРасширеннаяПодсказка" id="67"/>
-						</PictureField>
-						<PictureField name="Остановлена" id="56">
-							<DataPath>Список.Остановлена</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Остановлена</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>None</TitleLocation>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Остановленные</v8:content>
-								</v8:item>
-							</ToolTip>
-							<HeaderPicture>
-								<xr:Ref>CommonPicture.ЗнакСтопЧБ</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
-							</HeaderPicture>
-							<Width>2</Width>
-							<HorizontalStretch>false</HorizontalStretch>
-							<ValuesPicture>
-								<xr:Ref>CommonPicture.ЗнакСтоп</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
-							</ValuesPicture>
-							<FileDragMode>AsFile</FileDragMode>
-							<ContextMenu name="ОстановленаКонтекстноеМеню" id="57"/>
-							<ExtendedTooltip name="ОстановленаРасширеннаяПодсказка" id="69"/>
-						</PictureField>
-					</ChildItems>
-				</ColumnGroup>
-				<ColumnGroup name="ГруппаОписание" id="103">
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Важность</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Shortcut>Ctrl+S</Shortcut>
+					<EditMode>EnterOnInput</EditMode>
+					<HeaderPicture>
+						<xr:Ref>CommonPicture.ВосклицательныйЗнакСерый</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</HeaderPicture>
+					<AutoEditMode>true</AutoEditMode>
+					<Width>2</Width>
+					<ValuesPicture>
+						<xr:Ref>CommonPicture.КоллекцияВариантыВажности</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</ValuesPicture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="ВажностьКартинкаКонтекстноеМеню" id="53"/>
+					<ExtendedTooltip name="ВажностьКартинкаРасширеннаяПодсказка" id="67"/>
+				</PictureField>
+				<PictureField name="Остановлена" id="56">
+					<DataPath>Список.Остановлена</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Описание</v8:content>
+							<v8:content>Остановлена</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Horizontal</Group>
-					<ExtendedTooltip name="ГруппаОписаниеРасширеннаяПодсказка" id="104"/>
-					<ChildItems>
-						<ColumnGroup name="ГруппаНаименование" id="101">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Наименование</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ГруппаНаименованиеРасширеннаяПодсказка" id="102"/>
-							<ChildItems>
-								<InputField name="Наименование" id="6">
-									<DataPath>Список.Description</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Задача</v8:content>
-										</v8:item>
-									</Title>
-									<Width>30</Width>
-									<Wrap>false</Wrap>
-									<ContextMenu name="НаименованиеКонтекстноеМеню" id="7"/>
-									<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="71"/>
-								</InputField>
-								<LabelField name="Автор" id="107">
-									<DataPath>Список.Автор</DataPath>
-									<Width>30</Width>
-									<ContextMenu name="АвторКонтекстноеМеню" id="108"/>
-									<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="109"/>
-								</LabelField>
-							</ChildItems>
-						</ColumnGroup>
-						<ColumnGroup name="ГруппаАвтор" id="105">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Автор</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ГруппаАвторРасширеннаяПодсказка" id="106"/>
-							<ChildItems>
-								<InputField name="Номер" id="4">
-									<DataPath>Список.Number</DataPath>
-									<DefaultItem>true</DefaultItem>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Номер</v8:content>
-										</v8:item>
-									</Title>
-									<HorizontalStretch>false</HorizontalStretch>
-									<Wrap>false</Wrap>
-									<ContextMenu name="НомерКонтекстноеМеню" id="5"/>
-									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="70"/>
-								</InputField>
-								<LabelField name="Дата" id="110">
-									<DataPath>Список.Date</DataPath>
-									<HorizontalStretch>false</HorizontalStretch>
-									<ContextMenu name="ДатаКонтекстноеМеню" id="111"/>
-									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="112"/>
-								</LabelField>
-							</ChildItems>
-						</ColumnGroup>
-					</ChildItems>
-				</ColumnGroup>
-				<ColumnGroup name="ГруппаИсполнение" id="113">
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Остановленные</v8:content>
+						</v8:item>
+					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<HeaderPicture>
+						<xr:Ref>CommonPicture.ЗнакСтопЧБ</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</HeaderPicture>
+					<AutoEditMode>true</AutoEditMode>
+					<Width>2</Width>
+					<ValuesPicture>
+						<xr:Ref>CommonPicture.ЗнакСтоп</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</ValuesPicture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="ОстановленаКонтекстноеМеню" id="57"/>
+					<ExtendedTooltip name="ОстановленаРасширеннаяПодсказка" id="69"/>
+				</PictureField>
+				<CheckBoxField name="ЗадачаВыполнена" id="54">
+					<DataPath>Список.Executed</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выполненные</v8:content>
+						</v8:item>
+					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<HeaderPicture>
+						<xr:Ref>StdPicture.ExecuteTask</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</HeaderPicture>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ЗадачаВыполненаКонтекстноеМеню" id="55"/>
+					<ExtendedTooltip name="ЗадачаВыполненаРасширеннаяПодсказка" id="68"/>
+				</CheckBoxField>
+				<InputField name="Наименование" id="6">
+					<DataPath>Список.Description</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Исполнение</v8:content>
+							<v8:content>Задача</v8:content>
 						</v8:item>
 					</Title>
-					<ExtendedTooltip name="ГруппаИсполнениеРасширеннаяПодсказка" id="114"/>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>ByData</AutoWidthInTable>
+					<Wrap>false</Wrap>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="71"/>
+				</InputField>
+				<ColumnGroup name="ГруппаИсполнитель" id="64">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исполнитель</v8:content>
+						</v8:item>
+					</Title>
+					<Group>InCell</Group>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаИсполнительРасширеннаяПодсказка" id="72"/>
 					<ChildItems>
-						<ColumnGroup name="ГруппаИсполнитель" id="64">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Исполнитель</v8:content>
-								</v8:item>
-							</Title>
-							<Width>35</Width>
-							<Group>InCell</Group>
-							<ExtendedTooltip name="ГруппаИсполнительРасширеннаяПодсказка" id="72"/>
-							<ChildItems>
-								<InputField name="Исполнитель" id="18">
-									<DataPath>Список.Исполнитель</DataPath>
-									<Width>5</Width>
-									<Wrap>false</Wrap>
-									<ContextMenu name="ИсполнительКонтекстноеМеню" id="19"/>
-									<ExtendedTooltip name="ИсполнительРасширеннаяПодсказка" id="73"/>
-								</InputField>
-								<LabelField name="РольИсполнителя" id="58">
-									<DataPath>Список.РольИсполнителя</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<Width>5</Width>
-									<ContextMenu name="РольИсполнителяКонтекстноеМеню" id="59"/>
-									<ExtendedTooltip name="РольИсполнителяРасширеннаяПодсказка" id="74"/>
-								</LabelField>
-								<LabelField name="ОсновнойОбъектАдресации" id="60">
-									<DataPath>Список.ОсновнойОбъектАдресации</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<Width>5</Width>
-									<ContextMenu name="ОсновнойОбъектАдресацииКонтекстноеМеню" id="61"/>
-									<ExtendedTooltip name="ОсновнойОбъектАдресацииРасширеннаяПодсказка" id="75"/>
-								</LabelField>
-								<LabelField name="ДополнительныйОбъектАдресации" id="62">
-									<DataPath>Список.ДополнительныйОбъектАдресации</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<Width>5</Width>
-									<ContextMenu name="ДополнительныйОбъектАдресацииКонтекстноеМеню" id="63"/>
-									<ExtendedTooltip name="ДополнительныйОбъектАдресацииРасширеннаяПодсказка" id="76"/>
-								</LabelField>
-							</ChildItems>
-						</ColumnGroup>
-						<ColumnGroup name="ГруппаСрокИсполнения" id="115">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Срок исполнения</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Horizontal</Group>
-							<ExtendedTooltip name="ГруппаСрокИсполненияРасширеннаяПодсказка" id="116"/>
-							<ChildItems>
-								<LabelField name="СрокИсполнения" id="23">
-									<DataPath>Список.СрокИсполнения</DataPath>
-									<Format>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>ДЛФ=D</v8:content>
-										</v8:item>
-									</Format>
-									<ContextMenu name="СрокИсполненияКонтекстноеМеню" id="24"/>
-									<ExtendedTooltip name="СрокИсполненияРасширеннаяПодсказка" id="77"/>
-								</LabelField>
-								<CheckBoxField name="ЗадачаВыполнена" id="54">
-									<DataPath>Список.Executed</DataPath>
-									<UserVisible>
-										<xr:Common>false</xr:Common>
-									</UserVisible>
-									<TitleLocation>None</TitleLocation>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Выполненные</v8:content>
-										</v8:item>
-									</ToolTip>
-									<HeaderPicture>
-										<xr:Ref>StdPicture.ExecuteTask</xr:Ref>
-										<xr:LoadTransparent>true</xr:LoadTransparent>
-									</HeaderPicture>
-									<ContextMenu name="ЗадачаВыполненаКонтекстноеМеню" id="55"/>
-									<ExtendedTooltip name="ЗадачаВыполненаРасширеннаяПодсказка" id="68"/>
-								</CheckBoxField>
-								<LabelField name="ДатаИсполнения" id="117">
-									<DataPath>Список.ДатаИсполнения</DataPath>
-									<ContextMenu name="ДатаИсполненияКонтекстноеМеню" id="118"/>
-									<ExtendedTooltip name="ДатаИсполненияРасширеннаяПодсказка" id="119"/>
-								</LabelField>
-							</ChildItems>
-						</ColumnGroup>
+						<InputField name="Исполнитель" id="18">
+							<DataPath>Список.Исполнитель</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Wrap>false</Wrap>
+							<ContextMenu name="ИсполнительКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="ИсполнительРасширеннаяПодсказка" id="73"/>
+						</InputField>
+						<LabelField name="РольИсполнителя" id="58">
+							<DataPath>Список.РольИсполнителя</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="РольИсполнителяКонтекстноеМеню" id="59"/>
+							<ExtendedTooltip name="РольИсполнителяРасширеннаяПодсказка" id="74"/>
+						</LabelField>
+						<LabelField name="ОсновнойОбъектАдресации" id="60">
+							<DataPath>Список.ОсновнойОбъектАдресации</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ОсновнойОбъектАдресацииКонтекстноеМеню" id="61"/>
+							<ExtendedTooltip name="ОсновнойОбъектАдресацииРасширеннаяПодсказка" id="75"/>
+						</LabelField>
+						<LabelField name="ДополнительныйОбъектАдресации" id="62">
+							<DataPath>Список.ДополнительныйОбъектАдресации</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ДополнительныйОбъектАдресацииКонтекстноеМеню" id="63"/>
+							<ExtendedTooltip name="ДополнительныйОбъектАдресацииРасширеннаяПодсказка" id="76"/>
+						</LabelField>
 					</ChildItems>
 				</ColumnGroup>
+				<InputField name="Номер" id="4">
+					<DataPath>Список.Number</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>ByData</AutoWidthInTable>
+					<Wrap>false</Wrap>
+					<ContextMenu name="НомерКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="70"/>
+				</InputField>
+				<LabelField name="СрокИсполнения" id="23">
+					<DataPath>Список.СрокИсполнения</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДЛФ=D</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="СрокИсполненияКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="СрокИсполненияРасширеннаяПодсказка" id="77"/>
+				</LabelField>
+				<LabelField name="Дата" id="110">
+					<DataPath>Список.Date</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="111"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="112"/>
+				</LabelField>
+				<LabelField name="Автор" id="107">
+					<DataPath>Список.Автор</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="АвторКонтекстноеМеню" id="108"/>
+					<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="109"/>
+				</LabelField>
 				<LabelField name="Ссылка" id="96">
 					<DataPath>Список.Ref</DataPath>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="97"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="98"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
-		<CheckBoxField name="ПоказыватьВыполненные" id="21">
-			<DataPath>ПоказыватьВыполненные</DataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Показывать выполненные задачи</v8:content>
-				</v8:item>
-			</Title>
-			<TitleLocation>Right</TitleLocation>
-			<ContextMenu name="ПоказыватьВыполненныеКонтекстноеМеню" id="22"/>
-			<ExtendedTooltip name="ПоказыватьВыполненныеРасширеннаяПодсказка" id="78"/>
-			<Events>
-				<Event name="OnChange">ПоказыватьВыполненныеПриИзменении</Event>
-			</Events>
-		</CheckBoxField>
 		<Table name="ДеревоЗадач" id="25">
 			<Representation>Tree</Representation>
 			<ReadOnly>true</ReadOnly>
@@ -451,7 +347,7 @@
 			<ContextMenu name="ДеревоЗадачКонтекстноеМеню" id="26">
 				<Autofill>false</Autofill>
 				<ChildItems>
-					<Button name="ДеревоЗадачКонтекстноеМенюИзменить" id="43">
+					<Button name="ДеревоЗадачКонтекстноеМенюИзменить" id="199">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.Изменить</CommandName>
 						<Title>
@@ -460,35 +356,13 @@
 								<v8:content>Изменить</v8:content>
 							</v8:item>
 						</Title>
-						<ExtendedTooltip name="ДеревоЗадачКонтекстноеМенюИзменитьРасширеннаяПодсказка" id="79"/>
-					</Button>
-					<Button name="ДеревоЗадачКонтекстноеМенюОбновить" id="44">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Обновить</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Обновить</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ДеревоЗадачКонтекстноеМенюОбновитьРасширеннаяПодсказка" id="80"/>
-					</Button>
-					<Button name="ДеревоЗадачКонтекстноеМенюКопироватьВБуферОбмена" id="45">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.ДеревоЗадач.StandardCommand.CopyToClipboard</CommandName>
-						<ExtendedTooltip name="ДеревоЗадачКонтекстноеМенюКопироватьВБуферОбменаРасширеннаяПодсказка" id="81"/>
-					</Button>
-					<Button name="ДеревоЗадачКонтекстноеМенюВывестиСписок" id="46">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.ДеревоЗадач.StandardCommand.OutputList</CommandName>
-						<ExtendedTooltip name="ДеревоЗадачКонтекстноеМенюВывестиСписокРасширеннаяПодсказка" id="82"/>
+						<ExtendedTooltip name="ДеревоЗадачКонтекстноеМенюИзменитьРасширеннаяПодсказка" id="200"/>
 					</Button>
 				</ChildItems>
 			</ContextMenu>
 			<AutoCommandBar name="ДеревоЗадачКоманднаяПанель" id="27">
-				<Autofill>false</Autofill>
 				<ChildItems>
-					<Button name="ДеревоЗадачИзменить" id="47">
+					<Button name="ДеревоЗадачИзменить" id="193">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.Изменить</CommandName>
 						<Title>
@@ -497,9 +371,10 @@
 								<v8:content>Изменить</v8:content>
 							</v8:item>
 						</Title>
-						<ExtendedTooltip name="ДеревоЗадачИзменитьРасширеннаяПодсказка" id="83"/>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ДеревоЗадачИзменитьРасширеннаяПодсказка" id="194"/>
 					</Button>
-					<Button name="ДеревоЗадачОбновить" id="48">
+					<Button name="ДеревоЗадачОбновить" id="195">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.Обновить</CommandName>
 						<Title>
@@ -508,28 +383,8 @@
 								<v8:content>Обновить</v8:content>
 							</v8:item>
 						</Title>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="ДеревоЗадачОбновитьРасширеннаяПодсказка" id="84"/>
+						<ExtendedTooltip name="ДеревоЗадачОбновитьРасширеннаяПодсказка" id="196"/>
 					</Button>
-					<Button name="Справка" id="49">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.Help</CommandName>
-						<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="85"/>
-					</Button>
-					<Button name="ДеревоЗадачВывестиСписок" id="51">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.ДеревоЗадач.StandardCommand.OutputList</CommandName>
-						<ExtendedTooltip name="ДеревоЗадачВывестиСписокРасширеннаяПодсказка" id="86"/>
-					</Button>
-					<ButtonGroup name="КомандыФормы" id="152">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Команды формы</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="КомандыФормыРасширеннаяПодсказка" id="153"/>
-					</ButtonGroup>
 				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ДеревоЗадачРасширеннаяПодсказка" id="87"/>
@@ -560,6 +415,7 @@
 			<Events>
 				<Event name="Selection">ДеревоЗадачВыбор</Event>
 				<Event name="OnActivateRow">ДеревоЗадачПриАктивизацииСтроки</Event>
+				<Event name="OnHover">ДеревоЗадачПриНаведении</Event>
 			</Events>
 			<ChildItems>
 				<PictureField name="ДеревоЗадачВажность" id="28">
@@ -717,7 +573,7 @@
 					<ContextMenu name="ДеревоЗадачИсполнительКонтекстноеМеню" id="40"/>
 					<ExtendedTooltip name="ДеревоЗадачИсполнительРасширеннаяПодсказка" id="94"/>
 				</InputField>
-				<InputField name="СрокИсполнения1" id="41">
+				<InputField name="ДеревоСрокИсполнения" id="41">
 					<DataPath>ДеревоЗадач.СрокИсполнения</DataPath>
 					<Title>
 						<v8:item>
@@ -728,11 +584,40 @@
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<Width>8</Width>
-					<ContextMenu name="СрокИсполнения1КонтекстноеМеню" id="42"/>
-					<ExtendedTooltip name="СрокИсполнения1РасширеннаяПодсказка" id="95"/>
+					<ContextMenu name="ДеревоСрокИсполненияКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="ДеревоСрокИсполненияРасширеннаяПодсказка" id="95"/>
+				</InputField>
+				<InputField name="ДеревоЗадачСсылка" id="187">
+					<DataPath>ДеревоЗадач.Ссылка</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ДеревоЗадачСсылкаКонтекстноеМеню" id="188"/>
+					<ExtendedTooltip name="ДеревоЗадачСсылкаРасширеннаяПодсказка" id="189"/>
 				</InputField>
 			</ChildItems>
 		</Table>
+		<CheckBoxField name="ПоказыватьВыполненные" id="21">
+			<DataPath>ПоказыватьВыполненные</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать выполненные задачи</v8:content>
+				</v8:item>
+			</Title>
+			<TitleLocation>Right</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<CheckBoxType>Switcher</CheckBoxType>
+			<ContextMenu name="ПоказыватьВыполненныеКонтекстноеМеню" id="22"/>
+			<ExtendedTooltip name="ПоказыватьВыполненныеРасширеннаяПодсказка" id="78"/>
+			<Events>
+				<Event name="OnChange">ПоказыватьВыполненныеПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Список" id="1">
@@ -966,8 +851,7 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>Изменить</Action>
-			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоЗадач</AssociatedTableElementId>
 		</Command>
 		<Command name="Обновить" id="2">
 			<Title>
@@ -987,7 +871,7 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>Обновить</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<Representation>Text</Representation>
 		</Command>
 	</Commands>
 	<Parameters>

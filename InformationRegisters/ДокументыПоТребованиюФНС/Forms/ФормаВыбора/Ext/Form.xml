@@ -13,6 +13,17 @@
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="КнопкаВыбрать" id="144">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.КомандаВыбрать</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="КнопкаВыбратьРасширеннаяПодсказка" id="145"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -32,14 +43,14 @@
 					<v8:content>Группа отборы</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Group>Horizontal</Group>
+			<Group>Vertical</Group>
+			<VerticalSpacing>Half</VerticalSpacing>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаОтборыРасширеннаяПодсказка" id="131"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаОтборыЛево" id="128">
-					<HorizontalStretch>false</HorizontalStretch>
 					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
@@ -54,13 +65,36 @@
 									<v8:content>Группа период</v8:content>
 								</v8:item>
 							</ToolTip>
-							<HorizontalStretch>false</HorizontalStretch>
 							<Group>Horizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаПериодРасширеннаяПодсказка" id="109"/>
 							<ChildItems>
+								<InputField name="ОтборОрганизация" id="99">
+									<DataPath>ОтборОрганизация</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Организация</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalStretch>true</HorizontalStretch>
+									<ClearButton>true</ClearButton>
+									<OpenButton>false</OpenButton>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Организация</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ОтборОрганизацияКонтекстноеМеню" id="100"/>
+									<ExtendedTooltip name="ОтборОрганизацияExtendedTooltip" id="101"/>
+									<Events>
+										<Event name="OnChange">ОтборОрганизацияПриИзменении</Event>
+									</Events>
+								</InputField>
 								<LabelDecoration name="ДекорацияПериодС" id="265">
 									<Title formatted="false">
 										<v8:item>
@@ -110,35 +144,6 @@
 								</Button>
 							</ChildItems>
 						</UsualGroup>
-						<InputField name="ОтборКонтрагентПредставление" id="125">
-							<DataPath>ОтборКонтрагентПредставление</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Выберите контрагента или введите ИНН</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Width>34</Width>
-							<HorizontalStretch>false</HorizontalStretch>
-							<ChoiceButton>true</ChoiceButton>
-							<ClearButton>true</ClearButton>
-							<InputHint>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Выберите контрагента или введите ИНН</v8:content>
-								</v8:item>
-							</InputHint>
-							<ContextMenu name="ОтборКонтрагентПредставлениеКонтекстноеМеню" id="126"/>
-							<ExtendedTooltip name="ОтборКонтрагентПредставлениеРасширеннаяПодсказка" id="127"/>
-							<Events>
-								<Event name="OnChange">ОтборКонтрагентПредставлениеПриИзменении</Event>
-								<Event name="StartChoice">ОтборКонтрагентПредставлениеНачалоВыбора</Event>
-								<Event name="Opening">ОтборКонтрагентПредставлениеОткрытие</Event>
-								<Event name="Clearing">ОтборКонтрагентПредставлениеОчистка</Event>
-								<Event name="TextEditEnd">ОтборКонтрагентПредставлениеОкончаниеВводаТекста</Event>
-							</Events>
-						</InputField>
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="ГруппаОтборыЦентр" id="164">
@@ -156,7 +161,7 @@
 					</ToolTip>
 					<Width>30</Width>
 					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-					<Group>Vertical</Group>
+					<Group>AlwaysHorizontal</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -168,28 +173,33 @@
 							<ContextMenu name="ОтступОрганизацияКонтекстноеМеню" id="344"/>
 							<ExtendedTooltip name="ОтступОрганизацияРасширеннаяПодсказка" id="345"/>
 						</LabelDecoration>
-						<InputField name="ОтборОрганизация" id="99">
-							<DataPath>ОтборОрганизация</DataPath>
+						<InputField name="ОтборКонтрагентПредставление" id="125">
+							<DataPath>ОтборКонтрагентПредставление</DataPath>
 							<TitleLocation>None</TitleLocation>
 							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Организация</v8:content>
+									<v8:content>Выберите контрагента или введите ИНН</v8:content>
 								</v8:item>
 							</ToolTip>
-							<HorizontalStretch>true</HorizontalStretch>
+							<Width>18</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ChoiceButton>true</ChoiceButton>
 							<ClearButton>true</ClearButton>
-							<OpenButton>false</OpenButton>
 							<InputHint>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Организация</v8:content>
+									<v8:content>Контрагент или его ИНН</v8:content>
 								</v8:item>
 							</InputHint>
-							<ContextMenu name="ОтборОрганизацияКонтекстноеМеню" id="100"/>
-							<ExtendedTooltip name="ОтборОрганизацияExtendedTooltip" id="101"/>
+							<ContextMenu name="ОтборКонтрагентПредставлениеКонтекстноеМеню" id="126"/>
+							<ExtendedTooltip name="ОтборКонтрагентПредставлениеРасширеннаяПодсказка" id="127"/>
 							<Events>
-								<Event name="OnChange">ОтборОрганизацияПриИзменении</Event>
+								<Event name="OnChange">ОтборКонтрагентПредставлениеПриИзменении</Event>
+								<Event name="StartChoice">ОтборКонтрагентПредставлениеНачалоВыбора</Event>
+								<Event name="Opening">ОтборКонтрагентПредставлениеОткрытие</Event>
+								<Event name="Clearing">ОтборКонтрагентПредставлениеОчистка</Event>
+								<Event name="TextEditEnd">ОтборКонтрагентПредставлениеОкончаниеВводаТекста</Event>
 							</Events>
 						</InputField>
 						<InputField name="ОтборВидДокументаФНС" id="102">
@@ -216,16 +226,6 @@
 								<Event name="OnChange">ОтборВидДокументаФНСПриИзменении</Event>
 							</Events>
 						</InputField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаОтборыПраво" id="132">
-					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаОтборыПравоРасширеннаяПодсказка" id="133"/>
-					<ChildItems>
 						<InputField name="ОтборНаправление" id="105">
 							<DataPath>ОтборНаправление</DataPath>
 							<TitleLocation>None</TitleLocation>
@@ -254,10 +254,19 @@
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
+				<UsualGroup name="ГруппаОтборыПраво" id="132">
+					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОтборыПравоРасширеннаяПодсказка" id="133"/>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 		<Table name="Список" id="36">
 			<Representation>List</Representation>
+			<CommandBarLocation>Top</CommandBarLocation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
 			<HeightInTableRows>2</HeightInTableRows>
@@ -270,6 +279,7 @@
 			<CommandSet>
 				<ExcludedCommand>Choose</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -302,22 +312,10 @@
 							</v8:item>
 						</ToolTip>
 						<ExtendedTooltip name="ГруппаВыбораРасширеннаяПодсказка" id="151"/>
-						<ChildItems>
-							<Button name="КнопкаВыбрать" id="144">
-								<Type>CommandBarButton</Type>
-								<Representation>Text</Representation>
-								<DefaultButton>true</DefaultButton>
-								<CommandName>Form.Command.КомандаВыбрать</CommandName>
-								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-								<ButtonImportance>Main</ButtonImportance>
-								<ExtendedTooltip name="КнопкаВыбратьРасширеннаяПодсказка" id="145"/>
-							</Button>
-						</ChildItems>
 					</ButtonGroup>
 					<Button name="СписокОбновить" id="169">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 						<ExtendedTooltip name="СписокОбновитьРасширеннаяПодсказка" id="170"/>
 					</Button>
 					<Button name="СписокНайти" id="171">
@@ -422,7 +420,7 @@
 							<HorizontalAlign>Center</HorizontalAlign>
 							<Width>8</Width>
 							<ValuesPicture>
-								<xr:Abs>ValuesPicture.bmp</xr:Abs>
+								<xr:Ref>CommonPicture.СтрелкиВверхВниз</xr:Ref>
 								<xr:LoadTransparent>true</xr:LoadTransparent>
 								<xr:TransparentPixel x="13" y="6"/>
 							</ValuesPicture>
@@ -864,6 +862,7 @@
 			<Action>КомандаВыбрать</Action>
 			<Representation>Text</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ВыбратьПроизвольныйПериод" id="2">
 			<Title>

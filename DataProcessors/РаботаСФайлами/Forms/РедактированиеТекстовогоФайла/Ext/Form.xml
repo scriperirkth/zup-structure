@@ -34,6 +34,19 @@
 				</Title>
 				<ExtendedTooltip name="ЗаписатьРасширеннаяПодсказка" id="64"/>
 			</Button>
+			<Button name="ОткрытьКарточку" id="33">
+				<Type>CommandBarButton</Type>
+				<Width>35</Width>
+				<CommandName>Form.Command.ОткрытьКарточку</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Открыть карточку</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ОткрытьКарточкуРасширеннаяПодсказка" id="68"/>
+			</Button>
 			<Button name="Редактировать" id="32">
 				<Type>CommandBarButton</Type>
 				<Width>35</Width>
@@ -46,6 +59,19 @@
 				</Title>
 				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 				<ExtendedTooltip name="РедактироватьРасширеннаяПодсказка" id="65"/>
+			</Button>
+			<Button name="СохранитьКак" id="7">
+				<Type>CommandBarButton</Type>
+				<Width>35</Width>
+				<CommandName>Form.Command.СохранитьКак</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сохранить как...</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="СохранитьКакРасширеннаяПодсказка" id="70"/>
 			</Button>
 			<Button name="ЗакончитьРедактирование" id="6">
 				<Type>CommandBarButton</Type>
@@ -60,32 +86,6 @@
 				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 				<ExtendedTooltip name="ЗакончитьРедактированиеРасширеннаяПодсказка" id="66"/>
 			</Button>
-			<Button name="ФормаОбщаяКомандаЗадачиПоПредмету" id="62">
-				<Type>CommandBarButton</Type>
-				<CommandName>CommonCommand.ЗадачиПоПредмету</CommandName>
-				<DataPath>Файл</DataPath>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Файл</v8:content>
-					</v8:item>
-				</Title>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаОбщаяКомандаЗадачиПоПредметуРасширеннаяПодсказка" id="67"/>
-			</Button>
-			<Button name="ОткрытьКарточку" id="33">
-				<Type>CommandBarButton</Type>
-				<Width>35</Width>
-				<CommandName>Form.Command.ОткрытьКарточку</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Открыть карточку</v8:content>
-					</v8:item>
-				</Title>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ОткрытьКарточкуРасширеннаяПодсказка" id="68"/>
-			</Button>
 			<Button name="ПоказатьОтличия" id="8">
 				<Type>CommandBarButton</Type>
 				<Width>35</Width>
@@ -98,19 +98,6 @@
 				</Title>
 				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 				<ExtendedTooltip name="ПоказатьОтличияРасширеннаяПодсказка" id="69"/>
-			</Button>
-			<Button name="СохранитьКак" id="7">
-				<Type>CommandBarButton</Type>
-				<Width>35</Width>
-				<CommandName>Form.Command.СохранитьКак</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Сохранить как...</v8:content>
-					</v8:item>
-				</Title>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="СохранитьКакРасширеннаяПодсказка" id="70"/>
 			</Button>
 			<Button name="ВнешнийРедактор" id="9">
 				<Type>CommandBarButton</Type>
@@ -136,6 +123,19 @@
 				</Title>
 				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 				<ExtendedTooltip name="ФормаВыбратьКодировкуРасширеннаяПодсказка" id="72"/>
+			</Button>
+			<Button name="ФормаОбщаяКомандаЗадачиПоПредмету" id="62">
+				<Type>CommandBarButton</Type>
+				<CommandName>CommonCommand.ЗадачиПоПредмету</CommandName>
+				<DataPath>Файл</DataPath>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Файл</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаОбщаяКомандаЗадачиПоПредметуРасширеннаяПодсказка" id="67"/>
 			</Button>
 			<Button name="ФормаСправка" id="49">
 				<Type>CommandBarButton</Type>
@@ -174,6 +174,8 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТекстКонтекстноеМеню" id="2"/>
 					<ExtendedTooltip name="ТекстРасширеннаяПодсказка" id="75"/>
 				</TextDocumentField>
@@ -341,6 +343,7 @@
 			<Action>Записать</Action>
 			<Representation>Text</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Редактировать" id="9">
 			<Title>
@@ -404,6 +407,7 @@
 			<Action>ЗаписатьИЗакрыть</Action>
 			<Representation>Text</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ВыбратьКодировку" id="6">
 			<Title>

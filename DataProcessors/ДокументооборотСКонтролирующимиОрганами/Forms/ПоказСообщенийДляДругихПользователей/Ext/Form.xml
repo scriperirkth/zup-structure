@@ -15,6 +15,39 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="КнопкаРасшифровать" id="12">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+				<CommandName>Form.Command.КомандаРасшифровать</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="КнопкаРасшифроватьExtendedTooltip" id="17"/>
+			</Button>
+			<Button name="Отложить1д" id="128">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Отложить1д</CommandName>
+				<ExtendedTooltip name="Отложить1дРасширеннаяПодсказка" id="129"/>
+			</Button>
+			<Button name="Отложить1н" id="132">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Отложить1н</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="Отложить1нРасширеннаяПодсказка" id="133"/>
+			</Button>
+			<Button name="Отложить1м" id="134">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Отложить1м</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="Отложить1мРасширеннаяПодсказка" id="135"/>
+			</Button>
+			<Button name="ФормаОтложитьНаНикогда" id="136">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОтложитьНаНикогда</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаОтложитьНаНикогдаРасширеннаяПодсказка" id="137"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -68,6 +101,7 @@
 					<Representation>List</Representation>
 					<ReadOnly>true</ReadOnly>
 					<Height>5</Height>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -114,15 +148,19 @@
 					<ChildItems>
 						<InputField name="ТаблицаПользователейПользователь" id="93">
 							<DataPath>ТаблицаПользователей.Пользователь</DataPath>
+							<ReadOnly>true</ReadOnly>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<AutoWidthInTable>None</AutoWidthInTable>
 							<ContextMenu name="ТаблицаПользователейПользовательКонтекстноеМеню" id="94"/>
 							<ExtendedTooltip name="ТаблицаПользователейПользовательРасширеннаяПодсказка" id="95"/>
 						</InputField>
 						<InputField name="ТаблицаПользователейТипыСообщений" id="117">
 							<DataPath>ТаблицаПользователей.ТипыСообщений</DataPath>
+							<ReadOnly>true</ReadOnly>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<AutoWidthInTable>None</AutoWidthInTable>
 							<ContextMenu name="ТаблицаПользователейТипыСообщенийКонтекстноеМеню" id="118"/>
 							<ExtendedTooltip name="ТаблицаПользователейТипыСообщенийРасширеннаяПодсказка" id="119"/>
 						</InputField>
@@ -141,158 +179,6 @@
 					<ContextMenu name="РасшифроватьКонтекстноеМеню" id="52"/>
 					<ExtendedTooltip name="РасшифроватьРасширеннаяПодсказка" id="53"/>
 				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаКнопок" id="44">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа кнопок</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа кнопок</v8:content>
-				</v8:item>
-			</ToolTip>
-			<HorizontalStretch>true</HorizontalStretch>
-			<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-			<GroupVerticalAlign>Bottom</GroupVerticalAlign>
-			<Group>Horizontal</Group>
-			<HorizontalAlign>Center</HorizontalAlign>
-			<VerticalAlign>Center</VerticalAlign>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКнопокРасширеннаяПодсказка" id="45"/>
-			<ChildItems>
-				<Button name="КнопкаРасшифровать" id="12">
-					<Type>UsualButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.КомандаРасшифровать</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="КнопкаРасшифроватьExtendedTooltip" id="17"/>
-				</Button>
-				<UsualGroup name="ГруппаКнопокОтложить" id="105">
-					<HorizontalStretch>true</HorizontalStretch>
-					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-					<GroupVerticalAlign>Bottom</GroupVerticalAlign>
-					<Group>Horizontal</Group>
-					<HorizontalAlign>Right</HorizontalAlign>
-					<VerticalAlign>Center</VerticalAlign>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаКнопокОтложитьРасширеннаяПодсказка" id="106"/>
-					<ChildItems>
-						<InputField name="ПолеВыбораНапомнить" id="109">
-							<DataPath>НапомнитьЧерез</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Напомнить через</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalStretch>false</HorizontalStretch>
-							<ListChoiceMode>true</ListChoiceMode>
-							<IncompleteChoiceMode>OnActivate</IncompleteChoiceMode>
-							<ChoiceList>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>1 день</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string"/>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>3 дня</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string">3</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>1 неделя</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string">1</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>2 недели</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string">4</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>1 месяц</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string">2</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>никогда</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string">-1</Value>
-									</xr:Value>
-								</xr:Item>
-							</ChoiceList>
-							<ContextMenu name="ПолеВыбораНапомнитьКонтекстноеМеню" id="110"/>
-							<ExtendedTooltip name="ПолеВыбораНапомнитьРасширеннаяПодсказка" id="111"/>
-						</InputField>
-						<Button name="Отложить" id="112">
-							<Type>UsualButton</Type>
-							<CommandName>Form.Command.ПоказатьПозже</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Отложить</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ОтложитьРасширеннаяПодсказка" id="113"/>
-						</Button>
-					</ChildItems>
-				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -576,6 +462,7 @@
 			</ToolTip>
 			<Action>КомандаРасшифровать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПоказатьПозже" id="3">
 			<Title>
@@ -592,6 +479,71 @@
 			</ToolTip>
 			<Action>ПоказатьПозже</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="Отложить1д" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отложить на 1 день</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отложить1д</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отложить1д</Action>
+			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="Отложить1н" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отложить на 1 неделю</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отложить1н</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отложить1н</Action>
+			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="Отложить1м" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отложить на 1 месяц</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отложить1м</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отложить1м</Action>
+			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="ОтложитьНаНикогда" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Никогда не показывать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отложить1н</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтложитьНаНикогда</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

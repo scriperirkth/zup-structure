@@ -1,9 +1,32 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
-	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаОбновлениеДоступаНаУровнеЗаписей" id="39">
+				<Type>CommandBarHyperlink</Type>
+				<CommandName>Form.Command.ФормаОбновлениеДоступаНаУровнеЗаписей</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обновление доступа на уровне записей</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаОбновлениеДоступаНаУровнеЗаписейРасширеннаяПодсказка" id="40"/>
+			</Button>
+			<Button name="ФормаВключитьВозможностьРедактирования" id="37">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ФормаВключитьВозможностьРедактирования</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Включить возможность редактирования</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаВключитьВозможностьРедактированияРасширеннаяПодсказка" id="38"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -18,49 +41,12 @@
 			</Title>
 			<VerticalStretch>false</VerticalStretch>
 			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
+			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="2"/>
 		</UsualGroup>
-		<CommandBar name="КоманднаяПанель" id="33">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="34"/>
-			<ChildItems>
-				<Button name="ФормаОбновлениеДоступаНаУровнеЗаписей" id="39">
-					<Type>CommandBarHyperlink</Type>
-					<CommandName>Form.Command.ОбновлениеДоступаНаУровнеЗаписей</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Обновление доступа на уровне записей</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ФормаОбновлениеДоступаНаУровнеЗаписейРасширеннаяПодсказка" id="40"/>
-				</Button>
-				<Button name="ФормаВключитьВозможностьРедактирования" id="37">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.ВключитьВозможностьРедактирования</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Включить возможность редактирования</v8:content>
-						</v8:item>
-					</Title>
-					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-					<ExtendedTooltip name="ФормаВключитьВозможностьРедактированияРасширеннаяПодсказка" id="38"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -74,6 +60,7 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -90,9 +77,7 @@
 			<UserSettingsGroup>ГруппаПользовательскихНастроек</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
-				<Autofill>false</Autofill>
-			</AutoCommandBar>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -121,6 +106,8 @@
 			<ChildItems>
 				<LabelField name="СписокСписок" id="16">
 					<DataPath>Список.Список</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокСписокКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="СписокСписокРасширеннаяПодсказка" id="18"/>
 				</LabelField>
@@ -132,10 +119,14 @@
 							<v8:content>ВП</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<CheckBoxType>CheckBox</CheckBoxType>
 					<ContextMenu name="СписокДляВнешнихПользователейКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="СписокДляВнешнихПользователейРасширеннаяПодсказка" id="21"/>
 				</CheckBoxField>
-				<CheckBoxField name="ТочечноеЗадание" id="41">
+				<CheckBoxField name="СписокТочечноеЗадание" id="41">
 					<DataPath>Список.ТочечноеЗадание</DataPath>
 					<Title>
 						<v8:item>
@@ -143,8 +134,12 @@
 							<v8:content>ТЗ</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="ТочечноеЗаданиеКонтекстноеМеню" id="42"/>
-					<ExtendedTooltip name="ТочечноеЗаданиеРасширеннаяПодсказка" id="43"/>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<CheckBoxType>CheckBox</CheckBoxType>
+					<ContextMenu name="СписокТочечноеЗаданиеКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="СписокТочечноеЗаданиеРасширеннаяПодсказка" id="43"/>
 				</CheckBoxField>
 				<LabelField name="СписокДатаПоследнегоОбновленногоЭлемента" id="25">
 					<DataPath>Список.ДатаПоследнегоОбновленногоЭлемента</DataPath>
@@ -154,10 +149,14 @@
 							<v8:content>Дата элемента</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="СписокДатаПоследнегоОбновленногоЭлементаКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="СписокДатаПоследнегоОбновленногоЭлементаРасширеннаяПодсказка" id="27"/>
 				</LabelField>
-				<LabelField name="РазмерЗадания" id="44">
+				<LabelField name="СписокРазмерЗадания" id="44">
 					<DataPath>Список.РазмерЗадания</DataPath>
 					<Title>
 						<v8:item>
@@ -165,8 +164,22 @@
 							<v8:content>РЗ</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="РазмерЗаданияКонтекстноеМеню" id="45"/>
-					<ExtendedTooltip name="РазмерЗаданияРасширеннаяПодсказка" id="46"/>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Размер задания:
+1 - точечное задание,
+2 - обновление устаревших,
+3 - обновление с начала.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<HeaderHorizontalAlign>Right</HeaderHorizontalAlign>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="СписокРазмерЗаданияКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="СписокРазмерЗаданияРасширеннаяПодсказка" id="46"/>
 				</LabelField>
 				<LabelField name="СписокДатаИзмененияЗаписиРегистра" id="28">
 					<DataPath>Список.ДатаИзмененияЗаписиРегистра</DataPath>
@@ -176,11 +189,19 @@
 							<v8:content>Дата изменения</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="СписокДатаИзмененияЗаписиРегистраКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="СписокДатаИзмененияЗаписиРегистраРасширеннаяПодсказка" id="30"/>
 				</LabelField>
 				<LabelField name="СписокКлючУникальности" id="22">
 					<DataPath>Список.КлючУникальности</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="СписокКлючУникальностиКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="СписокКлючУникальностиРасширеннаяПодсказка" id="24"/>
 				</LabelField>
@@ -217,7 +238,7 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ВключитьВозможностьРедактирования" id="1">
+		<Command name="ФормаВключитьВозможностьРедактирования" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -230,10 +251,9 @@
 					<v8:content>Включить возможность редактирования только для целей поиска неисправности (требуется углубленное понимание работы механизма)</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ВключитьВозможностьРедактирования</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<Action>ФормаВключитьВозможностьРедактирования</Action>
 		</Command>
-		<Command name="ОбновлениеДоступаНаУровнеЗаписей" id="2">
+		<Command name="ФормаОбновлениеДоступаНаУровнеЗаписей" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -246,7 +266,7 @@
 					<v8:content>Отображение хода обновления доступа на уровне записей и ручное обновление</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ОбновлениеДоступаНаУровнеЗаписей</Action>
+			<Action>ФормаОбновлениеДоступаНаУровнеЗаписей</Action>
 		</Command>
 	</Commands>
 </Form>

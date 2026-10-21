@@ -9,10 +9,18 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="Печать" id="10">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Печать</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="11"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -20,6 +28,7 @@
 		<InputField name="НадписьДатаВремяПолучения" id="1">
 			<DataPath>ДатаВремяПолучения</DataPath>
 			<SkipOnInput>true</SkipOnInput>
+			<TitleLocation>Left</TitleLocation>
 			<ChoiceButton>false</ChoiceButton>
 			<ClearButton>false</ClearButton>
 			<SpinButton>false</SpinButton>
@@ -29,13 +38,14 @@
 			<ChoiceListButton>false</ChoiceListButton>
 			<TextColor>#000080</TextColor>
 			<BackColor>#E7EAF6</BackColor>
-			<BorderColor>style:FormBackColor</BorderColor>
+			<BorderColor>pal:Gray</BorderColor>
 			<ContextMenu name="НадписьДатаВремяПолученияКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="НадписьДатаВремяПолученияExtendedTooltip" id="7"/>
 		</InputField>
 		<InputField name="НадписьИдентификаторЗапроса" id="5">
 			<DataPath>ИдентификаторЗапроса</DataPath>
 			<SkipOnInput>true</SkipOnInput>
+			<TitleLocation>Left</TitleLocation>
 			<ChoiceButton>false</ChoiceButton>
 			<ClearButton>false</ClearButton>
 			<SpinButton>false</SpinButton>
@@ -45,27 +55,10 @@
 			<ChoiceListButton>false</ChoiceListButton>
 			<TextColor>#000080</TextColor>
 			<BackColor>#E7EAF6</BackColor>
-			<BorderColor>style:FormBackColor</BorderColor>
+			<BorderColor>pal:Gray</BorderColor>
 			<ContextMenu name="НадписьИдентификаторЗапросаКонтекстноеМеню" id="6"/>
 			<ExtendedTooltip name="НадписьИдентификаторЗапросаExtendedTooltip" id="8"/>
 		</InputField>
-		<CommandBar name="ГруппаКоманднаяПанель" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="ГруппаКоманднаяПанельExtendedTooltip" id="9"/>
-			<ChildItems>
-				<Button name="Печать" id="10">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.Печать</CommandName>
-					<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="11"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -132,6 +125,7 @@
 			<Action>Печать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

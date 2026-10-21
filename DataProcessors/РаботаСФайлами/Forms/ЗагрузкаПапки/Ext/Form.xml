@@ -10,16 +10,47 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
-	<CommandBarLocation>None</CommandBarLocation>
-	<MobileDeviceCommandBarContent>
-		<xr:Item>
-			<xr:Presentation/>
-			<xr:CheckState>0</xr:CheckState>
-			<xr:Value xsi:type="xs:string">ОсновнаяКоманднаяПанель</xr:Value>
-		</xr:Item>
-	</MobileDeviceCommandBarContent>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<ChildItems>
+			<Button name="Импорт" id="4">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.ЗагрузитьПапку</CommandName>
+				<TextColor>style:ButtonTextColor</TextColor>
+				<BackColor>style:ButtonBackColor</BackColor>
+				<BorderColor>style:BorderColor</BorderColor>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Загрузить папку</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ИмпортРасширеннаяПодсказка" id="41"/>
+			</Button>
+			<Button name="Закрыть" id="26">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<TextColor>style:ButtonTextColor</TextColor>
+				<BackColor>style:ButtonBackColor</BackColor>
+				<BorderColor>style:BorderColor</BorderColor>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отмена</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="42"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -34,9 +65,9 @@
 				</v8:item>
 			</Title>
 			<TitleLocation>Top</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
 			<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-			<MarkRequiredComplete>true</MarkRequiredComplete>
-			<Width>40</Width>
+			<AutoEditMode>true</AutoEditMode>
 			<Wrap>false</Wrap>
 			<ChoiceButton>true</ChoiceButton>
 			<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
@@ -53,13 +84,47 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Разместить в</v8:content>
+					<v8:content>Разместить в папке</v8:content>
 				</v8:item>
 			</Title>
+			<EditMode>EnterOnInput</EditMode>
 			<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+			<AutoEditMode>true</AutoEditMode>
+			<Hiperlink>true</Hiperlink>
 			<ContextMenu name="ПапкаКонтекстноеМеню" id="15"/>
 			<ExtendedTooltip name="ПапкаРасширеннаяПодсказка" id="32"/>
+			<Events>
+				<Event name="Click">ПапкаНажатие</Event>
+			</Events>
 		</LabelField>
+		<InputField name="Описание" id="2">
+			<DataPath>Описание</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Описание для добавляемых файлов</v8:content>
+				</v8:item>
+			</Title>
+			<EditMode>EnterOnInput</EditMode>
+			<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+			<AutoEditMode>true</AutoEditMode>
+			<Height>2</Height>
+			<MultiLine>true</MultiLine>
+			<BorderColor>style:BorderColor</BorderColor>
+			<ContextMenu name="ОписаниеКонтекстноеМеню" id="9"/>
+			<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="35"/>
+		</InputField>
+		<Button name="ВыбратьКодировку" id="30">
+			<Type>Hyperlink</Type>
+			<CommandName>Form.Command.ВыбратьКодировку</CommandName>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать кодировку текстовых файлов</v8:content>
+				</v8:item>
+			</Title>
+			<ExtendedTooltip name="ВыбратьКодировкуРасширеннаяПодсказка" id="39"/>
+		</Button>
 		<CheckBoxField name="УдалитьПослеДобавления" id="3">
 			<DataPath>УдалитьФайлыПослеЗагрузки</DataPath>
 			<Title>
@@ -69,138 +134,27 @@
 				</v8:item>
 			</Title>
 			<TitleLocation>Right</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
 			<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+			<AutoEditMode>true</AutoEditMode>
 			<ContextMenu name="УдалитьПослеДобавленияКонтекстноеМеню" id="10"/>
 			<ExtendedTooltip name="УдалитьПослеДобавленияРасширеннаяПодсказка" id="33"/>
 		</CheckBoxField>
-		<UsualGroup name="ГруппаСвойствФайлов" id="25">
+		<CheckBoxField name="ХранитьВерсии" id="21">
+			<DataPath>ХранитьВерсии</DataPath>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Свойств файлов</v8:content>
+					<v8:content>Хранить версии</v8:content>
 				</v8:item>
 			</Title>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>NormalSeparation</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаСвойствФайловРасширеннаяПодсказка" id="34"/>
-			<ChildItems>
-				<InputField name="Описание" id="2">
-					<DataPath>Описание</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Описание для добавляемых файлов</v8:content>
-						</v8:item>
-					</Title>
-					<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Height>4</Height>
-					<MultiLine>true</MultiLine>
-					<BorderColor>style:BorderColor</BorderColor>
-					<ContextMenu name="ОписаниеКонтекстноеМеню" id="9"/>
-					<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="35"/>
-				</InputField>
-				<CheckBoxField name="ХранитьВерсии" id="21">
-					<DataPath>ХранитьВерсии</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Хранить версии</v8:content>
-						</v8:item>
-					</Title>
-					<TitleLocation>Right</TitleLocation>
-					<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-					<ContextMenu name="ХранитьВерсииКонтекстноеМеню" id="22"/>
-					<ExtendedTooltip name="ХранитьВерсииРасширеннаяПодсказка" id="36"/>
-				</CheckBoxField>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаКодировка" id="27">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Кодировка</v8:content>
-				</v8:item>
-			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>NormalSeparation</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКодировкаРасширеннаяПодсказка" id="37"/>
-			<ChildItems>
-				<LabelDecoration name="ДекорацияКодировка" id="28">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Кодировка текстовых файлов:</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ДекорацияКодировкаКонтекстноеМеню" id="29"/>
-					<ExtendedTooltip name="ДекорацияКодировкаРасширеннаяПодсказка" id="38"/>
-				</LabelDecoration>
-				<Button name="ВыбратьКодировку" id="30">
-					<Type>Hyperlink</Type>
-					<CommandName>Form.Command.ВыбратьКодировку</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Выбрать кодировку</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ВыбратьКодировкуРасширеннаяПодсказка" id="39"/>
-				</Button>
-			</ChildItems>
-		</UsualGroup>
-		<CommandBar name="ОсновнаяКоманднаяПанель" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Основная командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="ОсновнаяКоманднаяПанельРасширеннаяПодсказка" id="40"/>
-			<ChildItems>
-				<Button name="Импорт" id="4">
-					<Type>CommandBarButton</Type>
-					<Representation>Text</Representation>
-					<DefaultButton>true</DefaultButton>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.Command.ЗагрузитьПапку</CommandName>
-					<TextColor>style:ButtonTextColor</TextColor>
-					<BackColor>style:ButtonBackColor</BackColor>
-					<BorderColor>style:BorderColor</BorderColor>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Загрузить папку</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ИмпортРасширеннаяПодсказка" id="41"/>
-				</Button>
-				<Button name="Закрыть" id="26">
-					<Type>CommandBarButton</Type>
-					<Representation>Text</Representation>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.StandardCommand.Close</CommandName>
-					<TextColor>style:ButtonTextColor</TextColor>
-					<BackColor>style:ButtonBackColor</BackColor>
-					<BorderColor>style:BorderColor</BorderColor>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Отмена</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="42"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
+			<TitleLocation>Right</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+			<AutoEditMode>true</AutoEditMode>
+			<ContextMenu name="ХранитьВерсииКонтекстноеМеню" id="22"/>
+			<ExtendedTooltip name="ХранитьВерсииРасширеннаяПодсказка" id="36"/>
+		</CheckBoxField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -340,6 +294,7 @@
 			</ToolTip>
 			<Action>ИмпортВыполнить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ВыбратьКодировку" id="2">
 			<Title>

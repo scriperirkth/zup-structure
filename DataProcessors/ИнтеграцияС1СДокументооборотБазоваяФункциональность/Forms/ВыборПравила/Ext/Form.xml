@@ -6,15 +6,36 @@
 			<v8:content>Создать</v8:content>
 		</v8:item>
 	</Title>
-	<Width>80</Width>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
+	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
 	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Готово" id="51">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Готово</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="52"/>
+			</Button>
+			<Button name="Отмена" id="53">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="54"/>
+			</Button>
+			<Button name="Справка" id="49">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="50"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -24,6 +45,8 @@
 			<DataPath>Пояснение</DataPath>
 			<Visible>false</Visible>
 			<TitleLocation>None</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<ContextMenu name="ПояснениеКонтекстноеМеню" id="56"/>
 			<ExtendedTooltip name="ПояснениеРасширеннаяПодсказка" id="57"/>
 		</LabelField>
@@ -32,13 +55,25 @@
 			<ReadOnly>true</ReadOnly>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<RowSelectionMode>Cell</RowSelectionMode>
+			<HeightInTableRows>3</HeightInTableRows>
+			<SelectionMode>SingleRow</SelectionMode>
+			<RowSelectionMode>Row</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
-			<EnableStartDrag>true</EnableStartDrag>
-			<EnableDrag>true</EnableDrag>
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Правила</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>MoveDown</ExcludedCommand>
+				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+				<ExcludedCommand>SortListAsc</ExcludedCommand>
+				<ExcludedCommand>SortListDesc</ExcludedCommand>
+			</CommandSet>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -83,7 +118,6 @@
 					<DataPath>Правила.Ссылка</DataPath>
 					<Visible>false</Visible>
 					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПравилаСсылкаКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="ПравилаСсылкаРасширеннаяПодсказка" id="16"/>
 				</InputField>
@@ -91,7 +125,6 @@
 					<DataPath>Правила.ТипОбъектаИС</DataPath>
 					<Visible>false</Visible>
 					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПравилаТипОбъектаИСКонтекстноеМеню" id="18"/>
 					<ExtendedTooltip name="ПравилаТипОбъектаИСРасширеннаяПодсказка" id="19"/>
 				</InputField>
@@ -99,7 +132,6 @@
 					<DataPath>Правила.ТипОбъектаДО</DataPath>
 					<Visible>false</Visible>
 					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПравилаТипОбъектаДОКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="ПравилаТипОбъектаДОРасширеннаяПодсказка" id="22"/>
 				</InputField>
@@ -107,14 +139,12 @@
 					<DataPath>Правила.ПредставлениеОбъектаИС</DataPath>
 					<Visible>false</Visible>
 					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПравилаПредставлениеОбъектаИСКонтекстноеМеню" id="24"/>
 					<ExtendedTooltip name="ПравилаПредставлениеОбъектаИСРасширеннаяПодсказка" id="25"/>
 				</InputField>
 				<InputField name="ПравилаПредставлениеОбъектаДО" id="26">
 					<DataPath>Правила.ПредставлениеОбъектаДО</DataPath>
 					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>32</Width>
 					<ContextMenu name="ПравилаПредставлениеОбъектаДОКонтекстноеМеню" id="27"/>
 					<ExtendedTooltip name="ПравилаПредставлениеОбъектаДОРасширеннаяПодсказка" id="28"/>
@@ -122,60 +152,12 @@
 				<InputField name="ПравилаКомментарий" id="29">
 					<DataPath>Правила.Комментарий</DataPath>
 					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>36</Width>
 					<ContextMenu name="ПравилаКомментарийКонтекстноеМеню" id="30"/>
 					<ExtendedTooltip name="ПравилаКомментарийРасширеннаяПодсказка" id="31"/>
 				</InputField>
 			</ChildItems>
 		</Table>
-		<UsualGroup name="ГруппаКоманднаяПанель" id="43">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Horizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="44"/>
-			<ChildItems>
-				<CommandBar name="ГруппаКомандыЛево" id="45">
-					<ExtendedTooltip name="ГруппаКомандыЛевоРасширеннаяПодсказка" id="46"/>
-					<ChildItems>
-						<Button name="Готово" id="51">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<CommandName>Form.Command.Готово</CommandName>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="52"/>
-						</Button>
-						<Button name="Отмена" id="53">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.Cancel</CommandName>
-							<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="54"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
-				<LabelDecoration name="ДекорацияЦентр" id="40">
-					<HorizontalStretch>true</HorizontalStretch>
-					<ContextMenu name="ДекорацияЦентрКонтекстноеМеню" id="41"/>
-					<ExtendedTooltip name="ДекорацияЦентрРасширеннаяПодсказка" id="42"/>
-				</LabelDecoration>
-				<CommandBar name="ГруппаКомандыПраво" id="47">
-					<ExtendedTooltip name="ГруппаКомандыПравоРасширеннаяПодсказка" id="48"/>
-					<ChildItems>
-						<Button name="Справка" id="49">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.Help</CommandName>
-							<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="50"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -316,6 +298,7 @@
 			</ToolTip>
 			<Action>Готово</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

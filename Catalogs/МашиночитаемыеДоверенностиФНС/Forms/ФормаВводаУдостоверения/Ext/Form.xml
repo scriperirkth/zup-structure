@@ -7,6 +7,7 @@
 		</v8:item>
 	</Title>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
@@ -29,6 +30,7 @@
 			</Button>
 			<Button name="ФормаКнопкаОтмена" id="27">
 				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
 				<CommandName>Form.StandardCommand.Close</CommandName>
 				<Title>
 					<v8:item>
@@ -44,65 +46,123 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<InputField name="ДокументВид" id="1">
-			<DataPath>ДокументВид</DataPath>
-			<MarkRequiredComplete>true</MarkRequiredComplete>
-			<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
-			<AutoMarkIncomplete>true</AutoMarkIncomplete>
-			<ChooseType>false</ChooseType>
-			<ContextMenu name="ДокументВидКонтекстноеМеню" id="2"/>
-			<ExtendedTooltip name="ДокументВидРасширеннаяПодсказка" id="18"/>
-		</InputField>
-		<UsualGroup name="ГруппаСерияНомер" id="3">
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа серия номер</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Group>Horizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
+		<UsualGroup name="ГруппаОбщая" id="40">
+			<Width>45</Width>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаСерияНомерРасширеннаяПодсказка" id="19"/>
+			<ExtendedTooltip name="ГруппаОбщаяРасширеннаяПодсказка" id="41"/>
 			<ChildItems>
-				<InputField name="ДокументСерия" id="4">
-					<DataPath>ДокументСерия</DataPath>
+				<InputField name="ДокументВид" id="1">
+					<DataPath>ДокументВид</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид документа</v8:content>
+						</v8:item>
+					</Title>
 					<MarkRequiredComplete>true</MarkRequiredComplete>
+					<AutoMaxWidth>false</AutoMaxWidth>
 					<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
-					<ContextMenu name="ДокументСерияКонтекстноеМеню" id="5"/>
-					<ExtendedTooltip name="ДокументСерияРасширеннаяПодсказка" id="20"/>
+					<ChooseType>false</ChooseType>
+					<ContextMenu name="ДокументВидКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ДокументВидРасширеннаяПодсказка" id="18"/>
 				</InputField>
-				<InputField name="ДокументНомер" id="6">
-					<DataPath>ДокументНомер</DataPath>
-					<MarkRequiredComplete>true</MarkRequiredComplete>
-					<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
-					<AutoMarkIncomplete>true</AutoMarkIncomplete>
-					<ContextMenu name="ДокументНомерКонтекстноеМеню" id="7"/>
-					<ExtendedTooltip name="ДокументНомерРасширеннаяПодсказка" id="21"/>
+				<UsualGroup name="ГруппаСерияНомер" id="3">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа серия номер</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ThroughAlign>Use</ThroughAlign>
+					<ExtendedTooltip name="ГруппаСерияНомерРасширеннаяПодсказка" id="19"/>
+					<ChildItems>
+						<InputField name="ДокументСерия" id="4">
+							<DataPath>ДокументСерия</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Серия</v8:content>
+								</v8:item>
+							</Title>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ДокументСерияКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="ДокументСерияРасширеннаяПодсказка" id="20"/>
+						</InputField>
+						<InputField name="ДокументНомер" id="6">
+							<DataPath>ДокументНомер</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номер</v8:content>
+								</v8:item>
+							</Title>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ДокументНомерКонтекстноеМеню" id="7"/>
+							<ExtendedTooltip name="ДокументНомерРасширеннаяПодсказка" id="21"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа1" id="38">
+					<Group>AlwaysHorizontal</Group>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="39"/>
+					<ChildItems>
+						<InputField name="ДокументДатаВыдачи" id="8">
+							<DataPath>ДокументДатаВыдачи</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата выдачи</v8:content>
+								</v8:item>
+							</Title>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ДокументДатаВыдачиКонтекстноеМеню" id="9"/>
+							<ExtendedTooltip name="ДокументДатаВыдачиРасширеннаяПодсказка" id="22"/>
+						</InputField>
+						<InputField name="ДокументКодПодразделения" id="12">
+							<DataPath>ДокументКодПодразделения</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Код подраздаления</v8:content>
+								</v8:item>
+							</Title>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="ДокументКодПодразделенияКонтекстноеМеню" id="13"/>
+							<ExtendedTooltip name="ДокументКодПодразделенияРасширеннаяПодсказка" id="24"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="ДокументКемВыдан" id="10">
+					<DataPath>ДокументКемВыдан</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Кем выдан</v8:content>
+						</v8:item>
+					</Title>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ДокументКемВыданКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ДокументКемВыданРасширеннаяПодсказка" id="23"/>
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
-		<InputField name="ДокументДатаВыдачи" id="8">
-			<DataPath>ДокументДатаВыдачи</DataPath>
-			<MarkRequiredComplete>true</MarkRequiredComplete>
-			<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
-			<AutoMarkIncomplete>true</AutoMarkIncomplete>
-			<ContextMenu name="ДокументДатаВыдачиКонтекстноеМеню" id="9"/>
-			<ExtendedTooltip name="ДокументДатаВыдачиРасширеннаяПодсказка" id="22"/>
-		</InputField>
-		<InputField name="ДокументКемВыдан" id="10">
-			<DataPath>ДокументКемВыдан</DataPath>
-			<ContextMenu name="ДокументКемВыданКонтекстноеМеню" id="11"/>
-			<ExtendedTooltip name="ДокументКемВыданРасширеннаяПодсказка" id="23"/>
-		</InputField>
-		<InputField name="ДокументКодПодразделения" id="12">
-			<DataPath>ДокументКодПодразделения</DataPath>
-			<ContextMenu name="ДокументКодПодразделенияКонтекстноеМеню" id="13"/>
-			<ExtendedTooltip name="ДокументКодПодразделенияРасширеннаяПодсказка" id="24"/>
-		</InputField>
 		<LabelDecoration name="ДекорацияОтступ" id="29">
+			<Visible>false</Visible>
 			<ContextMenu name="ДекорацияОтступКонтекстноеМеню" id="30"/>
 			<ExtendedTooltip name="ДекорацияОтступРасширеннаяПодсказка" id="31"/>
 		</LabelDecoration>
@@ -209,6 +269,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Сохранить</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

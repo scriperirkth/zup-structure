@@ -24,14 +24,33 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="СписокСостоянийОригиналаВыбратьРасширеннаяПодсказка" id="18"/>
 			</Button>
-			<ButtonGroup name="ГруппаУстСнятьФлажкиВидДокумента" id="26">
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Уст снять флажки вид документа</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ГруппаУстСнятьФлажкиВидДокументаРасширеннаяПодсказка" id="27"/>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="СписокСостоянийОригинала" id="1">
+			<Representation>List</Representation>
+			<SelectionMode>SingleRow</SelectionMode>
+			<RowSelectionMode>Cell</RowSelectionMode>
+			<Header>false</Header>
+			<HorizontalLinesBWA>false</HorizontalLinesBWA>
+			<VerticalLinesBWA>false</VerticalLinesBWA>
+			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<DataPath>СписокСостоянийОригинала</DataPath>
+			<RowPictureDataPath>СписокСостоянийОригинала.Picture</RowPictureDataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояний оригинала</v8:content>
+				</v8:item>
+			</Title>
+			<ShowCommandBar>auto</ShowCommandBar>
+			<ContextMenu name="СписокСостоянийОригиналаКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокСостоянийОригиналаКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
 				<ChildItems>
 					<Button name="УстановитьВсеФлажки" id="22">
 						<Type>CommandBarButton</Type>
@@ -56,32 +75,6 @@
 						<ExtendedTooltip name="СнятьВсеФлажкиРасширеннаяПодсказка" id="25"/>
 					</Button>
 				</ChildItems>
-			</ButtonGroup>
-		</ChildItems>
-	</AutoCommandBar>
-	<Events>
-		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
-	</Events>
-	<ChildItems>
-		<Table name="СписокСостоянийОригинала" id="1">
-			<Representation>List</Representation>
-			<RowSelectionMode>Cell</RowSelectionMode>
-			<Header>false</Header>
-			<HorizontalLinesBWA>false</HorizontalLinesBWA>
-			<VerticalLinesBWA>false</VerticalLinesBWA>
-			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-			<AutoInsertNewRow>true</AutoInsertNewRow>
-			<DataPath>СписокСостоянийОригинала</DataPath>
-			<RowPictureDataPath>СписокСостоянийОригинала.Picture</RowPictureDataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Состояний оригинала</v8:content>
-				</v8:item>
-			</Title>
-			<ContextMenu name="СписокСостоянийОригиналаКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокСостоянийОригиналаКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокСостоянийОригиналаРасширеннаяПодсказка" id="4"/>
 			<SearchStringAddition name="СписокСостоянийОригиналаСтрокаПоиска" id="5">
@@ -117,6 +110,9 @@
 							<v8:content>Пометка</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<CheckBoxType>CheckBox</CheckBoxType>
 					<ContextMenu name="СписокСостоянийОригиналаПометкаКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="СписокСостоянийОригиналаПометкаРасширеннаяПодсказка" id="21"/>
 				</CheckBoxField>
@@ -166,6 +162,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Выбрать</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="УстановитьВсеФлажки" id="2">
 			<Title>
@@ -185,7 +182,6 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>УстановитьВсеФлажки</Action>
-			<AssociatedTableElementId xsi:type="xs:string">СписокСостоянийОригинала</AssociatedTableElementId>
 		</Command>
 		<Command name="СнятьВсеФлажки" id="3">
 			<Title>
@@ -205,7 +201,6 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>СнятьВсеФлажки</Action>
-			<AssociatedTableElementId xsi:type="xs:string">СписокСостоянийОригинала</AssociatedTableElementId>
 		</Command>
 	</Commands>
 	<Parameters>

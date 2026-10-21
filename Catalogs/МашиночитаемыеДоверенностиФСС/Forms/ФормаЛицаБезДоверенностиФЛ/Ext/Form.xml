@@ -29,6 +29,7 @@
 			</Button>
 			<Button name="ФормаКнопкаОтмена" id="36">
 				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
 				<CommandName>Form.StandardCommand.Close</CommandName>
 				<Title>
 					<v8:item>
@@ -46,6 +47,13 @@
 	<ChildItems>
 		<InputField name="ЛицоБезДовФЛ_ФИО" id="44">
 			<DataPath>ЛицоБезДовФЛ_ФИО</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фамилия, имя, отчество</v8:content>
+				</v8:item>
+			</Title>
+			<TitleLocation>Left</TitleLocation>
 			<MarkRequiredComplete>true</MarkRequiredComplete>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<ChoiceButton>true</ChoiceButton>
@@ -60,31 +68,58 @@
 				<Event name="Clearing">ЛицоБезДовФЛ_ФИООчистка</Event>
 			</Events>
 		</InputField>
-		<InputField name="ЛицоБезДовФЛ_ИНН" id="53">
-			<DataPath>ЛицоБезДовФЛ_ИНН</DataPath>
-			<MarkRequiredComplete>true</MarkRequiredComplete>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<MaxWidth>12</MaxWidth>
-			<Mask>999999999999</Mask>
-			<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
-			<AutoMarkIncomplete>true</AutoMarkIncomplete>
-			<ContextMenu name="ЛицоБезДовФЛ_ИННКонтекстноеМеню" id="54"/>
-			<ExtendedTooltip name="ЛицоБезДовФЛ_ИННРасширеннаяПодсказка" id="55"/>
-		</InputField>
-		<InputField name="ЛицоБезДовФЛ_СНИЛС" id="59">
-			<DataPath>ЛицоБезДовФЛ_СНИЛС</DataPath>
-			<MarkRequiredComplete>true</MarkRequiredComplete>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<MaxWidth>14</MaxWidth>
-			<Mask>999-999-999 99</Mask>
-			<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
-			<AutoMarkIncomplete>true</AutoMarkIncomplete>
-			<ContextMenu name="ЛицоБезДовФЛ_СНИЛСКонтекстноеМеню" id="60"/>
-			<ExtendedTooltip name="ЛицоБезДовФЛ_СНИЛСРасширеннаяПодсказка" id="61"/>
-		</InputField>
+		<UsualGroup name="ГруппаИННСНИЛС" id="93">
+			<Group>AlwaysHorizontal</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаИННСНИЛСРасширеннаяПодсказка" id="94"/>
+			<ChildItems>
+				<InputField name="ЛицоБезДовФЛ_ИНН" id="53">
+					<DataPath>ЛицоБезДовФЛ_ИНН</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ИНН</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Left</TitleLocation>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
+					<MaxWidth>12</MaxWidth>
+					<Mask>999999999999</Mask>
+					<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="ЛицоБезДовФЛ_ИННКонтекстноеМеню" id="54"/>
+					<ExtendedTooltip name="ЛицоБезДовФЛ_ИННРасширеннаяПодсказка" id="55"/>
+				</InputField>
+				<InputField name="ЛицоБезДовФЛ_СНИЛС" id="59">
+					<DataPath>ЛицоБезДовФЛ_СНИЛС</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>СНИЛС</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Left</TitleLocation>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
+					<MaxWidth>14</MaxWidth>
+					<Mask>999-999-999 99</Mask>
+					<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="ЛицоБезДовФЛ_СНИЛСКонтекстноеМеню" id="60"/>
+					<ExtendedTooltip name="ЛицоБезДовФЛ_СНИЛСРасширеннаяПодсказка" id="61"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
 		<InputField name="ЛицоБезДовФЛ_ДатаРождения" id="65">
 			<DataPath>ЛицоБезДовФЛ_ДатаРождения</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата рождения</v8:content>
+				</v8:item>
+			</Title>
+			<TitleLocation>Left</TitleLocation>
 			<MarkRequiredComplete>true</MarkRequiredComplete>
+			<HorizontalStretch>false</HorizontalStretch>
 			<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
 			<AutoMarkIncomplete>true</AutoMarkIncomplete>
 			<ContextMenu name="ЛицоБезДовФЛ_ДатаРожденияКонтекстноеМеню" id="66"/>
@@ -216,6 +251,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Сохранить</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

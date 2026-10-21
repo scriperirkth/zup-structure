@@ -17,9 +17,30 @@
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
+		<ChildItems>
+			<Button name="ФормаПерейтиКНастройкам" id="200">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПерейтиКНастройкам</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Перейти к настройкам</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаПерейтиКНастройкамРасширеннаяПодсказка" id="201"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="179">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="180"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -55,6 +76,7 @@
 						</PictureDecoration>
 						<LabelDecoration name="НадписьПроверкаНастроекУчетнойЗаписи" id="163">
 							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -79,49 +101,82 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ПриПроверкеОбнаруженыОшибкиРасширеннаяПодсказка" id="4"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаЗаголовокПредупреждение" id="388">
+						<UsualGroup name="ГруппаОписаниеОшибки" id="388">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа1</v8:content>
+									<v8:content>Описание ошибки</v8:content>
 								</v8:item>
 							</Title>
+							<HorizontalStretch>true</HorizontalStretch>
 							<VerticalStretch>false</VerticalStretch>
 							<Group>AlwaysHorizontal</Group>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаЗаголовокПредупреждениеРасширеннаяПодсказка" id="389"/>
+							<ExtendedTooltip name="ГруппаОписаниеОшибкиРасширеннаяПодсказка" id="389"/>
 							<ChildItems>
-								<PictureDecoration name="КартинкаПредупреждение" id="13">
+								<PictureDecoration name="КартинкаОшибка" id="13">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Картинка ошибка</v8:content>
+										</v8:item>
+									</Title>
 									<GroupVerticalAlign>Center</GroupVerticalAlign>
 									<Picture>
-										<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
+										<xr:Ref>StdPicture.DialogStop</xr:Ref>
 										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
-									<ContextMenu name="КартинкаПредупреждениеКонтекстноеМеню" id="14"/>
-									<ExtendedTooltip name="КартинкаПредупреждениеРасширеннаяПодсказка" id="15"/>
+									<ContextMenu name="КартинкаОшибкаКонтекстноеМеню" id="14"/>
+									<ExtendedTooltip name="КартинкаОшибкаРасширеннаяПодсказка" id="15"/>
 								</PictureDecoration>
-								<InputField name="СообщенияОбОшибках" id="444">
-									<DataPath>СообщенияОбОшибках</DataPath>
-									<ReadOnly>true</ReadOnly>
+								<UsualGroup name="ГруппаТекстОшибки" id="479">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Сообщения об ошибках</v8:content>
+											<v8:content>Текст ошибки</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>None</TitleLocation>
-									<GroupVerticalAlign>Center</GroupVerticalAlign>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<Height>2</Height>
-									<AutoMaxHeight>false</AutoMaxHeight>
-									<MultiLine>true</MultiLine>
-									<BackColor>style:FormBackColor</BackColor>
-									<BorderColor>style:FormBackColor</BorderColor>
-									<ContextMenu name="СообщенияОбОшибкахКонтекстноеМеню" id="445"/>
-									<ExtendedTooltip name="СообщенияОбОшибкахРасширеннаяПодсказка" id="446"/>
-								</InputField>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаТекстОшибкиРасширеннаяПодсказка" id="480"/>
+									<ChildItems>
+										<LabelField name="СообщенияОбОшибках" id="475">
+											<DataPath>СообщенияОбОшибках</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Сообщения об ошибках</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<HorizontalStretch>true</HorizontalStretch>
+											<VerticalStretch>true</VerticalStretch>
+											<ContextMenu name="СообщенияОбОшибкахКонтекстноеМеню" id="476"/>
+											<ExtendedTooltip name="СообщенияОбОшибкахРасширеннаяПодсказка" id="477"/>
+										</LabelField>
+										<LabelDecoration name="ДекорацияТехническиеПодробности" id="441">
+											<TextColor>pal:SecondBrand</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Подробнее</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ДекорацияТехническиеПодробностиКонтекстноеМеню" id="442"/>
+											<ExtendedTooltip name="ДекорацияТехническиеПодробностиРасширеннаяПодсказка" id="443"/>
+											<Events>
+												<Event name="Click">ДекорацияТехническиеПодробностиНажатие</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="ГруппаРекомендацииВозможныеПричины" id="338">
@@ -135,6 +190,7 @@
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
+							<ScrollOnCompress>true</ScrollOnCompress>
 							<ExtendedTooltip name="ГруппаРекомендацииВозможныеПричиныРасширеннаяПодсказка" id="339"/>
 							<ChildItems>
 								<UsualGroup name="ГруппаРекомендации" id="340">
@@ -146,10 +202,11 @@
 									</Title>
 									<Group>HorizontalIfPossible</Group>
 									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
 									<ExtendedTooltip name="ГруппаРекомендацииРасширеннаяПодсказка" id="341"/>
 									<ChildItems>
 										<LabelDecoration name="ДекорацияРекомендации" id="269">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>80</MaxWidth>
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -173,10 +230,11 @@
 									</Title>
 									<Group>HorizontalIfPossible</Group>
 									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
 									<ExtendedTooltip name="ГруппаВозможныеПричиныРасширеннаяПодсказка" id="346"/>
 									<ChildItems>
 										<LabelDecoration name="ДекорацияВозможныеПричины" id="266">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>80</MaxWidth>
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -193,21 +251,6 @@
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
-						<LabelDecoration name="ДекорацияТехническиеПодробности" id="441">
-							<TextColor>style:AccentColor</TextColor>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Технические подробности</v8:content>
-								</v8:item>
-							</Title>
-							<Hyperlink>true</Hyperlink>
-							<ContextMenu name="ДекорацияТехническиеПодробностиКонтекстноеМеню" id="442"/>
-							<ExtendedTooltip name="ДекорацияТехническиеПодробностиРасширеннаяПодсказка" id="443"/>
-							<Events>
-								<Event name="Click">ДекорацияТехническиеПодробностиНажатие</Event>
-							</Events>
-						</LabelDecoration>
 					</ChildItems>
 				</Page>
 				<Page name="ПроверкаУспешноВыполнена" id="166">
@@ -272,6 +315,8 @@
 									</Title>
 									<TitleLocation>None</TitleLocation>
 									<VerticalAlign>Top</VerticalAlign>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<HorizontalStretch>true</HorizontalStretch>
 									<VerticalStretch>true</VerticalStretch>
 									<ContextMenu name="ВыполненныеПроверкиКонтекстноеМеню" id="182"/>
@@ -302,14 +347,29 @@
 								</v8:item>
 							</Title>
 							<TitleTextColor>style:AccentColor</TitleTextColor>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<AutoMaxHeight>false</AutoMaxHeight>
 							<MultiLine>true</MultiLine>
 							<BackColor>style:FormBackColor</BackColor>
-							<BorderColor>style:FormBackColor</BorderColor>
 							<ContextMenu name="ИнформацияДляПоддержкиКонтекстноеМеню" id="450"/>
 							<ExtendedTooltip name="ИнформацияДляПоддержкиРасширеннаяПодсказка" id="451"/>
 						</InputField>
+						<LabelDecoration name="ГиперссылкаСвернутьПодробности" id="481">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Свернуть</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<ContextMenu name="ГиперссылкаСвернутьПодробностиКонтекстноеМеню" id="482"/>
+							<ExtendedTooltip name="ГиперссылкаСвернутьПодробностиРасширеннаяПодсказка" id="483"/>
+							<Events>
+								<Event name="Click">ГиперссылкаСвернутьПодробностиНажатие</Event>
+							</Events>
+						</LabelDecoration>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -321,7 +381,9 @@
 					<v8:content>Подвал</v8:content>
 				</v8:item>
 			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
 			<Group>HorizontalIfPossible</Group>
+			<HorizontalAlign>Left</HorizontalAlign>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаПодвалРасширеннаяПодсказка" id="366"/>
@@ -336,7 +398,6 @@
 					<GroupVerticalAlign>Center</GroupVerticalAlign>
 					<Group>Vertical</Group>
 					<Behavior>PopUp</Behavior>
-					<Representation>WeakSeparation</Representation>
 					<ExtendedTooltip name="ГруппаТребуетсяПомощьРасширеннаяПодсказка" id="370"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаОбращенияВТехническуюПоддержку" id="468">
@@ -352,7 +413,6 @@
 							<ExtendedTooltip name="ГруппаОбращенияВТехническуюПоддержкуРасширеннаяПодсказка" id="469"/>
 							<ChildItems>
 								<LabelDecoration name="ОписаниеОбращенияВПоддержку" id="425">
-									<AutoMaxWidth>false</AutoMaxWidth>
 									<ContextMenu name="ОписаниеОбращенияВПоддержкуКонтекстноеМеню" id="426"/>
 									<ExtendedTooltip name="ОписаниеОбращенияВПоддержкуРасширеннаяПодсказка" id="427"/>
 								</LabelDecoration>
@@ -390,48 +450,6 @@
 						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
-				<CommandBar name="КоманднаяПанель" id="367">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа1</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalLocation>Right</HorizontalLocation>
-					<CommandSource>Form</CommandSource>
-					<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="368"/>
-					<ChildItems>
-						<Button name="ФормаНазад" id="418">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.Назад</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>&lt; Назад</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ФормаНазадРасширеннаяПодсказка" id="419"/>
-						</Button>
-						<Button name="ФормаПерейтиКНастройкам" id="200">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.ПерейтиКНастройкам</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Перейти к настройкам</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ФормаПерейтиКНастройкамРасширеннаяПодсказка" id="201"/>
-						</Button>
-						<Button name="ФормаЗакрыть" id="179">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<CommandName>Form.StandardCommand.Close</CommandName>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="180"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -541,6 +559,7 @@
 				</v8:item>
 			</Title>
 			<Action>ПерейтиКНастройкам</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ВопросВПоддержку" id="4">
 			<Title>
@@ -559,15 +578,6 @@
 				</v8:item>
 			</Title>
 			<Action>ИнформацияДляОтправкиВПоддержку</Action>
-		</Command>
-		<Command name="Назад" id="6">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>&lt; Назад</v8:content>
-				</v8:item>
-			</Title>
-			<Action>Назад</Action>
 		</Command>
 	</Commands>
 	<Parameters>

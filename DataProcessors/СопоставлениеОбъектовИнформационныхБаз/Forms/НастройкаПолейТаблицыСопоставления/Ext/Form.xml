@@ -4,6 +4,22 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Применить" id="8">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.Применить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Применить</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ПрименитьExtendedTooltip" id="26"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -11,8 +27,10 @@
 	<ChildItems>
 		<Table name="СписокПолей" id="1">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<SkipOnInput>false</SkipOnInput>
 			<ChangeRowSet>false</ChangeRowSet>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<Header>false</Header>
 			<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -36,37 +54,26 @@
 				<ExcludedCommand>Delete</ExcludedCommand>
 				<ExcludedCommand>EndEdit</ExcludedCommand>
 				<ExcludedCommand>Pickup</ExcludedCommand>
-				<ExcludedCommand>SelectAll</ExcludedCommand>
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>false</ShowCommandBar>
 			<ContextMenu name="СписокПолейКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="СписокПолейКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
 				<ChildItems>
-					<Button name="СписокПолейУстановитьФлажки" id="11">
+					<Button name="ПереместитьВверх" id="50">
 						<Type>CommandBarButton</Type>
-						<SkipOnInput>false</SkipOnInput>
-						<CommandName>Form.Item.СписокПолей.StandardCommand.CheckAll</CommandName>
-						<ExtendedTooltip name="СписокПолейУстановитьФлажкиExtendedTooltip" id="18"/>
-					</Button>
-					<Button name="СписокПолейСнятьФлажки" id="12">
-						<Type>CommandBarButton</Type>
-						<SkipOnInput>false</SkipOnInput>
-						<CommandName>Form.Item.СписокПолей.StandardCommand.UncheckAll</CommandName>
-						<ExtendedTooltip name="СписокПолейСнятьФлажкиExtendedTooltip" id="19"/>
-					</Button>
-					<Button name="СписокПолейПереместитьВверх" id="13">
-						<Type>CommandBarButton</Type>
-						<SkipOnInput>false</SkipOnInput>
 						<CommandName>Form.Item.СписокПолей.StandardCommand.MoveUp</CommandName>
-						<ExtendedTooltip name="СписокПолейПереместитьВверхExtendedTooltip" id="20"/>
+						<RepresentationInContextMenu>OnlyInContextMenu</RepresentationInContextMenu>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+						<ExtendedTooltip name="ПереместитьВверхРасширеннаяПодсказка" id="51"/>
 					</Button>
-					<Button name="СписокПолейПереместитьВниз" id="14">
+					<Button name="ПереместитьВниз" id="48">
 						<Type>CommandBarButton</Type>
-						<SkipOnInput>false</SkipOnInput>
 						<CommandName>Form.Item.СписокПолей.StandardCommand.MoveDown</CommandName>
-						<ExtendedTooltip name="СписокПолейПереместитьВнизExtendedTooltip" id="21"/>
+						<RepresentationInContextMenu>OnlyInContextMenu</RepresentationInContextMenu>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+						<ExtendedTooltip name="ПереместитьВнизРасширеннаяПодсказка" id="49"/>
 					</Button>
 				</ChildItems>
 			</AutoCommandBar>
@@ -106,8 +113,12 @@
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<CheckBoxType>CheckBox</CheckBoxType>
 					<ContextMenu name="СписокПолейПометкаКонтекстноеМеню" id="7"/>
 					<ExtendedTooltip name="СписокПолейПометкаExtendedTooltip" id="23"/>
+					<Events>
+						<Event name="OnChange">СписокПолейПометкаПриИзменении</Event>
+					</Events>
 				</CheckBoxField>
 				<InputField name="СписокПолейПредставление" id="16">
 					<DataPath>СписокПолей.Presentation</DataPath>
@@ -125,45 +136,6 @@
 				</InputField>
 			</ChildItems>
 		</Table>
-		<CommandBar name="ПанельКнопок" id="15">
-			<EnableContentChange>true</EnableContentChange>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Панель кнопок</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="ПанельКнопокExtendedTooltip" id="25"/>
-			<ChildItems>
-				<Button name="Применить" id="8">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.Command.Применить</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Применить</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ПрименитьExtendedTooltip" id="26"/>
-				</Button>
-				<Button name="Отмена" id="10">
-					<Type>CommandBarButton</Type>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.Command.Отмена</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Отмена</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ОтменаExtendedTooltip" id="27"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="СписокПолей" id="1">
@@ -195,22 +167,7 @@
 			</ToolTip>
 			<Action>Применить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="Отмена" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Отмена</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

@@ -3,13 +3,7 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<Group>Vertical</Group>
-	<MobileDeviceCommandBarContent>
-		<xr:Item>
-			<xr:Presentation/>
-			<xr:CheckState>0</xr:CheckState>
-			<xr:Value xsi:type="xs:string"/>
-		</xr:Item>
-	</MobileDeviceCommandBarContent>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
@@ -23,7 +17,15 @@
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВыбрать" id="75">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Item.ДеревоВариантовОтчета.StandardCommand.Choose</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="76"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -52,6 +54,8 @@
 							<v8:content>Автор</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ClearButton>true</ClearButton>
 					<ContextMenu name="ОтборАвторКонтекстноеМеню" id="57"/>
 					<ExtendedTooltip name="ОтборАвторРасширеннаяПодсказка" id="58"/>
@@ -61,99 +65,18 @@
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
-		<CommandBar name="ОсновнаяКоманднаяПанель" id="27">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Основная командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="ОсновнаяКоманднаяПанельРасширеннаяПодсказка" id="33"/>
-			<ChildItems>
-				<Button name="Выбрать" id="6" DisplayImportance="VeryHigh">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Item.ДеревоВариантовОтчета.StandardCommand.Choose</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="34"/>
-				</Button>
-				<Button name="Изменить" id="7">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Item.ДеревоВариантовОтчета.StandardCommand.Change</CommandName>
-					<ExtendedTooltip name="ИзменитьРасширеннаяПодсказка" id="35"/>
-				</Button>
-				<Button name="Удалить" id="15">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Item.ДеревоВариантовОтчета.StandardCommand.Delete</CommandName>
-					<Picture>
-						<xr:Ref>StdPicture.MarkToDelete</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</Picture>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Пометить на удаление / Снять пометку</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="УдалитьРасширеннаяПодсказка" id="36"/>
-				</Button>
-				<Button name="ПоказыватьЛичныеВариантыОтчетовДругихАвторов" id="13">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.ПоказыватьЛичныеВариантыОтчетовДругихАвторов</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Показывать личные варианты отчетов других авторов</v8:content>
-						</v8:item>
-					</Title>
-					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-					<ExtendedTooltip name="ПоказыватьЛичныеВариантыОтчетовДругихАвторовРасширеннаяПодсказка" id="37"/>
-				</Button>
-				<Button name="ФормаОбновить" id="28">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.Обновить</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Обновить</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="38"/>
-				</Button>
-				<ButtonGroup name="КоманднаяПанельДерева" id="8">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Командная панель дерева</v8:content>
-						</v8:item>
-					</Title>
-					<CommandSource>Item.ДеревоВариантовОтчета</CommandSource>
-					<ExtendedTooltip name="КоманднаяПанельДереваРасширеннаяПодсказка" id="39"/>
-					<ChildItems>
-						<SearchStringAddition name="СтрокаПоиска" id="59">
-							<AdditionSource>
-								<Item>ДеревоВариантовОтчета</Item>
-								<Type>SearchStringRepresentation</Type>
-							</AdditionSource>
-							<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="60"/>
-							<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="61"/>
-						</SearchStringAddition>
-					</ChildItems>
-				</ButtonGroup>
-			</ChildItems>
-		</CommandBar>
 		<Table name="ДеревоВариантовОтчета" id="1">
 			<Representation>Tree</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
+			<CommandBarLocation>Top</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
-			<Height>9</Height>
+			<HeightInTableRows>7</HeightInTableRows>
 			<ChoiceMode>true</ChoiceMode>
 			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<InitialTreeView>ExpandAllLevels</InitialTreeView>
+			<RowActionsShowType>ShowOnHover</RowActionsShowType>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
 			<FileDragMode>AsFile</FileDragMode>
@@ -171,6 +94,7 @@
 			</Title>
 			<CommandSet>
 				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
 				<ExcludedCommand>Copy</ExcludedCommand>
 				<ExcludedCommand>EndEdit</ExcludedCommand>
 				<ExcludedCommand>HierarchicalList</ExcludedCommand>
@@ -179,8 +103,20 @@
 				<ExcludedCommand>MoveUp</ExcludedCommand>
 				<ExcludedCommand>Tree</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>true</ShowCommandBar>
 			<ContextMenu name="ДеревоВариантовОтчетаКонтекстноеМеню" id="2">
 				<ChildItems>
+					<Button name="ДеревоВариантовОтчетаКонтекстноеМенюИзменитьВариант" id="84" DisplayImportance="Usual">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ИзменитьВариант</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Изменить</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ДеревоВариантовОтчетаКонтекстноеМенюИзменитьВариантРасширеннаяПодсказка" id="85"/>
+					</Button>
 					<Button name="УдалитьКМ" id="16">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Item.ДеревоВариантовОтчета.StandardCommand.Delete</CommandName>
@@ -210,7 +146,49 @@
 				</ChildItems>
 			</ContextMenu>
 			<AutoCommandBar name="ДеревоВариантовОтчетаКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ФормаВыбратьЕще" id="77" DisplayImportance="High">
+						<Type>CommandBarButton</Type>
+						<Visible>false</Visible>
+						<CommandName>Form.Item.ДеревоВариантовОтчета.StandardCommand.Choose</CommandName>
+						<ExtendedTooltip name="ФормаВыбратьЕщеРасширеннаяПодсказка" id="78"/>
+					</Button>
+					<Button name="ДеревоВариантовОтчетаОбновить" id="87">
+						<Type>CommandBarButton</Type>
+						<Representation>Text</Representation>
+						<CommandName>Form.Command.Обновить</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Обновить</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ДеревоВариантовОтчетаОбновитьРасширеннаяПодсказка" id="88"/>
+					</Button>
+					<Button name="ДеревоВариантовОтчетаИзменитьВариант" id="82">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ИзменитьВариант</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Изменить</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ДеревоВариантовОтчетаИзменитьВариантРасширеннаяПодсказка" id="83"/>
+					</Button>
+					<Button name="ПоказыватьЛичныеВариантыОтчетовДругихАвторов" id="13" DisplayImportance="VeryHigh">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПоказыватьЛичныеВариантыОтчетовДругихАвторов</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Показывать личные варианты отчетов других авторов</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ПоказыватьЛичныеВариантыОтчетовДругихАвторовРасширеннаяПодсказка" id="37"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ДеревоВариантовОтчетаРасширеннаяПодсказка" id="42"/>
 			<SearchStringAddition name="ДеревоВариантовОтчетаSearchString" id="47">
@@ -256,6 +234,7 @@
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<TextEdit>false</TextEdit>
 					<ContextMenu name="ДеревоВариантовОтчетаПредставлениеКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="ДеревоВариантовОтчетаПредставлениеРасширеннаяПодсказка" id="43"/>
@@ -276,12 +255,8 @@
 						</v8:item>
 					</ToolTip>
 					<EditMode>EnterOnInput</EditMode>
-					<HeaderPicture>
-						<xr:Ref>CommonPicture.ВариантыОтчетовДоступныеВсемПользователям</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</HeaderPicture>
 					<AutoEditMode>true</AutoEditMode>
-					<Width>2</Width>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<HorizontalStretch>false</HorizontalStretch>
 					<VerticalStretch>false</VerticalStretch>
 					<ValuesPicture>
@@ -302,6 +277,7 @@
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="ДеревоВариантовОтчетаАвторКонтекстноеМеню" id="19"/>
 					<ExtendedTooltip name="ДеревоВариантовОтчетаАвторРасширеннаяПодсказка" id="45"/>
 				</InputField>
@@ -316,6 +292,7 @@
 					<TitleLocation>None</TitleLocation>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ValuesPicture>
 						<xr:Ref>CommonPicture.НазначенияВариантовОтчетов</xr:Ref>
 						<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -327,18 +304,27 @@
 		</Table>
 		<InputField name="ВариантОписание" id="11">
 			<DataPath>ВариантОписание</DataPath>
-			<ReadOnly>true</ReadOnly>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Описание</v8:content>
 				</v8:item>
 			</Title>
-			<TitleLocation>Left</TitleLocation>
+			<TitleLocation>None</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
 			<Height>2</Height>
 			<HorizontalStretch>true</HorizontalStretch>
 			<VerticalStretch>false</VerticalStretch>
 			<MultiLine>true</MultiLine>
+			<TextEdit>false</TextEdit>
+			<InputHint>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Описание варианта отчета отсутствует</v8:content>
+				</v8:item>
+			</InputHint>
 			<ContextMenu name="ВариантОписаниеКонтекстноеМеню" id="12"/>
 			<ExtendedTooltip name="ВариантОписаниеРасширеннаяПодсказка" id="46"/>
 		</InputField>
@@ -567,26 +553,6 @@
 			<Action>ПоказыватьЛичныеВариантыОтчетовДругихАвторов</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
-		<Command name="Выбрать" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
 		<Command name="Обновить" id="3">
 			<Title>
 				<v8:item>
@@ -607,6 +573,27 @@
 			</Picture>
 			<Action>Обновить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ИзменитьВариант" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить вариант</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Change</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ИзменитьВариант</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоВариантовОтчета</AssociatedTableElementId>
 		</Command>
 	</Commands>
 	<Parameters>

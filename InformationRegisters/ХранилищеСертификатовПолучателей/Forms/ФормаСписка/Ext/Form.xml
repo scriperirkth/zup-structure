@@ -9,14 +9,14 @@
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
-			<Button name="ФормаВыгрузитьСертификат" id="37">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ВыгрузитьСертификат</CommandName>
-				<ExtendedTooltip name="ФормаВыгрузитьСертификатРасширеннаяПодсказка" id="38"/>
-			</Button>
 			<Button name="ФормаЗагрузитьСертификат" id="39">
 				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
 				<CommandName>Form.Command.ЗагрузитьСертификат</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.OpenFile</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
 				<ExtendedTooltip name="ФормаЗагрузитьСертификатРасширеннаяПодсказка" id="40"/>
 			</Button>
 		</ChildItems>
@@ -38,7 +38,6 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -51,6 +50,7 @@
 				<ExcludedCommand>Copy</ExcludedCommand>
 				<ExcludedCommand>Create</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -68,7 +68,18 @@
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
-				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ФормаВыгрузитьСертификат" id="37">
+						<Type>CommandBarButton</Type>
+						<Representation>PictureAndText</Representation>
+						<CommandName>Form.Command.ВыгрузитьСертификат</CommandName>
+						<Picture>
+							<xr:Ref>CommonPicture.ВыгрузитьФайлМонохромная</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="ФормаВыгрузитьСертификатРасширеннаяПодсказка" id="38"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
@@ -187,12 +198,10 @@
 					<v8:content>Выгрузить сертификат</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.SaveFile</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
-			</Picture>
 			<Action>ВыгрузитьСертификат</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ЗагрузитьСертификат" id="2">
 			<Title>
@@ -207,12 +216,9 @@
 					<v8:content>Загрузить сертификат</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.OpenFile</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
-			</Picture>
 			<Action>ЗагрузитьСертификат</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

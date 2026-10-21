@@ -10,6 +10,7 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<HorizontalAlign>Center</HorizontalAlign>
+	<Customizable>false</Customizable>
 	<CommandBarLocation>None</CommandBarLocation>
 	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
@@ -18,14 +19,12 @@
 	</Events>
 	<ChildItems>
 		<UsualGroup name="ГруппаВыборГода" id="99">
-			<Visible>false</Visible>
 			<HorizontalStretch>true</HorizontalStretch>
 			<Group>Horizontal</Group>
 			<HorizontalAlign>Center</HorizontalAlign>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<BackColor>#FCEB9F</BackColor>
 			<ExtendedTooltip name="ГруппаВыборГодаРасширеннаяПодсказка" id="100"/>
 			<ChildItems>
 				<Button name="ПерейтиНаГодНазад" id="90">
@@ -35,20 +34,17 @@
 					<ShapeRepresentation>WhenActive</ShapeRepresentation>
 					<ExtendedTooltip name="ПерейтиНаГодНазадРасширеннаяПодсказка" id="91"/>
 				</Button>
-				<LabelField name="ДатаНачалаГода" id="92">
-					<DataPath>ДатаНачалаГода</DataPath>
+				<InputField name="ПредставлениеГода" id="181">
+					<DataPath>ПредставлениеГода</DataPath>
+					<ReadOnly>true</ReadOnly>
 					<TitleLocation>None</TitleLocation>
 					<HorizontalAlign>Center</HorizontalAlign>
-					<Format>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ДФ='yyyy "год"'</v8:content>
-						</v8:item>
-					</Format>
-					<Font ref="style:ШрифтЗаполненияРазделаПоДаннымДругихРазделов" kind="StyleItem"/>
-					<ContextMenu name="ДатаНачалаГодаКонтекстноеМеню" id="93"/>
-					<ExtendedTooltip name="ДатаНачалаГодаРасширеннаяПодсказка" id="94"/>
-				</LabelField>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="ПредставлениеГодаКонтекстноеМеню" id="182"/>
+					<ExtendedTooltip name="ПредставлениеГодаРасширеннаяПодсказка" id="183"/>
+				</InputField>
 				<Button name="ПерейтиНаГодВперед" id="95">
 					<Type>UsualButton</Type>
 					<CommandName>Form.Command.ПерейтиНаГодВперед</CommandName>
@@ -66,7 +62,6 @@
 			<ExtendedTooltip name="ГруппаВыборПериодаРасширеннаяПодсказка" id="177"/>
 			<ChildItems>
 				<UsualGroup name="Месяцы" id="178">
-					<Visible>false</Visible>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -267,13 +262,28 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
+		<Attribute name="ПредставлениеГода" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление года</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="ПерейтиНаГодНазад" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>&lt;</v8:content>
+					<v8:content>Перейти на год назад</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -282,14 +292,19 @@
 					<v8:content>Перейти на год назад</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GoBack</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>ПерейтиНаГодНазад</Action>
+			<Representation>Picture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ПерейтиНаГодВперед" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>&gt;</v8:content>
+					<v8:content>Перейти на год вперед</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -298,7 +313,12 @@
 					<v8:content>Перейти на год вперед</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GoForward</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>ПерейтиНаГодВперед</Action>
+			<Representation>Picture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ВыбратьМесяц1" id="3">

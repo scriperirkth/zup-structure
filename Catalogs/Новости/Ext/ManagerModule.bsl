@@ -41,267 +41,8 @@
 		ЗаполнитьЗначенияСвойств(ПараметрыОтображенияЭталон, ПараметрыОтображения);
 	КонецЕсли;
 
-	ШаблонТекстХТМЛ = "
-		|<!DOCTYPE HTML PUBLIC ""-//W3C//DTD HTML 4.01 Transitional//EN"">
-		|<html>
-		|	<head>
-		|		<!-- Здесь можно вставить свои теги для заголовка -->
-		|		<style type=""text/css"">
-		|			/* Основные параметры текста */
-		|			body {
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				font-size: 10pt; /* Размер основного шрифта в пунктах */
-		|			}
-		|
-		|			/* Блок заголовка 1 уровня */
-		|			h1 {
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				font-weight: bold;
-		|				font-style: normal;
-		|				font-size: 150%; /* Размер основного шрифта в процентах */
-		|				margin-left: 0em;
-		|				margin-bottom: 0.5em;
-		|			}
-		|
-		|			/* Блок заголовка 2 уровня */
-		|			h2 {
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				font-weight: bold;
-		|				font-style: normal;
-		|				font-size: 140%; /* Размер основного шрифта в процентах */
-		|				margin-left: 0.5em;
-		|				margin-bottom: 0.5em;
-		|			}
-		|
-		|			/* Блок заголовка 3 уровня */
-		|			h3 {
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				font-weight: bold;
-		|				font-style: normal;
-		|				font-size: 130%; /* Размер основного шрифта в процентах */
-		|				margin-left: 2em;
-		|				margin-bottom: 0.5em;
-		|			}
-		|
-		|			/* Блок заголовка 4 уровня */
-		|			h4 {
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				font-weight: bold;
-		|				font-style: normal;
-		|				font-size: 120%; /* Размер основного шрифта в процентах */
-		|				margin-left: 2.5em;
-		|				margin-bottom: 0.5em;
-		|			}
-		|
-		|			/* Блок заголовка 5 уровня */
-		|			h5 {
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				font-weight: bold;
-		|				font-style: normal;
-		|				font-size: 120%; /* Размер основного шрифта в процентах */
-		|				margin-left: 3em;
-		|				margin-bottom: 0.5em;
-		|			}
-		|
-		|			/* Блок заголовка 6 уровня */
-		|			h6 {
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				font-weight: bold;
-		|				font-style: normal;
-		|				font-size: 120%; /* Размер основного шрифта в процентах */
-		|				margin-left: 3.5em;
-		|				margin-bottom: 0.5em;
-		|			}
-		|
-		|			/* Блок Длинная цитата */
-		|			blockquote {
-		|				font-family: monospace; /* Семейство шрифтов */
-		|				font-style: normal;
-		|				color: #808080;
-		|				background-color: #F0F0DA;
-		|			}
-		|
-		|			/* Блок Короткая цитата */
-		|			q {
-		|				font-family: monospace; /* Семейство шрифтов */
-		|				font-style: normal;
-		|				color: #808080;
-		|				background-color: #F0F0DA;
-		|			}
-		|
-		|			/* Блок Источник цитаты */
-		|			cite {
-		|				font-family: monospace; /* Семейство шрифтов */
-		|				font-style: normal;
-		|				color: #808080;
-		|				background-color: #F0F0DA;
-		|			}
-		|
-		|			/* Блок Ввод с клавиатуры */
-		|			kbd {
-		|				font-family: monospace; /* Семейство шрифтов */
-		|				background-color: #E6E6E6;
-		|				border-width:thin;
-		|				border-style: outset;
-		|				border-color: #FFFBF0;
-		|				padding-left: 2px;
-		|				padding-right: 4px; 
-		|			}
-		|
-		|			/* Блок Программный код */
-		|			code {
-		|				font-family: monospace; /* Семейство шрифтов */
-		|				color: #3366FF;
-		|				background-color: #FFFFD5;
-		|			}
-		|
-		|			/* Блок Акцентированный текст */
-		|			em {
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				font-weight: bolder;
-		|			}
-		|
-		|			/* Блок Акцентированный текст, приоритет */
-		|			em.priority {
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				color: red;
-		|			}
-		|
-		|			/* Блок Акцентированный текст, приоритет завершился по сроку */
-		|			em.priority_ended {
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				color: grey;
-		|			}
-		|
-		|			/* Блок Акцентированный текст, иконка приоритета */
-		|			em.priority_icon {
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				color: red;
-		|			}
-		|
-		|			/* Блок Параграф */
-		|			p {
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				font-style: normal;
-		|				font-weight: normal;
-		|				margin-bottom: 0.25em;
-		|			}
-		|
-		|			/* Блок список маркированный */
-		|			ul {
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				font-style: normal;
-		|				font-weight: normal;
-		|				margin-bottom: 0.25em;
-		|			}
-		|
-		|			/* Блок список нумерованный */
-		|			ol {
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				font-style: normal;
-		|				font-weight: normal;
-		|				margin-bottom: 0.25em;
-		|			}
-		|
-		|			/* Блок элемент списка */
-		|			li {
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				font-style: normal;
-		|				font-weight: normal;
-		|			}
-		|
-		|			/* Цвет неактуальной новости */
-		|			div.outofdate{
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				color: grey;
-		|			}
-		|
-		|			/* Цвет актуальной новости */
-		|			div.actual{
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				color: black;
-		|			}
-		|
-		|			/* Блок информации о важности или актуальности */
-		|			div#importanceData{
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				font-weight: bold;
-		|				font-style: normal;
-		|				font-size: 8pt; /* Размер основного шрифта в пунктах */
-		|				margin-bottom: 0.5em;
-		|			}
-		|
-		|			/* Блок информации Весь текст новости */
-		|			div#newsData{
-		|				font-family: Arial; /* Семейство шрифтов */
-		|			}
-		|
-		|			/* Блок информации Заголовок */
-		|			div#newsHeader{
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				font-weight: bold;
-		|				margin-bottom: 0.5em;
-		|			}
-		|
-		|			/* Блок информации Только текст новости */
-		|			div#newsText{
-		|				font-family: Arial; /* Семейство шрифтов */
-		|			}
-		|
-		|			/* Блок информации о категориях */
-		|			div#newsCategories{
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				color: grey;
-		|				font-style: italic;
-		|				font-size: 8pt; /* Размер основного шрифта в пунктах */
-		|				margin-top: 1em;
-		|			}
-		|
-		|			/* Блок информации о простых категориях */
-		|			div#newsCategoriesSimple{
-		|			}
-		|
-		|			/* Блок информации о категориях интервалы версий */
-		|			div#newsCategoriesVersions{
-		|			}
-		|
-		|			/* Блок информации ссылка на полный текст новости */
-		|			div#newsHyperlink{
-		|				font-family: Arial; /* Семейство шрифтов */
-		|				margin-top: 2em;
-		|			}
-		|
-		|			/* Гиперссылка, не посещенная */
-		|			a:link {
-		|			}
-		|
-		|			/* Гиперссылка, посещенная */
-		|			a:visited {
-		|			}
-		|
-		|			/* Гиперссылка при наведении курсора мыши */
-		|			a:hover {
-		|				background: #B8D7EB;
-		|			}
-		|
-		|			/* Класс для всех горизонтальных линий */
-		|			hr {
-		|				color: #C8C8C8;
-		|			}
-		|
-		|			/* Класс для скрытия блоков текста */
-		|			.hidden {
-		|				display: none;
-		|			}
-		|
-		|			/* Здесь можно вставить свои стили */
-		|
-		|		</style>
-		|	</head>
-		|	<body>
-		|		%Новости%
-		|	</body>
-		|</html>";
+	// Платформу 8.5 могут запустить в режиме совместимости интерфейса "Такси", а там НЕ работают переменные --color*
+	ШаблонТекстХТМЛ = ОбработкаНовостейПовтИсп.ПолучитьШаблонНовостиСоСтилями();
 
 	ШаблонНовостиХТМЛ = "
 		|
@@ -310,9 +51,9 @@
 		|				%Заголовок%
 		|			</h1>
 		|			<div id=""importanceData"">
-		|				<a id=""publishDate"">%ДатаПубликации%</a>
+		|				<span id=""publishDate"">%ДатаПубликации%</span>
 		|				&nbsp;
-		|				<a id=""importanceCaption"">%ИнформацияОВажности%</a>
+		|				<span id=""importanceCaption"">%ИнформацияОВажности%</span>
 		|			</div>
 		|			<div id=""newsData"" class=""%КлассАктуальности%"">
 		|				<div id=""newsText"">
@@ -606,7 +347,7 @@
 	// ДатаПубликации хранится в часовом поясе UTC+0, надо привести к текущему часовому поясу.
 
 	ШаблонТекстХТМЛ = "
-		|<!DOCTYPE HTML PUBLIC ""-//W3C//DTD HTML 4.01 Transitional//EN"">
+		|<!DOCTYPE html>
 		|<html>
 		|	<head>
 		|		<style type=""text/css"">
@@ -1508,12 +1249,12 @@
 
 #Область ИнтеграцияСБиблиотекойСтандартныхПодсистем
 
-// См. СтандартныеПодсистемыСервер.ПриОпределенииМетодовРазрешенныхДляВызоваКакПроизвольныйКод"
+// См. СтандартныеПодсистемыСервер.ПриОпределенииМетодовРазрешенныхДляВызоваКакПроизвольныйКод
 //
 Процедура ПриОпределенииМетодовРазрешенныхДляВызоваКакПроизвольныйКод(Методы) Экспорт
-
+	
 	Методы.Вставить("ПолучитьСписокНовостейВФоне", Истина);
-
+	
 КонецПроцедуры
 
 #КонецОбласти

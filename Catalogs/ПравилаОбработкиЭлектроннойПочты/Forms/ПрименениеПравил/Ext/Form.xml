@@ -5,6 +5,21 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Применить" id="13">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Применить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Применить</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="26"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -31,7 +46,8 @@
 							<v8:content>Для писем в папке</v8:content>
 						</v8:item>
 					</Title>
-					<MarkRequiredComplete>true</MarkRequiredComplete>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<ChoiceParameterLinks>
 						<xr:Link>
@@ -52,6 +68,8 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ВключаяПодчиненныеКонтекстноеМеню" id="12"/>
 					<ExtendedTooltip name="ВключаяПодчиненныеРасширеннаяПодсказка" id="25"/>
 				</CheckBoxField>
@@ -59,6 +77,7 @@
 		</UsualGroup>
 		<Table name="ПрименяемыеПравила" id="1">
 			<Representation>List</Representation>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -88,19 +107,6 @@
 			<AutoCommandBar name="ПрименяемыеПравилаКоманднаяПанель" id="3">
 				<Autofill>false</Autofill>
 				<ChildItems>
-					<Button name="Применить" id="13">
-						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.Применить</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Применить</v8:content>
-							</v8:item>
-						</Title>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="26"/>
-					</Button>
 					<ButtonGroup name="ПрименяемыеПравилаГруппа" id="45">
 						<Title>
 							<v8:item>
@@ -142,7 +148,7 @@
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
-								<v8:content>Электронная почта</v8:content>
+								<v8:content>Правила обработки электронной почты</v8:content>
 							</v8:item>
 						</Title>
 						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
@@ -207,6 +213,7 @@
 						<xr:LoadTransparent>true</xr:LoadTransparent>
 					</HeaderPicture>
 					<AutoEditMode>true</AutoEditMode>
+					<CheckBoxType>CheckBox</CheckBoxType>
 					<ContextMenu name="ПрименяемыеПравилаПрименятьКонтекстноеМеню" id="7"/>
 					<ExtendedTooltip name="ПрименяемыеПравилаПрименятьРасширеннаяПодсказка" id="32"/>
 				</CheckBoxField>
@@ -243,33 +250,27 @@
 					<ContextMenu name="ПрименяемыеПравилаПеремещатьВПапкуКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ПрименяемыеПравилаПеремещатьВПапкуРасширеннаяПодсказка" id="34"/>
 				</InputField>
+				<InputField name="ПредставлениеОтбора" id="17">
+					<DataPath>ПрименяемыеПравила.ПредставлениеОтбора</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление правила</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Height>1</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<MultiLine>true</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<ContextMenu name="ПредставлениеОтбораКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ПредставлениеОтбораРасширеннаяПодсказка" id="35"/>
+				</InputField>
 			</ChildItems>
 		</Table>
-		<InputField name="ПредставлениеОтбора" id="17">
-			<DataPath>Items.ПрименяемыеПравила.CurrentData.ПредставлениеОтбора</DataPath>
-			<ReadOnly>true</ReadOnly>
-			<TitleLocation>None</TitleLocation>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<Height>2</Height>
-			<VerticalStretch>false</VerticalStretch>
-			<MultiLine>true</MultiLine>
-			<ExtendedEdit>false</ExtendedEdit>
-			<ContextMenu name="ПредставлениеОтбораКонтекстноеМеню" id="18"/>
-			<ExtendedTooltip name="ПредставлениеОтбораРасширеннаяПодсказка" id="35"/>
-		</InputField>
-		<Button name="ПрименяемыеПравилаСправочникПравилаОбработкиЭлектроннойПочтыОткрытьПоЗначению2" id="47">
-			<Type>Hyperlink</Type>
-			<CommandName>Catalog.ПравилаОбработкиЭлектроннойПочты.StandardCommand.OpenByValue</CommandName>
-			<DataPath>УчетнаяЗапись</DataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Электронная почта</v8:content>
-				</v8:item>
-			</Title>
-			<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-			<ExtendedTooltip name="ПрименяемыеПравилаСправочникПравилаОбработкиЭлектроннойПочтыОткрытьПоЗначению2РасширеннаяПодсказка" id="48"/>
-		</Button>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ПрименяемыеПравила" id="1">
@@ -395,6 +396,7 @@
 			</ToolTip>
 			<Action>Применить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПрименитьВсеПравила" id="2">
 			<Title>

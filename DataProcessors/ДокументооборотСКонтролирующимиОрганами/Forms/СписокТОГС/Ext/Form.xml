@@ -12,6 +12,15 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Выбрать" id="13">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ВыбратьExtendedTooltip" id="25"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -90,21 +99,26 @@
 					<DataPath>ТаблицаТОГС.Код</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="ТаблицаТОГСКодКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="ТаблицаТОГСКодExtendedTooltip" id="20"/>
 				</InputField>
 				<InputField name="ТаблицаТОГСНаименование" id="6">
 					<DataPath>ТаблицаТОГС.Наименование</DataPath>
+					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoCellHeight>true</AutoCellHeight>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="ТаблицаТОГСНаименованиеКонтекстноеМеню" id="7"/>
 					<ExtendedTooltip name="ТаблицаТОГСНаименованиеExtendedTooltip" id="21"/>
 				</InputField>
 				<InputField name="ТаблицаТОГСРегион" id="8">
 					<DataPath>ТаблицаТОГС.Регион</DataPath>
+					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="ТаблицаТОГСРегионКонтекстноеМеню" id="9"/>
 					<ExtendedTooltip name="ТаблицаТОГСРегионExtendedTooltip" id="22"/>
 				</InputField>
@@ -120,15 +134,9 @@
 			<HorizontalLocation>Right</HorizontalLocation>
 			<ExtendedTooltip name="ГруппаКнопокExtendedTooltip" id="24"/>
 			<ChildItems>
-				<Button name="Выбрать" id="13">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.Выбрать</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ВыбратьExtendedTooltip" id="25"/>
-				</Button>
 				<Button name="Отмена" id="14">
 					<Type>CommandBarButton</Type>
+					<Visible>false</Visible>
 					<CommandName>Form.StandardCommand.Close</CommandName>
 					<ExtendedTooltip name="ОтменаExtendedTooltip" id="26"/>
 				</Button>
@@ -325,6 +333,7 @@
 			</ToolTip>
 			<Action>Выбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

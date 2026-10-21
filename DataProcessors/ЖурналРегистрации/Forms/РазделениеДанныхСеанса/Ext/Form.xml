@@ -9,32 +9,24 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Top</CommandBarLocation>
+	<CommandBarLocation>Bottom</CommandBarLocation>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="ФормаОтметитьВсе" id="16">
+			<Button name="КомандаПрименить" id="20">
 				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ОтметитьВсе</CommandName>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.КомандаПрименить</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Отметить все</v8:content>
+						<v8:content>Применить</v8:content>
 					</v8:item>
 				</Title>
-				<ExtendedTooltip name="ФормаОтметитьВсеРасширеннаяПодсказка" id="17"/>
-			</Button>
-			<Button name="ФормаСнятьФлажки" id="18">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.СнятьФлажки</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Снять флажки</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаСнятьФлажкиРасширеннаяПодсказка" id="19"/>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="КомандаПрименитьРасширеннаяПодсказка" id="21"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -45,7 +37,7 @@
 	<ChildItems>
 		<Table name="РазделениеДанныхСеанса" id="1">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -59,9 +51,36 @@
 					<v8:content>Разделение данных сеанса</v8:content>
 				</v8:item>
 			</Title>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="РазделениеДанныхСеансаКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="РазделениеДанныхСеансаКоманднаяПанель" id="3"/>
+			<AutoCommandBar name="РазделениеДанныхСеансаКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ФормаОтметитьВсе" id="16">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ОтметитьВсе</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Включить все</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаОтметитьВсеРасширеннаяПодсказка" id="17"/>
+					</Button>
+					<Button name="ФормаСнятьФлажки" id="18">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СнятьФлажки</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Выключить все</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаСнятьФлажкиРасширеннаяПодсказка" id="19"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
 			<ExtendedTooltip name="РазделениеДанныхСеансаРасширеннаяПодсказка" id="4"/>
 			<SearchStringAddition name="РазделениеДанныхСеансаSearchString" id="29">
 				<AdditionSource>
@@ -162,32 +181,6 @@
 			</Title>
 			<HorizontalLocation>Right</HorizontalLocation>
 			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="15"/>
-			<ChildItems>
-				<Button name="КомандаОк" id="20">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.КомандаОк</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ОК</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="КомандаОкРасширеннаяПодсказка" id="21"/>
-				</Button>
-				<Button name="КомандаОтмена" id="22">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.КомандаОтмена</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Отмена</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="КомандаОтменаРасширеннаяПодсказка" id="23"/>
-				</Button>
-			</ChildItems>
 		</CommandBar>
 	</ChildItems>
 	<Attributes>
@@ -276,6 +269,7 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ОтметитьВсе</Action>
+			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="СнятьФлажки" id="2">
@@ -296,18 +290,25 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>СнятьФлажки</Action>
-			<Representation>Picture</Representation>
+			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
-		<Command name="КомандаОк" id="3">
+		<Command name="КомандаПрименить" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда применить</v8:content>
+				</v8:item>
+			</ToolTip>
 			<Action>КомандаОк</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="КомандаОтмена" id="4">
 			<Title>

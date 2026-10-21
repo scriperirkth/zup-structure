@@ -11,12 +11,30 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
 	<CommandSet>
 		<ExcludedCommand>CustomizeForm</ExcludedCommand>
 	</CommandSet>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="КомандаВыбрать" id="12">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.ВыбратьСоставОтбора</CommandName>
+				<TextColor>style:ButtonTextColor</TextColor>
+				<BorderColor>style:BorderColor</BorderColor>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Выбрать</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="КомандаВыбратьРасширеннаяПодсказка" id="21"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -25,9 +43,9 @@
 			<Representation>Tree</Representation>
 			<SkipOnInput>false</SkipOnInput>
 			<ChangeRowSet>false</ChangeRowSet>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<Header>false</Header>
-			<HorizontalLinesBWA>false</HorizontalLinesBWA>
 			<VerticalLinesBWA>false</VerticalLinesBWA>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -50,14 +68,14 @@
 						<SkipOnInput>false</SkipOnInput>
 						<CommandName>Form.Command.УстановитьВсе</CommandName>
 						<TextColor>style:ButtonTextColor</TextColor>
-						<BackColor>style:ButtonBackColor</BackColor>
 						<BorderColor>style:BorderColor</BorderColor>
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
-								<v8:content>Установить все флажки</v8:content>
+								<v8:content>Включить все</v8:content>
 							</v8:item>
 						</Title>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 						<ExtendedTooltip name="УстановитьВсеРасширеннаяПодсказка" id="14"/>
 					</Button>
 					<Button name="СнятьВсе" id="10">
@@ -65,14 +83,14 @@
 						<SkipOnInput>false</SkipOnInput>
 						<CommandName>Form.Command.СнятьВсе</CommandName>
 						<TextColor>style:ButtonTextColor</TextColor>
-						<BackColor>style:ButtonBackColor</BackColor>
 						<BorderColor>style:BorderColor</BorderColor>
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
-								<v8:content>Снять все флажки</v8:content>
+								<v8:content>Отключить все</v8:content>
 							</v8:item>
 						</Title>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 						<ExtendedTooltip name="СнятьВсеРасширеннаяПодсказка" id="15"/>
 					</Button>
 					<SearchStringAddition name="СтрокаПоиск" id="32">
@@ -135,6 +153,9 @@
 									<v8:content>Пометка</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
 							<ContextMenu name="ПометкаКонтекстноеМеню" id="8"/>
 							<ExtendedTooltip name="ПометкаРасширеннаяПодсказка" id="18"/>
 							<Events>
@@ -150,7 +171,9 @@
 									<v8:content>Представление</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
 							<ShowInFooter>false</ShowInFooter>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ПредставлениеКонтекстноеМеню" id="5"/>
 							<ExtendedTooltip name="ПредставлениеРасширеннаяПодсказка" id="19"/>
 						</LabelField>
@@ -158,43 +181,6 @@
 				</ColumnGroup>
 			</ChildItems>
 		</Table>
-		<CommandBar name="КнопкиФормы" id="11">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Кнопки формы</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="КнопкиФормыРасширеннаяПодсказка" id="20"/>
-			<ChildItems>
-				<Button name="OK" id="12">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.Command.ВыбратьСоставОтбора</CommandName>
-					<TextColor>style:ButtonTextColor</TextColor>
-					<BorderColor>style:BorderColor</BorderColor>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ОК</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="OKРасширеннаяПодсказка" id="21"/>
-				</Button>
-				<Button name="Отмена" id="13">
-					<Type>CommandBarButton</Type>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.StandardCommand.Cancel</CommandName>
-					<TextColor>style:ButtonTextColor</TextColor>
-					<BackColor>style:ButtonBackColor</BackColor>
-					<BorderColor>style:BorderColor</BorderColor>
-					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="22"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -309,13 +295,13 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Установить все флажки</v8:content>
+					<v8:content>Включить все</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Установить все флажки</v8:content>
+					<v8:content>Включить все</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
@@ -329,13 +315,13 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Снять все флажки</v8:content>
+					<v8:content>Отключить все</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Снять все флажки</v8:content>
+					<v8:content>Отключить все</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
@@ -349,7 +335,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -360,6 +346,7 @@
 			</ToolTip>
 			<Action>ВыбратьСоставОтбора</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

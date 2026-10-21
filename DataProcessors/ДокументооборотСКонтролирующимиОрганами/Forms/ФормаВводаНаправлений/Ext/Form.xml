@@ -12,6 +12,21 @@
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ОсновныеДействияФормыДобавить" id="8">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ОсновныеДействияФормыДобавить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сохранить</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ОсновныеДействияФормыДобавитьExtendedTooltip" id="14"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -20,7 +35,7 @@
 	<ChildItems>
 		<InputField name="ТипПолучателя" id="1">
 			<DataPath>ТипПолучателя</DataPath>
-			<MarkRequiredComplete>true</MarkRequiredComplete>
+			<TitleLocation>Left</TitleLocation>
 			<ListChoiceMode>true</ListChoiceMode>
 			<AutoMarkIncomplete>true</AutoMarkIncomplete>
 			<ChooseType>false</ChooseType>
@@ -88,7 +103,7 @@
 		</InputField>
 		<InputField name="КодПолучателя" id="3">
 			<DataPath>КодПолучателя</DataPath>
-			<MarkRequiredComplete>true</MarkRequiredComplete>
+			<TitleLocation>Left</TitleLocation>
 			<AutoMarkIncomplete>true</AutoMarkIncomplete>
 			<ContextMenu name="КодПолучателяКонтекстноеМеню" id="4"/>
 			<ExtendedTooltip name="КодПолучателяExtendedTooltip" id="11"/>
@@ -101,6 +116,7 @@
 					<v8:content>КПП (только для ФНС)</v8:content>
 				</v8:item>
 			</Title>
+			<TitleLocation>Left</TitleLocation>
 			<ContextMenu name="КППКонтекстноеМеню" id="6"/>
 			<ExtendedTooltip name="КППExtendedTooltip" id="12"/>
 		</InputField>
@@ -108,21 +124,9 @@
 			<HorizontalLocation>Right</HorizontalLocation>
 			<ExtendedTooltip name="Группа1ExtendedTooltip" id="13"/>
 			<ChildItems>
-				<Button name="ОсновныеДействияФормыДобавить" id="8">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.ОсновныеДействияФормыДобавить</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ОК</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ОсновныеДействияФормыДобавитьExtendedTooltip" id="14"/>
-				</Button>
 				<Button name="ОсновныеДействияФормыЗакрыть" id="9">
 					<Type>CommandBarButton</Type>
+					<Visible>false</Visible>
 					<Representation>Text</Representation>
 					<CommandName>Form.StandardCommand.Close</CommandName>
 					<Title>
@@ -434,6 +438,7 @@
 			</ToolTip>
 			<Action>ОсновныеДействияФормыДобавить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

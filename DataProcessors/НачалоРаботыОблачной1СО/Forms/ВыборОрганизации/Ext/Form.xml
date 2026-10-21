@@ -19,16 +19,6 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="21"/>
 			</Button>
-			<Button name="ФормаВыделитьВсе" id="22">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ВыделитьВсе</CommandName>
-				<ExtendedTooltip name="ФормаВыделитьВсеРасширеннаяПодсказка" id="23"/>
-			</Button>
-			<Button name="ФормаОтменитьВыделение" id="24">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ОтменитьВыделение</CommandName>
-				<ExtendedTooltip name="ФормаОтменитьВыделениеРасширеннаяПодсказка" id="25"/>
-			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -37,6 +27,7 @@
 	<ChildItems>
 		<Table name="ВсеОрганизации" id="1">
 			<Representation>List</Representation>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<Header>false</Header>
 			<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -49,6 +40,25 @@
 			<ContextMenu name="ВсеОрганизацииКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="ВсеОрганизацииКоманднаяПанель" id="3">
 				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ФормаВыделитьВсе" id="22">
+						<Type>CommandBarButton</Type>
+						<Representation>PictureAndText</Representation>
+						<CommandName>Form.Command.ВыделитьВсе</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Выбрать все</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаВыделитьВсеРасширеннаяПодсказка" id="23"/>
+					</Button>
+					<Button name="ФормаОтменитьВыделение" id="24">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ОтменитьВыделение</CommandName>
+						<ExtendedTooltip name="ФормаОтменитьВыделениеРасширеннаяПодсказка" id="25"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ВсеОрганизацииРасширеннаяПодсказка" id="4"/>
 			<SearchStringAddition name="ВсеОрганизацииСтрокаПоиска" id="5">
@@ -85,6 +95,7 @@
 				</CheckBoxField>
 				<InputField name="ВсеОрганизацииЗначение" id="14">
 					<DataPath>ВсеОрганизации.Value</DataPath>
+					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
@@ -128,6 +139,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Выбрать</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ВыделитьВсе" id="2">
 			<Title>

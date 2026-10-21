@@ -5,10 +5,26 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
+	<CommandBarLocation>Bottom</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ПерейтиКДокументации" id="16">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПерейтиКДокументации</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Нужна помощь?</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Supplementary</ButtonImportance>
+				<ExtendedTooltip name="ПерейтиКДокументацииРасширеннаяПодсказка" id="17"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -41,10 +57,9 @@
 					<ContextMenu name="ИндикаторКонтекстноеМеню" id="22"/>
 					<ExtendedTooltip name="ИндикаторРасширеннаяПодсказка" id="23"/>
 				</PictureDecoration>
-				<FormattedDocumentField name="Текст" id="18">
+				<FormattedDocumentField name="Текст" id="26">
 					<DataPath>Текст</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<SkipOnInput>true</SkipOnInput>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -52,87 +67,11 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>None</TitleLocation>
-					<CommandSet>
-						<ExcludedCommand>AlignCenter</ExcludedCommand>
-						<ExcludedCommand>AlignJustify</ExcludedCommand>
-						<ExcludedCommand>AlignLeft</ExcludedCommand>
-						<ExcludedCommand>AlignRight</ExcludedCommand>
-						<ExcludedCommand>BackColor</ExcludedCommand>
-						<ExcludedCommand>Bold</ExcludedCommand>
-						<ExcludedCommand>BulletedList</ExcludedCommand>
-						<ExcludedCommand>Char</ExcludedCommand>
-						<ExcludedCommand>CopyToClipboard</ExcludedCommand>
-						<ExcludedCommand>CutToClipboard</ExcludedCommand>
-						<ExcludedCommand>DecreaseFontSize</ExcludedCommand>
-						<ExcludedCommand>DecreaseIndent</ExcludedCommand>
-						<ExcludedCommand>Font</ExcludedCommand>
-						<ExcludedCommand>Hyperlink</ExcludedCommand>
-						<ExcludedCommand>IncreaseFontSize</ExcludedCommand>
-						<ExcludedCommand>IncreaseIndent</ExcludedCommand>
-						<ExcludedCommand>Italic</ExcludedCommand>
-						<ExcludedCommand>LineSpacing</ExcludedCommand>
-						<ExcludedCommand>NumberedList</ExcludedCommand>
-						<ExcludedCommand>PasteFromClipboard</ExcludedCommand>
-						<ExcludedCommand>Picture</ExcludedCommand>
-						<ExcludedCommand>Preview</ExcludedCommand>
-						<ExcludedCommand>Print</ExcludedCommand>
-						<ExcludedCommand>Redo</ExcludedCommand>
-						<ExcludedCommand>SaveAs</ExcludedCommand>
-						<ExcludedCommand>SelectAll</ExcludedCommand>
-						<ExcludedCommand>Strikeout</ExcludedCommand>
-						<ExcludedCommand>TextColor</ExcludedCommand>
-						<ExcludedCommand>Underline</ExcludedCommand>
-						<ExcludedCommand>Undo</ExcludedCommand>
-					</CommandSet>
-					<BorderColor>style:FormBackColor</BorderColor>
-					<ContextMenu name="ТекстКонтекстноеМеню" id="19"/>
-					<ExtendedTooltip name="ТекстРасширеннаяПодсказка" id="20"/>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ТекстКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ТекстРасширеннаяПодсказка" id="28"/>
 				</FormattedDocumentField>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="КоманднаяПанель" id="10">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="11"/>
-			<ChildItems>
-				<Button name="ПерейтиКДокументации" id="16">
-					<Type>Hyperlink</Type>
-					<CommandName>Form.Command.ПерейтиКДокументации</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Нужна помощь?</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ПерейтиКДокументацииРасширеннаяПодсказка" id="17"/>
-				</Button>
-				<CommandBar name="ОсновныеКоманды" id="12">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Основные команды</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalLocation>Right</HorizontalLocation>
-					<ExtendedTooltip name="ОсновныеКомандыРасширеннаяПодсказка" id="13"/>
-					<ChildItems>
-						<Button name="ОК" id="14">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<CommandName>Form.StandardCommand.OK</CommandName>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="15"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -164,6 +103,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПерейтиКДокументации</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

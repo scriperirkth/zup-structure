@@ -12,6 +12,28 @@
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ОтправитьЗаявление" id="26">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<DefaultItem>true</DefaultItem>
+				<CommandName>Form.Command.ОтправитьЗаявление</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ОтправитьЗаявлениеРасширеннаяПодсказка" id="41"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="27">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отмена</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="42"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -27,7 +49,6 @@
 				</v8:item>
 			</Title>
 			<HorizontalStretch>true</HorizontalStretch>
-			<VerticalStretch>true</VerticalStretch>
 			<PagesRepresentation>None</PagesRepresentation>
 			<ExtendedTooltip name="СтраницыПолучателейРасширеннаяПодсказка" id="88"/>
 			<ChildItems>
@@ -41,14 +62,17 @@
 					<HorizontalStretch>true</HorizontalStretch>
 					<VerticalStretch>true</VerticalStretch>
 					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаФНСРасширеннаяПодсказка" id="90"/>
 					<ChildItems>
 						<Table name="ПолучателиФНС" id="2">
 							<Representation>List</Representation>
 							<Width>55</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
-							<Height>7</Height>
+							<MaxHeight>4</MaxHeight>
+							<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+							<AutoMaxRowsCount>false</AutoMaxRowsCount>
+							<MaxRowsCount>6</MaxRowsCount>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Row</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -169,6 +193,8 @@
 									<DataPath>ПолучателиФНС.КодПолучателя</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
+									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="ПолучателиКодПолучателяКонтекстноеМеню" id="22"/>
 									<ExtendedTooltip name="ПолучателиКодПолучателяExtendedTooltip" id="38"/>
 								</InputField>
@@ -176,6 +202,7 @@
 									<DataPath>ПолучателиФНС.КПП</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="ПолучателиКППКонтекстноеМеню" id="24"/>
 									<ExtendedTooltip name="ПолучателиКППExtendedTooltip" id="39"/>
 								</InputField>
@@ -198,14 +225,16 @@
 					<HorizontalStretch>true</HorizontalStretch>
 					<VerticalStretch>true</VerticalStretch>
 					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаФСГСРасширеннаяПодсказка" id="92"/>
 					<ChildItems>
 						<Table name="ПолучателиФСГС" id="52">
 							<Representation>List</Representation>
 							<Width>55</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
-							<Height>7</Height>
+							<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+							<AutoMaxRowsCount>false</AutoMaxRowsCount>
+							<MaxRowsCount>6</MaxRowsCount>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Row</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -310,6 +339,7 @@
 									<DataPath>ПолучателиФСГС.КодПолучателя</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="ПолучателиФСГСКодПолучателяКонтекстноеМеню" id="85"/>
 									<ExtendedTooltip name="ПолучателиФСГСКодПолучателяРасширеннаяПодсказка" id="86"/>
 								</InputField>
@@ -327,7 +357,6 @@
 					<HorizontalStretch>true</HorizontalStretch>
 					<VerticalStretch>true</VerticalStretch>
 					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаМЧДФСГСРасширеннаяПодсказка" id="118"/>
 					<ChildItems>
 						<UsualGroup name="Доверенности" id="119">
@@ -410,17 +439,13 @@
 											<v8:content>Представитель</v8:content>
 										</v8:item>
 									</Title>
+									<GroupVerticalAlign>Center</GroupVerticalAlign>
 									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаПредставлениеПредставителяExtendedTooltip" id="128"/>
 									<ChildItems>
-										<LabelDecoration name="ПредставлениеПредставителяОтступ" id="129">
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<ContextMenu name="ПредставлениеПредставителяОтступКонтекстноеМеню" id="130"/>
-											<ExtendedTooltip name="ПредставлениеПредставителяОтступExtendedTooltip" id="131"/>
-										</LabelDecoration>
 										<InputField name="Доверенность" id="132">
 											<DataPath>Доверенность</DataPath>
 											<Title>
@@ -429,7 +454,7 @@
 													<v8:content>Доверенность</v8:content>
 												</v8:item>
 											</Title>
-											<MarkRequiredComplete>true</MarkRequiredComplete>
+											<TitleLocation>Left</TitleLocation>
 											<ChoiceButton>true</ChoiceButton>
 											<ClearButton>true</ClearButton>
 											<OpenButton>true</OpenButton>
@@ -505,7 +530,6 @@
 										<LabelDecoration name="ПодсказкаПоДоверенности" id="176">
 											<AutoMaxWidth>false</AutoMaxWidth>
 											<HorizontalStretch>true</HorizontalStretch>
-											<TextColor>style:ЦветНезавершившейсяОтправкиБРО</TextColor>
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -523,6 +547,10 @@
 								<Table name="Подписанты" id="146">
 									<Representation>List</Representation>
 									<ChangeRowOrder>false</ChangeRowOrder>
+									<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+									<AutoMaxRowsCount>false</AutoMaxRowsCount>
+									<MaxRowsCount>5</MaxRowsCount>
+									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -567,6 +595,7 @@
 											<DataPath>Подписанты.Пользователь</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ContextMenu name="ПодписантыПользовательКонтекстноеМеню" id="160"/>
 											<ExtendedTooltip name="ПодписантыПользовательРасширеннаяПодсказка" id="161"/>
 										</InputField>
@@ -575,11 +604,12 @@
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Доверенность</v8:content>
+													<v8:content>Доверенность или ее номер</v8:content>
 												</v8:item>
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ClearButton>true</ClearButton>
 											<ContextMenu name="ПодписантыДоверенностьКонтекстноеМеню" id="163"/>
 											<ExtendedTooltip name="ПодписантыДоверенностьРасширеннаяПодсказка" id="164"/>
@@ -592,7 +622,6 @@
 								<LabelDecoration name="ПодсказкаПоПодписантам" id="143">
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<HorizontalStretch>true</HorizontalStretch>
-									<TextColor>style:ПоясняющийТекст</TextColor>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -625,13 +654,12 @@
 			<ExtendedTooltip name="ГруппаИнформацияРасширеннаяПодсказка" id="100"/>
 			<ChildItems>
 				<LabelDecoration name="ДекорацияИнформация" id="93">
-					<Width>55</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Для изменения состава направлений необходимо отправить заявление
-и дождаться его одобрения. Обычно это занимает 20-30 минут.</v8:content>
+							<v8:content>Для изменения состава направлений необходимо отправить заявление и дождаться его одобрения. Обычно это занимает 20-30 минут.</v8:content>
 						</v8:item>
 					</Title>
 					<ContextMenu name="ДекорацияИнформацияКонтекстноеМеню" id="94"/>
@@ -678,7 +706,6 @@
 			</Events>
 		</LabelDecoration>
 		<UsualGroup name="ГруппаМЧДФНС" id="165">
-			<Visible>false</Visible>
 			<VerticalStretch>false</VerticalStretch>
 			<GroupVerticalAlign>Bottom</GroupVerticalAlign>
 			<Group>Vertical</Group>
@@ -687,16 +714,6 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаМЧДФНСРасширеннаяПодсказка" id="166"/>
 			<ChildItems>
-				<LabelDecoration name="ОтступПередМЧДФНС" id="170">
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content> </v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ОтступПередМЧДФНСКонтекстноеМеню" id="171"/>
-					<ExtendedTooltip name="ОтступПередМЧДФНСРасширеннаяПодсказка" id="172"/>
-				</LabelDecoration>
 				<LabelDecoration name="НастройкаРегистрацийНалоговыхОргановДляФНС" id="167">
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<Title formatted="false">
@@ -720,27 +737,6 @@
 			<GroupVerticalAlign>Bottom</GroupVerticalAlign>
 			<HorizontalLocation>Right</HorizontalLocation>
 			<ExtendedTooltip name="ГруппаКнопокExtendedTooltip" id="40"/>
-			<ChildItems>
-				<Button name="ОтправитьЗаявление" id="26">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<DefaultItem>true</DefaultItem>
-					<CommandName>Form.Command.ОтправитьЗаявление</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ОтправитьЗаявлениеРасширеннаяПодсказка" id="41"/>
-				</Button>
-				<Button name="ФормаЗакрыть" id="27">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.StandardCommand.Close</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Отмена</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="42"/>
-				</Button>
-			</ChildItems>
 		</CommandBar>
 	</ChildItems>
 	<Attributes>
@@ -1178,6 +1174,7 @@
 			</ToolTip>
 			<Action>ОтправитьЗаявление</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ДобавитьНаправлениеФСГС" id="7">
 			<Title>

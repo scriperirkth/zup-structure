@@ -21,7 +21,34 @@
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<HorizontalAlign>Right</HorizontalAlign>
+		<ChildItems>
+			<Button name="ШагМастераНазад" id="43">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ШагМастераНазад</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Назад</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ШагМастераНазадРасширеннаяПодсказка" id="44"/>
+			</Button>
+			<Button name="ШагМастераДалее" id="48">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<Enabled>false</Enabled>
+				<CommandName>Form.Command.ШагМастераДалее</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Далее</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ШагМастераДалееРасширеннаяПодсказка" id="49"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -63,24 +90,6 @@
 							<ContextMenu name="НадписьТипВыбираемогоКонтекстноеМеню" id="198"/>
 							<ExtendedTooltip name="НадписьТипВыбираемогоРасширеннаяПодсказка" id="199"/>
 						</LabelDecoration>
-						<CommandBar name="КоманднаяПанельВыбораЦелевого" id="66">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Командная панель выбора целевого элемента</v8:content>
-								</v8:item>
-							</Title>
-							<CommandSource>Item.Список</CommandSource>
-							<ExtendedTooltip name="КоманднаяПанельВыбораЦелевогоРасширеннаяПодсказка" id="67"/>
-							<ChildItems>
-								<Button name="ИзменитьФормуИзСписка" id="68">
-									<Type>CommandBarButton</Type>
-									<Visible>false</Visible>
-									<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-									<ExtendedTooltip name="ИзменитьФормуИзСпискаРасширеннаяПодсказка" id="69"/>
-								</Button>
-							</ChildItems>
-						</CommandBar>
 						<UsualGroup name="ГруппаПользовательскихНастроек" id="205">
 							<Title>
 								<v8:item>
@@ -98,6 +107,7 @@
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
 							<Height>6</Height>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<InitialTreeView>ExpandTopLevel</InitialTreeView>
 							<EnableStartDrag>true</EnableStartDrag>
@@ -179,6 +189,8 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="СписокСтандартнаяКартинкаКонтекстноеМеню" id="193"/>
 											<ExtendedTooltip name="СписокСтандартнаяКартинкаРасширеннаяПодсказка" id="194"/>
 										</InputField>
@@ -190,6 +202,8 @@
 													<v8:content>Наименование</v8:content>
 												</v8:item>
 											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="СписокСсылкаКонтекстноеМеню" id="190"/>
 											<ExtendedTooltip name="СписокСсылкаРасширеннаяПодсказка" id="191"/>
 										</LabelField>
@@ -203,6 +217,8 @@
 											<v8:content>Код</v8:content>
 										</v8:item>
 									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<Width>10</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="СписокКодКонтекстноеМеню" id="187"/>
@@ -212,7 +228,6 @@
 						</Table>
 						<LabelDecoration name="ПодсказкаОтбораСписка" id="244">
 							<AutoMaxWidth>false</AutoMaxWidth>
-							<TextColor>style:ПоясняющийТекст</TextColor>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -225,21 +240,38 @@
 								<Event name="URLProcessing">ПодсказкаВыбораЦелевогоЭлементаОбработкаНавигационнойСсылки</Event>
 							</Events>
 						</LabelDecoration>
-						<LabelDecoration name="ПодсказкаВыбораЦелевогоЭлемента" id="227">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<TextColor>style:ПоясняющийТекст</TextColor>
-							<Title formatted="false">
+						<UsualGroup name="ГруппаВыборДействияПослеЗамены" id="275">
+							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Подсказка выбора целевого элемента</v8:content>
+									<v8:content>Выбор действия после замены</v8:content>
 								</v8:item>
 							</Title>
-							<ContextMenu name="ПодсказкаВыбораЦелевогоЭлементаКонтекстноеМеню" id="228"/>
-							<ExtendedTooltip name="ПодсказкаВыбораЦелевогоЭлементаРасширеннаяПодсказка" id="229"/>
-							<Events>
-								<Event name="URLProcessing">ПодсказкаВыбораЦелевогоЭлементаОбработкаНавигационнойСсылки</Event>
-							</Events>
-						</LabelDecoration>
+							<Group>AutoScreenTypeSensitive</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаВыборДействияПослеЗаменыРасширеннаяПодсказка" id="276"/>
+							<ChildItems>
+								<LabelDecoration name="ПодсказкаВыбораЦелевогоЭлемента" id="227">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Подсказка выбора целевого элемента</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПодсказкаВыбораЦелевогоЭлементаКонтекстноеМеню" id="228"/>
+									<ExtendedTooltip name="ПодсказкаВыбораЦелевогоЭлементаРасширеннаяПодсказка" id="229"/>
+									<Events>
+										<Event name="URLProcessing">ПодсказкаВыбораЦелевогоЭлементаОбработкаНавигационнойСсылки</Event>
+									</Events>
+								</LabelDecoration>
+								<LabelDecoration name="ДекорацияМенюВыбора" id="277">
+									<ContextMenu name="ДекорацияМенюВыбораКонтекстноеМеню" id="278"/>
+									<ExtendedTooltip name="ДекорацияМенюВыбораРасширеннаяПодсказка" id="279"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</Page>
 				<Page name="ШагЗамена" id="87">
@@ -303,123 +335,13 @@
 							<ContextMenu name="РезультатНеудачныеЗаменыКонтекстноеМеню" id="134"/>
 							<ExtendedTooltip name="РезультатНеудачныеЗаменыРасширеннаяПодсказка" id="135"/>
 						</LabelDecoration>
-						<CommandBar name="КоманднаяПанельНеудачныеЗамены" id="125">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Командная панель неудачные замены</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="КоманднаяПанельНеудачныеЗаменыРасширеннаяПодсказка" id="126"/>
-							<ChildItems>
-								<Button name="ОткрытьЭлементНеудачнойЗамены" id="164">
-									<Type>CommandBarButton</Type>
-									<Representation>PictureAndText</Representation>
-									<CommandName>Form.Command.ОткрытьЭлементНеудачнойЗамены</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Изменить</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ОткрытьЭлементНеудачнойЗаменыРасширеннаяПодсказка" id="165"/>
-								</Button>
-								<ButtonGroup name="ГруппаРазвернутьСвернуть" id="255">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Развернуть свернуть</v8:content>
-										</v8:item>
-									</Title>
-									<Representation>Compact</Representation>
-									<ExtendedTooltip name="ГруппаРазвернутьСвернутьРасширеннаяПодсказка" id="256"/>
-									<ChildItems>
-										<Button name="РазвернутьВсеНеудачныеЗамены" id="129">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.РазвернутьВсеНеудачныеЗамены</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Развернуть все</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="РазвернутьВсеНеудачныеЗаменыРасширеннаяПодсказка" id="130"/>
-										</Button>
-										<Button name="СвернутьВсеНеудачныеЗамены" id="131">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.СвернутьВсеНеудачныеЗамены</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Свернуть все</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="СвернутьВсеНеудачныеЗаменыРасширеннаяПодсказка" id="132"/>
-										</Button>
-									</ChildItems>
-								</ButtonGroup>
-								<ButtonGroup name="ВсеДействия2" id="136">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Все действия 2</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Все действия</v8:content>
-										</v8:item>
-									</ToolTip>
-									<ExtendedTooltip name="ВсеДействия2РасширеннаяПодсказка" id="137"/>
-									<ChildItems>
-										<Button name="ВывестиСписок" id="138">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Item.НеудачныеЗамены.StandardCommand.OutputList</CommandName>
-											<ExtendedTooltip name="ВывестиСписокРасширеннаяПодсказка" id="139"/>
-										</Button>
-										<Button name="КопироватьВБуферОбмена" id="140">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Item.НеудачныеЗамены.StandardCommand.CopyToClipboard</CommandName>
-											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-											<ExtendedTooltip name="КопироватьВБуферОбменаРасширеннаяПодсказка" id="141"/>
-										</Button>
-										<Button name="ИзменитьФорму" id="142">
-											<Type>CommandBarButton</Type>
-											<Visible>false</Visible>
-											<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-											<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="143"/>
-										</Button>
-									</ChildItems>
-								</ButtonGroup>
-								<SearchStringAddition name="СтрокаПоиска" id="241">
-									<AdditionSource>
-										<Item>НеудачныеЗамены</Item>
-										<Type>SearchStringRepresentation</Type>
-									</AdditionSource>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Поиск</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="242"/>
-									<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="243"/>
-								</SearchStringAddition>
-							</ChildItems>
-						</CommandBar>
 						<Table name="НеудачныеЗамены" id="112">
 							<Representation>Tree</Representation>
-							<CommandBarLocation>None</CommandBarLocation>
-							<ReadOnly>true</ReadOnly>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
-							<Height>6</Height>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
-							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<InitialTreeView>ExpandTopLevel</InitialTreeView>
-							<EnableStartDrag>true</EnableStartDrag>
-							<EnableDrag>true</EnableDrag>
 							<FileDragMode>AsFile</FileDragMode>
 							<DataPath>НеудачныеЗамены</DataPath>
 							<Title>
@@ -428,9 +350,70 @@
 									<v8:content>Неудачные замены</v8:content>
 								</v8:item>
 							</Title>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>CommandBar</SearchStringLocation>
+							<ShowCommandBar>auto</ShowCommandBar>
 							<ContextMenu name="НеудачныеЗаменыКонтекстноеМеню" id="113"/>
 							<AutoCommandBar name="НеудачныеЗаменыКоманднаяПанель" id="114">
-								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="ОткрытьЭлементНеудачнойЗамены" id="164">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<CommandName>Form.Command.ОткрытьЭлементНеудачнойЗамены</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Изменить</v8:content>
+											</v8:item>
+										</Title>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="ОткрытьЭлементНеудачнойЗаменыРасширеннаяПодсказка" id="165"/>
+									</Button>
+									<ButtonGroup name="ГруппаРазвернутьСвернуть" id="255">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Развернуть свернуть</v8:content>
+											</v8:item>
+										</Title>
+										<Representation>Compact</Representation>
+										<ExtendedTooltip name="ГруппаРазвернутьСвернутьРасширеннаяПодсказка" id="256"/>
+										<ChildItems>
+											<Button name="РазвернутьВсеНеудачныеЗамены" id="129">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.РазвернутьВсеНеудачныеЗамены</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Развернуть все</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="РазвернутьВсеНеудачныеЗаменыРасширеннаяПодсказка" id="130"/>
+											</Button>
+											<Button name="СвернутьВсеНеудачныеЗамены" id="131">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СвернутьВсеНеудачныеЗамены</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Свернуть все</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="СвернутьВсеНеудачныеЗаменыРасширеннаяПодсказка" id="132"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="НеудачныеЗаменыРасширеннаяПодсказка" id="115"/>
 							<SearchStringAddition name="НеудачныеЗаменыСтрокаПоиска" id="216">
@@ -462,79 +445,37 @@
 								<Event name="OnActivateRow">НеудачныеЗаменыПриАктивизацииСтроки</Event>
 							</Events>
 							<ChildItems>
-								<ColumnGroup name="НеудачныеЗаменыДанныеКод" id="150">
+								<InputField name="НеудачныеЗаменыДанные" id="144">
+									<DataPath>НеудачныеЗамены.Данные</DataPath>
+									<ReadOnly>true</ReadOnly>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Неудачные замены данные код</v8:content>
+											<v8:content>Наименование / Место использования</v8:content>
 										</v8:item>
 									</Title>
-									<Group>Horizontal</Group>
-									<ExtendedTooltip name="НеудачныеЗаменыДанныеКодРасширеннаяПодсказка" id="151"/>
-									<ChildItems>
-										<ColumnGroup name="НеудачныеЗаменыГруппа" id="178">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Неудачные замены группа</v8:content>
-												</v8:item>
-											</Title>
-											<Group>InCell</Group>
-											<ExtendedTooltip name="НеудачныеЗаменыГруппаРасширеннаяПодсказка" id="179"/>
-											<ChildItems>
-												<PictureField name="НеудачныеЗаменыПиктограмма" id="175">
-													<DataPath>НеудачныеЗамены.Пиктограмма</DataPath>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Пиктограмма</v8:content>
-														</v8:item>
-													</Title>
-													<TitleLocation>None</TitleLocation>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<ValuesPicture>
-														<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
-														<xr:LoadTransparent>false</xr:LoadTransparent>
-													</ValuesPicture>
-													<FileDragMode>AsFile</FileDragMode>
-													<ContextMenu name="НеудачныеЗаменыПиктограммаКонтекстноеМеню" id="176"/>
-													<ExtendedTooltip name="НеудачныеЗаменыПиктограммаРасширеннаяПодсказка" id="177"/>
-												</PictureField>
-												<InputField name="НеудачныеЗаменыДанные" id="144">
-													<DataPath>НеудачныеЗамены.Данные</DataPath>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Наименование / Место использования</v8:content>
-														</v8:item>
-													</Title>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<ContextMenu name="НеудачныеЗаменыДанныеКонтекстноеМеню" id="145"/>
-													<ExtendedTooltip name="НеудачныеЗаменыДанныеРасширеннаяПодсказка" id="146"/>
-												</InputField>
-											</ChildItems>
-										</ColumnGroup>
-										<InputField name="НеудачныеЗаменыКод" id="147">
-											<DataPath>НеудачныеЗамены.Код</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Код</v8:content>
-												</v8:item>
-											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<Width>10</Width>
-											<HorizontalStretch>false</HorizontalStretch>
-											<ContextMenu name="НеудачныеЗаменыКодКонтекстноеМеню" id="148"/>
-											<ExtendedTooltip name="НеудачныеЗаменыКодРасширеннаяПодсказка" id="149"/>
-										</InputField>
-									</ChildItems>
-								</ColumnGroup>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="НеудачныеЗаменыДанныеКонтекстноеМеню" id="145"/>
+									<ExtendedTooltip name="НеудачныеЗаменыДанныеРасширеннаяПодсказка" id="146"/>
+								</InputField>
+								<InputField name="НеудачныеЗаменыКод" id="147">
+									<DataPath>НеудачныеЗамены.Код</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Код</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="НеудачныеЗаменыКодКонтекстноеМеню" id="148"/>
+									<ExtendedTooltip name="НеудачныеЗаменыКодРасширеннаяПодсказка" id="149"/>
+								</InputField>
 								<InputField name="НеудачныеЗаменыПричина" id="122">
 									<DataPath>НеудачныеЗамены.Причина</DataPath>
+									<ReadOnly>true</ReadOnly>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -561,17 +502,8 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаОтчетОбОшибкеРасширеннаяПодсказка" id="254"/>
 							<ChildItems>
-								<LabelDecoration name="ДекорацияПодробности" id="247">
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Подробности:</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="ДекорацияПодробностиКонтекстноеМеню" id="248"/>
-									<ExtendedTooltip name="ДекорацияПодробностиРасширеннаяПодсказка" id="249"/>
-								</LabelDecoration>
 								<LabelDecoration name="ДекорацияОтправитьОтчетОбОшибке" id="250">
+									<Visible>false</Visible>
 									<Height>1</Height>
 									<Title formatted="false">
 										<v8:item>
@@ -598,7 +530,8 @@
 									<v8:content>Подробности</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<Height>2</Height>
 							<AutoMaxHeight>false</AutoMaxHeight>
@@ -620,133 +553,71 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ШагВозниклаОшибкаРасширеннаяПодсказка" id="231"/>
 					<ChildItems>
-						<PictureDecoration name="КартинкаПредупреждение32" id="232">
-							<Title formatted="false">
+						<UsualGroup name="ОписаниеОшибки" id="271">
+							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Картинка предупреждение32</v8:content>
+									<v8:content>Описание ошибки</v8:content>
 								</v8:item>
 							</Title>
-							<GroupVerticalAlign>Center</GroupVerticalAlign>
-							<Picture>
-								<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
-								<xr:LoadTransparent>true</xr:LoadTransparent>
-							</Picture>
-							<FileDragMode>AsFile</FileDragMode>
-							<ContextMenu name="КартинкаПредупреждение32КонтекстноеМеню" id="233"/>
-							<ExtendedTooltip name="КартинкаПредупреждение32РасширеннаяПодсказка" id="234"/>
-						</PictureDecoration>
-						<LabelDecoration name="НадписьТекстОшибки" id="235">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<Height>5</Height>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Надпись текст ошибки</v8:content>
-								</v8:item>
-							</Title>
-							<GroupVerticalAlign>Center</GroupVerticalAlign>
-							<VerticalAlign>Center</VerticalAlign>
-							<ContextMenu name="НадписьТекстОшибкиКонтекстноеМеню" id="236"/>
-							<ExtendedTooltip name="НадписьТекстОшибкиРасширеннаяПодсказка" id="237"/>
-						</LabelDecoration>
-						<LabelDecoration name="СсылкаПодробнее" id="238">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Подробнее</v8:content>
-								</v8:item>
-							</Title>
-							<GroupVerticalAlign>Center</GroupVerticalAlign>
-							<Hyperlink>true</Hyperlink>
-							<VerticalAlign>Center</VerticalAlign>
-							<ContextMenu name="СсылкаПодробнееКонтекстноеМеню" id="239"/>
-							<ExtendedTooltip name="СсылкаПодробнееРасширеннаяПодсказка" id="240"/>
-							<Events>
-								<Event name="Click">СсылкаПодробнееНажатие</Event>
-							</Events>
-						</LabelDecoration>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<BackColor>pal:Orange</BackColor>
+							<ExtendedTooltip name="ОписаниеОшибкиРасширеннаяПодсказка" id="272"/>
+							<ChildItems>
+								<PictureDecoration name="КартинкаПредупреждение32" id="232">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Картинка предупреждение32</v8:content>
+										</v8:item>
+									</Title>
+									<GroupVerticalAlign>Center</GroupVerticalAlign>
+									<Picture>
+										<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="КартинкаПредупреждение32КонтекстноеМеню" id="233"/>
+									<ExtendedTooltip name="КартинкаПредупреждение32РасширеннаяПодсказка" id="234"/>
+								</PictureDecoration>
+								<LabelDecoration name="НадписьТекстОшибки" id="235">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Height>5</Height>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Надпись текст ошибки</v8:content>
+										</v8:item>
+									</Title>
+									<GroupVerticalAlign>Center</GroupVerticalAlign>
+									<VerticalAlign>Center</VerticalAlign>
+									<ContextMenu name="НадписьТекстОшибкиКонтекстноеМеню" id="236"/>
+									<ExtendedTooltip name="НадписьТекстОшибкиРасширеннаяПодсказка" id="237"/>
+								</LabelDecoration>
+								<LabelDecoration name="СсылкаПодробнее" id="238">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Подробнее</v8:content>
+										</v8:item>
+									</Title>
+									<GroupVerticalAlign>Center</GroupVerticalAlign>
+									<Hyperlink>true</Hyperlink>
+									<VerticalAlign>Center</VerticalAlign>
+									<ContextMenu name="СсылкаПодробнееКонтекстноеМеню" id="239"/>
+									<ExtendedTooltip name="СсылкаПодробнееРасширеннаяПодсказка" id="240"/>
+									<Events>
+										<Event name="Click">СсылкаПодробнееНажатие</Event>
+									</Events>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</Page>
 			</ChildItems>
 		</Pages>
-		<UsualGroup name="ПанельДействийМастера" id="41">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Панель действий мастера</v8:content>
-				</v8:item>
-			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>NormalSeparation</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ПанельДействийМастераРасширеннаяПодсказка" id="42"/>
-			<ChildItems>
-				<CommandBar name="ГруппаНазад" id="56">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Назад</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ГруппаНазадРасширеннаяПодсказка" id="57"/>
-					<ChildItems>
-						<Button name="ШагМастераНазад" id="43">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.ШагМастераНазад</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>&lt; Назад</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ШагМастераНазадРасширеннаяПодсказка" id="44"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
-				<CommandBar name="ГруппаВперед" id="54">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Вперед</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalLocation>Right</HorizontalLocation>
-					<ExtendedTooltip name="ГруппаВпередРасширеннаяПодсказка" id="55"/>
-					<ChildItems>
-						<Button name="ШагМастераДалее" id="48">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.ШагМастераДалее</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Далее &gt;</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ШагМастераДалееРасширеннаяПодсказка" id="49"/>
-						</Button>
-						<Button name="ШагМастераОтмена" id="50">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.ШагМастераОтмена</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Отмена</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ШагМастераОтменаРасширеннаяПодсказка" id="51"/>
-						</Button>
-						<Button name="Справка" id="58">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.Help</CommandName>
-							<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="59"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -830,22 +701,6 @@
 							<v8:Length>0</v8:Length>
 							<v8:AllowedLength>Variable</v8:AllowedLength>
 						</v8:StringQualifiers>
-					</Type>
-				</Column>
-				<Column name="Пиктограмма" id="6">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Пиктограмма</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:decimal</v8:Type>
-						<v8:NumberQualifiers>
-							<v8:Digits>10</v8:Digits>
-							<v8:FractionDigits>0</v8:FractionDigits>
-							<v8:AllowedSign>Any</v8:AllowedSign>
-						</v8:NumberQualifiers>
 					</Type>
 				</Column>
 				<Column name="ИнформацияОбОшибке" id="7">
@@ -1079,6 +934,7 @@
 			</ToolTip>
 			<Action>ОбработчикКнопкиМастера</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ШагМастераНазад" id="2">
 			<Title>
@@ -1095,22 +951,7 @@
 			</ToolTip>
 			<Action>ОбработчикКнопкиМастера</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="ШагМастераОтмена" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Прекратить работу мастера</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОбработчикКнопкиМастера</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="РазвернутьВсеНеудачныеЗамены" id="4">
 			<Title>
@@ -1171,7 +1012,7 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ОткрытьЭлементНеудачнойЗамены</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">НеудачныеЗамены</AssociatedTableElementId>
 		</Command>
 	</Commands>
 	<Parameters>

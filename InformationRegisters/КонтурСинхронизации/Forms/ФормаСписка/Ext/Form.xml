@@ -9,46 +9,7 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаЗакрыть" id="23">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ЗакрытьФорму</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Закрыть форму</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="24"/>
-			</Button>
-			<Button name="ФормаОбновить" id="25">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Обновить</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Обновить</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="26"/>
-			</Button>
-			<Button name="ФормаОчиститьКонтур" id="33">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ОчиститьКонтур</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Очистить контур</v8:content>
-					</v8:item>
-				</Title>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаОчиститьКонтурРасширеннаяПодсказка" id="34"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -56,6 +17,7 @@
 		<Table name="Контур" id="1">
 			<Representation>Tree</Representation>
 			<ReadOnly>true</ReadOnly>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -72,6 +34,31 @@
 			<ContextMenu name="КонтурКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="КонтурКоманднаяПанель" id="3">
 				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ФормаОбновить" id="25">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Обновить</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Обновить</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="26"/>
+					</Button>
+					<Button name="ФормаОчиститьКонтур" id="33">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ОчиститьКонтур</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Очистить контур</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ФормаОчиститьКонтурРасширеннаяПодсказка" id="34"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="КонтурРасширеннаяПодсказка" id="4"/>
 			<SearchStringAddition name="КонтурСтрокаПоиска" id="5">
@@ -149,7 +136,18 @@
 							<v8:content>Зацикливание</v8:content>
 						</v8:item>
 					</Title>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Зацикливание</v8:content>
+						</v8:item>
+					</ToolTip>
 					<EditMode>EnterOnInput</EditMode>
+					<HeaderPicture>
+						<xr:Ref>StdPicture.ExchangePlan</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</HeaderPicture>
 					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КонтурЗацикливаниеКонтекстноеМеню" id="31"/>
 					<ExtendedTooltip name="КонтурЗацикливаниеРасширеннаяПодсказка" id="32"/>
@@ -279,21 +277,6 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>Обновить</Action>
-		</Command>
-		<Command name="ЗакрытьФорму" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Закрыть форму</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Закрыть форму</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ЗакрытьФорму</Action>
 		</Command>
 		<Command name="ОчиститьКонтур" id="3">
 			<Title>

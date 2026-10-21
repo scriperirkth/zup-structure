@@ -14,6 +14,21 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Готово" id="28">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Готово</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Готово</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="29"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -29,6 +44,8 @@
 				</v8:item>
 			</Title>
 			<TitleLocation>Right</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<ContextMenu name="ОтложенныйСтартПроцессаКонтекстноеМеню" id="19"/>
 			<ExtendedTooltip name="ОтложенныйСтартПроцессаРасширеннаяПодсказка" id="20"/>
 			<Events>
@@ -56,6 +73,8 @@
 							<v8:content>Дата</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>9</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<EditFormat>
@@ -78,6 +97,8 @@
 							<v8:content>Время</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>7</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<DropListButton>true</DropListButton>
@@ -124,15 +145,16 @@
 									<v8:content>Отмена старта</v8:content>
 								</v8:item>
 							</Title>
-							<Group>HorizontalIfPossible</Group>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Group>AutoScreenTypeSensitive</Group>
+							<VerticalAlign>Center</VerticalAlign>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
+							<BackColor>pal:Yellow</BackColor>
 							<ExtendedTooltip name="ГруппаОтменаСтартаРасширеннаяПодсказка" id="70"/>
 							<ChildItems>
 								<PictureDecoration name="ДекорацияКартинкаОтменаСтарта" id="71">
-									<Width>2</Width>
-									<Height>1</Height>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -140,14 +162,15 @@
 										</v8:item>
 									</Title>
 									<Picture>
-										<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
 									<ContextMenu name="ДекорацияКартинкаОтменаСтартаКонтекстноеМеню" id="72"/>
 									<ExtendedTooltip name="ДекорацияКартинкаОтменаСтартаРасширеннаяПодсказка" id="73"/>
 								</PictureDecoration>
 								<LabelDecoration name="ДекорацияОтменаСтарта" id="74">
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<TextColor>style:ПоясняющийТекст</TextColor>
 									<Title formatted="false">
 										<v8:item>
@@ -180,15 +203,16 @@
 									<v8:content>Задание запущено</v8:content>
 								</v8:item>
 							</Title>
+							<HorizontalStretch>true</HorizontalStretch>
 							<Group>HorizontalIfPossible</Group>
+							<VerticalAlign>Center</VerticalAlign>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
+							<BackColor>pal:LightBlue</BackColor>
 							<ExtendedTooltip name="ГруппаЗаданиеЗапущеноРасширеннаяПодсказка" id="60"/>
 							<ChildItems>
 								<PictureDecoration name="ДекорацияКартинкаЗаданиеЗапущено" id="53">
-									<Width>2</Width>
-									<Height>1</Height>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -196,7 +220,7 @@
 										</v8:item>
 									</Title>
 									<Picture>
-										<xr:Ref>StdPicture.Information</xr:Ref>
+										<xr:Ref>StdPicture.DialogInformation</xr:Ref>
 										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
@@ -204,6 +228,7 @@
 									<ExtendedTooltip name="ДекорацияКартинкаЗаданиеЗапущеноРасширеннаяПодсказка" id="55"/>
 								</PictureDecoration>
 								<LabelDecoration name="ДекорацияЗаданиеЗапущено" id="56">
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<TextColor>style:ПоясняющийТекст</TextColor>
 									<Title formatted="false">
 										<v8:item>
@@ -267,15 +292,16 @@
 									<v8:content>Группа задание запущено</v8:content>
 								</v8:item>
 							</ToolTip>
+							<HorizontalStretch>true</HorizontalStretch>
 							<Group>HorizontalIfPossible</Group>
+							<VerticalAlign>Center</VerticalAlign>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
+							<BackColor>pal:Green</BackColor>
 							<ExtendedTooltip name="ГруппаЗаданиеЗавершеноРасширеннаяПодсказка" id="80"/>
 							<ChildItems>
 								<PictureDecoration name="ДекорацияКартинкаЗаданиеЗавершено" id="81">
-									<Width>2</Width>
-									<Height>1</Height>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -283,7 +309,7 @@
 										</v8:item>
 									</Title>
 									<Picture>
-										<xr:Ref>StdPicture.Information</xr:Ref>
+										<xr:Ref>StdPicture.DialogInformation</xr:Ref>
 										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
@@ -307,94 +333,6 @@
 				</Page>
 			</ChildItems>
 		</Pages>
-		<UsualGroup name="ГруппаКопки" id="24">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Копки</v8:content>
-				</v8:item>
-			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКопкиРасширеннаяПодсказка" id="25"/>
-			<ChildItems>
-				<Pages name="СтраницыКоманд" id="87">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Страницы команд</v8:content>
-						</v8:item>
-					</Title>
-					<PagesRepresentation>None</PagesRepresentation>
-					<ExtendedTooltip name="СтраницыКомандРасширеннаяПодсказка" id="88"/>
-					<ChildItems>
-						<Page name="СтраницаПроцессНеСтартован" id="91">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Страница процесс не стартован</v8:content>
-								</v8:item>
-							</Title>
-							<Group>HorizontalIfPossible</Group>
-							<ScrollOnCompress>false</ScrollOnCompress>
-							<ExtendedTooltip name="СтраницаПроцессНеСтартованРасширеннаяПодсказка" id="92"/>
-							<ChildItems>
-								<Button name="Готово" id="28">
-									<Type>UsualButton</Type>
-									<DefaultButton>true</DefaultButton>
-									<CommandName>Form.Command.Готово</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Готово</v8:content>
-										</v8:item>
-									</Title>
-									<ButtonImportance>Main</ButtonImportance>
-									<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="29"/>
-								</Button>
-								<Button name="Отмена" id="26">
-									<Type>UsualButton</Type>
-									<CommandName>Form.Command.Отмена</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отмена</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="27"/>
-								</Button>
-							</ChildItems>
-						</Page>
-						<Page name="СтраницаПроцессСтартован" id="89">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Страница процесс стартован</v8:content>
-								</v8:item>
-							</Title>
-							<Group>HorizontalIfPossible</Group>
-							<ScrollOnCompress>false</ScrollOnCompress>
-							<ExtendedTooltip name="СтраницаПроцессСтартованРасширеннаяПодсказка" id="90"/>
-							<ChildItems>
-								<Button name="Закрыть" id="95">
-									<Type>UsualButton</Type>
-									<CommandName>Form.Command.Отмена</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Закрыть</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="96"/>
-								</Button>
-							</ChildItems>
-						</Page>
-					</ChildItems>
-				</Pages>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ДатаОтложенногоСтарта" id="1">
@@ -489,23 +427,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Готово</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="Отмена" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Отмена</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

@@ -3,13 +3,7 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<MobileDeviceCommandBarContent>
-		<xr:Item>
-			<xr:Presentation/>
-			<xr:CheckState>0</xr:CheckState>
-			<xr:Value xsi:type="xs:string">ГруппаКоманднаяПанель</xr:Value>
-		</xr:Item>
-	</MobileDeviceCommandBarContent>
+	<CommandBarLocation>Bottom</CommandBarLocation>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
@@ -21,8 +15,25 @@
 		<ExcludedCommand>SaveValues</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Применить" id="49">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Применить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Применить</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="50"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -36,7 +47,8 @@
 					<v8:content>Электронная почта</v8:content>
 				</v8:item>
 			</Title>
-			<MarkRequiredComplete>true</MarkRequiredComplete>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<CreateButton>false</CreateButton>
 			<QuickChoice>true</QuickChoice>
 			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
@@ -72,6 +84,7 @@
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<RowActionsShowType>ShowOnHover</RowActionsShowType>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
 			<FileDragMode>AsFile</FileDragMode>
@@ -106,6 +119,12 @@
 						</Title>
 						<ExtendedTooltip name="ПодобратьРасширеннаяПодсказка" id="75"/>
 					</Button>
+					<Button name="ПолучателиДобавить" id="97">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Получатели.StandardCommand.Add</CommandName>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ПолучателиДобавитьРасширеннаяПодсказка" id="98"/>
+					</Button>
 					<Button name="ВставитьИзБуфераОбмена" id="95">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.ВставитьИзБуфераОбмена</CommandName>
@@ -129,60 +148,59 @@
 						<ChildItems>
 							<Button name="ПолучателиУстановитьПометки" id="108">
 								<Type>CommandBarButton</Type>
+								<Representation>Picture</Representation>
 								<CommandName>Form.Command.УстановитьПометки</CommandName>
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
-										<v8:content>Установить пометки</v8:content>
+										<v8:content>Исключить всех</v8:content>
 									</v8:item>
 								</Title>
 								<ExtendedTooltip name="ПолучателиУстановитьПометкиРасширеннаяПодсказка" id="109"/>
 							</Button>
 							<Button name="ПолучателиСнятьПометки" id="110">
 								<Type>CommandBarButton</Type>
+								<Representation>Picture</Representation>
 								<CommandName>Form.Command.СнятьПометки</CommandName>
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
-										<v8:content>Снять пометки</v8:content>
+										<v8:content>Включить всех</v8:content>
 									</v8:item>
 								</Title>
 								<ExtendedTooltip name="ПолучателиСнятьПометкиРасширеннаяПодсказка" id="111"/>
 							</Button>
 						</ChildItems>
 					</ButtonGroup>
-					<Button name="ПолучателиДобавить" id="97">
+					<ButtonGroup name="ПолучателиГруппаПеремещение" id="150">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Перемещение</v8:content>
+							</v8:item>
+						</Title>
+						<Representation>Compact</Representation>
+						<ExtendedTooltip name="ПолучателиГруппаПеремещениеРасширеннаяПодсказка" id="151"/>
+						<ChildItems>
+							<Button name="ПолучателиПереместитьВверх" id="137">
+								<Type>CommandBarButton</Type>
+								<Representation>Picture</Representation>
+								<CommandName>Form.Item.Получатели.StandardCommand.MoveUp</CommandName>
+								<ExtendedTooltip name="ПолучателиПереместитьВверхРасширеннаяПодсказка" id="138"/>
+							</Button>
+							<Button name="ПолучателиПереместитьВниз" id="139">
+								<Type>CommandBarButton</Type>
+								<Representation>Picture</Representation>
+								<CommandName>Form.Item.Получатели.StandardCommand.MoveDown</CommandName>
+								<ExtendedTooltip name="ПолучателиПереместитьВнизРасширеннаяПодсказка" id="140"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
+					<Button name="ПолучателиУдалить" id="141">
 						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Получатели.StandardCommand.Add</CommandName>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="ПолучателиДобавитьРасширеннаяПодсказка" id="98"/>
+						<CommandName>Form.Item.Получатели.StandardCommand.Delete</CommandName>
+						<ExtendedTooltip name="ПолучателиУдалитьРасширеннаяПодсказка" id="142"/>
 					</Button>
-					<ButtonGroup name="ГруппаКоманднаяПанельПолучатели" id="99">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Командная панель получатели</v8:content>
-							</v8:item>
-						</Title>
-						<CommandSource>Item.Получатели</CommandSource>
-						<ExtendedTooltip name="ГруппаКоманднаяПанельПолучателиРасширеннаяПодсказка" id="100"/>
-					</ButtonGroup>
-					<ButtonGroup name="ГруппаКоманднаяПанельФормы" id="104">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Командная панель формы</v8:content>
-							</v8:item>
-						</Title>
-						<ToolTip>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Группа командная панель получатели</v8:content>
-							</v8:item>
-						</ToolTip>
-						<CommandSource>Form</CommandSource>
-						<ExtendedTooltip name="ГруппаКоманднаяПанельФормыРасширеннаяПодсказка" id="105"/>
-					</ButtonGroup>
 					<SearchStringAddition name="СтрокаПоиск" id="125">
 						<AdditionSource>
 							<Item>Получатели</Item>
@@ -238,7 +256,6 @@
 							<v8:content>Получатель наименование и почта</v8:content>
 						</v8:item>
 					</Title>
-					<HorizontalStretch>false</HorizontalStretch>
 					<Group>InCell</Group>
 					<ExtendedTooltip name="ПолучательНаименованиеИПочтаРасширеннаяПодсказка" id="79"/>
 					<ChildItems>
@@ -251,10 +268,7 @@
 								</v8:item>
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
-							<MarkRequiredComplete>true</MarkRequiredComplete>
 							<AutoEditMode>true</AutoEditMode>
-							<Width>10</Width>
-							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="ПолучателиПолучательКонтекстноеМеню" id="69"/>
 							<ExtendedTooltip name="ПолучателиПолучательРасширеннаяПодсказка" id="70"/>
 						</InputField>
@@ -269,7 +283,6 @@
 							<EditMode>EnterOnInput</EditMode>
 							<ShowInHeader>false</ShowInHeader>
 							<AutoEditMode>true</AutoEditMode>
-							<Width>20</Width>
 							<ContextMenu name="ПолучателиТЗАдресКонтекстноеМеню" id="81"/>
 							<ExtendedTooltip name="ПолучателиТЗАдресРасширеннаяПодсказка" id="82"/>
 						</InputField>
@@ -285,6 +298,7 @@
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<CheckBoxType>CheckBox</CheckBoxType>
 					<ContextMenu name="ПолучателиИсключенКонтекстноеМеню" id="72"/>
 					<ExtendedTooltip name="ПолучателиИсключенРасширеннаяПодсказка" id="73"/>
 					<Events>
@@ -293,101 +307,52 @@
 				</CheckBoxField>
 			</ChildItems>
 		</Table>
-		<UsualGroup name="ГруппаПодвал" id="115">
+		<UsualGroup name="ГруппаИтоги" id="117">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Подвал</v8:content>
+					<v8:content>Итоги</v8:content>
 				</v8:item>
 			</Title>
 			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-			<Group>AlwaysHorizontal</Group>
+			<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+			<Group>AutoScreenTypeSensitive</Group>
+			<HorizontalAlign>Right</HorizontalAlign>
+			<VerticalAlign>Bottom</VerticalAlign>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПодвалРасширеннаяПодсказка" id="116"/>
+			<ExtendedTooltip name="ГруппаИтогиРасширеннаяПодсказка" id="118"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаИтоги" id="117">
+				<LabelField name="ИтогВсего" id="119">
+					<DataPath>ИтогВсего</DataPath>
+					<ReadOnly>true</ReadOnly>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Итоги</v8:content>
+							<v8:content>Всего</v8:content>
 						</v8:item>
 					</Title>
-					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-					<GroupVerticalAlign>Bottom</GroupVerticalAlign>
-					<Group>HorizontalIfPossible</Group>
-					<HorizontalAlign>Right</HorizontalAlign>
-					<VerticalAlign>Bottom</VerticalAlign>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<BackColor>style:ИтогиФонГруппы</BackColor>
-					<ExtendedTooltip name="ГруппаИтогиРасширеннаяПодсказка" id="118"/>
-					<ChildItems>
-						<InputField name="ИтогВсего" id="119">
-							<DataPath>ИтогВсего</DataPath>
-							<ReadOnly>true</ReadOnly>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Всего</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="ИтогВсегоКонтекстноеМеню" id="120"/>
-							<ExtendedTooltip name="ИтогВсегоРасширеннаяПодсказка" id="121"/>
-						</InputField>
-						<InputField name="ИтогИсключены" id="122">
-							<DataPath>ИтогИсключены</DataPath>
-							<ReadOnly>true</ReadOnly>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Исключены</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="ИтогИсключеныКонтекстноеМеню" id="123"/>
-							<ExtendedTooltip name="ИтогИсключеныРасширеннаяПодсказка" id="124"/>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
-				<CommandBar name="ГруппаКоманднаяПанель" id="47">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Командная панель</v8:content>
-						</v8:item>
-					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<HorizontalStretch>false</HorizontalStretch>
-					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-					<HorizontalLocation>Right</HorizontalLocation>
-					<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="48"/>
-					<ChildItems>
-						<Button name="ОК" id="49">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<CommandName>Form.Command.ОК</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>ОК</v8:content>
-								</v8:item>
-							</Title>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="50"/>
-						</Button>
-						<Button name="ФормаЗакрыть" id="39">
-							<Type>CommandBarButton</Type>
-							<Representation>Text</Representation>
-							<CommandName>Form.StandardCommand.Close</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Отмена</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="40"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
+					<ContextMenu name="ИтогВсегоКонтекстноеМеню" id="120"/>
+					<ExtendedTooltip name="ИтогВсегоРасширеннаяПодсказка" id="121"/>
+				</LabelField>
+				<LabelField name="ИтогИсключены" id="122">
+					<DataPath>ИтогИсключены</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исключены</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ИтогИсключеныКонтекстноеМеню" id="123"/>
+					<ExtendedTooltip name="ИтогИсключеныРасширеннаяПодсказка" id="124"/>
+				</LabelField>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -534,22 +499,24 @@
 			</ToolTip>
 			<Action>ПолучателиПодобрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
-		<Command name="ОК" id="2">
+		<Command name="Применить" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ОК</Action>
+			<Action>Применить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ВставитьИзБуфераОбмена" id="3">
 			<Title>
@@ -565,7 +532,7 @@
 				</v8:item>
 			</ToolTip>
 			<Picture>
-				<xr:Ref>CommonPicture.ЗаполнитьФорму</xr:Ref>
+				<xr:Ref>CommonPicture.ВставитьИзБуфераОбмена</xr:Ref>
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<Action>ВставитьИзБуфераОбмена</Action>
@@ -581,7 +548,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Установить пометки</v8:content>
+					<v8:content>Установить отметки "Исключен"</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
@@ -601,7 +568,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Снять пометки</v8:content>
+					<v8:content>Снять отметки "Исключен"</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>

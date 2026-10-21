@@ -18,6 +18,13 @@
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Справка" id="1584">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="1604"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -50,21 +57,14 @@
 					<ContextMenu name="ОписаниеРазделаКонтекстноеМеню" id="1582"/>
 					<ExtendedTooltip name="ОписаниеРазделаРасширеннаяПодсказка" id="1601"/>
 				</LabelDecoration>
-				<CommandBar name="ГруппаСправка" id="1583">
+				<CommandBar name="ГруппаСправкаТакси" id="1758">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Справка</v8:content>
 						</v8:item>
 					</Title>
-					<ExtendedTooltip name="ГруппаСправкаРасширеннаяПодсказка" id="1603"/>
-					<ChildItems>
-						<Button name="Справка" id="1584">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.Help</CommandName>
-							<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="1604"/>
-						</Button>
-					</ChildItems>
+					<ExtendedTooltip name="ГруппаСправкаТаксиРасширеннаяПодсказка" id="1759"/>
 				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
@@ -88,7 +88,7 @@
 							<v8:content>Печать</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>AutoScreenTypeSensitive</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>NormalSeparation</Representation>
 					<ChildItemsWidth>Equal</ChildItemsWidth>
@@ -123,11 +123,11 @@
 										</Title>
 									</ExtendedTooltip>
 								</Button>
-								<Button name="ОткрытьМакетыВыгрузки" id="1742">
+								<Button name="ОткрытьМакетыВыгрузки" id="1756">
 									<Type>Hyperlink</Type>
 									<CommandName>0</CommandName>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-									<ExtendedTooltip name="ОткрытьМакетыВыгрузкиРасширеннаяПодсказка" id="1743">
+									<ExtendedTooltip name="ОткрытьМакетыВыгрузкиРасширеннаяПодсказка" id="1757">
 										<Title formatted="false">
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -194,7 +194,7 @@
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-									<Group>Vertical</Group>
+									<Group>AlwaysHorizontal</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
@@ -207,101 +207,94 @@
 										</Title>
 									</ExtendedTooltip>
 									<ChildItems>
-										<UsualGroup name="ГруппаИспользоватьСервисПереводаТекста" id="1753">
+										<CheckBoxField name="ИспользоватьСервисПереводаТекста1" id="1747">
+											<DataPath>ИспользоватьСервисПереводаТекста</DataPath>
+											<Visible>false</Visible>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Использовать сервис перевода текста</v8:content>
+													<v8:content>Перевод текста</v8:content>
 												</v8:item>
 											</Title>
-											<Group>AlwaysHorizontal</Group>
-											<Representation>WeakSeparation</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаИспользоватьСервисПереводаТекстаРасширеннаяПодсказка" id="1754"/>
-											<ChildItems>
-												<CheckBoxField name="ИспользоватьСервисПереводаТекста1" id="1755">
-													<DataPath>ИспользоватьСервисПереводаТекста</DataPath>
-													<Visible>false</Visible>
-													<Enabled>false</Enabled>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Использовать сервис перевода текста</v8:content>
-														</v8:item>
-													</Title>
-													<TitleLocation>None</TitleLocation>
-													<ContextMenu name="ИспользоватьСервисПереводаТекста1КонтекстноеМеню" id="1756"/>
-													<ExtendedTooltip name="ИспользоватьСервисПереводаТекста1РасширеннаяПодсказка" id="1757"/>
-												</CheckBoxField>
-												<CheckBoxField name="ИспользоватьСервисПереводаТекста" id="1719">
-													<DataPath>НаборКонстант.ИспользоватьСервисПереводаТекста</DataPath>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Перевод текста</v8:content>
-														</v8:item>
-													</Title>
-													<TitleLocation>None</TitleLocation>
-													<ContextMenu name="ИспользоватьСервисПереводаТекстаКонтекстноеМеню" id="1720"/>
-													<ExtendedTooltip name="ИспользоватьСервисПереводаТекстаРасширеннаяПодсказка" id="1721"/>
-													<Events>
-														<Event name="OnChange">ИспользоватьСервисПереводаТекстаПриИзменении</Event>
-													</Events>
-												</CheckBoxField>
-												<LabelDecoration name="НастройкаСервисаПереводаТекста" id="1722">
-													<Title formatted="true">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Перевод текста с помощью онлайн-переводчика</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="НастройкаСервисаПереводаТекстаКонтекстноеМеню" id="1723"/>
-													<ExtendedTooltip name="НастройкаСервисаПереводаТекстаРасширеннаяПодсказка" id="1724"/>
-													<Events>
-														<Event name="URLProcessing">НастройкаСервисаПереводаТекстаОбработкаНавигационнойСсылки</Event>
-													</Events>
-												</LabelDecoration>
-											</ChildItems>
-										</UsualGroup>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<CheckBoxType>Switcher</CheckBoxType>
+											<ContextMenu name="ИспользоватьСервисПереводаТекста1КонтекстноеМеню" id="1748"/>
+											<ExtendedTooltip name="ИспользоватьСервисПереводаТекста1РасширеннаяПодсказка" id="1749"/>
+											<Events>
+												<Event name="OnChange">ИспользоватьСервисПереводаТекстаПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<CheckBoxField name="ИспользоватьСервисПереводаТекста" id="1719">
+											<DataPath>НаборКонстант.ИспользоватьСервисПереводаТекста</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Перевод текста</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<CheckBoxType>Switcher</CheckBoxType>
+											<ContextMenu name="ИспользоватьСервисПереводаТекстаКонтекстноеМеню" id="1720"/>
+											<ExtendedTooltip name="ИспользоватьСервисПереводаТекстаРасширеннаяПодсказка" id="1721"/>
+											<Events>
+												<Event name="OnChange">ИспользоватьСервисПереводаТекстаПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<LabelDecoration name="НастройкаСервисаПереводаТекста" id="1722">
+											<Title formatted="true">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Перевод текста с помощью онлайн-переводчика</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="НастройкаСервисаПереводаТекстаКонтекстноеМеню" id="1723"/>
+											<ExtendedTooltip name="НастройкаСервисаПереводаТекстаРасширеннаяПодсказка" id="1724"/>
+											<Events>
+												<Event name="URLProcessing">НастройкаСервисаПереводаТекстаОбработкаНавигационнойСсылки</Event>
+											</Events>
+										</LabelDecoration>
 									</ChildItems>
 								</UsualGroup>
-								<UsualGroup name="ГруппаКомментарийРазрешенДоступКИнтернетСервисам" id="1745">
+								<UsualGroup name="ГруппаКомментарийРазрешенДоступКИнтернетСервисам" id="1751">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
 											<v8:content>Комментарий разрешен доступ к интернет сервисам</v8:content>
 										</v8:item>
 									</Title>
+									<Width>43</Width>
 									<Group>AlwaysHorizontal</Group>
 									<Representation>WeakSeparation</Representation>
 									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаКомментарийРазрешенДоступКИнтернетСервисамРасширеннаяПодсказка" id="1746"/>
+									<ExtendedTooltip name="ГруппаКомментарийРазрешенДоступКИнтернетСервисамРасширеннаяПодсказка" id="1752"/>
 									<ChildItems>
-										<PictureDecoration name="ДекорацияРазрешенДоступКИнтернетСервисам" id="1747">
+										<PictureDecoration name="ДекорацияРазрешенДоступКИнтернетСервисам" id="1753">
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
 													<v8:content>Декорация разрешен доступ к интернет сервисам</v8:content>
 												</v8:item>
 											</Title>
+											<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
 											<Picture>
-												<xr:Ref>CommonPicture.ИнформацияПоНедоступнымПолям</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Ref>StdPicture.Information</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</Picture>
-											<ContextMenu name="ДекорацияРазрешенДоступКИнтернетСервисамКонтекстноеМеню" id="1748"/>
-											<ExtendedTooltip name="ДекорацияРазрешенДоступКИнтернетСервисамРасширеннаяПодсказка" id="1749"/>
+											<ContextMenu name="ДекорацияРазрешенДоступКИнтернетСервисамКонтекстноеМеню" id="1754"/>
+											<ExtendedTooltip name="ДекорацияРазрешенДоступКИнтернетСервисамРасширеннаяПодсказка" id="1755">
+												<HorizontalStretch>true</HorizontalStretch>
+												<Title formatted="false">
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Для разблокировки настройки необходимо включить доступ к Интернет-сервисам "Интернет-поддержка и сервисы" — "Разрешить доступ к Интернет-сервисам".</v8:content>
+													</v8:item>
+												</Title>
+											</ExtendedTooltip>
 										</PictureDecoration>
-										<LabelDecoration name="КомментарийРазрешенДоступКИнтернетСервисам" id="1750">
-											<HorizontalStretch>false</HorizontalStretch>
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Для разблокировки настройки необходимо включить доступ к Интернет-сервисам "Интернет-поддержка и сервисы" — "Разрешить доступ к Интернет-сервисам".</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="КомментарийРазрешенДоступКИнтернетСервисамКонтекстноеМеню" id="1751"/>
-											<ExtendedTooltip name="КомментарийРазрешенДоступКИнтернетСервисамРасширеннаяПодсказка" id="1752"/>
-										</LabelDecoration>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -315,7 +308,7 @@
 							<v8:content>Варианты рассылки</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>AutoScreenTypeSensitive</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>NormalSeparation</Representation>
 					<ChildItemsWidth>Equal</ChildItemsWidth>
@@ -502,10 +495,13 @@
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Хранить историю за последние</v8:content>
+													<v8:content>Хранить историю</v8:content>
 												</v8:item>
 											</Title>
 											<TitleLocation>Right</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<CheckBoxType>Switcher</CheckBoxType>
 											<ContextMenu name="ХранитьИсториюРассылкиОтчетовКонтекстноеМеню" id="1726"/>
 											<ExtendedTooltip name="ХранитьИсториюРассылкиОтчетовРасширеннаяПодсказка" id="1727"/>
 											<Events>
@@ -517,7 +513,7 @@
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Количество месяцев хранения истории</v8:content>
+													<v8:content>Количество месяцев</v8:content>
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
@@ -527,24 +523,30 @@
 													<v8:content>Количество месяцев хранения истории рассылки отчетов</v8:content>
 												</v8:item>
 											</ToolTip>
-											<SpinButton>true</SpinButton>
-											<ContextMenu name="КоличествоМесяцевХраненияИсторииРассылкиОтчетовКонтекстноеМеню" id="1733"/>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<Width>10</Width>
+											<SpinButton>false</SpinButton>
+											<ContextMenu name="КоличествоМесяцевХраненияИсторииРассылкиОтчетовКонтекстноеМеню" id="1733">
+												<ChildItems>
+													<Button name="ОчиститьИсториюРассылкиОтчетов" id="1738">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.ОчиститьИсториюРассылкиОтчетов</CommandName>
+														<Title>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Очистить</v8:content>
+															</v8:item>
+														</Title>
+														<ExtendedTooltip name="ОчиститьИсториюРассылкиОтчетовРасширеннаяПодсказка" id="1739"/>
+													</Button>
+												</ChildItems>
+											</ContextMenu>
 											<ExtendedTooltip name="КоличествоМесяцевХраненияИсторииРассылкиОтчетовРасширеннаяПодсказка" id="1734"/>
 											<Events>
 												<Event name="OnChange">КоличествоМесяцевХраненияИсторииРассылкиОтчетовПриИзменении</Event>
 											</Events>
 										</InputField>
-										<Button name="ОчиститьИсториюРассылкиОтчетов" id="1738">
-											<Type>UsualButton</Type>
-											<CommandName>Form.Command.ОчиститьИсториюРассылкиОтчетов</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Очистить</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ОчиститьИсториюРассылкиОтчетовРасширеннаяПодсказка" id="1739"/>
-										</Button>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -558,7 +560,7 @@
 							<v8:content>Расширения и внешние компоненты</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>AutoScreenTypeSensitive</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>NormalSeparation</Representation>
 					<ChildItemsWidth>Equal</ChildItemsWidth>
@@ -634,7 +636,7 @@
 							<v8:content>Дополнительные отчеты и обработки</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>AutoScreenTypeSensitive</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>NormalSeparation</Representation>
 					<ChildItemsWidth>Equal</ChildItemsWidth>
@@ -672,6 +674,9 @@
 										</v8:item>
 									</ToolTip>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<CheckBoxType>Switcher</CheckBoxType>
 									<ContextMenu name="ИспользоватьДополнительныеОтчетыИОбработкиКонтекстноеМеню" id="1590"/>
 									<ExtendedTooltip name="ИспользоватьДополнительныеОтчетыИОбработкиРасширеннаяПодсказка" id="1617"/>
 									<Events>
@@ -729,7 +734,7 @@
 				</v8:item>
 			</Title>
 			<HorizontalStretch>false</HorizontalStretch>
-			<Group>HorizontalIfPossible</Group>
+			<Group>AutoScreenTypeSensitive</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -759,6 +764,9 @@
 							</Title>
 							<TitleLocation>Right</TitleLocation>
 							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>Switcher</CheckBoxType>
 							<ContextMenu name="ОтслеживаниеСостоянийНапечатанныхДокументовКонтекстноеМеню" id="1701"/>
 							<ExtendedTooltip name="ОтслеживаниеСостоянийНапечатанныхДокументовРасширеннаяПодсказка" id="1702">
 								<Title formatted="false">
@@ -823,10 +831,7 @@
 				<Field>НаборКонстант.СервисПереводаТекста</Field>
 			</UseAlways>
 		</Attribute>
-		<Attribute name="РежимРаботы" id="15">
-			<Type/>
-		</Attribute>
-		<Attribute name="ИспользоватьСервисПереводаТекста" id="16">
+		<Attribute name="ИспользоватьСервисПереводаТекста" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>

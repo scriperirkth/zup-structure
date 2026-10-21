@@ -10,7 +10,6 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Close</ExcludedCommand>
@@ -24,17 +23,16 @@
 		<ExcludedCommand>SaveValues</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="ФормаКомандаОК" id="1">
+			<Button name="ФормаВыбрать" id="1">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.КомандаОК</CommandName>
+				<CommandName>Form.Command.Выбрать</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаКомандаОКРасширеннаяПодсказка" id="2"/>
+				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="2"/>
 			</Button>
 			<Button name="ФормаОтмена" id="3">
 				<Type>CommandBarButton</Type>
@@ -53,9 +51,9 @@
 			<ChangeRowOrder>false</ChangeRowOrder>
 			<AutoMaxHeight>false</AutoMaxHeight>
 			<AutoMaxRowsCount>false</AutoMaxRowsCount>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<Header>false</Header>
-			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
@@ -73,8 +71,6 @@
 				<ExcludedCommand>MoveDown</ExcludedCommand>
 				<ExcludedCommand>MoveUp</ExcludedCommand>
 				<ExcludedCommand>OutputList</ExcludedCommand>
-				<ExcludedCommand>SelectAll</ExcludedCommand>
-				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
@@ -84,21 +80,35 @@
 			<AutoCommandBar name="ИсправленияКоманднаяПанель" id="7">
 				<Autofill>false</Autofill>
 				<ChildItems>
-					<Button name="ИсправленияОтметитьВсе" id="35">
+					<Button name="ИсправленияУстановитьФлажки" id="35">
 						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ОтметитьВсе</CommandName>
-						<ExtendedTooltip name="ИсправленияОтметитьВсеРасширеннаяПодсказка" id="36"/>
+						<CommandName>Form.Command.УстановитьФлажки</CommandName>
+						<ExtendedTooltip name="ИсправленияУстановитьФлажкиРасширеннаяПодсказка" id="36"/>
 					</Button>
-					<Button name="ИсправленияСнятьОтметкуСоВсех" id="37">
+					<Button name="ИсправленияСнятьФлажки" id="37">
 						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.СнятьОтметкуСоВсех</CommandName>
-						<ExtendedTooltip name="ИсправленияСнятьОтметкуСоВсехРасширеннаяПодсказка" id="38"/>
+						<CommandName>Form.Command.СнятьФлажки</CommandName>
+						<ExtendedTooltip name="ИсправленияСнятьФлажкиРасширеннаяПодсказка" id="38"/>
 					</Button>
 					<Button name="ФормаПодобрать" id="53">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.Подобрать</CommandName>
 						<ExtendedTooltip name="ФормаПодобратьРасширеннаяПодсказка" id="54"/>
 					</Button>
+					<SearchStringAddition name="Исправления_СтрокаПоиска" id="65">
+						<AdditionSource>
+							<Item>Исправления</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Исправления строка поиска</v8:content>
+							</v8:item>
+						</Title>
+						<ContextMenu name="Исправления_СтрокаПоискаКонтекстноеМеню" id="66"/>
+						<ExtendedTooltip name="Исправления_СтрокаПоискаРасширеннаяПодсказка" id="67"/>
+					</SearchStringAddition>
 				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ИсправленияРасширеннаяПодсказка" id="8"/>
@@ -134,107 +144,53 @@
 					<DataPath>Исправления.Отметка</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<CheckBoxType>CheckBox</CheckBoxType>
 					<ContextMenu name="ИсправленияОтметкаКонтекстноеМеню" id="19"/>
 					<ExtendedTooltip name="ИсправленияОтметкаРасширеннаяПодсказка" id="20"/>
 					<Events>
 						<Event name="OnChange">ИсправленияОтметкаПриИзменении</Event>
 					</Events>
 				</CheckBoxField>
-				<ColumnGroup name="ИсправленияГруппаКолонкиВертикальнаяГруппировка" id="33">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Исправления группа колонки вертикальная группировка</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ИсправленияГруппаКолонкиВертикальнаяГруппировкаРасширеннаяПодсказка" id="34"/>
-					<ChildItems>
-						<InputField name="ИсправленияНаименование" id="21">
-							<DataPath>Исправления.Наименование</DataPath>
-							<ReadOnly>true</ReadOnly>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<HorizontalStretch>true</HorizontalStretch>
-							<Font ref="style:ШрифтВажнойНадписиБИП" kind="StyleItem"/>
-							<ContextMenu name="ИсправленияНаименованиеКонтекстноеМеню" id="22"/>
-							<ExtendedTooltip name="ИсправленияНаименованиеРасширеннаяПодсказка" id="23"/>
-						</InputField>
-						<InputField name="ИсправленияОписаниеОтображаемое" id="24">
-							<DataPath>Исправления.ОписаниеОтображаемое</DataPath>
-							<ReadOnly>true</ReadOnly>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoCellHeight>true</AutoCellHeight>
-							<AutoEditMode>true</AutoEditMode>
-							<Height>10</Height>
-							<AutoMaxHeight>false</AutoMaxHeight>
-							<HorizontalStretch>true</HorizontalStretch>
-							<MultiLine>true</MultiLine>
-							<ContextMenu name="ИсправленияОписаниеОтображаемоеКонтекстноеМеню" id="25"/>
-							<ExtendedTooltip name="ИсправленияОписаниеОтображаемоеРасширеннаяПодсказка" id="26"/>
-						</InputField>
-						<InputField name="ИсправленияЗаголовокСсылкиДействия" id="39">
-							<DataPath>Исправления.ЗаголовокСсылкиДействия</DataPath>
-							<ReadOnly>true</ReadOnly>
-							<EditMode>EnterOnInput</EditMode>
-							<CellHyperlink>true</CellHyperlink>
-							<AutoEditMode>true</AutoEditMode>
-							<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
-							<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
-							<ContextMenu name="ИсправленияЗаголовокСсылкиДействияКонтекстноеМеню" id="40"/>
-							<ExtendedTooltip name="ИсправленияЗаголовокСсылкиДействияРасширеннаяПодсказка" id="41"/>
-						</InputField>
-					</ChildItems>
-				</ColumnGroup>
+				<LabelField name="ИсправленияНаименование" id="21">
+					<DataPath>Исправления.Наименование</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ИсправленияНаименованиеКонтекстноеМеню" id="22"/>
+					<ExtendedTooltip name="ИсправленияНаименованиеРасширеннаяПодсказка" id="23"/>
+				</LabelField>
+				<LabelField name="ИсправленияОписаниеОтображаемое" id="24">
+					<DataPath>Исправления.ОписаниеОтображаемое</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CellHyperlink>true</CellHyperlink>
+					<AutoEditMode>true</AutoEditMode>
+					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
+					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
+					<Width>50</Width>
+					<Height>1</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="ИсправленияОписаниеОтображаемоеКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="ИсправленияОписаниеОтображаемоеРасширеннаяПодсказка" id="26"/>
+				</LabelField>
 			</ChildItems>
 		</Table>
 		<LabelField name="ТекстВыбраноИсправлений" id="42">
 			<DataPath>ТекстВыбраноИсправлений</DataPath>
+			<Visible>false</Visible>
 			<TitleLocation>None</TitleLocation>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<AutoMaxHeight>false</AutoMaxHeight>
 			<ContextMenu name="ТекстВыбраноИсправленийКонтекстноеМеню" id="43"/>
 			<ExtendedTooltip name="ТекстВыбраноИсправленийРасширеннаяПодсказка" id="44"/>
 		</LabelField>
-		<UsualGroup name="ГруппаПояснениеОтозвано" id="48">
+		<UsualGroup name="ПояснениеОтозвано" id="48">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа пояснение отозвано</v8:content>
+					<v8:content>Пояснение отозвано</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AlwaysHorizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПояснениеОтозваноРасширеннаяПодсказка" id="49"/>
-			<ChildItems>
-				<PictureDecoration name="КартинкаПояснениеОтозвано" id="50">
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Картинка пояснение отозвано</v8:content>
-						</v8:item>
-					</Title>
-					<Picture>
-						<xr:Ref>CommonPicture.УдалитьИнформация</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</Picture>
-					<FileDragMode>AsFile</FileDragMode>
-					<ContextMenu name="КартинкаПояснениеОтозваноКонтекстноеМеню" id="51"/>
-					<ExtendedTooltip name="КартинкаПояснениеОтозваноРасширеннаяПодсказка" id="52"/>
-				</PictureDecoration>
-				<LabelDecoration name="ДекорацияПояснениеОтозвано" id="45">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Неактуальные исправления (патчи) удаляются из информационной базы.</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ДекорацияПояснениеОтозваноКонтекстноеМеню" id="46"/>
-					<ExtendedTooltip name="ДекорацияПояснениеОтозваноРасширеннаяПодсказка" id="47"/>
-				</LabelDecoration>
-			</ChildItems>
+			<ExtendedTooltip name="ПояснениеОтозваноРасширеннаяПодсказка" id="49"/>
 		</UsualGroup>
 	</ChildItems>
 	<Attributes>
@@ -400,54 +356,63 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="КомандаОК" id="1">
+		<Command name="Выбрать" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
-				</v8:item>
-			</Title>
-			<Action>КомандаОК</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="ОтметитьВсе" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отметить все</v8:content>
+					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Отметить все</v8:content>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Выбрать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="УстановитьФлажки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
 				<xr:Ref>StdPicture.CheckAll</xr:Ref>
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
-			<Action>ОтметитьВсе</Action>
+			<Action>УстановитьФлажки</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
-		<Command name="СнятьОтметкуСоВсех" id="3">
+		<Command name="СнятьФлажки" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Снять отметку со всех</v8:content>
+					<v8:content>Снять флажки</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Снять отметку со всех</v8:content>
+					<v8:content>Снять флажки</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
 				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
-			<Action>СнятьОтметкуСоВсех</Action>
+			<Action>СнятьФлажки</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="Подобрать" id="4">
@@ -464,6 +429,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Подобрать</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
 		</Command>
 	</Commands>
 	<Parameters>

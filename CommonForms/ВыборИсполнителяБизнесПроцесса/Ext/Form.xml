@@ -50,19 +50,8 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ПользователиРасширеннаяПодсказка" id="57"/>
 					<ChildItems>
-						<CommandBar name="КоманднаяПанельПользователи" id="31">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Командная панель пользователи</v8:content>
-								</v8:item>
-							</Title>
-							<CommandSource>Item.СписокПользователи</CommandSource>
-							<ExtendedTooltip name="КоманднаяПанельПользователиРасширеннаяПодсказка" id="58"/>
-						</CommandBar>
 						<Table name="СписокПользователи" id="1">
 							<Representation>List</Representation>
-							<CommandBarLocation>None</CommandBarLocation>
 							<SkipOnInput>false</SkipOnInput>
 							<ChoiceMode>true</ChoiceMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
@@ -93,6 +82,7 @@
 								<ExcludedCommand>Delete</ExcludedCommand>
 								<ExcludedCommand>SetDeletionMark</ExcludedCommand>
 							</CommandSet>
+							<ShowCommandBar>auto</ShowCommandBar>
 							<AutoRefresh>false</AutoRefresh>
 							<AutoRefreshPeriod>60</AutoRefreshPeriod>
 							<Period>
@@ -142,6 +132,8 @@
 								<LabelField name="Наименование" id="4">
 									<DataPath>СписокПользователи.Description</DataPath>
 									<DefaultItem>true</DefaultItem>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<Width>20</Width>
 									<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
 									<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="60"/>
@@ -151,6 +143,8 @@
 									<UserVisible>
 										<xr:Common>false</xr:Common>
 									</UserVisible>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СсылкаКонтекстноеМеню" id="84"/>
 									<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="85"/>
 								</LabelField>
@@ -243,6 +237,8 @@
 							<ChildItems>
 								<LabelField name="НаименованиеРоли" id="29">
 									<DataPath>СписокРоли.Description</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="НаименованиеРолиКонтекстноеМеню" id="30"/>
 									<ExtendedTooltip name="НаименованиеРолиРасширеннаяПодсказка" id="63"/>
 								</LabelField>
@@ -251,18 +247,22 @@
 									<UserVisible>
 										<xr:Common>false</xr:Common>
 									</UserVisible>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СписокРолиСсылкаКонтекстноеМеню" id="87"/>
 									<ExtendedTooltip name="СписокРолиСсылкаРасширеннаяПодсказка" id="88"/>
 								</LabelField>
 							</ChildItems>
 						</Table>
-						<InputField name="СписокРолиКомментарий" id="53">
+						<LabelField name="СписокРолиКомментарий" id="53">
 							<DataPath>Items.СписокРоли.CurrentData.Комментарий</DataPath>
 							<ReadOnly>true</ReadOnly>
-							<TitleLocation>Left</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<UseCopy>true</UseCopy>
 							<ContextMenu name="СписокРолиКомментарийКонтекстноеМеню" id="54"/>
 							<ExtendedTooltip name="СписокРолиКомментарийРасширеннаяПодсказка" id="64"/>
-						</InputField>
+						</LabelField>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -397,19 +397,10 @@
 					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>Выбрать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

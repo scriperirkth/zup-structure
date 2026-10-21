@@ -2175,4 +2175,362 @@
 
 #КонецОбласти
 
+#Область ШаблонНовости
+
+// Возвращает шаблон текста новости со стилями.
+// Стили будут отличаться в зависимости от варианта интерфейса:
+// - в "такси" явно указаны значения цветов
+// - в "8.5" используются CSS-переменные.
+//
+// Возвращаемое значение:
+//   Строка - шаблон текста новости.
+//
+Функция ПолучитьШаблонНовостиСоСтилями() Экспорт
+
+	Результат = "";
+
+	СоответствияПеременныхЦвету = Новый Структура;
+	ВсеСоответствияЦветов = ОбработкаНовостейСлужебный.ВсеСоответствияЦветов();
+
+	Если КлиентскоеПриложение.ТекущийВариантИнтерфейса() = ВариантИнтерфейсаКлиентскогоПриложения.Версия8_5 Тогда
+		// Используем это же имя переменной
+		Для Каждого ТекущееСоответствие Из ВсеСоответствияЦветов Цикл
+			СоответствияПеременныхЦвету.Вставить(ТекущееСоответствие.Ключ, "var(--" + ТекущееСоответствие.Ключ + ")");
+		КонецЦикла;
+	Иначе
+		// Подставляем конкретное значение цвета
+		Для Каждого ТекущееСоответствие Из ВсеСоответствияЦветов Цикл
+			СоответствияПеременныхЦвету.Вставить(ТекущееСоответствие.Ключ, ТекущееСоответствие.Значение.ЦветТакси);
+		КонецЦикла;
+	КонецЕсли;
+
+	ШаблонТекстХТМЛ = "
+		|<!DOCTYPE html>
+		|<html>
+		|	<head>
+		|		<!-- Здесь можно вставить свои теги для заголовка -->
+		|		<style type=""text/css"">
+		|			/* Основные параметры текста */
+		|			body {
+		|				font-family: Arial; /* Семейство шрифтов */
+		|				font-size: 10pt; /* Размер основного шрифта в пунктах */
+		|			}
+		|
+		|			/* Блок заголовка 1 уровня */
+		|			h1 {
+		|				font-weight: bold;
+		|				font-style: normal;
+		|				font-size: 150%; /* Размер основного шрифта в процентах */
+		|				margin-left: 0em;
+		|				margin-bottom: 0.5em;
+		|			}
+		|
+		|			/* Блок заголовка 2 уровня */
+		|			h2 {
+		|				font-weight: bold;
+		|				font-style: normal;
+		|				font-size: 140%; /* Размер основного шрифта в процентах */
+		|				margin-left: 0.5em;
+		|				margin-bottom: 0.5em;
+		|			}
+		|
+		|			/* Блок заголовка 3 уровня */
+		|			h3 {
+		|				font-weight: bold;
+		|				font-style: normal;
+		|				font-size: 130%; /* Размер основного шрифта в процентах */
+		|				margin-left: 2em;
+		|				margin-bottom: 0.5em;
+		|			}
+		|
+		|			/* Блок заголовка 4 уровня */
+		|			h4 {
+		|				font-weight: bold;
+		|				font-style: normal;
+		|				font-size: 120%; /* Размер основного шрифта в процентах */
+		|				margin-left: 2.5em;
+		|				margin-bottom: 0.5em;
+		|			}
+		|
+		|			/* Блок заголовка 5 уровня */
+		|			h5 {
+		|				font-weight: bold;
+		|				font-style: normal;
+		|				font-size: 120%; /* Размер основного шрифта в процентах */
+		|				margin-left: 3em;
+		|				margin-bottom: 0.5em;
+		|			}
+		|
+		|			/* Блок заголовка 6 уровня */
+		|			h6 {
+		|				font-weight: bold;
+		|				font-style: normal;
+		|				font-size: 120%; /* Размер основного шрифта в процентах */
+		|				margin-left: 3.5em;
+		|				margin-bottom: 0.5em;
+		|			}
+		|
+		|			/* Блок Длинная цитата */
+		|			blockquote {
+		|				font-family: monospace; /* Семейство шрифтов */
+		|				font-style: normal;
+		|				color: {{colorBack80}}; /* светлая тема: #575757, темная тема: #dbdbdb */
+		|				background-color: {{colorYellow10}}; /* светлая тема: #fffbe5, темная тема: #403919 */
+		|			}
+		|
+		|			/* Блок Короткая цитата */
+		|			q {
+		|				font-family: monospace; /* Семейство шрифтов */
+		|				font-style: normal;
+		|				color: {{colorBack80}}; /* светлая тема: #575757, темная тема: #dbdbdb */
+		|				background-color: {{colorYellow10}}; /* светлая тема: #fffbe5, темная тема: #403919 */
+		|			}
+		|
+		|			/* Блок Источник цитаты */
+		|			cite {
+		|				font-family: monospace; /* Семейство шрифтов */
+		|				font-style: normal;
+		|				color: {{colorBack80}}; /* светлая тема: #575757, темная тема: #dbdbdb */
+		|				background-color: {{colorYellow10}}; /* светлая тема: #fffbe5, темная тема: #403919 */
+		|			}
+		|
+		|			/* Блок Ввод с клавиатуры */
+		|			kbd {
+		|				font-family: monospace; /* Семейство шрифтов */
+		|				background-color:  {{colorGray20}}; /* светлая тема: #e8e8e8, темная тема: #4d4d4d */
+		|				color: {{colorBack80}}; /* светлая тема: #575757, темная тема: #dbdbdb */
+		|				border-width:thin;
+		|				border-style: outset;
+		|				border-color: {{colorGray10}}; /* светлая тема: #f5f5f5, темная тема: #424242 */
+		|				padding-left: 2px;
+		|				padding-right: 4px;
+		|			}
+		|
+		|			/* Блок Программный код */
+		|			code {
+		|				font-family: monospace; /* Семейство шрифтов */
+		|				color: {{colorBlue60}}; /* светлая тема: #0063cf, темная тема: #5eacff */
+		|				background-color: {{colorText10}}; /* светлая тема: #ededf2, темная тема: #222226 */
+		|			}
+		|
+		|			/* Блок Акцентированный текст */
+		|			em {
+		|				font-style: normal;
+		|				font-weight: bolder;
+		|				color: {{colorText90}}; /* светлая тема: #1c1c1f, темная тема: #ededf2 */
+		|			}
+		|
+		|			/* Блок Акцентированный текст, приоритет */
+		|			em.priority {
+		|				color: {{colorRed60}}; /* светлая тема: #cf281f, темная тема: #ff8b85 */
+		|			}
+		|
+		|			/* Блок Акцентированный текст, приоритет завершился по сроку */
+		|			em.priority_ended {
+		|				color: {{colorText50}}; /* светлая тема: #81818a, темная тема: #84848c */
+		|			}
+		|
+		|			/* Блок Акцентированный текст, иконка приоритета */
+		|			em.priority_icon {
+		|				color: {{colorRed60}}; /* светлая тема: #cf281f, темная тема: #ff8b85 */
+		|			}
+		|
+		|			/* Цвет неактуальной новости */
+		|			div.outofdate{
+		|				color: {{colorText50}}; /* светлая тема: #81818a, темная тема: #84848c */
+		|			}
+		|
+		|			/* Блок Параграф */
+		|			p {
+		|				font-style: normal;
+		|				font-weight: normal;
+		|				margin-bottom: 0.25em;
+		|			}
+		|
+		|			/* Блок список маркированный */
+		|			ul {
+		|				font-style: normal;
+		|				font-weight: normal;
+		|				margin-bottom: 0.25em;
+		|			}
+		|
+		|			/* Блок список нумерованный */
+		|			ol {
+		|				font-style: normal;
+		|				font-weight: normal;
+		|				margin-bottom: 0.25em;
+		|			}
+		|
+		|			/* Блок элемент списка */
+		|			li {
+		|				font-style: normal;
+		|				font-weight: normal;
+		|			}
+		|
+		|			/* Цвет актуальной новости */
+		|			div.actual{
+		|				color: {{colorText90}}; /* светлая тема: #1c1c1f, темная тема: #ededf2 */
+		|			}
+		|
+		|			/* Блок информации о важности или актуальности */
+		|			div#importanceData{
+		|				font-weight: bold;
+		|				font-style: normal;
+		|				font-size: 8pt; /* Размер основного шрифта в пунктах */
+		|				margin-bottom: 0.5em;
+		|			}
+		|
+		|			/* Блок информации о важности или актуальности при наведении */
+		|			div#importanceData:hover {
+		|				text-decoration: none;
+		|				pointer-events: none;
+		|			}
+		|
+		|			/* Блок информации Весь текст новости */
+		|			div#newsData{
+		|			}
+		|
+		|			/* Блок информации Заголовок */
+		|			div#newsHeader{
+		|				font-weight: bold;
+		|				margin-bottom: 0.5em;
+		|			}
+		|
+		|			/* Блок информации Только текст новости */
+		|			div#newsText{
+		|			}
+		|
+		|			/* Блок информации о категориях */
+		|			div#newsCategories{
+		|				color: {{colorText50}}; /* светлая тема: #81818a, темная тема: #84848c */
+		|				font-style: italic;
+		|				font-size: 8pt; /* Размер основного шрифта в пунктах */
+		|				margin-top: 1em;
+		|			}
+		|
+		|			/* Блок информации о простых категориях */
+		|			div#newsCategoriesSimple{
+		|			}
+		|
+		|			/* Блок информации о категориях интервалы версий */
+		|			div#newsCategoriesVersions{
+		|			}
+		|
+		|			/* Блок информации ссылка на полный текст новости */
+		|			div#newsHyperlink{
+		|				margin-top: 2em;
+		|			}
+		|
+		|			/* Гиперссылка, не посещенная */
+		|			a:link {
+		|			}
+		|
+		|			/* Гиперссылка, посещенная */
+		|			a:visited {
+		|			}
+		|
+		|			/* Гиперссылка при наведении курсора мыши */
+		|			a:hover {
+		|				color: {{colorBlue70}}; /* светлая тема: #004da1, темная тема: #8cc3ff */
+		|				text-decoration: underline;
+		|			}
+		|
+		|			/* Класс для всех горизонтальных линий */
+		|			hr {
+		|				color: {{colorGray50}}; /* светлая тема: #c8c8c8, темная тема: #6e6e6e */
+		|			}
+		|
+		|			/* Класс для скрытия блоков текста */
+		|			.hidden {
+		|				display: none;
+		|			}
+		|
+		|			.button {
+		|				display: inline-block ;
+		|				text-decoration: none ;
+		|				background-color: {{colorLightBlue20}}; /* светлая тема: #b8ebff, темная тема: #2c5b6e */
+		|				color: {{colorBack90}}; /* светлая тема: #404040, темная тема: #f2f2f2 */
+		|				border-radius: 10px;
+		|				font-size: 16px;
+		|				font-weight: bold;
+		|				padding: 10px 50px;
+		|				transition: all 0.5s ease;
+		|				margin-bottom: 0.5em;
+		|				margin-top: 0.5em;
+		|				text-align: center;
+		|			}
+		|
+		|			.button:hover {
+		|				text-decoration: none;
+		|				background-color: {{colorLightBlue30}}; /* светлая тема: #8bdcfc, темная тема: #3f839e */
+		|				color: {{colorBack90}}; /* светлая тема: #404040, темная тема: #f2f2f2 */
+		|			}
+		|
+		|			/* Картинка */
+		|			img.rounded {
+		|				border-radius: 16px;
+		|			}
+		|
+		|			/* Блок полезной информации */
+		|			div.blockquote_important {
+		|				align-items: flex-start;
+		|				justify-content: flex-start;
+		|				border-radius: 16px;
+		|				padding: 24px 16px;
+		|				background-color: {{colorGray10}}; /* светлая тема: #f5f5f5, темная тема: #424242 */
+		|				margin-bottom: 1em;
+		|				margin-top: 1em;
+		|			}
+		|
+		|			/* Бейдж */
+		|			.badge {
+		|				border-radius: 1em; /* Радиус скругления углов */
+		|				padding: 0.25em;   /* Отступы внутрь (в отличие от margin, наружу) */
+		|				border-width: 1px;
+		|				border-style: solid;
+		|				border-color: {{colorBack50}}; /* светлая тема: #999999, темная тема: #999999 */
+		|			}
+		|
+		|			/* Цвета фона и текста, для бейджей */
+		|			.red {
+		|				color: {{colorText90}}; /* светлая тема: #1c1c1f, темная тема: #ededf2 */
+		|				background-color: {{colorRed50}}; /* светлая тема: #ff3e33, темная тема: #ff6e66 */
+		|				border: none;
+		|			}
+		|
+		|			.green {
+		|				color: {{colorText90}}; /* светлая тема: #1c1c1f, темная тема: #ededf2 */
+		|				background-color: {{colorGreen50}}; /* светлая тема: #0cdc40, темная тема: #37dc60 */
+		|				border: none;
+		|			}
+		|
+		|			.blue {
+		|				color: {{colorText90}}; /* светлая тема: #1c1c1f, темная тема: #ededf2 */
+		|				background-color: {{colorBlue50}}; /* светлая тема: #007aff, темная тема: #3395ff */
+		|				border: none;
+		|			}
+		|
+		|			.yellow {
+		|				color: {{colorText50}}; /* светлая тема: #81818a, темная тема: #84848c */
+		|				background-color: {{colorYellow50}}; /* светлая тема: #007aff, темная тема: #3395ff */
+		|				border: none;
+		|			}
+		|
+		|			/* Здесь можно вставить свои стили */
+		|
+		|		</style>
+		|	</head>
+		|	<body>
+		|		%Новости%
+		|	</body>
+		|</html>";
+
+	Результат = ОбработкаНовостейКлиентСервер.ЗаполнитьШаблон(ШаблонТекстХТМЛ, СоответствияПеременныхЦвету);
+
+	Возврат Результат;
+
+КонецФункции
+
+#КонецОбласти
+
 #КонецОбласти

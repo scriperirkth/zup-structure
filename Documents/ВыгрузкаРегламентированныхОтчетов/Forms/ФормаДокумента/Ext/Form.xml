@@ -2,7 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<CommandSet>
 		<ExcludedCommand>Post</ExcludedCommand>
 		<ExcludedCommand>UndoPosting</ExcludedCommand>
@@ -53,14 +52,6 @@
 				<CommandName>Form.Command.Сохранить</CommandName>
 				<ExtendedTooltip name="СохранитьExtendedTooltip" id="78"/>
 			</Button>
-			<Button name="Закрыть" id="69">
-				<Type>CommandBarButton</Type>
-				<Representation>PictureAndText</Representation>
-				<SkipOnInput>false</SkipOnInput>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ЗакрытьExtendedTooltip" id="79"/>
-			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -108,7 +99,7 @@
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="4"/>
 					<ExtendedTooltip name="ДатаExtendedTooltip" id="82"/>
 				</InputField>
@@ -154,7 +145,8 @@
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<ChoiceButton>true</ChoiceButton>
+					<AutoMaxHeight>false</AutoMaxHeight>
+					<HorizontalStretch>false</HorizontalStretch>
 					<ClearButton>true</ClearButton>
 					<ListChoiceMode>true</ListChoiceMode>
 					<ContextMenu name="КодНалоговогоОрганаКонтекстноеМеню" id="10"/>
@@ -189,6 +181,8 @@
 				<InputField name="Год" id="38">
 					<DataPath>Год</DataPath>
 					<AutoMaxWidth>false</AutoMaxWidth>
+					<AutoMaxHeight>false</AutoMaxHeight>
+					<HorizontalStretch>false</HorizontalStretch>
 					<SpinButton>true</SpinButton>
 					<EditFormat>
 						<v8:item>
@@ -390,13 +384,13 @@
 			</ToolTip>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ОтчетыExtendedTooltip" id="89"/>
 			<ChildItems>
 				<Table name="Основания" id="50">
 					<Representation>List</Representation>
 					<SkipOnInput>false</SkipOnInput>
 					<AutoMaxWidth>false</AutoMaxWidth>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -416,7 +410,6 @@
 						<ExcludedCommand>MoveDown</ExcludedCommand>
 						<ExcludedCommand>MoveUp</ExcludedCommand>
 						<ExcludedCommand>OutputList</ExcludedCommand>
-						<ExcludedCommand>SelectAll</ExcludedCommand>
 						<ExcludedCommand>SortListAsc</ExcludedCommand>
 						<ExcludedCommand>SortListDesc</ExcludedCommand>
 					</CommandSet>
@@ -487,6 +480,7 @@
 							<DataPath>Основания.Пометка</DataPath>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
 							<ContextMenu name="ОснованияПометкаКонтекстноеМеню" id="56"/>
 							<ExtendedTooltip name="ОснованияПометкаExtendedTooltip" id="95"/>
 						</CheckBoxField>
@@ -544,9 +538,16 @@
 		</UsualGroup>
 		<InputField name="Комментарий" id="11">
 			<DataPath>Объект.Комментарий</DataPath>
+			<TitleLocation>None</TitleLocation>
 			<EditMode>EnterOnInput</EditMode>
 			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
+			<InputHint>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий</v8:content>
+				</v8:item>
+			</InputHint>
 			<ContextMenu name="КомментарийКонтекстноеМеню" id="12"/>
 			<ExtendedTooltip name="КомментарийExtendedTooltip" id="102"/>
 		</InputField>
@@ -1221,11 +1222,6 @@
 					<v8:content>Сохранить</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>CommonPicture.ВыгрузитьФайлСертификата</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-				<xr:TransparentPixel x="11" y="3"/>
-			</Picture>
 			<Action>Сохранить</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
@@ -1243,10 +1239,6 @@
 					<v8:content>Проверить отчет</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>CommonPicture.ОперацияВыполненаУспешно</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
-			</Picture>
 			<Action>ПроверитьОтчет</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
@@ -1255,7 +1247,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сформировать тексты выгрузки</v8:content>
+					<v8:content>Тексты выгрузки</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -1264,10 +1256,6 @@
 					<v8:content>Сформировать тексты выгрузки</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>СформироватьТекстыВыгрузки</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
@@ -1327,10 +1315,6 @@
 					<v8:content>Заполнить</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>Заполнить</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
@@ -1348,10 +1332,6 @@
 					<v8:content>Показать текст выгрузки</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.Document</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>ПоказатьТекстВыгрузки</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>

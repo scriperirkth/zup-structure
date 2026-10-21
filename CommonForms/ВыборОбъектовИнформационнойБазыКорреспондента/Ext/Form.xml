@@ -3,9 +3,23 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаВыбратьЗначение" id="36">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ВыбратьЗначение</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Выбрать</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаВыбратьЗначениеРасширеннаяПодсказка" id="37"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -16,6 +30,7 @@
 			<ReadOnly>true</ReadOnly>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<Header>false</Header>
 			<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -43,65 +58,8 @@
 				<ExcludedCommand>MoveDown</ExcludedCommand>
 				<ExcludedCommand>MoveUp</ExcludedCommand>
 			</CommandSet>
-			<ContextMenu name="СписокКонтекстноеМеню" id="2">
-				<Autofill>false</Autofill>
-				<ChildItems>
-					<ButtonGroup name="СписокКонтекстноеМенюГруппа1" id="14">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Контекстное меню группа 1</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="СписокКонтекстноеМенюГруппа1ExtendedTooltip" id="16"/>
-						<ChildItems>
-							<Button name="СписокКонтекстноеМенюВыбратьЗначение" id="8">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.ВыбратьЗначение</CommandName>
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Выбрать</v8:content>
-									</v8:item>
-								</Title>
-								<ExtendedTooltip name="СписокКонтекстноеМенюВыбратьЗначениеExtendedTooltip" id="17"/>
-							</Button>
-						</ChildItems>
-					</ButtonGroup>
-					<Button name="СписокКонтекстноеМенюКопироватьВБуферОбмена" id="9">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.CopyToClipboard</CommandName>
-						<ExtendedTooltip name="СписокКонтекстноеМенюКопироватьВБуферОбменаExtendedTooltip" id="18"/>
-					</Button>
-					<Button name="СписокКонтекстноеМенюВыделитьВсе" id="10">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.SelectAll</CommandName>
-						<ExtendedTooltip name="СписокКонтекстноеМенюВыделитьВсеExtendedTooltip" id="19"/>
-					</Button>
-					<Button name="СписокКонтекстноеМенюВывестиСписок" id="11">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.OutputList</CommandName>
-						<ExtendedTooltip name="СписокКонтекстноеМенюВывестиСписокExtendedTooltip" id="20"/>
-					</Button>
-				</ChildItems>
-			</ContextMenu>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
-				<ChildItems>
-					<Button name="СписокВыбратьЗначение" id="15">
-						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.ВыбратьЗначение</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Выбрать</v8:content>
-							</v8:item>
-						</Title>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="СписокВыбратьЗначениеExtendedTooltip" id="21"/>
-					</Button>
-				</ChildItems>
-			</AutoCommandBar>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
 			<ExtendedTooltip name="СписокExtendedTooltip" id="22"/>
 			<SearchStringAddition name="СписокSearchString" id="24">
 				<AdditionSource>
@@ -221,13 +179,10 @@
 					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</Title>
-			<Picture>
-				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>ВыбратьЗначение</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

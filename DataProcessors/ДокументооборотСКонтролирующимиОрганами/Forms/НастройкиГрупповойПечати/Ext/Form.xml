@@ -12,6 +12,16 @@
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="КнопкаОК" id="25">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ОсновныеДействияФормыОК</CommandName>
+				<Font ref="style:TextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="КнопкаОКРасширеннаяПодсказка" id="43"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -45,6 +55,7 @@
 					<ExtendedTooltip name="ГруппаЦикловРасширеннаяПодсказка" id="30"/>
 					<ChildItems>
 						<LabelDecoration name="ДекорацияВыбраноЦиклов" id="4">
+							<HorizontalStretch>true</HorizontalStretch>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -58,6 +69,7 @@
 							<DataPath>ЧислоЦикловОбмена</DataPath>
 							<TitleLocation>None</TitleLocation>
 							<HorizontalAlign>Center</HorizontalAlign>
+							<Width>5</Width>
 							<TextColor>style:ПоясняющийТекст</TextColor>
 							<BackColor>#F0F1FB</BackColor>
 							<ContextMenu name="ЧислоЦикловКонтекстноеМеню" id="28"/>
@@ -188,37 +200,6 @@
 						</CheckBoxField>
 					</ChildItems>
 				</UsualGroup>
-				<CommandBar name="ГруппаКоманднаяПанель" id="2">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа командная панель</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа командная панель</v8:content>
-						</v8:item>
-					</ToolTip>
-					<HorizontalLocation>Right</HorizontalLocation>
-					<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="42"/>
-					<ChildItems>
-						<Button name="КнопкаОК" id="25">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<CommandName>Form.Command.ОсновныеДействияФормыОК</CommandName>
-							<Font ref="style:TextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="КнопкаОКРасширеннаяПодсказка" id="43"/>
-						</Button>
-						<Button name="КнопкаОтмена" id="26">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.ОсновныеДействияФормыОтмена</CommandName>
-							<ExtendedTooltip name="КнопкаОтменаРасширеннаяПодсказка" id="44"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -326,7 +307,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -337,6 +318,7 @@
 			</ToolTip>
 			<Action>ОсновныеДействияФормыОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ОсновныеДействияФормыОтмена" id="2">
 			<Title>

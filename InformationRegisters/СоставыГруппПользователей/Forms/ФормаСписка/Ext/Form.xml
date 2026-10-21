@@ -1,12 +1,33 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
-	<Group>Vertical</Group>
-	<CommandSet>
-		<ExcludedCommand>Copy</ExcludedCommand>
-	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВключитьВозможностьРедактирования" id="8">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ФормаВключитьВозможностьРедактирования</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Включить возможность редактирования</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаВключитьВозможностьРедактированияРасширеннаяПодсказка" id="12"/>
+			</Button>
+			<Button name="ФормаОбновитьДанныеРегистра" id="9">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ФормаОбновитьДанныеРегистра</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обновить данные регистра</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаОбновитьДанныеРегистраРасширеннаяПодсказка" id="13"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -19,51 +40,14 @@
 					<v8:content>Группа пользовательских настроек</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Vertical</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="19"/>
 		</UsualGroup>
-		<CommandBar name="КоманднаяПанель" id="20">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="21"/>
-			<ChildItems>
-				<Button name="ФормаВключитьВозможностьРедактирования" id="8">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.ВключитьВозможностьРедактирования</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Включить возможность редактирования</v8:content>
-						</v8:item>
-					</Title>
-					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-					<ExtendedTooltip name="ФормаВключитьВозможностьРедактированияРасширеннаяПодсказка" id="12"/>
-				</Button>
-				<Button name="ФормаОбновитьДанныеРегистра" id="9">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.ОбновитьДанныеРегистра</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Обновить данные регистра</v8:content>
-						</v8:item>
-					</Title>
-					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-					<ExtendedTooltip name="ФормаОбновитьДанныеРегистраРасширеннаяПодсказка" id="13"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -80,6 +64,7 @@
 			<CommandSet>
 				<ExcludedCommand>Copy</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -96,9 +81,7 @@
 			<UserSettingsGroup>ГруппаПользовательскихНастроек</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
-			</AutoCommandBar>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="14"/>
 			<SearchStringAddition name="СписокSearchString" id="22">
 				<AdditionSource>
@@ -125,22 +108,29 @@
 				<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="30"/>
 			</SearchControlAddition>
 			<ChildItems>
-				<LabelField name="ГруппаПользователей" id="4">
+				<LabelField name="СписокГруппаПользователей" id="4">
 					<DataPath>Список.ГруппаПользователей</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<ContextMenu name="ГруппаПользователейКонтекстноеМеню" id="5"/>
-					<ExtendedTooltip name="ГруппаПользователейРасширеннаяПодсказка" id="15"/>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокГруппаПользователейКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="СписокГруппаПользователейРасширеннаяПодсказка" id="15"/>
 				</LabelField>
-				<LabelField name="Пользователь" id="6">
+				<LabelField name="СписокПользователь" id="6">
 					<DataPath>Список.Пользователь</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<ContextMenu name="ПользовательКонтекстноеМеню" id="7"/>
-					<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="16"/>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокПользовательКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="СписокПользовательРасширеннаяПодсказка" id="16"/>
 				</LabelField>
-				<CheckBoxField name="Используется" id="10">
+				<CheckBoxField name="СписокИспользуется" id="10">
 					<DataPath>Список.Используется</DataPath>
-					<ContextMenu name="ИспользуетсяКонтекстноеМеню" id="11"/>
-					<ExtendedTooltip name="ИспользуетсяРасширеннаяПодсказка" id="17"/>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<ContextMenu name="СписокИспользуетсяКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="СписокИспользуетсяРасширеннаяПодсказка" id="17"/>
 				</CheckBoxField>
 			</ChildItems>
 		</Table>
@@ -175,7 +165,7 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ВключитьВозможностьРедактирования" id="1">
+		<Command name="ФормаВключитьВозможностьРедактирования" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -188,10 +178,10 @@
 					<v8:content>Включить возможность редактирования только для целей поиска неисправности (требуется углубленное понимание работы механизма)</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ВключитьВозможностьРедактирования</Action>
+			<Action>ФормаВключитьВозможностьРедактирования</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
-		<Command name="ОбновитьДанныеРегистра" id="2">
+		<Command name="ФормаОбновитьДанныеРегистра" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -204,7 +194,7 @@
 					<v8:content>Обновить данные регистра</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ОбновитьДанныеРегистра</Action>
+			<Action>ФормаОбновитьДанныеРегистра</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>

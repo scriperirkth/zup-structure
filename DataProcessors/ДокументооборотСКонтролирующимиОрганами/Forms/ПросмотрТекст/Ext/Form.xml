@@ -6,37 +6,25 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
-	<CommandBarLocation>None</CommandBarLocation>
+	<CommandBarLocation>Top</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ShowCommandBar>true</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="КнопкаПечать" id="4">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Печать</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="КнопкаПечатьExtendedTooltip" id="7"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<CommandBar name="ГруппаКоманднаяПанель" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа командная панель</v8:content>
-				</v8:item>
-			</ToolTip>
-			<ExtendedTooltip name="ГруппаКоманднаяПанельExtendedTooltip" id="6"/>
-			<ChildItems>
-				<Button name="КнопкаПечать" id="4">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.Печать</CommandName>
-					<ExtendedTooltip name="КнопкаПечатьExtendedTooltip" id="7"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 		<TextDocumentField name="ПолеTEXTДокумента" id="1">
 			<DataPath>TEXTДокумент</DataPath>
 			<ReadOnly>true</ReadOnly>
@@ -134,6 +122,7 @@
 			<Action>Печать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

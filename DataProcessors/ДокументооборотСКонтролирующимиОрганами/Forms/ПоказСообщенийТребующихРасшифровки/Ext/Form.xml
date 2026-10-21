@@ -6,6 +6,7 @@
 			<v8:content>Новые сообщения для расшифровки по 1С-Отчетности</v8:content>
 		</v8:item>
 	</Title>
+	<Width>65</Width>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
@@ -15,6 +16,46 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="КнопкаРасшифровать" id="12">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.КомандаРасшифровать</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="КнопкаРасшифроватьExtendedTooltip" id="17"/>
+			</Button>
+			<Button name="ПоказатьПозже" id="46">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПоказатьПозже</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отложить на 30 мин.</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ПоказатьПозжеРасширеннаяПодсказка" id="47"/>
+			</Button>
+			<Button name="КомандаБольшеНеПоказывать" id="13">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаБольшеНеПоказывать</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Больше не показывать</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="КомандаБольшеНеПоказыватьРасширеннаяПодсказка" id="18"/>
+			</Button>
+			<Button name="НастройкиУведомлений" id="62">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.НастройкиУведомлений</CommandName>
+				<Picture>
+					<xr:Ref>CommonPicture.РазделНастройки</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="НастройкиУведомленийРасширеннаяПодсказка" id="63"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -34,10 +75,12 @@
 			<VerticalAlign>Top</VerticalAlign>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаДлительнаяОперацияExtendedTooltip" id="35"/>
 			<ChildItems>
 				<PictureDecoration name="ДекорацияДлительнаяОперация" id="36">
 					<Width>7</Width>
+					<Height>1</Height>
 					<HorizontalStretch>false</HorizontalStretch>
 					<VerticalStretch>false</VerticalStretch>
 					<Title formatted="false">
@@ -46,6 +89,7 @@
 							<v8:content>Длительная операция</v8:content>
 						</v8:item>
 					</Title>
+					<PictureSize>Proportionally</PictureSize>
 					<Picture>
 						<xr:Ref>CommonPicture.ОповещениеОНовыхСообщениях</xr:Ref>
 						<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -106,6 +150,7 @@
 									<ExtendedTooltip name="ТребованияИУведомленияРасширеннаяПодсказка" id="50"/>
 								</LabelDecoration>
 								<LabelDecoration name="Санкции" id="54">
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<TextColor>style:ЦветОшибкиОтправкиБРО</TextColor>
 									<Title formatted="false">
 										<v8:item>
@@ -146,61 +191,6 @@
 						</LabelDecoration>
 					</ChildItems>
 				</UsualGroup>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаКнопок" id="44">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа кнопок</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа кнопок</v8:content>
-				</v8:item>
-			</ToolTip>
-			<HorizontalStretch>true</HorizontalStretch>
-			<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-			<GroupVerticalAlign>Bottom</GroupVerticalAlign>
-			<Group>Horizontal</Group>
-			<HorizontalAlign>Center</HorizontalAlign>
-			<VerticalAlign>Center</VerticalAlign>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКнопокРасширеннаяПодсказка" id="45"/>
-			<ChildItems>
-				<Button name="КнопкаРасшифровать" id="12">
-					<Type>UsualButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.КомандаРасшифровать</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="КнопкаРасшифроватьExtendedTooltip" id="17"/>
-				</Button>
-				<Button name="ПоказатьПозже" id="46">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.ПоказатьПозже</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Отложить на 30 мин.</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ПоказатьПозжеРасширеннаяПодсказка" id="47"/>
-				</Button>
-				<Button name="КомандаБольшеНеПоказывать" id="13">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.КомандаБольшеНеПоказывать</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Больше не показывать</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="КомандаБольшеНеПоказыватьРасширеннаяПодсказка" id="18"/>
-				</Button>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -469,6 +459,7 @@
 			</ToolTip>
 			<Action>КомандаРасшифровать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="КомандаБольшеНеПоказывать" id="2">
 			<Title>
@@ -485,6 +476,7 @@
 			</ToolTip>
 			<Action>БольшеНеПоказывать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПоказатьПозже" id="3">
 			<Title>
@@ -501,6 +493,26 @@
 			</ToolTip>
 			<Action>ПоказатьПозже</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="НастройкиУведомлений" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки уведомлений</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки показа уведомлений.
+
+Изменить настройки можно в любое время по ссылке "Уведомления" формы "Прочие настройки" раздела "Настройки" 1С-Отчетности.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НастройкиУведомлений</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

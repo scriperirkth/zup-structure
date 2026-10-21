@@ -5,6 +5,7 @@
 	<SaveDataInSettings>UseList</SaveDataInSettings>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Close</ExcludedCommand>
@@ -36,11 +37,6 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="КнопкаПрикрепитьРасширеннаяПодсказка" id="42"/>
 			</Button>
-			<Button name="КнопкаОтмена" id="30">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Cancel</CommandName>
-				<ExtendedTooltip name="КнопкаОтменаРасширеннаяПодсказка" id="43"/>
-			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -68,6 +64,7 @@
 					<ChangeRowSet>false</ChangeRowSet>
 					<ChangeRowOrder>false</ChangeRowOrder>
 					<Height>10</Height>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<Header>false</Header>
 					<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -92,7 +89,6 @@
 						<ExcludedCommand>MoveDown</ExcludedCommand>
 						<ExcludedCommand>MoveUp</ExcludedCommand>
 						<ExcludedCommand>Pickup</ExcludedCommand>
-						<ExcludedCommand>SelectAll</ExcludedCommand>
 						<ExcludedCommand>SortListAsc</ExcludedCommand>
 						<ExcludedCommand>SortListDesc</ExcludedCommand>
 					</CommandSet>
@@ -137,6 +133,7 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
 							<ContextMenu name="ВыбранныеФорматыСохраненияПометкаКонтекстноеМеню" id="38"/>
 							<ExtendedTooltip name="ВыбранныеФорматыСохраненияПометкаРасширеннаяПодсказка" id="46"/>
 						</CheckBoxField>
@@ -180,6 +177,9 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<CheckBoxType>CheckBox</CheckBoxType>
 					<ContextMenu name="УпаковатьВАрхивКонтекстноеМеню" id="41"/>
 					<ExtendedTooltip name="УпаковатьВАрхивРасширеннаяПодсказка" id="49"/>
 				</CheckBoxField>
@@ -199,6 +199,9 @@
 						</v8:item>
 					</ToolTip>
 					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<CheckBoxType>CheckBox</CheckBoxType>
 					<ContextMenu name="ПереводитьИменаФайловВТранслитКонтекстноеМеню" id="60"/>
 					<ExtendedTooltip name="ПереводитьИменаФайловВТранслитРасширеннаяПодсказка" id="61"/>
 				</CheckBoxField>
@@ -211,6 +214,9 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<CheckBoxType>CheckBox</CheckBoxType>
 					<ContextMenu name="ПодписатьКонтекстноеМеню" id="63"/>
 					<ExtendedTooltip name="ПодписатьРасширеннаяПодсказка" id="64"/>
 				</CheckBoxField>
@@ -295,6 +301,7 @@
 			</ToolTip>
 			<Action>Выбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>
@@ -310,17 +317,17 @@
 		<Parameter name="ФорматыСохранения">
 			<Type/>
 		</Parameter>
-		<Parameter name="УпаковатьВАрхив">
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-		</Parameter>
 		<Parameter name="ПереводитьИменаФайловВТранслит">
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Parameter>
 		<Parameter name="Подписать">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="УпаковатьВАрхив">
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>

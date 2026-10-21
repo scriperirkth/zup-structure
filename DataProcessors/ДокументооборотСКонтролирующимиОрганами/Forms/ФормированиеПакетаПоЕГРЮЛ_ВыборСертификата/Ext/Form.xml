@@ -11,6 +11,21 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ОК" id="32">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ОК</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Выбрать</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="33"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -32,10 +47,11 @@
 				<LabelDecoration name="ДекорацияОписание" id="3">
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<HorizontalStretch>true</HorizontalStretch>
-					<Title formatted="false">
+					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Декорация описание</v8:content>
+							<v8:content>&lt;b&gt;Пакет успешно сформирован.&lt;/&gt;
+Выберите сертификат учредителя от лица которого производится отправка в ИФНС</v8:content>
 						</v8:item>
 					</Title>
 					<ContextMenu name="ДекорацияОписаниеКонтекстноеМеню" id="4"/>
@@ -61,7 +77,7 @@
 					<ChangeRowSet>false</ChangeRowSet>
 					<ChangeRowOrder>false</ChangeRowOrder>
 					<ChoiceMode>true</ChoiceMode>
-					<RowSelectionMode>Cell</RowSelectionMode>
+					<RowSelectionMode>Row</RowSelectionMode>
 					<Header>false</Header>
 					<HorizontalLinesBWA>false</HorizontalLinesBWA>
 					<VerticalLinesBWA>false</VerticalLinesBWA>
@@ -113,34 +129,6 @@
 				</Table>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаПодвал" id="30">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Подвал</v8:content>
-				</v8:item>
-			</Title>
-			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПодвалРасширеннаяПодсказка" id="31"/>
-			<ChildItems>
-				<Button name="ОК" id="32">
-					<Type>UsualButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.ОК</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="33"/>
-				</Button>
-				<Button name="Отмена" id="34">
-					<Type>UsualButton</Type>
-					<CommandName>Form.StandardCommand.Cancel</CommandName>
-					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="35"/>
-				</Button>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -176,6 +164,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ОК</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

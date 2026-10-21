@@ -10,7 +10,6 @@
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
@@ -70,7 +69,6 @@
 							<v8:content>Организация</v8:content>
 						</v8:item>
 					</Title>
-					<TitleLocation>Left</TitleLocation>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<ClearButton>true</ClearButton>
 					<TextEdit>false</TextEdit>
@@ -129,7 +127,6 @@
 									<v8:content>Форма</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Left</TitleLocation>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<ClearButton>true</ClearButton>
 							<ContextMenu name="СписокВидовОтчетаКонтекстноеМеню" id="26"/>
@@ -167,11 +164,9 @@
 									<v8:content>ИФНС</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Left</TitleLocation>
 							<Width>12</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<HorizontalStretch>false</HorizontalStretch>
-							<ChoiceButton>true</ChoiceButton>
 							<ClearButton>true</ClearButton>
 							<ListChoiceMode>true</ListChoiceMode>
 							<ChooseType>false</ChooseType>
@@ -214,10 +209,8 @@
 							<v8:content>Период</v8:content>
 						</v8:item>
 					</Title>
-					<TitleLocation>Left</TitleLocation>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<HorizontalStretch>false</HorizontalStretch>
-					<ChoiceButton>true</ChoiceButton>
 					<ClearButton>true</ClearButton>
 					<ListChoiceMode>true</ListChoiceMode>
 					<ChooseType>false</ChooseType>
@@ -241,6 +234,7 @@
 							<v8:content>Группа страницы</v8:content>
 						</v8:item>
 					</ToolTip>
+					<GroupVerticalAlign>Bottom</GroupVerticalAlign>
 					<PagesRepresentation>None</PagesRepresentation>
 					<ExtendedTooltip name="ГруппаСтраницыExtendedTooltip" id="67"/>
 					<ChildItems>
@@ -268,7 +262,7 @@
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<CommandName>Form.Command.УстановитьПредыдущийПериод</CommandName>
 									<Picture>
-										<xr:Ref>StdPicture.MoveLeft</xr:Ref>
+										<xr:Ref>StdPicture.GoBack</xr:Ref>
 										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<ExtendedTooltip name="КнопкаПредыдущийExtendedTooltip" id="69"/>
@@ -294,7 +288,7 @@
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<CommandName>Form.Command.УстановитьСледующийПериод</CommandName>
 									<Picture>
-										<xr:Ref>StdPicture.MoveRight</xr:Ref>
+										<xr:Ref>StdPicture.GoForward</xr:Ref>
 										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<ExtendedTooltip name="КнопкаСледующийExtendedTooltip" id="71"/>
@@ -321,6 +315,7 @@
 							<ChildItems>
 								<InputField name="ДатаНачалаПериодаОтчета" id="35">
 									<DataPath>ДатаНачалаПериодаОтчета</DataPath>
+									<TitleLocation>Left</TitleLocation>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<ContextMenu name="ДатаНачалаПериодаОтчетаКонтекстноеМеню" id="36"/>
 									<ExtendedTooltip name="ДатаНачалаПериодаОтчетаExtendedTooltip" id="73"/>
@@ -330,6 +325,7 @@
 								</InputField>
 								<InputField name="ДатаКонцаПериодаОтчета" id="37">
 									<DataPath>ДатаКонцаПериодаОтчета</DataPath>
+									<TitleLocation>Left</TitleLocation>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<ContextMenu name="ДатаКонцаПериодаОтчетаКонтекстноеМеню" id="38"/>
 									<ExtendedTooltip name="ДатаКонцаПериодаОтчетаExtendedTooltip" id="74"/>
@@ -359,6 +355,9 @@
 		<Table name="Список" id="1">
 			<CommandBarLocation>Top</CommandBarLocation>
 			<SkipOnInput>false</SkipOnInput>
+			<AutoMaxHeight>false</AutoMaxHeight>
+			<AutoMaxRowsCount>false</AutoMaxRowsCount>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<EnableStartDrag>true</EnableStartDrag>
 			<FileDragMode>AsFile</FileDragMode>
@@ -371,6 +370,7 @@
 			<SearchStringLocation>None</SearchStringLocation>
 			<ViewStatusLocation>None</ViewStatusLocation>
 			<SearchControlLocation>None</SearchControlLocation>
+			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -484,19 +484,21 @@
 			</ToolTip>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаКомментарийExtendedTooltip" id="83"/>
-			<ChildItems>
-				<LabelField name="Комментарий" id="41">
-					<DataPath>Items.Список.CurrentData.Комментарий</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<TextColor>style:ПоясняющийТекст</TextColor>
-					<ContextMenu name="КомментарийКонтекстноеМеню" id="42"/>
-					<ExtendedTooltip name="КомментарийExtendedTooltip" id="84"/>
-				</LabelField>
-			</ChildItems>
 		</UsualGroup>
+		<LabelField name="Комментарий" id="41">
+			<DataPath>Items.Список.CurrentData.Комментарий</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий</v8:content>
+				</v8:item>
+			</Title>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<TextColor>style:ПоясняющийТекст</TextColor>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="42"/>
+			<ExtendedTooltip name="КомментарийExtendedTooltip" id="84"/>
+		</LabelField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Список" id="1">
@@ -659,10 +661,6 @@
 					<v8:content>Открыть журнал выгрузки</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.DocumentJournal</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>ОткрытьЖурналВыгрузки</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>

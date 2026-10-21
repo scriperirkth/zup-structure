@@ -1,9 +1,33 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
-	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВключитьВозможностьРедактирования" id="27">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ФормаВключитьВозможностьРедактирования</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Включить возможность редактирования</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаВключитьВозможностьРедактированияРасширеннаяПодсказка" id="28"/>
+			</Button>
+			<Button name="ФормаОбновитьДанныеРегистра" id="53">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ФормаОбновитьДанныеРегистра</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обновить данные регистра</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаОбновитьДанныеРегистраРасширеннаяПодсказка" id="54"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -16,51 +40,14 @@
 					<v8:content>Группа пользовательских настроек</v8:content>
 				</v8:item>
 			</Title>
+			<VerticalStretch>false</VerticalStretch>
 			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
+			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="2"/>
 		</UsualGroup>
-		<CommandBar name="КоманднаяПанель" id="25">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="26"/>
-			<ChildItems>
-				<Button name="ФормаВключитьВозможностьРедактирования" id="27">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.ВключитьВозможностьРедактирования</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Включить возможность редактирования</v8:content>
-						</v8:item>
-					</Title>
-					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-					<ExtendedTooltip name="ФормаВключитьВозможностьРедактированияРасширеннаяПодсказка" id="28"/>
-				</Button>
-				<Button name="ФормаОбновитьДанныеРегистра" id="53">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.ОбновитьДанныеРегистра</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Обновить данные регистра</v8:content>
-						</v8:item>
-					</Title>
-					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-					<ExtendedTooltip name="ФормаОбновитьДанныеРегистраРасширеннаяПодсказка" id="54"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<HeaderHeight>3</HeaderHeight>
@@ -79,6 +66,7 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -95,9 +83,7 @@
 			<UserSettingsGroup>ГруппаПользовательскихНастроек</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
-				<Autofill>false</Autofill>
-			</AutoCommandBar>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -124,13 +110,15 @@
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
 			</SearchControlAddition>
 			<ChildItems>
-				<LabelField name="Пользователь" id="16">
+				<LabelField name="СписокПользователь" id="16">
 					<DataPath>Список.Пользователь</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<ContextMenu name="ПользовательКонтекстноеМеню" id="17"/>
-					<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="18"/>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокПользовательКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="СписокПользовательРасширеннаяПодсказка" id="18"/>
 				</LabelField>
-				<InputField name="НомерКартинкиСостояния" id="55">
+				<LabelField name="СписокНомерКартинкиСостояния" id="55">
 					<DataPath>Список.НомерКартинкиСостояния</DataPath>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
@@ -143,10 +131,12 @@
 состояния</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="НомерКартинкиСостоянияКонтекстноеМеню" id="56"/>
-					<ExtendedTooltip name="НомерКартинкиСостоянияРасширеннаяПодсказка" id="57"/>
-				</InputField>
-				<CheckBoxField name="ПотребоватьСменуПароляПриВходе" id="32">
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокНомерКартинкиСостоянияКонтекстноеМеню" id="56"/>
+					<ExtendedTooltip name="СписокНомерКартинкиСостоянияРасширеннаяПодсказка" id="57"/>
+				</LabelField>
+				<CheckBoxField name="СписокПотребоватьСменуПароляПриВходе" id="32">
 					<DataPath>Список.ПотребоватьСменуПароляПриВходе</DataPath>
 					<Title>
 						<v8:item>
@@ -156,10 +146,13 @@
 при входе</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="ПотребоватьСменуПароляПриВходеКонтекстноеМеню" id="33"/>
-					<ExtendedTooltip name="ПотребоватьСменуПароляПриВходеРасширеннаяПодсказка" id="34"/>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<ContextMenu name="СписокПотребоватьСменуПароляПриВходеКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="СписокПотребоватьСменуПароляПриВходеРасширеннаяПодсказка" id="34"/>
 				</CheckBoxField>
-				<CheckBoxField name="СрокДействияНеОграничен" id="41">
+				<CheckBoxField name="СписокСрокДействияНеОграничен" id="41">
 					<DataPath>Список.СрокДействияНеОграничен</DataPath>
 					<Title>
 						<v8:item>
@@ -169,15 +162,20 @@
 не ограничен</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="СрокДействияНеОграниченКонтекстноеМеню" id="42"/>
-					<ExtendedTooltip name="СрокДействияНеОграниченРасширеннаяПодсказка" id="43"/>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<ContextMenu name="СписокСрокДействияНеОграниченКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="СписокСрокДействияНеОграниченРасширеннаяПодсказка" id="43"/>
 				</CheckBoxField>
-				<LabelField name="СрокДействия" id="35">
+				<LabelField name="СписокСрокДействия" id="35">
 					<DataPath>Список.СрокДействия</DataPath>
-					<ContextMenu name="СрокДействияКонтекстноеМеню" id="36"/>
-					<ExtendedTooltip name="СрокДействияРасширеннаяПодсказка" id="37"/>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокСрокДействияКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="СписокСрокДействияРасширеннаяПодсказка" id="37"/>
 				</LabelField>
-				<LabelField name="ПросрочкаРаботыВПрограммеДоЗапрещенияВхода" id="38">
+				<LabelField name="СписокПросрочкаРаботыВПрограммеДоЗапрещенияВхода" id="38">
 					<DataPath>Список.ПросрочкаРаботыВПрограммеДоЗапрещенияВхода</DataPath>
 					<Title>
 						<v8:item>
@@ -187,11 +185,13 @@
 запрещения входа</v8:content>
 						</v8:item>
 					</Title>
-					<Width>15</Width>
-					<ContextMenu name="ПросрочкаРаботыВПрограммеДоЗапрещенияВходаКонтекстноеМеню" id="39"/>
-					<ExtendedTooltip name="ПросрочкаРаботыВПрограммеДоЗапрещенияВходаРасширеннаяПодсказка" id="40"/>
+					<EditMode>EnterOnInput</EditMode>
+					<HeaderHorizontalAlign>Right</HeaderHorizontalAlign>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокПросрочкаРаботыВПрограммеДоЗапрещенияВходаКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="СписокПросрочкаРаботыВПрограммеДоЗапрещенияВходаРасширеннаяПодсказка" id="40"/>
 				</LabelField>
-				<LabelField name="ДатаРазрешенияВходаВПрограмму" id="47">
+				<LabelField name="СписокДатаРазрешенияВходаВПрограмму" id="47">
 					<DataPath>Список.ДатаРазрешенияВходаВПрограмму</DataPath>
 					<Title>
 						<v8:item>
@@ -201,10 +201,12 @@
 в приложение</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="ДатаРазрешенияВходаВПрограммуКонтекстноеМеню" id="48"/>
-					<ExtendedTooltip name="ДатаРазрешенияВходаВПрограммуРасширеннаяПодсказка" id="49"/>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокДатаРазрешенияВходаВПрограммуКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="СписокДатаРазрешенияВходаВПрограммуРасширеннаяПодсказка" id="49"/>
 				</LabelField>
-				<LabelField name="ДатаПоследнейАктивности" id="19">
+				<LabelField name="СписокДатаПоследнейАктивности" id="19">
 					<DataPath>Список.ДатаПоследнейАктивности</DataPath>
 					<DefaultItem>true</DefaultItem>
 					<Title>
@@ -215,11 +217,12 @@
 активности</v8:content>
 						</v8:item>
 					</Title>
-					<Width>10</Width>
-					<ContextMenu name="ДатаПоследнейАктивностиКонтекстноеМеню" id="20"/>
-					<ExtendedTooltip name="ДатаПоследнейАктивностиРасширеннаяПодсказка" id="21"/>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокДатаПоследнейАктивностиКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="СписокДатаПоследнейАктивностиРасширеннаяПодсказка" id="21"/>
 				</LabelField>
-				<LabelField name="ДатаАвтоматическогоЗапрещенияВхода" id="22">
+				<LabelField name="СписокДатаАвтоматическогоЗапрещенияВхода" id="22">
 					<DataPath>Список.ДатаАвтоматическогоЗапрещенияВхода</DataPath>
 					<DefaultItem>true</DefaultItem>
 					<Title>
@@ -230,17 +233,19 @@
 запрещения входа</v8:content>
 						</v8:item>
 					</Title>
-					<Width>14</Width>
-					<ContextMenu name="ДатаАвтоматическогоЗапрещенияВходаКонтекстноеМеню" id="23"/>
-					<ExtendedTooltip name="ДатаАвтоматическогоЗапрещенияВходаРасширеннаяПодсказка" id="24"/>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокДатаАвтоматическогоЗапрещенияВходаКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="СписокДатаАвтоматическогоЗапрещенияВходаРасширеннаяПодсказка" id="24"/>
 				</LabelField>
-				<InputField name="ПоследнийИспользуемыйКлиент" id="44">
+				<LabelField name="СписокПоследнийИспользуемыйКлиент" id="44">
 					<DataPath>Список.ПоследнийИспользуемыйКлиент</DataPath>
-					<Width>20</Width>
-					<ContextMenu name="ПоследнийИспользуемыйКлиентКонтекстноеМеню" id="45"/>
-					<ExtendedTooltip name="ПоследнийИспользуемыйКлиентРасширеннаяПодсказка" id="46"/>
-				</InputField>
-				<LabelField name="УдалитьДатаНачалаИспользованияПароля" id="58">
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокПоследнийИспользуемыйКлиентКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="СписокПоследнийИспользуемыйКлиентРасширеннаяПодсказка" id="46"/>
+				</LabelField>
+				<LabelField name="СписокУдалитьДатаНачалаИспользованияПароля" id="58">
 					<DataPath>Список.УдалитьДатаНачалаИспользованияПароля</DataPath>
 					<Title>
 						<v8:item>
@@ -250,8 +255,11 @@
 использования пароля</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="УдалитьДатаНачалаИспользованияПароляКонтекстноеМеню" id="59"/>
-					<ExtendedTooltip name="УдалитьДатаНачалаИспользованияПароляРасширеннаяПодсказка" id="60"/>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<ContextMenu name="СписокУдалитьДатаНачалаИспользованияПароляКонтекстноеМеню" id="59"/>
+					<ExtendedTooltip name="СписокУдалитьДатаНачалаИспользованияПароляРасширеннаяПодсказка" id="60"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
@@ -318,7 +326,7 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ВключитьВозможностьРедактирования" id="1">
+		<Command name="ФормаВключитьВозможностьРедактирования" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -331,10 +339,10 @@
 					<v8:content>Включить возможность редактирования только для целей поиска неисправности (требуется углубленное понимание работы механизма)</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ВключитьВозможностьРедактирования</Action>
+			<Action>ФормаВключитьВозможностьРедактирования</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
-		<Command name="ОбновитьДанныеРегистра" id="2">
+		<Command name="ФормаОбновитьДанныеРегистра" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -347,7 +355,7 @@
 					<v8:content>Обновить данные регистра</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ОбновитьДанныеРегистра</Action>
+			<Action>ФормаОбновитьДанныеРегистра</Action>
 		</Command>
 	</Commands>
 </Form>

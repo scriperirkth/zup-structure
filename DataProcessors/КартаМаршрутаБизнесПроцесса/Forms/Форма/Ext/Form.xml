@@ -3,6 +3,7 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<CommandBarLocation>None</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
@@ -10,35 +11,18 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ОбщаяГруппа" id="57">
+		<UsualGroup name="ОбщаяГруппа" id="69">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Общая группа</v8:content>
 				</v8:item>
 			</Title>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ОбщаяГруппаРасширеннаяПодсказка" id="58"/>
+			<ExtendedTooltip name="ОбщаяГруппаРасширеннаяПодсказка" id="70"/>
 			<ChildItems>
-				<InputField name="БизнесПроцесс" id="1">
-					<DataPath>БизнесПроцесс</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Бизнес-процесс</v8:content>
-						</v8:item>
-					</Title>
-					<Wrap>false</Wrap>
-					<ContextMenu name="БизнесПроцессКонтекстноеМеню" id="2"/>
-					<ExtendedTooltip name="БизнесПроцессРасширеннаяПодсказка" id="33"/>
-					<Events>
-						<Event name="OnChange">БизнесПроцессПриИзменении</Event>
-					</Events>
-				</InputField>
-				<UsualGroup name="СвойстваБизнесПроцесса" id="32">
+				<UsualGroup name="СвойстваБизнесПроцесса" id="67">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -46,13 +30,29 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>NormalSeparation</Representation>
+					<Representation>None</Representation>
 					<United>false</United>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="СвойстваБизнесПроцессаРасширеннаяПодсказка" id="34"/>
+					<ExtendedTooltip name="СвойстваБизнесПроцессаРасширеннаяПодсказка" id="68"/>
 					<ChildItems>
-						<InputField name="Автор" id="9">
+						<InputField name="БизнесПроцесс" id="1">
+							<DataPath>БизнесПроцесс</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Бизнес-процесс</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="БизнесПроцессКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="БизнесПроцессРасширеннаяПодсказка" id="33"/>
+							<Events>
+								<Event name="OnChange">БизнесПроцессПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelField name="Автор" id="9">
 							<DataPath>Автор</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<Title>
@@ -61,101 +61,73 @@
 									<v8:content>Автор</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="АвторКонтекстноеМеню" id="10"/>
 							<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="35"/>
-						</InputField>
-						<UsualGroup name="ГруппаСвойстваБизнесПроцесса" id="11">
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="СтатусИДата" id="65">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус и дата</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="СтатусИДатаРасширеннаяПодсказка" id="66"/>
+					<ChildItems>
+						<LabelField name="Статус" id="26">
+							<DataPath>Статус</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Свойства бизнес-процесса</v8:content>
+									<v8:content>Статус</v8:content>
 								</v8:item>
 							</Title>
-							<Group>HorizontalIfPossible</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаСвойстваБизнесПроцессаРасширеннаяПодсказка" id="36"/>
-							<ChildItems>
-								<InputField name="Дата" id="24">
-									<DataPath>Дата</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Дата</v8:content>
-										</v8:item>
-									</Title>
-									<HorizontalStretch>false</HorizontalStretch>
-									<ContextMenu name="ДатаКонтекстноеМеню" id="25"/>
-									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="37"/>
-								</InputField>
-								<Pages name="ГруппаСтатус" id="16">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Статус</v8:content>
-										</v8:item>
-									</Title>
-									<PagesRepresentation>None</PagesRepresentation>
-									<ExtendedTooltip name="ГруппаСтатусРасширеннаяПодсказка" id="38"/>
-									<ChildItems>
-										<Page name="ГруппаНеЗавершен" id="17">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Не завершен</v8:content>
-												</v8:item>
-											</Title>
-											<Group>HorizontalIfPossible</Group>
-											<ScrollOnCompress>false</ScrollOnCompress>
-											<ExtendedTooltip name="ГруппаНеЗавершенРасширеннаяПодсказка" id="39"/>
-											<ChildItems>
-												<LabelField name="Статус" id="26">
-													<DataPath>Статус</DataPath>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Статус</v8:content>
-														</v8:item>
-													</Title>
-													<TitleLocation>None</TitleLocation>
-													<ContextMenu name="СтатусКонтекстноеМеню" id="27"/>
-													<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="40"/>
-												</LabelField>
-											</ChildItems>
-										</Page>
-										<Page name="ГруппаЗавершен" id="19">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Завершен</v8:content>
-												</v8:item>
-											</Title>
-											<Group>HorizontalIfPossible</Group>
-											<ShowTitle>false</ShowTitle>
-											<ScrollOnCompress>false</ScrollOnCompress>
-											<ExtendedTooltip name="ГруппаЗавершенРасширеннаяПодсказка" id="42"/>
-											<ChildItems>
-												<InputField name="ДатаЗавершения" id="28">
-													<DataPath>ДатаЗавершения</DataPath>
-													<ReadOnly>true</ReadOnly>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Завершен</v8:content>
-														</v8:item>
-													</Title>
-													<HorizontalStretch>false</HorizontalStretch>
-													<ContextMenu name="ДатаЗавершенияКонтекстноеМеню" id="29"/>
-													<ExtendedTooltip name="ДатаЗавершенияРасширеннаяПодсказка" id="43"/>
-												</InputField>
-											</ChildItems>
-										</Page>
-									</ChildItems>
-								</Pages>
-							</ChildItems>
-						</UsualGroup>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СтатусКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="40"/>
+						</LabelField>
+						<LabelField name="Дата" id="24">
+							<DataPath>Дата</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<HorizontalStretch>false</HorizontalStretch>
+							<UseCopy>true</UseCopy>
+							<ContextMenu name="ДатаКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="37"/>
+						</LabelField>
+						<LabelField name="ДатаЗавершения" id="28">
+							<DataPath>ДатаЗавершения</DataPath>
+							<Visible>false</Visible>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Завершен</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<HorizontalStretch>false</HorizontalStretch>
+							<UseCopy>true</UseCopy>
+							<ContextMenu name="ДатаЗавершенияКонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="ДатаЗавершенияРасширеннаяПодсказка" id="43"/>
+						</LabelField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -167,6 +139,7 @@
 					<v8:content>Командная панель</v8:content>
 				</v8:item>
 			</Title>
+			<AppearanceMode>CommandBar</AppearanceMode>
 			<CommandSource>Form</CommandSource>
 			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="44"/>
 			<ChildItems>
@@ -234,8 +207,10 @@
 				</v8:item>
 			</Title>
 			<TitleLocation>None</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<Width>80</Width>
-			<Height>25</Height>
+			<Height>15</Height>
 			<Edit>false</Edit>
 			<ContextMenu name="КартаМаршрутаКонтекстноеМеню" id="4">
 				<ChildItems>

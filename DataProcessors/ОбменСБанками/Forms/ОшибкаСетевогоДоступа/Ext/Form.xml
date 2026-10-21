@@ -11,20 +11,16 @@
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
 	<ShowTitle>false</ShowTitle>
-	<ShowCloseButton>false</ShowCloseButton>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<LabelDecoration name="Пояснение" id="213">
 			<AutoMaxWidth>false</AutoMaxWidth>
-			<Height>1</Height>
-			<AutoMaxHeight>false</AutoMaxHeight>
-			<MaxHeight>1</MaxHeight>
-			<TextColor>style:ПоясняющийТекст</TextColor>
 			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -48,7 +44,6 @@
 			<ExtendedTooltip name="ОсновнаяГруппаРасширеннаяПодсказка" id="126"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаТипОшибки" id="127">
-					<Visible>false</Visible>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -93,7 +88,7 @@
 									<ExtendedTooltip name="ОписаниеОшибкиКартинкаРасширеннаяПодсказка" id="133"/>
 								</PictureDecoration>
 								<LabelDecoration name="ОписаниеОшибкиТекст" id="134">
-									<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+									<Font ref="style:TextLevel3" bold="false" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -158,6 +153,7 @@
 									<ExtendedTooltip name="ГруппаРекомендацияПоОшибкеТекстРасширеннаяПодсказка" id="212"/>
 									<ChildItems>
 										<LabelDecoration name="РекомендацияПоОшибкеТекст" id="142">
+											<AutoMaxWidth>false</AutoMaxWidth>
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -194,24 +190,8 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="192"/>
 			<ChildItems>
-				<CommandBar name="ГруппаЛеваяПанель" id="193">
-					<Visible>false</Visible>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Левая панель</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ГруппаЛеваяПанельРасширеннаяПодсказка" id="194"/>
-					<ChildItems>
-						<Button name="Отмена" id="195">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.Cancel</CommandName>
-							<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="196"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
 				<LabelDecoration name="ОтчетДляАдминистратора" id="185">
+					<AutoMaxWidth>false</AutoMaxWidth>
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -225,31 +205,6 @@
 						<Event name="Click">ОтчетДляАдминистратораНажатие</Event>
 					</Events>
 				</LabelDecoration>
-				<CommandBar name="ГруппаПраваяПанель" id="197">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Правая панель</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalLocation>Right</HorizontalLocation>
-					<ExtendedTooltip name="ГруппаПраваяПанельРасширеннаяПодсказка" id="198"/>
-					<ChildItems>
-						<Button name="Продолжить" id="205">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<CommandName>Form.Command.Продолжить</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Закрыть</v8:content>
-								</v8:item>
-							</Title>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ПродолжитьРасширеннаяПодсказка" id="206"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -288,21 +243,4 @@
 			<Type/>
 		</Attribute>
 	</Attributes>
-	<Commands>
-		<Command name="Продолжить" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Закрыть</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Продолжить</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ПродолжитьЗакрыть</Action>
-		</Command>
-	</Commands>
 </Form>

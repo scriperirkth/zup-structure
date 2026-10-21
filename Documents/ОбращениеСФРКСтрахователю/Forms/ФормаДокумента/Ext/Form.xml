@@ -8,6 +8,33 @@
 	<RepostOnWrite>true</RepostOnWrite>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Записать" id="124">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Write</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ЗаписатьРасширеннаяПодсказка" id="125"/>
+			</Button>
+			<Button name="Ответить" id="126">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<DefaultItem>true</DefaultItem>
+				<CommandName>Form.Command.Ответить</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ОтветитьРасширеннаяПодсказка" id="127"/>
+			</Button>
+			<Button name="КомандаСохранитьВложения" id="136">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.СохранитьВложения</CommandName>
+				<ExtendedTooltip name="КомандаСохранитьВложенияРасширеннаяПодсказка" id="137"/>
+			</Button>
+			<Button name="КнопкаИзменитьФорму" id="144">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="КнопкаИзменитьФормуРасширеннаяПодсказка" id="145"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
@@ -17,53 +44,6 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<CommandBar name="КоманднаяПанель" id="122">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</ToolTip>
-			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="123"/>
-			<ChildItems>
-				<Button name="Записать" id="124">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.StandardCommand.Write</CommandName>
-					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-					<ExtendedTooltip name="ЗаписатьРасширеннаяПодсказка" id="125"/>
-				</Button>
-				<Button name="Ответить" id="126">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<DefaultItem>true</DefaultItem>
-					<CommandName>Form.Command.Ответить</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ОтветитьРасширеннаяПодсказка" id="127"/>
-				</Button>
-				<Button name="Печать" id="134">
-					<Type>CommandBarButton</Type>
-					<CommandName>5:409b9a53-7f7e-4178-86c1-33176c7c7a7a</CommandName>
-					<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="135"/>
-				</Button>
-				<Button name="КомандаСохранитьВложения" id="136">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.СохранитьВложения</CommandName>
-					<ExtendedTooltip name="КомандаСохранитьВложенияРасширеннаяПодсказка" id="137"/>
-				</Button>
-				<Button name="КнопкаИзменитьФорму" id="144">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-					<ExtendedTooltip name="КнопкаИзменитьФормуРасширеннаяПодсказка" id="145"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 		<UsualGroup name="ГруппаПанельОтправки" id="49">
 			<EnableContentChange>true</EnableContentChange>
 			<HorizontalStretch>true</HorizontalStretch>
@@ -115,8 +95,7 @@
 							<ExtendedTooltip name="СостояниеОтправкиРасширеннаяПодсказка" id="54"/>
 							<ChildItems>
 								<LabelDecoration name="НаименованиеЭтапа" id="55">
-									<TextColor>style:FormTextColor</TextColor>
-									<Font ref="style:NormalTextFont" height="11" kind="StyleItem"/>
+									<Font ref="style:TitleLevel3" kind="StyleItem"/>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -274,89 +253,184 @@
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
-		<LabelField name="Отправитель" id="98">
-			<DataPath>ОтправительТекстом</DataPath>
+		<UsualGroup name="ГруппаАдресаФайлы" id="153">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>От кого</v8:content>
+					<v8:content>Группа адреса файлы</v8:content>
 				</v8:item>
 			</Title>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<ContextMenu name="ОтправительКонтекстноеМеню" id="99"/>
-			<ExtendedTooltip name="ОтправительРасширеннаяПодсказка" id="100"/>
-		</LabelField>
-		<LabelField name="Получатель" id="104">
-			<DataPath>ПолучательТекстом</DataPath>
-			<Title>
+			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Кому</v8:content>
+					<v8:content>Группа адреса файлы</v8:content>
 				</v8:item>
-			</Title>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<ContextMenu name="ПолучательКонтекстноеМеню" id="105"/>
-			<ExtendedTooltip name="ПолучательРасширеннаяПодсказка" id="106"/>
-		</LabelField>
-		<LabelField name="ДатаОтправки" id="107">
-			<DataPath>Объект.Date</DataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отправлено</v8:content>
-				</v8:item>
-			</Title>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<Format>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>ДФ=dd.MM.yyyy</v8:content>
-				</v8:item>
-			</Format>
-			<ContextMenu name="ДатаОтправкиКонтекстноеМеню" id="108"/>
-			<ExtendedTooltip name="ДатаОтправкиРасширеннаяПодсказка" id="109"/>
-		</LabelField>
-		<LabelField name="Наименование" id="110">
-			<DataPath>Объект.Заголовок</DataPath>
-			<ReadOnly>true</ReadOnly>
-			<TitleLocation>None</TitleLocation>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<Font ref="style:LargeTextFont" kind="StyleItem"/>
-			<ContextMenu name="НаименованиеКонтекстноеМеню" id="111"/>
-			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="112"/>
-		</LabelField>
-		<LabelDecoration name="ЗаголовокВложения" id="113">
-			<Height>1</Height>
-			<Title formatted="false">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Приложенные файлы:
-</v8:content>
-				</v8:item>
-			</Title>
-			<ContextMenu name="ЗаголовокВложенияКонтекстноеМеню" id="114"/>
-			<ExtendedTooltip name="ЗаголовокВложенияРасширеннаяПодсказка" id="115"/>
-		</LabelDecoration>
-		<LabelDecoration name="Вложения" id="116">
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<HorizontalStretch>true</HorizontalStretch>
-			<ContextMenu name="ВложенияКонтекстноеМеню" id="117"/>
-			<ExtendedTooltip name="ВложенияРасширеннаяПодсказка" id="118"/>
-			<Events>
-				<Event name="URLProcessing">ВложенияОбработкаНавигационнойСсылки</Event>
-			</Events>
-		</LabelDecoration>
-		<InputField name="Содержание" id="119">
-			<DataPath>Объект.ТекстОбращения</DataPath>
-			<ReadOnly>true</ReadOnly>
-			<TitleLocation>None</TitleLocation>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<MultiLine>true</MultiLine>
-			<ContextMenu name="СодержаниеКонтекстноеМеню" id="120"/>
-			<ExtendedTooltip name="СодержаниеРасширеннаяПодсказка" id="121"/>
-		</InputField>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаАдресаФайлыРасширеннаяПодсказка" id="154"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаГоризонтальная" id="163">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа горизонтальная</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа горизонтальная</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаГоризонтальнаяРасширеннаяПодсказка" id="164"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаАдреса" id="155">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа адреса</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа адреса</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаАдресаРасширеннаяПодсказка" id="156"/>
+							<ChildItems>
+								<LabelField name="Отправитель" id="98">
+									<DataPath>ОтправительТекстом</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>От кого</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Left</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="ОтправительКонтекстноеМеню" id="99"/>
+									<ExtendedTooltip name="ОтправительРасширеннаяПодсказка" id="100"/>
+								</LabelField>
+								<LabelField name="Получатель" id="104">
+									<DataPath>ПолучательТекстом</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Кому</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Left</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="ПолучательКонтекстноеМеню" id="105"/>
+									<ExtendedTooltip name="ПолучательРасширеннаяПодсказка" id="106"/>
+								</LabelField>
+								<LabelField name="ДатаОтправки" id="107">
+									<DataPath>Объект.Date</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отправлено</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Left</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=dd.MM.yyyy</v8:content>
+										</v8:item>
+									</Format>
+									<ContextMenu name="ДатаОтправкиКонтекстноеМеню" id="108"/>
+									<ExtendedTooltip name="ДатаОтправкиРасширеннаяПодсказка" id="109"/>
+								</LabelField>
+								<LabelField name="Наименование" id="110">
+									<DataPath>Объект.Заголовок</DataPath>
+									<Visible>false</Visible>
+									<ReadOnly>true</ReadOnly>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<VerticalStretch>true</VerticalStretch>
+									<Font ref="style:TitleLevel2" kind="StyleItem"/>
+									<ContextMenu name="НаименованиеКонтекстноеМеню" id="111"/>
+									<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="112"/>
+								</LabelField>
+								<InputField name="Содержание" id="119">
+									<DataPath>Объект.ТекстОбращения</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MultiLine>true</MultiLine>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="СодержаниеКонтекстноеМеню" id="120"/>
+									<ExtendedTooltip name="СодержаниеРасширеннаяПодсказка" id="121"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаСодержаниеФайлы" id="159">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа содержание файлы</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа содержание файлы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСодержаниеФайлыРасширеннаяПодсказка" id="160"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаФайлы" id="157">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Приложенные файлы</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа файлы</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Width>30</Width>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Group>Vertical</Group>
+									<ExtendedTooltip name="ГруппаФайлыРасширеннаяПодсказка" id="158"/>
+									<ChildItems>
+										<LabelDecoration name="Вложения" id="116">
+											<HorizontalStretch>true</HorizontalStretch>
+											<VerticalStretch>true</VerticalStretch>
+											<ContextMenu name="ВложенияКонтекстноеМеню" id="117"/>
+											<ExtendedTooltip name="ВложенияРасширеннаяПодсказка" id="118"/>
+											<Events>
+												<Event name="URLProcessing">ВложенияОбработкаНавигационнойСсылки</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
 		<InputField name="Комментарий" id="13">
 			<DataPath>Объект.Комментарий</DataPath>
+			<TitleLocation>Left</TitleLocation>
 			<EditMode>EnterOnInput</EditMode>
 			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
@@ -375,6 +449,7 @@
 				<xr:Common>false</xr:Common>
 			</UserVisible>
 			<ReadOnly>true</ReadOnly>
+			<TitleLocation>Left</TitleLocation>
 			<ContextMenu name="ИдентификаторКонтекстноеМеню" id="142"/>
 			<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="143"/>
 		</InputField>
@@ -436,6 +511,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Ответить</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="СохранитьВложения" id="2">
 			<Title>

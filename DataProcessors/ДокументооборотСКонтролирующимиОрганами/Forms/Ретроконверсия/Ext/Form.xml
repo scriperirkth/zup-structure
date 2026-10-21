@@ -7,7 +7,6 @@
 		</v8:item>
 	</Title>
 	<Width>55</Width>
-	<Height>33</Height>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
@@ -21,7 +20,15 @@
 		<ChildItems>
 			<Button name="КнопкаОК" id="15">
 				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.КомандаОК</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сохранить</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="КнопкаОКРасширеннаяПодсказка" id="21"/>
 			</Button>
 			<Button name="КнопкаОтмена" id="16">
@@ -65,7 +72,6 @@
 			<HorizontalStretch>true</HorizontalStretch>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаПодтверждениеCведенийРасширеннаяПодсказка" id="24"/>
 			<ChildItems>
 				<LabelDecoration name="ДекорацияПодтверждение" id="4">
@@ -135,6 +141,7 @@
 				</RadioButtonField>
 				<Table name="ФайлыСведений" id="8">
 					<Representation>List</Representation>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Row</RowSelectionMode>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -152,7 +159,14 @@
 						<ChildItems>
 							<Button name="УстановитьФлажкиУВсех" id="17">
 								<Type>CommandBarButton</Type>
+								<Representation>PictureAndText</Representation>
 								<CommandName>Form.Command.КомандаУстановитьФлажкиУВсех</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Выбрать все</v8:content>
+									</v8:item>
+								</Title>
 								<ExtendedTooltip name="УстановитьФлажкиУВсехРасширеннаяПодсказка" id="27"/>
 							</Button>
 							<Button name="СнятьФлажкиУВсех" id="18">
@@ -163,11 +177,13 @@
 							<Button name="Открыть" id="19">
 								<Type>CommandBarButton</Type>
 								<CommandName>Form.Command.КомандаОткрыть</CommandName>
+								<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 								<ExtendedTooltip name="ОткрытьРасширеннаяПодсказка" id="29"/>
 							</Button>
 							<Button name="Выгрузить" id="20">
 								<Type>CommandBarButton</Type>
 								<CommandName>Form.Command.КомандаВыгрузить</CommandName>
+								<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 								<ExtendedTooltip name="ВыгрузитьРасширеннаяПодсказка" id="30"/>
 							</Button>
 						</ChildItems>
@@ -206,6 +222,8 @@
 							<TitleLocation>None</TitleLocation>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<AutoWidthInTable>None</AutoWidthInTable>
+							<CheckBoxType>CheckBox</CheckBoxType>
 							<ContextMenu name="ФайлыСведенийПометкаКонтекстноеМеню" id="12"/>
 							<ExtendedTooltip name="ФайлыСведенийПометкаРасширеннаяПодсказка" id="41"/>
 						</CheckBoxField>
@@ -214,6 +232,7 @@
 							<ReadOnly>true</ReadOnly>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<AutoWidthInTable>None</AutoWidthInTable>
 							<TextEdit>false</TextEdit>
 							<ContextMenu name="ФайлыСведенийФайлКонтекстноеМеню" id="14"/>
 							<ExtendedTooltip name="ФайлыСведенийФайлРасширеннаяПодсказка" id="42"/>
@@ -359,7 +378,8 @@
 			</Picture>
 			<Action>КомандаОткрыть</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ФайлыСведений</AssociatedTableElementId>
 		</Command>
 		<Command name="КомандаВыгрузить" id="4">
 			<Title>
@@ -380,7 +400,8 @@
 			</Picture>
 			<Action>КомандаВыгрузить</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ФайлыСведений</AssociatedTableElementId>
 		</Command>
 		<Command name="КомандаОК" id="5">
 			<Title>
@@ -397,6 +418,7 @@
 			</ToolTip>
 			<Action>КомандаОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

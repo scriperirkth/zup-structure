@@ -15,18 +15,6 @@
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="Отключить" id="99">
-				<Type>CommandBarButton</Type>
-				<Visible>false</Visible>
-				<CommandName>Form.Command.Отключить</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Отключить</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ОтключитьРасширеннаяПодсказка" id="100"/>
-			</Button>
 			<Button name="Закрыть" id="28">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
@@ -40,6 +28,18 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="29"/>
 			</Button>
+			<Button name="Отключить" id="99">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Command.Отключить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отключить</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ОтключитьРасширеннаяПодсказка" id="100"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -47,174 +47,225 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаОписание" id="68">
+		<Pages name="ГруппаСтраницы" id="109">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Описание</v8:content>
+					<v8:content>Страницы</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаОписаниеРасширеннаяПодсказка" id="69"/>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="110"/>
 			<ChildItems>
-				<PictureDecoration name="Логотип" id="70">
-					<Title formatted="false">
+				<Page name="СтраницаОсновное" id="111">
+					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Логотип</v8:content>
+							<v8:content>Основное</v8:content>
 						</v8:item>
 					</Title>
-					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-					<GroupVerticalAlign>Center</GroupVerticalAlign>
-					<Picture>
-						<xr:Ref>CommonPicture.BotFatherWebhook</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</Picture>
-					<ContextMenu name="ЛоготипКонтекстноеМеню" id="71"/>
-					<ExtendedTooltip name="ЛоготипРасширеннаяПодсказка" id="72"/>
-				</PictureDecoration>
-				<LabelDecoration name="Инструкция" id="42">
-					<HorizontalStretch>true</HorizontalStretch>
-					<Title formatted="true">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Механизм Webhook используется для получения сообщений из внешней системы. Для настройки интеграции необходимо:
+					<HorizontalStretch>false</HorizontalStretch>
+					<ExtendedTooltip name="СтраницаОсновноеРасширеннаяПодсказка" id="112"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаОписание" id="68">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Описание</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AutoScreenTypeSensitive</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ShowAsCard>true</ShowAsCard>
+							<ExtendedTooltip name="ГруппаОписаниеРасширеннаяПодсказка" id="69"/>
+							<ChildItems>
+								<PictureDecoration name="Логотип" id="70">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Логотип</v8:content>
+										</v8:item>
+									</Title>
+									<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+									<GroupVerticalAlign>Center</GroupVerticalAlign>
+									<Picture>
+										<xr:Ref>CommonPicture.BotFatherWebhook</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<ContextMenu name="ЛоготипКонтекстноеМеню" id="71"/>
+									<ExtendedTooltip name="ЛоготипРасширеннаяПодсказка" id="72"/>
+								</PictureDecoration>
+								<LabelDecoration name="Инструкция" id="42">
+									<HorizontalStretch>true</HorizontalStretch>
+									<Title formatted="true">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Механизм Webhook используется для получения сообщений из внешней системы.
+Для настройки интеграции необходимо:
 1. Заполнить требуемые поля
 2. Нажать &lt;b&gt;Активизировать&lt;/&gt;. После успешной активации поле &lt;b&gt;Точка&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;подключения&lt;/&gt; будет заполнено.
 3. Обратиться к техническому специалисту, ответственному за интеграцию механизма, сообщить ему &lt;b&gt;Точку&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;подключения&lt;/&gt;.</v8:content>
-						</v8:item>
-					</Title>
-					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-					<ContextMenu name="ИнструкцияКонтекстноеМеню" id="43"/>
-					<ExtendedTooltip name="ИнструкцияРасширеннаяПодсказка" id="44"/>
-				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаПараметры" id="97">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Параметры</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>NormalSeparation</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПараметрыРасширеннаяПодсказка" id="98"/>
-			<ChildItems>
-				<InputField name="Наименование" id="30">
-					<DataPath>Наименование</DataPath>
+										</v8:item>
+									</Title>
+									<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+									<ContextMenu name="ИнструкцияКонтекстноеМеню" id="43"/>
+									<ExtendedTooltip name="ИнструкцияРасширеннаяПодсказка" id="44"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаПараметры" id="97">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Параметры</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>NormalSeparation</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПараметрыРасширеннаяПодсказка" id="98"/>
+							<ChildItems>
+								<InputField name="Наименование" id="30">
+									<DataPath>Наименование</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Наименование</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Наименование бота в 1С</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="НаименованиеКонтекстноеМеню" id="31"/>
+									<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="32"/>
+								</InputField>
+								<InputField name="ТочкаПодключения" id="101">
+									<DataPath>НавигационнаяСсылкаТочкиПодключения</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Точка подключения</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextEdit>false</TextEdit>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Будет заполнено автоматически</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ТочкаПодключенияКонтекстноеМеню" id="102"/>
+									<ExtendedTooltip name="ТочкаПодключенияРасширеннаяПодсказка" id="103"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаУчастники" id="113">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Наименование</v8:content>
+							<v8:content>Участники</v8:content>
 						</v8:item>
 					</Title>
-					<InputHint>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Наименование бота в 1С</v8:content>
-						</v8:item>
-					</InputHint>
-					<ContextMenu name="НаименованиеКонтекстноеМеню" id="31"/>
-					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="32"/>
-				</InputField>
-				<InputField name="ТочкаПодключения" id="101">
-					<DataPath>НавигационнаяСсылкаТочкиПодключения</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Точка подключения</v8:content>
-						</v8:item>
-					</Title>
-					<TextEdit>false</TextEdit>
-					<InputHint>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Будет заполнено автоматически</v8:content>
-						</v8:item>
-					</InputHint>
-					<ContextMenu name="ТочкаПодключенияКонтекстноеМеню" id="102"/>
-					<ExtendedTooltip name="ТочкаПодключенияРасширеннаяПодсказка" id="103"/>
-				</InputField>
+					<TitleDataPath>КоличествоУчастников</TitleDataPath>
+					<ExtendedTooltip name="СтраницаУчастникиРасширеннаяПодсказка" id="114"/>
+					<ChildItems>
+						<Table name="Участники" id="50">
+							<Representation>List</Representation>
+							<TitleLocation>Auto</TitleLocation>
+							<SelectionMode>SingleRow</SelectionMode>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<Header>false</Header>
+							<DataPath>Участники</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Кто получает сообщения</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="УчастникиКонтекстноеМеню" id="52"/>
+							<AutoCommandBar name="УчастникиКоманднаяПанель" id="51">
+								<ChildItems>
+									<Button name="ПользователиПодобрать" id="66">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Подобрать</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Подобрать</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ПользователиПодобратьРасширеннаяПодсказка" id="67"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="УчастникиРасширеннаяПодсказка" id="53"/>
+							<SearchStringAddition name="УчастникиСтрокаПоиска" id="54">
+								<AdditionSource>
+									<Item>Участники</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="УчастникиСтрокаПоискаКонтекстноеМеню" id="55"/>
+								<ExtendedTooltip name="УчастникиСтрокаПоискаРасширеннаяПодсказка" id="56"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="УчастникиСостояниеПросмотра" id="60">
+								<AdditionSource>
+									<Item>Участники</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="УчастникиСостояниеПросмотраКонтекстноеМеню" id="61"/>
+								<ExtendedTooltip name="УчастникиСостояниеПросмотраРасширеннаяПодсказка" id="62"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="УчастникиУправлениеПоиском" id="57">
+								<AdditionSource>
+									<Item>Участники</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="УчастникиУправлениеПоискомКонтекстноеМеню" id="58"/>
+								<ExtendedTooltip name="УчастникиУправлениеПоискомРасширеннаяПодсказка" id="59"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnEditEnd">УчастникиПриОкончанииРедактирования</Event>
+								<Event name="ChoiceProcessing">УчастникиОбработкаВыбора</Event>
+								<Event name="AfterDeleteRow">УчастникиПослеУдаления</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="УчастникиПользователь" id="63">
+									<DataPath>Участники.Пользователь</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Участники обсуждения</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="УчастникиПользовательКонтекстноеМеню" id="64"/>
+									<ExtendedTooltip name="УчастникиПользовательРасширеннаяПодсказка" id="65"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
 			</ChildItems>
-		</UsualGroup>
-		<Table name="Участники" id="50">
-			<Representation>List</Representation>
-			<TitleLocation>Auto</TitleLocation>
-			<RowSelectionMode>Cell</RowSelectionMode>
-			<Header>false</Header>
-			<DataPath>Участники</DataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Кто получает сообщения</v8:content>
-				</v8:item>
-			</Title>
-			<RowFilter xsi:nil="true"/>
-			<ContextMenu name="УчастникиКонтекстноеМеню" id="52"/>
-			<AutoCommandBar name="УчастникиКоманднаяПанель" id="51">
-				<Autofill>false</Autofill>
-				<ChildItems>
-					<Button name="ПользователиПодобрать" id="66">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Подобрать</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Подобрать</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ПользователиПодобратьРасширеннаяПодсказка" id="67"/>
-					</Button>
-				</ChildItems>
-			</AutoCommandBar>
-			<ExtendedTooltip name="УчастникиРасширеннаяПодсказка" id="53"/>
-			<SearchStringAddition name="УчастникиСтрокаПоиска" id="54">
-				<AdditionSource>
-					<Item>Участники</Item>
-					<Type>SearchStringRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="УчастникиСтрокаПоискаКонтекстноеМеню" id="55"/>
-				<ExtendedTooltip name="УчастникиСтрокаПоискаРасширеннаяПодсказка" id="56"/>
-			</SearchStringAddition>
-			<ViewStatusAddition name="УчастникиСостояниеПросмотра" id="60">
-				<AdditionSource>
-					<Item>Участники</Item>
-					<Type>ViewStatusRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="УчастникиСостояниеПросмотраКонтекстноеМеню" id="61"/>
-				<ExtendedTooltip name="УчастникиСостояниеПросмотраРасширеннаяПодсказка" id="62"/>
-			</ViewStatusAddition>
-			<SearchControlAddition name="УчастникиУправлениеПоиском" id="57">
-				<AdditionSource>
-					<Item>Участники</Item>
-					<Type>SearchControl</Type>
-				</AdditionSource>
-				<ContextMenu name="УчастникиУправлениеПоискомКонтекстноеМеню" id="58"/>
-				<ExtendedTooltip name="УчастникиУправлениеПоискомРасширеннаяПодсказка" id="59"/>
-			</SearchControlAddition>
-			<Events>
-				<Event name="ChoiceProcessing">УчастникиОбработкаВыбора</Event>
-			</Events>
-			<ChildItems>
-				<InputField name="УчастникиПользователь" id="63">
-					<DataPath>Участники.Пользователь</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Участники обсуждения</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="УчастникиПользовательКонтекстноеМеню" id="64"/>
-					<ExtendedTooltip name="УчастникиПользовательРасширеннаяПодсказка" id="65"/>
-				</InputField>
-			</ChildItems>
-		</Table>
+		</Pages>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Наименование" id="1">
@@ -278,6 +329,16 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
+		<Attribute name="КоличествоУчастников" id="2">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="Активизировать" id="1">
@@ -294,6 +355,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>АктивироватьБота</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Подобрать" id="2">
 			<Title>
@@ -318,6 +380,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Отключить</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

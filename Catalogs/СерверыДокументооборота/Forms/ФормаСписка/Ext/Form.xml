@@ -5,7 +5,15 @@
 	<Group>Vertical</Group>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="СписокКнопкаВыбрать" id="16">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.КомандаСписокВыбрать</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="СписокКнопкаВыбратьExtendedTooltip" id="26"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -13,6 +21,8 @@
 	</Events>
 	<ChildItems>
 		<Table name="Список" id="1">
+			<CommandBarLocation>Top</CommandBarLocation>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<EnableStartDrag>true</EnableStartDrag>
 			<FileDragMode>AsFile</FileDragMode>
@@ -21,6 +31,7 @@
 			<SearchStringLocation>None</SearchStringLocation>
 			<ViewStatusLocation>None</ViewStatusLocation>
 			<SearchControlLocation>None</SearchControlLocation>
+			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -36,62 +47,7 @@
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
-				<ChildItems>
-					<Button name="СписокКнопкаВыбрать" id="16">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.КомандаСписокВыбрать</CommandName>
-						<ExtendedTooltip name="СписокКнопкаВыбратьExtendedTooltip" id="26"/>
-					</Button>
-					<Button name="СписокКнопкаСоздать" id="17">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.Create</CommandName>
-						<ExtendedTooltip name="СписокКнопкаСоздатьExtendedTooltip" id="27"/>
-					</Button>
-					<Button name="СписокКнопкаСкопировать" id="18">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.Copy</CommandName>
-						<ExtendedTooltip name="СписокКнопкаСкопироватьExtendedTooltip" id="28"/>
-					</Button>
-					<Button name="СписокКнопкаИзменить" id="19">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.Change</CommandName>
-						<ExtendedTooltip name="СписокКнопкаИзменитьExtendedTooltip" id="29"/>
-					</Button>
-					<Button name="СписокКнопкаУстановитьПометкуУдаления" id="20">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.SetDeletionMark</CommandName>
-						<ExtendedTooltip name="СписокКнопкаУстановитьПометкуУдаленияExtendedTooltip" id="30"/>
-					</Button>
-					<Button name="СписокКнопкаНайти" id="21">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.Find</CommandName>
-						<ExtendedTooltip name="СписокКнопкаНайтиExtendedTooltip" id="31"/>
-					</Button>
-					<Button name="СписокКнопкаОтменитьПоиск" id="22">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.CancelSearch</CommandName>
-						<ExtendedTooltip name="СписокКнопкаОтменитьПоискExtendedTooltip" id="32"/>
-					</Button>
-					<Popup name="ВсеДействия" id="23">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Все действия</v8:content>
-							</v8:item>
-						</Title>
-						<ToolTip>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Все действия</v8:content>
-							</v8:item>
-						</ToolTip>
-						<CommandSource>Item.Список</CommandSource>
-						<ExtendedTooltip name="ВсеДействияExtendedTooltip" id="33"/>
-					</Popup>
-				</ChildItems>
-			</AutoCommandBar>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
 			<ExtendedTooltip name="СписокExtendedTooltip" id="34"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="41">
 				<AdditionSource>
@@ -233,13 +189,10 @@
 					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>КомандаСписокВыбрать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

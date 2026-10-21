@@ -3,7 +3,7 @@
 	<Title>
 		<v8:item>
 			<v8:lang>ru</v8:lang>
-			<v8:content>Настройка отборов для ленты новостей по категории</v8:content>
+			<v8:content>Настройка отборов по категории</v8:content>
 		</v8:item>
 	</Title>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
@@ -26,17 +26,12 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<ChildItems>
-			<Button name="КнопкаОК" id="59">
+			<Button name="КомандаВыбрать" id="59">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.КомандаОК</CommandName>
+				<CommandName>Form.Command.КомандаВыбрать</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="КнопкаОКExtendedTooltip" id="94"/>
-			</Button>
-			<Button name="КнопкаОтмена" id="61">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаОтмена</CommandName>
-				<ExtendedTooltip name="КнопкаОтменаExtendedTooltip" id="95"/>
+				<ExtendedTooltip name="КомандаВыбратьРасширеннаяПодсказка" id="94"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -44,18 +39,32 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<LabelField name="ЛентаНовостей" id="26">
-			<DataPath>ЛентаНовостей</DataPath>
-			<ReadOnly>true</ReadOnly>
-			<ContextMenu name="ЛентаНовостейКонтекстноеМеню" id="27"/>
-			<ExtendedTooltip name="ЛентаНовостейExtendedTooltip" id="96"/>
-		</LabelField>
-		<LabelField name="КатегорияНовостей" id="1">
-			<DataPath>КатегорияНовостей</DataPath>
-			<ReadOnly>true</ReadOnly>
-			<ContextMenu name="КатегорияНовостейКонтекстноеМеню" id="2"/>
-			<ExtendedTooltip name="КатегорияНовостейExtendedTooltip" id="97"/>
-		</LabelField>
+		<UsualGroup name="ГруппаКатегорияЛента" id="196">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа категория лента</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКатегорияЛентаРасширеннаяПодсказка" id="197"/>
+			<ChildItems>
+				<LabelField name="ЛентаНовостей" id="26">
+					<DataPath>ЛентаНовостей</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ЛентаНовостейКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ЛентаНовостейExtendedTooltip" id="96"/>
+				</LabelField>
+				<LabelField name="КатегорияНовостей" id="1">
+					<DataPath>КатегорияНовостей</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="КатегорияНовостейКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КатегорияНовостейExtendedTooltip" id="97"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
 		<LabelField name="ТипЗначенияКатегорииНадпись" id="72">
 			<DataPath>ТипЗначенияКатегории</DataPath>
 			<ContextMenu name="ТипЗначенияКатегорииНадписьКонтекстноеМеню" id="73"/>
@@ -107,6 +116,7 @@
 							<CommandBarLocation>Top</CommandBarLocation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<Header>false</Header>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -177,6 +187,7 @@
 									<DataPath>ДоступныеЗначенияКатегории_Справочник.Пометка</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<CheckBoxType>CheckBox</CheckBoxType>
 									<ContextMenu name="ДоступныеЗначенияКатегории_СправочникПометкаКонтекстноеМеню" id="83"/>
 									<ExtendedTooltip name="ДоступныеЗначенияКатегории_СправочникПометкаExtendedTooltip" id="106"/>
 									<Events>
@@ -225,6 +236,7 @@
 					<ChildItems>
 						<Table name="ДоступныеЗначенияКатегории_Строка" id="40">
 							<Representation>List</Representation>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<Header>false</Header>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -297,6 +309,7 @@
 					<ChildItems>
 						<Table name="ДоступныеЗначенияКатегории_Число" id="47">
 							<Representation>List</Representation>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<Header>false</Header>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -369,6 +382,7 @@
 					<ChildItems>
 						<Table name="ДоступныеЗначенияКатегории_Дата" id="87">
 							<Representation>List</Representation>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<Header>false</Header>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -481,6 +495,7 @@
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<Header>false</Header>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -550,6 +565,7 @@
 									<DataPath>ДоступныеЗначенияКатегории_НастроеноАдминистратором.Check</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<CheckBoxType>CheckBox</CheckBoxType>
 									<ContextMenu name="ДоступныеЗначенияКатегории_НастроеноАдминистраторомПометкаКонтекстноеМеню" id="81"/>
 									<ExtendedTooltip name="ДоступныеЗначенияКатегории_НастроеноАдминистраторомПометкаExtendedTooltip" id="123"/>
 								</CheckBoxField>
@@ -752,11 +768,11 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="КомандаОК" id="1">
+		<Command name="КомандаВыбрать" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -765,8 +781,9 @@
 					<v8:content>Сохранить настройки и закрыть форму</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>КомандаОК</Action>
+			<Action>КомандаВыбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="КомандаОтмена" id="2">
 			<Title>
@@ -783,6 +800,7 @@
 			</ToolTip>
 			<Action>КомандаОтмена</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="КомандаУстановитьФлажки_Справочник" id="3">
 			<Title>

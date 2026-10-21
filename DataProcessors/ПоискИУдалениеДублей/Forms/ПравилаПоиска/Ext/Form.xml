@@ -7,54 +7,20 @@
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
-		<Autofill>false</Autofill>
 		<ChildItems>
-			<ButtonGroup name="ГруппаСкрытоНаМобильномКлиенте" id="51">
+			<Button name="ЗавершитьРедактирование" id="12">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ЗавершитьРедактирование</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Скрыто на мобильном клиенте</v8:content>
+						<v8:content>Применить</v8:content>
 					</v8:item>
 				</Title>
-				<Representation>Usual</Representation>
-				<ExtendedTooltip name="ГруппаСкрытоНаМобильномКлиентеРасширеннаяПодсказка" id="52"/>
-				<ChildItems>
-					<Button name="ЗавершитьРедактирование" id="12">
-						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.ЗавершитьРедактирование</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>ОК</v8:content>
-							</v8:item>
-						</Title>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ЗавершитьРедактированиеРасширеннаяПодсказка" id="13"/>
-					</Button>
-					<Button name="ФормаОтмена" id="16">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.Cancel</CommandName>
-						<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="17"/>
-					</Button>
-				</ChildItems>
-			</ButtonGroup>
-			<ButtonGroup name="ФормаГруппаСправка" id="14">
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Форма группа справка</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаГруппаСправкаРасширеннаяПодсказка" id="15"/>
-				<ChildItems>
-					<Button name="ФормаСправка" id="18">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.Help</CommandName>
-						<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="19"/>
-					</Button>
-				</ChildItems>
-			</ButtonGroup>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ЗавершитьРедактированиеРасширеннаяПодсказка" id="13"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -64,7 +30,6 @@
 	<ChildItems>
 		<Table name="ПравилаПоиска" id="20">
 			<Representation>List</Representation>
-			<TitleLocation>Top</TitleLocation>
 			<CommandBarLocation>None</CommandBarLocation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
@@ -84,7 +49,23 @@
 					<v8:content>Правила поиска</v8:content>
 				</v8:item>
 			</Title>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>ClearTableMarksAppearance</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+				<ExcludedCommand>MoveDown</ExcludedCommand>
+				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>SearchHistory</ExcludedCommand>
+				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+				<ExcludedCommand>SortListAsc</ExcludedCommand>
+				<ExcludedCommand>SortListDesc</ExcludedCommand>
+			</CommandSet>
 			<SearchStringLocation>Top</SearchStringLocation>
+			<ShowCommandBar>false</ShowCommandBar>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="ПравилаПоискаКонтекстноеМеню" id="21"/>
 			<AutoCommandBar name="ПравилаПоискаКоманднаяПанель" id="22"/>
@@ -138,6 +119,7 @@
 							<TitleLocation>None</TitleLocation>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
 							<ContextMenu name="ПравилаПоискаИспользоватьКонтекстноеМеню" id="31"/>
 							<ExtendedTooltip name="ПравилаПоискаИспользоватьРасширеннаяПодсказка" id="32"/>
 							<Events>
@@ -170,6 +152,8 @@
 							<v8:content>Правило</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>21</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ChoiceButton>false</ChoiceButton>
@@ -200,6 +184,8 @@
 				</v8:item>
 			</Title>
 			<TitleLocation>Right</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<ContextMenu name="СкрыватьНезначимыеДублиКонтекстноеМеню" id="49"/>
 			<ExtendedTooltip name="СкрыватьНезначимыеДублиРасширеннаяПодсказка" id="50"/>
 		</CheckBoxField>
@@ -225,6 +211,8 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="УчитыватьПрикладныеПравилаКонтекстноеМеню" id="2"/>
 					<ExtendedTooltip name="УчитыватьПрикладныеПравилаРасширеннаяПодсказка" id="3"/>
 					<Events>
@@ -241,6 +229,8 @@
 					</Title>
 					<TitleLocation>None</TitleLocation>
 					<VerticalAlign>Top</VerticalAlign>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>60</MaxWidth>
 					<Height>3</Height>
@@ -392,17 +382,12 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Завершить редактирование</v8:content>
-				</v8:item>
-			</ToolTip>
 			<Action>ЗавершитьРедактирование</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

@@ -2,7 +2,8 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<CommandBarLocation>Top</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
@@ -51,26 +52,23 @@
 		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаНаименованиеИспользование" id="163">
+		<UsualGroup name="ГруппаОсновное" id="241">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Наименование использование</v8:content>
+					<v8:content>Основное</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
+			<Group>AutoScreenTypeSensitive</Group>
+			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ThroughAlign>Use</ThroughAlign>
-			<ExtendedTooltip name="ГруппаНаименованиеИспользованиеРасширеннаяПодсказка" id="164"/>
+			<ExtendedTooltip name="ГруппаОсновноеРасширеннаяПодсказка" id="242"/>
 			<ChildItems>
 				<InputField name="Наименование" id="1">
 					<DataPath>Объект.Description</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>60</MaxWidth>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="11"/>
 				</InputField>
@@ -89,6 +87,9 @@
 							<v8:content>Если флажок снят, проверка не выполняется ни интерактивно, ни по расписанию</v8:content>
 						</v8:item>
 					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<CheckBoxType>CheckBox</CheckBoxType>
 					<ContextMenu name="ИспользованиеКонтекстноеМеню" id="156"/>
 					<ExtendedTooltip name="ИспользованиеРасширеннаяПодсказка" id="157"/>
 				</CheckBoxField>
@@ -112,7 +113,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
+					<ScrollOnCompress>true</ScrollOnCompress>
 					<ExtendedTooltip name="ПараметрыПроверкиРасширеннаяПодсказка" id="184"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаШапка" id="54">
@@ -136,16 +137,17 @@
 											<v8:content>Причины проблемы</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Left</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
-									<HorizontalStretch>true</HorizontalStretch>
 									<MultiLine>true</MultiLine>
 									<ContextMenu name="ПричиныПроблемыКонтекстноеМеню" id="76"/>
 									<ExtendedTooltip name="ПричиныПроблемыРасширеннаяПодсказка" id="77"/>
 								</InputField>
 								<InputField name="Рекомендации" id="160">
 									<DataPath>Объект.Рекомендация</DataPath>
-									<TitleLocation>Left</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MultiLine>true</MultiLine>
 									<ContextMenu name="РекомендацииКонтекстноеМеню" id="161"/>
@@ -159,9 +161,8 @@
 											<v8:content>Важность проблемы</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Left</TitleLocation>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<MaxWidth>16</MaxWidth>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ВажностьПроблемыКонтекстноеМеню" id="50"/>
 									<ExtendedTooltip name="ВажностьПроблемыРасширеннаяПодсказка" id="51"/>
 								</InputField>
@@ -187,10 +188,13 @@
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Выполняется в фоне по расписанию</v8:content>
+											<v8:content>Выполняется в фоне</v8:content>
 										</v8:item>
 									</Title>
 									<TitleLocation>Right</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<CheckBoxType>Switcher</CheckBoxType>
 									<ContextMenu name="ВыполняетсяВФонеПоРасписаниюКонтекстноеМеню" id="218"/>
 									<ExtendedTooltip name="ВыполняетсяВФонеПоРасписаниюРасширеннаяПодсказка" id="219"/>
 									<Events>
@@ -204,7 +208,7 @@
 											<v8:content>Настройки расписания</v8:content>
 										</v8:item>
 									</Title>
-									<Group>HorizontalIfPossible</Group>
+									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>WeakSeparation</Representation>
 									<ShowTitle>false</ShowTitle>
@@ -219,8 +223,10 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
-											<RadioButtonType>Auto</RadioButtonType>
-											<ColumnsCount>1</ColumnsCount>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<RadioButtonType>Tumbler</RadioButtonType>
+											<ColumnsCount>2</ColumnsCount>
 											<ChoiceList>
 												<xr:Item>
 													<xr:Presentation/>
@@ -255,48 +261,13 @@
 												<Event name="OnChange">СелекторРасписанияПриИзменении</Event>
 											</Events>
 										</RadioButtonField>
-										<UsualGroup name="ГруппаПредставленийРасписаний" id="225">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Представлений расписаний</v8:content>
-												</v8:item>
-											</Title>
-											<Group>Vertical</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>WeakSeparation</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаПредставленийРасписанийРасширеннаяПодсказка" id="226"/>
-											<ChildItems>
-												<LabelDecoration name="ПредставлениеОбщегоРасписания" id="214">
-													<AutoMaxWidth>false</AutoMaxWidth>
-													<Title formatted="false">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>&lt;Представление общего расписания&gt;</v8:content>
-														</v8:item>
-													</Title>
-													<VerticalAlign>Center</VerticalAlign>
-													<ContextMenu name="ПредставлениеОбщегоРасписанияКонтекстноеМеню" id="215"/>
-													<ExtendedTooltip name="ПредставлениеОбщегоРасписанияРасширеннаяПодсказка" id="216"/>
-												</LabelDecoration>
-												<LabelDecoration name="ПредставлениеИндивидуальногоРасписания" id="172">
-													<AutoMaxWidth>false</AutoMaxWidth>
-													<Title formatted="false">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>&lt;Представление индивидуального расписания&gt;</v8:content>
-														</v8:item>
-													</Title>
-													<VerticalAlign>Center</VerticalAlign>
-													<ContextMenu name="ПредставлениеИндивидуальногоРасписанияКонтекстноеМеню" id="173"/>
-													<ExtendedTooltip name="ПредставлениеИндивидуальногоРасписанияРасширеннаяПодсказка" id="174"/>
-													<Events>
-														<Event name="URLProcessing">ПредставлениеИндивидуальногоРасписанияОбработкаНавигационнойСсылки</Event>
-													</Events>
-												</LabelDecoration>
-											</ChildItems>
-										</UsualGroup>
+										<LabelDecoration name="ПредставлениеРасписания" id="243">
+											<ContextMenu name="ПредставлениеРасписанияКонтекстноеМеню" id="244"/>
+											<ExtendedTooltip name="ПредставлениеРасписанияРасширеннаяПодсказка" id="245"/>
+											<Events>
+												<Event name="URLProcessing">ПредставлениеИндивидуальногоРасписанияОбработкаНавигационнойСсылки</Event>
+											</Events>
+										</LabelDecoration>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -311,82 +282,61 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
+					<ScrollOnCompress>true</ScrollOnCompress>
 					<ExtendedTooltip name="ДополнительноРасширеннаяПодсказка" id="186"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаДатаНачалаЛимитПроблем" id="190">
+						<InputField name="ДатаНачалаПроверки" id="178">
+							<DataPath>Объект.ДатаНачалаПроверки</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ДатаНачалаПроверкиКонтекстноеМеню" id="179"/>
+							<ExtendedTooltip name="ДатаНачалаПроверкиРасширеннаяПодсказка" id="180"/>
+						</InputField>
+						<InputField name="ЛимитПроблем" id="192">
+							<DataPath>Объект.ЛимитПроблем</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ЛимитПроблемКонтекстноеМеню" id="193"/>
+							<ExtendedTooltip name="ЛимитПроблемРасширеннаяПодсказка" id="194"/>
+						</InputField>
+						<InputField name="Идентификатор" id="78">
+							<DataPath>Объект.Идентификатор</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ИдентификаторКонтекстноеМеню" id="79"/>
+							<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="80"/>
+						</InputField>
+						<InputField name="ПутьДоПроцедурыОбработчика" id="205">
+							<DataPath>ПутьДоПроцедурыОбработчика</DataPath>
+							<ReadOnly>true</ReadOnly>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Дата начала лимит проблем</v8:content>
+									<v8:content>Процедура проверки</v8:content>
 								</v8:item>
 							</Title>
-							<Group>HorizontalIfPossible</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>WeakSeparation</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаДатаНачалаЛимитПроблемРасширеннаяПодсказка" id="191"/>
-							<ChildItems>
-								<InputField name="ДатаНачалаПроверки" id="178">
-									<DataPath>Объект.ДатаНачалаПроверки</DataPath>
-									<ContextMenu name="ДатаНачалаПроверкиКонтекстноеМеню" id="179"/>
-									<ExtendedTooltip name="ДатаНачалаПроверкиРасширеннаяПодсказка" id="180"/>
-								</InputField>
-								<InputField name="ЛимитПроблем" id="192">
-									<DataPath>Объект.ЛимитПроблем</DataPath>
-									<ContextMenu name="ЛимитПроблемКонтекстноеМеню" id="193"/>
-									<ExtendedTooltip name="ЛимитПроблемРасширеннаяПодсказка" id="194"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаДляРазработчика" id="198">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Для разработчика</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Vertical</Group>
-							<Behavior>Collapsible</Behavior>
-							<Collapsed>true</Collapsed>
-							<ControlRepresentation>Button</ControlRepresentation>
-							<Representation>NormalSeparation</Representation>
-							<ChildItemsWidth>Equal</ChildItemsWidth>
-							<ExtendedTooltip name="ГруппаДляРазработчикаРасширеннаяПодсказка" id="199"/>
-							<ChildItems>
-								<InputField name="Идентификатор" id="78">
-									<DataPath>Объект.Идентификатор</DataPath>
-									<UserVisible>
-										<xr:Common>false</xr:Common>
-									</UserVisible>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<ContextMenu name="ИдентификаторКонтекстноеМеню" id="79"/>
-									<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="80"/>
-								</InputField>
-								<InputField name="ПутьДоПроцедурыОбработчика" id="205">
-									<DataPath>ПутьДоПроцедурыОбработчика</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Процедура проверки</v8:content>
-										</v8:item>
-									</Title>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<ContextMenu name="ПутьДоПроцедурыОбработчикаКонтекстноеМеню" id="206"/>
-									<ExtendedTooltip name="ПутьДоПроцедурыОбработчикаРасширеннаяПодсказка" id="207"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="ПутьДоПроцедурыОбработчикаКонтекстноеМеню" id="206"/>
+							<ExtendedTooltip name="ПутьДоПроцедурыОбработчикаРасширеннаяПодсказка" id="207"/>
+						</InputField>
+						<InputField name="Комментарий" id="195">
+							<DataPath>Объект.Комментарий</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MultiLine>true</MultiLine>
+							<ContextMenu name="КомментарийКонтекстноеМеню" id="196"/>
+							<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="197"/>
+						</InputField>
 					</ChildItems>
 				</Page>
 			</ChildItems>
 		</Pages>
-		<InputField name="Комментарий" id="195">
-			<DataPath>Объект.Комментарий</DataPath>
-			<ContextMenu name="КомментарийКонтекстноеМеню" id="196"/>
-			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="197"/>
-		</InputField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -448,6 +398,16 @@
 					<v8:FractionDigits>0</v8:FractionDigits>
 					<v8:AllowedSign>Any</v8:AllowedSign>
 				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПредставлениеИндивидуальногоРасписания" id="2">
+			<Type>
+				<v8:Type>v8ui:FormattedString</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПредставлениеОбщегоРасписания" id="3">
+			<Type>
+				<v8:Type>v8ui:FormattedString</v8:Type>
 			</Type>
 		</Attribute>
 	</Attributes>

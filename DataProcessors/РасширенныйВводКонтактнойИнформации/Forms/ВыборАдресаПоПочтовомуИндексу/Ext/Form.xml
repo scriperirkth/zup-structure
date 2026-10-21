@@ -9,7 +9,7 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
+	<CommandBarLocation>Top</CommandBarLocation>
 	<MobileDeviceCommandBarContent>
 		<xr:Item>
 			<xr:Presentation/>
@@ -17,8 +17,24 @@
 			<xr:Value xsi:type="xs:string">ГруппаКоманднаяПанель</xr:Value>
 		</xr:Item>
 	</MobileDeviceCommandBarContent>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ShowCommandBar>true</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ВариантыАдресаВыбрать" id="62">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Выбрать</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ВариантыАдресаВыбратьРасширеннаяПодсказка" id="63"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -31,26 +47,14 @@
 					<v8:content>Командная панель</v8:content>
 				</v8:item>
 			</Title>
-			<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
 			<Group>HorizontalIfPossible</Group>
+			<HorizontalAlign>Right</HorizontalAlign>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="68"/>
 			<ChildItems>
-				<Button name="ВариантыАдресаВыбрать" id="62">
-					<Type>UsualButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.Выбрать</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Выбрать</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ВариантыАдресаВыбратьРасширеннаяПодсказка" id="63"/>
-				</Button>
 				<InputField name="ПоискВВебСервисе" id="76">
 					<DataPath>ПоискВВебСервисе</DataPath>
 					<Visible>false</Visible>
@@ -62,7 +66,12 @@
 					</Title>
 					<TitleLocation>None</TitleLocation>
 					<Shortcut>Ctrl+F</Shortcut>
-					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+					<HorizontalAlign>Right</HorizontalAlign>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
 					<ClearButton>true</ClearButton>
 					<EditTextUpdate>DontUse</EditTextUpdate>
 					<InputHint>
@@ -83,40 +92,12 @@
 						<Item>ВариантыАдреса</Item>
 						<Type>SearchStringRepresentation</Type>
 					</AdditionSource>
-					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
 					<ContextMenu name="ДополнениеПоискКонтекстноеМеню" id="80"/>
 					<ExtendedTooltip name="ДополнениеПоискРасширеннаяПодсказка" id="81"/>
 				</SearchStringAddition>
-				<CommandBar name="ГруппаЕще" id="71">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Еще</v8:content>
-						</v8:item>
-					</Title>
-					<CommandSource>Form</CommandSource>
-					<ExtendedTooltip name="ГруппаЕщеРасширеннаяПодсказка" id="72"/>
-					<ChildItems>
-						<Button name="ВариантыАдресаОбновить" id="31">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.Обновить</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Обновить</v8:content>
-								</v8:item>
-							</Title>
-							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="ВариантыАдресаОбновитьРасширеннаяПодсказка" id="32"/>
-						</Button>
-						<Button name="ВариантыАдресаИзменитьФорму" id="35">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="ВариантыАдресаИзменитьФормуРасширеннаяПодсказка" id="36"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 		<Table name="ВариантыАдреса" id="8">
@@ -227,6 +208,7 @@
 			</SearchControlAddition>
 			<Events>
 				<Event name="Selection">ВариантыАдресаВыбор</Event>
+				<Event name="OnActivateRow">ВариантыАдресаПриАктивизацииСтроки</Event>
 			</Events>
 			<ChildItems>
 				<InputField name="ВариантыАдресаПредставление" id="15">
@@ -349,26 +331,6 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Обновить" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Обновить</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Обновить</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Shortcut>F5</Shortcut>
-			<Picture>
-				<xr:Ref>StdPicture.Refresh</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
 		<Command name="Выбрать" id="1">
 			<Title>
 				<v8:item>
@@ -384,6 +346,7 @@
 			</ToolTip>
 			<Action>Выбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

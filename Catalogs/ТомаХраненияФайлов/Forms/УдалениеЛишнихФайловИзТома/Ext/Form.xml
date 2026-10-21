@@ -22,17 +22,49 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаУдалитьЛишниеФайлыРасширеннаяПодсказка" id="2"/>
 			</Button>
-			<Button name="ФормаОтмена" id="3">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Cancel</CommandName>
-				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="4"/>
-			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<UsualGroup name="ГруппаВажноеСообщение" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Важное сообщение</v8:content>
+				</v8:item>
+			</Title>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>pal:LightBlue</BackColor>
+			<ExtendedTooltip name="ГруппаВажноеСообщениеРасширеннаяПодсказка" id="33"/>
+			<ChildItems>
+				<PictureDecoration name="ДекорацияКартинка" id="34">
+					<TextColor>pal:LightBlue</TextColor>
+					<Font ref="style:TextLevel3" kind="StyleItem"/>
+					<PictureSize>ByFontSize</PictureSize>
+					<Picture>
+						<xr:Ref>CommonPicture.ВажноеСообщениеИнформация</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<PictureColor>pal:LightBlue</PictureColor>
+					<ContextMenu name="ДекорацияКартинкаКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ДекорацияКартинкаРасширеннаяПодсказка" id="36"/>
+				</PictureDecoration>
+				<LabelDecoration name="ВажноеСообщение" id="37">
+					<Font ref="style:TextLevel3" kind="StyleItem"/>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Если в файлах в томе, о которых в приложении нет сведений, может содержаться полезная информация, то рекомендуется скопировать их в другой каталог.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ВажноеСообщениеКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="ВажноеСообщениеРасширеннаяПодсказка" id="39"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
 		<UsualGroup name="ГруппаЛишниеФайлы" id="16">
 			<Title>
 				<v8:item>
@@ -46,7 +78,7 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаЛишниеФайлыРасширеннаяПодсказка" id="17"/>
 			<ChildItems>
-				<InputField name="КоличествоЛишнихФайлов" id="13">
+				<LabelField name="КоличествоЛишнихФайлов" id="13">
 					<DataPath>КоличествоЛишнихФайлов</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -55,9 +87,19 @@
 							<v8:content>Количество лишних файлов</v8:content>
 						</v8:item>
 					</Title>
+					<HorizontalAlign>Left</HorizontalAlign>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧН=0</v8:content>
+						</v8:item>
+					</Format>
+					<UseCopy>true</UseCopy>
 					<ContextMenu name="КоличествоЛишнихФайловКонтекстноеМеню" id="14"/>
 					<ExtendedTooltip name="КоличествоЛишнихФайловРасширеннаяПодсказка" id="15"/>
-				</InputField>
+				</LabelField>
 				<LabelDecoration name="ДекорацияПодробнее" id="18">
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<Title formatted="false">
@@ -72,51 +114,6 @@
 					<Events>
 						<Event name="Click">ДекорацияПодробнееНажатие</Event>
 					</Events>
-				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаКомментарий" id="5">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Комментарий</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Horizontal</Group>
-			<VerticalAlign>Center</VerticalAlign>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКомментарийРасширеннаяПодсказка" id="6"/>
-			<ChildItems>
-				<PictureDecoration name="ДекорацияИконка" id="7">
-					<SkipOnInput>false</SkipOnInput>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Декорация иконка</v8:content>
-						</v8:item>
-					</Title>
-					<Picture>
-						<xr:Ref>StdPicture.DialogInformation</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</Picture>
-					<FileDragMode>AsFile</FileDragMode>
-					<ContextMenu name="ДекорацияИконкаКонтекстноеМеню" id="8"/>
-					<ExtendedTooltip name="ДекорацияИконкаРасширеннаяПодсказка" id="9"/>
-				</PictureDecoration>
-				<LabelDecoration name="ДекорацияИнфо" id="10">
-					<SkipOnInput>false</SkipOnInput>
-					<TextColor>style:ПоясняющийТекст</TextColor>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Если в файлах в томе, о которых в приложении нет сведений, может содержаться полезная информация,
-то рекомендуется скопировать их в другой каталог.</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ДекорацияИнфоКонтекстноеМеню" id="11"/>
-					<ExtendedTooltip name="ДекорацияИнфоРасширеннаяПодсказка" id="12"/>
 				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
@@ -142,6 +139,8 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СкопироватьФайлыПередУдалениемКонтекстноеМеню" id="25"/>
 					<ExtendedTooltip name="СкопироватьФайлыПередУдалениемРасширеннаяПодсказка" id="26"/>
 					<Events>
@@ -157,7 +156,8 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>None</TitleLocation>
-					<MarkRequiredComplete>true</MarkRequiredComplete>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ChoiceButton>true</ChoiceButton>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<ContextMenu name="ПутьКПапкеДляКопированияКонтекстноеМеню" id="22"/>
@@ -313,6 +313,7 @@
 			</ToolTip>
 			<Action>УдалитьЛишниеФайлы</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

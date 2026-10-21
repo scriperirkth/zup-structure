@@ -67,16 +67,16 @@
 					<xsd:documentation>Ответ банка на запрос подтверждения документов по СМС в виде URL ссылки, по которой нужно перейти для подтверждения СМС-кодом</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="DepositOffersResponse" type="edo:DepositOffersResponseType">
+            <xsd:element name="DepositOffersResponse" type="edo:DepositOffersResponseType">
 				<xsd:annotation>
 					<xsd:documentation>Ответ банка на запрос предложений по депозитам</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="DepositCalculateResponse" type="edo:DepositCalculateResponseType">
-				<xsd:annotation>
+                <xsd:annotation>
 					<xsd:documentation>Ответ банка на запрос расчета депозита</xsd:documentation>
 				</xsd:annotation>
-			</xsd:element>
+            </xsd:element>
 		</xsd:choice>
 	</xsd:complexType>
 	<xsd:complexType name="SendPacketResponseType">
@@ -149,12 +149,12 @@
 	</xsd:complexType>
 	<xsd:complexType name="GenSMSSignResponseType">
 		<xsd:sequence>
-			<xsd:element name="SigningURL" type="edo:SigningURLType">
+			<xsd:element name="SigningURL" type="edo:SigningURLType" use="required">
 				<xsd:annotation>
 					<xsd:documentation>URL ссылки, по которой нужно перейти для подтверждения SMS-кодом</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>			
-			<xsd:element name="ExtIDGenSMSSign" type="edo:IDType">
+			<xsd:element name="ExtIDGenSMSSign" type="edo:IDType" use="required">
 				<xsd:annotation>
 					<xsd:documentation>ID исходного запроса GenSMSSign</xsd:documentation>
 				</xsd:annotation>
@@ -2774,7 +2774,7 @@
 		<xsd:attribute name="creationDate" type="xsd:dateTime" use="required"/>
 		<xsd:attribute name="userAgent" type="edo:UserAgentType" use="optional"/>
 	</xsd:complexType>
-	<xsd:annotation>
+    <xsd:annotation>
 		<xsd:documentation>***************************************************************************************************************</xsd:documentation>
 	</xsd:annotation>
 	<xsd:simpleType name="SumTypeExt">
@@ -2801,6 +2801,7 @@
 			<xsd:fractionDigits value="0"/>
 		</xsd:restriction>	
 	</xsd:simpleType>
+
 	<xsd:element name="DepositApp" type="edo:DepositApp">
 		<xsd:annotation>
 			<xsd:documentation>Заявка на открытие депозита</xsd:documentation>
@@ -2825,13 +2826,13 @@
 				<xsd:annotation>
 					<xsd:documentation>Данные заявки</xsd:documentation>
 				</xsd:annotation>
-				<xsd:complexType>
-					<xsd:all>
-						<xsd:element name="DocDate" type="xsd:dateTime">
-							<xsd:annotation>
-								<xsd:documentation>Дата составления</xsd:documentation>
-							</xsd:annotation>
-						</xsd:element>
+                <xsd:complexType>
+                    <xsd:all>
+                        <xsd:element name="DocDate" type="xsd:dateTime">
+                            <xsd:annotation>
+                                <xsd:documentation>Дата составления</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
 						<xsd:element name="Account" type="edo:AccNumType">
 							<xsd:annotation>
 								<xsd:documentation>
@@ -2841,33 +2842,33 @@
 								</xsd:documentation>
 							</xsd:annotation>
 						</xsd:element>
-						<xsd:element name="ProductID" type="edo:IDType">
-							<xsd:annotation>
-								<xsd:documentation>Идентификатор продукта в системе банка</xsd:documentation>
-							</xsd:annotation>
-						</xsd:element>
+						<xsd:element name="ProductID" type="edo:IDType" use="required">
+                            <xsd:annotation>
+                                <xsd:documentation>Идентификатор продукта в системе банка</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
 						<xsd:element name="DepositOfferDate" type="xsd:dateTime">
 							<xsd:annotation>
 								<xsd:documentation>Дата получения предложения от банка</xsd:documentation>
 							</xsd:annotation>
 						</xsd:element>
-						<xsd:element name="DepositSum" type="edo:SumType">
-							<xsd:annotation>
-								<xsd:documentation>Сумма депозита</xsd:documentation>
-							</xsd:annotation>
-						</xsd:element>
-						<xsd:element name="Rate" type="xsd:decimal">
-							<xsd:annotation>
-								<xsd:documentation>Ставка депозита, которую видел клиент в интерфейсе 1С при отправке заявки</xsd:documentation>
-							</xsd:annotation>
-						</xsd:element>
-						<xsd:element name="PeriodDay" type="edo:PeriodDay">
-							<xsd:annotation>
-								<xsd:documentation>Срок депозита (дней)</xsd:documentation>
-							</xsd:annotation>
-						</xsd:element>
-					</xsd:all>
-				</xsd:complexType>
+                        <xsd:element name="DepositSum" type="edo:SumType">
+                            <xsd:annotation>
+                                <xsd:documentation>Сумма депозита</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="Rate" type="xsd:decimal">
+                            <xsd:annotation>
+                                <xsd:documentation>Ставка депозита, которую видел клиент в интерфейсе 1С при отправке заявки</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="PeriodDay" type="edo:PeriodDay">
+                            <xsd:annotation>
+                                <xsd:documentation>Срок депозита (дней)</xsd:documentation>
+                            </xsd:annotation>	
+                        </xsd:element>
+                    </xsd:all>   
+                </xsd:complexType>
 			</xsd:element>
 		</xsd:all>
 		<xsd:attribute name="id" type="edo:IDType" use="required">
@@ -2891,59 +2892,20 @@
 			</xsd:annotation>
 		</xsd:attribute>
 	</xsd:complexType>
-	<xsd:element name="DepositCalculateRequest" type="edo:DepositCalculateRequest">
-		<xsd:annotation>
-			<xsd:documentation>Запрос предложений по депозитам</xsd:documentation>
-		</xsd:annotation>
-	</xsd:element>
-	<xsd:complexType name="DepositCalculateRequest">
-		<xsd:all>
-			<xsd:element name="Sender" type="edo:CustomerPartyType">
-				<xsd:annotation>
-					<xsd:documentation>Клиент</xsd:documentation>
+
+	<xsd:element name="DepositOffersRequest" type="edo:DepositOffersRequest">
+        <xsd:annotation>
+            <xsd:documentation>Запрос предложений по депозитам</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="DepositOffersRequest">
+        <xsd:sequence>
+            <xsd:element name="CustomerID" type="edo:IDCustomerType" maxOccurs="unbounded">
+                <xsd:annotation>
+					<xsd:documentation>Клиент банка</xsd:documentation>
 				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="Recipient" type="edo:BankPartyType">
-				<xsd:annotation>
-					<xsd:documentation>Банк</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="Data">
-				<xsd:complexType>
-					<xsd:all>
-						<xsd:element name="ProductID" type="edo:IDType">
-							<xsd:annotation>
-								<xsd:documentation>Идентификатор продукта в системе банка</xsd:documentation>
-							</xsd:annotation>
-						</xsd:element>
-						<xsd:element name="Account" type="edo:AccNumType">
-							<xsd:annotation>
-								<xsd:documentation>
-									Счет списания средств на открытие депозита, 
-									возврата средств после окончания срока и выплаты процентов 
-									(если открыт депозит без капитализации).
-								</xsd:documentation>
-							</xsd:annotation>
-						</xsd:element>
-						<xsd:element name="DepositSum" type="edo:SumType">
-							<xsd:annotation>
-								<xsd:documentation>Сумма депозита, указанная пользователем.</xsd:documentation>
-							</xsd:annotation>
-						</xsd:element>
-						<xsd:element name="PeriodDay" type="edo:PeriodDay">
-							<xsd:annotation>
-								<xsd:documentation>Срок депозита, указанный пользователем.</xsd:documentation>
-							</xsd:annotation>	
-						</xsd:element>
-						<xsd:element name="ClosingDate" type="xsd:date">
-							<xsd:annotation>
-								<xsd:documentation>Дата закрытия депозита, которая отображалась пользователю.</xsd:documentation>
-							</xsd:annotation>
-						</xsd:element>
-					</xsd:all>
-				</xsd:complexType>
-			</xsd:element>
-		</xsd:all>
+            </xsd:element>
+        </xsd:sequence>
 		<xsd:attribute name="formatVersion" type="edo:FormatVersionType" use="required">
 			<xsd:annotation>
 				<xsd:documentation>Версия формата</xsd:documentation>
@@ -2959,171 +2921,172 @@
 				<xsd:documentation>Наименование и версия программы</xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>
-	</xsd:complexType>
+    </xsd:complexType>
+
 	<xsd:element name="DepositOffersResponse" type="edo:DepositOffersResponseType">
-		<xsd:annotation>
-			<xsd:documentation>Ответ банка на запрос предложений по депозитам</xsd:documentation>
-		</xsd:annotation>
-	</xsd:element>
-	<xsd:complexType name="DepositOffersResponseType">
-		<xsd:all minOccurs="0">
-			<xsd:element name="BankBrandName" type="xsd:string" minOccurs="0">
-				<xsd:annotation>
-					<xsd:documentation>Наименование банка, отображаемое пользователям в программе</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="Data" minOccurs="0">
-				<xsd:complexType>
-					<xsd:sequence minOccurs="0">
-						<xsd:element name="DepositOffer" maxOccurs="unbounded">
-							<xsd:annotation>
-								<xsd:documentation>Предложение банка по депозиту</xsd:documentation>
-							</xsd:annotation>
-							<xsd:complexType>
-								<xsd:all>
-									<xsd:element name="ProductName" type="xsd:string" minOccurs="0">
-										<xsd:annotation>
-											<xsd:documentation>Наименование продукта</xsd:documentation>
-										</xsd:annotation>
-									</xsd:element>
-									<xsd:element name="ProductID" type="edo:IDType">
-										<xsd:annotation>
-											<xsd:documentation>Идентификатор продукта в системе банка</xsd:documentation>
-										</xsd:annotation>
-									</xsd:element>
-									<xsd:element name="InterestPayment" minOccurs="0" default="01">
-										<xsd:annotation>
-											<xsd:documentation>
-												Способ выплаты процентов. 
-												Может отсутствовать, если его значение совпадает со значением по умолчанию.
-												Пример :
-													Если элемент отсутствует, то учитывается значение по умолчанию 01 - в конце срока,
-													в этом случае выплата процентов производится в конце срока действия депозита.
-											</xsd:documentation>
-										</xsd:annotation>
-										<xsd:simpleType>
-											<xsd:restriction base="xsd:string">
-												<xsd:length value="2"/>
-											</xsd:restriction>
-										</xsd:simpleType>
-									</xsd:element>
-									<xsd:element name="CurrencyCode" minOccurs="0" default="643">
-										<xsd:annotation>
-											<xsd:documentation>
-												Код валюты.
-												Может отсутствовать, если его значение совпадает со значением по умолчанию.
-											</xsd:documentation>
-										</xsd:annotation>
-										<xsd:simpleType>
-											<xsd:restriction base="xsd:string">
-												<xsd:pattern value="[0-9]{3,3}"/>
-											</xsd:restriction>
-										</xsd:simpleType>
-									</xsd:element>
-									<xsd:element name="Capitalization" type="xsd:boolean" minOccurs="0" default="false">
-										<xsd:annotation>
-											<xsd:documentation>
-												Капитализация.
-												Может отсутствовать, если его значение совпадает со значением по умолчанию.
-												Если Истина, проценты по депозиту начисляются на счет депозита с периодичностью, указанной в InterestPayment.
-											</xsd:documentation>
-										</xsd:annotation>
-									</xsd:element>
-									<xsd:element name = "CalculateOption" minOccurs="0" default="01">
-										<xsd:annotation>
-											<xsd:documentation>
-												Расчет по формуле.                                                
-												Может отсутствовать, если его значение совпадает со значением по умолчанию.
-												Пример 1:                                                    
-													Если элемент отсутствует, то учитывается значение по умолчанию 01 - расчет в калькуляторе
-													по предложению можно выполнить по формуле:
-													Проценты = (Сумма вклада × (Ставка/100)/Дней в году × Срок) 
-													с учетом високосного года и перехода между високосным и не високосным годом.
-											</xsd:documentation>
-										</xsd:annotation>
-										<xsd:simpleType>
-											<xsd:restriction base="xsd:string">
-												<xsd:length value="2"/>
-											</xsd:restriction>
-										</xsd:simpleType>
-									</xsd:element>
-									<xsd:element name="Description" type="xsd:string" minOccurs="0">
-										<xsd:annotation>
-											<xsd:documentation>Описание продукта</xsd:documentation>
-										</xsd:annotation>
-									</xsd:element>
-									<xsd:element name="DepositTermsAndConditions">
-										<xsd:annotation>
-											<xsd:documentation>Условия и процентные ставки</xsd:documentation>
-										</xsd:annotation>
-										<xsd:complexType>
-											<xsd:sequence>
-												<xsd:element name="Order" maxOccurs="unbounded">
-													<xsd:annotation>
-														<xsd:documentation>Параметры условий и сроки</xsd:documentation>
-													</xsd:annotation>
-													<xsd:complexType>
-														<xsd:all>
-															<xsd:element name="DepositSumMin" type="edo:SumTypeExt">
-																<xsd:annotation>
-																	<xsd:documentation>Минимальная сумма депозита</xsd:documentation>
-																</xsd:annotation>
-															</xsd:element>
-															<xsd:element name="DepositSumMax" type="edo:SumTypeExt">
-																<xsd:annotation>
-																	<xsd:documentation>Максимальная сумма депозита</xsd:documentation>
-																</xsd:annotation>
-															</xsd:element>
-															<xsd:element name="PeriodDayMin" type="edo:PeriodDay">
-																<xsd:annotation>
-																	<xsd:documentation>Минимальный срок (дней)</xsd:documentation>
-																</xsd:annotation>
-															</xsd:element>
-															<xsd:element name="PeriodDayMax" type="edo:PeriodDay">
-																<xsd:annotation>
-																	<xsd:documentation>Максимальный срок (дней)</xsd:documentation>
-																</xsd:annotation>
-															</xsd:element>
-															<xsd:element name="Promoted" type="xsd:boolean" minOccurs="0" default="false">
-																<xsd:annotation>
-																	<xsd:documentation>Приоритетное предложение
-																	Если Истина, продукт банка имеет приоритет при отображении в списке выбора продуктов банка.
-																	(Список сортируется по убыванию в порядке Продвигаемый, Доходность).</xsd:documentation>
-																</xsd:annotation>
-															</xsd:element>
-															<xsd:element name="Rate" type="xsd:decimal">
-																<xsd:annotation>
-																	<xsd:documentation>Ставка в % годовых</xsd:documentation>
-																</xsd:annotation>
-															</xsd:element>
-															<xsd:element name="PersonalOfferFor" minOccurs="0">
-																<xsd:annotation>
-																	<xsd:documentation>Список идентификаторов клиентов банка, которым доступно предложение
-																	Если отсутствует, предложение доступно всем клиентам банка.</xsd:documentation>
-																</xsd:annotation>
-																<xsd:complexType>
-																	<xsd:sequence minOccurs="0">
-																		<xsd:element name="CustomerID" type="edo:IDCustomerType" minOccurs="0" maxOccurs="unbounded">
-																			<xsd:annotation>
-																				<xsd:documentation>Идентификатор клиента</xsd:documentation>
-																			</xsd:annotation>
-																		</xsd:element>
-																	</xsd:sequence>
-																</xsd:complexType>
-															</xsd:element>
-														</xsd:all>
-													</xsd:complexType>
-												</xsd:element>
-											</xsd:sequence>
-										</xsd:complexType>
-									</xsd:element>
-								</xsd:all> 
-							</xsd:complexType>
-						</xsd:element>
-					</xsd:sequence>
-				</xsd:complexType>
-			</xsd:element>
-		</xsd:all>
+        <xsd:annotation>
+            <xsd:documentation>Ответ банка на запрос предложений по депозитам</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="DepositOffersResponseType">
+        <xsd:all minOccurs="0">
+            <xsd:element name="BankBrandName" type="xsd:string" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>Брендовое наименование банка</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Data" minOccurs="0">
+                <xsd:complexType>
+                    <xsd:sequence minOccurs="0">
+                        <xsd:element name="DepositOffer" maxOccurs="unbounded">
+                            <xsd:annotation>
+                                <xsd:documentation>Предложение банка по депозиту</xsd:documentation>
+                            </xsd:annotation>
+                            <xsd:complexType>
+                                <xsd:all>
+                                    <xsd:element name="ProductName" type="xsd:string" minOccurs="0">
+                                        <xsd:annotation>
+                                            <xsd:documentation>Наименование продукта</xsd:documentation>
+                                        </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="ProductID" type="edo:IDType" use="required">
+                                        <xsd:annotation>
+                                            <xsd:documentation>Идентификатор продукта в системе банка</xsd:documentation>
+                                        </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="InterestPayment" minOccurs="0" default="01">
+                                        <xsd:annotation>
+                                            <xsd:documentation>
+                                                Способ выплаты процентов. 
+                                                Может отсутствовать, если его значение совпадает со значением по умолчанию.
+                                                Пример :
+                                                    Если элемент отсутствует, то учитывается значение по умолчанию 01 - в конце срока,
+                                                    в этом случае выплата процентов производится в конце срока действия депозита.
+                                            </xsd:documentation>
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                            <xsd:restriction base="xsd:string">
+                                                <xsd:length value="2"/>
+                                            </xsd:restriction>
+                                        </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="CurrencyCode" minOccurs="0" default="643">
+                                        <xsd:annotation>
+                                            <xsd:documentation>
+                                                Код валюты.
+                                                Может отсутствовать, если его значение совпадает со значением по умолчанию.
+                                            </xsd:documentation>
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                            <xsd:restriction base="xsd:string">
+                                                <xsd:pattern value="[0-9]{3,3}"/>
+                                            </xsd:restriction>
+                                        </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Capitalization" type="xsd:boolean" minOccurs="0" default="false">
+                                        <xsd:annotation>
+                                            <xsd:documentation>
+                                                Капитализация.
+                                                Может отсутствовать, если его значение совпадает со значением по умолчанию.
+                                                Если Истина, проценты по депозиту начисляются на счет депозита с периодичностью, указанной в InterestPayment.
+                                            </xsd:documentation>
+                                        </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name = "CalculateOption" minOccurs="0" default="01">
+                                        <xsd:annotation>
+                                            <xsd:documentation>
+                                                Расчет по формуле.                                                
+                                                Может отсутствовать, если его значение совпадает со значением по умолчанию.
+                                                Пример 1:                                                    
+                                                    Если элемент отсутствует, то учитывается значение по умолчанию 01 - расчет в калькуляторе
+                                                    по предложению можно выполнить по формуле:
+                                                    Проценты = (Сумма вклада × (Ставка/100)/Дней в году × Срок) 
+                                                    с учетом високосного года и перехода между високосным и не високосным годом.
+                                            </xsd:documentation>
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                            <xsd:restriction base="xsd:string">
+                                                <xsd:length value="2"/>
+                                            </xsd:restriction>
+                                        </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Description" type="xsd:string" minOccurs="0">
+                                        <xsd:annotation>
+                                            <xsd:documentation>Описание продукта</xsd:documentation>
+                                        </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="DepositTermsAndConditions">
+                                        <xsd:annotation>
+                                            <xsd:documentation>Условия и процентные ставки</xsd:documentation>
+                                        </xsd:annotation>
+                                        <xsd:complexType>
+                                            <xsd:sequence>
+                                                <xsd:element name="Order" maxOccurs="unbounded">
+                                                    <xsd:annotation>
+                                                        <xsd:documentation>Параметры условий и сроки</xsd:documentation>
+                                                    </xsd:annotation>
+                                                    <xsd:complexType>
+                                                        <xsd:all>
+                                                            <xsd:element name="DepositSumMin" type="edo:SumTypeExt">
+                                                                <xsd:annotation>
+                                                                    <xsd:documentation>Минимальная сумма депозита</xsd:documentation>
+                                                                </xsd:annotation>
+                                                            </xsd:element>
+                                                            <xsd:element name="DepositSumMax" type="edo:SumTypeExt">
+                                                                <xsd:annotation>
+                                                                    <xsd:documentation>Максимальная сумма депозита</xsd:documentation>
+                                                                </xsd:annotation>
+                                                            </xsd:element>
+                                                            <xsd:element name="PeriodDayMin" type="edo:PeriodDay">
+                                                                <xsd:annotation>
+                                                                    <xsd:documentation>Минимальный срок (дней)</xsd:documentation>
+                                                                </xsd:annotation>
+                                                            </xsd:element>
+                                                            <xsd:element name="PeriodDayMax" type="edo:PeriodDay">
+                                                                <xsd:annotation>
+                                                                    <xsd:documentation>Максимальный срок (дней)</xsd:documentation>
+                                                                </xsd:annotation>
+                                                            </xsd:element>
+                                                            <xsd:element name="Promoted" type="xsd:boolean" minOccurs="0" default="false">
+                                                                <xsd:annotation>
+                                                                    <xsd:documentation>Приоритетное предложение
+                                                                    Если Истина, продукт банка имеет приоритет при отображении в списке выбора продуктов банка.
+                                                                    (Список сортируется по убыванию в порядке Продвигаемый, Доходность).</xsd:documentation>
+                                                                </xsd:annotation>
+                                                            </xsd:element>
+                                                            <xsd:element name="Rate" type="xsd:decimal">
+                                                                <xsd:annotation>
+                                                                    <xsd:documentation>Ставка в % годовых</xsd:documentation>
+                                                                </xsd:annotation>
+                                                            </xsd:element>
+                                                            <xsd:element name="PersonalOfferFor" minOccurs="0">
+                                                                <xsd:annotation>
+                                                                    <xsd:documentation>Список идентификаторов клиентов банка, которым доступно предложение
+                                                                    Если отсутствует, предложение доступно всем клиентам банка.</xsd:documentation>
+                                                                </xsd:annotation>
+                                                                <xsd:complexType>
+                                                                    <xsd:sequence minOccurs="0">
+                                                                        <xsd:element name="CustomerID" type="edo:IDCustomerType" minOccurs="0" maxOccurs="unbounded">
+                                                                            <xsd:annotation>
+                                                                                <xsd:documentation>Идентификатор клиента</xsd:documentation>
+                                                                            </xsd:annotation>
+                                                                        </xsd:element>
+                                                                    </xsd:sequence>
+                                                                </xsd:complexType>
+                                                            </xsd:element>
+                                                        </xsd:all>
+                                                    </xsd:complexType>
+                                                </xsd:element>
+                                            </xsd:sequence>
+                                        </xsd:complexType>
+                                    </xsd:element>
+                                </xsd:all> 
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:all>
 		<xsd:attribute name="formatVersion" type="edo:FormatVersionType" use="required">
 			<xsd:annotation>
 				<xsd:documentation>Версия формата</xsd:documentation>
@@ -3134,102 +3097,8 @@
 				<xsd:documentation>Дата и время формирования</xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>  
-	</xsd:complexType>
-	<xsd:element name="DepositCalculateResponse" type="edo:DepositCalculateResponseType">
-		<xsd:annotation>
-			<xsd:documentation>Запрос предложений по депозитам</xsd:documentation>
-		</xsd:annotation>
-	</xsd:element>
-	<xsd:complexType name="DepositCalculateResponseType">
-		<xsd:all>
-			<xsd:element name="Sender" type="edo:BankPartyType">
-				<xsd:annotation>
-					<xsd:documentation>Банк</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="Recipient" type="edo:CustomerPartyType">
-				<xsd:annotation>
-					<xsd:documentation>Клиент</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="Data" minOccurs="0">
-				<xsd:complexType>
-					<xsd:all>
-						<xsd:element name="PeriodDay" type="edo:PeriodDay">
-							<xsd:annotation>
-								<xsd:documentation>Срок депозита</xsd:documentation>
-							</xsd:annotation>	
-						</xsd:element>
-						<xsd:element name="ClosingDate" type="xsd:date">
-							<xsd:annotation>
-								<xsd:documentation>Дата закрытия депозита</xsd:documentation>
-							</xsd:annotation>
-						</xsd:element>
-						<xsd:element name="DepositSum" type="edo:SumType">
-							<xsd:annotation>
-								<xsd:documentation>Сумма депозита</xsd:documentation>
-							</xsd:annotation>
-						</xsd:element>
-						<xsd:element name="Rate" type="xsd:decimal">
-							<xsd:annotation>
-								<xsd:documentation>Ставка в % годовых</xsd:documentation>
-							</xsd:annotation>
-						</xsd:element>
-						<xsd:element name="ProfitSum" type="edo:SumType">
-							<xsd:annotation>
-								<xsd:documentation>Сумма дохода</xsd:documentation>
-							</xsd:annotation>
-						</xsd:element>
-					</xsd:all>
-				</xsd:complexType>
-			</xsd:element>
-			<xsd:element name="Error" type="edo:ErrorType" minOccurs="0">
-				<xsd:annotation>
-					<xsd:documentation>Ошибки, препятствующие открытию депозита. 
-						Например, недостаточно средств на счете.</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-		</xsd:all>
-		<xsd:attribute name="formatVersion" type="edo:FormatVersionType" use="required">
-			<xsd:annotation>
-				<xsd:documentation>Версия формата</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-		<xsd:attribute name="creationDate" type="xsd:dateTime" use="required">
-			<xsd:annotation>
-				<xsd:documentation>Дата и время формирования</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-	</xsd:complexType>
-	<xsd:element name="DepositOffersRequest" type="edo:DepositOffersRequest">
-		<xsd:annotation>
-			<xsd:documentation>Запрос предложений по депозитам</xsd:documentation>
-		</xsd:annotation>
-	</xsd:element>
-	<xsd:complexType name="DepositOffersRequest">
-		<xsd:sequence>
-			<xsd:element name="CustomerID" type="edo:IDCustomerType" maxOccurs="unbounded">
-				<xsd:annotation>
-					<xsd:documentation>Клиент банка</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-		</xsd:sequence>
-		<xsd:attribute name="formatVersion" type="edo:FormatVersionType" use="required">
-			<xsd:annotation>
-				<xsd:documentation>Версия формата</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-		<xsd:attribute name="creationDate" type="xsd:dateTime" use="required">
-			<xsd:annotation>
-				<xsd:documentation>Дата и время формирования</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-		<xsd:attribute name="userAgent" type="edo:UserAgentType" use="optional">
-			<xsd:annotation>
-				<xsd:documentation>Наименование и версия программы</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-	</xsd:complexType>
+    </xsd:complexType>
+
 	<xsd:element name="DepositStatusNotice" type="edo:DepositStatusNotice">
 		<xsd:annotation>
 			<xsd:documentation>Извещение о состоянии депозита</xsd:documentation>
@@ -3271,7 +3140,7 @@
 				</xsd:annotation>
 				<xsd:complexType>
 					<xsd:all>
-						<xsd:element name="ContractNo" type="xsd:string" minOccurs="0">
+                        <xsd:element name="ContractNo" type="xsd:string" minOccurs="0">
 							<xsd:annotation>
 								<xsd:documentation>Номер договора</xsd:documentation>
 							</xsd:annotation>
@@ -3297,8 +3166,8 @@
 									Способ выплаты процентов. 
 									Может отсутствовать, если его значение совпадает со значением по умолчанию.
 									Пример :
-										Если элемент отсутствует, то учитывается значение по умолчанию 01 - в конце срока,
-										в этом случае выплата процентов производится в конце срока действия депозита.
+                                        Если элемент отсутствует, то учитывается значение по умолчанию 01 - в конце срока,
+                                        в этом случае выплата процентов производится в конце срока действия депозита.
 								</xsd:documentation>
 							</xsd:annotation>
 							<xsd:simpleType>
@@ -3325,7 +3194,7 @@
 								<xsd:documentation>
 									Капитализация.
 									Может отсутствовать, если его значение совпадает со значением по умолчанию.
-									Если Истина, проценты по депозиту начисляются на счет депозита с периодичностью, указанной в InterestPayment.
+                                    Если Истина, проценты по депозиту начисляются на счет депозита с периодичностью, указанной в InterestPayment.
 								</xsd:documentation>
 							</xsd:annotation>
 						</xsd:element>
@@ -3363,10 +3232,10 @@
 							</xsd:annotation>
 						</xsd:element>
 						<xsd:element name="PeriodDay" type="edo:PeriodDay">
-							<xsd:annotation>
-								<xsd:documentation>Срок депозита</xsd:documentation>
-							</xsd:annotation>	
-						</xsd:element>
+                            <xsd:annotation>
+                                <xsd:documentation>Срок депозита</xsd:documentation>
+                            </xsd:annotation>	
+                        </xsd:element>
 						<xsd:element name="ClosingDate" type="xsd:dateTime">
 							<xsd:annotation>
 								<xsd:documentation>Дата закрытия депозита</xsd:documentation>
@@ -3556,6 +3425,7 @@
 			</xsd:annotation>
 		</xsd:attribute>
 	</xsd:complexType>
+
 	<xsd:element name="DepositStatusRequest" type="edo:DepositStatusRequest">
 		<xsd:annotation>
 			<xsd:documentation>Запрос состояния депозита</xsd:documentation>
@@ -3573,7 +3443,7 @@
 					<xsd:documentation>Банк</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="ExtID" type="edo:IDType">
+			<xsd:element name="ExtID" type="edo:IDType" use="required">
 				<xsd:annotation>
 					<xsd:documentation>ID заявки на открытие депозита, статус которой требуется получить</xsd:documentation>
 				</xsd:annotation>
@@ -3600,4 +3470,141 @@
 			</xsd:annotation>
 		</xsd:attribute>
 	</xsd:complexType>
+
+	<xsd:element name="DepositCalculateRequest" type="edo:DepositCalculateRequest">
+        <xsd:annotation>
+            <xsd:documentation>Запрос предложений по депозитам</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="DepositCalculateRequest">
+        <xsd:all>
+            <xsd:element name="Sender" type="edo:CustomerPartyType">
+				<xsd:annotation>
+					<xsd:documentation>Клиент</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Recipient" type="edo:BankPartyType">
+				<xsd:annotation>
+					<xsd:documentation>Банк</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Data">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="ProductID" type="edo:IDType" use="required">
+							<xsd:annotation>
+								<xsd:documentation>Идентификатор продукта в системе банка</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="Account" type="edo:AccNumType">
+							<xsd:annotation>
+								<xsd:documentation>
+									Счет списания средств на открытие депозита, 
+									возврата средств после окончания срока и выплаты процентов 
+									(если открыт депозит без капитализации).
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="DepositSum" type="edo:SumType">
+							<xsd:annotation>
+								<xsd:documentation>Сумма депозита, указанная пользователем.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="PeriodDay" type="edo:PeriodDay">
+                            <xsd:annotation>
+                                <xsd:documentation>Срок депозита, указанный пользователем.</xsd:documentation>
+                            </xsd:annotation>	
+                        </xsd:element>
+						<xsd:element name="ClosingDate" type="xsd:date">
+							<xsd:annotation>
+								<xsd:documentation>Дата закрытия депозита, которая отображалась пользователю.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+        </xsd:all>
+		<xsd:attribute name="formatVersion" type="edo:FormatVersionType" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Версия формата</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="creationDate" type="xsd:dateTime" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Дата и время формирования</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="userAgent" type="edo:UserAgentType" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Наименование и версия программы</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+    </xsd:complexType>
+
+	<xsd:element name="DepositCalculateResponse" type="edo:DepositCalculateResponseType">
+        <xsd:annotation>
+            <xsd:documentation>Запрос предложений по депозитам</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="DepositCalculateResponseType">
+		<xsd:all>
+			<xsd:element name="Sender" type="edo:BankPartyType">
+				<xsd:annotation>
+					<xsd:documentation>Банк</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Recipient" type="edo:CustomerPartyType">
+				<xsd:annotation>
+					<xsd:documentation>Клиент</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Data" minOccurs="0">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="PeriodDay" type="edo:PeriodDay">
+							<xsd:annotation>
+								<xsd:documentation>Срок депозита</xsd:documentation>
+							</xsd:annotation>	
+						</xsd:element>
+						<xsd:element name="ClosingDate" type="xsd:date">
+							<xsd:annotation>
+								<xsd:documentation>Дата закрытия депозита</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="DepositSum" type="edo:SumType">
+							<xsd:annotation>
+								<xsd:documentation>Сумма депозита</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="Rate" type="xsd:decimal">
+							<xsd:annotation>
+								<xsd:documentation>Ставка в % годовых</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="ProfitSum" type="edo:SumType">
+							<xsd:annotation>
+								<xsd:documentation>Сумма дохода</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Error" type="edo:ErrorType" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>Ошибки, препятствующие открытию депозита. 
+						Например, недостаточно средств на счете.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+		</xsd:all>
+		<xsd:attribute name="formatVersion" type="edo:FormatVersionType" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Версия формата</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="creationDate" type="xsd:dateTime" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Дата и время формирования</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+    </xsd:complexType>
 </xsd:schema>

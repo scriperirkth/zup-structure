@@ -40,7 +40,6 @@
 				<LabelDecoration name="ПодсказкаТекст" id="36">
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<Height>1</Height>
-					<TextColor>style:ПоясняющийТекст</TextColor>
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -62,7 +61,6 @@
 			<OpenButton>false</OpenButton>
 			<TextColor>#7A5700</TextColor>
 			<BackColor>style:FormBackColor</BackColor>
-			<BorderColor>style:FormBackColor</BorderColor>
 			<ContextMenu name="ГоловнаяОрганизацияКонтекстноеМеню" id="45"/>
 			<ExtendedTooltip name="ГоловнаяОрганизацияExtendedTooltip" id="70"/>
 		</InputField>
@@ -82,32 +80,88 @@
 				<Event name="OnChange">ВладелецПриИзменении</Event>
 			</Events>
 		</InputField>
-		<InputField name="КПП" id="7">
-			<DataPath>Объект.КПП</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<ContextMenu name="КППКонтекстноеМеню" id="8"/>
-			<ExtendedTooltip name="КППExtendedTooltip" id="72"/>
-			<Events>
-				<Event name="OnChange">КПППриИзменении</Event>
-			</Events>
-		</InputField>
-		<InputField name="Код" id="1">
-			<DataPath>Объект.Code</DataPath>
-			<TitleLocation>Left</TitleLocation>
-			<TitleHeight>2</TitleHeight>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<Mask>9999</Mask>
-			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
-			<ExtendedTooltip name="КодExtendedTooltip" id="73"/>
-		</InputField>
+		<UsualGroup name="ГруппаКод_КПП" id="180">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа код КПП</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа код КПП</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКод_КППРасширеннаяПодсказка" id="181"/>
+			<ChildItems>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Mask>9999</Mask>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодExtendedTooltip" id="73"/>
+				</InputField>
+				<InputField name="КПП" id="7">
+					<DataPath>Объект.КПП</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="КППКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="КППExtendedTooltip" id="72"/>
+					<Events>
+						<Event name="OnChange">КПППриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаОКТО_ОКТМО" id="178">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа ОКТО ОКТМО</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа ОКТО ОКТМО</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОКТО_ОКТМОРасширеннаяПодсказка" id="179"/>
+			<ChildItems>
+				<InputField name="КодПоОКТМО" id="65">
+					<DataPath>Объект.КодПоОКТМО</DataPath>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Начиная с 01.01.2014 г. применяется вместо кода по ОКАТО</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ContextMenu name="КодПоОКТМОКонтекстноеМеню" id="66"/>
+					<ExtendedTooltip name="КодПоОКТМОExtendedTooltip" id="76"/>
+				</InputField>
+				<InputField name="КодПоОКАТО" id="19">
+					<DataPath>Объект.КодПоОКАТО</DataPath>
+					<TitleHeight>1</TitleHeight>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="КодПоОКАТОКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="КодПоОКАТОExtendedTooltip" id="77"/>
+					<Events>
+						<Event name="OnChange">КодПоОКАТОПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
 		<InputField name="Наименование" id="3">
 			<DataPath>Объект.Description</DataPath>
-			<TitleLocation>Left</TitleLocation>
-			<TitleHeight>2</TitleHeight>
 			<EditMode>EnterOnInput</EditMode>
 			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
@@ -119,52 +173,18 @@
 		</InputField>
 		<InputField name="НаименованиеИФНС" id="9">
 			<DataPath>Объект.НаименованиеИФНС</DataPath>
-			<TitleLocation>Left</TitleLocation>
-			<TitleHeight>2</TitleHeight>
 			<EditMode>EnterOnInput</EditMode>
 			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
-			<Height>2</Height>
-			<MultiLine>true</MultiLine>
 			<ContextMenu name="НаименованиеИФНСКонтекстноеМеню" id="10"/>
 			<ExtendedTooltip name="НаименованиеИФНСExtendedTooltip" id="75"/>
 		</InputField>
-		<InputField name="КодПоОКТМО" id="65">
-			<DataPath>Объект.КодПоОКТМО</DataPath>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Начиная с 01.01.2014 г. применяется вместо кода по ОКАТО</v8:content>
-				</v8:item>
-			</ToolTip>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<HorizontalStretch>false</HorizontalStretch>
-			<ContextMenu name="КодПоОКТМОКонтекстноеМеню" id="66"/>
-			<ExtendedTooltip name="КодПоОКТМОExtendedTooltip" id="76"/>
-		</InputField>
-		<InputField name="КодПоОКАТО" id="19">
-			<DataPath>Объект.КодПоОКАТО</DataPath>
-			<TitleLocation>Left</TitleLocation>
-			<TitleHeight>1</TitleHeight>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<HorizontalStretch>false</HorizontalStretch>
-			<ContextMenu name="КодПоОКАТОКонтекстноеМеню" id="20"/>
-			<ExtendedTooltip name="КодПоОКАТОExtendedTooltip" id="77"/>
-			<Events>
-				<Event name="OnChange">КодПоОКАТОПриИзменении</Event>
-			</Events>
-		</InputField>
 		<InputField name="НаименованиеОбособленногоПодразделения" id="17">
 			<DataPath>Объект.НаименованиеОбособленногоПодразделения</DataPath>
-			<TitleLocation>Left</TitleLocation>
-			<TitleHeight>2</TitleHeight>
 			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 			<EditMode>EnterOnInput</EditMode>
 			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
-			<MultiLine>true</MultiLine>
 			<ContextMenu name="НаименованиеОбособленногоПодразделенияКонтекстноеМеню" id="18"/>
 			<ExtendedTooltip name="НаименованиеОбособленногоПодразделенияExtendedTooltip" id="78">
 				<AutoMaxWidth>false</AutoMaxWidth>
@@ -193,7 +213,6 @@
 				<RadioButtonField name="ОтчетностьПодписываетПредставитель" id="51">
 					<DataPath>ОтчетностьПодписываетПредставитель</DataPath>
 					<TitleLocation>Left</TitleLocation>
-					<TitleHeight>2</TitleHeight>
 					<RadioButtonType>Auto</RadioButtonType>
 					<ColumnsCount>1</ColumnsCount>
 					<ChoiceList>
@@ -368,28 +387,9 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ПанельПодписантовРасширеннаяПодсказка" id="156"/>
 					<ChildItems>
-						<Button name="ПодписантыДобавитьПодписанта" id="151">
-							<Type>UsualButton</Type>
-							<GroupVerticalAlign>Center</GroupVerticalAlign>
-							<CommandName>Form.Command.ДобавитьПодписанта</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Добавить</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ПодписантыДобавитьПодписантаРасширеннаяПодсказка" id="152"/>
-						</Button>
-						<Button name="ПодписантыОчиститьПодписанта" id="153">
-							<Type>UsualButton</Type>
-							<GroupVerticalAlign>Center</GroupVerticalAlign>
-							<CommandName>Form.Command.УдалитьПодписанта</CommandName>
-							<ExtendedTooltip name="ПодписантыОчиститьПодписантаРасширеннаяПодсказка" id="154"/>
-						</Button>
 						<LabelDecoration name="ПодсказкаПоПодписантам" id="157">
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<HorizontalStretch>true</HorizontalStretch>
-							<TextColor>style:ПоясняющийТекст</TextColor>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -405,6 +405,10 @@
 				<Table name="Подписанты" id="93">
 					<Representation>List</Representation>
 					<ChangeRowOrder>false</ChangeRowOrder>
+					<AutoMaxHeight>false</AutoMaxHeight>
+					<MaxHeight>5</MaxHeight>
+					<HeightControlVariant>UseHeightInFormRows</HeightControlVariant>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -415,6 +419,26 @@
 					<ContextMenu name="ПодписантыКонтекстноеМеню" id="94"/>
 					<AutoCommandBar name="ПодписантыКоманднаяПанель" id="95">
 						<Autofill>false</Autofill>
+						<ChildItems>
+							<Button name="ПодписантыДобавитьПодписанта" id="151">
+								<Type>CommandBarButton</Type>
+								<GroupVerticalAlign>Center</GroupVerticalAlign>
+								<CommandName>Form.Command.ДобавитьПодписанта</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Добавить</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ПодписантыДобавитьПодписантаРасширеннаяПодсказка" id="152"/>
+							</Button>
+							<Button name="ПодписантыОчиститьПодписанта" id="153">
+								<Type>CommandBarButton</Type>
+								<GroupVerticalAlign>Center</GroupVerticalAlign>
+								<CommandName>Form.Command.УдалитьПодписанта</CommandName>
+								<ExtendedTooltip name="ПодписантыОчиститьПодписантаРасширеннаяПодсказка" id="154"/>
+							</Button>
+						</ChildItems>
 					</AutoCommandBar>
 					<ExtendedTooltip name="ПодписантыРасширеннаяПодсказка" id="96"/>
 					<SearchStringAddition name="ПодписантыСтрокаПоиска" id="97">

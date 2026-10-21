@@ -6,12 +6,14 @@
 			<v8:content>Исполнение</v8:content>
 		</v8:item>
 	</Title>
-	<Width>96</Width>
-	<Height>30</Height>
+	<Width>200</Width>
+	<Height>40</Height>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
+	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
@@ -33,6 +35,40 @@
 			<PagesRepresentation>None</PagesRepresentation>
 			<ExtendedTooltip name="ГруппаСтраницыПодключенияРасширеннаяПодсказка" id="2"/>
 			<ChildItems>
+				<Page name="СтраницаЗагрузкаИзДО" id="196">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница загрузка из 1С:Документооборот</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<ShowTitle>false</ShowTitle>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="СтраницаЗагрузкаИзДОРасширеннаяПодсказка" id="197"/>
+					<ChildItems>
+						<PictureDecoration name="ДлительнаяОперацияЗагрузкаИзДОСтраница" id="198">
+							<Picture>
+								<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ДлительнаяОперацияЗагрузкаИзДОСтраницаКонтекстноеМеню" id="199"/>
+							<ExtendedTooltip name="ДлительнаяОперацияЗагрузкаИзДОСтраницаРасширеннаяПодсказка" id="200"/>
+						</PictureDecoration>
+						<LabelDecoration name="ОписаниеЗагрузкаИзДОСтраница" id="201">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Получение данных из 1С:Документооборота...</v8:content>
+								</v8:item>
+							</Title>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<ContextMenu name="ОписаниеЗагрузкаИзДОСтраницаКонтекстноеМеню" id="202"/>
+							<ExtendedTooltip name="ОписаниеЗагрузкаИзДОСтраницаРасширеннаяПодсказка" id="203"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
 				<Page name="СтраницаДокументооборотДоступен" id="3">
 					<Title>
 						<v8:item>
@@ -41,6 +77,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
+					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаДокументооборотДоступенРасширеннаяПодсказка" id="4"/>
 					<ChildItems>
@@ -119,6 +156,7 @@
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
+									<ShowTitle>true</ShowTitle>
 									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="ГруппаУчастникиРасширеннаяПодсказка" id="207"/>
 									<ChildItems>
@@ -175,6 +213,8 @@
 																<InputField name="ТекстДляПунктов" id="362">
 																	<DataPath>ТекстДляПунктов</DataPath>
 																	<TitleLocation>None</TitleLocation>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
 																	<Width>40</Width>
 																	<MultiLine>true</MultiLine>
 																	<ContextMenu name="ТекстДляПунктовКонтекстноеМеню" id="363"/>
@@ -201,13 +241,15 @@
 												</UsualGroup>
 												<Table name="Участники" id="369">
 													<Representation>Tree</Representation>
-													<ChoiceMode>true</ChoiceMode>
+													<Height>1</Height>
+													<SelectionMode>SingleRow</SelectionMode>
 													<RowSelectionMode>Cell</RowSelectionMode>
 													<HorizontalLinesBWA>false</HorizontalLinesBWA>
 													<VerticalLinesBWA>false</VerticalLinesBWA>
 													<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 													<AutoInsertNewRow>true</AutoInsertNewRow>
 													<InitialTreeView>ExpandAllLevels</InitialTreeView>
+													<InitialRowActivation>Activate</InitialRowActivation>
 													<FileDragMode>AsFile</FileDragMode>
 													<DataPath>Участники</DataPath>
 													<CommandSet>
@@ -317,7 +359,6 @@
 																	</Button>
 																	<Button name="Защищенный" id="474">
 																		<Type>CommandBarButton</Type>
-																		<Representation>Picture</Representation>
 																		<CommandName>Form.Command.Защищенный</CommandName>
 																		<ExtendedTooltip name="ЗащищенныйРасширеннаяПодсказка" id="475"/>
 																	</Button>
@@ -400,7 +441,7 @@
 																<xr:Ref>StdPicture.AppearanceCheckBox</xr:Ref>
 																<xr:LoadTransparent>true</xr:LoadTransparent>
 															</HeaderPicture>
-															<AutoEditMode>true</AutoEditMode>
+															<AutoWidthInTable>None</AutoWidthInTable>
 															<Width>2</Width>
 															<HorizontalStretch>false</HorizontalStretch>
 															<ValuesPicture>
@@ -418,11 +459,15 @@
 																</v8:item>
 															</Title>
 															<Group>InCell</Group>
+															<ShowTitle>true</ShowTitle>
 															<ExtendedTooltip name="ГруппаПредставлениеУчастникаРасширеннаяПодсказка" id="386"/>
 															<ChildItems>
 																<PictureField name="УчастникиОтветственный" id="517">
 																	<DataPath>Участники.Ответственный</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
+																	<AutoWidthInTable>None</AutoWidthInTable>
+																	<AutoMaxWidth>false</AutoMaxWidth>
 																	<ValuesPicture>
 																		<xr:Ref>CommonPicture.ОтветственныйИсполнитель</xr:Ref>
 																		<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -433,11 +478,10 @@
 																<InputField name="ПредставлениеСтроки" id="465">
 																	<DataPath>Участники.ПредставлениеСтроки</DataPath>
 																	<EditMode>EnterOnInput</EditMode>
-																	<AutoEditMode>true</AutoEditMode>
-																	<Width>30</Width>
+																	<AutoWidthInTable>None</AutoWidthInTable>
 																	<AutoMaxWidth>false</AutoMaxWidth>
 																	<AutoMaxHeight>false</AutoMaxHeight>
-																	<HorizontalStretch>false</HorizontalStretch>
+																	<HorizontalStretch>true</HorizontalStretch>
 																	<VerticalStretch>false</VerticalStretch>
 																	<QuickChoice>false</QuickChoice>
 																	<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
@@ -462,10 +506,13 @@
 																	<v8:content>Защищенный участник</v8:content>
 																</v8:item>
 															</ToolTip>
+															<EditMode>EnterOnInput</EditMode>
 															<HeaderPicture>
 																<xr:Ref>CommonPicture.ЗамокЗащищенныйУчастник</xr:Ref>
 																<xr:LoadTransparent>false</xr:LoadTransparent>
 															</HeaderPicture>
+															<AutoWidthInTable>None</AutoWidthInTable>
+															<Width>2</Width>
 															<HorizontalStretch>false</HorizontalStretch>
 															<ValuesPicture>
 																<xr:Ref>CommonPicture.ЗамокЗащищенныйУчастник</xr:Ref>
@@ -477,8 +524,8 @@
 														<InputField name="СрокПредставление" id="471">
 															<DataPath>Участники.СрокПредставление</DataPath>
 															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
-															<Width>9</Width>
+															<AutoWidthInTable>None</AutoWidthInTable>
+															<Width>10</Width>
 															<HorizontalStretch>false</HorizontalStretch>
 															<VerticalStretch>false</VerticalStretch>
 															<ChoiceButton>false</ChoiceButton>
@@ -493,7 +540,6 @@
 														<InputField name="СрокОбработкиРезолюцииПредставление" id="588">
 															<DataPath>Участники.СрокОбработкиРезолюцииПредставление</DataPath>
 															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
 															<Width>7</Width>
 															<HorizontalStretch>false</HorizontalStretch>
 															<VerticalStretch>false</VerticalStretch>
@@ -520,8 +566,10 @@
 																<xr:Ref>StdPicture.Document</xr:Ref>
 																<xr:LoadTransparent>true</xr:LoadTransparent>
 															</HeaderPicture>
-															<AutoEditMode>true</AutoEditMode>
-															<Width>1</Width>
+															<AutoWidthInTable>None</AutoWidthInTable>
+															<Width>2</Width>
+															<HorizontalStretch>false</HorizontalStretch>
+															<VerticalStretch>false</VerticalStretch>
 															<ValuesPicture>
 																<xr:Ref>StdPicture.Document</xr:Ref>
 																<xr:LoadTransparent>true</xr:LoadTransparent>
@@ -536,7 +584,6 @@
 																<xr:Common>false</xr:Common>
 															</UserVisible>
 															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
 															<Width>23</Width>
 															<ContextMenu name="НаименованиеЗадачиКонтекстноеМеню" id="521"/>
 															<ExtendedTooltip name="НаименованиеЗадачиРасширеннаяПодсказка" id="522"/>
@@ -556,7 +603,6 @@
 																</v8:item>
 															</Title>
 															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
 															<Width>19</Width>
 															<ContextMenu name="ОписаниеКонтекстноеМеню" id="524"/>
 															<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="525"/>
@@ -570,7 +616,6 @@
 																<xr:Common>false</xr:Common>
 															</UserVisible>
 															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
 															<Width>19</Width>
 															<ContextMenu name="ОписаниеОсобоеКонтекстноеМеню" id="592"/>
 															<ExtendedTooltip name="ОписаниеОсобоеРасширеннаяПодсказка" id="593"/>
@@ -592,6 +637,7 @@
 																	<v8:content>Резолюция или проект резолюции</v8:content>
 																</v8:item>
 															</ToolTip>
+															<EditMode>EnterOnInput</EditMode>
 															<ContextMenu name="ПроектРезолюцииКонтекстноеМеню" id="527"/>
 															<ExtendedTooltip name="ПроектРезолюцииРасширеннаяПодсказка" id="528"/>
 														</InputField>
@@ -609,6 +655,7 @@
 																	<v8:content>Участник останется в действии, только если указанное условие выполняется</v8:content>
 																</v8:item>
 															</ToolTip>
+															<EditMode>EnterOnInput</EditMode>
 															<CellHyperlink>true</CellHyperlink>
 															<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 															<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
@@ -617,17 +664,6 @@
 															<ContextMenu name="УчастникиУсловиеПредставлениеКонтекстноеМеню" id="537"/>
 															<ExtendedTooltip name="УчастникиУсловиеПредставлениеРасширеннаяПодсказка" id="538"/>
 														</LabelField>
-														<InputField name="ПустоеПоле" id="511">
-															<DataPath>Участники.ПустоеПоле</DataPath>
-															<ReadOnly>true</ReadOnly>
-															<EditMode>EnterOnInput</EditMode>
-															<ShowInHeader>false</ShowInHeader>
-															<AutoEditMode>true</AutoEditMode>
-															<Width>1</Width>
-															<MaxWidth>1</MaxWidth>
-															<ContextMenu name="ПустоеПолеКонтекстноеМеню" id="512"/>
-															<ExtendedTooltip name="ПустоеПолеРасширеннаяПодсказка" id="513"/>
-														</InputField>
 													</ChildItems>
 												</Table>
 											</ChildItems>
@@ -660,7 +696,8 @@
 													<ChildItems>
 														<InputField name="Автор" id="484">
 															<DataPath>АвторПредставление</DataPath>
-															<MarkRequiredComplete>true</MarkRequiredComplete>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ChoiceButton>true</ChoiceButton>
 															<AutoMarkIncomplete>true</AutoMarkIncomplete>
 															<ContextMenu name="АвторКонтекстноеМеню" id="485"/>
@@ -689,6 +726,8 @@
 																<CheckBoxField name="ПодписыватьРезолюцииЭП" id="529">
 																	<DataPath>ПодписыватьРезолюцииЭП</DataPath>
 																	<TitleLocation>Right</TitleLocation>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
 																	<ContextMenu name="ПодписыватьРезолюцииЭПКонтекстноеМеню" id="530"/>
 																	<ExtendedTooltip name="ПодписыватьРезолюцииЭПРасширеннаяПодсказка" id="531"/>
 																</CheckBoxField>
@@ -711,6 +750,8 @@
 													<ChildItems>
 														<InputField name="Контролер" id="539">
 															<DataPath>КонтролерПредставление</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ChoiceButton>true</ChoiceButton>
 															<ContextMenu name="КонтролерКонтекстноеМеню" id="540"/>
 															<ExtendedTooltip name="КонтролерРасширеннаяПодсказка" id="541"/>
@@ -740,6 +781,8 @@
 																	<v8:content>Момент разыменования участников действия</v8:content>
 																</v8:item>
 															</ToolTip>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<Width>24</Width>
 															<AutoMaxWidth>false</AutoMaxWidth>
 															<DropListButton>true</DropListButton>
@@ -826,6 +869,8 @@
 																			<v8:content>Отложенное начало выполнения</v8:content>
 																		</v8:item>
 																	</Title>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
 																	<Width>9</Width>
 																	<Height>1</Height>
 																	<HorizontalStretch>false</HorizontalStretch>
@@ -860,6 +905,7 @@
 									<v8:content>Команды</v8:content>
 								</v8:item>
 							</Title>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
 							<Group>Horizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
@@ -889,6 +935,7 @@
 								</Button>
 								<Button name="Закрыть" id="351">
 									<Type>UsualButton</Type>
+									<Visible>false</Visible>
 									<Width>12</Width>
 									<CommandName>Form.Command.Отмена</CommandName>
 									<Title>
@@ -911,6 +958,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
+					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаДокументооборотНедоступенРасширеннаяПодсказка" id="181"/>
 					<ChildItems>
@@ -950,6 +998,7 @@
 						</v8:item>
 					</Title>
 					<Group>AlwaysHorizontal</Group>
+					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаВерсияНеПоддерживаетсяРасширеннаяПодсказка" id="189"/>
 					<ChildItems>
@@ -981,40 +1030,6 @@
 							</Title>
 							<ContextMenu name="ДекорацияОписаниеВерсияНеПоддерживаетсяКонтекстноеМеню" id="194"/>
 							<ExtendedTooltip name="ДекорацияОписаниеВерсияНеПоддерживаетсяРасширеннаяПодсказка" id="195"/>
-						</LabelDecoration>
-					</ChildItems>
-				</Page>
-				<Page name="СтраницаЗагрузкаИзДО" id="196">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Страница загрузка из 1С:Документооборот</v8:content>
-						</v8:item>
-					</Title>
-					<Group>AlwaysHorizontal</Group>
-					<ShowTitle>false</ShowTitle>
-					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаЗагрузкаИзДОРасширеннаяПодсказка" id="197"/>
-					<ChildItems>
-						<PictureDecoration name="ДлительнаяОперацияЗагрузкаИзДОСтраница" id="198">
-							<Picture>
-								<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
-							</Picture>
-							<FileDragMode>AsFile</FileDragMode>
-							<ContextMenu name="ДлительнаяОперацияЗагрузкаИзДОСтраницаКонтекстноеМеню" id="199"/>
-							<ExtendedTooltip name="ДлительнаяОперацияЗагрузкаИзДОСтраницаРасширеннаяПодсказка" id="200"/>
-						</PictureDecoration>
-						<LabelDecoration name="ОписаниеЗагрузкаИзДОСтраница" id="201">
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Получение данных из 1С:Документооборота...</v8:content>
-								</v8:item>
-							</Title>
-							<GroupVerticalAlign>Center</GroupVerticalAlign>
-							<ContextMenu name="ОписаниеЗагрузкаИзДОСтраницаКонтекстноеМеню" id="202"/>
-							<ExtendedTooltip name="ОписаниеЗагрузкаИзДОСтраницаРасширеннаяПодсказка" id="203"/>
 						</LabelDecoration>
 					</ChildItems>
 				</Page>
@@ -1051,6 +1066,8 @@
 							<DataPath>ТекстОшибкиПриОбновлении</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<TitleLocation>Top</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<AutoMaxHeight>false</AutoMaxHeight>
 							<HorizontalStretch>true</HorizontalStretch>
@@ -2733,6 +2750,21 @@
 			</Title>
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СтатусПодключения" id="75">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус подключения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
 	</Attributes>

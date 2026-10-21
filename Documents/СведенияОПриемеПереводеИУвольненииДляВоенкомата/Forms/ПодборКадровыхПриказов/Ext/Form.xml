@@ -117,21 +117,77 @@
 				И РегистрСведенийКадроваяИсторияСотрудников.ВидСобытия &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ВидыКадровыхСобытий.Увольнение)
 			ИЛИ РегистрСведенийКадроваяИсторияСотрудников.Период МЕЖДУ ДОБАВИТЬКДАТЕ(&amp;ДатаНачала, ДЕНЬ, 1) И ДОБАВИТЬКДАТЕ(&amp;ДатаОкончания, ДЕНЬ, 1)
 				И РегистрСведенийКадроваяИсторияСотрудников.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыКадровыхСобытий.Увольнение))
-
-ОБЪЕДИНИТЬ ВСЕ
-
-ВЫБРАТЬ
-	РеестрКадровыхПриказов.Дата,
-	РеестрКадровыхПриказов.Регистратор,
-	РеестрКадровыхПриказов.Организация.ГоловнаяОрганизация,
-	РеестрКадровыхПриказов.ФизическоеЛицо,
-	РеестрКадровыхПриказов.Организация,
-	РеестрКадровыхПриказов.ВидСобытия
-ИЗ
-	РегистрСведений.РеестрКадровыхПриказов КАК РеестрКадровыхПриказов
-ГДЕ
-	РеестрКадровыхПриказов.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
-	И РеестрКадровыхПриказов.Регистратор ССЫЛКА Документ.ПереносДанных</QueryText>
+</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Организация</dcssch:dataPath>
+					<dcssch:field>Организация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ГоловнаяОрганизация</dcssch:dataPath>
+					<dcssch:field>ГоловнаяОрганизация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Период</dcssch:dataPath>
+					<dcssch:field>Период</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ФизическоеЛицо</dcssch:dataPath>
+					<dcssch:field>ФизическоеЛицо</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Приказ</dcssch:dataPath>
+					<dcssch:field>Приказ</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Приказ</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВидСобытия</dcssch:dataPath>
+					<dcssch:field>ВидСобытия</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>ДатаНачала</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата начала</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>ДатаОкончания</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата окончания</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:viewMode>Normal</dcsset:viewMode>

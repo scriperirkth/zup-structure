@@ -3,6 +3,7 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<Group>Vertical</Group>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="КомандаВыбрать" id="46">
@@ -13,60 +14,12 @@
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Выбрать</v8:content>
+						<v8:content>Завершить выбор</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="КомандаВыбратьРасширеннаяПодсказка" id="181"/>
 			</Button>
-			<Button name="Добавить" id="86">
-				<Type>CommandBarButton</Type>
-				<SkipOnInput>false</SkipOnInput>
-				<CommandName>Form.Item.ПолучателиПисьма.StandardCommand.Add</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Добавить получателя</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ДобавитьРасширеннаяПодсказка" id="236"/>
-			</Button>
-			<Button name="Удалить" id="133">
-				<Type>CommandBarButton</Type>
-				<SkipOnInput>false</SkipOnInput>
-				<CommandName>Form.Item.ПолучателиПисьма.StandardCommand.Delete</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Удалить получателя</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="УдалитьРасширеннаяПодсказка" id="237"/>
-			</Button>
-			<ButtonGroup name="ГруппаПереместить" id="296">
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Переместить</v8:content>
-					</v8:item>
-				</Title>
-				<Representation>Compact</Representation>
-				<ExtendedTooltip name="ГруппаПереместитьРасширеннаяПодсказка" id="297"/>
-				<ChildItems>
-					<Button name="ПереместитьВверх" id="87">
-						<Type>CommandBarButton</Type>
-						<SkipOnInput>false</SkipOnInput>
-						<CommandName>Form.Item.ПолучателиПисьма.StandardCommand.MoveUp</CommandName>
-						<ExtendedTooltip name="ПереместитьВверхРасширеннаяПодсказка" id="238"/>
-					</Button>
-					<Button name="ПереместитьВниз" id="88">
-						<Type>CommandBarButton</Type>
-						<SkipOnInput>false</SkipOnInput>
-						<CommandName>Form.Item.ПолучателиПисьма.StandardCommand.MoveDown</CommandName>
-						<ExtendedTooltip name="ПереместитьВнизРасширеннаяПодсказка" id="239"/>
-					</Button>
-				</ChildItems>
-			</ButtonGroup>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -76,6 +29,33 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<CheckBoxField name="ПоказыватьТолькоКонтактыСАдресами" id="335">
+			<DataPath>ПоказыватьТолькоКонтактыСАдресами</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Только контакты с адресами</v8:content>
+				</v8:item>
+			</Title>
+			<TitleLocation>Right</TitleLocation>
+			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<CheckBoxType>Switcher</CheckBoxType>
+			<ContextMenu name="ПоказыватьТолькоКонтактыСАдресамиКонтекстноеМеню" id="336"/>
+			<ExtendedTooltip name="ПоказыватьТолькоКонтактыСАдресамиРасширеннаяПодсказка" id="337">
+				<AutoMaxWidth>false</AutoMaxWidth>
+				<Title formatted="false">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Будет применено только к тем спискам, в которых есть колонка "Адрес"</v8:content>
+					</v8:item>
+				</Title>
+			</ExtendedTooltip>
+			<Events>
+				<Event name="OnChange">ПоказыватьТолькоКонтактыСАдресамиПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
 		<UsualGroup name="ГруппаСписки" id="24">
 			<Title>
 				<v8:item>
@@ -83,7 +63,8 @@
 					<v8:content>Списки</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AlwaysHorizontal</Group>
+			<Group>Vertical</Group>
+			<HorizontalSpacing>Double</HorizontalSpacing>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ChildItemsWidth>Equal</ChildItemsWidth>
@@ -101,6 +82,7 @@
 					<Behavior>Usual</Behavior>
 					<Representation>WeakSeparation</Representation>
 					<ShowTitle>false</ShowTitle>
+					<ShowAsCard>true</ShowAsCard>
 					<ExtendedTooltip name="ГруппаСпискаНастройкиРасширеннаяПодсказка" id="339"/>
 					<ChildItems>
 						<Pages name="СтраницыСписки" id="83">
@@ -112,9 +94,6 @@
 							</Title>
 							<PagesRepresentation>TabsOnTop</PagesRepresentation>
 							<ExtendedTooltip name="СтраницыСпискиРасширеннаяПодсказка" id="183"/>
-							<Events>
-								<Event name="OnCurrentPageChange">СтраницыПриСменеСтраницы</Event>
-							</Events>
 							<ChildItems>
 								<Page name="СтраницаПоискКонтактов" id="90">
 									<Title>
@@ -124,7 +103,7 @@
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
-									<ScrollOnCompress>false</ScrollOnCompress>
+									<ScrollOnCompress>true</ScrollOnCompress>
 									<ExtendedTooltip name="СтраницаПоискКонтактовРасширеннаяПодсказка" id="184"/>
 									<ChildItems>
 										<UsualGroup name="ГруппаСтрокаПоиска" id="51">
@@ -151,8 +130,18 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Поиск выполняется по всем закладкам с контактами</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<Width>30</Width>
 													<Wrap>false</Wrap>
+													<ClearButton>true</ClearButton>
 													<InputHint>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -161,6 +150,10 @@
 													</InputHint>
 													<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="23"/>
 													<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="187"/>
+													<Events>
+														<Event name="OnChange">СтрокаПоискаПриИзменении</Event>
+														<Event name="Clearing">СтрокаПоискаОчистка</Event>
+													</Events>
 												</InputField>
 												<CommandBar name="ГруппаНайтиКонтакт" id="304">
 													<Title>
@@ -258,6 +251,8 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<Width>20</Width>
 													<Wrap>false</Wrap>
 													<ListChoiceMode>true</ListChoiceMode>
@@ -268,8 +263,7 @@
 										</UsualGroup>
 										<Table name="НайденныеКонтакты" id="25">
 											<Representation>List</Representation>
-											<CommandBarLocation>None</CommandBarLocation>
-											<ReadOnly>true</ReadOnly>
+											<CommandBarLocation>Top</CommandBarLocation>
 											<SkipOnInput>false</SkipOnInput>
 											<AutoMaxHeight>false</AutoMaxHeight>
 											<HeightInTableRows>5</HeightInTableRows>
@@ -284,6 +278,7 @@
 												</v8:item>
 											</Title>
 											<CommandSet>
+												<ExcludedCommand>Add</ExcludedCommand>
 												<ExcludedCommand>CancelSearch</ExcludedCommand>
 												<ExcludedCommand>Change</ExcludedCommand>
 												<ExcludedCommand>Copy</ExcludedCommand>
@@ -293,6 +288,7 @@
 												<ExcludedCommand>MoveDown</ExcludedCommand>
 												<ExcludedCommand>MoveUp</ExcludedCommand>
 											</CommandSet>
+											<ShowCommandBar>true</ShowCommandBar>
 											<RowFilter xsi:nil="true"/>
 											<ContextMenu name="НайденныеКонтактыКонтекстноеМеню" id="26">
 												<Autofill>false</Autofill>
@@ -322,7 +318,34 @@
 													</Button>
 												</ChildItems>
 											</ContextMenu>
-											<AutoCommandBar name="НайденныеКонтактыКоманднаяПанель" id="27"/>
+											<AutoCommandBar name="НайденныеКонтактыКоманднаяПанель" id="27">
+												<ChildItems>
+													<Button name="НайденныеКонтактыКонтекстноеМенюПоискКонтактовВыбрать" id="430">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.ПоискКонтактовВыбрать</CommandName>
+														<Title>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Выбрать</v8:content>
+															</v8:item>
+														</Title>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="НайденныеКонтактыКонтекстноеМенюПоискКонтактовВыбратьРасширеннаяПодсказка" id="431"/>
+													</Button>
+													<Button name="НайденныеКонтактыКонтекстноеМенюПоискКонтактовИсключить" id="432">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.ПоискКонтактовИсключить</CommandName>
+														<Title>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Исключить</v8:content>
+															</v8:item>
+														</Title>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="НайденныеКонтактыКонтекстноеМенюПоискКонтактовИсключитьРасширеннаяПодсказка" id="433"/>
+													</Button>
+												</ChildItems>
+											</AutoCommandBar>
 											<ExtendedTooltip name="НайденныеКонтактыРасширеннаяПодсказка" id="190"/>
 											<SearchStringAddition name="НайденныеКонтактыСтрокаПоиска" id="245">
 												<AdditionSource>
@@ -348,30 +371,60 @@
 												<ContextMenu name="НайденныеКонтактыУправлениеПоискомКонтекстноеМеню" id="252"/>
 												<ExtendedTooltip name="НайденныеКонтактыУправлениеПоискомРасширеннаяПодсказка" id="253"/>
 											</SearchControlAddition>
-											<Events>
-												<Event name="Selection">НайденныеКонтактыВыбор</Event>
-											</Events>
 											<ChildItems>
-												<InputField name="НаименованиеКонтакта" id="28">
-													<DataPath>НайденныеКонтакты.НаименованиеКонтакта</DataPath>
+												<ColumnGroup name="НайденныеКонтактыГруппа" id="438">
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Контакт</v8:content>
+															<v8:content>Найденные контакты группа</v8:content>
 														</v8:item>
 													</Title>
-													<Wrap>false</Wrap>
-													<ContextMenu name="НаименованиеКонтактаКонтекстноеМеню" id="29"/>
-													<ExtendedTooltip name="НаименованиеКонтактаРасширеннаяПодсказка" id="191"/>
-												</InputField>
+													<Group>InCell</Group>
+													<ExtendedTooltip name="НайденныеКонтактыГруппаРасширеннаяПодсказка" id="439"/>
+													<ChildItems>
+														<CheckBoxField name="НайденныеКонтактыВыбран" id="434">
+															<DataPath>НайденныеКонтакты.Выбран</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Выбран</v8:content>
+																</v8:item>
+															</Title>
+															<TitleLocation>None</TitleLocation>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<ContextMenu name="НайденныеКонтактыВыбранКонтекстноеМеню" id="435"/>
+															<ExtendedTooltip name="НайденныеКонтактыВыбранРасширеннаяПодсказка" id="436"/>
+														</CheckBoxField>
+														<InputField name="НаименованиеКонтакта" id="28">
+															<DataPath>НайденныеКонтакты.НаименованиеКонтакта</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Контакт</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<Wrap>false</Wrap>
+															<ContextMenu name="НаименованиеКонтактаКонтекстноеМеню" id="29"/>
+															<ExtendedTooltip name="НаименованиеКонтактаРасширеннаяПодсказка" id="191"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
 												<InputField name="АдресЭП" id="30">
 													<DataPath>НайденныеКонтакты.Представление</DataPath>
+													<ReadOnly>true</ReadOnly>
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
 															<v8:content>Адрес</v8:content>
 														</v8:item>
 													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<Wrap>false</Wrap>
 													<ContextMenu name="АдресЭПКонтекстноеМеню" id="31"/>
 													<ExtendedTooltip name="АдресЭПРасширеннаяПодсказка" id="192"/>
@@ -388,13 +441,12 @@
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
-									<ScrollOnCompress>false</ScrollOnCompress>
+									<TitleDataPath>КонтактыПоПредметуВыбрано</TitleDataPath>
+									<ScrollOnCompress>true</ScrollOnCompress>
 									<ExtendedTooltip name="СтраницаВсеКонтактыПоПредметуРасширеннаяПодсказка" id="196"/>
 									<ChildItems>
 										<Table name="КонтактыПоПредмету" id="121">
 											<Representation>List</Representation>
-											<CommandBarLocation>None</CommandBarLocation>
-											<ReadOnly>true</ReadOnly>
 											<SkipOnInput>false</SkipOnInput>
 											<RowSelectionMode>Cell</RowSelectionMode>
 											<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -407,6 +459,15 @@
 													<v8:content>Контакты по предмету</v8:content>
 												</v8:item>
 											</Title>
+											<CommandSet>
+												<ExcludedCommand>Add</ExcludedCommand>
+												<ExcludedCommand>Change</ExcludedCommand>
+												<ExcludedCommand>Copy</ExcludedCommand>
+												<ExcludedCommand>Delete</ExcludedCommand>
+												<ExcludedCommand>MoveDown</ExcludedCommand>
+												<ExcludedCommand>MoveUp</ExcludedCommand>
+											</CommandSet>
+											<ShowCommandBar>auto</ShowCommandBar>
 											<RowFilter xsi:nil="true"/>
 											<ContextMenu name="КонтактыПоПредметуКонтекстноеМеню" id="122">
 												<Autofill>false</Autofill>
@@ -449,7 +510,34 @@
 													</Button>
 												</ChildItems>
 											</ContextMenu>
-											<AutoCommandBar name="КонтактыПоПредметуКоманднаяПанель" id="123"/>
+											<AutoCommandBar name="КонтактыПоПредметуКоманднаяПанель" id="123">
+												<ChildItems>
+													<Button name="КонтактыПоПредметуКонтактыПоПредметуВыбрать" id="440">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.КонтактыПоПредметуВыбрать</CommandName>
+														<Title>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Выбрать</v8:content>
+															</v8:item>
+														</Title>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="КонтактыПоПредметуКонтактыПоПредметуВыбратьРасширеннаяПодсказка" id="441"/>
+													</Button>
+													<Button name="КонтактыПоПредметуКонтактыПоПредметуИсключить" id="442">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.КонтактыПоПредметуИсключить</CommandName>
+														<Title>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Исключить</v8:content>
+															</v8:item>
+														</Title>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="КонтактыПоПредметуКонтактыПоПредметуИсключитьРасширеннаяПодсказка" id="443"/>
+													</Button>
+												</ChildItems>
+											</AutoCommandBar>
 											<ExtendedTooltip name="КонтактыПоПредметуРасширеннаяПодсказка" id="200"/>
 											<SearchStringAddition name="КонтактыПоПредметуСтрокаПоиска" id="254">
 												<AdditionSource>
@@ -479,26 +567,60 @@
 												<Event name="Selection">КонтактыПоПредметуВыбор</Event>
 											</Events>
 											<ChildItems>
-												<InputField name="ПредставлениеНаименования" id="128">
-													<DataPath>КонтактыПоПредмету.ПредставлениеНаименования</DataPath>
+												<ColumnGroup name="КонтактыПоПредметуГруппа" id="444">
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Контакт</v8:content>
+															<v8:content>Контакты по предмету группа</v8:content>
 														</v8:item>
 													</Title>
-													<Wrap>false</Wrap>
-													<ContextMenu name="ПредставлениеНаименованияКонтекстноеМеню" id="129"/>
-													<ExtendedTooltip name="ПредставлениеНаименованияРасширеннаяПодсказка" id="201"/>
-												</InputField>
+													<Group>InCell</Group>
+													<ExtendedTooltip name="КонтактыПоПредметуГруппаРасширеннаяПодсказка" id="445"/>
+													<ChildItems>
+														<CheckBoxField name="КонтактыПоПредметуВыбран" id="446">
+															<DataPath>КонтактыПоПредмету.Выбран</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Выбран</v8:content>
+																</v8:item>
+															</Title>
+															<TitleLocation>None</TitleLocation>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<CheckBoxType>CheckBox</CheckBoxType>
+															<ContextMenu name="КонтактыПоПредметуВыбранКонтекстноеМеню" id="447"/>
+															<ExtendedTooltip name="КонтактыПоПредметуВыбранРасширеннаяПодсказка" id="448"/>
+														</CheckBoxField>
+														<InputField name="ПредставлениеНаименования" id="128">
+															<DataPath>КонтактыПоПредмету.ПредставлениеНаименования</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Контакт</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<Wrap>false</Wrap>
+															<ContextMenu name="ПредставлениеНаименованияКонтекстноеМеню" id="129"/>
+															<ExtendedTooltip name="ПредставлениеНаименованияРасширеннаяПодсказка" id="201"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
 												<InputField name="АдресКонтакта" id="126">
 													<DataPath>КонтактыПоПредмету.Адрес</DataPath>
+													<ReadOnly>true</ReadOnly>
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
 															<v8:content>Адрес</v8:content>
 														</v8:item>
 													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<Wrap>false</Wrap>
 													<ContextMenu name="АдресКонтактаКонтекстноеМеню" id="127"/>
 													<ExtendedTooltip name="АдресКонтактаРасширеннаяПодсказка" id="202"/>
@@ -514,19 +636,20 @@
 											<v8:content>Пользователи</v8:content>
 										</v8:item>
 									</Title>
-									<Group>Vertical</Group>
-									<ScrollOnCompress>false</ScrollOnCompress>
+									<Group>AutoScreenTypeSensitive</Group>
+									<HorizontalSpacing>Double</HorizontalSpacing>
+									<TitleDataPath>СписокПользователейВыбрано</TitleDataPath>
+									<ScrollOnCompress>true</ScrollOnCompress>
 									<ExtendedTooltip name="СтраницаПользователейРасширеннаяПодсказка" id="203"/>
 									<ChildItems>
 										<Table name="ГруппыПользователей" id="176">
 											<Representation>Tree</Representation>
-											<CommandBarLocation>None</CommandBarLocation>
+											<CommandBarLocation>Top</CommandBarLocation>
 											<SkipOnInput>false</SkipOnInput>
-											<AutoMaxHeight>false</AutoMaxHeight>
-											<HeightInTableRows>5</HeightInTableRows>
 											<SelectionMode>SingleRow</SelectionMode>
 											<RowSelectionMode>Row</RowSelectionMode>
 											<Header>false</Header>
+											<InitialRowActivation>Activate</InitialRowActivation>
 											<EnableStartDrag>true</EnableStartDrag>
 											<EnableDrag>true</EnableDrag>
 											<FileDragMode>AsFile</FileDragMode>
@@ -553,10 +676,11 @@
 												<ExcludedCommand>ListSettings</ExcludedCommand>
 												<ExcludedCommand>MoveItem</ExcludedCommand>
 												<ExcludedCommand>OutputList</ExcludedCommand>
-												<ExcludedCommand>Refresh</ExcludedCommand>
 												<ExcludedCommand>SetDeletionMark</ExcludedCommand>
 												<ExcludedCommand>Tree</ExcludedCommand>
 											</CommandSet>
+											<SearchStringLocation>CommandBar</SearchStringLocation>
+											<ShowCommandBar>true</ShowCommandBar>
 											<AutoRefresh>false</AutoRefresh>
 											<AutoRefreshPeriod>60</AutoRefreshPeriod>
 											<Period>
@@ -604,6 +728,8 @@
 											<ChildItems>
 												<LabelField name="НаименованиеГруппы" id="179">
 													<DataPath>ГруппыПользователей.Description</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="НаименованиеГруппыКонтекстноеМеню" id="180"/>
 													<ExtendedTooltip name="НаименованиеГруппыРасширеннаяПодсказка" id="205"/>
 												</LabelField>
@@ -612,14 +738,16 @@
 													<UserVisible>
 														<xr:Common>false</xr:Common>
 													</UserVisible>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="ГруппыПользователейСсылкаКонтекстноеМеню" id="291"/>
 													<ExtendedTooltip name="ГруппыПользователейСсылкаРасширеннаяПодсказка" id="292"/>
 												</LabelField>
 											</ChildItems>
 										</Table>
 										<Table name="СписокПользователей" id="95">
+											<CommandBarLocation>Top</CommandBarLocation>
 											<SkipOnInput>false</SkipOnInput>
-											<HeightInTableRows>6</HeightInTableRows>
 											<RowSelectionMode>Cell</RowSelectionMode>
 											<FileDragMode>AsFile</FileDragMode>
 											<DataPath>СписокПользователей</DataPath>
@@ -640,6 +768,7 @@
 												<ExcludedCommand>Create</ExcludedCommand>
 												<ExcludedCommand>SetDeletionMark</ExcludedCommand>
 											</CommandSet>
+											<ShowCommandBar>true</ShowCommandBar>
 											<AutoRefresh>false</AutoRefresh>
 											<AutoRefreshPeriod>60</AutoRefreshPeriod>
 											<Period>
@@ -671,16 +800,29 @@
 											</ContextMenu>
 											<AutoCommandBar name="СписокПользователейКоманднаяПанель" id="97">
 												<ChildItems>
-													<Button name="СписокПользователейПросмотр" id="329">
+													<Button name="СписокПользователейСписокПользователейВыбрать" id="409">
 														<Type>CommandBarButton</Type>
-														<CommandName>Form.Command.Просмотр</CommandName>
+														<CommandName>Form.Command.СписокПользователейВыбрать</CommandName>
 														<Title>
 															<v8:item>
 																<v8:lang>ru</v8:lang>
-																<v8:content>Просмотр</v8:content>
+																<v8:content>Включить в выбранные</v8:content>
 															</v8:item>
 														</Title>
-														<ExtendedTooltip name="СписокПользователейПросмотрРасширеннаяПодсказка" id="330"/>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="СписокПользователейСписокПользователейВыбратьРасширеннаяПодсказка" id="410"/>
+													</Button>
+													<Button name="СписокПользователейСписокПользователейИсключить" id="411">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.СписокПользователейИсключить</CommandName>
+														<Title>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Исключить из выбранных</v8:content>
+															</v8:item>
+														</Title>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="СписокПользователейСписокПользователейИсключитьРасширеннаяПодсказка" id="412"/>
 													</Button>
 												</ChildItems>
 											</AutoCommandBar>
@@ -709,22 +851,40 @@
 												<ContextMenu name="СписокПользователейУправлениеПоискомКонтекстноеМеню" id="279"/>
 												<ExtendedTooltip name="СписокПользователейУправлениеПоискомРасширеннаяПодсказка" id="280"/>
 											</SearchControlAddition>
-											<Events>
-												<Event name="Selection">Подключаемый_СписокСправочникаВыбор</Event>
-											</Events>
 											<ChildItems>
-												<InputField name="Пользователь" id="98">
-													<DataPath>СписокПользователей.Ref</DataPath>
+												<ColumnGroup name="СписокПользователейГруппа" id="407">
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Пользователь</v8:content>
+															<v8:content>Пользователей группа</v8:content>
 														</v8:item>
 													</Title>
-													<Wrap>false</Wrap>
-													<ContextMenu name="ПользовательКонтекстноеМеню" id="99"/>
-													<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="207"/>
-												</InputField>
+													<Group>InCell</Group>
+													<ExtendedTooltip name="СписокПользователейГруппаРасширеннаяПодсказка" id="408"/>
+													<ChildItems>
+														<CheckBoxField name="СписокПользователейВыбран" id="403">
+															<DataPath>СписокПользователей.Выбран</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<CheckBoxType>CheckBox</CheckBoxType>
+															<ContextMenu name="СписокПользователейВыбранКонтекстноеМеню" id="404"/>
+															<ExtendedTooltip name="СписокПользователейВыбранРасширеннаяПодсказка" id="405"/>
+														</CheckBoxField>
+														<InputField name="Пользователь" id="98">
+															<DataPath>СписокПользователей.Ссылка</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Пользователь</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<Wrap>false</Wrap>
+															<ContextMenu name="ПользовательКонтекстноеМеню" id="99"/>
+															<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="207"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
 												<LabelField name="СписокПользователейПредставление" id="326">
 													<DataPath>СписокПользователей.Представление</DataPath>
 													<Title>
@@ -733,14 +893,18 @@
 															<v8:content>Адрес</v8:content>
 														</v8:item>
 													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="СписокПользователейПредставлениеКонтекстноеМеню" id="327"/>
 													<ExtendedTooltip name="СписокПользователейПредставлениеРасширеннаяПодсказка" id="328"/>
 												</LabelField>
 												<LabelField name="СписокПользователейСсылка" id="293">
-													<DataPath>СписокПользователей.Ref</DataPath>
+													<DataPath>СписокПользователей.Ссылка</DataPath>
 													<UserVisible>
 														<xr:Common>false</xr:Common>
 													</UserVisible>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="СписокПользователейСсылкаКонтекстноеМеню" id="294"/>
 													<ExtendedTooltip name="СписокПользователейСсылкаРасширеннаяПодсказка" id="295"/>
 												</LabelField>
@@ -750,558 +914,442 @@
 								</Page>
 							</ChildItems>
 						</Pages>
-						<CheckBoxField name="ПоказыватьТолькоКонтактыСАдресами" id="335">
-							<DataPath>ПоказыватьТолькоКонтактыСАдресами</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Только контакты с адресами</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>Right</TitleLocation>
-							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-							<ContextMenu name="ПоказыватьТолькоКонтактыСАдресамиКонтекстноеМеню" id="336"/>
-							<ExtendedTooltip name="ПоказыватьТолькоКонтактыСАдресамиРасширеннаяПодсказка" id="337">
-								<AutoMaxWidth>false</AutoMaxWidth>
-								<Title formatted="false">
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>    Будет применено только к тем спискам, в которых есть колонка "Адрес"</v8:content>
-									</v8:item>
-								</Title>
-							</ExtendedTooltip>
-							<Events>
-								<Event name="OnChange">ПоказыватьТолькоКонтактыСАдресамиПриИзменении</Event>
-							</Events>
-						</CheckBoxField>
 					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="ГруппаПолучателиПереместить" id="152">
+				<UsualGroup name="ГруппаПолучатели" id="55">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Получатели переместить</v8:content>
+							<v8:content>Выбранные получатели</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AlwaysHorizontal</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПолучателиПереместитьРасширеннаяПодсказка" id="208"/>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Group>Vertical</Group>
+					<Behavior>PopUp</Behavior>
+					<Representation>StrongSeparation</Representation>
+					<TitleDataPath>ВсегоВыбрано</TitleDataPath>
+					<ExtendedTooltip name="ГруппаПолучателиРасширеннаяПодсказка" id="226"/>
 					<ChildItems>
-						<Pages name="СтраницыПереместить" id="161">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Страницы переместить</v8:content>
-								</v8:item>
-							</Title>
-							<Width>5</Width>
+						<Table name="ПолучателиПисьма" id="56">
+							<Representation>List</Representation>
+							<TitleLocation>Top</TitleLocation>
+							<SkipOnInput>false</SkipOnInput>
+							<Width>80</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HeightInTableRows>3</HeightInTableRows>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<Header>false</Header>
 							<HorizontalStretch>false</HorizontalStretch>
-							<PagesRepresentation>None</PagesRepresentation>
-							<ExtendedTooltip name="СтраницыПереместитьРасширеннаяПодсказка" id="209"/>
-							<ChildItems>
-								<Page name="СтраницаПереместитьОднаТаблица" id="162">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Страница переместить одна таблица</v8:content>
-										</v8:item>
-									</Title>
-									<Group>Vertical</Group>
-									<ScrollOnCompress>false</ScrollOnCompress>
-									<ExtendedTooltip name="СтраницаПереместитьОднаТаблицаРасширеннаяПодсказка" id="210"/>
-									<ChildItems>
-										<LabelDecoration name="ДекорацияПереместитьВерхняя" id="153">
-											<VerticalStretch>true</VerticalStretch>
-											<ContextMenu name="ДекорацияПереместитьВерхняяКонтекстноеМеню" id="154"/>
-											<ExtendedTooltip name="ДекорацияПереместитьВерхняяРасширеннаяПодсказка" id="211"/>
-										</LabelDecoration>
-										<Button name="ПереместитьИзСпискаВВыбранное" id="158">
-											<Type>UsualButton</Type>
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<AutoMaxHeight>false</AutoMaxHeight>
-											<CommandName>Form.Command.ВключитьВСписокПолучателей</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>&gt;</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ПереместитьИзСпискаВВыбранноеРасширеннаяПодсказка" id="212"/>
-										</Button>
-										<LabelDecoration name="ДекорацияПереместитьЦентр" id="159">
-											<ContextMenu name="ДекорацияПереместитьЦентрКонтекстноеМеню" id="160"/>
-											<ExtendedTooltip name="ДекорацияПереместитьЦентрРасширеннаяПодсказка" id="213"/>
-										</LabelDecoration>
-										<Button name="ПереместитьИзВыбранногоВСписокВсе" id="157">
-											<Type>UsualButton</Type>
-											<CommandName>Form.Command.УдалитьВсехПолучателей</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>&lt;&lt;</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ПереместитьИзВыбранногоВСписокВсеРасширеннаяПодсказка" id="214"/>
-										</Button>
-										<Button name="ПереместитьИзВыбранногоВСписок" id="151">
-											<Type>UsualButton</Type>
-											<CommandName>Form.Command.УдалитьПолучателя</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>&lt;</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ПереместитьИзВыбранногоВСписокРасширеннаяПодсказка" id="215"/>
-										</Button>
-										<LabelDecoration name="ДекорацияПереместитьНижняя" id="155">
-											<VerticalStretch>true</VerticalStretch>
-											<ContextMenu name="ДекорацияПереместитьНижняяКонтекстноеМеню" id="156"/>
-											<ExtendedTooltip name="ДекорацияПереместитьНижняяРасширеннаяПодсказка" id="216"/>
-										</LabelDecoration>
-									</ChildItems>
-								</Page>
-								<Page name="СтраницаПереместитьДвеТаблицы" id="163">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Страница переместить две таблицы</v8:content>
-										</v8:item>
-									</Title>
-									<Group>Vertical</Group>
-									<ScrollOnCompress>false</ScrollOnCompress>
-									<ExtendedTooltip name="СтраницаПереместитьДвеТаблицыРасширеннаяПодсказка" id="217"/>
-									<ChildItems>
-										<LabelDecoration name="ДекорацияПереместитьВерхняяДвеТаблицы" id="164">
-											<VerticalStretch>true</VerticalStretch>
-											<ContextMenu name="ДекорацияПереместитьВерхняяДвеТаблицыКонтекстноеМеню" id="165"/>
-											<ExtendedTooltip name="ДекорацияПереместитьВерхняяДвеТаблицыРасширеннаяПодсказка" id="218"/>
-										</LabelDecoration>
-										<Button name="ПереместитьИзВерхнегоСпискаВВыбранное" id="166">
-											<Type>UsualButton</Type>
-											<CommandName>Form.Command.ВключитьВСписокПолучателей</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>&gt;</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ПереместитьИзВерхнегоСпискаВВыбранноеРасширеннаяПодсказка" id="219"/>
-										</Button>
-										<LabelDecoration name="ДекорацияПромежутокВерхняя" id="167">
-											<ContextMenu name="ДекорацияПромежутокВерхняяКонтекстноеМеню" id="168"/>
-											<ExtendedTooltip name="ДекорацияПромежутокВерхняяРасширеннаяПодсказка" id="220"/>
-										</LabelDecoration>
-										<Button name="ПереместитьИзВыбранногоВСписокДвеТаблицы" id="169">
-											<Type>UsualButton</Type>
-											<CommandName>Form.Command.УдалитьПолучателя</CommandName>
-											<Font ref="style:NormalTextFont" kind="StyleItem"/>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>&lt;</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ПереместитьИзВыбранногоВСписокДвеТаблицыРасширеннаяПодсказка" id="221"/>
-										</Button>
-										<Button name="ПереместитьИзВыбранногоВСписокВсеДвеТаблицы" id="170">
-											<Type>UsualButton</Type>
-											<CommandName>Form.Command.УдалитьВсехПолучателей</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>&lt;&lt;</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ПереместитьИзВыбранногоВСписокВсеДвеТаблицыРасширеннаяПодсказка" id="222"/>
-										</Button>
-										<LabelDecoration name="ДекорацияПромежутокНижняя" id="171">
-											<ContextMenu name="ДекорацияПромежутокНижняяКонтекстноеМеню" id="172"/>
-											<ExtendedTooltip name="ДекорацияПромежутокНижняяРасширеннаяПодсказка" id="223"/>
-										</LabelDecoration>
-										<Button name="ПереместитьИзНижнегоСпискаВВыбранное" id="173">
-											<Type>UsualButton</Type>
-											<CommandName>Form.Command.ВключитьВСписокПолучателей</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>&gt;</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ПереместитьИзНижнегоСпискаВВыбранноеРасширеннаяПодсказка" id="224"/>
-										</Button>
-										<LabelDecoration name="ДекорацияПереместитьНижняяДвеТаблицы" id="174">
-											<VerticalStretch>true</VerticalStretch>
-											<ContextMenu name="ДекорацияПереместитьНижняяДвеТаблицыКонтекстноеМеню" id="175"/>
-											<ExtendedTooltip name="ДекорацияПереместитьНижняяДвеТаблицыРасширеннаяПодсказка" id="225"/>
-										</LabelDecoration>
-									</ChildItems>
-								</Page>
-							</ChildItems>
-						</Pages>
-						<UsualGroup name="ГруппаПолучатели" id="55">
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ПолучателиПисьма</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Получатели</v8:content>
+									<v8:content>Получатели письма</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаПолучателиРасширеннаяПодсказка" id="226"/>
-							<ChildItems>
-								<Table name="ПолучателиПисьма" id="56">
-									<Representation>List</Representation>
-									<TitleLocation>Top</TitleLocation>
-									<SkipOnInput>false</SkipOnInput>
-									<HeightInTableRows>3</HeightInTableRows>
-									<RowSelectionMode>Cell</RowSelectionMode>
-									<Header>false</Header>
-									<FileDragMode>AsFile</FileDragMode>
-									<DataPath>ПолучателиПисьма</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Получатели письма</v8:content>
-										</v8:item>
-									</Title>
-									<RowFilter xsi:nil="true"/>
-									<ContextMenu name="ПолучателиПисьмаКонтекстноеМеню" id="57">
-										<Autofill>false</Autofill>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПолучателиПисьмаКонтекстноеМеню" id="57">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="Добавить1" id="318">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Item.ПолучателиПисьма.StandardCommand.Add</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Добавить получателя</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="Добавить1РасширеннаяПодсказка" id="319"/>
+									</Button>
+									<ButtonGroup name="ИзменитьГруппу" id="134">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Изменить группу</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ИзменитьГруппуРасширеннаяПодсказка" id="232"/>
 										<ChildItems>
-											<Button name="Добавить1" id="318">
+											<Button name="ИзменитьГруппуКому" id="135">
 												<Type>CommandBarButton</Type>
 												<SkipOnInput>false</SkipOnInput>
-												<CommandName>Form.Item.ПолучателиПисьма.StandardCommand.Add</CommandName>
+												<CommandName>Form.Command.ИзменитьГруппуКому</CommandName>
 												<Title>
 													<v8:item>
 														<v8:lang>ru</v8:lang>
-														<v8:content>Добавить получателя</v8:content>
+														<v8:content>Установить "Кому"</v8:content>
 													</v8:item>
 												</Title>
-												<ExtendedTooltip name="Добавить1РасширеннаяПодсказка" id="319"/>
+												<ExtendedTooltip name="ИзменитьГруппуКомуРасширеннаяПодсказка" id="233"/>
 											</Button>
-											<ButtonGroup name="ИзменитьГруппу" id="134">
-												<Title>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Изменить группу</v8:content>
-													</v8:item>
-												</Title>
-												<ExtendedTooltip name="ИзменитьГруппуРасширеннаяПодсказка" id="232"/>
-												<ChildItems>
-													<Button name="ИзменитьГруппуКому" id="135">
-														<Type>CommandBarButton</Type>
-														<SkipOnInput>false</SkipOnInput>
-														<CommandName>Form.Command.ИзменитьГруппуКому</CommandName>
-														<Title>
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>Установить "Кому"</v8:content>
-															</v8:item>
-														</Title>
-														<ExtendedTooltip name="ИзменитьГруппуКомуРасширеннаяПодсказка" id="233"/>
-													</Button>
-													<Button name="ИзменитьГруппуКопии" id="136">
-														<Type>CommandBarButton</Type>
-														<SkipOnInput>false</SkipOnInput>
-														<CommandName>Form.Command.ИзменитьГруппуКопии</CommandName>
-														<Title>
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>Установить "Копии"</v8:content>
-															</v8:item>
-														</Title>
-														<ExtendedTooltip name="ИзменитьГруппуКопииРасширеннаяПодсказка" id="234"/>
-													</Button>
-													<Button name="ИзменитьГруппуСкрытые" id="137">
-														<Type>CommandBarButton</Type>
-														<SkipOnInput>false</SkipOnInput>
-														<CommandName>Form.Command.ИзменитьГруппуСкрытые</CommandName>
-														<Title>
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>Установить "Скрытые копии"</v8:content>
-															</v8:item>
-														</Title>
-														<ExtendedTooltip name="ИзменитьГруппуСкрытыеРасширеннаяПодсказка" id="235"/>
-													</Button>
-												</ChildItems>
-											</ButtonGroup>
-											<ButtonGroup name="ПолучателиПисьмаКонтекстноеМенюГруппа" id="322">
-												<Title>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Получатели письма контекстное меню группа</v8:content>
-													</v8:item>
-												</Title>
-												<ExtendedTooltip name="ПолучателиПисьмаКонтекстноеМенюГруппаРасширеннаяПодсказка" id="323"/>
-												<ChildItems>
-													<Button name="Удалить1" id="320">
-														<Type>CommandBarButton</Type>
-														<SkipOnInput>false</SkipOnInput>
-														<CommandName>Form.Item.ПолучателиПисьма.StandardCommand.Delete</CommandName>
-														<Title>
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>Удалить получателя</v8:content>
-															</v8:item>
-														</Title>
-														<ExtendedTooltip name="Удалить1РасширеннаяПодсказка" id="321"/>
-													</Button>
-												</ChildItems>
-											</ButtonGroup>
-											<Button name="НайтиВСпискеИзСпискаПолучателей" id="138">
+											<Button name="ИзменитьГруппуКопии" id="136">
 												<Type>CommandBarButton</Type>
 												<SkipOnInput>false</SkipOnInput>
-												<CommandName>Form.Command.НайтиВСпискеИзСпискаПолучателей</CommandName>
+												<CommandName>Form.Command.ИзменитьГруппуКопии</CommandName>
 												<Title>
 													<v8:item>
 														<v8:lang>ru</v8:lang>
-														<v8:content>Найти в списке</v8:content>
+														<v8:content>Установить "Копии"</v8:content>
 													</v8:item>
 												</Title>
-												<ExtendedTooltip name="НайтиВСпискеИзСпискаПолучателейРасширеннаяПодсказка" id="227"/>
+												<ExtendedTooltip name="ИзменитьГруппуКопииРасширеннаяПодсказка" id="234"/>
 											</Button>
-											<ButtonGroup name="НайтиКонтакт" id="139">
-												<Title>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Найти контакт</v8:content>
-													</v8:item>
-												</Title>
-												<ExtendedTooltip name="НайтиКонтактРасширеннаяПодсказка" id="228"/>
-												<ChildItems>
-													<Button name="НайтиПоАдресу" id="140">
-														<Type>CommandBarButton</Type>
-														<SkipOnInput>false</SkipOnInput>
-														<CommandName>Form.Command.НайтиПоАдресу</CommandName>
-														<Title>
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>Найти по адресу</v8:content>
-															</v8:item>
-														</Title>
-														<ExtendedTooltip name="НайтиПоАдресуРасширеннаяПодсказка" id="229"/>
-													</Button>
-													<Button name="НайтиПоПредставлению" id="141">
-														<Type>CommandBarButton</Type>
-														<SkipOnInput>false</SkipOnInput>
-														<CommandName>Form.Command.НайтиПоПредставлению</CommandName>
-														<Title>
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>Найти по представлению</v8:content>
-															</v8:item>
-														</Title>
-														<ExtendedTooltip name="НайтиПоПредставлениюРасширеннаяПодсказка" id="230"/>
-													</Button>
-												</ChildItems>
-											</ButtonGroup>
-											<Button name="УстановитьАдресКонтакта" id="142">
+											<Button name="ИзменитьГруппуСкрытые" id="137">
 												<Type>CommandBarButton</Type>
 												<SkipOnInput>false</SkipOnInput>
-												<CommandName>Form.Command.ВыбратьАдресИзКонтакта</CommandName>
+												<CommandName>Form.Command.ИзменитьГруппуСкрытые</CommandName>
 												<Title>
 													<v8:item>
 														<v8:lang>ru</v8:lang>
-														<v8:content>Выбрать адрес, указанный в контакте</v8:content>
+														<v8:content>Установить "Скрытые копии"</v8:content>
 													</v8:item>
 												</Title>
-												<ExtendedTooltip name="УстановитьАдресКонтактаРасширеннаяПодсказка" id="231"/>
+												<ExtendedTooltip name="ИзменитьГруппуСкрытыеРасширеннаяПодсказка" id="235"/>
 											</Button>
 										</ChildItems>
-									</ContextMenu>
-									<AutoCommandBar name="ПолучателиПисьмаКоманднаяПанель" id="58">
-										<Autofill>false</Autofill>
-									</AutoCommandBar>
-									<ExtendedTooltip name="ПолучателиПисьмаРасширеннаяПодсказка" id="240"/>
-									<SearchStringAddition name="ПолучателиПисьмаСтрокаПоиска" id="281">
-										<AdditionSource>
-											<Item>ПолучателиПисьма</Item>
-											<Type>SearchStringRepresentation</Type>
-										</AdditionSource>
-										<ContextMenu name="ПолучателиПисьмаСтрокаПоискаКонтекстноеМеню" id="282"/>
-										<ExtendedTooltip name="ПолучателиПисьмаСтрокаПоискаРасширеннаяПодсказка" id="283"/>
-									</SearchStringAddition>
-									<ViewStatusAddition name="ПолучателиПисьмаСостояниеПросмотра" id="284">
-										<AdditionSource>
-											<Item>ПолучателиПисьма</Item>
-											<Type>ViewStatusRepresentation</Type>
-										</AdditionSource>
-										<ContextMenu name="ПолучателиПисьмаСостояниеПросмотраКонтекстноеМеню" id="285"/>
-										<ExtendedTooltip name="ПолучателиПисьмаСостояниеПросмотраРасширеннаяПодсказка" id="286"/>
-									</ViewStatusAddition>
-									<SearchControlAddition name="ПолучателиПисьмаУправлениеПоиском" id="287">
-										<AdditionSource>
-											<Item>ПолучателиПисьма</Item>
-											<Type>SearchControl</Type>
-										</AdditionSource>
-										<ContextMenu name="ПолучателиПисьмаУправлениеПоискомКонтекстноеМеню" id="288"/>
-										<ExtendedTooltip name="ПолучателиПисьмаУправлениеПоискомРасширеннаяПодсказка" id="289"/>
-									</SearchControlAddition>
-									<Events>
-										<Event name="OnStartEdit">ПолучателиПисьмаПриНачалеРедактирования</Event>
-										<Event name="OnActivateCell">ПолучателиПисьмаПриАктивизацииЯчейки</Event>
-									</Events>
+									</ButtonGroup>
+									<ButtonGroup name="ПолучателиПисьмаКонтекстноеМенюГруппа" id="322">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Получатели письма контекстное меню группа</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ПолучателиПисьмаКонтекстноеМенюГруппаРасширеннаяПодсказка" id="323"/>
+										<ChildItems>
+											<Button name="Удалить1" id="320">
+												<Type>CommandBarButton</Type>
+												<SkipOnInput>false</SkipOnInput>
+												<CommandName>Form.Item.ПолучателиПисьма.StandardCommand.Delete</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Удалить получателя</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="Удалить1РасширеннаяПодсказка" id="321"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<Button name="НайтиВСпискеИзСпискаПолучателей" id="138">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Command.НайтиВСпискеИзСпискаПолучателей</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Найти в списке</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="НайтиВСпискеИзСпискаПолучателейРасширеннаяПодсказка" id="227"/>
+									</Button>
+									<ButtonGroup name="НайтиКонтакт" id="139">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Найти контакт</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="НайтиКонтактРасширеннаяПодсказка" id="228"/>
+										<ChildItems>
+											<Button name="НайтиПоАдресу" id="140">
+												<Type>CommandBarButton</Type>
+												<SkipOnInput>false</SkipOnInput>
+												<CommandName>Form.Command.НайтиПоАдресу</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Найти по адресу</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="НайтиПоАдресуРасширеннаяПодсказка" id="229"/>
+											</Button>
+											<Button name="НайтиПоПредставлению" id="141">
+												<Type>CommandBarButton</Type>
+												<SkipOnInput>false</SkipOnInput>
+												<CommandName>Form.Command.НайтиПоПредставлению</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Найти по представлению</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="НайтиПоПредставлениюРасширеннаяПодсказка" id="230"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<Button name="УстановитьАдресКонтакта" id="142">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Command.ВыбратьАдресИзКонтакта</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Выбрать адрес, указанный в контакте</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="УстановитьАдресКонтактаРасширеннаяПодсказка" id="231"/>
+									</Button>
+								</ChildItems>
+							</ContextMenu>
+							<AutoCommandBar name="ПолучателиПисьмаКоманднаяПанель" id="58">
+								<ChildItems>
+									<Button name="Добавить" id="86">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Item.ПолучателиПисьма.StandardCommand.Add</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Добавить получателя</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ДобавитьРасширеннаяПодсказка" id="236"/>
+									</Button>
+									<Button name="ПолучателиПисьмаУдалитьПолучателя" id="428">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.УдалитьПолучателя</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Удалить</v8:content>
+											</v8:item>
+										</Title>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="ПолучателиПисьмаУдалитьПолучателяРасширеннаяПодсказка" id="429"/>
+									</Button>
+									<ButtonGroup name="ГруппаПереместить" id="296">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Переместить</v8:content>
+											</v8:item>
+										</Title>
+										<Representation>Compact</Representation>
+										<ExtendedTooltip name="ГруппаПереместитьРасширеннаяПодсказка" id="297"/>
+										<ChildItems>
+											<Button name="ПереместитьВверх" id="87">
+												<Type>CommandBarButton</Type>
+												<SkipOnInput>false</SkipOnInput>
+												<CommandName>Form.Item.ПолучателиПисьма.StandardCommand.MoveUp</CommandName>
+												<ExtendedTooltip name="ПереместитьВверхРасширеннаяПодсказка" id="238"/>
+											</Button>
+											<Button name="ПереместитьВниз" id="88">
+												<Type>CommandBarButton</Type>
+												<SkipOnInput>false</SkipOnInput>
+												<CommandName>Form.Item.ПолучателиПисьма.StandardCommand.MoveDown</CommandName>
+												<ExtendedTooltip name="ПереместитьВнизРасширеннаяПодсказка" id="239"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПолучателиПисьмаРасширеннаяПодсказка" id="240"/>
+							<SearchStringAddition name="ПолучателиПисьмаСтрокаПоиска" id="281">
+								<AdditionSource>
+									<Item>ПолучателиПисьма</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПолучателиПисьмаСтрокаПоискаКонтекстноеМеню" id="282"/>
+								<ExtendedTooltip name="ПолучателиПисьмаСтрокаПоискаРасширеннаяПодсказка" id="283"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПолучателиПисьмаСостояниеПросмотра" id="284">
+								<AdditionSource>
+									<Item>ПолучателиПисьма</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПолучателиПисьмаСостояниеПросмотраКонтекстноеМеню" id="285"/>
+								<ExtendedTooltip name="ПолучателиПисьмаСостояниеПросмотраРасширеннаяПодсказка" id="286"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПолучателиПисьмаУправлениеПоиском" id="287">
+								<AdditionSource>
+									<Item>ПолучателиПисьма</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПолучателиПисьмаУправлениеПоискомКонтекстноеМеню" id="288"/>
+								<ExtendedTooltip name="ПолучателиПисьмаУправлениеПоискомРасширеннаяПодсказка" id="289"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnStartEdit">ПолучателиПисьмаПриНачалеРедактирования</Event>
+								<Event name="OnActivateCell">ПолучателиПисьмаПриАктивизацииЯчейки</Event>
+							</Events>
+							<ChildItems>
+								<ColumnGroup name="ПолучателиПисьмаГруппа" id="302">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Получатели письма группа</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<ExtendedTooltip name="ПолучателиПисьмаГруппаРасширеннаяПодсказка" id="303"/>
 									<ChildItems>
-										<ColumnGroup name="ПолучателиПисьмаГруппа" id="302">
+										<ColumnGroup name="ГруппаАдрес" id="298">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Получатели письма группа</v8:content>
+													<v8:content>Адрес</v8:content>
 												</v8:item>
 											</Title>
-											<ExtendedTooltip name="ПолучателиПисьмаГруппаРасширеннаяПодсказка" id="303"/>
+											<Group>Horizontal</Group>
+											<ExtendedTooltip name="ГруппаАдресРасширеннаяПодсказка" id="299"/>
 											<ChildItems>
-												<ColumnGroup name="ГруппаАдрес" id="298">
+												<InputField name="Группа" id="84">
+													<DataPath>ПолучателиПисьма.Группа</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа</v8:content>
+														</v8:item>
+													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<Wrap>false</Wrap>
+													<ListChoiceMode>true</ListChoiceMode>
+													<ChooseType>false</ChooseType>
+													<TextEdit>false</TextEdit>
+													<ChoiceList>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Кому</v8:content>
+																	</v8:item>
+																</Presentation>
+																<Value xsi:type="xs:string">Кому</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Копии</v8:content>
+																	</v8:item>
+																</Presentation>
+																<Value xsi:type="xs:string">Копии</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Скрытые</v8:content>
+																	</v8:item>
+																</Presentation>
+																<Value xsi:type="xs:string">Скрытые</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Получатели ответа</v8:content>
+																	</v8:item>
+																</Presentation>
+																<Value xsi:type="xs:string">Получатели</Value>
+															</xr:Value>
+														</xr:Item>
+													</ChoiceList>
+													<ContextMenu name="ГруппаКонтекстноеМеню" id="85"/>
+													<ExtendedTooltip name="ГруппаРасширеннаяПодсказка" id="241"/>
+												</InputField>
+												<InputField name="Адрес" id="59">
+													<DataPath>ПолучателиПисьма.Адрес</DataPath>
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
 															<v8:content>Адрес</v8:content>
 														</v8:item>
 													</Title>
-													<Group>Horizontal</Group>
-													<ExtendedTooltip name="ГруппаАдресРасширеннаяПодсказка" id="299"/>
-													<ChildItems>
-														<InputField name="Группа" id="84">
-															<DataPath>ПолучателиПисьма.Группа</DataPath>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Группа</v8:content>
-																</v8:item>
-															</Title>
-															<Width>12</Width>
-															<Wrap>false</Wrap>
-															<ListChoiceMode>true</ListChoiceMode>
-															<ChooseType>false</ChooseType>
-															<TextEdit>false</TextEdit>
-															<ChoiceList>
-																<xr:Item>
-																	<xr:Presentation/>
-																	<xr:CheckState>0</xr:CheckState>
-																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
-																		<Presentation>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Кому</v8:content>
-																			</v8:item>
-																		</Presentation>
-																		<Value xsi:type="xs:string">Кому</Value>
-																	</xr:Value>
-																</xr:Item>
-																<xr:Item>
-																	<xr:Presentation/>
-																	<xr:CheckState>0</xr:CheckState>
-																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
-																		<Presentation>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Копии</v8:content>
-																			</v8:item>
-																		</Presentation>
-																		<Value xsi:type="xs:string">Копии</Value>
-																	</xr:Value>
-																</xr:Item>
-																<xr:Item>
-																	<xr:Presentation/>
-																	<xr:CheckState>0</xr:CheckState>
-																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
-																		<Presentation>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Скрытые</v8:content>
-																			</v8:item>
-																		</Presentation>
-																		<Value xsi:type="xs:string">Скрытые</Value>
-																	</xr:Value>
-																</xr:Item>
-																<xr:Item>
-																	<xr:Presentation/>
-																	<xr:CheckState>0</xr:CheckState>
-																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
-																		<Presentation>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Получатели ответа</v8:content>
-																			</v8:item>
-																		</Presentation>
-																		<Value xsi:type="xs:string">Получатели</Value>
-																	</xr:Value>
-																</xr:Item>
-															</ChoiceList>
-															<ContextMenu name="ГруппаКонтекстноеМеню" id="85"/>
-															<ExtendedTooltip name="ГруппаРасширеннаяПодсказка" id="241"/>
-														</InputField>
-														<InputField name="Адрес" id="59">
-															<DataPath>ПолучателиПисьма.Адрес</DataPath>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Адрес</v8:content>
-																</v8:item>
-															</Title>
-															<Wrap>false</Wrap>
-															<DropListButton>true</DropListButton>
-															<TextColor>style:ГиперссылкаЦвет</TextColor>
-															<ContextMenu name="АдресКонтекстноеМеню" id="60"/>
-															<ExtendedTooltip name="АдресРасширеннаяПодсказка" id="242"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
-												<ColumnGroup name="КонтактПредставление" id="300">
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<Wrap>false</Wrap>
+													<DropListButton>true</DropListButton>
+													<TextColor>style:ГиперссылкаЦвет</TextColor>
+													<ContextMenu name="АдресКонтекстноеМеню" id="60"/>
+													<ExtendedTooltip name="АдресРасширеннаяПодсказка" id="242"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
+										<ColumnGroup name="КонтактПредставление" id="300">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Контакт представление</v8:content>
+												</v8:item>
+											</Title>
+											<Group>InCell</Group>
+											<ExtendedTooltip name="КонтактПредставлениеРасширеннаяПодсказка" id="301"/>
+											<ChildItems>
+												<InputField name="Контакт" id="63">
+													<DataPath>ПолучателиПисьма.Контакт</DataPath>
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Контакт представление</v8:content>
+															<v8:content>Контакт</v8:content>
 														</v8:item>
 													</Title>
-													<Group>InCell</Group>
-													<ExtendedTooltip name="КонтактПредставлениеРасширеннаяПодсказка" id="301"/>
-													<ChildItems>
-														<InputField name="Контакт" id="63">
-															<DataPath>ПолучателиПисьма.Контакт</DataPath>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Контакт</v8:content>
-																</v8:item>
-															</Title>
-															<Wrap>false</Wrap>
-															<TextColor>style:ПоясняющийТекст</TextColor>
-															<ContextMenu name="КонтактКонтекстноеМеню" id="64"/>
-															<ExtendedTooltip name="КонтактРасширеннаяПодсказка" id="244"/>
-															<Events>
-																<Event name="StartChoice">КонтактНачалоВыбора</Event>
-															</Events>
-														</InputField>
-														<InputField name="Представление" id="61">
-															<DataPath>ПолучателиПисьма.Представление</DataPath>
-															<Visible>false</Visible>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Представление</v8:content>
-																</v8:item>
-															</Title>
-															<Wrap>false</Wrap>
-															<TextColor>style:ПоясняющийТекст</TextColor>
-															<ContextMenu name="ПредставлениеКонтекстноеМеню" id="62"/>
-															<ExtendedTooltip name="ПредставлениеРасширеннаяПодсказка" id="243"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<Wrap>false</Wrap>
+													<TextColor>style:ПоясняющийТекст</TextColor>
+													<ContextMenu name="КонтактКонтекстноеМеню" id="64"/>
+													<ExtendedTooltip name="КонтактРасширеннаяПодсказка" id="244"/>
+													<Events>
+														<Event name="StartChoice">КонтактНачалоВыбора</Event>
+													</Events>
+												</InputField>
+												<InputField name="Представление" id="61">
+													<DataPath>ПолучателиПисьма.Представление</DataPath>
+													<Visible>false</Visible>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Представление</v8:content>
+														</v8:item>
+													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<Wrap>false</Wrap>
+													<TextColor>style:ПоясняющийТекст</TextColor>
+													<ContextMenu name="ПредставлениеКонтекстноеМеню" id="62"/>
+													<ExtendedTooltip name="ПредставлениеРасширеннаяПодсказка" id="243"/>
+												</InputField>
 											</ChildItems>
 										</ColumnGroup>
 									</ChildItems>
-								</Table>
+								</ColumnGroup>
 							</ChildItems>
-						</UsualGroup>
+						</Table>
+						<LabelDecoration name="СвернутьГруппу" id="379">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Свернуть</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<ContextMenu name="СвернутьГруппуКонтекстноеМеню" id="380"/>
+							<ExtendedTooltip name="СвернутьГруппуРасширеннаяПодсказка" id="381"/>
+							<Events>
+								<Event name="Click">СвернутьГруппуНажатие</Event>
+							</Events>
+						</LabelDecoration>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -1364,6 +1412,17 @@
 					</Type>
 				</Column>
 				<Column name="ПредставлениеЗаполнено" id="4">
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Выбран" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выбран</v8:content>
+						</v8:item>
+					</Title>
 					<Type>
 						<v8:Type>xs:boolean</v8:Type>
 					</Type>
@@ -1474,8 +1533,8 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<UseAlways>
-				<Field>СписокПользователей.Description</Field>
-				<Field>СписокПользователей.Ref</Field>
+				<Field>СписокПользователей.Наименование</Field>
+				<Field>СписокПользователей.Ссылка</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
@@ -1485,6 +1544,7 @@
 	Пользователи.ПометкаУдаления,
 	Пользователи.Предопределенный,
 	Пользователи.Наименование,
+	Пользователи.Ссылка В (&amp;Выбранные) КАК Выбран,
 	ВЫБОР
 		КОГДА Пользователи.ПометкаУдаления
 			ТОГДА 0
@@ -1500,6 +1560,7 @@
 	Пользователи.Служебный = ЛОЖЬ
 	И Пользователи.ПометкаУдаления = ЛОЖЬ
 	И Пользователи.Недействителен = ЛОЖЬ
+	И (Пользователи.Ссылка В (&amp;Выбранные) ИЛИ НЕ &amp;Проверка)
 	И ИСТИНА В
 			(ВЫБРАТЬ
 				ИСТИНА
@@ -1509,6 +1570,160 @@
 				СоставыГруппПользователей.Пользователь = Пользователи.Ссылка
 				И СоставыГруппПользователей.ГруппаПользователей = &amp;ГруппаПользователей)
 </QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Недействителен</dcssch:dataPath>
+					<dcssch:field>Недействителен</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИдентификаторПользователяСервиса</dcssch:dataPath>
+					<dcssch:field>ИдентификаторПользователяСервиса</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИдентификаторПользователяИБ</dcssch:dataPath>
+					<dcssch:field>ИдентификаторПользователяИБ</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДополнительныеРеквизиты</dcssch:dataPath>
+					<dcssch:field>ДополнительныеРеквизиты</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Подразделение</dcssch:dataPath>
+					<dcssch:field>Подразделение</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ФизическоеЛицо</dcssch:dataPath>
+					<dcssch:field>ФизическоеЛицо</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Подготовлен</dcssch:dataPath>
+					<dcssch:field>Подготовлен</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Комментарий</dcssch:dataPath>
+					<dcssch:field>Комментарий</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>УдалитьСвойстваПользователяИБ</dcssch:dataPath>
+					<dcssch:field>УдалитьСвойстваПользователяИБ</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Служебный</dcssch:dataPath>
+					<dcssch:field>Служебный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наименование</dcssch:dataPath>
+					<dcssch:field>Наименование</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Фотография</dcssch:dataPath>
+					<dcssch:field>Фотография</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КонтактнаяИнформация</dcssch:dataPath>
+					<dcssch:field>КонтактнаяИнформация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИмяПредопределенныхДанных</dcssch:dataPath>
+					<dcssch:field>ИмяПредопределенныхДанных</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Предопределенный</dcssch:dataPath>
+					<dcssch:field>Предопределенный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НомерКартинки</dcssch:dataPath>
+					<dcssch:field>НомерКартинки</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер картинки</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Представление</dcssch:dataPath>
+					<dcssch:field>Представление</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Выбран</dcssch:dataPath>
+					<dcssch:field>Выбран</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выбран</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Parameter>
+					<dcssch:name>ГруппаПользователей</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа пользователей</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>cfg:CatalogRef.ВнешниеПользователи</v8:Type>
+						<v8:Type>cfg:CatalogRef.ГруппыВнешнихПользователей</v8:Type>
+						<v8:Type>cfg:CatalogRef.ГруппыПользователей</v8:Type>
+						<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>ЭлектроннаяПочта</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Электронная почта</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>cfg:CatalogRef.ВидыКонтактнойИнформации</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>Выбранные</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выбранные</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+					<dcssch:valueListAllowed>true</dcssch:valueListAllowed>
+					<dcssch:availableAsField>false</dcssch:availableAsField>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>Проверка</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проверка</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:boolean</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:boolean">false</dcssch:value>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+					<dcssch:availableAsField>false</dcssch:availableAsField>
+				</Parameter>
 				<MainTable>Catalog.Пользователи</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -1624,6 +1839,17 @@
 						<v8:Type>xs:boolean</v8:Type>
 					</Type>
 				</Column>
+				<Column name="Выбран" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выбран</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
 			</Columns>
 		</Attribute>
 		<Attribute name="ППДВключен" id="12">
@@ -1727,13 +1953,49 @@
 			</Type>
 			<Settings xsi:type="v8:TypeDescription"/>
 		</Attribute>
+		<Attribute name="СписокПользователейВыбрано" id="13">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокПолучателей" id="17">
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription"/>
+		</Attribute>
+		<Attribute name="ВсегоВыбрано" id="18">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КонтактыПоПредметуВыбрано" id="19">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="КомандаВыбрать" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать</v8:content>
+					<v8:content>Завершить выбор</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -1747,8 +2009,9 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>КомандаОКВыполнить</Action>
-			<Representation>TextPicture</Representation>
+			<Representation>Text</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="НайтиКонтакты" id="2">
 			<Title>
@@ -1844,7 +2107,9 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ИзменитьГруппуКомуВыполнить</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ПолучателиПисьма</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ИзменитьГруппуКопии" id="8">
 			<Title>
@@ -1860,7 +2125,9 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ИзменитьГруппуКопииВыполнить</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ПолучателиПисьма</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ИзменитьГруппуСкрытые" id="9">
 			<Title>
@@ -1876,7 +2143,9 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ИзменитьГруппуСкрытыеВыполнить</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ПолучателиПисьма</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="НайтиВСпискеИзСпискаПолучателей" id="10">
 			<Title>
@@ -1912,7 +2181,9 @@
 				</v8:item>
 			</ToolTip>
 			<Action>НайтиПоАдресуВыполнить</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ПолучателиПисьма</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="НайтиПоПредставлению" id="12">
 			<Title>
@@ -1928,7 +2199,9 @@
 				</v8:item>
 			</ToolTip>
 			<Action>НайтиПоПредставлениюВыполнить</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ПолучателиПисьма</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="ВыбратьАдресИзКонтакта" id="13">
 			<Title>
@@ -1948,7 +2221,9 @@
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<Action>УстановитьАдресКонтактаВыполнить</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ПолучателиПисьма</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="НайтиВСпискеИзСпискаНайденных" id="14">
 			<Title>
@@ -1974,7 +2249,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>&lt;</v8:content>
+					<v8:content>Удалить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -1983,42 +2258,15 @@
 					<v8:content>Убрать из списка получателей</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Delete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>УдалитьПолучателя</Action>
 			<Representation>Text</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="УдалитьВсехПолучателей" id="16">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>&lt;&lt;</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Убрать всех из списках получателей</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>УдалитьВсехПолучателей</Action>
-			<Representation>Text</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="ВключитьВСписокПолучателей" id="17">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>&gt;</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Включить в список получателей</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ВключитьВСписокПолучателей</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ПолучателиПисьма</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ВариантПоискаВезде" id="4">
 			<Title>
@@ -2093,7 +2341,143 @@
 					<v8:content>Просмотреть выбранный элемент</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ShowData</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>Просмотр</Action>
+		</Command>
+		<Command name="СписокПользователейВыбрать" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать пользователя</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.AppearanceCheckBox</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВыбратьСтрокиСписка</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокПользователей</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
+		</Command>
+		<Command name="СписокПользователейИсключить" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исключить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исключить пользователя</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.AppearanceCross</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ИсключитьСтрокиСписка</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокПользователей</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
+		</Command>
+		<Command name="ПоискКонтактовВыбрать" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.AppearanceCheckBox</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВыбратьСтрокиСписка</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">НайденныеКонтакты</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
+		</Command>
+		<Command name="ПоискКонтактовИсключить" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исключить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исключить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.AppearanceCross</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ИсключитьСтрокиСписка</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">НайденныеКонтакты</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
+		</Command>
+		<Command name="КонтактыПоПредметуВыбрать" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.AppearanceCheckBox</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВыбратьСтрокиСписка</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">КонтактыПоПредмету</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
+		</Command>
+		<Command name="КонтактыПоПредметуИсключить" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исключить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исключить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.AppearanceCross</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ИсключитьСтрокиСписка</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">КонтактыПоПредмету</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

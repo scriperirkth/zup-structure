@@ -2,7 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
@@ -16,8 +15,47 @@
 		<ExcludedCommand>SaveValues</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаКомандаНазад" id="477">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаНазад</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Назад</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаКомандаНазадРасширеннаяПодсказка" id="478"/>
+			</Button>
+			<Button name="ФормаКомандаДалее" id="475">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.КомандаДалее</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Далее</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаКомандаДалееРасширеннаяПодсказка" id="476"/>
+			</Button>
+			<Button name="ФормаКомандаГотово" id="473">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.КомандаГотово</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Готово</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаКомандаГотовоРасширеннаяПодсказка" id="474"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="BeforeClose">ПередЗакрытием</Event>
@@ -80,8 +118,8 @@
 												</v8:item>
 											</Title>
 											<Picture>
-												<xr:Ref>CommonPicture.Информация32</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Ref>StdPicture.DialogInformation</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</Picture>
 											<ContextMenu name="Декорация1КонтекстноеМеню" id="179"/>
 											<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="180"/>
@@ -94,7 +132,7 @@
 													<v8:lang>ru</v8:lang>
 													<v8:content>Все готово для перехода на обмен через Интернет (Веб-сервис)
 
-&lt;b&gt;&lt;colorstyle -16&gt;Внимание!&lt;/&gt;&lt;/&gt;
+&lt;b&gt;&lt;colorpalette 2&gt;Внимание!&lt;/&gt;&lt;/&gt;
  - Данная операция является необратимой.
  - Она может занять продолжительное время.
  - В процессе перехода форму помощника закрывать не рекомендуется.
@@ -174,7 +212,6 @@
 									</Title>
 									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
-									<Representation>WeakSeparation</Representation>
 									<ExtendedTooltip name="ГруппаЭтапыНастройкиРасширеннаяПодсказка" id="331"/>
 									<ChildItems>
 										<UsualGroup name="ГруппаПолучениеНастроек" id="332">
@@ -232,11 +269,9 @@
 															<ExtendedTooltip name="СтраницаПолучениеНастроекУспешноРасширеннаяПодсказка" id="337"/>
 															<ChildItems>
 																<PictureDecoration name="Декорация7" id="338">
-																	<Width>2</Width>
-																	<Height>1</Height>
 																	<Picture>
-																		<xr:Ref>CommonPicture.Успешно</xr:Ref>
-																		<xr:LoadTransparent>false</xr:LoadTransparent>
+																		<xr:Ref>StdPicture.AppearanceCheckBox</xr:Ref>
+																		<xr:LoadTransparent>true</xr:LoadTransparent>
 																	</Picture>
 																	<FileDragMode>AsFile</FileDragMode>
 																	<ContextMenu name="Декорация7КонтекстноеМеню" id="339"/>
@@ -256,8 +291,6 @@
 															<ExtendedTooltip name="СтраницаПолучениеНастроекТекущийРасширеннаяПодсказка" id="342"/>
 															<ChildItems>
 																<PictureDecoration name="Декорация8" id="343">
-																	<Width>2</Width>
-																	<Height>1</Height>
 																	<Picture>
 																		<xr:Ref>StdPicture.BusinessProcessStart</xr:Ref>
 																		<xr:LoadTransparent>true</xr:LoadTransparent>
@@ -337,11 +370,9 @@
 															<ExtendedTooltip name="СтраницаОтключениеОтМенеджераСервисаУспешноРасширеннаяПодсказка" id="358"/>
 															<ChildItems>
 																<PictureDecoration name="Декорация19" id="359">
-																	<Width>2</Width>
-																	<Height>1</Height>
 																	<Picture>
-																		<xr:Ref>CommonPicture.Успешно</xr:Ref>
-																		<xr:LoadTransparent>false</xr:LoadTransparent>
+																		<xr:Ref>StdPicture.AppearanceCheckBox</xr:Ref>
+																		<xr:LoadTransparent>true</xr:LoadTransparent>
 																	</Picture>
 																	<FileDragMode>AsFile</FileDragMode>
 																	<ContextMenu name="Декорация19КонтекстноеМеню" id="360"/>
@@ -361,8 +392,6 @@
 															<ExtendedTooltip name="СтраницаОтключениеОтМенеджераСервисаТекущийРасширеннаяПодсказка" id="363"/>
 															<ChildItems>
 																<PictureDecoration name="Декорация20" id="364">
-																	<Width>2</Width>
-																	<Height>1</Height>
 																	<Picture>
 																		<xr:Ref>StdPicture.BusinessProcessStart</xr:Ref>
 																		<xr:LoadTransparent>true</xr:LoadTransparent>
@@ -442,11 +471,9 @@
 															<ExtendedTooltip name="СтраницаНастройкаКоррУзлаУспешноРасширеннаяПодсказка" id="400"/>
 															<ChildItems>
 																<PictureDecoration name="Декорация12" id="401">
-																	<Width>2</Width>
-																	<Height>1</Height>
 																	<Picture>
-																		<xr:Ref>CommonPicture.Успешно</xr:Ref>
-																		<xr:LoadTransparent>false</xr:LoadTransparent>
+																		<xr:Ref>StdPicture.AppearanceCheckBox</xr:Ref>
+																		<xr:LoadTransparent>true</xr:LoadTransparent>
 																	</Picture>
 																	<FileDragMode>AsFile</FileDragMode>
 																	<ContextMenu name="Декорация12КонтекстноеМеню" id="402"/>
@@ -466,8 +493,6 @@
 															<ExtendedTooltip name="СтраницаНастройкаКоррУзлаТекущийРасширеннаяПодсказка" id="405"/>
 															<ChildItems>
 																<PictureDecoration name="Декорация13" id="406">
-																	<Width>2</Width>
-																	<Height>1</Height>
 																	<Picture>
 																		<xr:Ref>StdPicture.BusinessProcessStart</xr:Ref>
 																		<xr:LoadTransparent>true</xr:LoadTransparent>
@@ -547,11 +572,9 @@
 															<ExtendedTooltip name="СтраницаНастройкаУзлаУспешноРасширеннаяПодсказка" id="379"/>
 															<ChildItems>
 																<PictureDecoration name="Декорация9" id="380">
-																	<Width>2</Width>
-																	<Height>1</Height>
 																	<Picture>
-																		<xr:Ref>CommonPicture.Успешно</xr:Ref>
-																		<xr:LoadTransparent>false</xr:LoadTransparent>
+																		<xr:Ref>StdPicture.AppearanceCheckBox</xr:Ref>
+																		<xr:LoadTransparent>true</xr:LoadTransparent>
 																	</Picture>
 																	<FileDragMode>AsFile</FileDragMode>
 																	<ContextMenu name="Декорация9КонтекстноеМеню" id="381"/>
@@ -571,8 +594,6 @@
 															<ExtendedTooltip name="СтраницаНастройкаУзлаТекущийРасширеннаяПодсказка" id="384"/>
 															<ChildItems>
 																<PictureDecoration name="Декорация10" id="385">
-																	<Width>2</Width>
-																	<Height>1</Height>
 																	<Picture>
 																		<xr:Ref>StdPicture.BusinessProcessStart</xr:Ref>
 																		<xr:LoadTransparent>true</xr:LoadTransparent>
@@ -632,8 +653,6 @@
 									<ExtendedTooltip name="ГруппаОкончаниеРасширеннаяПодсказка" id="248"/>
 									<ChildItems>
 										<PictureDecoration name="Декорация5" id="249">
-											<Width>6</Width>
-											<Height>2</Height>
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -641,8 +660,8 @@
 												</v8:item>
 											</Title>
 											<Picture>
-												<xr:Ref>CommonPicture.Успешно32</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Ref>StdPicture.AppearanceCheckBox</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</Picture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="Декорация5КонтекстноеМеню" id="250"/>
@@ -660,242 +679,6 @@
 										</LabelDecoration>
 									</ChildItems>
 								</UsualGroup>
-							</ChildItems>
-						</Page>
-					</ChildItems>
-				</Pages>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="РамкаПанелиНавигации" id="51">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Рамка панели навигации</v8:content>
-				</v8:item>
-			</Title>
-			<VerticalStretch>true</VerticalStretch>
-			<Group>Vertical</Group>
-			<VerticalAlign>Bottom</VerticalAlign>
-			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="РамкаПанелиНавигацииExtendedTooltip" id="121"/>
-			<ChildItems>
-				<Pages name="ПанельНавигации" id="1">
-					<EnableContentChange>true</EnableContentChange>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Панель навигации</v8:content>
-						</v8:item>
-					</Title>
-					<PagesRepresentation>None</PagesRepresentation>
-					<ExtendedTooltip name="ПанельНавигацииExtendedTooltip" id="122"/>
-					<ChildItems>
-						<Page name="СтраницаНавигацииНачало" id="7">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Страница навигации начало</v8:content>
-								</v8:item>
-							</Title>
-							<Group>HorizontalIfPossible</Group>
-							<ScrollOnCompress>false</ScrollOnCompress>
-							<ExtendedTooltip name="СтраницаНавигацииНачалоExtendedTooltip" id="123"/>
-							<ChildItems>
-								<CommandBar name="КоманднаяПанельСлева1" id="150">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Командная панель слева 1</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="КоманднаяПанельСлева1РасширеннаяПодсказка" id="151"/>
-									<ChildItems>
-										<Button name="КомандаНазад" id="72">
-											<Type>CommandBarButton</Type>
-											<Visible>false</Visible>
-											<CommandName>Form.Command.КомандаНазад</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>&lt; Назад</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="КомандаНазадExtendedTooltip" id="125"/>
-										</Button>
-									</ChildItems>
-								</CommandBar>
-								<CommandBar name="КоманднаяПанельСправа1" id="70">
-									<EnableContentChange>true</EnableContentChange>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Командная панель справа 1</v8:content>
-										</v8:item>
-									</Title>
-									<HorizontalLocation>Right</HorizontalLocation>
-									<ExtendedTooltip name="КоманднаяПанельСправа1РасширеннаяПодсказка" id="124"/>
-									<ChildItems>
-										<Button name="КомандаДалее" id="71">
-											<Type>CommandBarButton</Type>
-											<DefaultButton>true</DefaultButton>
-											<DefaultItem>true</DefaultItem>
-											<CommandName>Form.Command.КомандаДалее</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Далее &gt;</v8:content>
-												</v8:item>
-											</Title>
-											<ButtonImportance>Main</ButtonImportance>
-											<ExtendedTooltip name="КомандаДалееExtendedTooltip" id="126"/>
-										</Button>
-										<Button name="КомандаОтмена" id="73">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.КомандаОтмена</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Отмена</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="КомандаОтменаExtendedTooltip" id="127"/>
-										</Button>
-									</ChildItems>
-								</CommandBar>
-							</ChildItems>
-						</Page>
-						<Page name="СтраницаНавигацииОжидание" id="63">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Страница навигации ожидание</v8:content>
-								</v8:item>
-							</Title>
-							<Group>HorizontalIfPossible</Group>
-							<ScrollOnCompress>false</ScrollOnCompress>
-							<ExtendedTooltip name="СтраницаНавигацииОжиданиеExtendedTooltip" id="141"/>
-							<ChildItems>
-								<CommandBar name="КоманднаяПанельСлева4" id="165">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Командная панель слева 4</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="КоманднаяПанельСлева4РасширеннаяПодсказка" id="166"/>
-									<ChildItems>
-										<Button name="КомандаНазад3" id="86">
-											<Type>CommandBarButton</Type>
-											<Enabled>false</Enabled>
-											<CommandName>Form.Command.КомандаНазад</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>&lt; Назад</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="КомандаНазад3ExtendedTooltip" id="143"/>
-										</Button>
-									</ChildItems>
-								</CommandBar>
-								<CommandBar name="КоманднаяПанельСправа4" id="85">
-									<EnableContentChange>true</EnableContentChange>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Командная панель справа 4</v8:content>
-										</v8:item>
-									</Title>
-									<HorizontalLocation>Right</HorizontalLocation>
-									<ExtendedTooltip name="КоманднаяПанельСправа4РасширеннаяПодсказка" id="142"/>
-									<ChildItems>
-										<Button name="КомандаДалее3" id="87">
-											<Type>CommandBarButton</Type>
-											<Enabled>false</Enabled>
-											<DefaultItem>true</DefaultItem>
-											<CommandName>Form.Command.КомандаНазад</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Далее &gt;</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="КомандаДалее3ExtendedTooltip" id="144"/>
-										</Button>
-										<Button name="КомандаОтмена3" id="88">
-											<Type>CommandBarButton</Type>
-											<Enabled>false</Enabled>
-											<CommandName>Form.Command.КомандаОтмена</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Отмена</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="КомандаОтмена3ExtendedTooltip" id="145"/>
-										</Button>
-									</ChildItems>
-								</CommandBar>
-							</ChildItems>
-						</Page>
-						<Page name="СтраницаНавигацииОкончание" id="9">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Страница навигации окончание</v8:content>
-								</v8:item>
-							</Title>
-							<Group>HorizontalIfPossible</Group>
-							<ScrollOnCompress>false</ScrollOnCompress>
-							<ExtendedTooltip name="СтраницаНавигацииОкончаниеExtendedTooltip" id="135"/>
-							<ChildItems>
-								<CommandBar name="КоманднаяПанельСлева3" id="160">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Командная панель слева 3</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="КоманднаяПанельСлева3РасширеннаяПодсказка" id="161"/>
-								</CommandBar>
-								<CommandBar name="КоманднаяПанельСправа3" id="80">
-									<EnableContentChange>true</EnableContentChange>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Командная панель справа 3</v8:content>
-										</v8:item>
-									</Title>
-									<HorizontalLocation>Right</HorizontalLocation>
-									<ExtendedTooltip name="КоманднаяПанельСправа3РасширеннаяПодсказка" id="136"/>
-									<ChildItems>
-										<Button name="КомандаГотово" id="90">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.КомандаГотово</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Готово</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="КомандаГотовоExtendedTooltip" id="138"/>
-										</Button>
-										<Button name="КомандаОтмена2" id="83">
-											<Type>CommandBarButton</Type>
-											<Enabled>false</Enabled>
-											<CommandName>Form.Command.КомандаОтмена</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Отмена</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="КомандаОтмена2ExtendedTooltip" id="139"/>
-										</Button>
-									</ChildItems>
-								</CommandBar>
 							</ChildItems>
 						</Page>
 					</ChildItems>
@@ -947,15 +730,6 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="ИмяСтраницыНавигации" id="4">
-					<Type>
-						<v8:Type>xs:string</v8:Type>
-						<v8:StringQualifiers>
-							<v8:Length>0</v8:Length>
-							<v8:AllowedLength>Variable</v8:AllowedLength>
-						</v8:StringQualifiers>
-					</Type>
-				</Column>
 				<Column name="ИмяОбработчикаПриОткрытии" id="5">
 					<Type>
 						<v8:Type>xs:string</v8:Type>
@@ -989,6 +763,15 @@
 					</Type>
 				</Column>
 				<Column name="ИмяОбработчикаДлительнойОперации" id="9">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="КомандыНавигации" id="10">
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
@@ -1121,31 +904,33 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Далее &gt;</v8:content>
+					<v8:content>Далее</v8:content>
 				</v8:item>
 			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.GoForward</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>КомандаДалее</Action>
+			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="КомандаНазад" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>&lt; Назад</v8:content>
+					<v8:content>Назад</v8:content>
 				</v8:item>
 			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.GoBack</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>КомандаНазад</Action>
+			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="КомандаОтмена" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<Action>КомандаОтмена</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="КомандаГотово" id="4">
 			<Title>
@@ -1156,6 +941,7 @@
 			</Title>
 			<Action>КомандаГотово</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

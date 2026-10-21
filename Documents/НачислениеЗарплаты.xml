@@ -250,6 +250,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">AccumulationRegister.ДополнениеРасчетнойБазыУдержаний</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">AccumulationRegister.ВзаиморасчетыССотрудниками</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ИсходныеДанныеПерерасчетов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">AccumulationRegister.ОтработанноеВремяПоСотрудникамАвансом</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">AccumulationRegister.НачисленияУдержанияПоСотрудникам</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.РаспределениеРезультатовНачислений</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">AccumulationRegister.ОтработанноеВремяПоСотрудникамКорректировка</xr:Item>
@@ -1058,36 +1059,8 @@
 							<MaxValue xsi:nil="true"/>
 							<FillChecking>ShowError</FillChecking>
 							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-							<ChoiceParameterLinks>
-								<xr:Link>
-									<xr:Name>Отбор.НачалоПериодаПримененияОтбора</xr:Name>
-									<xr:DataPath xsi:type="xs:string">Document.НачислениеЗарплаты.Attribute.МесяцНачисления</xr:DataPath>
-									<xr:ValueChange>Clear</xr:ValueChange>
-								</xr:Link>
-								<xr:Link>
-									<xr:Name>Отбор.НачислениеЗарплатыВоеннослужащим</xr:Name>
-									<xr:DataPath xsi:type="xs:string">Document.НачислениеЗарплаты.Attribute.НачислениеЗарплатыВоеннослужащим</xr:DataPath>
-									<xr:ValueChange>Clear</xr:ValueChange>
-								</xr:Link>
-								<xr:Link>
-									<xr:Name>Отбор.ТекущаяОрганизация</xr:Name>
-									<xr:DataPath xsi:type="xs:string">Document.НачислениеЗарплаты.Attribute.Организация</xr:DataPath>
-									<xr:ValueChange>Clear</xr:ValueChange>
-								</xr:Link>
-								<xr:Link>
-									<xr:Name>Отбор.ТекущееПодразделение</xr:Name>
-									<xr:DataPath xsi:type="xs:string">Document.НачислениеЗарплаты.Attribute.Подразделение</xr:DataPath>
-									<xr:ValueChange>Clear</xr:ValueChange>
-								</xr:Link>
-							</ChoiceParameterLinks>
-							<ChoiceParameters>
-								<app:item name="Отбор.ПоказыватьПодработки">
-									<app:value xsi:type="xs:boolean">true</app:value>
-								</app:item>
-								<app:item name="УчитыватьОтборПоПодразделению">
-									<app:value xsi:type="xs:boolean">true</app:value>
-								</app:item>
-							</ChoiceParameters>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
 							<QuickChoice>Auto</QuickChoice>
 							<CreateOnInput>Auto</CreateOnInput>
 							<ChoiceForm/>
@@ -1247,20 +1220,7 @@
 							<FillChecking>ShowError</FillChecking>
 							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 							<ChoiceParameterLinks/>
-							<ChoiceParameters>
-								<app:item name="Отбор.ВидДокументаНачисления">
-									<app:value xsi:type="xr:DesignTimeRef">Enum.ВидыДокументовНачисления.EmptyRef</app:value>
-								</app:item>
-								<app:item name="ИсключатьПособияПоУходуЗаРебенком">
-									<app:value xsi:type="xs:boolean">true</app:value>
-								</app:item>
-								<app:item name="Отбор.ВАрхиве">
-									<app:value xsi:type="xs:boolean">false</app:value>
-								</app:item>
-								<app:item name="Отбор.ЯвляетсяЛьготой">
-									<app:value xsi:type="xs:boolean">false</app:value>
-								</app:item>
-							</ChoiceParameters>
+							<ChoiceParameters/>
 							<QuickChoice>Auto</QuickChoice>
 							<CreateOnInput>Auto</CreateOnInput>
 							<ChoiceForm/>
@@ -2617,6 +2577,46 @@
 							<DataHistory>Use</DataHistory>
 						</Properties>
 					</Attribute>
+					<Attribute uuid="2f256c82-1099-4832-8f99-e0852074e0de">
+						<Properties>
+							<Name>ПланируемаяДатаВыплаты</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата выплаты</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>АПК:58</Comment>
+							<Type>
+								<v8:Type>xs:dateTime</v8:Type>
+								<v8:DateQualifiers>
+									<v8:DateFractions>Date</v8:DateFractions>
+								</v8:DateQualifiers>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>ShowError</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+							<DataHistory>Use</DataHistory>
+						</Properties>
+					</Attribute>
 				</ChildObjects>
 			</TabularSection>
 			<TabularSection uuid="dadacb8a-d90d-4bb0-9265-2b503b2256fd">
@@ -2698,28 +2698,8 @@
 							<MaxValue xsi:nil="true"/>
 							<FillChecking>ShowError</FillChecking>
 							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-							<ChoiceParameterLinks>
-								<xr:Link>
-									<xr:Name>Отбор.НачалоПериодаПримененияОтбора</xr:Name>
-									<xr:DataPath xsi:type="xs:string">Document.НачислениеЗарплаты.Attribute.МесяцНачисления</xr:DataPath>
-									<xr:ValueChange>Clear</xr:ValueChange>
-								</xr:Link>
-								<xr:Link>
-									<xr:Name>Отбор.НачислениеЗарплатыВоеннослужащим</xr:Name>
-									<xr:DataPath xsi:type="xs:string">Document.НачислениеЗарплаты.Attribute.НачислениеЗарплатыВоеннослужащим</xr:DataPath>
-									<xr:ValueChange>Clear</xr:ValueChange>
-								</xr:Link>
-								<xr:Link>
-									<xr:Name>Отбор.ГоловнаяОрганизация</xr:Name>
-									<xr:DataPath xsi:type="xs:string">Document.НачислениеЗарплаты.Attribute.Организация</xr:DataPath>
-									<xr:ValueChange>Clear</xr:ValueChange>
-								</xr:Link>
-							</ChoiceParameterLinks>
-							<ChoiceParameters>
-								<app:item name="Отбор.РольСотрудника">
-									<app:value xsi:type="xr:DesignTimeRef">Enum.РолиСотрудников.EnumValue.Договорник</app:value>
-								</app:item>
-							</ChoiceParameters>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
 							<QuickChoice>Auto</QuickChoice>
 							<CreateOnInput>Auto</CreateOnInput>
 							<ChoiceForm/>
@@ -13787,6 +13767,80 @@
 									<v8:FractionDigits>2</v8:FractionDigits>
 									<v8:AllowedSign>Any</v8:AllowedSign>
 								</v8:NumberQualifiers>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+							<DataHistory>Use</DataHistory>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="c1d28f40-bcd6-4bb2-9a39-fee41b304c6c">
+						<Properties>
+							<Name>ФиксСтрока</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Фикс строка</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<Type>
+								<v8:Type>xs:boolean</v8:Type>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+							<DataHistory>Use</DataHistory>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="16ce2324-82ba-42cf-ae22-b2b02e04b3c4">
+						<Properties>
+							<Name>ФиксРасчет</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Расчет зафиксирован</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<Type>
+								<v8:Type>xs:boolean</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>

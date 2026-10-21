@@ -9,9 +9,7 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
-	</AutoCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -24,7 +22,7 @@
 					<v8:content>Отбор командная панель</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>AutoScreenTypeSensitive</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -38,6 +36,8 @@
 							<v8:content>Статус</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ClearButton>true</ClearButton>
 					<ContextMenu name="ОтборСтатусКонтекстноеМеню" id="64"/>
 					<ExtendedTooltip name="ОтборСтатусРасширеннаяПодсказка" id="65"/>
@@ -53,6 +53,8 @@
 							<v8:content>Режим выполнения</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ClearButton>true</ClearButton>
 					<ContextMenu name="ОтборРежимВыполненияКонтекстноеМеню" id="67"/>
 					<ExtendedTooltip name="ОтборРежимВыполненияРасширеннаяПодсказка" id="68"/>
@@ -60,23 +62,6 @@
 						<Event name="OnChange">ОтборРежимВыполненияПриИзменении</Event>
 					</Events>
 				</InputField>
-				<CommandBar name="КоманднаяПанель" id="69">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Командная панель</v8:content>
-						</v8:item>
-					</Title>
-					<CommandSource>Item.Список</CommandSource>
-					<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="70"/>
-					<ChildItems>
-						<Button name="ИзменитьФорму" id="89">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-							<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="90"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
@@ -95,8 +80,8 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -108,6 +93,7 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -124,9 +110,7 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
-				<Autofill>false</Autofill>
-			</AutoCommandBar>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -164,30 +148,40 @@
 							<v8:content>Область данных вспомогательные данные</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОбластьДанныхВспомогательныеДанныеКонтекстноеМеню" id="72"/>
 					<ExtendedTooltip name="ОбластьДанныхВспомогательныеДанныеРасширеннаяПодсказка" id="73"/>
 				</InputField>
 				<LabelField name="ИмяОбработчика" id="16">
 					<DataPath>Список.ИмяОбработчика</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИмяОбработчикаКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="ИмяОбработчикаРасширеннаяПодсказка" id="18"/>
 				</LabelField>
 				<LabelField name="Статус" id="19">
 					<DataPath>Список.Статус</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СтатусКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="Версия" id="22">
 					<DataPath>Список.Версия</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ВерсияКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 				<LabelField name="РежимВыполнения" id="31">
 					<DataPath>Список.РежимВыполнения</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="РежимВыполненияКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="РежимВыполненияРасширеннаяПодсказка" id="33"/>
 				</LabelField>
@@ -200,6 +194,8 @@
 							<v8:content>Очередь</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОчередьОтложеннойОбработкиКонтекстноеМеню" id="59"/>
 					<ExtendedTooltip name="ОчередьОтложеннойОбработкиРасширеннаяПодсказка" id="60"/>
 				</LabelField>
@@ -208,6 +204,8 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПорядокКонтекстноеМеню" id="78"/>
 					<ExtendedTooltip name="ПорядокРасширеннаяПодсказка" id="79"/>
 				</InputField>
@@ -216,6 +214,8 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДлительностьОбработкиКонтекстноеМеню" id="81"/>
 					<ExtendedTooltip name="ДлительностьОбработкиРасширеннаяПодсказка" id="82"/>
 				</InputField>
@@ -224,6 +224,8 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИмяБиблиотекиКонтекстноеМеню" id="84"/>
 					<ExtendedTooltip name="ИмяБиблиотекиРасширеннаяПодсказка" id="85"/>
 				</InputField>
@@ -238,6 +240,8 @@
 							<v8:content>Длительность регистрации, секунд</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДлительностьРегистрацииДанныхКонтекстноеМеню" id="87"/>
 					<ExtendedTooltip name="ДлительностьРегистрацииДанныхРасширеннаяПодсказка" id="88"/>
 				</InputField>

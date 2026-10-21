@@ -63,18 +63,6 @@
 					</Button>
 				</ChildItems>
 			</Popup>
-			<Button name="СписокЛистовУстановитьФлажки" id="16">
-				<Type>CommandBarButton</Type>
-				<SkipOnInput>false</SkipOnInput>
-				<CommandName>Form.Command.УстановитьФлажки</CommandName>
-				<ExtendedTooltip name="СписокЛистовУстановитьФлажкиExtendedTooltip" id="51"/>
-			</Button>
-			<Button name="СписокЛистовСнятьФлажки" id="17">
-				<Type>CommandBarButton</Type>
-				<SkipOnInput>false</SkipOnInput>
-				<CommandName>Form.Command.СнятьФлажки</CommandName>
-				<ExtendedTooltip name="СписокЛистовСнятьФлажкиExtendedTooltip" id="52"/>
-			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -110,7 +98,6 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>Left</TitleLocation>
-					<HorizontalAlign>Left</HorizontalAlign>
 					<HorizontalStretch>false</HorizontalStretch>
 					<SpinButton>true</SpinButton>
 					<MinValue xsi:type="xs:decimal">1</MinValue>
@@ -182,6 +169,7 @@
 							<Representation>List</Representation>
 							<SkipOnInput>false</SkipOnInput>
 							<Width>10</Width>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Row</RowSelectionMode>
 							<Header>false</Header>
 							<HorizontalScrollBar>DontUse</HorizontalScrollBar>
@@ -204,7 +192,6 @@
 								<ExcludedCommand>MoveDown</ExcludedCommand>
 								<ExcludedCommand>MoveUp</ExcludedCommand>
 								<ExcludedCommand>OutputList</ExcludedCommand>
-								<ExcludedCommand>SelectAll</ExcludedCommand>
 								<ExcludedCommand>SortListAsc</ExcludedCommand>
 								<ExcludedCommand>SortListDesc</ExcludedCommand>
 								<ExcludedCommand>Tree</ExcludedCommand>
@@ -215,6 +202,20 @@
 							<ContextMenu name="СписокЛистовКонтекстноеМеню" id="8"/>
 							<AutoCommandBar name="СписокЛистовКоманднаяПанель" id="9">
 								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="СписокЛистовУстановитьФлажки" id="16">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Command.УстановитьФлажки</CommandName>
+										<ExtendedTooltip name="СписокЛистовУстановитьФлажкиExtendedTooltip" id="51"/>
+									</Button>
+									<Button name="СписокЛистовСнятьФлажки" id="17">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Command.СнятьФлажки</CommandName>
+										<ExtendedTooltip name="СписокЛистовСнятьФлажкиExtendedTooltip" id="52"/>
+									</Button>
+								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="СписокЛистовExtendedTooltip" id="57"/>
 							<SearchStringAddition name="СписокЛистовСтрокаПоиска" id="69">
@@ -252,6 +253,7 @@
 									<TitleLocation>None</TitleLocation>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<CheckBoxType>CheckBox</CheckBoxType>
 									<ThreeState>true</ThreeState>
 									<ContextMenu name="СписокЛистовПометкаКонтекстноеМеню" id="11"/>
 									<ExtendedTooltip name="СписокЛистовПометкаExtendedTooltip" id="58"/>
@@ -562,6 +564,7 @@
 			</ToolTip>
 			<Action>СохранитьВФорматеMicrosoftExcel</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="СохранитьВВидеТабличныхДокументов" id="2">
 			<Title>
@@ -578,12 +581,13 @@
 			</ToolTip>
 			<Action>СохранитьВВидеТабличныхДокументов</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Печатать" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Печать</v8:content>
+					<v8:content>Печатать</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -593,13 +597,10 @@
 				</v8:item>
 			</ToolTip>
 			<Shortcut>F5</Shortcut>
-			<Picture>
-				<xr:Ref>StdPicture.PrintImmediately</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>Печатать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="УстановитьФлажки" id="5">
 			<Title>
@@ -658,6 +659,7 @@
 			</ToolTip>
 			<Action>СохранитьВФорматеPDFДокумента</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="СохранитьВФорматеMicrosoftExcel2007" id="7">
 			<Title>
@@ -674,6 +676,7 @@
 			</ToolTip>
 			<Action>СохранитьВФорматеMicrosoftExcel2007</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

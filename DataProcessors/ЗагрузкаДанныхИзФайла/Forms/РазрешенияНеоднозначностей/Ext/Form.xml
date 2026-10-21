@@ -6,13 +6,30 @@
 			<v8:content>Разрешение неоднозначности</v8:content>
 		</v8:item>
 	</Title>
+	<Height>50</Height>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ВариантыВыбораВыбрать" id="56">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Выбрать</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ВариантыВыбораВыбратьРасширеннаяПодсказка" id="57"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -21,8 +38,7 @@
 			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Для строки "%1" найдено несколько совпадающих вариантов.
-Выберите правильный вариант, если он присутствует в списке. </v8:content>
+					<v8:content>Для строки "%1" найдено несколько совпадающих вариантов. Выберите правильный вариант, если он присутствует в списке. </v8:content>
 				</v8:item>
 			</Title>
 			<ContextMenu name="ДекорацияЗаголовокПоискСсылокКонтекстноеМеню" id="63"/>
@@ -53,342 +69,361 @@
 			<ContextMenu name="ДекорацияЗагрузкаИзФайлаКонтекстноеМеню" id="33"/>
 			<ExtendedTooltip name="ДекорацияЗагрузкаИзФайлаРасширеннаяПодсказка" id="34"/>
 		</LabelDecoration>
-		<RadioButtonField name="ВариантРазрешенияНеоднозначности" id="26">
-			<DataPath>ВариантРазрешенияНеоднозначности</DataPath>
-			<Visible>false</Visible>
+		<UsualGroup name="Документ" id="93">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Вариант разрешения неоднозначности</v8:content>
+					<v8:content>Документ</v8:content>
 				</v8:item>
 			</Title>
-			<TitleLocation>None</TitleLocation>
-			<RadioButtonType>Auto</RadioButtonType>
-			<ChoiceList>
-				<xr:Item>
-					<xr:Presentation/>
-					<xr:CheckState>0</xr:CheckState>
-					<xr:Value xsi:type="FormChoiceListDesTimeValue">
-						<Presentation>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Выбрать элемент в соответствие с данными из файла </v8:content>
-							</v8:item>
-						</Presentation>
-						<Value xsi:type="xs:decimal">0</Value>
-					</xr:Value>
-				</xr:Item>
-				<xr:Item>
-					<xr:Presentation/>
-					<xr:CheckState>0</xr:CheckState>
-					<xr:Value xsi:type="FormChoiceListDesTimeValue">
-						<Presentation>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Создать новый элемент</v8:content>
-							</v8:item>
-						</Presentation>
-						<Value xsi:type="xs:decimal">1</Value>
-					</xr:Value>
-				</xr:Item>
-			</ChoiceList>
-			<ContextMenu name="ВариантРазрешенияНеоднозначностиКонтекстноеМеню" id="27"/>
-			<ExtendedTooltip name="ВариантРазрешенияНеоднозначностиРасширеннаяПодсказка" id="28"/>
-			<Events>
-				<Event name="OnChange">ВариантРазрешенияНеоднозначностиПриИзменении</Event>
-			</Events>
-		</RadioButtonField>
-		<Table name="ВариантыВыбора" id="40">
-			<Representation>Tree</Representation>
-			<Height>5</Height>
-			<RowSelectionMode>Cell</RowSelectionMode>
-			<Header>false</Header>
-			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-			<EnableStartDrag>true</EnableStartDrag>
-			<EnableDrag>true</EnableDrag>
-			<FileDragMode>AsFile</FileDragMode>
-			<DataPath>ВариантыВыбора</DataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Варианты выбора</v8:content>
-				</v8:item>
-			</Title>
-			<CommandSet>
-				<ExcludedCommand>Add</ExcludedCommand>
-				<ExcludedCommand>Change</ExcludedCommand>
-				<ExcludedCommand>Copy</ExcludedCommand>
-				<ExcludedCommand>Delete</ExcludedCommand>
-				<ExcludedCommand>EndEdit</ExcludedCommand>
-				<ExcludedCommand>HierarchicalList</ExcludedCommand>
-				<ExcludedCommand>List</ExcludedCommand>
-				<ExcludedCommand>Tree</ExcludedCommand>
-			</CommandSet>
-			<ContextMenu name="ВариантыВыбораКонтекстноеМеню" id="41"/>
-			<AutoCommandBar name="ВариантыВыбораКоманднаяПанель" id="42">
-				<ChildItems>
-					<Button name="ВариантыВыбораВыбрать" id="56">
-						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.Выбрать</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Выбрать</v8:content>
-							</v8:item>
-						</Title>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ВариантыВыбораВыбратьРасширеннаяПодсказка" id="57"/>
-					</Button>
-					<Button name="ВариантыВыбораНовыйЭлемент" id="58">
-						<Type>CommandBarButton</Type>
-						<Visible>false</Visible>
-						<CommandName>Form.Command.НовыйЭлемент</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Создать новый элемент</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ВариантыВыбораНовыйЭлементРасширеннаяПодсказка" id="59"/>
-					</Button>
-					<Button name="ВариантыВыбораОткрыть" id="60">
-						<Type>CommandBarButton</Type>
-						<Visible>false</Visible>
-						<CommandName>Form.Command.Открыть</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Открыть</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ВариантыВыбораОткрытьРасширеннаяПодсказка" id="61"/>
-					</Button>
-				</ChildItems>
-			</AutoCommandBar>
-			<ExtendedTooltip name="ВариантыВыбораРасширеннаяПодсказка" id="43"/>
-			<SearchStringAddition name="ВариантыВыбораСтрокаПоиска" id="65">
-				<AdditionSource>
-					<Item>ВариантыВыбора</Item>
-					<Type>SearchStringRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="ВариантыВыбораСтрокаПоискаКонтекстноеМеню" id="66"/>
-				<ExtendedTooltip name="ВариантыВыбораСтрокаПоискаРасширеннаяПодсказка" id="67"/>
-			</SearchStringAddition>
-			<ViewStatusAddition name="ВариантыВыбораСостояниеПросмотра" id="68">
-				<AdditionSource>
-					<Item>ВариантыВыбора</Item>
-					<Type>ViewStatusRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="ВариантыВыбораСостояниеПросмотраКонтекстноеМеню" id="69"/>
-				<ExtendedTooltip name="ВариантыВыбораСостояниеПросмотраРасширеннаяПодсказка" id="70"/>
-			</ViewStatusAddition>
-			<SearchControlAddition name="ВариантыВыбораУправлениеПоиском" id="71">
-				<AdditionSource>
-					<Item>ВариантыВыбора</Item>
-					<Type>SearchControl</Type>
-				</AdditionSource>
-				<ContextMenu name="ВариантыВыбораУправлениеПоискомКонтекстноеМеню" id="72"/>
-				<ExtendedTooltip name="ВариантыВыбораУправлениеПоискомРасширеннаяПодсказка" id="73"/>
-			</SearchControlAddition>
-			<Events>
-				<Event name="Selection">ВариантыВыбораВыбор</Event>
-			</Events>
+			<Group>AutoScreenTypeSensitive</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ДокументРасширеннаяПодсказка" id="94"/>
 			<ChildItems>
-				<InputField name="ВариантыВыбораПредставление" id="44">
-					<DataPath>ВариантыВыбора.Представление</DataPath>
-					<ReadOnly>true</ReadOnly>
+				<UsualGroup name="Варианты" id="95">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Представление</v8:content>
+							<v8:content>Варианты</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ВариантыВыбораПредставлениеКонтекстноеМеню" id="45"/>
-					<ExtendedTooltip name="ВариантыВыбораПредставлениеРасширеннаяПодсказка" id="46"/>
-				</InputField>
-				<InputField name="ВариантыВыбораСсылка" id="50">
-					<DataPath>ВариантыВыбора.Ссылка</DataPath>
-					<Visible>false</Visible>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Ссылка</v8:content>
-						</v8:item>
-					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ВариантыВыбораСсылкаКонтекстноеМеню" id="51"/>
-					<ExtendedTooltip name="ВариантыВыбораСсылкаРасширеннаяПодсказка" id="52"/>
-				</InputField>
-				<InputField name="ВариантыВыбораЗначение" id="53">
-					<DataPath>ВариантыВыбора.Значение</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Значение</v8:content>
-						</v8:item>
-					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<ShowInHeader>false</ShowInHeader>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ВариантыВыбораЗначениеКонтекстноеМеню" id="54"/>
-					<ExtendedTooltip name="ВариантыВыбораЗначениеРасширеннаяПодсказка" id="55"/>
-				</InputField>
-			</ChildItems>
-		</Table>
-		<Table name="ЭлементыСправочника" id="6">
-			<Representation>List</Representation>
-			<Visible>false</Visible>
-			<ReadOnly>true</ReadOnly>
-			<Height>10</Height>
-			<RowSelectionMode>Cell</RowSelectionMode>
-			<AutoInsertNewRow>true</AutoInsertNewRow>
-			<EnableStartDrag>true</EnableStartDrag>
-			<EnableDrag>true</EnableDrag>
-			<FileDragMode>AsFile</FileDragMode>
-			<DataPath>ЭлементыСправочника</DataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Элементы справочника</v8:content>
-				</v8:item>
-			</Title>
-			<CommandSet>
-				<ExcludedCommand>Add</ExcludedCommand>
-				<ExcludedCommand>Change</ExcludedCommand>
-				<ExcludedCommand>Copy</ExcludedCommand>
-				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
-				<ExcludedCommand>Delete</ExcludedCommand>
-				<ExcludedCommand>EndEdit</ExcludedCommand>
-				<ExcludedCommand>MoveDown</ExcludedCommand>
-				<ExcludedCommand>MoveUp</ExcludedCommand>
-				<ExcludedCommand>SelectAll</ExcludedCommand>
-			</CommandSet>
-			<RowFilter xsi:nil="true"/>
-			<ContextMenu name="ЭлементыСправочникаКонтекстноеМеню" id="7"/>
-			<AutoCommandBar name="ЭлементыСправочникаКоманднаяПанель" id="8">
-				<ChildItems>
-					<Button name="Выбрать" id="20">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Выбрать</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Выбрать</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="21"/>
-					</Button>
-					<Button name="ЭлементыСправочникаНовыйЭлемент" id="35">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.НовыйЭлемент</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Создать новый элемент</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ЭлементыСправочникаНовыйЭлементРасширеннаяПодсказка" id="36"/>
-					</Button>
-					<Button name="ЭлементыСправочникаНайти" id="22">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.ЭлементыСправочника.StandardCommand.Find</CommandName>
-						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="ЭлементыСправочникаНайтиРасширеннаяПодсказка" id="23"/>
-					</Button>
-					<Button name="ЭлементыСправочникаОтменитьПоиск" id="24">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.ЭлементыСправочника.StandardCommand.CancelSearch</CommandName>
-						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="ЭлементыСправочникаОтменитьПоискРасширеннаяПодсказка" id="25"/>
-					</Button>
-				</ChildItems>
-			</AutoCommandBar>
-			<ExtendedTooltip name="ЭлементыСправочникаРасширеннаяПодсказка" id="9"/>
-			<SearchStringAddition name="ЭлементыСправочникаСтрокаПоиска" id="74">
-				<AdditionSource>
-					<Item>ЭлементыСправочника</Item>
-					<Type>SearchStringRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="ЭлементыСправочникаСтрокаПоискаКонтекстноеМеню" id="75"/>
-				<ExtendedTooltip name="ЭлементыСправочникаСтрокаПоискаРасширеннаяПодсказка" id="76"/>
-			</SearchStringAddition>
-			<ViewStatusAddition name="ЭлементыСправочникаСостояниеПросмотра" id="77">
-				<AdditionSource>
-					<Item>ЭлементыСправочника</Item>
-					<Type>ViewStatusRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="ЭлементыСправочникаСостояниеПросмотраКонтекстноеМеню" id="78"/>
-				<ExtendedTooltip name="ЭлементыСправочникаСостояниеПросмотраРасширеннаяПодсказка" id="79"/>
-			</ViewStatusAddition>
-			<SearchControlAddition name="ЭлементыСправочникаУправлениеПоиском" id="80">
-				<AdditionSource>
-					<Item>ЭлементыСправочника</Item>
-					<Type>SearchControl</Type>
-				</AdditionSource>
-				<ContextMenu name="ЭлементыСправочникаУправлениеПоискомКонтекстноеМеню" id="81"/>
-				<ExtendedTooltip name="ЭлементыСправочникаУправлениеПоискомРасширеннаяПодсказка" id="82"/>
-			</SearchControlAddition>
-			<Events>
-				<Event name="Selection">ЭлементыСправочникаВыбор</Event>
-			</Events>
-			<ChildItems>
-				<InputField name="ЭлементыСправочникаПредставление" id="37">
-					<DataPath>ЭлементыСправочника.Представление</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Представление</v8:content>
-						</v8:item>
-					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ЭлементыСправочникаПредставлениеКонтекстноеМеню" id="38"/>
-					<ExtendedTooltip name="ЭлементыСправочникаПредставлениеРасширеннаяПодсказка" id="39"/>
-				</InputField>
-			</ChildItems>
-		</Table>
-		<UsualGroup name="ГруппаДанныеИзФайла" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Загружаемые данные</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>NormalSeparation</Representation>
-			<ExtendedTooltip name="ГруппаДанныеИзФайлаРасширеннаяПодсказка" id="5"/>
-			<ChildItems>
-				<UsualGroup name="ОсновныеДанныеИзФайла" id="16">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Основные загружаемые данные</v8:content>
-						</v8:item>
-					</Title>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
+					<Width>50</Width>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ОсновныеДанныеИзФайлаРасширеннаяПодсказка" id="17"/>
+					<ExtendedTooltip name="ВариантыРасширеннаяПодсказка" id="96"/>
+					<ChildItems>
+						<RadioButtonField name="ВариантРазрешенияНеоднозначности" id="26">
+							<DataPath>ВариантРазрешенияНеоднозначности</DataPath>
+							<Visible>false</Visible>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вариант разрешения неоднозначности</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Выбрать элемент в соответствие с данными из файла </v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">0</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Создать новый элемент</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ВариантРазрешенияНеоднозначностиКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="ВариантРазрешенияНеоднозначностиРасширеннаяПодсказка" id="28"/>
+							<Events>
+								<Event name="OnChange">ВариантРазрешенияНеоднозначностиПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+						<Table name="ВариантыВыбора" id="40">
+							<Representation>Tree</Representation>
+							<HeightControlVariant>UseContentHeight</HeightControlVariant>
+							<SelectionMode>SingleRow</SelectionMode>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<Header>false</Header>
+							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ВариантыВыбора</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Варианты выбора</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>HierarchicalList</ExcludedCommand>
+								<ExcludedCommand>List</ExcludedCommand>
+								<ExcludedCommand>Tree</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>CommandBar</SearchStringLocation>
+							<ContextMenu name="ВариантыВыбораКонтекстноеМеню" id="41"/>
+							<AutoCommandBar name="ВариантыВыбораКоманднаяПанель" id="42">
+								<ChildItems>
+									<Button name="ВариантыВыбораНовыйЭлемент" id="58">
+										<Type>CommandBarButton</Type>
+										<Visible>false</Visible>
+										<CommandName>Form.Command.НовыйЭлемент</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Создать новый элемент</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ВариантыВыбораНовыйЭлементРасширеннаяПодсказка" id="59"/>
+									</Button>
+									<Button name="ВариантыВыбораОткрыть" id="60">
+										<Type>CommandBarButton</Type>
+										<Visible>false</Visible>
+										<CommandName>Form.Command.Открыть</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Открыть</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ВариантыВыбораОткрытьРасширеннаяПодсказка" id="61"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ВариантыВыбораРасширеннаяПодсказка" id="43"/>
+							<SearchStringAddition name="ВариантыВыбораСтрокаПоиска" id="65">
+								<AdditionSource>
+									<Item>ВариантыВыбора</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ВариантыВыбораСтрокаПоискаКонтекстноеМеню" id="66"/>
+								<ExtendedTooltip name="ВариантыВыбораСтрокаПоискаРасширеннаяПодсказка" id="67"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ВариантыВыбораСостояниеПросмотра" id="68">
+								<AdditionSource>
+									<Item>ВариантыВыбора</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ВариантыВыбораСостояниеПросмотраКонтекстноеМеню" id="69"/>
+								<ExtendedTooltip name="ВариантыВыбораСостояниеПросмотраРасширеннаяПодсказка" id="70"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ВариантыВыбораУправлениеПоиском" id="71">
+								<AdditionSource>
+									<Item>ВариантыВыбора</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ВариантыВыбораУправлениеПоискомКонтекстноеМеню" id="72"/>
+								<ExtendedTooltip name="ВариантыВыбораУправлениеПоискомРасширеннаяПодсказка" id="73"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ВариантыВыбораВыбор</Event>
+								<Event name="OnActivateRow">ВариантыВыбораПриАктивизацииСтроки</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="ВариантыВыбораПредставление" id="44">
+									<DataPath>ВариантыВыбора.Представление</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Представление</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ВариантыВыбораПредставлениеКонтекстноеМеню" id="45"/>
+									<ExtendedTooltip name="ВариантыВыбораПредставлениеРасширеннаяПодсказка" id="46"/>
+								</InputField>
+								<InputField name="ВариантыВыбораСсылка" id="50">
+									<DataPath>ВариантыВыбора.Ссылка</DataPath>
+									<Visible>false</Visible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Ссылка</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ВариантыВыбораСсылкаКонтекстноеМеню" id="51"/>
+									<ExtendedTooltip name="ВариантыВыбораСсылкаРасширеннаяПодсказка" id="52"/>
+								</InputField>
+								<InputField name="ВариантыВыбораЗначение" id="53">
+									<DataPath>ВариантыВыбора.Значение</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Значение</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ВариантыВыбораЗначениеКонтекстноеМеню" id="54"/>
+									<ExtendedTooltip name="ВариантыВыбораЗначениеРасширеннаяПодсказка" id="55"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<Table name="ЭлементыСправочника" id="6">
+							<Representation>List</Representation>
+							<Visible>false</Visible>
+							<ReadOnly>true</ReadOnly>
+							<HeightControlVariant>UseContentHeight</HeightControlVariant>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ЭлементыСправочника</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Элементы справочника</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>SelectAll</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ЭлементыСправочникаКонтекстноеМеню" id="7"/>
+							<AutoCommandBar name="ЭлементыСправочникаКоманднаяПанель" id="8">
+								<ChildItems>
+									<Button name="Выбрать" id="20">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Выбрать</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Выбрать</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="21"/>
+									</Button>
+									<Button name="ЭлементыСправочникаНовыйЭлемент" id="35">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.НовыйЭлемент</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Создать новый элемент</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ЭлементыСправочникаНовыйЭлементРасширеннаяПодсказка" id="36"/>
+									</Button>
+									<Button name="ЭлементыСправочникаНайти" id="22">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.ЭлементыСправочника.StandardCommand.Find</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="ЭлементыСправочникаНайтиРасширеннаяПодсказка" id="23"/>
+									</Button>
+									<Button name="ЭлементыСправочникаОтменитьПоиск" id="24">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.ЭлементыСправочника.StandardCommand.CancelSearch</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="ЭлементыСправочникаОтменитьПоискРасширеннаяПодсказка" id="25"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ЭлементыСправочникаРасширеннаяПодсказка" id="9"/>
+							<SearchStringAddition name="ЭлементыСправочникаСтрокаПоиска" id="74">
+								<AdditionSource>
+									<Item>ЭлементыСправочника</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ЭлементыСправочникаСтрокаПоискаКонтекстноеМеню" id="75"/>
+								<ExtendedTooltip name="ЭлементыСправочникаСтрокаПоискаРасширеннаяПодсказка" id="76"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ЭлементыСправочникаСостояниеПросмотра" id="77">
+								<AdditionSource>
+									<Item>ЭлементыСправочника</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ЭлементыСправочникаСостояниеПросмотраКонтекстноеМеню" id="78"/>
+								<ExtendedTooltip name="ЭлементыСправочникаСостояниеПросмотраРасширеннаяПодсказка" id="79"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ЭлементыСправочникаУправлениеПоиском" id="80">
+								<AdditionSource>
+									<Item>ЭлементыСправочника</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ЭлементыСправочникаУправлениеПоискомКонтекстноеМеню" id="81"/>
+								<ExtendedTooltip name="ЭлементыСправочникаУправлениеПоискомРасширеннаяПодсказка" id="82"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ЭлементыСправочникаВыбор</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="ЭлементыСправочникаПредставление" id="37">
+									<DataPath>ЭлементыСправочника.Представление</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Представление</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ЭлементыСправочникаПредставлениеКонтекстноеМеню" id="38"/>
+									<ExtendedTooltip name="ЭлементыСправочникаПредставлениеРасширеннаяПодсказка" id="39"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="ПрочиеДанныеИзФайла" id="18">
+				<UsualGroup name="ГруппаДанныеИзФайла" id="4">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Прочие загружаемые данные</v8:content>
+							<v8:content>Загружаемые данные</v8:content>
 						</v8:item>
 					</Title>
+					<Width>50</Width>
 					<Group>Vertical</Group>
-					<Behavior>Collapsible</Behavior>
-					<Collapsed>true</Collapsed>
-					<Representation>WeakSeparation</Representation>
-					<ExtendedTooltip name="ПрочиеДанныеИзФайлаРасширеннаяПодсказка" id="19"/>
+					<ExtendedTooltip name="ГруппаДанныеИзФайлаРасширеннаяПодсказка" id="5"/>
+					<ChildItems>
+						<UsualGroup name="ОсновныеДанныеИзФайла" id="16">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Основные загружаемые данные</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ОсновныеДанныеИзФайлаРасширеннаяПодсказка" id="17"/>
+						</UsualGroup>
+						<UsualGroup name="ПрочиеДанныеИзФайла" id="18">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Прочие загружаемые данные</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Collapsible</Behavior>
+							<Collapsed>true</Collapsed>
+							<Representation>WeakSeparation</Representation>
+							<ExtendedTooltip name="ПрочиеДанныеИзФайлаРасширеннаяПодсказка" id="19"/>
+						</UsualGroup>
+					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
@@ -546,6 +581,7 @@
 			</ToolTip>
 			<Action>Выбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="НовыйЭлемент" id="2">
 			<Title>

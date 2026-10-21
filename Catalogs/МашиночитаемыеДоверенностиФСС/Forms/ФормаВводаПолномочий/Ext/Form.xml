@@ -22,33 +22,6 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаКнопкаСохранитьРасширеннаяПодсказка" id="50"/>
 			</Button>
-			<Button name="ФормаКнопкаОтмена" id="51">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Отмена</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаКнопкаОтменаРасширеннаяПодсказка" id="52"/>
-			</Button>
-			<ButtonGroup name="ФормаГруппаОбновитьОтправку" id="119">
-				<ExtendedTooltip name="ФормаГруппаОбновитьОтправкуРасширеннаяПодсказка" id="120"/>
-				<ChildItems>
-					<Button name="ОбновитьОтправку" id="117">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Обновить</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Загрузить с сервера</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ОбновитьОтправкуРасширеннаяПодсказка" id="118"/>
-					</Button>
-				</ChildItems>
-			</ButtonGroup>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -80,6 +53,7 @@
 					<Representation>Tree</Representation>
 					<ChangeRowSet>false</ChangeRowSet>
 					<ChangeRowOrder>false</ChangeRowOrder>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Row</RowSelectionMode>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -109,28 +83,41 @@
 								<ChildItems>
 									<Button name="УстановитьФлажки" id="16">
 										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
 										<CommandName>Form.Command.УстановитьФлажки</CommandName>
 										<Title>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
-												<v8:content>Установить флажки</v8:content>
+												<v8:content>Выбрать все</v8:content>
 											</v8:item>
 										</Title>
 										<ExtendedTooltip name="УстановитьФлажкиРасширеннаяПодсказка" id="34"/>
 									</Button>
 									<Button name="СнятьФлажки" id="17">
 										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
 										<CommandName>Form.Command.СнятьФлажки</CommandName>
 										<Title>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
-												<v8:content>Снять флажки</v8:content>
+												<v8:content>Убрать все</v8:content>
 											</v8:item>
 										</Title>
 										<ExtendedTooltip name="СнятьФлажкиРасширеннаяПодсказка" id="35"/>
 									</Button>
 								</ChildItems>
 							</ButtonGroup>
+							<Button name="ОбновитьОтправку" id="117">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.Обновить</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Загрузить с сервера</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ОбновитьОтправкуРасширеннаяПодсказка" id="118"/>
+							</Button>
 						</ChildItems>
 					</AutoCommandBar>
 					<ExtendedTooltip name="ПолномочияРасширеннаяПодсказка" id="36"/>
@@ -166,6 +153,7 @@
 							<DataPath>Полномочия.Пометка</DataPath>
 							<TitleLocation>None</TitleLocation>
 							<EditMode>Directly</EditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
 							<ContextMenu name="ПолномочияПометкаКонтекстноеМеню" id="11"/>
 							<ExtendedTooltip name="ПолномочияПометкаРасширеннаяПодсказка" id="46"/>
 						</CheckBoxField>
@@ -388,6 +376,7 @@
 			</ToolTip>
 			<Action>Сохранить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Обновить" id="4">
 			<Title>

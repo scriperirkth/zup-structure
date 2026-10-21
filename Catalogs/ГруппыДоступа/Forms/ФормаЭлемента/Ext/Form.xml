@@ -1,19 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
-	<Group>Vertical</Group>
 	<CommandSet>
+		<ExcludedCommand>Write</ExcludedCommand>
 		<ExcludedCommand>WriteAndClose</ExcludedCommand>
 	</CommandSet>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="ФормаЗаписатьИЗакрыть" id="442">
 				<Type>CommandBarButton</Type>
-				<Representation>PictureAndText</Representation>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
+				<CommandName>Form.Command.ФормаЗаписатьИЗакрыть</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
@@ -23,32 +21,16 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="443"/>
 			</Button>
-			<ButtonGroup name="КомандыФормы" id="444">
+			<Button name="ФормаЗаписать" id="502">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ФормаЗаписать</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Команды формы</v8:content>
+						<v8:content>Записать</v8:content>
 					</v8:item>
 				</Title>
-				<CommandSource>Form</CommandSource>
-				<ExtendedTooltip name="КомандыФормыРасширеннаяПодсказка" id="445"/>
-			</ButtonGroup>
-			<Button name="ПоказыватьНеиспользуемыеВидыДоступа" id="334">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ПоказыватьНеиспользуемыеВидыДоступа</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Показывать неиспользуемые виды доступа</v8:content>
-					</v8:item>
-				</Title>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ПоказыватьНеиспользуемыеВидыДоступаРасширеннаяПодсказка" id="335"/>
-			</Button>
-			<Button name="ФормаСправка" id="446">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="447"/>
+				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="503"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -64,411 +46,409 @@
 		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<InputField name="Наименование" id="3">
-			<DataPath>Объект.Description</DataPath>
-			<Wrap>false</Wrap>
-			<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
-			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="336"/>
-		</InputField>
-		<InputField name="Родитель" id="286">
-			<DataPath>Объект.Parent</DataPath>
-			<ContextMenu name="РодительКонтекстноеМеню" id="287"/>
-			<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="337"/>
-		</InputField>
-		<UsualGroup name="ГруппаПрофильНазначение" id="438">
+		<Pages name="Страницы" id="11">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Профиль назначение</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПрофильНазначениеРасширеннаяПодсказка" id="439"/>
-			<ChildItems>
-				<InputField name="Профиль" id="7">
-					<DataPath>Объект.Профиль</DataPath>
-					<Wrap>false</Wrap>
-					<ContextMenu name="ПрофильКонтекстноеМеню" id="8"/>
-					<ExtendedTooltip name="ПрофильРасширеннаяПодсказка" id="338"/>
-					<Events>
-						<Event name="OnChange">ПрофильПриИзменении</Event>
-					</Events>
-				</InputField>
-			</ChildItems>
-		</UsualGroup>
-		<Pages name="ПользователиИДоступ" id="11">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Пользователи и доступ</v8:content>
+					<v8:content>Страницы</v8:content>
 				</v8:item>
 			</Title>
 			<PagesRepresentation>TabsOnTop</PagesRepresentation>
-			<ExtendedTooltip name="ПользователиИДоступРасширеннаяПодсказка" id="343"/>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="343"/>
 			<ChildItems>
-				<Page name="ПользователиГруппы" id="212">
+				<Page name="СтраницаГлавное" id="504">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Участники группы</v8:content>
+							<v8:content>Главное</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="ПользователиГруппыРасширеннаяПодсказка" id="344"/>
+					<Group>AutoScreenTypeSensitive</Group>
+					<ScrollOnCompress>true</ScrollOnCompress>
+					<ExtendedTooltip name="СтраницаГлавноеРасширеннаяПодсказка" id="505"/>
 					<ChildItems>
-						<Table name="Пользователи" id="298">
-							<Representation>List</Representation>
-							<TitleLocation>Auto</TitleLocation>
-							<RowSelectionMode>Cell</RowSelectionMode>
-							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-							<AutoInsertNewRow>true</AutoInsertNewRow>
-							<InitialTreeView>ExpandAllLevels</InitialTreeView>
-							<EnableStartDrag>true</EnableStartDrag>
-							<EnableDrag>true</EnableDrag>
-							<FileDragMode>AsFile</FileDragMode>
-							<DataPath>ПользователиГруппы</DataPath>
-							<RowPictureDataPath>ПользователиГруппы.НомерКартинки</RowPictureDataPath>
-							<RowsPicture>
-								<xr:Ref>CommonPicture.СостоянияПользователей</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
-							</RowsPicture>
+						<UsualGroup name="ЛеваяКолонка" id="506">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Участники</v8:content>
+									<v8:content>Левая колонка</v8:content>
 								</v8:item>
 							</Title>
-							<CommandSet>
-								<ExcludedCommand>Copy</ExcludedCommand>
-								<ExcludedCommand>HierarchicalList</ExcludedCommand>
-								<ExcludedCommand>List</ExcludedCommand>
-								<ExcludedCommand>Tree</ExcludedCommand>
-							</CommandSet>
-							<ToolTip>
+							<HorizontalStretch>false</HorizontalStretch>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ScrollOnCompress>true</ScrollOnCompress>
+							<ExtendedTooltip name="ЛеваяКолонкаРасширеннаяПодсказка" id="507"/>
+							<ChildItems>
+								<InputField name="Наименование" id="3">
+									<DataPath>Объект.Description</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<Wrap>false</Wrap>
+									<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+									<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="336"/>
+								</InputField>
+								<InputField name="Профиль" id="7">
+									<DataPath>Объект.Профиль</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<Wrap>false</Wrap>
+									<ContextMenu name="ПрофильКонтекстноеМеню" id="8"/>
+									<ExtendedTooltip name="ПрофильРасширеннаяПодсказка" id="338"/>
+									<Events>
+										<Event name="OnChange">ПрофильПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="Ответственный" id="314">
+									<DataPath>Объект.Ответственный</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ClearButton>true</ClearButton>
+									<ContextMenu name="ОтветственныйКонтекстноеМеню" id="315"/>
+									<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="361"/>
+								</InputField>
+								<InputField name="Родитель" id="286">
+									<DataPath>Объект.Parent</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="РодительКонтекстноеМеню" id="287"/>
+									<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="337"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ПраваяКолонка" id="212">
+							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Допустимые участники:</v8:content>
+									<v8:content>Правая колонка</v8:content>
 								</v8:item>
-							</ToolTip>
-							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-							<ContextMenu name="ПользователиКонтекстноеМеню" id="299">
-								<Autofill>false</Autofill>
-								<ChildItems>
-									<Button name="КонтекстноеМенюПользователиПодобрать" id="245">
-										<Type>CommandBarButton</Type>
-										<SkipOnInput>false</SkipOnInput>
-										<CommandName>Form.Command.Подобрать</CommandName>
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Подобрать</v8:content>
-											</v8:item>
-										</Title>
-										<ExtendedTooltip name="КонтекстноеМенюПользователиПодобратьРасширеннаяПодсказка" id="345"/>
-									</Button>
-									<ButtonGroup name="ПользователиКонтекстноеМенюСтандартныеКоманды" id="403">
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Пользователи контекстное меню стандартные команды</v8:content>
-											</v8:item>
-										</Title>
-										<CommandSource>Item.Пользователи</CommandSource>
-										<ExtendedTooltip name="ПользователиКонтекстноеМенюСтандартныеКомандыРасширеннаяПодсказка" id="404"/>
-									</ButtonGroup>
-								</ChildItems>
-							</ContextMenu>
-							<AutoCommandBar name="ПользователиКоманднаяПанель" id="300">
-								<Autofill>false</Autofill>
-								<ChildItems>
-									<Button name="ПользователиПодобрать" id="226">
-										<Type>CommandBarButton</Type>
-										<SkipOnInput>false</SkipOnInput>
-										<CommandName>Form.Command.Подобрать</CommandName>
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Подобрать</v8:content>
-											</v8:item>
-										</Title>
-										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-										<ExtendedTooltip name="ПользователиПодобратьРасширеннаяПодсказка" id="352"/>
-									</Button>
-									<Button name="ПользователиДобавить" id="409">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Item.Пользователи.StandardCommand.Add</CommandName>
-										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-										<ExtendedTooltip name="ПользователиДобавитьРасширеннаяПодсказка" id="410"/>
-									</Button>
-									<Button name="Удалить" id="440">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Item.Пользователи.StandardCommand.Delete</CommandName>
-										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-										<ExtendedTooltip name="УдалитьРасширеннаяПодсказка" id="441"/>
-									</Button>
-									<ButtonGroup name="ПользователиСтандартныеКоманды" id="405">
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Пользователи стандартные команды</v8:content>
-											</v8:item>
-										</Title>
-										<CommandSource>Item.Пользователи</CommandSource>
-										<ExtendedTooltip name="ПользователиСтандартныеКомандыРасширеннаяПодсказка" id="406"/>
-									</ButtonGroup>
-									<SearchStringAddition name="ПользователиСтрокаПоиск" id="451">
+							</Title>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ПраваяКолонкаРасширеннаяПодсказка" id="344"/>
+							<ChildItems>
+								<Table name="Пользователи" id="298">
+									<Representation>List</Representation>
+									<TitleLocation>Auto</TitleLocation>
+									<HeightInTableRows>6</HeightInTableRows>
+									<RowSelectionMode>Cell</RowSelectionMode>
+									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<InitialTreeView>ExpandAllLevels</InitialTreeView>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>ПользователиГруппы</DataPath>
+									<RowPictureDataPath>ПользователиГруппы.НомерКартинки</RowPictureDataPath>
+									<RowsPicture>
+										<xr:Ref>CommonPicture.СостоянияПользователей</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</RowsPicture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Участники</v8:content>
+										</v8:item>
+									</Title>
+									<CommandSet>
+										<ExcludedCommand>Copy</ExcludedCommand>
+										<ExcludedCommand>HierarchicalList</ExcludedCommand>
+										<ExcludedCommand>List</ExcludedCommand>
+										<ExcludedCommand>Tree</ExcludedCommand>
+									</CommandSet>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Допустимые участники:</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<SearchStringLocation>CommandBar</SearchStringLocation>
+									<ContextMenu name="ПользователиКонтекстноеМеню" id="299"/>
+									<AutoCommandBar name="ПользователиКоманднаяПанель" id="300">
+										<ChildItems>
+											<Button name="ПользователиПодобрать" id="226" DisplayImportance="VeryHigh">
+												<Type>CommandBarButton</Type>
+												<SkipOnInput>false</SkipOnInput>
+												<CommandName>Form.Command.ПользователиПодобрать</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Подобрать</v8:content>
+													</v8:item>
+												</Title>
+												<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+												<ExtendedTooltip name="ПользователиПодобратьРасширеннаяПодсказка" id="352"/>
+											</Button>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="ПользователиРасширеннаяПодсказка" id="359">
+										<AutoMaxWidth>false</AutoMaxWidth>
+									</ExtendedTooltip>
+									<SearchStringAddition name="ПользователиСтрокаПоиска" id="411">
 										<AdditionSource>
 											<Item>Пользователи</Item>
 											<Type>SearchStringRepresentation</Type>
 										</AdditionSource>
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Поиск</v8:content>
-											</v8:item>
-										</Title>
-										<ContextMenu name="ПользователиСтрокаПоискКонтекстноеМеню" id="452"/>
-										<ExtendedTooltip name="ПользователиСтрокаПоискРасширеннаяПодсказка" id="453"/>
+										<ContextMenu name="ПользователиСтрокаПоискаКонтекстноеМеню" id="412"/>
+										<ExtendedTooltip name="ПользователиСтрокаПоискаРасширеннаяПодсказка" id="413"/>
 									</SearchStringAddition>
-								</ChildItems>
-							</AutoCommandBar>
-							<ExtendedTooltip name="ПользователиРасширеннаяПодсказка" id="359"/>
-							<SearchStringAddition name="ПользователиСтрокаПоиска" id="411">
-								<AdditionSource>
-									<Item>Пользователи</Item>
-									<Type>SearchStringRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="ПользователиСтрокаПоискаКонтекстноеМеню" id="412"/>
-								<ExtendedTooltip name="ПользователиСтрокаПоискаРасширеннаяПодсказка" id="413"/>
-							</SearchStringAddition>
-							<ViewStatusAddition name="ПользователиСостояниеПросмотра" id="414">
-								<AdditionSource>
-									<Item>Пользователи</Item>
-									<Type>ViewStatusRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="ПользователиСостояниеПросмотраКонтекстноеМеню" id="415"/>
-								<ExtendedTooltip name="ПользователиСостояниеПросмотраРасширеннаяПодсказка" id="416"/>
-							</ViewStatusAddition>
-							<SearchControlAddition name="ПользователиУправлениеПоиском" id="417">
-								<AdditionSource>
-									<Item>Пользователи</Item>
-									<Type>SearchControl</Type>
-								</AdditionSource>
-								<ContextMenu name="ПользователиУправлениеПоискомКонтекстноеМеню" id="418"/>
-								<ExtendedTooltip name="ПользователиУправлениеПоискомРасширеннаяПодсказка" id="419"/>
-							</SearchControlAddition>
-							<Events>
-								<Event name="OnEditEnd">ПользователиПриОкончанииРедактирования</Event>
-								<Event name="BeforeAddRow">ПользователиПередНачаломДобавления</Event>
-								<Event name="BeforeDeleteRow">ПользователиПередУдалением</Event>
-								<Event name="ChoiceProcessing">ПользователиОбработкаВыбора</Event>
-								<Event name="BeforeRowChange">ПользователиПередНачаломИзменения</Event>
-								<Event name="OnStartEdit">ПользователиПриНачалеРедактирования</Event>
-								<Event name="AfterDeleteRow">ПользователиПослеУдаления</Event>
-								<Event name="OnChange">ПользователиПриИзменении</Event>
-							</Events>
-							<ChildItems>
-								<InputField name="Пользователь" id="301">
-									<DataPath>ПользователиГруппы.Пользователь</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Пользователь</v8:content>
-										</v8:item>
-									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<MaxWidth>40</MaxWidth>
-									<ContextMenu name="ПользовательКонтекстноеМеню" id="302"/>
-									<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="360"/>
+									<ViewStatusAddition name="ПользователиСостояниеПросмотра" id="414">
+										<AdditionSource>
+											<Item>Пользователи</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПользователиСостояниеПросмотраКонтекстноеМеню" id="415"/>
+										<ExtendedTooltip name="ПользователиСостояниеПросмотраРасширеннаяПодсказка" id="416"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ПользователиУправлениеПоиском" id="417">
+										<AdditionSource>
+											<Item>Пользователи</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ПользователиУправлениеПоискомКонтекстноеМеню" id="418"/>
+										<ExtendedTooltip name="ПользователиУправлениеПоискомРасширеннаяПодсказка" id="419"/>
+									</SearchControlAddition>
 									<Events>
-										<Event name="OnChange">ПользовательПриИзменении</Event>
-										<Event name="AutoComplete">ПользовательАвтоПодбор</Event>
-										<Event name="StartChoice">ПользовательНачалоВыбора</Event>
-										<Event name="Clearing">ПользовательОчистка</Event>
-										<Event name="TextEditEnd">ПользовательОкончаниеВводаТекста</Event>
+										<Event name="OnEditEnd">ПользователиПриОкончанииРедактирования</Event>
+										<Event name="BeforeAddRow">ПользователиПередНачаломДобавления</Event>
+										<Event name="BeforeDeleteRow">ПользователиПередУдалением</Event>
+										<Event name="ChoiceProcessing">ПользователиОбработкаВыбора</Event>
+										<Event name="BeforeRowChange">ПользователиПередНачаломИзменения</Event>
+										<Event name="OnStartEdit">ПользователиПриНачалеРедактирования</Event>
+										<Event name="AfterDeleteRow">ПользователиПослеУдаления</Event>
+										<Event name="OnChange">ПользователиПриИзменении</Event>
 									</Events>
-								</InputField>
-								<InputField name="СрокДействия" id="454">
-									<DataPath>ПользователиГруппы.СрокДействия</DataPath>
+									<ChildItems>
+										<InputField name="Пользователь" id="301">
+											<DataPath>ПользователиГруппы.Пользователь</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Пользователь</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ПользовательКонтекстноеМеню" id="302"/>
+											<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="360"/>
+											<Events>
+												<Event name="OnChange">ПользовательПриИзменении</Event>
+												<Event name="AutoComplete">ПользовательАвтоПодбор</Event>
+												<Event name="StartChoice">ПользовательНачалоВыбора</Event>
+												<Event name="Clearing">ПользовательОчистка</Event>
+												<Event name="TextEditEnd">ПользовательОкончаниеВводаТекста</Event>
+											</Events>
+										</InputField>
+										<InputField name="СрокДействия" id="454">
+											<DataPath>ПользователиГруппы.СрокДействия</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Участвует до</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Срок после которого участник будет удален из группы доступа</v8:content>
+												</v8:item>
+											</ToolTip>
+											<AutoWidthInTable>None</AutoWidthInTable>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="СрокДействияКонтекстноеМеню" id="455"/>
+											<ExtendedTooltip name="СрокДействияРасширеннаяПодсказка" id="456"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+								<UsualGroup name="СвойстваПерсональнойГруппы" id="292">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Участвует до</v8:content>
+											<v8:content>Свойства персональной группы</v8:content>
 										</v8:item>
 									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Срок после которого участник будет удален из группы доступа</v8:content>
-										</v8:item>
-									</ToolTip>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="СрокДействияКонтекстноеМеню" id="455"/>
-									<ExtendedTooltip name="СрокДействияРасширеннаяПодсказка" id="456"/>
-								</InputField>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="СвойстваПерсональнойГруппыРасширеннаяПодсказка" id="340"/>
+									<ChildItems>
+										<CheckBoxField name="ИспользованиеПерсональногоДоступа" id="296">
+											<DataPath>ИспользованиеПерсональногоДоступа</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Персональный доступ для:</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>Right</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<ContextMenu name="ИспользованиеПерсональногоДоступаКонтекстноеМеню" id="297"/>
+											<ExtendedTooltip name="ИспользованиеПерсональногоДоступаРасширеннаяПодсказка" id="342"/>
+										</CheckBoxField>
+										<InputField name="ПользовательВладелец" id="303">
+											<DataPath>Объект.Пользователь</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<ChoiceButton>false</ChoiceButton>
+											<ClearButton>true</ClearButton>
+											<OpenButton>true</OpenButton>
+											<ContextMenu name="ПользовательВладелецКонтекстноеМеню" id="304"/>
+											<ExtendedTooltip name="ПользовательВладелецРасширеннаяПодсказка" id="341"/>
+											<Events>
+												<Event name="StartChoice">ПользовательВладелецНачалоВыбора</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
 							</ChildItems>
-						</Table>
+						</UsualGroup>
 					</ChildItems>
 				</Page>
-				<Page name="Доступ" id="64">
+				<Page name="СтраницаОграниченияДоступа" id="64">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Ограничения доступа</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="ДоступРасширеннаяПодсказка" id="362"/>
+					<Group>AutoScreenTypeSensitive</Group>
+					<ScrollOnCompress>true</ScrollOnCompress>
+					<ExtendedTooltip name="СтраницаОграниченияДоступаРасширеннаяПодсказка" id="362"/>
 					<ChildItems>
-						<Table name="ВидыДоступа" id="169">
-							<Representation>List</Representation>
-							<SkipOnInput>false</SkipOnInput>
-							<ChangeRowSet>false</ChangeRowSet>
-							<ChangeRowOrder>false</ChangeRowOrder>
-							<HeightInTableRows>2</HeightInTableRows>
-							<SelectionMode>SingleRow</SelectionMode>
-							<RowSelectionMode>Row</RowSelectionMode>
-							<HorizontalLinesBWA>false</HorizontalLinesBWA>
-							<VerticalLinesBWA>false</VerticalLinesBWA>
-							<AutoInsertNewRow>true</AutoInsertNewRow>
-							<FileDragMode>AsFile</FileDragMode>
-							<DataPath>Объект.ВидыДоступа</DataPath>
+						<UsualGroup name="ГруппаВидыДоступа" id="500">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Ограничения доступа</v8:content>
+									<v8:content>Виды доступа</v8:content>
 								</v8:item>
 							</Title>
-							<CommandSet>
-								<ExcludedCommand>Add</ExcludedCommand>
-								<ExcludedCommand>CancelSearch</ExcludedCommand>
-								<ExcludedCommand>Copy</ExcludedCommand>
-								<ExcludedCommand>Delete</ExcludedCommand>
-								<ExcludedCommand>Find</ExcludedCommand>
-								<ExcludedCommand>MoveDown</ExcludedCommand>
-								<ExcludedCommand>MoveUp</ExcludedCommand>
-								<ExcludedCommand>SortListAsc</ExcludedCommand>
-								<ExcludedCommand>SortListDesc</ExcludedCommand>
-							</CommandSet>
-							<RowFilter xsi:nil="true"/>
-							<ContextMenu name="ВидыДоступаКонтекстноеМеню" id="170">
-								<Autofill>false</Autofill>
-								<ChildItems>
-									<Button name="ВидыДоступаКонтекстноеМенюИзменить" id="318">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Item.ВидыДоступа.StandardCommand.Change</CommandName>
-										<ExtendedTooltip name="ВидыДоступаКонтекстноеМенюИзменитьРасширеннаяПодсказка" id="363"/>
-									</Button>
-									<Button name="ВидыДоступаКонтекстноеМенюЗакончитьРедактирование" id="319">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Item.ВидыДоступа.StandardCommand.EndEdit</CommandName>
-										<ExtendedTooltip name="ВидыДоступаКонтекстноеМенюЗакончитьРедактированиеРасширеннаяПодсказка" id="364"/>
-									</Button>
-									<ButtonGroup name="ВидыДоступаГруппаКнопокКонтекстногоМеню" id="331">
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Виды доступа группа кнопок контекстного меню</v8:content>
-											</v8:item>
-										</Title>
-										<ExtendedTooltip name="ВидыДоступаГруппаКнопокКонтекстногоМенюРасширеннаяПодсказка" id="365"/>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаВидыДоступаРасширеннаяПодсказка" id="501"/>
+							<ChildItems>
+								<Table name="ВидыДоступа" id="169">
+									<Representation>List</Representation>
+									<ChangeRowSet>false</ChangeRowSet>
+									<ChangeRowOrder>false</ChangeRowOrder>
+									<HeightInTableRows>4</HeightInTableRows>
+									<SelectionMode>SingleRow</SelectionMode>
+									<RowSelectionMode>Row</RowSelectionMode>
+									<VerticalLinesBWA>false</VerticalLinesBWA>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<InitialRowActivation>Activate</InitialRowActivation>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Объект.ВидыДоступа</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Виды доступа</v8:content>
+										</v8:item>
+									</Title>
+									<CommandSet>
+										<ExcludedCommand>Add</ExcludedCommand>
+										<ExcludedCommand>CancelSearch</ExcludedCommand>
+										<ExcludedCommand>Copy</ExcludedCommand>
+										<ExcludedCommand>Delete</ExcludedCommand>
+										<ExcludedCommand>Find</ExcludedCommand>
+										<ExcludedCommand>MoveDown</ExcludedCommand>
+										<ExcludedCommand>MoveUp</ExcludedCommand>
+										<ExcludedCommand>SortListAsc</ExcludedCommand>
+										<ExcludedCommand>SortListDesc</ExcludedCommand>
+									</CommandSet>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ВидыДоступаКонтекстноеМеню" id="170">
+										<Autofill>false</Autofill>
+									</ContextMenu>
+									<AutoCommandBar name="ВидыДоступаКоманднаяПанель" id="171">
 										<ChildItems>
-											<Button name="ВидыДоступаКонтекстноеМенюКопироватьВБуферОбмена" id="327">
+											<Button name="ВидыДоступаПоказыватьНеиспользуемые" id="334">
 												<Type>CommandBarButton</Type>
-												<CommandName>Form.Item.ВидыДоступа.StandardCommand.CopyToClipboard</CommandName>
-												<ExtendedTooltip name="ВидыДоступаКонтекстноеМенюКопироватьВБуферОбменаРасширеннаяПодсказка" id="366"/>
-											</Button>
-											<Button name="ВидыДоступаКонтекстноеМенюВывестиСписок" id="326">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Item.ВидыДоступа.StandardCommand.OutputList</CommandName>
-												<ExtendedTooltip name="ВидыДоступаКонтекстноеМенюВывестиСписокРасширеннаяПодсказка" id="367"/>
+												<CommandName>Form.Command.ВидыДоступаПоказыватьНеиспользуемые</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Показывать неиспользуемые виды доступа</v8:content>
+													</v8:item>
+												</Title>
+												<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+												<ExtendedTooltip name="ВидыДоступаПоказыватьНеиспользуемыеРасширеннаяПодсказка" id="335"/>
 											</Button>
 										</ChildItems>
-									</ButtonGroup>
-								</ChildItems>
-							</ContextMenu>
-							<AutoCommandBar name="ВидыДоступаКоманднаяПанель" id="171">
-								<Autofill>false</Autofill>
-							</AutoCommandBar>
-							<ExtendedTooltip name="ВидыДоступаРасширеннаяПодсказка" id="370"/>
-							<SearchStringAddition name="ВидыДоступаСтрокаПоиска" id="420">
-								<AdditionSource>
-									<Item>ВидыДоступа</Item>
-									<Type>SearchStringRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="ВидыДоступаСтрокаПоискаКонтекстноеМеню" id="421"/>
-								<ExtendedTooltip name="ВидыДоступаСтрокаПоискаРасширеннаяПодсказка" id="422"/>
-							</SearchStringAddition>
-							<ViewStatusAddition name="ВидыДоступаСостояниеПросмотра" id="423">
-								<AdditionSource>
-									<Item>ВидыДоступа</Item>
-									<Type>ViewStatusRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="ВидыДоступаСостояниеПросмотраКонтекстноеМеню" id="424"/>
-								<ExtendedTooltip name="ВидыДоступаСостояниеПросмотраРасширеннаяПодсказка" id="425"/>
-							</ViewStatusAddition>
-							<SearchControlAddition name="ВидыДоступаУправлениеПоиском" id="426">
-								<AdditionSource>
-									<Item>ВидыДоступа</Item>
-									<Type>SearchControl</Type>
-								</AdditionSource>
-								<ContextMenu name="ВидыДоступаУправлениеПоискомКонтекстноеМеню" id="427"/>
-								<ExtendedTooltip name="ВидыДоступаУправлениеПоискомРасширеннаяПодсказка" id="428"/>
-							</SearchControlAddition>
-							<Events>
-								<Event name="OnEditEnd">ВидыДоступаПриОкончанииРедактирования</Event>
-								<Event name="Selection">ВидыДоступаВыбор</Event>
-								<Event name="OnActivateRow">ВидыДоступаПриАктивизацииСтроки</Event>
-								<Event name="OnStartEdit">ВидыДоступаПриНачалеРедактирования</Event>
-								<Event name="OnActivateCell">ВидыДоступаПриАктивизацииЯчейки</Event>
-							</Events>
-							<ChildItems>
-								<InputField name="ВидыДоступаВидДоступаПредставление" id="191">
-									<DataPath>Объект.ВидыДоступа.ВидДоступаПредставление</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Вид доступа изменяется только в профиле</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Width>20</Width>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<HorizontalStretch>false</HorizontalStretch>
-									<Wrap>false</Wrap>
-									<ListChoiceMode>true</ListChoiceMode>
-									<ContextMenu name="ВидыДоступаВидДоступаПредставлениеКонтекстноеМеню" id="192"/>
-									<ExtendedTooltip name="ВидыДоступаВидДоступаПредставлениеРасширеннаяПодсказка" id="371"/>
-								</InputField>
-								<InputField name="ВидыДоступаВсеРазрешеныПредставление" id="193">
-									<DataPath>Объект.ВидыДоступа.ВсеРазрешеныПредставление</DataPath>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Способ определения разрешенных значений доступа</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Width>30</Width>
-									<Wrap>false</Wrap>
-									<ChoiceButton>true</ChoiceButton>
-									<ListChoiceMode>true</ListChoiceMode>
-									<ContextMenu name="ВидыДоступаВсеРазрешеныПредставлениеКонтекстноеМеню" id="194"/>
-									<ExtendedTooltip name="ВидыДоступаВсеРазрешеныПредставлениеРасширеннаяПодсказка" id="372"/>
+									</AutoCommandBar>
+									<ExtendedTooltip name="ВидыДоступаРасширеннаяПодсказка" id="370"/>
+									<SearchStringAddition name="ВидыДоступаСтрокаПоиска" id="420">
+										<AdditionSource>
+											<Item>ВидыДоступа</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ВидыДоступаСтрокаПоискаКонтекстноеМеню" id="421"/>
+										<ExtendedTooltip name="ВидыДоступаСтрокаПоискаРасширеннаяПодсказка" id="422"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ВидыДоступаСостояниеПросмотра" id="423">
+										<AdditionSource>
+											<Item>ВидыДоступа</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ВидыДоступаСостояниеПросмотраКонтекстноеМеню" id="424"/>
+										<ExtendedTooltip name="ВидыДоступаСостояниеПросмотраРасширеннаяПодсказка" id="425"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ВидыДоступаУправлениеПоиском" id="426">
+										<AdditionSource>
+											<Item>ВидыДоступа</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ВидыДоступаУправлениеПоискомКонтекстноеМеню" id="427"/>
+										<ExtendedTooltip name="ВидыДоступаУправлениеПоискомРасширеннаяПодсказка" id="428"/>
+									</SearchControlAddition>
 									<Events>
-										<Event name="OnChange">ВидыДоступаВсеРазрешеныПредставлениеПриИзменении</Event>
-										<Event name="ChoiceProcessing">ВидыДоступаВсеРазрешеныПредставлениеОбработкаВыбора</Event>
+										<Event name="OnEditEnd">ВидыДоступаПриОкончанииРедактирования</Event>
+										<Event name="Selection">ВидыДоступаВыбор</Event>
+										<Event name="OnActivateRow">ВидыДоступаПриАктивизацииСтроки</Event>
+										<Event name="OnStartEdit">ВидыДоступаПриНачалеРедактирования</Event>
+										<Event name="OnActivateCell">ВидыДоступаПриАктивизацииЯчейки</Event>
 									</Events>
-								</InputField>
+									<ChildItems>
+										<InputField name="ВидыДоступаВидДоступаПредставление" id="191">
+											<DataPath>Объект.ВидыДоступа.ВидДоступаПредставление</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Вид доступа изменяется только в профиле</v8:content>
+												</v8:item>
+											</ToolTip>
+											<AutoWidthInTable>None</AutoWidthInTable>
+											<Wrap>false</Wrap>
+											<ListChoiceMode>true</ListChoiceMode>
+											<ContextMenu name="ВидыДоступаВидДоступаПредставлениеКонтекстноеМеню" id="192"/>
+											<ExtendedTooltip name="ВидыДоступаВидДоступаПредставлениеРасширеннаяПодсказка" id="371"/>
+										</InputField>
+										<InputField name="ВидыДоступаВсеРазрешеныПредставление" id="193">
+											<DataPath>Объект.ВидыДоступа.ВсеРазрешеныПредставление</DataPath>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Способ определения разрешенных значений доступа</v8:content>
+												</v8:item>
+											</ToolTip>
+											<AutoWidthInTable>None</AutoWidthInTable>
+											<Wrap>false</Wrap>
+											<ChoiceButton>true</ChoiceButton>
+											<ListChoiceMode>true</ListChoiceMode>
+											<ContextMenu name="ВидыДоступаВсеРазрешеныПредставлениеКонтекстноеМеню" id="194"/>
+											<ExtendedTooltip name="ВидыДоступаВсеРазрешеныПредставлениеРасширеннаяПодсказка" id="372"/>
+											<Events>
+												<Event name="OnChange">ВидыДоступаВсеРазрешеныПредставлениеПриИзменении</Event>
+												<Event name="ChoiceProcessing">ВидыДоступаВсеРазрешеныПредставлениеОбработкаВыбора</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</Table>
 							</ChildItems>
-						</Table>
+						</UsualGroup>
 						<UsualGroup name="ЗначенияДоступаПоВидуДоступа" id="268">
 							<Title>
 								<v8:item>
@@ -497,8 +477,7 @@
 								</LabelDecoration>
 								<Table name="ЗначенияДоступа" id="66">
 									<Representation>List</Representation>
-									<SkipOnInput>false</SkipOnInput>
-									<HeightInTableRows>2</HeightInTableRows>
+									<HeightInTableRows>4</HeightInTableRows>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
 									<EnableStartDrag>true</EnableStartDrag>
@@ -518,54 +497,19 @@
 									<RowFilter xsi:nil="true"/>
 									<ContextMenu name="ЗначенияДоступаКонтекстноеМеню" id="67"/>
 									<AutoCommandBar name="ЗначенияДоступаКоманднаяПанель" id="68">
-										<Autofill>false</Autofill>
 										<ChildItems>
-											<Button name="ЗначенияДоступаПодобратьЗначенияДоступа" id="457">
+											<Button name="ЗначенияДоступаПодобрать" id="457" DisplayImportance="VeryHigh">
 												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ПодобратьЗначенияДоступа</CommandName>
+												<CommandName>Form.Command.ЗначенияДоступаПодобрать</CommandName>
 												<Title>
 													<v8:item>
 														<v8:lang>ru</v8:lang>
 														<v8:content>Подобрать</v8:content>
 													</v8:item>
 												</Title>
-												<ExtendedTooltip name="ЗначенияДоступаПодобратьЗначенияДоступаРасширеннаяПодсказка" id="458"/>
-											</Button>
-											<Button name="ЗначенияДоступаДобавить" id="461">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Item.ЗначенияДоступа.StandardCommand.Add</CommandName>
-												<ExtendedTooltip name="ЗначенияДоступаДобавитьРасширеннаяПодсказка" id="462"/>
-											</Button>
-											<Button name="ЗначенияДоступаУдалить" id="466">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Item.ЗначенияДоступа.StandardCommand.Delete</CommandName>
 												<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-												<ExtendedTooltip name="ЗначенияДоступаУдалитьРасширеннаяПодсказка" id="467"/>
+												<ExtendedTooltip name="ЗначенияДоступаПодобратьРасширеннаяПодсказка" id="458"/>
 											</Button>
-											<ButtonGroup name="ЗначенияДоступаСтандартныеКоманды" id="459">
-												<Title>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Значения доступа стандартные команды</v8:content>
-													</v8:item>
-												</Title>
-												<CommandSource>Item.ЗначенияДоступа</CommandSource>
-												<ExtendedTooltip name="ЗначенияДоступаСтандартныеКомандыРасширеннаяПодсказка" id="460"/>
-											</ButtonGroup>
-											<SearchStringAddition name="ЗначенияДоступаПоиск" id="463">
-												<AdditionSource>
-													<Item>ЗначенияДоступа</Item>
-													<Type>SearchStringRepresentation</Type>
-												</AdditionSource>
-												<Title>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Поиск</v8:content>
-													</v8:item>
-												</Title>
-												<ContextMenu name="ЗначенияДоступаПоискКонтекстноеМеню" id="464"/>
-												<ExtendedTooltip name="ЗначенияДоступаПоискРасширеннаяПодсказка" id="465"/>
-											</SearchStringAddition>
 										</ChildItems>
 									</AutoCommandBar>
 									<ExtendedTooltip name="ЗначенияДоступаРасширеннаяПодсказка" id="392"/>
@@ -602,22 +546,22 @@
 									<ChildItems>
 										<LabelField name="ЗначенияДоступаНомерСтрокиПоВиду" id="308">
 											<DataPath>Объект.ЗначенияДоступа.НомерСтрокиПоВиду</DataPath>
+											<ReadOnly>true</ReadOnly>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
 													<v8:content>N</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<HeaderHorizontalAlign>Right</HeaderHorizontalAlign>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>3</Width>
 											<ContextMenu name="ЗначенияДоступаНомерСтрокиПоВидуКонтекстноеМеню" id="309"/>
 											<ExtendedTooltip name="ЗначенияДоступаНомерСтрокиПоВидуРасширеннаяПодсказка" id="393"/>
 										</LabelField>
 										<InputField name="ЗначенияДоступаЗначениеДоступа" id="312">
 											<DataPath>Объект.ЗначенияДоступа.ЗначениеДоступа</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<ChooseType>false</ChooseType>
 											<ContextMenu name="ЗначенияДоступаЗначениеДоступаКонтекстноеМеню" id="313"/>
 											<ExtendedTooltip name="ЗначенияДоступаЗначениеДоступаРасширеннаяПодсказка" id="394"/>
 											<Events>
@@ -636,12 +580,13 @@
 													<v8:content>Включая нижестоящие (с иерархией)</v8:content>
 												</v8:item>
 											</ToolTip>
-											<EditMode>EnterOnInput</EditMode>
+											<EditMode>Directly</EditMode>
 											<HeaderPicture>
 												<xr:Ref>CommonPicture.ИерархическийСписок</xr:Ref>
 												<xr:LoadTransparent>false</xr:LoadTransparent>
 											</HeaderPicture>
-											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
+											<CheckBoxType>CheckBox</CheckBoxType>
 											<ContextMenu name="ЗначенияДоступаВключаяНижестоящиеКонтекстноеМеню" id="449"/>
 											<ExtendedTooltip name="ЗначенияДоступаВключаяНижестоящиеРасширеннаяПодсказка" id="450"/>
 										</CheckBoxField>
@@ -651,20 +596,21 @@
 						</UsualGroup>
 					</ChildItems>
 				</Page>
-				<Page name="СтраницаКомментарий" id="407">
+				<Page name="СтраницаКомментарий" id="511">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Комментарий</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаКомментарийРасширеннаяПодсказка" id="408"/>
+					<ScrollOnCompress>true</ScrollOnCompress>
+					<ExtendedTooltip name="СтраницаКомментарийРасширеннаяПодсказка" id="512"/>
 					<ChildItems>
 						<InputField name="Комментарий" id="219">
 							<DataPath>Объект.Комментарий</DataPath>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MultiLine>true</MultiLine>
 							<ExtendedEdit>true</ExtendedEdit>
@@ -678,51 +624,6 @@
 				</Page>
 			</ChildItems>
 		</Pages>
-		<UsualGroup name="СвойстваПерсональнойГруппы" id="292">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Свойства персональной группы</v8:content>
-				</v8:item>
-			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="СвойстваПерсональнойГруппыРасширеннаяПодсказка" id="340"/>
-			<ChildItems>
-				<CheckBoxField name="ИспользованиеПерсональногоДоступа" id="296">
-					<DataPath>ИспользованиеПерсональногоДоступа</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Персональный доступ для:</v8:content>
-						</v8:item>
-					</Title>
-					<TitleLocation>Right</TitleLocation>
-					<ContextMenu name="ИспользованиеПерсональногоДоступаКонтекстноеМеню" id="297"/>
-					<ExtendedTooltip name="ИспользованиеПерсональногоДоступаРасширеннаяПодсказка" id="342"/>
-				</CheckBoxField>
-				<InputField name="ПользовательВладелец" id="303">
-					<DataPath>Объект.Пользователь</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<ChoiceButton>false</ChoiceButton>
-					<ClearButton>true</ClearButton>
-					<OpenButton>true</OpenButton>
-					<ContextMenu name="ПользовательВладелецКонтекстноеМеню" id="304"/>
-					<ExtendedTooltip name="ПользовательВладелецРасширеннаяПодсказка" id="341"/>
-					<Events>
-						<Event name="StartChoice">ПользовательВладелецНачалоВыбора</Event>
-					</Events>
-				</InputField>
-			</ChildItems>
-		</UsualGroup>
-		<InputField name="Ответственный" id="314">
-			<DataPath>Объект.Ответственный</DataPath>
-			<ClearButton>true</ClearButton>
-			<ContextMenu name="ОтветственныйКонтекстноеМеню" id="315"/>
-			<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="361"/>
-		</InputField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -988,7 +889,7 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Подобрать" id="1">
+		<Command name="ПользователиПодобрать" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1001,12 +902,13 @@
 					<v8:content>Подобрать участников группы доступа</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>Подобрать</Action>
-			<Representation>Picture</Representation>
+			<Action>ПользователиПодобрать</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Пользователи</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
-		<Command name="ПоказыватьНеиспользуемыеВидыДоступа" id="2">
+		<Command name="ВидыДоступаПоказыватьНеиспользуемые" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1019,10 +921,12 @@
 					<v8:content>Показывать неиспользуемые виды доступа</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ПоказыватьНеиспользуемыеВидыДоступа</Action>
+			<Action>ВидыДоступаПоказыватьНеиспользуемые</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ВидыДоступа</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
-		<Command name="ЗаписатьИЗакрыть" id="3">
+		<Command name="ФормаЗаписатьИЗакрыть" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1036,9 +940,9 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаписатьИЗакрыть</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
-		<Command name="ПодобратьЗначенияДоступа" id="4">
+		<Command name="ЗначенияДоступаПодобрать" id="4">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1051,7 +955,28 @@
 					<v8:content>Подобрать</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ПодобратьЗначенияДоступа</Action>
+			<Action>ЗначенияДоступаПодобрать</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ЗначенияДоступа</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
+		</Command>
+		<Command name="ФормаЗаписать" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать объект</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Ctrl+S</Shortcut>
+			<Action>ФормаЗаписать</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

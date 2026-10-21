@@ -11,8 +11,29 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<VerticalSpacing>Double</VerticalSpacing>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Открыть" id="39">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ОткрытьВсе</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ОткрытьРасширеннаяПодсказка" id="40"/>
+			</Button>
+			<Button name="ПодтвердитьПрием" id="60">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПодтвердитьПрием</CommandName>
+				<ExtendedTooltip name="ПодтвердитьПриемРасширеннаяПодсказка" id="61"/>
+			</Button>
+			<Button name="НеПоказывать" id="43">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.НеПоказывать</CommandName>
+				<ExtendedTooltip name="НеПоказыватьРасширеннаяПодсказка" id="44"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -42,7 +63,7 @@
 					</Title>
 					<GroupVerticalAlign>Center</GroupVerticalAlign>
 					<Picture>
-						<xr:Ref>CommonPicture.КрасныйВосклицательныйЗнак32</xr:Ref>
+						<xr:Ref>CommonPicture.ВниманиеКрасноБелое</xr:Ref>
 						<xr:LoadTransparent>true</xr:LoadTransparent>
 					</Picture>
 					<ContextMenu name="КартинкаКонтекстноеМеню" id="4"/>
@@ -69,6 +90,7 @@
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
 			<Height>14</Height>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Row</RowSelectionMode>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
@@ -206,25 +228,6 @@
 			</Title>
 			<HorizontalLocation>Right</HorizontalLocation>
 			<ExtendedTooltip name="ГруппаКнопкиРасширеннаяПодсказка" id="38"/>
-			<ChildItems>
-				<Button name="Открыть" id="39">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.ОткрытьВсе</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ОткрытьРасширеннаяПодсказка" id="40"/>
-				</Button>
-				<Button name="ПодтвердитьПрием" id="60">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.ПодтвердитьПрием</CommandName>
-					<ExtendedTooltip name="ПодтвердитьПриемРасширеннаяПодсказка" id="61"/>
-				</Button>
-				<Button name="НеПоказывать" id="43">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.НеПоказывать</CommandName>
-					<ExtendedTooltip name="НеПоказыватьРасширеннаяПодсказка" id="44"/>
-				</Button>
-			</ChildItems>
 		</CommandBar>
 	</ChildItems>
 	<Attributes>
@@ -436,7 +439,7 @@
 				<dcsset:appearance>
 					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 						<dcscor:parameter>Шрифт</dcscor:parameter>
-						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+						<dcscor:value xsi:type="v8ui:Font" ref="style:TitleLevel4" kind="StyleItem"/>
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>
@@ -457,6 +460,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ОткрытьВсе</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="НеПоказывать" id="3">
 			<Title>
@@ -472,6 +476,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>НеПоказывать</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПодтвердитьПрием" id="2">
 			<Title>
@@ -487,6 +492,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПодтвердитьПрием</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

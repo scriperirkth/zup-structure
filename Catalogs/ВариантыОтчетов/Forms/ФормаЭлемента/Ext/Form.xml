@@ -94,39 +94,86 @@
 		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<InputField name="Наименование" id="1">
-			<DataPath>Объект.Description</DataPath>
-			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
-			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="161"/>
-		</InputField>
-		<InputField name="Описание" id="3">
-			<DataPath>Объект.Описание</DataPath>
-			<TitleLocation>Left</TitleLocation>
-			<Height>2</Height>
-			<HorizontalStretch>true</HorizontalStretch>
-			<VerticalStretch>false</VerticalStretch>
-			<MultiLine>true</MultiLine>
-			<ChoiceButton>true</ChoiceButton>
-			<ClearButton>false</ClearButton>
-			<SpinButton>false</SpinButton>
-			<OpenButton>false</OpenButton>
-			<ChoiceListButton>false</ChoiceListButton>
-			<ContextMenu name="ОписаниеКонтекстноеМеню" id="4"/>
-			<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="162"/>
-			<Events>
-				<Event name="StartChoice">ОписаниеНачалоВыбора</Event>
-			</Events>
-		</InputField>
-		<InputField name="Автор" id="115">
-			<DataPath>Объект.Автор</DataPath>
-			<ContextMenu name="АвторКонтекстноеМеню" id="116"/>
-			<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="167"/>
-		</InputField>
-		<InputField name="Назначение" id="315">
-			<DataPath>Объект.Назначение</DataPath>
-			<ContextMenu name="НазначениеКонтекстноеМеню" id="316"/>
-			<ExtendedTooltip name="НазначениеРасширеннаяПодсказка" id="317"/>
-		</InputField>
+		<UsualGroup name="Основное" id="352">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основное</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>false</HorizontalStretch>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ОсновноеРасширеннаяПодсказка" id="353"/>
+			<ChildItems>
+				<InputField name="Наименование" id="1">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="161"/>
+				</InputField>
+				<UsualGroup name="Колонки" id="378">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Колонки</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AutoScreenTypeSensitive</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="КолонкиРасширеннаяПодсказка" id="379"/>
+					<ChildItems>
+						<UsualGroup name="ПерваяКолонка" id="354">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Первая колонка</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ПерваяКолонкаРасширеннаяПодсказка" id="355"/>
+							<ChildItems>
+								<InputField name="Назначение" id="315">
+									<DataPath>Объект.Назначение</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="НазначениеКонтекстноеМеню" id="316"/>
+									<ExtendedTooltip name="НазначениеРасширеннаяПодсказка" id="317"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ВтораяКолонка" id="356">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вторая колонка</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ВтораяКолонкаРасширеннаяПодсказка" id="357"/>
+							<ChildItems>
+								<InputField name="Автор" id="115">
+									<DataPath>Объект.Автор</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="АвторКонтекстноеМеню" id="116"/>
+									<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="167"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
 		<Pages name="Страницы" id="269">
 			<Title>
 				<v8:item>
@@ -169,8 +216,9 @@
 											<v8:content>Доступен</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Left</TitleLocation>
-									<RadioButtonType>Auto</RadioButtonType>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<RadioButtonType>Tumbler</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
 											<xr:Presentation/>
@@ -210,8 +258,10 @@
 						<Table name="ПользователиВарианта" id="275">
 							<Representation>List</Representation>
 							<TitleLocation>Top</TitleLocation>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Row</RowSelectionMode>
 							<Header>false</Header>
+							<VerticalScrollBar>DontUse</VerticalScrollBar>
 							<HorizontalLinesBWA>false</HorizontalLinesBWA>
 							<VerticalLinesBWA>false</VerticalLinesBWA>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -375,6 +425,8 @@
 									<v8:content>Выбранным пользователям в чат будет выведено уведомление о том, что этот вариант отобразится на их панели отчетов.</v8:content>
 								</v8:item>
 							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="УведомитьПользователейКонтекстноеМеню" id="305"/>
 							<ExtendedTooltip name="УведомитьПользователейРасширеннаяПодсказка" id="306"/>
 						</CheckBoxField>
@@ -394,6 +446,7 @@
 						<Table name="ДеревоПодсистем" id="80">
 							<Representation>Tree</Representation>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<InitialTreeView>ExpandAllLevels</InitialTreeView>
@@ -480,6 +533,7 @@
 											<HorizontalAlign>Left</HorizontalAlign>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<CheckBoxType>CheckBox</CheckBoxType>
 											<ContextMenu name="ДеревоПодсистемИспользованиеКонтекстноеМеню" id="105"/>
 											<ExtendedTooltip name="ДеревоПодсистемИспользованиеРасширеннаяПодсказка" id="171"/>
 											<Events>
@@ -528,258 +582,325 @@
 						</Table>
 					</ChildItems>
 				</Page>
+				<Page name="Дополнительно" id="376">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ДополнительноРасширеннаяПодсказка" id="377"/>
+					<ChildItems>
+						<InputField name="Описание" id="3">
+							<DataPath>Объект.Описание</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MultiLine>true</MultiLine>
+							<ChoiceButton>true</ChoiceButton>
+							<ClearButton>false</ClearButton>
+							<SpinButton>false</SpinButton>
+							<OpenButton>false</OpenButton>
+							<ChoiceListButton>false</ChoiceListButton>
+							<ContextMenu name="ОписаниеКонтекстноеМеню" id="4"/>
+							<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="162"/>
+							<Events>
+								<Event name="StartChoice">ОписаниеНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="ТехническаяИнформация" id="135">
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ReadOnly>true</ReadOnly>
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Техническая информация</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<ExtendedTooltip name="ТехническаяИнформацияРасширеннаяПодсказка" id="174"/>
+					<ChildItems>
+						<UsualGroup name="ОтчетКлючВарианта" id="358">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отчет ключ варианта</v8:content>
+								</v8:item>
+							</Title>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ОтчетКлючВариантаРасширеннаяПодсказка" id="359"/>
+							<ChildItems>
+								<InputField name="Отчет" id="136">
+									<DataPath>Объект.Отчет</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<OpenButton>true</OpenButton>
+									<ContextMenu name="ОтчетКонтекстноеМеню" id="137"/>
+									<ExtendedTooltip name="ОтчетРасширеннаяПодсказка" id="175"/>
+								</InputField>
+								<InputField name="КлючВарианта" id="192">
+									<DataPath>Объект.КлючВарианта</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="КлючВариантаКонтекстноеМеню" id="193"/>
+									<ExtendedTooltip name="КлючВариантаРасширеннаяПодсказка" id="194"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ВариантРодитель" id="380">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вариант родитель</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AutoScreenTypeSensitive</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ВариантРодительРасширеннаяПодсказка" id="381"/>
+							<ChildItems>
+								<InputField name="ПредопределенныйВариант" id="120">
+									<DataPath>Объект.ПредопределенныйВариант</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ПредопределенныйВариантКонтекстноеМеню" id="121"/>
+									<ExtendedTooltip name="ПредопределенныйВариантРасширеннаяПодсказка" id="176"/>
+								</InputField>
+								<InputField name="Родитель" id="224">
+									<DataPath>Объект.Parent</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="РодительКонтекстноеМеню" id="225"/>
+									<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="226"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<Table name="Размещение" id="122">
+							<Visible>false</Visible>
+							<ReadOnly>true</ReadOnly>
+							<SelectionMode>SingleRow</SelectionMode>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.Размещение</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Данные по размещению (без учета настроек предопределенного варианта)</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>CancelSearch</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>Find</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>OutputList</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="РазмещениеКонтекстноеМеню" id="123"/>
+							<AutoCommandBar name="РазмещениеКоманднаяПанель" id="124"/>
+							<ExtendedTooltip name="РазмещениеРасширеннаяПодсказка" id="177"/>
+							<SearchStringAddition name="РазмещениеSearchString" id="215">
+								<AdditionSource>
+									<Item>Размещение</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РазмещениеSearchStringContextMenu" id="216"/>
+								<ExtendedTooltip name="РазмещениеSearchStringExtendedTooltip" id="217"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РазмещениеViewStatus" id="218">
+								<AdditionSource>
+									<Item>Размещение</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РазмещениеViewStatusContextMenu" id="219"/>
+								<ExtendedTooltip name="РазмещениеViewStatusExtendedTooltip" id="220"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РазмещениеSearchControl" id="221">
+								<AdditionSource>
+									<Item>Размещение</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РазмещениеSearchControlContextMenu" id="222"/>
+								<ExtendedTooltip name="РазмещениеSearchControlExtendedTooltip" id="223"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<CheckBoxField name="РазмещениеИспользование" id="127">
+									<DataPath>Объект.Размещение.Использование</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="РазмещениеИспользованиеКонтекстноеМеню" id="128"/>
+									<ExtendedTooltip name="РазмещениеИспользованиеРасширеннаяПодсказка" id="178"/>
+								</CheckBoxField>
+								<InputField name="РазмещениеПодсистема" id="129">
+									<DataPath>Объект.Размещение.Подсистема</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="РазмещениеПодсистемаКонтекстноеМеню" id="130"/>
+									<ExtendedTooltip name="РазмещениеПодсистемаРасширеннаяПодсказка" id="179"/>
+								</InputField>
+								<CheckBoxField name="РазмещениеВажный" id="131">
+									<DataPath>Объект.Размещение.Важный</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="РазмещениеВажныйКонтекстноеМеню" id="132"/>
+									<ExtendedTooltip name="РазмещениеВажныйРасширеннаяПодсказка" id="180"/>
+								</CheckBoxField>
+								<CheckBoxField name="РазмещениеСмТакже" id="133">
+									<DataPath>Объект.Размещение.СмТакже</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="РазмещениеСмТакжеКонтекстноеМеню" id="134"/>
+									<ExtendedTooltip name="РазмещениеСмТакжеРасширеннаяПодсказка" id="181"/>
+								</CheckBoxField>
+							</ChildItems>
+						</Table>
+						<UsualGroup name="НаименованияПолейИПараметров" id="190">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименования полей и параметров</v8:content>
+								</v8:item>
+							</Title>
+							<Group>HorizontalIfPossible</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="НаименованияПолейИПараметровРасширеннаяПодсказка" id="191"/>
+							<ChildItems>
+								<InputField name="НаименованияПолей" id="182">
+									<DataPath>Объект.НаименованияПолей</DataPath>
+									<TitleLocation>Top</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<Height>3</Height>
+									<MultiLine>true</MultiLine>
+									<ContextMenu name="НаименованияПолейКонтекстноеМеню" id="183"/>
+									<ExtendedTooltip name="НаименованияПолейРасширеннаяПодсказка" id="184"/>
+								</InputField>
+								<InputField name="НаименованияПараметровИОтборов" id="185">
+									<DataPath>Объект.НаименованияПараметровИОтборов</DataPath>
+									<TitleLocation>Top</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<Height>3</Height>
+									<MultiLine>true</MultiLine>
+									<ContextMenu name="НаименованияПараметровИОтборовКонтекстноеМеню" id="186"/>
+									<ExtendedTooltip name="НаименованияПараметровИОтборовРасширеннаяПодсказка" id="187"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<CheckBoxField name="ИнтерактивнаяПометкаУдаления" id="241">
+							<DataPath>Объект.ИнтерактивнаяПометкаУдаления</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
+							<ContextMenu name="ИнтерактивнаяПометкаУдаленияКонтекстноеМеню" id="242"/>
+							<ExtendedTooltip name="ИнтерактивнаяПометкаУдаленияРасширеннаяПодсказка" id="243"/>
+						</CheckBoxField>
+						<Table name="Представления" id="244">
+							<ReadOnly>true</ReadOnly>
+							<HeightInTableRows>3</HeightInTableRows>
+							<SelectionMode>SingleRow</SelectionMode>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.Представления</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Представления</v8:content>
+								</v8:item>
+							</Title>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПредставленияКонтекстноеМеню" id="245"/>
+							<AutoCommandBar name="ПредставленияКоманднаяПанель" id="246"/>
+							<ExtendedTooltip name="ПредставленияРасширеннаяПодсказка" id="247"/>
+							<SearchStringAddition name="ПредставленияСтрокаПоиска" id="248">
+								<AdditionSource>
+									<Item>Представления</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПредставленияСтрокаПоискаКонтекстноеМеню" id="249"/>
+								<ExtendedTooltip name="ПредставленияСтрокаПоискаРасширеннаяПодсказка" id="250"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПредставленияСостояниеПросмотра" id="251">
+								<AdditionSource>
+									<Item>Представления</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПредставленияСостояниеПросмотраКонтекстноеМеню" id="252"/>
+								<ExtendedTooltip name="ПредставленияСостояниеПросмотраРасширеннаяПодсказка" id="253"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПредставленияУправлениеПоиском" id="254">
+								<AdditionSource>
+									<Item>Представления</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПредставленияУправлениеПоискомКонтекстноеМеню" id="255"/>
+								<ExtendedTooltip name="ПредставленияУправлениеПоискомРасширеннаяПодсказка" id="256"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ПредставленияНомерСтроки" id="257">
+									<DataPath>Объект.Представления.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ПредставленияНомерСтрокиКонтекстноеМеню" id="258"/>
+									<ExtendedTooltip name="ПредставленияНомерСтрокиРасширеннаяПодсказка" id="259"/>
+								</LabelField>
+								<InputField name="ПредставленияКодЯзыка" id="260">
+									<DataPath>Объект.Представления.КодЯзыка</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ПредставленияКодЯзыкаКонтекстноеМеню" id="261"/>
+									<ExtendedTooltip name="ПредставленияКодЯзыкаРасширеннаяПодсказка" id="262"/>
+								</InputField>
+								<InputField name="ПредставленияНаименование" id="263">
+									<DataPath>Объект.Представления.Наименование</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ПредставленияНаименованиеКонтекстноеМеню" id="264"/>
+									<ExtendedTooltip name="ПредставленияНаименованиеРасширеннаяПодсказка" id="265"/>
+								</InputField>
+								<InputField name="ПредставленияОписание" id="266">
+									<DataPath>Объект.Представления.Описание</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ПредставленияОписаниеКонтекстноеМеню" id="267"/>
+									<ExtendedTooltip name="ПредставленияОписаниеРасширеннаяПодсказка" id="268"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
 			</ChildItems>
 		</Pages>
-		<InputField name="Родитель" id="224">
-			<DataPath>Объект.Parent</DataPath>
-			<UserVisible>
-				<xr:Common>false</xr:Common>
-			</UserVisible>
-			<ReadOnly>true</ReadOnly>
-			<ContextMenu name="РодительКонтекстноеМеню" id="225"/>
-			<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="226"/>
-		</InputField>
-		<UsualGroup name="ТехническаяИнформация" id="135">
-			<UserVisible>
-				<xr:Common>false</xr:Common>
-			</UserVisible>
-			<ReadOnly>true</ReadOnly>
-			<EnableContentChange>true</EnableContentChange>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Техническая информация</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Vertical</Group>
-			<Behavior>Collapsible</Behavior>
-			<Collapsed>true</Collapsed>
-			<ControlRepresentation>Button</ControlRepresentation>
-			<Representation>NormalSeparation</Representation>
-			<ExtendedTooltip name="ТехническаяИнформацияРасширеннаяПодсказка" id="174"/>
-			<ChildItems>
-				<InputField name="Отчет" id="136">
-					<DataPath>Объект.Отчет</DataPath>
-					<OpenButton>true</OpenButton>
-					<ContextMenu name="ОтчетКонтекстноеМеню" id="137"/>
-					<ExtendedTooltip name="ОтчетРасширеннаяПодсказка" id="175"/>
-				</InputField>
-				<InputField name="КлючВарианта" id="192">
-					<DataPath>Объект.КлючВарианта</DataPath>
-					<ContextMenu name="КлючВариантаКонтекстноеМеню" id="193"/>
-					<ExtendedTooltip name="КлючВариантаРасширеннаяПодсказка" id="194"/>
-				</InputField>
-				<InputField name="ПредопределенныйВариант" id="120">
-					<DataPath>Объект.ПредопределенныйВариант</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<ContextMenu name="ПредопределенныйВариантКонтекстноеМеню" id="121"/>
-					<ExtendedTooltip name="ПредопределенныйВариантРасширеннаяПодсказка" id="176"/>
-				</InputField>
-				<Table name="Размещение" id="122">
-					<Visible>false</Visible>
-					<ReadOnly>true</ReadOnly>
-					<RowSelectionMode>Cell</RowSelectionMode>
-					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-					<AutoInsertNewRow>true</AutoInsertNewRow>
-					<EnableStartDrag>true</EnableStartDrag>
-					<EnableDrag>true</EnableDrag>
-					<FileDragMode>AsFile</FileDragMode>
-					<DataPath>Объект.Размещение</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Данные по размещению (без учета настроек предопределенного варианта)</v8:content>
-						</v8:item>
-					</Title>
-					<CommandSet>
-						<ExcludedCommand>Add</ExcludedCommand>
-						<ExcludedCommand>CancelSearch</ExcludedCommand>
-						<ExcludedCommand>Change</ExcludedCommand>
-						<ExcludedCommand>Copy</ExcludedCommand>
-						<ExcludedCommand>CopyToClipboard</ExcludedCommand>
-						<ExcludedCommand>Delete</ExcludedCommand>
-						<ExcludedCommand>EndEdit</ExcludedCommand>
-						<ExcludedCommand>Find</ExcludedCommand>
-						<ExcludedCommand>MoveDown</ExcludedCommand>
-						<ExcludedCommand>MoveUp</ExcludedCommand>
-						<ExcludedCommand>OutputList</ExcludedCommand>
-						<ExcludedCommand>SelectAll</ExcludedCommand>
-						<ExcludedCommand>SortListAsc</ExcludedCommand>
-						<ExcludedCommand>SortListDesc</ExcludedCommand>
-					</CommandSet>
-					<RowFilter xsi:nil="true"/>
-					<ContextMenu name="РазмещениеКонтекстноеМеню" id="123"/>
-					<AutoCommandBar name="РазмещениеКоманднаяПанель" id="124"/>
-					<ExtendedTooltip name="РазмещениеРасширеннаяПодсказка" id="177"/>
-					<SearchStringAddition name="РазмещениеSearchString" id="215">
-						<AdditionSource>
-							<Item>Размещение</Item>
-							<Type>SearchStringRepresentation</Type>
-						</AdditionSource>
-						<ContextMenu name="РазмещениеSearchStringContextMenu" id="216"/>
-						<ExtendedTooltip name="РазмещениеSearchStringExtendedTooltip" id="217"/>
-					</SearchStringAddition>
-					<ViewStatusAddition name="РазмещениеViewStatus" id="218">
-						<AdditionSource>
-							<Item>Размещение</Item>
-							<Type>ViewStatusRepresentation</Type>
-						</AdditionSource>
-						<ContextMenu name="РазмещениеViewStatusContextMenu" id="219"/>
-						<ExtendedTooltip name="РазмещениеViewStatusExtendedTooltip" id="220"/>
-					</ViewStatusAddition>
-					<SearchControlAddition name="РазмещениеSearchControl" id="221">
-						<AdditionSource>
-							<Item>Размещение</Item>
-							<Type>SearchControl</Type>
-						</AdditionSource>
-						<ContextMenu name="РазмещениеSearchControlContextMenu" id="222"/>
-						<ExtendedTooltip name="РазмещениеSearchControlExtendedTooltip" id="223"/>
-					</SearchControlAddition>
-					<ChildItems>
-						<CheckBoxField name="РазмещениеИспользование" id="127">
-							<DataPath>Объект.Размещение.Использование</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="РазмещениеИспользованиеКонтекстноеМеню" id="128"/>
-							<ExtendedTooltip name="РазмещениеИспользованиеРасширеннаяПодсказка" id="178"/>
-						</CheckBoxField>
-						<InputField name="РазмещениеПодсистема" id="129">
-							<DataPath>Объект.Размещение.Подсистема</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="РазмещениеПодсистемаКонтекстноеМеню" id="130"/>
-							<ExtendedTooltip name="РазмещениеПодсистемаРасширеннаяПодсказка" id="179"/>
-						</InputField>
-						<CheckBoxField name="РазмещениеВажный" id="131">
-							<DataPath>Объект.Размещение.Важный</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="РазмещениеВажныйКонтекстноеМеню" id="132"/>
-							<ExtendedTooltip name="РазмещениеВажныйРасширеннаяПодсказка" id="180"/>
-						</CheckBoxField>
-						<CheckBoxField name="РазмещениеСмТакже" id="133">
-							<DataPath>Объект.Размещение.СмТакже</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="РазмещениеСмТакжеКонтекстноеМеню" id="134"/>
-							<ExtendedTooltip name="РазмещениеСмТакжеРасширеннаяПодсказка" id="181"/>
-						</CheckBoxField>
-					</ChildItems>
-				</Table>
-				<UsualGroup name="НаименованияПолейИПараметров" id="190">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Наименования полей и параметров</v8:content>
-						</v8:item>
-					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="НаименованияПолейИПараметровРасширеннаяПодсказка" id="191"/>
-					<ChildItems>
-						<InputField name="НаименованияПолей" id="182">
-							<DataPath>Объект.НаименованияПолей</DataPath>
-							<TitleLocation>Top</TitleLocation>
-							<Height>3</Height>
-							<MultiLine>true</MultiLine>
-							<ContextMenu name="НаименованияПолейКонтекстноеМеню" id="183"/>
-							<ExtendedTooltip name="НаименованияПолейРасширеннаяПодсказка" id="184"/>
-						</InputField>
-						<InputField name="НаименованияПараметровИОтборов" id="185">
-							<DataPath>Объект.НаименованияПараметровИОтборов</DataPath>
-							<TitleLocation>Top</TitleLocation>
-							<Height>3</Height>
-							<MultiLine>true</MultiLine>
-							<ContextMenu name="НаименованияПараметровИОтборовКонтекстноеМеню" id="186"/>
-							<ExtendedTooltip name="НаименованияПараметровИОтборовРасширеннаяПодсказка" id="187"/>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
-				<Table name="Представления" id="244">
-					<ReadOnly>true</ReadOnly>
-					<HeightInTableRows>3</HeightInTableRows>
-					<RowSelectionMode>Cell</RowSelectionMode>
-					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-					<AutoInsertNewRow>true</AutoInsertNewRow>
-					<EnableStartDrag>true</EnableStartDrag>
-					<EnableDrag>true</EnableDrag>
-					<FileDragMode>AsFile</FileDragMode>
-					<DataPath>Объект.Представления</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Представления</v8:content>
-						</v8:item>
-					</Title>
-					<RowFilter xsi:nil="true"/>
-					<ContextMenu name="ПредставленияКонтекстноеМеню" id="245"/>
-					<AutoCommandBar name="ПредставленияКоманднаяПанель" id="246"/>
-					<ExtendedTooltip name="ПредставленияРасширеннаяПодсказка" id="247"/>
-					<SearchStringAddition name="ПредставленияСтрокаПоиска" id="248">
-						<AdditionSource>
-							<Item>Представления</Item>
-							<Type>SearchStringRepresentation</Type>
-						</AdditionSource>
-						<ContextMenu name="ПредставленияСтрокаПоискаКонтекстноеМеню" id="249"/>
-						<ExtendedTooltip name="ПредставленияСтрокаПоискаРасширеннаяПодсказка" id="250"/>
-					</SearchStringAddition>
-					<ViewStatusAddition name="ПредставленияСостояниеПросмотра" id="251">
-						<AdditionSource>
-							<Item>Представления</Item>
-							<Type>ViewStatusRepresentation</Type>
-						</AdditionSource>
-						<ContextMenu name="ПредставленияСостояниеПросмотраКонтекстноеМеню" id="252"/>
-						<ExtendedTooltip name="ПредставленияСостояниеПросмотраРасширеннаяПодсказка" id="253"/>
-					</ViewStatusAddition>
-					<SearchControlAddition name="ПредставленияУправлениеПоиском" id="254">
-						<AdditionSource>
-							<Item>Представления</Item>
-							<Type>SearchControl</Type>
-						</AdditionSource>
-						<ContextMenu name="ПредставленияУправлениеПоискомКонтекстноеМеню" id="255"/>
-						<ExtendedTooltip name="ПредставленияУправлениеПоискомРасширеннаяПодсказка" id="256"/>
-					</SearchControlAddition>
-					<ChildItems>
-						<LabelField name="ПредставленияНомерСтроки" id="257">
-							<DataPath>Объект.Представления.LineNumber</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="ПредставленияНомерСтрокиКонтекстноеМеню" id="258"/>
-							<ExtendedTooltip name="ПредставленияНомерСтрокиРасширеннаяПодсказка" id="259"/>
-						</LabelField>
-						<InputField name="ПредставленияКодЯзыка" id="260">
-							<DataPath>Объект.Представления.КодЯзыка</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="ПредставленияКодЯзыкаКонтекстноеМеню" id="261"/>
-							<ExtendedTooltip name="ПредставленияКодЯзыкаРасширеннаяПодсказка" id="262"/>
-						</InputField>
-						<InputField name="ПредставленияНаименование" id="263">
-							<DataPath>Объект.Представления.Наименование</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="ПредставленияНаименованиеКонтекстноеМеню" id="264"/>
-							<ExtendedTooltip name="ПредставленияНаименованиеРасширеннаяПодсказка" id="265"/>
-						</InputField>
-						<InputField name="ПредставленияОписание" id="266">
-							<DataPath>Объект.Представления.Описание</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="ПредставленияОписаниеКонтекстноеМеню" id="267"/>
-							<ExtendedTooltip name="ПредставленияОписаниеРасширеннаяПодсказка" id="268"/>
-						</InputField>
-					</ChildItems>
-				</Table>
-				<CheckBoxField name="ИнтерактивнаяПометкаУдаления" id="241">
-					<DataPath>Объект.ИнтерактивнаяПометкаУдаления</DataPath>
-					<TitleLocation>Right</TitleLocation>
-					<ContextMenu name="ИнтерактивнаяПометкаУдаленияКонтекстноеМеню" id="242"/>
-					<ExtendedTooltip name="ИнтерактивнаяПометкаУдаленияРасширеннаяПодсказка" id="243"/>
-				</CheckBoxField>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">

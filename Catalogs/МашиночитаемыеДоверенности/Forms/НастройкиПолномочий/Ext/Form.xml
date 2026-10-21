@@ -4,6 +4,21 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ТаблицаНастроекВыбрать" id="22">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Выбрать</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ТаблицаНастроекВыбратьРасширеннаяПодсказка" id="23"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -12,9 +27,11 @@
 		<Table name="ТаблицаНастроек" id="1">
 			<Representation>List</Representation>
 			<ReadOnly>true</ReadOnly>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<RowActionsShowType>ShowOnHover</RowActionsShowType>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
 			<DataPath>ТаблицаНастроек</DataPath>
@@ -38,19 +55,6 @@
 			<ContextMenu name="ТаблицаНастроекКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="ТаблицаНастроекКоманднаяПанель" id="3">
 				<ChildItems>
-					<Button name="ТаблицаНастроекВыбрать" id="22">
-						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.Выбрать</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Выбрать</v8:content>
-							</v8:item>
-						</Title>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ТаблицаНастроекВыбратьРасширеннаяПодсказка" id="23"/>
-					</Button>
 					<Button name="ТаблицаНастроекУдалитьНастройку" id="20">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.УдалитьНастройку</CommandName>
@@ -182,13 +186,13 @@
 					<v8:content>Удалить настройку</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Удалить настройку</v8:content>
-				</v8:item>
-			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Delete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>УдалитьНастройку</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ТаблицаНастроек</AssociatedTableElementId>
 		</Command>
 		<Command name="Выбрать" id="2">
 			<Title>
@@ -197,13 +201,8 @@
 					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать</v8:content>
-				</v8:item>
-			</ToolTip>
 			<Action>Выбрать</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

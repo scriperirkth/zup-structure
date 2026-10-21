@@ -10,16 +10,37 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
-	<CommandBarLocation>None</CommandBarLocation>
-	<MobileDeviceCommandBarContent>
-		<xr:Item>
-			<xr:Presentation/>
-			<xr:CheckState>0</xr:CheckState>
-			<xr:Value xsi:type="xs:string">ОсновнаяКоманднаяПанель</xr:Value>
-		</xr:Item>
-	</MobileDeviceCommandBarContent>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<ChildItems>
+			<Button name="ЗакончитьРедактирование" id="4">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.ЗакончитьРедактирование</CommandName>
+				<TextColor>style:ButtonTextColor</TextColor>
+				<BorderColor>style:BorderColor</BorderColor>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Закончить редактирование</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ЗакончитьРедактированиеРасширеннаяПодсказка" id="54"/>
+			</Button>
+			<Button name="Отмена" id="20">
+				<Type>CommandBarButton</Type>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<TextColor>style:ButtonTextColor</TextColor>
+				<BorderColor>style:BorderColor</BorderColor>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="55"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -160,11 +181,12 @@
 					<v8:content>Описание</v8:content>
 				</v8:item>
 			</Title>
+			<EditMode>EnterOnInput</EditMode>
 			<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<Height>2</Height>
 			<MultiLine>true</MultiLine>
-			<BorderColor>style:BorderColor</BorderColor>
 			<ContextMenu name="ОписаниеКонтекстноеМеню" id="9"/>
 			<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="48"/>
 		</InputField>
@@ -177,49 +199,12 @@
 				</v8:item>
 			</Title>
 			<TitleLocation>Right</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
 			<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+			<AutoEditMode>true</AutoEditMode>
 			<ContextMenu name="ХранитьВерсииКонтекстноеМеню" id="22"/>
 			<ExtendedTooltip name="ХранитьВерсииРасширеннаяПодсказка" id="49"/>
 		</CheckBoxField>
-		<CommandBar name="ОсновнаяКоманднаяПанель" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Основная командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="ОсновнаяКоманднаяПанельРасширеннаяПодсказка" id="53"/>
-			<ChildItems>
-				<Button name="ЗакончитьРедактирование" id="4">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.Command.ЗакончитьРедактирование</CommandName>
-					<TextColor>style:ButtonTextColor</TextColor>
-					<BackColor>style:ButtonBackColor</BackColor>
-					<BorderColor>style:BorderColor</BorderColor>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Закончить редактирование</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ЗакончитьРедактированиеРасширеннаяПодсказка" id="54"/>
-				</Button>
-				<Button name="Отмена" id="20">
-					<Type>CommandBarButton</Type>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.StandardCommand.Cancel</CommandName>
-					<TextColor>style:ButtonTextColor</TextColor>
-					<BackColor>style:ButtonBackColor</BackColor>
-					<BorderColor>style:BorderColor</BorderColor>
-					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="55"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -350,6 +335,7 @@
 			</ToolTip>
 			<Action>ЗакончитьРедактирование</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

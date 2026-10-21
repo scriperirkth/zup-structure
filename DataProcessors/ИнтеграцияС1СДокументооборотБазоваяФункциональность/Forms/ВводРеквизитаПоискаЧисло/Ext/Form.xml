@@ -6,11 +6,13 @@
 			<v8:content>Что искать</v8:content>
 		</v8:item>
 	</Title>
-	<Width>47</Width>
+	<Width>40</Width>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
+	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
@@ -29,6 +31,7 @@
 			</Button>
 			<Button name="ФормаОтмена" id="45">
 				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
 				<CommandName>Form.Command.Отмена</CommandName>
 				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="46"/>
 			</Button>
@@ -39,152 +42,336 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаУсловие" id="30">
+		<UsualGroup name="ГруппаВидСравненияРавноИЗначение" id="53">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа условие</v8:content>
+					<v8:content>Группа вид сравнения равно и значение</v8:content>
 				</v8:item>
 			</Title>
-			<Group>Horizontal</Group>
-			<Behavior>Usual</Behavior>
+			<Group>AlwaysHorizontal</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаУсловиеРасширеннаяПодсказка" id="31"/>
+			<ExtendedTooltip name="ГруппаВидСравненияРавноИЗначениеРасширеннаяПодсказка" id="54"/>
 			<ChildItems>
-				<RadioButtonField name="ВидСравнения" id="8">
-					<DataPath>ВидСравнения</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<RadioButtonType>RadioButtons</RadioButtonType>
-					<ColumnsCount>1</ColumnsCount>
-					<ChoiceList>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Равно</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:string">=</Value>
-							</xr:Value>
-						</xr:Item>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>От</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:string">&gt;=</Value>
-							</xr:Value>
-						</xr:Item>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>По</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:string">&lt;=</Value>
-							</xr:Value>
-						</xr:Item>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Между</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:string">Между</Value>
-							</xr:Value>
-						</xr:Item>
-					</ChoiceList>
-					<ContextMenu name="ВидСравненияКонтекстноеМеню" id="9"/>
-					<ExtendedTooltip name="ВидСравненияРасширеннаяПодсказка" id="10"/>
-					<Events>
-						<Event name="OnChange">ВидСравненияПриИзменении</Event>
-					</Events>
-				</RadioButtonField>
-				<UsualGroup name="ГруппаЗначения" id="11">
+				<UsualGroup name="ГруппаВидСравненияРавно" id="73">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа значения</v8:content>
+							<v8:content>Группа вид сравнения равно</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
+					<Width>8</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВидСравненияРавноРасширеннаяПодсказка" id="74"/>
+					<ChildItems>
+						<RadioButtonField name="ВидСравненияРавно" id="55">
+							<DataPath>ВидСравнения</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<RadioButtonType>RadioButtons</RadioButtonType>
+							<ColumnsCount>1</ColumnsCount>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Равно</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">=</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ВидСравненияРавноКонтекстноеМеню" id="56"/>
+							<ExtendedTooltip name="ВидСравненияРавноРасширеннаяПодсказка" id="57"/>
+							<Events>
+								<Event name="OnChange">ВидСравненияПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+					</ChildItems>
+				</UsualGroup>
+				<LabelDecoration name="ВертикальныйРазделительВидСравненияРавно" id="81">
+					<Height>1</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<Font ref="style:TextLevel2" height="20" kind="StyleItem" scale="100"/>
+					<ContextMenu name="ВертикальныйРазделительВидСравненияРавноКонтекстноеМеню" id="82"/>
+					<ExtendedTooltip name="ВертикальныйРазделительВидСравненияРавноРасширеннаяПодсказка" id="83"/>
+				</LabelDecoration>
+				<InputField name="ЗначениеРавно" id="5">
+					<DataPath>Значение</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HorizontalAlign>Right</HorizontalAlign>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="ЗначениеРавноКонтекстноеМеню" id="6"/>
+					<ExtendedTooltip name="ЗначениеРавноРасширеннаяПодсказка" id="7"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаВидСравненияОтИЗначение" id="59">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа вид сравнения от и значение</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВидСравненияОтИЗначениеРасширеннаяПодсказка" id="60"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаВидСравненияОт" id="75">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа вид сравнения от</v8:content>
+						</v8:item>
+					</Title>
+					<Width>8</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВидСравненияОтРасширеннаяПодсказка" id="76"/>
+					<ChildItems>
+						<RadioButtonField name="ВидСравненияОт" id="61">
+							<DataPath>ВидСравнения</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<RadioButtonType>RadioButtons</RadioButtonType>
+							<ColumnsCount>1</ColumnsCount>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>От</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">&gt;=</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ВидСравненияОтКонтекстноеМеню" id="62"/>
+							<ExtendedTooltip name="ВидСравненияОтРасширеннаяПодсказка" id="63"/>
+							<Events>
+								<Event name="OnChange">ВидСравненияПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+					</ChildItems>
+				</UsualGroup>
+				<LabelDecoration name="ВертикальныйРазделительВидСравненияОт" id="84">
+					<Height>1</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<Font ref="style:TextLevel2" height="20" kind="StyleItem" scale="100"/>
+					<ContextMenu name="ВертикальныйРазделительВидСравненияОтКонтекстноеМеню" id="85"/>
+					<ExtendedTooltip name="ВертикальныйРазделительВидСравненияОтРасширеннаяПодсказка" id="86"/>
+				</LabelDecoration>
+				<InputField name="ЗначениеОт" id="13">
+					<DataPath>Значение</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HorizontalAlign>Right</HorizontalAlign>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="ЗначениеОтКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ЗначениеОтРасширеннаяПодсказка" id="15"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаВидСравненияПоИЗначение" id="65">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа вид сравнения по и значение</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВидСравненияПоИЗначениеРасширеннаяПодсказка" id="66"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаВидСравненияПо" id="77">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа вид сравнения по</v8:content>
+						</v8:item>
+					</Title>
+					<Width>8</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВидСравненияПоРасширеннаяПодсказка" id="78"/>
+					<ChildItems>
+						<RadioButtonField name="ВидСравненияПо" id="67">
+							<DataPath>ВидСравнения</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<RadioButtonType>RadioButtons</RadioButtonType>
+							<ColumnsCount>1</ColumnsCount>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>По</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">&lt;=</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ВидСравненияПоКонтекстноеМеню" id="68"/>
+							<ExtendedTooltip name="ВидСравненияПоРасширеннаяПодсказка" id="69"/>
+							<Events>
+								<Event name="OnChange">ВидСравненияПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+					</ChildItems>
+				</UsualGroup>
+				<LabelDecoration name="ВертикальныйРазделительВидСравненияПо" id="87">
+					<Height>1</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<Font ref="style:TextLevel2" height="20" kind="StyleItem" scale="100"/>
+					<ContextMenu name="ВертикальныйРазделительВидСравненияПоКонтекстноеМеню" id="88"/>
+					<ExtendedTooltip name="ВертикальныйРазделительВидСравненияПоРасширеннаяПодсказка" id="89"/>
+				</LabelDecoration>
+				<InputField name="ЗначениеПо" id="16">
+					<DataPath>Значение</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HorizontalAlign>Right</HorizontalAlign>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="ЗначениеПоКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ЗначениеПоРасширеннаяПодсказка" id="18"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаВидСравненияМеждуИЗначение" id="71">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа вид сравнения между и значение</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВидСравненияМеждуИЗначениеРасширеннаяПодсказка" id="72"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаВидСравненияМежду" id="79">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа вид сравнения между</v8:content>
+						</v8:item>
+					</Title>
+					<Width>8</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВидСравненияМеждуРасширеннаяПодсказка" id="80"/>
+					<ChildItems>
+						<RadioButtonField name="ВидСравненияМежду" id="8">
+							<DataPath>ВидСравнения</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<RadioButtonType>RadioButtons</RadioButtonType>
+							<ColumnsCount>1</ColumnsCount>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Между</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">Между</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ВидСравненияМеждуКонтекстноеМеню" id="9"/>
+							<ExtendedTooltip name="ВидСравненияМеждуРасширеннаяПодсказка" id="10"/>
+							<Events>
+								<Event name="OnChange">ВидСравненияПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+					</ChildItems>
+				</UsualGroup>
+				<LabelDecoration name="ВертикальныйРазделительВидСравненияМежду" id="90">
+					<Height>1</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<Font ref="style:TextLevel2" height="20" kind="StyleItem" scale="100"/>
+					<ContextMenu name="ВертикальныйРазделительВидСравненияМеждуКонтекстноеМеню" id="91"/>
+					<ExtendedTooltip name="ВертикальныйРазделительВидСравненияМеждуРасширеннаяПодсказка" id="92"/>
+				</LabelDecoration>
+				<UsualGroup name="ГруппаМежду" id="25">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа между</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаЗначенияРасширеннаяПодсказка" id="12"/>
+					<ExtendedTooltip name="ГруппаМеждуРасширеннаяПодсказка" id="26"/>
 					<ChildItems>
-						<InputField name="ЗначениеРавно" id="5">
+						<InputField name="ЗначениеМеждуОт" id="19">
 							<DataPath>Значение</DataPath>
 							<TitleLocation>None</TitleLocation>
-							<ContextMenu name="ЗначениеРавноКонтекстноеМеню" id="6"/>
-							<ExtendedTooltip name="ЗначениеРавноРасширеннаяПодсказка" id="7"/>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="ЗначениеМеждуОтКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="ЗначениеМеждуОтРасширеннаяПодсказка" id="21"/>
 						</InputField>
-						<InputField name="ЗначениеОт" id="13">
-							<DataPath>Значение</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<ContextMenu name="ЗначениеОтКонтекстноеМеню" id="14"/>
-							<ExtendedTooltip name="ЗначениеОтРасширеннаяПодсказка" id="15"/>
-						</InputField>
-						<InputField name="ЗначениеПо" id="16">
-							<DataPath>Значение</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<ContextMenu name="ЗначениеПоКонтекстноеМеню" id="17"/>
-							<ExtendedTooltip name="ЗначениеПоРасширеннаяПодсказка" id="18"/>
-						</InputField>
-						<UsualGroup name="ГруппаМежду" id="25">
-							<Title>
+						<LabelDecoration name="ДекорацияИ" id="27">
+							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа между</v8:content>
+									<v8:content>и</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Horizontal</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаМеждуРасширеннаяПодсказка" id="26"/>
-							<ChildItems>
-								<InputField name="ЗначениеМеждуОт" id="19">
-									<DataPath>Значение</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<ContextMenu name="ЗначениеМеждуОтКонтекстноеМеню" id="20"/>
-									<ExtendedTooltip name="ЗначениеМеждуОтРасширеннаяПодсказка" id="21"/>
-								</InputField>
-								<LabelDecoration name="ДекорацияИ" id="27">
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>и</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="ДекорацияИКонтекстноеМеню" id="28"/>
-									<ExtendedTooltip name="ДекорацияИРасширеннаяПодсказка" id="29"/>
-								</LabelDecoration>
-								<InputField name="ЗначениеМеждуПо" id="22">
-									<DataPath>Значение2</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<ContextMenu name="ЗначениеМеждуПоКонтекстноеМеню" id="23"/>
-									<ExtendedTooltip name="ЗначениеМеждуПоРасширеннаяПодсказка" id="24"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
+							<ContextMenu name="ДекорацияИКонтекстноеМеню" id="28"/>
+							<ExtendedTooltip name="ДекорацияИРасширеннаяПодсказка" id="29"/>
+						</LabelDecoration>
+						<InputField name="ЗначениеМеждуПо" id="22">
+							<DataPath>Значение2</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="ЗначениеМеждуПоКонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="ЗначениеМеждуПоРасширеннаяПодсказка" id="24"/>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -243,7 +430,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -254,6 +441,7 @@
 			</ToolTip>
 			<Action>ОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="2">
 			<Title>
@@ -270,6 +458,7 @@
 			</ToolTip>
 			<Action>Отмена</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Искать" id="3">
 			<Title>
@@ -291,6 +480,7 @@
 			<Action>Искать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

@@ -21,22 +21,12 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаДокументыПодписаныРасширеннаяПодсказка" id="5"/>
 			</Button>
-			<Button name="ФормаОтмена" id="6">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Отмена</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Отмена</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="7"/>
-			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -59,16 +49,15 @@
 					</Title>
 					<Group>Vertical</Group>
 					<ShowTitle>false</ShowTitle>
-					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаОтправленоРасширеннаяПодсказка" id="11"/>
 					<ChildItems>
 						<LabelDecoration name="НадписьОтправлено" id="1">
 							<Title formatted="true">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content> Документы отправлены подписанту в мобильное приложение &lt;b&gt;Моя подпись&lt;/&gt; от ФНС.
+									<v8:content> Документы отправлены подписанту в мобильное приложение.
 
-• Зайдите в приложение &lt;b&gt;Моя подпись&lt;/&gt; и подпишите документы.
+• Зайдите в приложение и подпишите документы.
 
 • После подписания нажмите кнопку &lt;b&gt;Документы подписаны&lt;/&gt;.</v8:content>
 								</v8:item>
@@ -86,7 +75,6 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаОжиданиеРасширеннаяПодсказка" id="13"/>
 					<ChildItems>
 						<PictureDecoration name="КартинкаОжидание" id="14">
@@ -158,21 +146,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ДокументыПодписаны</Action>
-		</Command>
-		<Command name="Отмена" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Отмена</Action>
+			<ActionPurpose>Finish</ActionPurpose>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

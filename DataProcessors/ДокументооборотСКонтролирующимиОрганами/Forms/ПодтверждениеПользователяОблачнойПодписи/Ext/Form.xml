@@ -6,12 +6,68 @@
 	<Group>Vertical</Group>
 	<AutoFillCheck>false</AutoFillCheck>
 	<Customizable>false</Customizable>
-	<CommandBarLocation>None</CommandBarLocation>
+	<CommandBarLocation>Bottom</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<ConversationsRepresentation>DontShow</ConversationsRepresentation>
-	<ShowCommandBar>false</ShowCommandBar>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<ButtonGroup name="ГруппаКомандыФормы" id="47">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Команды формы</v8:content>
+					</v8:item>
+				</Title>
+				<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+				<ExtendedTooltip name="ГруппаКомандыФормыРасширеннаяПодсказка" id="48"/>
+				<ChildItems>
+					<Button name="ПовторитьОтправкуКода" id="45">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПовторитьОтправкуКода</CommandName>
+						<ToolTipRepresentation>None</ToolTipRepresentation>
+						<ExtendedTooltip name="ПовторитьОтправкуКодаРасширеннаяПодсказка" id="46">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Повторить можно через 30 сек.</v8:content>
+								</v8:item>
+							</Title>
+						</ExtendedTooltip>
+					</Button>
+					<Button name="Продолжить" id="33">
+						<Type>CommandBarButton</Type>
+						<DefaultButton>true</DefaultButton>
+						<CommandName>Form.Command.ОК</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Продолжить</v8:content>
+							</v8:item>
+						</Title>
+						<ButtonImportance>Main</ButtonImportance>
+						<ExtendedTooltip name="ПродолжитьРасширеннаяПодсказка" id="34"/>
+					</Button>
+				</ChildItems>
+			</ButtonGroup>
+			<Button name="Печать" id="7">
+				<Type>CommandBarButton</Type>
+				<Representation>Picture</Representation>
+				<CommandName>Form.Command.Печать</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.PrintImmediately</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="8"/>
+			</Button>
+			<Button name="СохранитьДокумент" id="49">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.СохранитьДокумент</CommandName>
+				<ExtendedTooltip name="СохранитьДокументРасширеннаяПодсказка" id="50"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -45,38 +101,10 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаПечатнаяОбластьРасширеннаяПодсказка" id="4"/>
 					<ChildItems>
-						<CommandBar name="ГруппаКомандыПечати" id="5">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Команды печати</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ГруппаКомандыПечатиРасширеннаяПодсказка" id="6"/>
-							<ChildItems>
-								<Button name="Печать" id="7">
-									<Type>CommandBarButton</Type>
-									<Representation>PictureAndText</Representation>
-									<CommandName>Form.Command.Печать</CommandName>
-									<Picture>
-										<xr:Ref>StdPicture.PrintImmediately</xr:Ref>
-										<xr:LoadTransparent>true</xr:LoadTransparent>
-									</Picture>
-									<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="8"/>
-								</Button>
-								<Button name="СохранитьДокумент" id="49">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.СохранитьДокумент</CommandName>
-									<ExtendedTooltip name="СохранитьДокументРасширеннаяПодсказка" id="50"/>
-								</Button>
-							</ChildItems>
-						</CommandBar>
 						<SpreadSheetDocumentField name="ТабДок" id="11">
 							<DataPath>ТабДок</DataPath>
 							<SkipOnInput>true</SkipOnInput>
 							<TitleLocation>None</TitleLocation>
-							<Width>70</Width>
-							<Height>17</Height>
 							<AutoMaxHeight>false</AutoMaxHeight>
 							<HorizontalScrollBar>false</HorizontalScrollBar>
 							<SelectionShowMode>WhenActive</SelectionShowMode>
@@ -230,46 +258,6 @@
 						<Event name="OnChange">ПодтверждениеПриИзменении</Event>
 					</Events>
 				</CheckBoxField>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаКомандыФормы" id="47">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команды формы</v8:content>
-				</v8:item>
-			</Title>
-			<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКомандыФормыРасширеннаяПодсказка" id="48"/>
-			<ChildItems>
-				<Button name="ПовторитьОтправкуКода" id="45">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.ПовторитьОтправкуКода</CommandName>
-					<ToolTipRepresentation>None</ToolTipRepresentation>
-					<ExtendedTooltip name="ПовторитьОтправкуКодаРасширеннаяПодсказка" id="46">
-						<Title formatted="false">
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Повторить можно через 30 сек.</v8:content>
-							</v8:item>
-						</Title>
-					</ExtendedTooltip>
-				</Button>
-				<Button name="Продолжить" id="33">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.ОК</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Продолжить</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ПродолжитьРасширеннаяПодсказка" id="34"/>
-				</Button>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -585,6 +573,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ОК</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Печать" id="2">
 			<Title>
@@ -616,6 +605,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПовторитьОтправкуКода</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="СохранитьДокумент" id="4">
 			<Title>

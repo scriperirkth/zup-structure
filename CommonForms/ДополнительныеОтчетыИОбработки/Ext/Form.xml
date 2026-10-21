@@ -3,14 +3,45 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
+	<CommandBarLocation>Bottom</CommandBarLocation>
 	<CommandSet>
 		<ExcludedCommand>CustomizeForm</ExcludedCommand>
 	</CommandSet>
-	<ShowCommandBar>false</ShowCommandBar>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ВыполнитьОбработку" id="28">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<DefaultItem>true</DefaultItem>
+				<CommandName>Form.Command.ВыполнитьОбработку</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Выполнить</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ВыполнитьОбработкуРасширеннаяПодсказка" id="65"/>
+			</Button>
+			<Button name="НастроитьСписок" id="35">
+				<Type>CommandBarHyperlink</Type>
+				<Representation>PictureAndText</Representation>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.НастроитьСписок</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Настроить список</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Supplementary</ButtonImportance>
+				<ExtendedTooltip name="НастроитьСписокРасширеннаяПодсказка" id="63"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
@@ -168,66 +199,6 @@
 				</Page>
 			</ChildItems>
 		</Pages>
-		<UsualGroup name="Подвал" id="79">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Подвал</v8:content>
-				</v8:item>
-			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ПодвалРасширеннаяПодсказка" id="80"/>
-			<ChildItems>
-				<Button name="НастроитьСписок" id="35">
-					<Type>Hyperlink</Type>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.Command.НастроитьСписок</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Настроить список</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="НастроитьСписокРасширеннаяПодсказка" id="63"/>
-				</Button>
-				<CommandBar name="КоманднаяПанельСтраницыОткрытьОбработку" id="36">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Командная панель страницы открыть обработку</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalLocation>Right</HorizontalLocation>
-					<ExtendedTooltip name="КоманднаяПанельСтраницыОткрытьОбработкуРасширеннаяПодсказка" id="64"/>
-					<ChildItems>
-						<Button name="ВыполнитьОбработку" id="28">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<SkipOnInput>false</SkipOnInput>
-							<DefaultItem>true</DefaultItem>
-							<CommandName>Form.Command.ВыполнитьОбработку</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Выполнить</v8:content>
-								</v8:item>
-							</Title>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ВыполнитьОбработкуРасширеннаяПодсказка" id="65"/>
-						</Button>
-						<Button name="ЗакрытьФорму" id="29">
-							<Type>CommandBarButton</Type>
-							<SkipOnInput>false</SkipOnInput>
-							<CommandName>Form.StandardCommand.Cancel</CommandName>
-							<ExtendedTooltip name="ЗакрытьФормуРасширеннаяПодсказка" id="66"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ТаблицаКоманд" id="1">
@@ -387,6 +358,7 @@
 			<Action>ВыполнитьОбработку</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="НастроитьСписок" id="1">
 			<Title>
@@ -407,6 +379,7 @@
 			</Picture>
 			<Action>НастроитьСписок</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ОтменитьВыполнениеОбработки" id="2">
 			<Title>
@@ -466,9 +439,6 @@
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>
-		</Parameter>
-		<Parameter name="РежимОткрытияОкна">
-			<Type/>
 		</Parameter>
 	</Parameters>
 </Form>

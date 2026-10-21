@@ -3,7 +3,7 @@
 	<Title>
 		<v8:item>
 			<v8:lang>ru</v8:lang>
-			<v8:content>Настройка видимости ленты новостей по пользователям</v8:content>
+			<v8:content>Настройка видимости ленты</v8:content>
 		</v8:item>
 	</Title>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
@@ -15,12 +15,18 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<ChildItems>
-			<Button name="КнопкаОК" id="14">
+			<Button name="КнопкаСохранить" id="14">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.КомандаОК</CommandName>
+				<CommandName>Form.Command.КомандаСохранить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сохранить</v8:content>
+					</v8:item>
+				</Title>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="КнопкаОКExtendedTooltip" id="21"/>
+				<ExtendedTooltip name="КнопкаСохранитьРасширеннаяПодсказка" id="21"/>
 			</Button>
 			<Button name="КнопкаОтмена" id="16">
 				<Type>CommandBarButton</Type>
@@ -33,57 +39,33 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаВидимость" id="17">
-			<EnableContentChange>true</EnableContentChange>
-			<Group>Horizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаВидимостьExtendedTooltip" id="23"/>
-			<ChildItems>
-				<InputField name="ВидимостьПоУмолчанию" id="1">
-					<DataPath>ВидимостьПоУмолчанию</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Лента новостей</v8:content>
-						</v8:item>
-					</Title>
-					<TitleLocation>Left</TitleLocation>
-					<Width>15</Width>
-					<Format>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>БЛ='скрыта от всех,'; БИ='видима для всех,'</v8:content>
-						</v8:item>
-					</Format>
-					<EditFormat>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>БЛ='скрыта от всех'; БИ='видима для всех'</v8:content>
-						</v8:item>
-					</EditFormat>
-					<ContextMenu name="ВидимостьПоУмолчаниюКонтекстноеМеню" id="2"/>
-					<ExtendedTooltip name="ВидимостьПоУмолчаниюExtendedTooltip" id="24"/>
-				</InputField>
-				<LabelField name="СписокИсключенийЗаголовок" id="11">
-					<DataPath>ВидимостьПоУмолчанию</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<Width>50</Width>
-					<HorizontalStretch>true</HorizontalStretch>
-					<Format>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>БЛ='за исключением следующих пользователей:'; БИ='за исключением следующих пользователей:'</v8:content>
-						</v8:item>
-					</Format>
-					<ContextMenu name="СписокИсключенийЗаголовокКонтекстноеМеню" id="12"/>
-					<ExtendedTooltip name="СписокИсключенийЗаголовокExtendedTooltip" id="25"/>
-				</LabelField>
-			</ChildItems>
-		</UsualGroup>
+		<InputField name="ВидимостьПоУмолчанию" id="1">
+			<DataPath>ВидимостьПоУмолчанию</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Лента новостей</v8:content>
+				</v8:item>
+			</Title>
+			<Width>15</Width>
+			<Format>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>БЛ='скрыта от всех,'; БИ='видима для всех,'</v8:content>
+				</v8:item>
+			</Format>
+			<EditFormat>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>БЛ='скрыта от всех'; БИ='видима для всех'</v8:content>
+				</v8:item>
+			</EditFormat>
+			<ContextMenu name="ВидимостьПоУмолчаниюКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ВидимостьПоУмолчаниюExtendedTooltip" id="24"/>
+		</InputField>
 		<Table name="СписокИсключений" id="4">
 			<Representation>List</Representation>
+			<TitleLocation>Top</TitleLocation>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<Header>false</Header>
 			<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -92,8 +74,12 @@
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>СписокИсключений</DataPath>
 			<RowPictureDataPath>СписокИсключений.Picture</RowPictureDataPath>
-			<TitleTextColor>style:ЦветМикротекста</TitleTextColor>
-			<TitleFont ref="style:ШрифтЗаголовкаНастроекНовостей" kind="StyleItem"/>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исключить пользователей</v8:content>
+				</v8:item>
+			</Title>
 			<CommandSet>
 				<ExcludedCommand>CheckAll</ExcludedCommand>
 				<ExcludedCommand>UncheckAll</ExcludedCommand>
@@ -156,7 +142,6 @@
 				<InputField name="СписокИсключенийЗначение" id="8">
 					<DataPath>СписокИсключений.Value</DataPath>
 					<EditMode>EnterOnInput</EditMode>
-					<MarkRequiredComplete>true</MarkRequiredComplete>
 					<AutoEditMode>true</AutoEditMode>
 					<ClearButton>false</ClearButton>
 					<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
@@ -214,21 +199,16 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="КомандаОК" id="1">
+		<Command name="КомандаСохранить" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Сохранить</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команда ОК</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КомандаОК</Action>
+			<Action>КомандаСохранить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

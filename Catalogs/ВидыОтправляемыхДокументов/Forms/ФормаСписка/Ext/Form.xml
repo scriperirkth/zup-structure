@@ -10,47 +10,6 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="ФормаСоздать" id="54">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Item.Список.StandardCommand.Create</CommandName>
-				<ExtendedTooltip name="ФормаСоздатьExtendedTooltip" id="62"/>
-			</Button>
-			<Button name="ФормаСоздатьГруппу" id="55">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Item.Список.StandardCommand.CreateFolder</CommandName>
-				<ExtendedTooltip name="ФормаСоздатьГруппуExtendedTooltip" id="63"/>
-			</Button>
-			<Button name="ФормаИзменить" id="56">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Item.Список.StandardCommand.Change</CommandName>
-				<ExtendedTooltip name="ФормаИзменитьExtendedTooltip" id="64"/>
-			</Button>
-			<Button name="ФормаСкопировать" id="57">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Item.Список.StandardCommand.Copy</CommandName>
-				<ExtendedTooltip name="ФормаСкопироватьExtendedTooltip" id="65"/>
-			</Button>
-			<Button name="ФормаУстановитьПометкуУдаления" id="58">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Item.Список.StandardCommand.SetDeletionMark</CommandName>
-				<ExtendedTooltip name="ФормаУстановитьПометкуУдаленияExtendedTooltip" id="66"/>
-			</Button>
-			<Button name="ФормаНайти" id="59">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Item.Список.StandardCommand.Find</CommandName>
-				<ExtendedTooltip name="ФормаНайтиExtendedTooltip" id="67"/>
-			</Button>
-			<Button name="ФормаОтменитьПоиск" id="60">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Item.Список.StandardCommand.CancelSearch</CommandName>
-				<ExtendedTooltip name="ФормаОтменитьПоискExtendedTooltip" id="68"/>
-			</Button>
-			<Button name="ФормаНастройкаСписка" id="61">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Item.Список.StandardCommand.ListSettings</CommandName>
-				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаНастройкаСпискаExtendedTooltip" id="69"/>
-			</Button>
 			<Button name="ФормаДействияФормыВосстановитьПредопределенные" id="52">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.ДействияФормыВосстановитьПредопределенные</CommandName>
@@ -83,9 +42,9 @@
 			<ChildItems>
 				<Table name="Дерево" id="2">
 					<Representation>Tree</Representation>
-					<CommandBarLocation>None</CommandBarLocation>
 					<SkipOnInput>false</SkipOnInput>
 					<Width>25</Width>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -97,6 +56,7 @@
 					<SearchStringLocation>None</SearchStringLocation>
 					<ViewStatusLocation>None</ViewStatusLocation>
 					<SearchControlLocation>None</SearchControlLocation>
+					<ShowCommandBar>auto</ShowCommandBar>
 					<AutoRefresh>false</AutoRefresh>
 					<AutoRefreshPeriod>60</AutoRefreshPeriod>
 					<Period>
@@ -112,9 +72,7 @@
 					<UpdateOnDataChange>Auto</UpdateOnDataChange>
 					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 					<ContextMenu name="ДеревоКонтекстноеМеню" id="3"/>
-					<AutoCommandBar name="ДеревоКоманднаяПанель" id="4">
-						<Autofill>false</Autofill>
-					</AutoCommandBar>
+					<AutoCommandBar name="ДеревоКоманднаяПанель" id="4"/>
 					<ExtendedTooltip name="ДеревоExtendedTooltip" id="72"/>
 					<SearchStringAddition name="ДеревоСтрокаПоиска" id="100">
 						<AdditionSource>
@@ -140,18 +98,22 @@
 						<ContextMenu name="ДеревоУправлениеПоискомКонтекстноеМеню" id="107"/>
 						<ExtendedTooltip name="ДеревоУправлениеПоискомРасширеннаяПодсказка" id="108"/>
 					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">ДеревоВыбор</Event>
+					</Events>
 					<ChildItems>
 						<LabelField name="ДеревоНаименование" id="5">
 							<DataPath>Дерево.Description</DataPath>
+							<AutoWidthInTable>None</AutoWidthInTable>
 							<ContextMenu name="ДеревоНаименованиеКонтекстноеМеню" id="6"/>
 							<ExtendedTooltip name="ДеревоНаименованиеExtendedTooltip" id="82"/>
 						</LabelField>
 					</ChildItems>
 				</Table>
 				<Table name="Список" id="7">
-					<CommandBarLocation>None</CommandBarLocation>
 					<SkipOnInput>false</SkipOnInput>
 					<DefaultItem>true</DefaultItem>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<EnableStartDrag>true</EnableStartDrag>
 					<EnableDrag>true</EnableDrag>
@@ -161,6 +123,7 @@
 					<SearchStringLocation>None</SearchStringLocation>
 					<ViewStatusLocation>None</ViewStatusLocation>
 					<SearchControlLocation>None</SearchControlLocation>
+					<ShowCommandBar>auto</ShowCommandBar>
 					<AutoRefresh>true</AutoRefresh>
 					<AutoRefreshPeriod>60</AutoRefreshPeriod>
 					<Period>
@@ -176,9 +139,7 @@
 					<UpdateOnDataChange>Auto</UpdateOnDataChange>
 					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 					<ContextMenu name="СписокКонтекстноеМеню" id="8"/>
-					<AutoCommandBar name="СписокКоманднаяПанель" id="9">
-						<Autofill>false</Autofill>
-					</AutoCommandBar>
+					<AutoCommandBar name="СписокКоманднаяПанель" id="9"/>
 					<ExtendedTooltip name="СписокExtendedTooltip" id="83"/>
 					<SearchStringAddition name="СписокСтрокаПоиска" id="109">
 						<AdditionSource>
@@ -210,27 +171,32 @@
 					<ChildItems>
 						<LabelField name="Код" id="12">
 							<DataPath>Список.Code</DataPath>
+							<AutoWidthInTable>None</AutoWidthInTable>
 							<ContextMenu name="КодКонтекстноеМеню" id="13"/>
 							<ExtendedTooltip name="КодExtendedTooltip" id="93"/>
 						</LabelField>
 						<LabelField name="Наименование" id="33">
 							<DataPath>Список.Description</DataPath>
+							<AutoWidthInTable>None</AutoWidthInTable>
 							<ContextMenu name="НаименованиеКонтекстноеМеню" id="34"/>
 							<ExtendedTooltip name="НаименованиеExtendedTooltip" id="94"/>
 						</LabelField>
 						<LabelField name="ТипПолучателя" id="48">
 							<DataPath>Список.ТипПолучателя</DataPath>
+							<AutoWidthInTable>None</AutoWidthInTable>
 							<ContextMenu name="ТипПолучателяКонтекстноеМеню" id="49"/>
 							<ExtendedTooltip name="ТипПолучателяExtendedTooltip" id="95"/>
 						</LabelField>
 						<LabelField name="ТипДокумента" id="50">
 							<DataPath>Список.ТипДокумента</DataPath>
+							<AutoWidthInTable>None</AutoWidthInTable>
 							<ContextMenu name="ТипДокументаКонтекстноеМеню" id="51"/>
 							<ExtendedTooltip name="ТипДокументаExtendedTooltip" id="96"/>
 						</LabelField>
 						<CheckBoxField name="ЭтоГруппа" id="46">
 							<DataPath>Список.IsFolder</DataPath>
 							<Visible>false</Visible>
+							<AutoWidthInTable>None</AutoWidthInTable>
 							<ContextMenu name="ЭтоГруппаКонтекстноеМеню" id="47"/>
 							<ExtendedTooltip name="ЭтоГруппаExtendedTooltip" id="97"/>
 						</CheckBoxField>
@@ -253,7 +219,6 @@
 			</ToolTip>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаОписаниеExtendedTooltip" id="98"/>
 			<ChildItems>
 				<LabelField name="Описание" id="35">

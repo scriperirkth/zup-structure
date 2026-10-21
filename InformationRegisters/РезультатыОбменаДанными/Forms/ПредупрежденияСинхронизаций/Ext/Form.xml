@@ -12,6 +12,30 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ЖурналРегистрации" id="82">
+				<Type>CommandBarHyperlink</Type>
+				<CommandName>Form.Command.ЖурналРегистрации</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Журнал регистрации</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ЖурналРегистрацииРасширеннаяПодсказка" id="83"/>
+			</Button>
+			<Button name="ФормаУдалениеУстаревшихЗаписей" id="270">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.УдалениеУстаревшихЗаписей</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Удаление записей</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаУдалениеУстаревшихЗаписейРасширеннаяПодсказка" id="271"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -123,6 +147,7 @@
 					<ChildItems>
 						<Table name="Список" id="1">
 							<Representation>List</Representation>
+							<CommandBarLocation>Top</CommandBarLocation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
 							<HeightInTableRows>10</HeightInTableRows>
@@ -139,7 +164,7 @@
 								<ExcludedCommand>LoadDynamicListSettings</ExcludedCommand>
 								<ExcludedCommand>SaveDynamicListSettings</ExcludedCommand>
 							</CommandSet>
-							<SearchStringLocation>CommandBar</SearchStringLocation>
+							<ShowCommandBar>true</ShowCommandBar>
 							<AutoRefresh>false</AutoRefresh>
 							<AutoRefreshPeriod>60</AutoRefreshPeriod>
 							<Period>
@@ -156,17 +181,6 @@
 							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 							<ContextMenu name="СписокКонтекстноеМеню" id="2">
 								<ChildItems>
-									<Button name="СписокКонтекстноеМенюОткрытьОбъект" id="173">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ОткрытьОбъект</CommandName>
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Открыть объект</v8:content>
-											</v8:item>
-										</Title>
-										<ExtendedTooltip name="СписокКонтекстноеМенюОткрытьОбъектРасширеннаяПодсказка" id="174"/>
-									</Button>
 									<ButtonGroup name="СписокКонтекстноеМенюГруппа1" id="124">
 										<Title>
 											<v8:item>
@@ -211,17 +225,6 @@
 											</Button>
 										</ChildItems>
 									</ButtonGroup>
-									<Button name="СписокКонтекстноеМенюЖурналРегистрацииВУказанноеВремя" id="175">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ЖурналРегистрацииВУказанноеВремя</CommandName>
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Журнал регистрации в указанное время</v8:content>
-											</v8:item>
-										</Title>
-										<ExtendedTooltip name="СписокКонтекстноеМенюЖурналРегистрацииВУказанноеВремяРасширеннаяПодсказка" id="176"/>
-									</Button>
 								</ChildItems>
 							</ContextMenu>
 							<AutoCommandBar name="СписокКоманднаяПанель" id="3">
@@ -237,9 +240,19 @@
 										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 										<ExtendedTooltip name="СписокОбновитьРасширеннаяПодсказка" id="227"/>
 									</Button>
+									<Button name="СписокПредупрежденияПоказатьСкрытые" id="181">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПредупрежденияПоказатьСкрытые</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Показать скрытые в списке</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="СписокПредупрежденияПоказатьСкрытыеРасширеннаяПодсказка" id="182"/>
+									</Button>
 									<Button name="СписокОткрытьОбъект" id="141">
 										<Type>CommandBarButton</Type>
-										<DefaultButton>true</DefaultButton>
 										<CommandName>Form.Command.ОткрытьОбъект</CommandName>
 										<Title>
 											<v8:item>
@@ -247,10 +260,28 @@
 												<v8:content>Открыть объект</v8:content>
 											</v8:item>
 										</Title>
-										<ButtonImportance>Main</ButtonImportance>
+										<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 										<ExtendedTooltip name="СписокОткрытьОбъектРасширеннаяПодсказка" id="142"/>
 									</Button>
-									<ButtonGroup name="СписокГруппаАктуальностьПредупреждений" id="108">
+									<Button name="СписокЖурналРегистрацииВУказанноеВремя" id="261">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ЖурналРегистрацииВУказанноеВремя</CommandName>
+										<Picture>
+											<xr:Ref>StdPicture.EventLog</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Журнал регистрации в указанное время</v8:content>
+											</v8:item>
+										</Title>
+										<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+										<ExtendedTooltip name="СписокЖурналРегистрацииВУказанноеВремяРасширеннаяПодсказка" id="262"/>
+									</Button>
+									<Popup name="СписокГруппаАктуальностьПредупреждений" id="108">
 										<Title>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -279,23 +310,10 @@
 														<v8:content>Показать в списке</v8:content>
 													</v8:item>
 												</Title>
-												<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 												<ExtendedTooltip name="СписокПредупрежденияПоказатьВСпискеРасширеннаяПодсказка" id="180"/>
 											</Button>
-											<Button name="СписокПредупрежденияПоказатьСкрытые" id="181">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ПредупрежденияПоказатьСкрытые</CommandName>
-												<Title>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Показать скрытые в списке</v8:content>
-													</v8:item>
-												</Title>
-												<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-												<ExtendedTooltip name="СписокПредупрежденияПоказатьСкрытыеРасширеннаяПодсказка" id="182"/>
-											</Button>
 										</ChildItems>
-									</ButtonGroup>
+									</Popup>
 									<Popup name="СписокГруппаКомандИсправление" id="234">
 										<Title>
 											<v8:item>
@@ -362,21 +380,6 @@
 										</Title>
 										<ExtendedTooltip name="СписокГруппаТиповыхКомандРасширеннаяПодсказка" id="93"/>
 										<ChildItems>
-											<Button name="СписокПоискПоТекущемуЗначению" id="212">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Item.Список.StandardCommand.FindByCurrentValue</CommandName>
-												<ExtendedTooltip name="СписокПоискПоТекущемуЗначениюРасширеннаяПодсказка" id="213"/>
-											</Button>
-											<Button name="СписокНайти" id="214">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Item.Список.StandardCommand.Find</CommandName>
-												<ExtendedTooltip name="СписокНайтиРасширеннаяПодсказка" id="215"/>
-											</Button>
-											<Button name="СписокОтменитьПоиск" id="216">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Item.Список.StandardCommand.CancelSearch</CommandName>
-												<ExtendedTooltip name="СписокОтменитьПоискРасширеннаяПодсказка" id="217"/>
-											</Button>
 											<ButtonGroup name="СписокГруппаКоманд1" id="224">
 												<Title>
 													<v8:item>
@@ -432,18 +435,6 @@
 												</Title>
 												<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 												<ExtendedTooltip name="СписокУдалениеУстаревшихЗаписейРасширеннаяПодсказка" id="233"/>
-											</Button>
-											<Button name="СписокПредыдущаяФормаПредупреждений" id="204">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ПредыдущаяФормаПредупреждений</CommandName>
-												<Title>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Предыдущая форма предупреждений</v8:content>
-													</v8:item>
-												</Title>
-												<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-												<ExtendedTooltip name="СписокПредыдущаяФормаПредупрежденийРасширеннаяПодсказка" id="205"/>
 											</Button>
 										</ChildItems>
 									</ButtonGroup>
@@ -505,13 +496,13 @@
 									<TitleLocation>None</TitleLocation>
 									<FixingInTable>Left</FixingInTable>
 									<HeaderPicture>
-										<xr:Ref>CommonPicture.Комментарий</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:Ref>StdPicture.Conversations</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</HeaderPicture>
 									<Width>3</Width>
 									<ValuesPicture>
-										<xr:Ref>CommonPicture.Комментарий</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:Ref>StdPicture.Conversations</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</ValuesPicture>
 									<ContextMenu name="ЕстьКомментарийКонтекстноеМеню" id="207"/>
 									<ExtendedTooltip name="ЕстьКомментарийРасширеннаяПодсказка" id="208"/>
@@ -617,81 +608,16 @@
 											<v8:content>Скрыть предупреждение</v8:content>
 										</v8:item>
 									</Title>
+									<TitleLocation>None</TitleLocation>
+									<HeaderPicture>
+										<xr:Ref>StdPicture.HidePassword</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
 									<ContextMenu name="СкрытьПредупреждениеКонтекстноеМеню" id="57"/>
 									<ExtendedTooltip name="СкрытьПредупреждениеРасширеннаяПодсказка" id="58"/>
 								</CheckBoxField>
 							</ChildItems>
 						</Table>
-					</ChildItems>
-				</UsualGroup>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаПодвал" id="196">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Подвал</v8:content>
-				</v8:item>
-			</Title>
-			<Group>AlwaysHorizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПодвалРасширеннаяПодсказка" id="197"/>
-			<ChildItems>
-				<UsualGroup name="ГруппаПодвалЛево" id="200">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Подвал, лево</v8:content>
-						</v8:item>
-					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>WeakSeparation</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПодвалЛевоРасширеннаяПодсказка" id="201"/>
-					<ChildItems>
-						<Button name="ЖурналРегистрации" id="82">
-							<Type>Hyperlink</Type>
-							<CommandName>Form.Command.ЖурналРегистрации</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Перейти в журнал регистрации</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ЖурналРегистрацииРасширеннаяПодсказка" id="83"/>
-						</Button>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаПодвалПраво" id="202">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Подвал, право</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalStretch>true</HorizontalStretch>
-					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-					<Group>Vertical</Group>
-					<HorizontalAlign>Right</HorizontalAlign>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПодвалПравоРасширеннаяПодсказка" id="203"/>
-					<ChildItems>
-						<Button name="УдалениеУстаревшихЗаписей" id="198">
-							<Type>Hyperlink</Type>
-							<CommandName>Form.Command.УдалениеУстаревшихЗаписей</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Удаление устаревших записей</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="УдалениеУстаревшихЗаписейРасширеннаяПодсказка" id="199"/>
-						</Button>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -710,7 +636,6 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
-				<Field>~Список.Пропущена</Field>
 				<Field>Список.ВерсияИзДругойПрограммы</Field>
 				<Field>Список.ВерсияИзДругойПрограммыПринята</Field>
 				<Field>Список.ВерсияЭтойПрограммы</Field>
@@ -768,6 +693,217 @@
 	НЕОПРЕДЕЛЕНО КАК ЭтоНовыйОбъект
 ИЗ
 	РегистрСведений.РезультатыОбменаДанными КАК РегистрСведенийРезультатыОбменаДаннымиПереопределяемый</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВерсияИзДругойПрограммыПринята</dcssch:dataPath>
+					<dcssch:field>ВерсияИзДругойПрограммыПринята</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Версия из другой программы принята</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>УзелИнформационнойБазы</dcssch:dataPath>
+					<dcssch:field>УзелИнформационнойБазы</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПроблемныйОбъект</dcssch:dataPath>
+					<dcssch:field>ПроблемныйОбъект</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОбъектМетаданных</dcssch:dataPath>
+					<dcssch:field>ОбъектМетаданных</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТипПредупреждения</dcssch:dataPath>
+					<dcssch:field>ТипПредупреждения</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип предупреждения</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПредставлениеТипаПредупреждения</dcssch:dataPath>
+					<dcssch:field>ПредставлениеТипаПредупреждения</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление типа предупреждения</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаВозникновения</dcssch:dataPath>
+					<dcssch:field>ДатаВозникновения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Описание</dcssch:dataPath>
+					<dcssch:field>Описание</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Описание</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КлючУникальности</dcssch:dataPath>
+					<dcssch:field>КлючУникальности</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СкрытьПредупреждение</dcssch:dataPath>
+					<dcssch:field>СкрытьПредупреждение</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Скрыть предупреждение</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЕстьКомментарий</dcssch:dataPath>
+					<dcssch:field>ЕстьКомментарий</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Есть комментарий</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КомментарийПредупреждения</dcssch:dataPath>
+					<dcssch:field>КомментарийПредупреждения</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий предупреждения</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВерсияИзДругойПрограммы</dcssch:dataPath>
+					<dcssch:field>ВерсияИзДругойПрограммы</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Версия из другой программы</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВерсияЭтойПрограммы</dcssch:dataPath>
+					<dcssch:field>ВерсияЭтойПрограммы</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Версия этой программы</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтоНовыйОбъект</dcssch:dataPath>
+					<dcssch:field>ЭтоНовыйОбъект</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Это новый объект</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТипПроблемы</dcssch:dataPath>
+					<dcssch:field>ТипПроблемы</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Причина</dcssch:dataPath>
+					<dcssch:field>Причина</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Пропущена</dcssch:dataPath>
+					<dcssch:field>Пропущена</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НомерДокумента</dcssch:dataPath>
+					<dcssch:field>НомерДокумента</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаДокумента</dcssch:dataPath>
+					<dcssch:field>ДатаДокумента</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПредставлениеОбъекта</dcssch:dataPath>
+					<dcssch:field>ПредставлениеОбъекта</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЗначенияОтборовНезависимогоРегистра</dcssch:dataPath>
+					<dcssch:field>ЗначенияОтборовНезависимогоРегистра</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Комментарий</dcssch:dataPath>
+					<dcssch:field>Комментарий</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>НепроведенныйДокумент</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Непроведенный документ</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>ПроверкаПередОтправкой</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проверка перед отправкой</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>ПустыеРеквизиты</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пустые реквизиты</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>ТехническаяОшибкаОтправка</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Техническая ошибка отправка</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>ТехническаяОшибкаПолучение</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Техническая ошибка получение</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
 				<MainTable>InformationRegister.РезультатыОбменаДанными</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -870,6 +1006,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПредупрежденияСкрытьИзСписка</Action>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ЖурналРегистрации" id="2">
 			<Title>
@@ -894,7 +1032,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПредупрежденияПоказатьСкрытые</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ПредупрежденияПоказатьВСписке" id="9">
 			<Title>
@@ -910,7 +1047,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПредупрежденияПоказатьВСписке</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ОткрытьОбъект" id="3">
 			<Title>
@@ -925,7 +1063,14 @@
 					<v8:content>Открыть объект</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.InputFieldOpen</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>ОткрытьОбъект</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="ЖурналРегистрацииВУказанноеВремя" id="4">
 			<Title>
@@ -941,6 +1086,9 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЖурналРегистрацииВУказанноеВремя</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="ОтключитьАвтоматическоеОбновлениеФормы" id="5">
 			<Title>
@@ -972,21 +1120,6 @@
 			</ToolTip>
 			<Action>УдалениеУстаревшихЗаписей</Action>
 		</Command>
-		<Command name="ПредыдущаяФормаПредупреждений" id="7">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Предыдущая форма предупреждений</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Предыдущая форма предупреждений</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ПредыдущаяФормаПредупреждений</Action>
-		</Command>
 		<Command name="ПровестиДокумент" id="10">
 			<Title>
 				<v8:item>
@@ -1006,7 +1139,8 @@
 			</Picture>
 			<Action>ПровестиДокумент</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="Коллизии" id="11">
 			<Title>
@@ -1026,6 +1160,8 @@
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<Action>Коллизии</Action>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ЗапретЗагрузкиПоДате" id="12">
 			<Title>
@@ -1045,6 +1181,8 @@
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<Action>ЗапретЗагрузкиПоДате</Action>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ГрупповоеИзменениеРеквизитов" id="13">
 			<Title>
@@ -1060,6 +1198,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ГрупповоеИзменениеРеквизитов</Action>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

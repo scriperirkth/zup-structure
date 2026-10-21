@@ -9,7 +9,6 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
@@ -22,8 +21,62 @@
 		<ExcludedCommand>SaveValues</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="КнопкаНазад" id="127">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<SkipOnInput>false</SkipOnInput>
+				<Height>1</Height>
+				<CommandName>Form.Command.ПредыдущаяСтраница</CommandName>
+				<BorderColor>style:FormBackColor</BorderColor>
+				<Picture>
+					<xr:Ref>StdPicture.GoBack</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Назад</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="КнопкаНазадРасширеннаяПодсказка" id="199"/>
+			</Button>
+			<Button name="КнопкаВперед" id="12">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.СледующаяСтраница</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.GoForward</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Далее</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="КнопкаВпередРасширеннаяПодсказка" id="200"/>
+			</Button>
+			<Button name="КнопкаОтмена" id="11">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<BorderColor>style:FormBackColor</BorderColor>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отмена</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="КнопкаОтменаРасширеннаяПодсказка" id="201"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -38,8 +91,11 @@
 					<v8:content>Формулировка</v8:content>
 				</v8:item>
 			</Title>
-			<MarkRequiredComplete>true</MarkRequiredComplete>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
+			<MaxWidth>80</MaxWidth>
+			<Height>2</Height>
 			<MultiLine>true</MultiLine>
 			<ExtendedEdit>true</ExtendedEdit>
 			<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -64,7 +120,6 @@
 			</Title>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаОсновныеСтраницыРасширеннаяПодсказка" id="209"/>
 			<ChildItems>
 				<Pages name="Страницы" id="1">
@@ -84,28 +139,142 @@
 									<v8:content>Страница тип табличного вопроса</v8:content>
 								</v8:item>
 							</Title>
-							<Group>HorizontalIfPossible</Group>
+							<Group>AutoScreenTypeSensitive</Group>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаТипТабличногоВопросаРасширеннаяПодсказка" id="150"/>
 							<ChildItems>
-								<RadioButtonField name="ТипТабличногоВопроса" id="3">
-									<DataPath>ТипТабличногоВопроса</DataPath>
+								<UsualGroup name="Группа1" id="306">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Тип табличного вопроса</v8:content>
+											<v8:content>Группа</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>None</TitleLocation>
-									<RadioButtonType>Auto</RadioButtonType>
-									<ItemHeight>1</ItemHeight>
-									<ColumnsCount>1</ColumnsCount>
-									<ContextMenu name="ТипТабличногоВопросаКонтекстноеМеню" id="4"/>
-									<ExtendedTooltip name="ТипТабличногоВопросаРасширеннаяПодсказка" id="151"/>
-									<Events>
-										<Event name="OnChange">ТипТабличногоВопросаПриИзменении</Event>
-									</Events>
-								</RadioButtonField>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="307"/>
+									<ChildItems>
+										<RadioButtonField name="ТипТабличногоВопроса" id="3">
+											<DataPath>ТипТабличногоВопроса</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Тип табличного вопроса</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<RadioButtonType>RadioButtons</RadioButtonType>
+											<ItemHeight>1</ItemHeight>
+											<ColumnsCount>1</ColumnsCount>
+											<HorizontalStretch>true</HorizontalStretch>
+											<ContextMenu name="ТипТабличногоВопросаКонтекстноеМеню" id="4"/>
+											<ExtendedTooltip name="ТипТабличногоВопросаРасширеннаяПодсказка" id="151"/>
+											<Events>
+												<Event name="OnChange">ТипТабличногоВопросаПриИзменении</Event>
+											</Events>
+										</RadioButtonField>
+										<RadioButtonField name="ТипТабличногоВопроса1" id="308">
+											<DataPath>ТипТабличногоВопроса</DataPath>
+											<Visible>false</Visible>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Тип табличного вопроса</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<RadioButtonType>Tumbler</RadioButtonType>
+											<ItemHeight>1</ItemHeight>
+											<ColumnsCount>1</ColumnsCount>
+											<HorizontalStretch>true</HorizontalStretch>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation/>
+														<Value xsi:type="xr:DesignTimeRef">Enum.ТипыТабличныхВопросов.EnumValue.ПредопределенныеОтветыВСтроках</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="ТипТабличногоВопроса1КонтекстноеМеню" id="309"/>
+											<ExtendedTooltip name="ТипТабличногоВопроса1РасширеннаяПодсказка" id="310"/>
+											<Events>
+												<Event name="OnChange">ТипТабличногоВопросаПриИзменении</Event>
+											</Events>
+										</RadioButtonField>
+										<RadioButtonField name="ТипТабличногоВопроса2" id="312">
+											<DataPath>ТипТабличногоВопроса</DataPath>
+											<Visible>false</Visible>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Тип табличного вопроса</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<RadioButtonType>Tumbler</RadioButtonType>
+											<ItemHeight>1</ItemHeight>
+											<ColumnsCount>1</ColumnsCount>
+											<HorizontalStretch>true</HorizontalStretch>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation/>
+														<Value xsi:type="xr:DesignTimeRef">Enum.ТипыТабличныхВопросов.EnumValue.ПредопределенныеОтветыВКолонках</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="ТипТабличногоВопроса2КонтекстноеМеню" id="313"/>
+											<ExtendedTooltip name="ТипТабличногоВопроса2РасширеннаяПодсказка" id="314"/>
+											<Events>
+												<Event name="OnChange">ТипТабличногоВопросаПриИзменении</Event>
+											</Events>
+										</RadioButtonField>
+										<RadioButtonField name="ТипТабличногоВопроса3" id="316">
+											<DataPath>ТипТабличногоВопроса</DataPath>
+											<Visible>false</Visible>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Тип табличного вопроса</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<RadioButtonType>Tumbler</RadioButtonType>
+											<ItemHeight>1</ItemHeight>
+											<ColumnsCount>1</ColumnsCount>
+											<HorizontalStretch>true</HorizontalStretch>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation/>
+														<Value xsi:type="xr:DesignTimeRef">Enum.ТипыТабличныхВопросов.EnumValue.ПредопределенныеОтветыВСтрокахИКолонках</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="ТипТабличногоВопроса3КонтекстноеМеню" id="317"/>
+											<ExtendedTooltip name="ТипТабличногоВопроса3РасширеннаяПодсказка" id="318"/>
+											<Events>
+												<Event name="OnChange">ТипТабличногоВопросаПриИзменении</Event>
+											</Events>
+										</RadioButtonField>
+									</ChildItems>
+								</UsualGroup>
 								<Pages name="СтраницыТипТабличногоВопросаКартинки" id="79">
 									<Title>
 										<v8:item>
@@ -132,8 +301,6 @@
 												<PictureDecoration name="КартинкаСоставной" id="81">
 													<AutoMaxWidth>false</AutoMaxWidth>
 													<AutoMaxHeight>false</AutoMaxHeight>
-													<HorizontalStretch>true</HorizontalStretch>
-													<VerticalStretch>true</VerticalStretch>
 													<SkipOnInput>false</SkipOnInput>
 													<Title formatted="false">
 														<v8:item>
@@ -163,8 +330,6 @@
 											<ExtendedTooltip name="СтраницаКартинкаОтветыВСтрокахРасширеннаяПодсказка" id="155"/>
 											<ChildItems>
 												<PictureDecoration name="КартинкаОтветыВСтроках" id="84">
-													<HorizontalStretch>true</HorizontalStretch>
-													<VerticalStretch>true</VerticalStretch>
 													<SkipOnInput>false</SkipOnInput>
 													<Title formatted="false">
 														<v8:item>
@@ -194,8 +359,6 @@
 											<ExtendedTooltip name="СтраницаКартинкаОтветыВКолонкахРасширеннаяПодсказка" id="157"/>
 											<ChildItems>
 												<PictureDecoration name="КартинкаОтветыВКолонках" id="87">
-													<HorizontalStretch>true</HorizontalStretch>
-													<VerticalStretch>true</VerticalStretch>
 													<SkipOnInput>false</SkipOnInput>
 													<Title formatted="false">
 														<v8:item>
@@ -225,8 +388,6 @@
 											<ExtendedTooltip name="СтраницаКартинкаОтветыВСтрокахИКолонкахРасширеннаяПодсказка" id="159"/>
 											<ChildItems>
 												<PictureDecoration name="КартинкаОтветыВСтрокахИКолонках" id="90">
-													<HorizontalStretch>true</HorizontalStretch>
-													<VerticalStretch>true</VerticalStretch>
 													<SkipOnInput>false</SkipOnInput>
 													<Title formatted="false">
 														<v8:item>
@@ -291,7 +452,8 @@
 											<v8:content>Общая ответы в строках и колонках</v8:content>
 										</v8:item>
 									</Title>
-									<Group>HorizontalIfPossible</Group>
+									<Width>80</Width>
+									<Group>AutoScreenTypeSensitive</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
@@ -319,12 +481,17 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="ВопросКолонкаОтветыСтрокахИКолонкахКонтекстноеМеню" id="15"/>
 													<ExtendedTooltip name="ВопросКолонкаОтветыСтрокахИКолонкахРасширеннаяПодсказка" id="166"/>
 												</LabelField>
 												<Table name="ОтветыКолонкиОтветыВСтрокахИКолонках" id="22">
 													<Representation>List</Representation>
 													<SkipOnInput>false</SkipOnInput>
+													<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+													<AutoMaxRowsCount>false</AutoMaxRowsCount>
+													<MaxRowsCount>6</MaxRowsCount>
 													<RowSelectionMode>Cell</RowSelectionMode>
 													<Header>false</Header>
 													<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -436,12 +603,17 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="ВопросСтрокаОтветыВСтрокахИКолонкахКонтекстноеМеню" id="17"/>
 													<ExtendedTooltip name="ВопросСтрокаОтветыВСтрокахИКолонкахРасширеннаяПодсказка" id="171"/>
 												</LabelField>
 												<Table name="ОтветыСтрокиОтветыВСтрокахИКолонках" id="27">
 													<Representation>List</Representation>
 													<SkipOnInput>false</SkipOnInput>
+													<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+													<AutoMaxRowsCount>false</AutoMaxRowsCount>
+													<MaxRowsCount>6</MaxRowsCount>
 													<RowSelectionMode>Cell</RowSelectionMode>
 													<Header>false</Header>
 													<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -562,6 +734,11 @@
 										<Table name="Вопросы" id="136">
 											<Representation>List</Representation>
 											<SkipOnInput>false</SkipOnInput>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>80</MaxWidth>
+											<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+											<AutoMaxRowsCount>false</AutoMaxRowsCount>
+											<MaxRowsCount>6</MaxRowsCount>
 											<RowSelectionMode>Cell</RowSelectionMode>
 											<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 											<EnableStartDrag>true</EnableStartDrag>
@@ -665,12 +842,19 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ВопросКолонкаОтветыВКолонкахКонтекстноеМеню" id="41"/>
 											<ExtendedTooltip name="ВопросКолонкаОтветыВКолонкахРасширеннаяПодсказка" id="181"/>
 										</LabelField>
 										<Table name="ОтветыКолонкиОтветыВКолонках" id="42">
 											<Representation>List</Representation>
 											<SkipOnInput>false</SkipOnInput>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>80</MaxWidth>
+											<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+											<AutoMaxRowsCount>false</AutoMaxRowsCount>
+											<MaxRowsCount>6</MaxRowsCount>
 											<RowSelectionMode>Cell</RowSelectionMode>
 											<Header>false</Header>
 											<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -767,6 +951,8 @@
 													<v8:content>Вопрос для колонок</v8:content>
 												</v8:item>
 											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ВопросДляКолонокКонтекстноеМеню" id="126"/>
 											<ExtendedTooltip name="ВопросДляКолонокРасширеннаяПодсказка" id="185"/>
 										</InputField>
@@ -807,12 +993,19 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ВопросСтрокаОтветыВСтрокахКонтекстноеМеню" id="60"/>
 											<ExtendedTooltip name="ВопросСтрокаОтветыВСтрокахРасширеннаяПодсказка" id="188"/>
 										</LabelField>
 										<Table name="ОтветыСтрокиОтветыВСтроках" id="54">
 											<Representation>List</Representation>
 											<SkipOnInput>false</SkipOnInput>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>80</MaxWidth>
+											<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+											<AutoMaxRowsCount>false</AutoMaxRowsCount>
+											<MaxRowsCount>6</MaxRowsCount>
 											<RowSelectionMode>Cell</RowSelectionMode>
 											<Header>false</Header>
 											<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -915,6 +1108,8 @@
 													<v8:content>Вопрос для строк</v8:content>
 												</v8:item>
 											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ВопросДляСтрокКонтекстноеМеню" id="124"/>
 											<ExtendedTooltip name="ВопросДляСтрокРасширеннаяПодсказка" id="192"/>
 										</InputField>
@@ -938,6 +1133,12 @@
 									<CommandBarLocation>None</CommandBarLocation>
 									<ReadOnly>true</ReadOnly>
 									<SkipOnInput>false</SkipOnInput>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>80</MaxWidth>
+									<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+									<AutoMaxRowsCount>false</AutoMaxRowsCount>
+									<MaxRowsCount>6</MaxRowsCount>
+									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -1007,7 +1208,8 @@
 							<v8:content>Способ отображения подсказки</v8:content>
 						</v8:item>
 					</Title>
-					<HorizontalStretch>false</HorizontalStretch>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СпособОтображенияПодсказкиКонтекстноеМеню" id="267"/>
 					<ExtendedTooltip name="СпособОтображенияПодсказкиРасширеннаяПодсказка" id="268"/>
 				</InputField>
@@ -1019,7 +1221,11 @@
 							<v8:content>Подсказка</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>80</MaxWidth>
+					<Height>2</Height>
 					<VerticalStretch>false</VerticalStretch>
 					<MultiLine>true</MultiLine>
 					<ExtendedEdit>true</ExtendedEdit>
@@ -1030,6 +1236,7 @@
 		</UsualGroup>
 		<LabelField name="ИнформацияПодвал" id="130">
 			<DataPath>ИнформацияПодвал</DataPath>
+			<Visible>false</Visible>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1037,89 +1244,11 @@
 				</v8:item>
 			</Title>
 			<TitleLocation>None</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<ContextMenu name="ИнформацияПодвалКонтекстноеМеню" id="131"/>
 			<ExtendedTooltip name="ИнформацияПодвалРасширеннаяПодсказка" id="195"/>
 		</LabelField>
-		<UsualGroup name="ГруппаКнопки" id="10">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Кнопки</v8:content>
-				</v8:item>
-			</Title>
-			<VerticalStretch>false</VerticalStretch>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКнопкиРасширеннаяПодсказка" id="196"/>
-			<ChildItems>
-				<Button name="КнопкаНазад" id="127">
-					<Type>UsualButton</Type>
-					<Representation>Text</Representation>
-					<SkipOnInput>false</SkipOnInput>
-					<Height>1</Height>
-					<CommandName>Form.Command.ПредыдущаяСтраница</CommandName>
-					<BorderColor>style:FormBackColor</BorderColor>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>&lt; Назад</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="КнопкаНазадРасширеннаяПодсказка" id="199"/>
-				</Button>
-				<CommandBar name="ГруппаДалее" id="204">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Далее</v8:content>
-						</v8:item>
-					</Title>
-					<Height>1</Height>
-					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-					<HorizontalLocation>Right</HorizontalLocation>
-					<ExtendedTooltip name="ГруппаДалееРасширеннаяПодсказка" id="205"/>
-					<ChildItems>
-						<Button name="КнопкаВперед" id="12">
-							<Type>CommandBarButton</Type>
-							<Representation>Text</Representation>
-							<DefaultButton>true</DefaultButton>
-							<SkipOnInput>false</SkipOnInput>
-							<CommandName>Form.Command.СледующаяСтраница</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Далее &gt;</v8:content>
-								</v8:item>
-							</Title>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="КнопкаВпередРасширеннаяПодсказка" id="200"/>
-						</Button>
-						<Button name="КнопкаОтмена" id="11">
-							<Type>CommandBarButton</Type>
-							<Representation>Text</Representation>
-							<SkipOnInput>false</SkipOnInput>
-							<CommandName>Form.StandardCommand.Close</CommandName>
-							<BackColor>style:FormBackColor</BackColor>
-							<BorderColor>style:FormBackColor</BorderColor>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Отмена</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="КнопкаОтменаРасширеннаяПодсказка" id="201"/>
-						</Button>
-						<Button name="Справка" id="206">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.Help</CommandName>
-							<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="207"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ТипТабличногоВопроса" id="1">
@@ -1358,6 +1487,7 @@
 			</ToolTip>
 			<Action>СледующаяСтраница</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПредыдущаяСтраница" id="2">
 			<Title>
@@ -1374,6 +1504,7 @@
 			</ToolTip>
 			<Action>ПредыдущаяСтраница</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ЗаполнитьВариантыОтветовОтветыСтроки" id="3">
 			<Title>

@@ -12,6 +12,7 @@
 	<AutoTitle>false</AutoTitle>
 	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
+	<CommandBarLocation>None</CommandBarLocation>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
@@ -24,28 +25,8 @@
 		<ExcludedCommand>SaveValues</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="Выполнить" id="23">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Выполнить</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ВыполнитьРасширеннаяПодсказка" id="24"/>
-			</Button>
-			<Button name="ФормаЗакрыть" id="28">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="29"/>
-			</Button>
-			<Button name="ФормаСправка" id="33">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="34"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<ShowCommandBar>false</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnSaveDataInSettingsAtServer">ПриСохраненииДанныхВНастройкахНаСервере</Event>
 		<Event name="OnLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
@@ -57,6 +38,7 @@
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -76,8 +58,6 @@
 				<ExcludedCommand>MoveDown</ExcludedCommand>
 				<ExcludedCommand>MoveUp</ExcludedCommand>
 				<ExcludedCommand>OutputList</ExcludedCommand>
-				<ExcludedCommand>SelectAll</ExcludedCommand>
-				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
@@ -86,6 +66,13 @@
 			<ContextMenu name="НастройкиОбменаКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="НастройкиОбменаКоманднаяПанель" id="3">
 				<ChildItems>
+					<Button name="Выполнить" id="23">
+						<Type>CommandBarButton</Type>
+						<DefaultButton>true</DefaultButton>
+						<CommandName>Form.Command.Выполнить</CommandName>
+						<ButtonImportance>Main</ButtonImportance>
+						<ExtendedTooltip name="ВыполнитьРасширеннаяПодсказка" id="24"/>
+					</Button>
 					<Button name="УстановитьФлажки" id="37">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.УстановитьФлажки</CommandName>
@@ -103,11 +90,6 @@
 							<xr:LoadTransparent>true</xr:LoadTransparent>
 						</Picture>
 						<ExtendedTooltip name="СброситьФлажкиРасширеннаяПодсказка" id="36"/>
-					</Button>
-					<Button name="НастройкиОбменаИнвертировать" id="39">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Инвертировать</CommandName>
-						<ExtendedTooltip name="НастройкиОбменаИнвертироватьРасширеннаяПодсказка" id="40"/>
 					</Button>
 				</ChildItems>
 			</AutoCommandBar>
@@ -143,8 +125,8 @@
 				<CheckBoxField name="НастройкиОбменаВыбран" id="20">
 					<DataPath>НастройкиОбмена.Выбран</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<CheckBoxType>CheckBox</CheckBoxType>
 					<ContextMenu name="НастройкиОбменаВыбранКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="НастройкиОбменаВыбранРасширеннаяПодсказка" id="22"/>
 					<Events>
@@ -154,16 +136,13 @@
 				<InputField name="НастройкиОбменаНастройкаОбмена" id="14">
 					<DataPath>НастройкиОбмена.НастройкаОбмена</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НастройкиОбменаНастройкаОбменаКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="НастройкиОбменаНастройкаОбменаРасширеннаяПодсказка" id="16"/>
 				</InputField>
 				<InputField name="НастройкиОбменаДатаПоследнейСинхронизации" id="17">
 					<DataPath>НастройкиОбмена.ДатаПоследнейСинхронизации</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="НастройкиОбменаДатаПоследнейСинхронизацииКонтекстноеМеню" id="18"/>
 					<ExtendedTooltip name="НастройкиОбменаДатаПоследнейСинхронизацииРасширеннаяПодсказка" id="19"/>
 				</InputField>
@@ -171,8 +150,6 @@
 					<DataPath>НастройкиОбмена.Картинка</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<FileDragMode>AsFile</FileDragMode>
 					<ContextMenu name="НастройкиОбменаКартинкаКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="НастройкиОбменаКартинкаРасширеннаяПодсказка" id="27"/>
@@ -182,6 +159,7 @@
 		<CheckBoxField name="ЗапомнитьВыбор" id="30">
 			<DataPath>ЗапомнитьВыбор</DataPath>
 			<TitleLocation>Right</TitleLocation>
+			<CheckBoxType>CheckBox</CheckBoxType>
 			<ContextMenu name="ЗапомнитьВыборКонтекстноеМеню" id="31"/>
 			<ExtendedTooltip name="ЗапомнитьВыборРасширеннаяПодсказка" id="32"/>
 		</CheckBoxField>
@@ -314,6 +292,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ВыполнитьСинхронизацию</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="УстановитьФлажки" id="2">
 			<Title>
@@ -344,25 +323,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СброситьФлажки</Action>
-		</Command>
-		<Command name="Инвертировать" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Инвертировать</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Инвертировать</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>CommonPicture.ИнвертироватьФлажкиОбменСБанками</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
-			</Picture>
-			<Action>Инвертировать</Action>
 		</Command>
 	</Commands>
 	<Parameters>

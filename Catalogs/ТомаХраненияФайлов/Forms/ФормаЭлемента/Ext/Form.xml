@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
-	<WindowOpeningMode>DontBlock</WindowOpeningMode>
+	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<CommandSet>
 		<ExcludedCommand>WriteAndClose</ExcludedCommand>
 	</CommandSet>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="ФормаЗаписатьИЗакрыть" id="36">
 				<Type>CommandBarButton</Type>
@@ -27,16 +26,11 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="37"/>
 			</Button>
-			<ButtonGroup name="СтандартныеКоманды" id="38">
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Стандартные команды</v8:content>
-					</v8:item>
-				</Title>
-				<CommandSource>Form</CommandSource>
-				<ExtendedTooltip name="СтандартныеКомандыРасширеннаяПодсказка" id="39"/>
-			</ButtonGroup>
+			<Button name="ФормаЗаписать" id="60">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Write</CommandName>
+				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="61"/>
+			</Button>
 			<Button name="ФормаПроверитьЦелостностьТома" id="48">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.ПроверитьЦелостностьТома</CommandName>
@@ -58,11 +52,6 @@
 					</v8:item>
 				</Title>
 				<ExtendedTooltip name="ФормаУдалитьЛишниеФайлыРасширеннаяПодсказка" id="51"/>
-			</Button>
-			<Button name="ФормаСправка" id="40">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="41"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -126,10 +115,10 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
+					<ScrollOnCompress>true</ScrollOnCompress>
 					<ExtendedTooltip name="СвойстваГлавноеРасширеннаяПодсказка" id="45"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаСпособХраненияФайлов" id="52">
+						<UsualGroup name="ГруппаСпособХраненияФайлов" id="64">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -139,9 +128,9 @@
 							<Group>AlwaysHorizontal</Group>
 							<Representation>WeakSeparation</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаСпособХраненияФайловРасширеннаяПодсказка" id="53"/>
+							<ExtendedTooltip name="ГруппаСпособХраненияФайловРасширеннаяПодсказка" id="65"/>
 							<ChildItems>
-								<InputField name="СпособХраненияФайлов" id="54">
+								<InputField name="СпособХраненияФайлов" id="66">
 									<DataPath>Объект.СпособХраненияФайлов</DataPath>
 									<TitleLocation>Top</TitleLocation>
 									<WarningOnEditRepresentation>Show</WarningOnEditRepresentation>
@@ -157,13 +146,13 @@
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ChooseType>false</ChooseType>
 									<TextEdit>false</TextEdit>
-									<ContextMenu name="СпособХраненияФайловКонтекстноеМеню" id="55"/>
-									<ExtendedTooltip name="СпособХраненияФайловРасширеннаяПодсказка" id="56"/>
+									<ContextMenu name="СпособХраненияФайловКонтекстноеМеню" id="67"/>
+									<ExtendedTooltip name="СпособХраненияФайловРасширеннаяПодсказка" id="68"/>
 									<Events>
 										<Event name="OnChange">СпособХраненияФайловПриИзменении</Event>
 									</Events>
 								</InputField>
-								<InputField name="ИмяХранилищаДвоичныхДанных" id="57">
+								<InputField name="ИмяХранилищаДвоичныхДанных" id="70">
 									<DataPath>Объект.ИмяХранилищаДвоичныхДанных</DataPath>
 									<TitleLocation>Top</TitleLocation>
 									<WarningOnEditRepresentation>Show</WarningOnEditRepresentation>
@@ -180,8 +169,8 @@
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ChooseType>false</ChooseType>
 									<TextEdit>false</TextEdit>
-									<ContextMenu name="ИмяХранилищаДвоичныхДанныхКонтекстноеМеню" id="58"/>
-									<ExtendedTooltip name="ИмяХранилищаДвоичныхДанныхРасширеннаяПодсказка" id="59"/>
+									<ContextMenu name="ИмяХранилищаДвоичныхДанныхКонтекстноеМеню" id="71"/>
+									<ExtendedTooltip name="ИмяХранилищаДвоичныхДанныхРасширеннаяПодсказка" id="72"/>
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
@@ -192,7 +181,7 @@
 									<v8:content>Пути</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Vertical</Group>
+							<Group>AutoScreenTypeSensitive</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -203,7 +192,7 @@
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Полный путь к общей папке на компьютере под управлением Microsoft Windows</v8:content>
+											<v8:content>Полный путь к общей папке на компьютере Windows</v8:content>
 										</v8:item>
 									</Title>
 									<TitleLocation>Top</TitleLocation>
@@ -215,7 +204,6 @@
 									</WarningOnEdit>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
-									<Width>60</Width>
 									<InputHint>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -233,11 +221,12 @@
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Полный путь к общей папке на компьютере под управлением Linux</v8:content>
+											<v8:content>Полный путь к общей папке на компьютере Linux</v8:content>
 										</v8:item>
 									</Title>
 									<TitleLocation>Top</TitleLocation>
-									<Width>60</Width>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ПолныйПутьLinuxКонтекстноеМеню" id="24"/>
 									<ExtendedTooltip name="ПолныйПутьLinuxРасширеннаяПодсказка" id="30"/>
 									<Events>
@@ -246,14 +235,53 @@
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
-						<InputField name="Порядок" id="7">
-							<DataPath>Объект.ПорядокЗаполнения</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<SpinButton>true</SpinButton>
-							<ContextMenu name="ПорядокКонтекстноеМеню" id="8"/>
-							<ExtendedTooltip name="ПорядокРасширеннаяПодсказка" id="31"/>
-						</InputField>
+						<UsualGroup name="ГруппаРазмерПорядок" id="62">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Размер порядок</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AutoScreenTypeSensitive</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаРазмерПорядокРасширеннаяПодсказка" id="63"/>
+							<ChildItems>
+								<InputField name="МаксимальныйРазмер" id="17">
+									<DataPath>Объект.МаксимальныйРазмер</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Максимальный размер</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ЧФ='Ч Мб'</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="МаксимальныйРазмерКонтекстноеМеню" id="18"/>
+									<ExtendedTooltip name="МаксимальныйРазмерРасширеннаяПодсказка" id="33"/>
+								</InputField>
+								<InputField name="Порядок" id="7">
+									<DataPath>Объект.ПорядокЗаполнения</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Порядок заполнения тома</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<SpinButton>true</SpinButton>
+									<ContextMenu name="ПорядокКонтекстноеМеню" id="8"/>
+									<ExtendedTooltip name="ПорядокРасширеннаяПодсказка" id="31"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
 						<UsualGroup name="ГруппаМаксимальныйРазмер" id="19">
 							<Title>
 								<v8:item>
@@ -267,19 +295,13 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаМаксимальныйРазмерРасширеннаяПодсказка" id="32"/>
 							<ChildItems>
-								<InputField name="МаксимальныйРазмер" id="17">
-									<DataPath>Объект.МаксимальныйРазмер</DataPath>
-									<SpinButton>true</SpinButton>
-									<ContextMenu name="МаксимальныйРазмерКонтекстноеМеню" id="18"/>
-									<ExtendedTooltip name="МаксимальныйРазмерРасширеннаяПодсказка" id="33"/>
-								</InputField>
-								<InputField name="ТекущийРазмер" id="20">
+								<LabelField name="ТекущийРазмер" id="20">
 									<DataPath>ТекущийРазмер</DataPath>
 									<ReadOnly>true</ReadOnly>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Текущий размер, МБ</v8:content>
+											<v8:content>Текущий размер</v8:content>
 										</v8:item>
 									</Title>
 									<ToolTip>
@@ -288,9 +310,19 @@
 											<v8:content>Текущий размер всех файлов в томе в мегабайтах.</v8:content>
 										</v8:item>
 									</ToolTip>
+									<HorizontalAlign>Left</HorizontalAlign>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ЧН='0 Мб'; ЧФ='Ч Мб'</v8:content>
+										</v8:item>
+									</Format>
+									<UseCopy>true</UseCopy>
 									<ContextMenu name="ТекущийРазмерКонтекстноеМеню" id="21"/>
 									<ExtendedTooltip name="ТекущийРазмерРасширеннаяПодсказка" id="34"/>
-								</InputField>
+								</LabelField>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
@@ -303,12 +335,14 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
+					<ScrollOnCompress>true</ScrollOnCompress>
 					<ExtendedTooltip name="СвойстваКомментарийРасширеннаяПодсказка" id="47"/>
 					<ChildItems>
 						<InputField name="Комментарий" id="13">
 							<DataPath>Объект.Комментарий</DataPath>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MultiLine>true</MultiLine>
 							<ExtendedEdit>true</ExtendedEdit>
@@ -371,6 +405,7 @@
 			</ToolTip>
 			<Action>ЗаписатьИЗакрыть</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПроверитьЦелостностьТома" id="2">
 			<Title>
@@ -406,16 +441,4 @@
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
-	<CommandInterface>
-		<NavigationPanel>
-			<Item>
-				<Command>0</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-		</NavigationPanel>
-	</CommandInterface>
 </Form>

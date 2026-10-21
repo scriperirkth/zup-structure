@@ -4,11 +4,14 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
-	</AutoCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
 		<Table name="Список" id="1">
+			<CommandBarLocation>Top</CommandBarLocation>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<EnableStartDrag>true</EnableStartDrag>
 			<FileDragMode>AsFile</FileDragMode>
@@ -17,6 +20,7 @@
 			<SearchStringLocation>None</SearchStringLocation>
 			<ViewStatusLocation>None</ViewStatusLocation>
 			<SearchControlLocation>None</SearchControlLocation>
+			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -37,6 +41,7 @@
 					<Button name="КнопкаДействияФормыОчистить" id="14">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.ДействияФормыОчистить</CommandName>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 						<ExtendedTooltip name="КнопкаДействияФормыОчиститьExtendedTooltip" id="15"/>
 					</Button>
 				</ChildItems>
@@ -151,7 +156,8 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ДействияФормыОчистить</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
 		</Command>
 	</Commands>
 </Form>

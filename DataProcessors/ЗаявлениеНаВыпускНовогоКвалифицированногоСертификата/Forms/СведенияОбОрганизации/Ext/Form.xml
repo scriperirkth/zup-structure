@@ -8,29 +8,18 @@
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="ФормаОК" id="1">
+			<Button name="ФормаСохранитьИзменения" id="1">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ОК</CommandName>
+				<CommandName>Form.Command.СохранитьИзменения</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>ОК</v8:content>
+						<v8:content>Сохранить изменения</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаОКРасширеннаяПодсказка" id="2"/>
-			</Button>
-			<Button name="ФормаОтмена" id="3">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Отмена</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Отмена</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="4"/>
+				<ExtendedTooltip name="ФормаСохранитьИзмененияРасширеннаяПодсказка" id="2"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -60,7 +49,7 @@
 							<v8:content>Вид организации</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>AutoScreenTypeSensitive</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -74,7 +63,8 @@
 									<v8:content>Вид</v8:content>
 								</v8:item>
 							</Title>
-							<AutoMaxWidth>false</AutoMaxWidth>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ListChoiceMode>true</ListChoiceMode>
 							<ChoiceList>
 								<xr:Item>
@@ -115,10 +105,12 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Это иностранная организация</v8:content>
+									<v8:content>Иностранная организация</v8:content>
 								</v8:item>
 							</Title>
 							<TitleLocation>Right</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ЭтоИностраннаяОрганизацияКонтекстноеМеню" id="64"/>
 							<ExtendedTooltip name="ЭтоИностраннаяОрганизацияРасширеннаяПодсказка" id="65"/>
 							<Events>
@@ -127,45 +119,55 @@
 						</CheckBoxField>
 					</ChildItems>
 				</UsualGroup>
-				<InputField name="НаименованиеСокращенное" id="8">
-					<DataPath>НаименованиеСокращенное</DataPath>
+				<UsualGroup name="ГруппаНаименованиеОрганизации" id="80">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Наименование (сокращенное)</v8:content>
+							<v8:content>Наименование организации</v8:content>
 						</v8:item>
 					</Title>
-					<TitleHeight>2</TitleHeight>
-					<MarkRequiredComplete>true</MarkRequiredComplete>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<AutoMarkIncomplete>true</AutoMarkIncomplete>
-					<ContextMenu name="НаименованиеСокращенноеКонтекстноеМеню" id="9"/>
-					<ExtendedTooltip name="НаименованиеСокращенноеРасширеннаяПодсказка" id="10"/>
-					<Events>
-						<Event name="OnChange">РеквизитПриИзменении</Event>
-					</Events>
-				</InputField>
-				<InputField name="НаименованиеПолное" id="11">
-					<DataPath>НаименованиеПолное</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Наименование (полное)</v8:content>
-						</v8:item>
-					</Title>
-					<TitleLocation>Left</TitleLocation>
-					<TitleHeight>2</TitleHeight>
-					<MarkRequiredComplete>true</MarkRequiredComplete>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Height>2</Height>
-					<MultiLine>true</MultiLine>
-					<AutoMarkIncomplete>true</AutoMarkIncomplete>
-					<ContextMenu name="НаименованиеПолноеКонтекстноеМеню" id="12"/>
-					<ExtendedTooltip name="НаименованиеПолноеРасширеннаяПодсказка" id="13"/>
-					<Events>
-						<Event name="OnChange">РеквизитПриИзменении</Event>
-					</Events>
-				</InputField>
+					<Group>AutoScreenTypeSensitive</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНаименованиеОрганизацииРасширеннаяПодсказка" id="81"/>
+					<ChildItems>
+						<InputField name="НаименованиеСокращенное" id="8">
+							<DataPath>НаименованиеСокращенное</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименование (сокращенное)</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="НаименованиеСокращенноеКонтекстноеМеню" id="9"/>
+							<ExtendedTooltip name="НаименованиеСокращенноеРасширеннаяПодсказка" id="10"/>
+							<Events>
+								<Event name="OnChange">РеквизитПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="НаименованиеПолное" id="11">
+							<DataPath>НаименованиеПолное</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименование (полное)</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="НаименованиеПолноеКонтекстноеМеню" id="12"/>
+							<ExtendedTooltip name="НаименованиеПолноеРасширеннаяПодсказка" id="13"/>
+							<Events>
+								<Event name="OnChange">РеквизитПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
 				<UsualGroup name="ГруппаНомеров" id="14">
 					<Title>
 						<v8:item>
@@ -179,68 +181,85 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаНомеровРасширеннаяПодсказка" id="15"/>
 					<ChildItems>
-						<UsualGroup name="ВертикальнаяГруппа1" id="16">
+						<UsualGroup name="ГруппаОсновныеРеквизиты" id="16">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Вертикальная группа</v8:content>
+									<v8:content>Основные реквизиты</v8:content>
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ВертикальнаяГруппа1РасширеннаяПодсказка" id="17"/>
+							<ExtendedTooltip name="ГруппаОсновныеРеквизитыРасширеннаяПодсказка" id="17"/>
 							<ChildItems>
-								<UsualGroup name="ГоризонтальнаяГруппа7" id="18">
+								<InputField name="ИНН" id="20">
+									<DataPath>ИНН</DataPath>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Горизонтальная группа</v8:content>
+											<v8:content>ИНН</v8:content>
 										</v8:item>
 									</Title>
-									<Group>HorizontalIfPossible</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГоризонтальнаяГруппа7РасширеннаяПодсказка" id="19"/>
-									<ChildItems>
-										<InputField name="ИНН" id="20">
-											<DataPath>ИНН</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>ИНН</v8:content>
-												</v8:item>
-											</Title>
-											<MarkRequiredComplete>true</MarkRequiredComplete>
-											<HorizontalStretch>false</HorizontalStretch>
-											<AutoMarkIncomplete>true</AutoMarkIncomplete>
-											<ContextMenu name="ИННКонтекстноеМеню" id="21"/>
-											<ExtendedTooltip name="ИННРасширеннаяПодсказка" id="22"/>
-											<Events>
-												<Event name="OnChange">РеквизитПриИзменении</Event>
-											</Events>
-										</InputField>
-										<InputField name="КПП" id="23">
-											<DataPath>КПП</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>КПП</v8:content>
-												</v8:item>
-											</Title>
-											<MarkRequiredComplete>true</MarkRequiredComplete>
-											<HorizontalStretch>true</HorizontalStretch>
-											<AutoMarkIncomplete>true</AutoMarkIncomplete>
-											<ContextMenu name="КППКонтекстноеМеню" id="24"/>
-											<ExtendedTooltip name="КППРасширеннаяПодсказка" id="25"/>
-											<Events>
-												<Event name="OnChange">РеквизитПриИзменении</Event>
-											</Events>
-										</InputField>
-									</ChildItems>
-								</UsualGroup>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="ИННКонтекстноеМеню" id="21"/>
+									<ExtendedTooltip name="ИННРасширеннаяПодсказка" id="22"/>
+									<Events>
+										<Event name="OnChange">РеквизитПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="КПП" id="23">
+									<DataPath>КПП</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>КПП</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="КППКонтекстноеМеню" id="24"/>
+									<ExtendedTooltip name="КППРасширеннаяПодсказка" id="25"/>
+									<Events>
+										<Event name="OnChange">РеквизитПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ОГРН" id="34">
+									<DataPath>ОГРН</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ОГРН</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="ОГРНКонтекстноеМеню" id="35"/>
+									<ExtendedTooltip name="ОГРНРасширеннаяПодсказка" id="36"/>
+									<Events>
+										<Event name="OnChange">РеквизитПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаБанковскиеРеквизиты" id="32">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Банковские реквизиты</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаБанковскиеРеквизитыРасширеннаяПодсказка" id="33"/>
+							<ChildItems>
 								<InputField name="РасчетныйСчет" id="26">
 									<DataPath>РасчетныйСчет</DataPath>
 									<Title>
@@ -256,53 +275,10 @@
 										</v8:item>
 									</ToolTip>
 									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="РасчетныйСчетКонтекстноеМеню" id="27"/>
 									<ExtendedTooltip name="РасчетныйСчетРасширеннаяПодсказка" id="28"/>
-									<Events>
-										<Event name="OnChange">РеквизитПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="КорреспондентскийСчет" id="29">
-									<DataPath>КорреспондентскийСчет</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Корреспондентский счет</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="КорреспондентскийСчетКонтекстноеМеню" id="30"/>
-									<ExtendedTooltip name="КорреспондентскийСчетРасширеннаяПодсказка" id="31"/>
-									<Events>
-										<Event name="OnChange">РеквизитПриИзменении</Event>
-									</Events>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ВертикальнаяГруппа2" id="32">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Вертикальная группа</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ВертикальнаяГруппа2РасширеннаяПодсказка" id="33"/>
-							<ChildItems>
-								<InputField name="ОГРН" id="34">
-									<DataPath>ОГРН</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>ОГРН</v8:content>
-										</v8:item>
-									</Title>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
-									<AutoMarkIncomplete>true</AutoMarkIncomplete>
-									<ContextMenu name="ОГРНКонтекстноеМеню" id="35"/>
-									<ExtendedTooltip name="ОГРНРасширеннаяПодсказка" id="36"/>
 									<Events>
 										<Event name="OnChange">РеквизитПриИзменении</Event>
 									</Events>
@@ -315,9 +291,26 @@
 											<v8:content>БИК</v8:content>
 										</v8:item>
 									</Title>
-									<HorizontalStretch>true</HorizontalStretch>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="БИККонтекстноеМеню" id="38"/>
 									<ExtendedTooltip name="БИКРасширеннаяПодсказка" id="39"/>
+									<Events>
+										<Event name="OnChange">РеквизитПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="КорреспондентскийСчет" id="29">
+									<DataPath>КорреспондентскийСчет</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Корреспондентский счет</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="КорреспондентскийСчетКонтекстноеМеню" id="30"/>
+									<ExtendedTooltip name="КорреспондентскийСчетРасширеннаяПодсказка" id="31"/>
 									<Events>
 										<Event name="OnChange">РеквизитПриИзменении</Event>
 									</Events>
@@ -335,7 +328,6 @@
 					</Title>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
 					<ExtendedTooltip name="ГруппаКонтактнаяИнформацияОрганизацииРасширеннаяПодсказка" id="41"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаЮридическийАдрес" id="42">
@@ -360,8 +352,8 @@
 											<v8:content>Адрес регистрации</v8:content>
 										</v8:item>
 									</Title>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
-									<Width>65</Width>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<TextEdit>false</TextEdit>
@@ -378,9 +370,8 @@
 									<v8:content>Телефон</v8:content>
 								</v8:item>
 							</Title>
-							<MarkRequiredComplete>true</MarkRequiredComplete>
-							<Width>25</Width>
-							<HorizontalStretch>false</HorizontalStretch>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ChoiceButton>true</ChoiceButton>
 							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<TextEdit>false</TextEdit>
@@ -602,35 +593,21 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ОК" id="1">
+		<Command name="СохранитьИзменения" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Сохранить изменения</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Сохранить изменения</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ОК</Action>
-		</Command>
-		<Command name="Отмена" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Отмена</Action>
+			<Action>СохранитьИзменения</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

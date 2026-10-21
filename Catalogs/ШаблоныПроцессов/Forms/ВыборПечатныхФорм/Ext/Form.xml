@@ -7,26 +7,6 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ФормаКомандаОК" id="1">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.КомандаОК</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаКомандаОКРасширеннаяПодсказка" id="2"/>
-			</Button>
-			<Button name="ФормаКомандаОтмена" id="3">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Отмена</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаКомандаОтменаРасширеннаяПодсказка" id="4"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -53,8 +33,21 @@
 			<ChildItems>
 				<CheckBoxField name="ВсеФормы" id="5">
 					<DataPath>ВсеФормы</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<CheckBoxType>Tumbler</CheckBoxType>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Все формы</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Рекомендуется отключить флажок "Все формы" и отметить только необходимые для подписания формы в списке</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<CheckBoxType>Switcher</CheckBoxType>
 					<EditFormat>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -119,8 +112,10 @@
 			<CommandBarLocation>None</CommandBarLocation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<Header>false</Header>
+			<HorizontalLinesBWA>true</HorizontalLinesBWA>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -193,9 +188,7 @@
 			<ExtendedTooltip name="ГруппаОтстутствующиеФормыРасширеннаяПодсказка" id="31"/>
 			<ChildItems>
 				<LabelDecoration name="ПредупреждениеОНаличииОтсутвующихФорм" id="32">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Height>1</Height>
-					<TextColor>web:FireBrick</TextColor>
+					<TextColor>pal:Red</TextColor>
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -210,6 +203,42 @@
 					<CommandName>Form.Command.УдалитьОтсутствующиеФормы</CommandName>
 					<TextColor>web:FireBrick</TextColor>
 					<ExtendedTooltip name="УдалитьОтсутствующиеФормыРасширеннаяПодсказка" id="36"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКоманды" id="60">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команды</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<VerticalStretch>true</VerticalStretch>
+			<VerticalAlign>Bottom</VerticalAlign>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="61"/>
+			<ChildItems>
+				<Button name="ФормаКомандаОК" id="1">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<CommandName>Form.Command.КомандаОК</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ФормаКомандаОКРасширеннаяПодсказка" id="2"/>
+				</Button>
+				<Button name="ФормаКомандаОтмена" id="3">
+					<Type>UsualButton</Type>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отмена</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ФормаКомандаОтменаРасширеннаяПодсказка" id="4"/>
 				</Button>
 			</ChildItems>
 		</UsualGroup>

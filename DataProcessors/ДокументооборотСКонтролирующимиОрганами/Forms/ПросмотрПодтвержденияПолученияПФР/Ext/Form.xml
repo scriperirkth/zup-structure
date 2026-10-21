@@ -6,6 +6,15 @@
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="КнопкаПечать" id="33">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Печать</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="КнопкаПечатьExtendedTooltip" id="51"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -56,7 +65,7 @@
 					<ChoiceListButton>false</ChoiceListButton>
 					<TextColor>#000080</TextColor>
 					<BackColor>#E7EAF6</BackColor>
-					<BorderColor>style:FormBackColor</BorderColor>
+					<BorderColor>pal:Gray</BorderColor>
 					<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
 					<ContextMenu name="НадписьОтчетПредставленКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="НадписьОтчетПредставленExtendedTooltip" id="36"/>
@@ -80,13 +89,13 @@
 			<HorizontalStretch>true</HorizontalStretch>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаПричинаОтказаExtendedTooltip" id="37"/>
 			<ChildItems>
 				<InputField name="ПолеПричинаОтказа" id="7">
 					<DataPath>ПричинаОтказаВПриеме</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
 					<Height>3</Height>
 					<PasswordMode>false</PasswordMode>
 					<MultiLine>true</MultiLine>
@@ -110,12 +119,12 @@
 			</ToolTip>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаПротоколыПроверкиExtendedTooltip" id="39"/>
 			<ChildItems>
 				<Table name="Протоколы" id="10">
 					<Representation>List</Representation>
 					<Height>4</Height>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<Header>false</Header>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -194,6 +203,7 @@
 				<InputField name="ДатаВремяПолучения" id="18">
 					<DataPath>ДатаВремяПолучения</DataPath>
 					<SkipOnInput>true</SkipOnInput>
+					<TitleLocation>Left</TitleLocation>
 					<ChoiceButton>false</ChoiceButton>
 					<ClearButton>false</ClearButton>
 					<SpinButton>false</SpinButton>
@@ -203,13 +213,14 @@
 					<ChoiceListButton>false</ChoiceListButton>
 					<TextColor>#000080</TextColor>
 					<BackColor>#E7EAF6</BackColor>
-					<BorderColor>style:FormBackColor</BorderColor>
+					<BorderColor>pal:Gray</BorderColor>
 					<ContextMenu name="ДатаВремяПолученияКонтекстноеМеню" id="19"/>
 					<ExtendedTooltip name="ДатаВремяПолученияExtendedTooltip" id="44"/>
 				</InputField>
 				<InputField name="РегистрационныйНомерОрганизации" id="20">
 					<DataPath>РегистрационныйНомерОрганизации</DataPath>
 					<SkipOnInput>true</SkipOnInput>
+					<TitleLocation>Left</TitleLocation>
 					<ChoiceButton>false</ChoiceButton>
 					<ClearButton>false</ClearButton>
 					<ChooseType>false</ChooseType>
@@ -217,7 +228,7 @@
 					<ChoiceListButton>false</ChoiceListButton>
 					<TextColor>#000080</TextColor>
 					<BackColor>#E7EAF6</BackColor>
-					<BorderColor>style:FormBackColor</BorderColor>
+					<BorderColor>pal:Gray</BorderColor>
 					<ContextMenu name="РегистрационныйНомерОрганизацииКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="РегистрационныйНомерОрганизацииExtendedTooltip" id="45"/>
 				</InputField>
@@ -238,11 +249,11 @@
 			</ToolTip>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаСодержимоеExtendedTooltip" id="46"/>
 			<ChildItems>
 				<Table name="Содержимое" id="23">
 					<Representation>Tree</Representation>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<Header>false</Header>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -304,24 +315,6 @@
 				</Table>
 			</ChildItems>
 		</UsualGroup>
-		<CommandBar name="ГруппаКоманднаяПанель" id="32">
-			<EnableContentChange>true</EnableContentChange>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</ToolTip>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="ГруппаКоманднаяПанельExtendedTooltip" id="50"/>
-			<ChildItems>
-				<Button name="КнопкаПечать" id="33">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.Печать</CommandName>
-					<ExtendedTooltip name="КнопкаПечатьExtendedTooltip" id="51"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -521,6 +514,7 @@
 			<Action>Печать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

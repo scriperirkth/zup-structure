@@ -9,12 +9,45 @@
 	<WindowOpeningMode>LockWholeInterface</WindowOpeningMode>
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
-	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowTitle>true</ShowTitle>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Назад" id="252">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<CommandName>Form.Command.Назад</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Назад</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="НазадРасширеннаяПодсказка" id="253"/>
+			</Button>
+			<Button name="Далее" id="21">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Далее</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ДалееРасширеннаяПодсказка" id="22"/>
+			</Button>
+			<Button name="ЗакрытьИПродолжитьВФоне" id="356">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ЗакрытьИПродолжитьВФоне</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ЗакрытьИПродолжитьВФонеРасширеннаяПодсказка" id="357"/>
+			</Button>
+			<Button name="ОстановитьМиграцию" id="351">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОстановитьМиграцию</CommandName>
+				<ExtendedTooltip name="ОстановитьМиграциюРасширеннаяПодсказка" id="352"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -39,72 +72,128 @@
 							<v8:content>Страница создание приложение</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
+					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="СтраницаСозданиеПриложениеРасширеннаяПодсказка" id="178"/>
 					<ChildItems>
-						<InputField name="Наименование" id="179">
-							<DataPath>Наименование</DataPath>
-							<ContextMenu name="НаименованиеКонтекстноеМеню" id="180"/>
-							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="181"/>
-						</InputField>
-						<LabelDecoration name="ДекорацияВариантЗавершенияМиграции" id="330">
-							<Font ref="style:NormalTextFont" kind="StyleItem"/>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Завершать миграцию приложения:</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="ДекорацияВариантЗавершенияМиграцииКонтекстноеМеню" id="331"/>
-							<ExtendedTooltip name="ДекорацияВариантЗавершенияМиграцииРасширеннаяПодсказка" id="332"/>
-						</LabelDecoration>
-						<RadioButtonField name="ВариантЗавершенияМиграции" id="327">
-							<DataPath>ВариантЗавершенияМиграции</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<RadioButtonType>RadioButtons</RadioButtonType>
-							<ColumnsCount>1</ColumnsCount>
-							<ChoiceList>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Автоматически, как только это станет возможно</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:decimal">0</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Вручную, по моей команде</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:decimal">1</Value>
-									</xr:Value>
-								</xr:Item>
-							</ChoiceList>
-							<ContextMenu name="ВариантЗавершенияМиграцииКонтекстноеМеню" id="328"/>
-							<ExtendedTooltip name="ВариантЗавершенияМиграцииРасширеннаяПодсказка" id="329"/>
-						</RadioButtonField>
-						<LabelDecoration name="ДекорацияОписаниеМиграции" id="333">
+						<LabelDecoration name="ПоясненияМиграция" id="353">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Font ref="style:TextLevel2" kind="StyleItem"/>
 							<Title formatted="true">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>&lt;b&gt;Внимание&lt;/&gt;: в момент завершения миграции в приложении не должны работать другие пользователи</v8:content>
+									<v8:content>Миграция будет выполнена в фоне. Во время миграции можно продолжать работать в программе.
+После миграции рекомендуется продолжать работу только в сервисе.
+</v8:content>
 								</v8:item>
 							</Title>
-							<ContextMenu name="ДекорацияОписаниеМиграцииКонтекстноеМеню" id="334"/>
-							<ExtendedTooltip name="ДекорацияОписаниеМиграцииРасширеннаяПодсказка" id="335"/>
+							<ContextMenu name="ПоясненияМиграцияКонтекстноеМеню" id="354"/>
+							<ExtendedTooltip name="ПоясненияМиграцияРасширеннаяПодсказка" id="355"/>
 						</LabelDecoration>
+						<InputField name="Наименование" id="179">
+							<DataPath>Наименование</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименование приложения</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>60</MaxWidth>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="180"/>
+							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="181"/>
+						</InputField>
+						<UsualGroup name="ГруппаЗавершениеМиграции" id="358">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Завершение миграции</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>При завершении миграции работа в программе будет приостановлена.
+Срок приостановки зависит от количества внесенных во время миграции изменений.
+После завершения рекомендуется продолжать работу только в сервисе.</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>false</HorizontalStretch>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЗавершениеМиграцииРасширеннаяПодсказка" id="359"/>
+							<ChildItems>
+								<LabelDecoration name="ДекорацияЗавершениеМиграции" id="360">
+									<Font ref="style:TitleLevel3" kind="StyleItem"/>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Завершение миграции</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<ContextMenu name="ДекорацияЗавершениеМиграцииКонтекстноеМеню" id="361"/>
+									<ExtendedTooltip name="ДекорацияЗавершениеМиграцииРасширеннаяПодсказка" id="362">
+										<Title formatted="true">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>При завершении миграции работа в программе будет приостановлена. &lt;link Подробнее&gt;Подробнее&lt;/&gt;</v8:content>
+											</v8:item>
+										</Title>
+										<Events>
+											<Event name="URLProcessing">ДекорацияЗавершениеМиграцииРасширеннаяПодсказкаОбработкаНавигационнойСсылки</Event>
+										</Events>
+									</ExtendedTooltip>
+								</LabelDecoration>
+								<RadioButtonField name="ВариантЗавершенияМиграции" id="327">
+									<DataPath>ВариантЗавершенияМиграции</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Завершать миграцию</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<RadioButtonType>RadioButtons</RadioButtonType>
+									<ColumnsCount>1</ColumnsCount>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Завершать автоматически, как только это станет возможно</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">0</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Завершать вручную, по моей команде</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">1</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ВариантЗавершенияМиграцииКонтекстноеМеню" id="328"/>
+									<ExtendedTooltip name="ВариантЗавершенияМиграцииРасширеннаяПодсказка" id="329"/>
+								</RadioButtonField>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</Page>
 				<Page name="СтраницаОжидание" id="27">
@@ -114,8 +203,7 @@
 							<v8:content>Страница ожидание</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
+					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="СтраницаОжиданиеРасширеннаяПодсказка" id="28"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаОжидание" id="35">
@@ -132,7 +220,6 @@
 							<ExtendedTooltip name="ГруппаОжиданиеРасширеннаяПодсказка" id="36"/>
 							<ChildItems>
 								<PictureDecoration name="ДекорацияОжиданиеКартинка" id="29">
-									<Width>8</Width>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -166,17 +253,23 @@ e-mail: partner1@yopmail.com
 						</UsualGroup>
 						<LabelField name="ДатаНачала" id="57">
 							<DataPath>ДатаНачала</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ДатаНачалаКонтекстноеМеню" id="58"/>
 							<ExtendedTooltip name="ДатаНачалаРасширеннаяПодсказка" id="59"/>
 						</LabelField>
 						<LabelField name="ОсталосьВремени" id="87">
 							<DataPath>ОсталосьВремени</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ОсталосьВремениКонтекстноеМеню" id="88"/>
 							<ExtendedTooltip name="ОсталосьВремениРасширеннаяПодсказка" id="89"/>
 						</LabelField>
 						<ProgressBarField name="Прогресс" id="104">
 							<DataPath>Прогресс</DataPath>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ShowPercent>true</ShowPercent>
 							<ContextMenu name="ПрогрессКонтекстноеМеню" id="105"/>
 							<ExtendedTooltip name="ПрогрессРасширеннаяПодсказка" id="106"/>
@@ -191,7 +284,7 @@ e-mail: partner1@yopmail.com
 							<Group>Horizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Collapsed>true</Collapsed>
-							<Representation>WeakSeparation</Representation>
+							<ShowTitle>true</ShowTitle>
 							<ExtendedTooltip name="ГруппаСтатистикаРасширеннаяПодсказка" id="99"/>
 							<ChildItems>
 								<UsualGroup name="КолонкаСтатистикиЗаголовки" id="259">
@@ -202,6 +295,7 @@ e-mail: partner1@yopmail.com
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
+									<VerticalSpacing>Half</VerticalSpacing>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
@@ -247,6 +341,7 @@ e-mail: partner1@yopmail.com
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
+									<VerticalSpacing>Half</VerticalSpacing>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
@@ -255,18 +350,42 @@ e-mail: partner1@yopmail.com
 										<LabelField name="НомерОтправленногоСообщения" id="309">
 											<DataPath>НомерОтправленногоСообщения</DataPath>
 											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=0</v8:content>
+												</v8:item>
+											</Format>
 											<ContextMenu name="НомерОтправленногоСообщенияКонтекстноеМеню" id="310"/>
 											<ExtendedTooltip name="НомерОтправленногоСообщенияРасширеннаяПодсказка" id="311"/>
 										</LabelField>
 										<LabelField name="ВыгруженоОбъектов" id="315">
 											<DataPath>ВыгруженоОбъектов</DataPath>
 											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=0</v8:content>
+												</v8:item>
+											</Format>
 											<ContextMenu name="ВыгруженоОбъектовКонтекстноеМеню" id="316"/>
 											<ExtendedTooltip name="ВыгруженоОбъектовРасширеннаяПодсказка" id="317"/>
 										</LabelField>
 										<LabelField name="ИзмененоОбъектов" id="324">
 											<DataPath>ИзмененоОбъектов</DataPath>
 											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=0</v8:content>
+												</v8:item>
+											</Format>
 											<ContextMenu name="ИзмененоОбъектовКонтекстноеМеню" id="325"/>
 											<ExtendedTooltip name="ИзмененоОбъектовРасширеннаяПодсказка" id="326"/>
 										</LabelField>
@@ -280,6 +399,7 @@ e-mail: partner1@yopmail.com
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
+									<VerticalSpacing>Half</VerticalSpacing>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
@@ -288,18 +408,42 @@ e-mail: partner1@yopmail.com
 										<LabelField name="НомерПринятогоСообщения" id="312">
 											<DataPath>НомерПринятогоСообщения</DataPath>
 											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=0</v8:content>
+												</v8:item>
+											</Format>
 											<ContextMenu name="НомерПринятогоСообщенияКонтекстноеМеню" id="313"/>
 											<ExtendedTooltip name="НомерПринятогоСообщенияРасширеннаяПодсказка" id="314"/>
 										</LabelField>
 										<LabelField name="ЗагруженоОбъектов" id="318">
 											<DataPath>ЗагруженоОбъектов</DataPath>
 											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=0</v8:content>
+												</v8:item>
+											</Format>
 											<ContextMenu name="ЗагруженоОбъектовКонтекстноеМеню" id="319"/>
 											<ExtendedTooltip name="ЗагруженоОбъектовРасширеннаяПодсказка" id="320"/>
 										</LabelField>
 										<LabelField name="ЗагрузитьОбъектов" id="321">
 											<DataPath>ЗагрузитьОбъектов</DataPath>
 											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧН=0</v8:content>
+												</v8:item>
+											</Format>
 											<ContextMenu name="ЗагрузитьОбъектовКонтекстноеМеню" id="322"/>
 											<ExtendedTooltip name="ЗагрузитьОбъектовРасширеннаяПодсказка" id="323"/>
 										</LabelField>
@@ -316,8 +460,7 @@ e-mail: partner1@yopmail.com
 							<v8:content>Страница ошибка</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
+					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="СтраницаОшибкаРасширеннаяПодсказка" id="40"/>
 					<ChildItems>
 						<LabelDecoration name="ДекорацияОшибка" id="63">
@@ -333,6 +476,8 @@ e-mail: partner1@yopmail.com
 						<LabelField name="Комментарий" id="60">
 							<DataPath>Комментарий</DataPath>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<Width>50</Width>
 							<Height>2</Height>
 							<ContextMenu name="КомментарийКонтекстноеМеню" id="61"/>
@@ -347,8 +492,7 @@ e-mail: partner1@yopmail.com
 							<v8:content>Страница результат</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
+					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="СтраницаРезультатРасширеннаяПодсказка" id="45"/>
 					<ChildItems>
 						<LabelDecoration name="ДекорацияСсылка" id="212">
@@ -364,6 +508,8 @@ e-mail: partner1@yopmail.com
 						<LabelField name="КомментарийРезультат" id="66">
 							<DataPath>Комментарий</DataPath>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<Width>50</Width>
 							<Height>2</Height>
 							<ContextMenu name="КомментарийРезультатКонтекстноеМеню" id="67"/>
@@ -371,11 +517,15 @@ e-mail: partner1@yopmail.com
 						</LabelField>
 						<LabelField name="ДатаНачалаРезультат" id="69">
 							<DataPath>ДатаНачала</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ДатаНачалаРезультатКонтекстноеМеню" id="70"/>
 							<ExtendedTooltip name="ДатаНачалаРезультатРасширеннаяПодсказка" id="71"/>
 						</LabelField>
 						<LabelField name="ДатаЗавершенияРезультат" id="72">
 							<DataPath>ДатаЗавершения</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ДатаЗавершенияРезультатКонтекстноеМеню" id="73"/>
 							<ExtendedTooltip name="ДатаЗавершенияРезультатРасширеннаяПодсказка" id="74"/>
 						</LabelField>
@@ -383,96 +533,6 @@ e-mail: partner1@yopmail.com
 				</Page>
 			</ChildItems>
 		</Pages>
-		<UsualGroup name="ГруппаКнопки" id="283">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа кнопки</v8:content>
-				</v8:item>
-			</Title>
-			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-			<Group>Horizontal</Group>
-			<HorizontalAlign>Right</HorizontalAlign>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКнопкиРасширеннаяПодсказка" id="284"/>
-			<ChildItems>
-				<UsualGroup name="ГруппаКнопкаНазад" id="285">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа кнопка назад</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalStretch>true</HorizontalStretch>
-					<Group>HorizontalIfPossible</Group>
-					<HorizontalAlign>Left</HorizontalAlign>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаКнопкаНазадРасширеннаяПодсказка" id="286"/>
-					<ChildItems>
-						<Button name="Назад" id="252">
-							<Type>UsualButton</Type>
-							<CommandName>Form.Command.Назад</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>&lt; Назад</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="НазадРасширеннаяПодсказка" id="253"/>
-						</Button>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаКнопкаДалее" id="287">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа кнопка далее</v8:content>
-						</v8:item>
-					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаКнопкаДалееРасширеннаяПодсказка" id="288"/>
-					<ChildItems>
-						<Button name="Далее" id="21">
-							<Type>UsualButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<CommandName>Form.Command.Далее</CommandName>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ДалееРасширеннаяПодсказка" id="22"/>
-						</Button>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаКнопкаОтмена" id="289">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа кнопка отмена</v8:content>
-						</v8:item>
-					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаКнопкаОтменаРасширеннаяПодсказка" id="290"/>
-					<ChildItems>
-						<Button name="Отмена" id="37">
-							<Type>UsualButton</Type>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<MaxWidth>9</MaxWidth>
-							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-							<CommandName>Form.Command.Отмена</CommandName>
-							<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="38"/>
-						</Button>
-					</ChildItems>
-				</UsualGroup>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -1294,6 +1354,17 @@ e-mail: partner1@yopmail.com
 				</Column>
 			</Columns>
 		</Attribute>
+		<Attribute name="ПодсказкаЗавершениеМиграцииСвернута" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подсказка завершение миграции свернута</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="Далее" id="1">
@@ -1311,22 +1382,7 @@ e-mail: partner1@yopmail.com
 			</ToolTip>
 			<Action>Далее</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="Отмена" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Отмена</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Назад" id="6">
 			<Title>
@@ -1343,6 +1399,39 @@ e-mail: partner1@yopmail.com
 			</ToolTip>
 			<Action>Назад</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="ОстановитьМиграцию" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прервать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остановить миграцию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
+			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="ЗакрытьИПродолжитьВФоне" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть и продолжить в фоне</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть и продолжить в фоне</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗакрытьИПродолжитьВФоне</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

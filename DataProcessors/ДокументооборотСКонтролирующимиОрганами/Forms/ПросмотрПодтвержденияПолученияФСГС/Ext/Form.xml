@@ -6,6 +6,15 @@
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Печать" id="59">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Печать</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="60"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -26,12 +35,12 @@
 			</ToolTip>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаСодержимоеРасширеннаяПодсказка" id="35"/>
 			<ChildItems>
 				<Table name="Содержимое" id="23">
 					<Representation>Tree</Representation>
 					<ReadOnly>true</ReadOnly>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<Header>false</Header>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -108,24 +117,6 @@
 				</Table>
 			</ChildItems>
 		</UsualGroup>
-		<CommandBar name="ГруппаКоманднаяПанель" id="32">
-			<EnableContentChange>true</EnableContentChange>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</ToolTip>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="49"/>
-			<ChildItems>
-				<Button name="Печать" id="59">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.Печать</CommandName>
-					<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="60"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -262,6 +253,7 @@
 			<Action>Печать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

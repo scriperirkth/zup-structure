@@ -8,107 +8,58 @@
 	</Title>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
-	<Group>Vertical</Group>
-	<MobileDeviceCommandBarContent>
-		<xr:Item>
-			<xr:Presentation/>
-			<xr:CheckState>0</xr:CheckState>
-			<xr:Value xsi:type="xs:string">КоманднаяПанель</xr:Value>
-		</xr:Item>
-	</MobileDeviceCommandBarContent>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаЗаписатьИЗакрыть" id="9">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Записать и закрыть</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="30"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="BeforeClose">ПередЗакрытием</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<Pages name="ГруппыИлиПредупреждение" id="14">
+		<Pages name="Страницы" id="14">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группы или предупреждение</v8:content>
+					<v8:content>Страницы</v8:content>
 				</v8:item>
 			</Title>
 			<PagesRepresentation>None</PagesRepresentation>
-			<ExtendedTooltip name="ГруппыИлиПредупреждениеРасширеннаяПодсказка" id="27"/>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="27"/>
 			<ChildItems>
-				<Page name="Группа" id="15">
+				<Page name="СтраницаГруппыПользователя" id="15">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа</v8:content>
+							<v8:content>Группы пользователя</v8:content>
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="ГруппаРасширеннаяПодсказка" id="28"/>
+					<ScrollOnCompress>true</ScrollOnCompress>
+					<ExtendedTooltip name="СтраницаГруппыПользователяРасширеннаяПодсказка" id="28"/>
 					<ChildItems>
-						<CommandBar name="КоманднаяПанель" id="17">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Командная панель</v8:content>
-								</v8:item>
-							</Title>
-							<CommandSource>Form</CommandSource>
-							<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="29"/>
-							<ChildItems>
-								<Button name="ФормаЗаписатьИЗакрыть" id="9">
-									<Type>CommandBarButton</Type>
-									<DefaultButton>true</DefaultButton>
-									<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Записать и закрыть</v8:content>
-										</v8:item>
-									</Title>
-									<ButtonImportance>Main</ButtonImportance>
-									<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="30"/>
-								</Button>
-								<Button name="ФормаИсключитьИзВсехГрупп" id="11">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.ИсключитьИзВсехГрупп</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Исключить из всех групп</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ФормаИсключитьИзВсехГруппРасширеннаяПодсказка" id="31"/>
-								</Button>
-								<Button name="ВывестиСписок" id="20">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Item.ДеревоГрупп.StandardCommand.OutputList</CommandName>
-									<ExtendedTooltip name="ВывестиСписокРасширеннаяПодсказка" id="32"/>
-								</Button>
-								<SearchStringAddition name="СтрокаПоиск" id="52">
-									<AdditionSource>
-										<Item>ДеревоГрупп</Item>
-										<Type>SearchStringRepresentation</Type>
-									</AdditionSource>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Поиск</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="СтрокаПоискКонтекстноеМеню" id="53"/>
-									<ExtendedTooltip name="СтрокаПоискРасширеннаяПодсказка" id="54"/>
-								</SearchStringAddition>
-							</ChildItems>
-						</CommandBar>
 						<Table name="ДеревоГрупп" id="1">
 							<Representation>Tree</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<Header>false</Header>
-							<HorizontalLinesBWA>false</HorizontalLinesBWA>
 							<VerticalLinesBWA>false</VerticalLinesBWA>
-							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<InitialTreeView>ExpandAllLevels</InitialTreeView>
 							<EnableStartDrag>true</EnableStartDrag>
@@ -131,13 +82,28 @@
 								<ExcludedCommand>List</ExcludedCommand>
 								<ExcludedCommand>MoveDown</ExcludedCommand>
 								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 								<ExcludedCommand>SortListAsc</ExcludedCommand>
 								<ExcludedCommand>SortListDesc</ExcludedCommand>
 								<ExcludedCommand>Tree</ExcludedCommand>
 							</CommandSet>
+							<SearchStringLocation>CommandBar</SearchStringLocation>
 							<ContextMenu name="ДеревоГруппКонтекстноеМеню" id="2"/>
 							<AutoCommandBar name="ДеревоГруппКоманднаяПанель" id="3">
-								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="ДеревоГруппИсключитьИзВсехГрупп" id="11">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ИсключитьИзВсехГрупп</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Исключить из всех групп</v8:content>
+											</v8:item>
+										</Title>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="ДеревоГруппИсключитьИзВсехГруппРасширеннаяПодсказка" id="31"/>
+									</Button>
+								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="ДеревоГруппРасширеннаяПодсказка" id="35"/>
 							<SearchStringAddition name="ДеревоГруппСтрокаПоиска" id="43">
@@ -189,6 +155,7 @@
 											<HorizontalAlign>Left</HorizontalAlign>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<CheckBoxType>CheckBox</CheckBoxType>
 											<ContextMenu name="ДеревоГруппПометкаКонтекстноеМеню" id="7"/>
 											<ExtendedTooltip name="ДеревоГруппПометкаРасширеннаяПодсказка" id="37"/>
 											<Events>
@@ -237,46 +204,16 @@
 						</Table>
 					</ChildItems>
 				</Page>
-				<Page name="Предупреждение" id="16">
+				<Page name="СтраницаПредупреждение" id="16">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Предупреждение</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AlwaysHorizontal</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="ПредупреждениеРасширеннаяПодсказка" id="40"/>
-					<ChildItems>
-						<PictureDecoration name="КартинкаПредупреждения" id="21">
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Картинка предупреждения</v8:content>
-								</v8:item>
-							</Title>
-							<Picture>
-								<xr:Ref>StdPicture.DialogInformation</xr:Ref>
-								<xr:LoadTransparent>true</xr:LoadTransparent>
-							</Picture>
-							<FileDragMode>AsFile</FileDragMode>
-							<ContextMenu name="КартинкаПредупрежденияКонтекстноеМеню" id="22"/>
-							<ExtendedTooltip name="КартинкаПредупрежденияРасширеннаяПодсказка" id="41"/>
-						</PictureDecoration>
-						<LabelDecoration name="ТекстПредупреждения" id="23">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<Height>2</Height>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Не заведено ни одной группы пользователей.</v8:content>
-								</v8:item>
-							</Title>
-							<VerticalAlign>Center</VerticalAlign>
-							<ContextMenu name="ТекстПредупрежденияКонтекстноеМеню" id="24"/>
-							<ExtendedTooltip name="ТекстПредупрежденияРасширеннаяПодсказка" id="42"/>
-						</LabelDecoration>
-					</ChildItems>
+					<Width>40</Width>
+					<Group>Vertical</Group>
+					<ExtendedTooltip name="СтраницаПредупреждениеРасширеннаяПодсказка" id="40"/>
 				</Page>
 			</ChildItems>
 		</Pages>
@@ -375,13 +312,9 @@
 					<v8:content>Записать и закрыть</v8:content>
 				</v8:item>
 			</Title>
-			<Picture>
-				<xr:Ref>StdPicture.WriteAndClose</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>ЗаписатьИЗакрыть</Action>
 			<Representation>Text</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ИсключитьИзВсехГрупп" id="2">
 			<Title>
@@ -398,6 +331,8 @@
 			</ToolTip>
 			<Action>СнятьФлажки</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоГрупп</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>
@@ -411,7 +346,9 @@
 			<Type/>
 		</Parameter>
 		<Parameter name="ВнешниеПользователи">
-			<Type/>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
 		</Parameter>
 	</Parameters>
 </Form>

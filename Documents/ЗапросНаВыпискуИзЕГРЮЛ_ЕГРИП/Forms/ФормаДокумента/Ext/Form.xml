@@ -16,6 +16,28 @@
 	<RepostOnWrite>true</RepostOnWrite>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Отправить" id="108">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Отправить</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ОтправитьExtendedTooltip" id="128"/>
+			</Button>
+			<Button name="Записать" id="174">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Write</CommandName>
+				<ExtendedTooltip name="ЗаписатьРасширеннаяПодсказка" id="175"/>
+			</Button>
+			<Button name="Скопировать" id="178">
+				<Type>CommandBarButton</Type>
+				<Representation>Picture</Representation>
+				<CommandName>Form.StandardCommand.Copy</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="СкопироватьРасширеннаяПодсказка" id="179"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="AfterWrite">ПослеЗаписи</Event>
@@ -26,31 +48,6 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<CommandBar name="КоманднаяПанель" id="172">
-			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="173"/>
-			<ChildItems>
-				<Button name="Отправить" id="108">
-					<Type>CommandBarButton</Type>
-					<Representation>Text</Representation>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.Отправить</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ОтправитьExtendedTooltip" id="128"/>
-				</Button>
-				<Button name="Записать" id="174">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.StandardCommand.Write</CommandName>
-					<ExtendedTooltip name="ЗаписатьРасширеннаяПодсказка" id="175"/>
-				</Button>
-				<Button name="Скопировать" id="178">
-					<Type>CommandBarButton</Type>
-					<Representation>PictureAndText</Representation>
-					<CommandName>Form.StandardCommand.Copy</CommandName>
-					<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-					<ExtendedTooltip name="СкопироватьРасширеннаяПодсказка" id="179"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 		<UsualGroup name="ГруппаПанельОтправки" id="12112">
 			<EnableContentChange>true</EnableContentChange>
 			<HorizontalStretch>true</HorizontalStretch>
@@ -102,8 +99,7 @@
 							<ExtendedTooltip name="СостояниеОтправкиРасширеннаяПодсказка" id="12189"/>
 							<ChildItems>
 								<LabelDecoration name="НаименованиеЭтапа" id="12242">
-									<TextColor>style:FormTextColor</TextColor>
-									<Font ref="style:NormalTextFont" height="11" kind="StyleItem"/>
+									<Font ref="style:TitleLevel3" kind="StyleItem"/>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -278,6 +274,7 @@
 		</UsualGroup>
 		<UsualGroup name="ГруппаОсновная" id="162">
 			<Group>Vertical</Group>
+			<VerticalSpacing>Half</VerticalSpacing>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -290,21 +287,14 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаОрганизацииРасширеннаяПодсказка" id="12271"/>
 					<ChildItems>
-						<LabelDecoration name="ЗаголовокОрганизации" id="12272">
-							<Width>10</Width>
-							<HorizontalStretch>false</HorizontalStretch>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Организация:</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="ЗаголовокОрганизацииКонтекстноеМеню" id="12273"/>
-							<ExtendedTooltip name="ЗаголовокОрганизацииРасширеннаяПодсказка" id="12274"/>
-						</LabelDecoration>
 						<InputField name="Организация" id="114">
 							<DataPath>Объект.Организация</DataPath>
-							<TitleLocation>None</TitleLocation>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Организация</v8:content>
+								</v8:item>
+							</Title>
 							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -327,18 +317,6 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаВидВыпискиРасширеннаяПодсказка" id="12266"/>
 					<ChildItems>
-						<LabelDecoration name="ЗаголовокВидаВыписки" id="12267">
-							<Width>10</Width>
-							<HorizontalStretch>false</HorizontalStretch>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Выписка по:</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="ЗаголовокВидаВыпискиКонтекстноеМеню" id="12268"/>
-							<ExtendedTooltip name="ЗаголовокВидаВыпискиРасширеннаяПодсказка" id="12269"/>
-						</LabelDecoration>
 						<RadioButtonField name="ВидВыписки" id="12262">
 							<DataPath>ВидВыписки</DataPath>
 							<Title>
@@ -347,7 +325,6 @@
 									<v8:content>Выписка по</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>None</TitleLocation>
 							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -411,18 +388,6 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаПараметрЗапросаРасширеннаяПодсказка" id="12276"/>
 					<ChildItems>
-						<LabelDecoration name="ЗаголовокПараметрЗапроса" id="12277">
-							<Width>10</Width>
-							<HorizontalStretch>false</HorizontalStretch>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>ИНН или ОГРН:</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="ЗаголовокПараметрЗапросаКонтекстноеМеню" id="12278"/>
-							<ExtendedTooltip name="ЗаголовокПараметрЗапросаРасширеннаяПодсказка" id="12279"/>
-						</LabelDecoration>
 						<InputField name="ПараметрЗапроса" id="117">
 							<DataPath>ПредставлениеЗапроса</DataPath>
 							<Title>
@@ -431,17 +396,13 @@
 									<v8:content>ИНН или ОГРН</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>None</TitleLocation>
 							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>ИНН или ОГРН юр. лица или индивидуального 
-предпринимателя, по которому запрашивается выписка.
-Можно ввести вручную или выбрать из справочника</v8:content>
+									<v8:content>ИНН или ОГРН юр. лица или индивидуального предпринимателя, по которому запрашивается выписка. Можно ввести вручную или выбрать из справочника</v8:content>
 								</v8:item>
 							</ToolTip>
 							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-							<MarkRequiredComplete>true</MarkRequiredComplete>
 							<ExtendedEdit>false</ExtendedEdit>
 							<ChoiceButton>true</ChoiceButton>
 							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
@@ -477,20 +438,15 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаКомментарийРасширеннаяПодсказка" id="12284"/>
 			<ChildItems>
-				<LabelDecoration name="ЗаголовокКомментарий" id="12285">
-					<Width>10</Width>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Комментарий:</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ЗаголовокКомментарийКонтекстноеМеню" id="12286"/>
-					<ExtendedTooltip name="ЗаголовокКомментарийРасширеннаяПодсказка" id="12287"/>
-				</LabelDecoration>
 				<InputField name="Комментарий" id="12288">
 					<DataPath>Объект.Комментарий</DataPath>
-					<TitleLocation>None</TitleLocation>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Left</TitleLocation>
 					<GroupVerticalAlign>Bottom</GroupVerticalAlign>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<InputHint>
@@ -651,6 +607,7 @@
 			<Action>Отправить</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ОбновитьСтатус" id="6">
 			<Title>

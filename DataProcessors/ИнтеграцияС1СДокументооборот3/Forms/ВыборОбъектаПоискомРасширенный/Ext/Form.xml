@@ -6,161 +6,114 @@
 			<v8:content>Условия поиска</v8:content>
 		</v8:item>
 	</Title>
-	<Height>50</Height>
+	<Width>65</Width>
+	<Height>39</Height>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
+	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowTitle>true</ShowTitle>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Искать" id="163">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Искать</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ИскатьРасширеннаяПодсказка" id="164"/>
+			</Button>
+			<Button name="ПростойПоиск" id="191">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПростойПоиск</CommandName>
+				<ExtendedTooltip name="ПростойПоискРасширеннаяПодсказка" id="192"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаРеквизиты" id="70">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Реквизиты</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Horizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаРеквизитыРасширеннаяПодсказка" id="71"/>
+		<Table name="РеквизитыПоиска" id="76">
+			<Representation>List</Representation>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<HeightInTableRows>15</HeightInTableRows>
+			<SelectionMode>SingleRow</SelectionMode>
+			<RowSelectionMode>Cell</RowSelectionMode>
+			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>РеквизитыПоиска</DataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="РеквизитыПоискаКонтекстноеМеню" id="77"/>
+			<AutoCommandBar name="РеквизитыПоискаКоманднаяПанель" id="78">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="РеквизитыПоискаРасширеннаяПодсказка" id="79"/>
+			<SearchStringAddition name="РеквизитыПоискаСтрокаПоиска" id="168">
+				<AdditionSource>
+					<Item>РеквизитыПоиска</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РеквизитыПоискаСтрокаПоискаКонтекстноеМеню" id="169"/>
+				<ExtendedTooltip name="РеквизитыПоискаСтрокаПоискаРасширеннаяПодсказка" id="170"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="РеквизитыПоискаСостояниеПросмотра" id="171">
+				<AdditionSource>
+					<Item>РеквизитыПоиска</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РеквизитыПоискаСостояниеПросмотраКонтекстноеМеню" id="172"/>
+				<ExtendedTooltip name="РеквизитыПоискаСостояниеПросмотраРасширеннаяПодсказка" id="173"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="РеквизитыПоискаУправлениеПоиском" id="174">
+				<AdditionSource>
+					<Item>РеквизитыПоиска</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="РеквизитыПоискаУправлениеПоискомКонтекстноеМеню" id="175"/>
+				<ExtendedTooltip name="РеквизитыПоискаУправлениеПоискомРасширеннаяПодсказка" id="176"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnEditEnd">РеквизитыПоискаПриОкончанииРедактирования</Event>
+				<Event name="OnActivateRow">РеквизитыПоискаПриАктивизацииСтроки</Event>
+				<Event name="OnStartEdit">РеквизитыПоискаПриНачалеРедактирования</Event>
+			</Events>
 			<ChildItems>
-				<Table name="РеквизитыПоиска" id="76">
-					<Representation>List</Representation>
-					<ChangeRowSet>false</ChangeRowSet>
-					<ChangeRowOrder>false</ChangeRowOrder>
-					<Width>70</Width>
-					<HeightInTableRows>20</HeightInTableRows>
-					<RowSelectionMode>Cell</RowSelectionMode>
-					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-					<AutoInsertNewRow>true</AutoInsertNewRow>
-					<FileDragMode>AsFile</FileDragMode>
-					<DataPath>РеквизитыПоиска</DataPath>
-					<SearchStringLocation>None</SearchStringLocation>
-					<ViewStatusLocation>None</ViewStatusLocation>
-					<SearchControlLocation>None</SearchControlLocation>
-					<RowFilter xsi:nil="true"/>
-					<ContextMenu name="РеквизитыПоискаКонтекстноеМеню" id="77"/>
-					<AutoCommandBar name="РеквизитыПоискаКоманднаяПанель" id="78">
-						<Autofill>false</Autofill>
-					</AutoCommandBar>
-					<ExtendedTooltip name="РеквизитыПоискаРасширеннаяПодсказка" id="79"/>
-					<SearchStringAddition name="РеквизитыПоискаСтрокаПоиска" id="168">
-						<AdditionSource>
-							<Item>РеквизитыПоиска</Item>
-							<Type>SearchStringRepresentation</Type>
-						</AdditionSource>
-						<ContextMenu name="РеквизитыПоискаСтрокаПоискаКонтекстноеМеню" id="169"/>
-						<ExtendedTooltip name="РеквизитыПоискаСтрокаПоискаРасширеннаяПодсказка" id="170"/>
-					</SearchStringAddition>
-					<ViewStatusAddition name="РеквизитыПоискаСостояниеПросмотра" id="171">
-						<AdditionSource>
-							<Item>РеквизитыПоиска</Item>
-							<Type>ViewStatusRepresentation</Type>
-						</AdditionSource>
-						<ContextMenu name="РеквизитыПоискаСостояниеПросмотраКонтекстноеМеню" id="172"/>
-						<ExtendedTooltip name="РеквизитыПоискаСостояниеПросмотраРасширеннаяПодсказка" id="173"/>
-					</ViewStatusAddition>
-					<SearchControlAddition name="РеквизитыПоискаУправлениеПоиском" id="174">
-						<AdditionSource>
-							<Item>РеквизитыПоиска</Item>
-							<Type>SearchControl</Type>
-						</AdditionSource>
-						<ContextMenu name="РеквизитыПоискаУправлениеПоискомКонтекстноеМеню" id="175"/>
-						<ExtendedTooltip name="РеквизитыПоискаУправлениеПоискомРасширеннаяПодсказка" id="176"/>
-					</SearchControlAddition>
-					<Events>
-						<Event name="OnEditEnd">РеквизитыПоискаПриОкончанииРедактирования</Event>
-						<Event name="OnActivateRow">РеквизитыПоискаПриАктивизацииСтроки</Event>
-						<Event name="OnStartEdit">РеквизитыПоискаПриНачалеРедактирования</Event>
-					</Events>
-					<ChildItems>
-						<InputField name="РеквизитыПоискаПредставление" id="89">
-							<DataPath>РеквизитыПоиска.Представление</DataPath>
-							<ReadOnly>true</ReadOnly>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="РеквизитыПоискаПредставлениеКонтекстноеМеню" id="90"/>
-							<ExtendedTooltip name="РеквизитыПоискаПредставлениеРасширеннаяПодсказка" id="91"/>
-						</InputField>
-						<InputField name="РеквизитыПоискаПредставлениеУсловия" id="92">
-							<DataPath>РеквизитыПоиска.ПредставлениеУсловия</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<DropListButton>false</DropListButton>
-							<ChoiceButton>true</ChoiceButton>
-							<ClearButton>true</ClearButton>
-							<ContextMenu name="РеквизитыПоискаПредставлениеУсловияКонтекстноеМеню" id="93"/>
-							<ExtendedTooltip name="РеквизитыПоискаПредставлениеУсловияРасширеннаяПодсказка" id="94"/>
-							<Events>
-								<Event name="OnChange">РеквизитыПоискаПредставлениеУсловияПриИзменении</Event>
-								<Event name="StartChoice">РеквизитыПоискаПредставлениеУсловияНачалоВыбора</Event>
-								<Event name="Clearing">РеквизитыПоискаПредставлениеУсловияОчистка</Event>
-							</Events>
-						</InputField>
-					</ChildItems>
-				</Table>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаКнопкаСсылка" id="177">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа кнопка ссылка</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTipRepresentation>None</ToolTipRepresentation>
-			<Group>Horizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКнопкаСсылкаРасширеннаяПодсказка" id="178"/>
-			<ChildItems>
-				<CommandBar name="ГруппаКнопка" id="179">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа кнопка</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ГруппаКнопкаРасширеннаяПодсказка" id="180"/>
-					<ChildItems>
-						<Button name="Искать" id="163">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<CommandName>Form.Command.Искать</CommandName>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ИскатьРасширеннаяПодсказка" id="164"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
-				<LabelDecoration name="ДекорацияПростойПоиск" id="165">
+				<InputField name="РеквизитыПоискаПредставление" id="89">
+					<DataPath>РеквизитыПоиска.Представление</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="РеквизитыПоискаПредставлениеКонтекстноеМеню" id="90"/>
+					<ExtendedTooltip name="РеквизитыПоискаПредставлениеРасширеннаяПодсказка" id="91"/>
+				</InputField>
+				<InputField name="РеквизитыПоискаПредставлениеУсловия" id="92">
+					<DataPath>РеквизитыПоиска.ПредставлениеУсловия</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<AutoMaxWidth>false</AutoMaxWidth>
 					<HorizontalStretch>true</HorizontalStretch>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Простой поиск</v8:content>
-						</v8:item>
-					</Title>
-					<Hyperlink>true</Hyperlink>
-					<HorizontalAlign>Right</HorizontalAlign>
-					<VerticalAlign>Center</VerticalAlign>
-					<ContextMenu name="ДекорацияПростойПоискКонтекстноеМеню" id="166"/>
-					<ExtendedTooltip name="ДекорацияПростойПоискРасширеннаяПодсказка" id="167"/>
+					<DropListButton>false</DropListButton>
+					<ChoiceButton>true</ChoiceButton>
+					<ClearButton>true</ClearButton>
+					<ContextMenu name="РеквизитыПоискаПредставлениеУсловияКонтекстноеМеню" id="93"/>
+					<ExtendedTooltip name="РеквизитыПоискаПредставлениеУсловияРасширеннаяПодсказка" id="94"/>
 					<Events>
-						<Event name="Click">ДекорацияПростойПоискНажатие</Event>
+						<Event name="OnChange">РеквизитыПоискаПредставлениеУсловияПриИзменении</Event>
+						<Event name="StartChoice">РеквизитыПоискаПредставлениеУсловияНачалоВыбора</Event>
+						<Event name="Clearing">РеквизитыПоискаПредставлениеУсловияОчистка</Event>
 					</Events>
-				</LabelDecoration>
+				</InputField>
 			</ChildItems>
-		</UsualGroup>
+		</Table>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -390,19 +343,18 @@
 					<v8:content>Искать</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
+			<Action>Искать</Action>
+			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="ПростойПоиск" id="2">
+			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Искать</v8:content>
+					<v8:content>Простой поиск</v8:content>
 				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.Find</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<Action>Искать</Action>
-			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			</Title>
+			<Action>ПростойПоиск</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

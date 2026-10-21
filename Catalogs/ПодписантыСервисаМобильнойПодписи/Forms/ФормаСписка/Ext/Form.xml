@@ -1,10 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
-	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
-	</AutoCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -17,7 +14,7 @@
 					<v8:content>Отборы</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>AutoScreenTypeSensitive</Group>
 			<Representation>WeakSeparation</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаОтборыРасширеннаяПодсказка" id="38"/>
@@ -30,7 +27,10 @@
 							<v8:content>Организация</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="ОрганизацияОтборКонтекстноеМеню" id="40"/>
 					<ExtendedTooltip name="ОрганизацияОтборРасширеннаяПодсказка" id="41"/>
 					<Events>
@@ -46,6 +46,7 @@
 						</v8:item>
 					</Title>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="ФизическоеЛицоОтборКонтекстноеМеню" id="43"/>
 					<ExtendedTooltip name="ФизическоеЛицоОтборРасширеннаяПодсказка" id="44"/>
 					<Events>
@@ -54,23 +55,6 @@
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
-		<CommandBar name="КоманднаяПанель" id="45">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<CommandSource>Item.Список</CommandSource>
-			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="46"/>
-			<ChildItems>
-				<Button name="Справка" id="53">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.StandardCommand.Help</CommandName>
-					<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="54"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
 			<Title>
 				<v8:item>
@@ -86,7 +70,6 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -96,6 +79,8 @@
 			<CommandSet>
 				<ExcludedCommand>Copy</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>auto</ShowCommandBar>
+			<AutoMaxCardHeight>false</AutoMaxCardHeight>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -147,6 +132,9 @@
 				<InputField name="Ссылка" id="47">
 					<DataPath>Список.Ref</DataPath>
 					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="48"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="49"/>
 				</InputField>
@@ -158,11 +146,15 @@
 							<v8:content>Представление</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="51"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="52"/>
 				</LabelField>
 				<LabelField name="ИНН" id="22">
 					<DataPath>Список.ИНН</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИННКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ИННРасширеннаяПодсказка" id="24"/>
 				</LabelField>
@@ -174,11 +166,36 @@
 							<v8:content>ИНН физ. лица</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИННФЛКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="ИННФЛРасширеннаяПодсказка" id="27"/>
 				</LabelField>
+				<LabelField name="Фамилия" id="19">
+					<DataPath>Список.Фамилия</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ФамилияКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ФамилияРасширеннаяПодсказка" id="21"/>
+				</LabelField>
+				<LabelField name="Имя" id="28">
+					<DataPath>Список.Имя</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ИмяКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ИмяРасширеннаяПодсказка" id="30"/>
+				</LabelField>
+				<LabelField name="Отчество" id="31">
+					<DataPath>Список.Отчество</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ОтчествоКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ОтчествоРасширеннаяПодсказка" id="33"/>
+				</LabelField>
 				<LabelField name="Организация" id="34">
 					<DataPath>Список.Организация</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="35"/>
 					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="36"/>
 				</LabelField>

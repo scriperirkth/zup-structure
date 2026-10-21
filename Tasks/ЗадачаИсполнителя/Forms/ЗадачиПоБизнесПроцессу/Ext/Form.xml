@@ -10,8 +10,20 @@
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
+	<CommandSet>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>Close</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>OpenFromMainServer</ExcludedCommand>
+		<ExcludedCommand>OpenFromStandaloneServer</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -33,18 +45,9 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="86"/>
 		</UsualGroup>
-		<CommandBar name="КоманднаяПанельСписка" id="52">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель списка</v8:content>
-				</v8:item>
-			</Title>
-			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="КоманднаяПанельСпискаРасширеннаяПодсказка" id="56"/>
-		</CommandBar>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
+			<CommandBarLocation>Top</CommandBarLocation>
 			<SkipOnInput>false</SkipOnInput>
 			<DefaultItem>true</DefaultItem>
 			<ChangeRowSet>false</ChangeRowSet>
@@ -60,9 +63,7 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
-			<CommandSet>
-				<ExcludedCommand>Refresh</ExcludedCommand>
-			</CommandSet>
+			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -80,7 +81,24 @@
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="СписокЗадачаЗадачаИсполнителяВыполнено" id="129">
+						<Type>CommandBarButton</Type>
+						<Visible>false</Visible>
+						<CommandName>Task.ЗадачаИсполнителя.Command.Выполнено</CommandName>
+						<DataPath>Items.Список.CurrentData.Ref</DataPath>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="СписокЗадачаЗадачаИсполнителяВыполненоРасширеннаяПодсказка" id="130"/>
+					</Button>
+					<Button name="СписокЗадачаЗадачаИсполнителяПеренаправить" id="127">
+						<Type>CommandBarButton</Type>
+						<Visible>false</Visible>
+						<CommandName>Task.ЗадачаИсполнителя.Command.Перенаправить</CommandName>
+						<DataPath>Items.Список.CurrentData.Ref</DataPath>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="СписокЗадачаЗадачаИсполнителяПеренаправитьРасширеннаяПодсказка" id="128"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="58"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="87">
@@ -109,10 +127,13 @@
 			</SearchControlAddition>
 			<Events>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
+				<Event name="OnHover">СписокПриНаведении</Event>
 			</Events>
 			<ChildItems>
 				<InputField name="Наименование" id="6">
 					<DataPath>Список.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="7"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="60"/>
@@ -126,6 +147,8 @@
 							<v8:content>Номер</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ContextMenu name="НомерКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="59"/>
@@ -138,6 +161,8 @@
 							<v8:content>Записана</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>10</Width>
 					<Wrap>false</Wrap>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="9"/>
@@ -145,6 +170,8 @@
 				</InputField>
 				<InputField name="Исполнитель" id="18">
 					<DataPath>Список.Исполнитель</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ContextMenu name="ИсполнительКонтекстноеМеню" id="19"/>
 					<ExtendedTooltip name="ИсполнительРасширеннаяПодсказка" id="62"/>
@@ -154,6 +181,8 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПредметКонтекстноеМеню" id="24"/>
 					<ExtendedTooltip name="ПредметРасширеннаяПодсказка" id="63"/>
 				</LabelField>
@@ -162,6 +191,8 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="83"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="84"/>
 				</LabelField>
@@ -199,55 +230,9 @@
 			</CommandSet>
 			<ContextMenu name="ДеревоЗадачКонтекстноеМеню" id="26">
 				<Autofill>false</Autofill>
-				<ChildItems>
-					<Button name="ДеревоЗадачКонтекстноеМенюИзменить" id="35">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Изменить</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Изменить</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ДеревоЗадачКонтекстноеМенюИзменитьРасширеннаяПодсказка" id="64"/>
-					</Button>
-					<Button name="ДеревоЗадачКонтекстноеМенюОбновить" id="39">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Обновить</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Обновить</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ДеревоЗадачКонтекстноеМенюОбновитьРасширеннаяПодсказка" id="65"/>
-					</Button>
-					<Button name="ДеревоЗадачКонтекстноеМенюКопироватьВБуферОбмена" id="36">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.ДеревоЗадач.StandardCommand.CopyToClipboard</CommandName>
-						<ExtendedTooltip name="ДеревоЗадачКонтекстноеМенюКопироватьВБуферОбменаРасширеннаяПодсказка" id="66"/>
-					</Button>
-					<Button name="ДеревоЗадачКонтекстноеМенюВывестиСписок" id="37">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.ДеревоЗадач.StandardCommand.OutputList</CommandName>
-						<ExtendedTooltip name="ДеревоЗадачКонтекстноеМенюВывестиСписокРасширеннаяПодсказка" id="67"/>
-					</Button>
-				</ChildItems>
 			</ContextMenu>
 			<AutoCommandBar name="ДеревоЗадачКоманднаяПанель" id="27">
-				<Autofill>false</Autofill>
 				<ChildItems>
-					<Button name="ДеревоЗадачИзменить" id="34">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Изменить</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Изменить</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ДеревоЗадачИзменитьРасширеннаяПодсказка" id="68"/>
-					</Button>
 					<Button name="ДеревоЗадачОбновить" id="38">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.Обновить</CommandName>
@@ -257,18 +242,7 @@
 								<v8:content>Обновить</v8:content>
 							</v8:item>
 						</Title>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 						<ExtendedTooltip name="ДеревоЗадачОбновитьРасширеннаяПодсказка" id="69"/>
-					</Button>
-					<Button name="Справка" id="53">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.Help</CommandName>
-						<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="70"/>
-					</Button>
-					<Button name="ДеревоЗадачВывестиСписок" id="54">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.ДеревоЗадач.StandardCommand.OutputList</CommandName>
-						<ExtendedTooltip name="ДеревоЗадачВывестиСписокРасширеннаяПодсказка" id="71"/>
 					</Button>
 					<ButtonGroup name="КомандыФормы" id="105">
 						<Title>
@@ -309,6 +283,7 @@
 			<Events>
 				<Event name="Selection">ДеревоЗадачВыбор</Event>
 				<Event name="OnActivateRow">ДеревоЗадачПриАктивизацииСтроки</Event>
+				<Event name="OnHover">ДеревоЗадачПриНаведении</Event>
 			</Events>
 			<ChildItems>
 				<PictureField name="ДеревоЗадачВажность" id="40">
@@ -333,7 +308,6 @@
 					</HeaderPicture>
 					<AutoEditMode>true</AutoEditMode>
 					<Width>2</Width>
-					<HorizontalStretch>false</HorizontalStretch>
 					<ValuesPicture>
 						<xr:Ref>CommonPicture.КоллекцияВариантыВажности</xr:Ref>
 						<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -391,7 +365,6 @@
 					</HeaderPicture>
 					<AutoEditMode>true</AutoEditMode>
 					<Width>2</Width>
-					<HorizontalStretch>false</HorizontalStretch>
 					<ValuesPicture>
 						<xr:Ref>CommonPicture.ЗнакСтоп</xr:Ref>
 						<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -446,7 +419,6 @@
 							</ToolTip>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<Width>40</Width>
 							<ContextMenu name="ДеревоЗадачНаименованиеКонтекстноеМеню" id="31"/>
 							<ExtendedTooltip name="ДеревоЗадачНаименованиеРасширеннаяПодсказка" id="78"/>
 						</InputField>
@@ -462,7 +434,6 @@
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<Width>1</Width>
 					<ContextMenu name="ДеревоЗадачИсполнительКонтекстноеМеню" id="33"/>
 					<ExtendedTooltip name="ДеревоЗадачИсполнительРасширеннаяПодсказка" id="79"/>
 				</InputField>
@@ -491,6 +462,9 @@
 				</v8:item>
 			</Title>
 			<TitleLocation>Right</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<CheckBoxType>Switcher</CheckBoxType>
 			<ContextMenu name="ПоказыватьВыполненныеКонтекстноеМеню" id="22"/>
 			<ExtendedTooltip name="ПоказыватьВыполненныеРасширеннаяПодсказка" id="81"/>
 			<Events>
@@ -714,7 +688,7 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>Обновить</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<Representation>Text</Representation>
 		</Command>
 	</Commands>
 	<Parameters>

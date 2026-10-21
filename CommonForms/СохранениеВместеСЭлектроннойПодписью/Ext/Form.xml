@@ -21,11 +21,6 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаОКРасширеннаяПодсказка" id="64"/>
 			</Button>
-			<Button name="ФормаОтмена" id="61">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Cancel</CommandName>
-				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="65"/>
-			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -54,6 +49,8 @@
 							<v8:content>Данные</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<Hiperlink>true</Hiperlink>
 					<ContextMenu name="ПредставлениеДанныхКонтекстноеМеню" id="75"/>
@@ -73,7 +70,6 @@
 			</Title>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>NormalSeparation</Representation>
 			<ExtendedTooltip name="ГруппаСохраняемыеПодписиРасширеннаяПодсказка" id="73"/>
 			<ChildItems>
 				<Table name="ТаблицаПодписей" id="34">
@@ -81,6 +77,7 @@
 					<CommandBarLocation>None</CommandBarLocation>
 					<ChangeRowSet>false</ChangeRowSet>
 					<ChangeRowOrder>false</ChangeRowOrder>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -143,6 +140,7 @@
 							<TitleLocation>None</TitleLocation>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
 							<ContextMenu name="ТаблицаПодписейПометкаКонтекстноеМеню" id="60"/>
 							<ExtendedTooltip name="ТаблицаПодписейПометкаРасширеннаяПодсказка" id="67"/>
 						</CheckBoxField>
@@ -157,7 +155,6 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<Width>25</Width>
 							<TextEdit>false</TextEdit>
 							<ContextMenu name="ТаблицаПодписейАвторПодписиКонтекстноеМеню" id="38"/>
 							<ExtendedTooltip name="ТаблицаПодписейАвторПодписиРасширеннаяПодсказка" id="68"/>
@@ -188,7 +185,6 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<Width>10</Width>
 							<TextEdit>false</TextEdit>
 							<ContextMenu name="ТаблицаПодписейКомментарийКонтекстноеМеню" id="42"/>
 							<ExtendedTooltip name="ТаблицаПодписейКомментарийРасширеннаяПодсказка" id="70"/>
@@ -203,8 +199,9 @@
 									<v8:content>Машиночитаемая доверенность</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<Height>2</Height>
-							<AutoMaxHeight>false</AutoMaxHeight>
 							<HeightControlVariant>UseContentHeight</HeightControlVariant>
 							<ContextMenu name="ТаблицаПодписейМашиночитаемаяДоверенностьКонтекстноеМеню" id="98"/>
 							<ExtendedTooltip name="ТаблицаПодписейМашиночитаемаяДоверенностьРасширеннаяПодсказка" id="99"/>
@@ -213,38 +210,56 @@
 				</Table>
 			</ChildItems>
 		</UsualGroup>
-		<CheckBoxField name="СохранятьСертификатВместеСПодписью" id="88">
-			<DataPath>СохранятьСертификатВместеСПодписью</DataPath>
+		<UsualGroup name="ГруппаНастройки" id="112">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранять сертификат</v8:content>
+					<v8:content>Настройки</v8:content>
 				</v8:item>
 			</Title>
-			<TitleLocation>Right</TitleLocation>
-			<ContextMenu name="СохранятьСертификатВместеСПодписьюКонтекстноеМеню" id="89"/>
-			<ExtendedTooltip name="СохранятьСертификатВместеСПодписьюРасширеннаяПодсказка" id="90"/>
-		</CheckBoxField>
-		<CheckBoxField name="БольшеНеСпрашивать" id="62">
-			<DataPath>БольшеНеСпрашивать</DataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Больше не спрашивать (сохранять все)</v8:content>
-				</v8:item>
-			</Title>
-			<TitleLocation>Right</TitleLocation>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Включить режим сохранения всех подписей, который в дальнейшем можно изменить
+			<Group>AutoScreenTypeSensitive</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="113"/>
+			<ChildItems>
+				<CheckBoxField name="СохранятьСертификатВместеСПодписью" id="88">
+					<DataPath>СохранятьСертификатВместеСПодписью</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сохранять сертификат</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СохранятьСертификатВместеСПодписьюКонтекстноеМеню" id="89"/>
+					<ExtendedTooltip name="СохранятьСертификатВместеСПодписьюРасширеннаяПодсказка" id="90"/>
+				</CheckBoxField>
+				<CheckBoxField name="БольшеНеСпрашивать" id="62">
+					<DataPath>БольшеНеСпрашивать</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Больше не спрашивать (сохранять все)</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Включить режим сохранения всех подписей, который в дальнейшем можно изменить
 в настройках электронной подписи и шифрования на странице Дополнительно.</v8:content>
-				</v8:item>
-			</ToolTip>
-			<ToolTipRepresentation>Button</ToolTipRepresentation>
-			<ContextMenu name="БольшеНеСпрашиватьКонтекстноеМеню" id="63"/>
-			<ExtendedTooltip name="БольшеНеСпрашиватьРасширеннаяПодсказка" id="71"/>
-		</CheckBoxField>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="БольшеНеСпрашиватьКонтекстноеМеню" id="63"/>
+					<ExtendedTooltip name="БольшеНеСпрашиватьРасширеннаяПодсказка" id="71"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ТаблицаПодписей" id="1">
@@ -449,6 +464,7 @@
 			</ToolTip>
 			<Action>СохранитьПодпись</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

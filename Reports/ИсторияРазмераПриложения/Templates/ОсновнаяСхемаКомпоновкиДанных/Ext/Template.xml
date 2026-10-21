@@ -183,7 +183,7 @@
 	</dataSet>
 	<calculatedField>
 		<dataPath>ВидМетаданных</dataPath>
-		<expression>РазмерПриложений.ЧастьПолногоИмениОбъектаМетаданных(ОбъектМетаданных, 1)</expression>
+		<expression>РазмерПриложенийСлужебный.ЧастьПолногоИмениОбъектаМетаданных(ОбъектМетаданных, 1)</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
@@ -196,7 +196,7 @@
 	</calculatedField>
 	<calculatedField>
 		<dataPath>ИмяМетаданных</dataPath>
-		<expression>РазмерПриложений.ЧастьПолногоИмениОбъектаМетаданных(ОбъектМетаданных, 2)</expression>
+		<expression>РазмерПриложенийСлужебный.ЧастьПолногоИмениОбъектаМетаданных(ОбъектМетаданных, 2)</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
@@ -574,7 +574,36 @@
 					<dcsset:appearance>
 						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 							<dcscor:parameter>ЦветТекста</dcscor:parameter>
-							<dcscor:value xsi:type="v8ui:Color">style:AccentColor</dcscor:value>
+							<dcscor:value xsi:type="v8ui:Color">auto</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:useInFieldsHeader>DontUse</dcsset:useInFieldsHeader>
+					<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+					<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+					<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+					<dcsset:useInOverallHeader>DontUse</dcsset:useInOverallHeader>
+					<dcsset:useInOverallResourceFieldsHeader>DontUse</dcsset:useInOverallResourceFieldsHeader>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>Прирост_Абсолютный</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Прирост_Процент</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Прирост_Абсолютный</dcsset:left>
+							<dcsset:comparisonType>Less</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">pal:Red</dcscor:value>
 						</dcscor:item>
 					</dcsset:appearance>
 					<dcsset:useInFieldsHeader>DontUse</dcsset:useInFieldsHeader>
@@ -594,6 +623,10 @@
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>АвтоПозицияРесурсов</dcscor:parameter>
 					<dcscor:value xsi:type="dcsset:DataCompositionResourcesAutoPosition">DontUse</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьСортировку</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionSortOutputType">DontOutput</dcscor:value>
 				</dcscor:item>
 			</dcsset:outputParameters>
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">

@@ -6,8 +6,8 @@
 			<v8:content>Выражение на встроенном языке</v8:content>
 		</v8:item>
 	</Title>
-	<Width>140</Width>
-	<Height>35</Height>
+	<Width>200</Width>
+	<Height>100</Height>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
@@ -22,10 +22,18 @@
 		<ExcludedCommand>SaveValues</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
+	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 		<ChildItems>
+			<Button name="ФормаКомандаОК" id="41">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.КомандаОК</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаКомандаОКРасширеннаяПодсказка" id="42"/>
+			</Button>
 			<Button name="ФормаОчистить" id="29">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.КомандаОчистить</CommandName>
@@ -46,6 +54,8 @@
 	<ChildItems>
 		<RadioButtonField name="МестоВыполненияВыражения" id="33">
 			<DataPath>МестоВыполненияВыражения</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<RadioButtonType>Auto</RadioButtonType>
 			<ColumnsCount>1</ColumnsCount>
 			<ChoiceList>
@@ -97,29 +107,45 @@
 			<ChildItems>
 				<TextDocumentField name="ВычисляемоеВыражение" id="5">
 					<DataPath>ВычисляемоеВыражение</DataPath>
-					<DefaultItem>true</DefaultItem>
 					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Height>2</Height>
-					<AutoMaxHeight>false</AutoMaxHeight>
 					<ContextMenu name="ВычисляемоеВыражениеКонтекстноеМеню" id="6"/>
 					<ExtendedTooltip name="ВычисляемоеВыражениеРасширеннаяПодсказка" id="7"/>
 				</TextDocumentField>
-				<HTMLDocumentField name="Инструкция" id="26">
-					<DataPath>Инструкция</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<Width>35</Width>
-					<Height>2</Height>
-					<AutoMaxHeight>false</AutoMaxHeight>
-					<BorderColor>style:BorderColor</BorderColor>
-					<ContextMenu name="ИнструкцияКонтекстноеМеню" id="27"/>
-					<ExtendedTooltip name="ИнструкцияРасширеннаяПодсказка" id="28"/>
-					<Events>
-						<Event name="OnClick">РеквизитыПриНажатии</Event>
-					</Events>
-				</HTMLDocumentField>
+				<UsualGroup name="ГруппаИнструкция" id="43">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа инструкция</v8:content>
+						</v8:item>
+					</Title>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ShowAsCard>true</ShowAsCard>
+					<ExtendedTooltip name="ГруппаИнструкцияРасширеннаяПодсказка" id="44"/>
+					<ChildItems>
+						<HTMLDocumentField name="Инструкция" id="26">
+							<DataPath>Инструкция</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>35</Width>
+							<Height>2</Height>
+							<BorderColor>style:BorderColor</BorderColor>
+							<ContextMenu name="ИнструкцияКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="ИнструкцияРасширеннаяПодсказка" id="28"/>
+							<Events>
+								<Event name="OnClick">РеквизитыПриНажатии</Event>
+							</Events>
+						</HTMLDocumentField>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 		<CommandBar name="КомандыФормы" id="36">
+			<Visible>false</Visible>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -306,17 +332,12 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
-				</v8:item>
-			</ToolTip>
 			<Action>КомандаОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="КомандаОчистить" id="2">
 			<Title>

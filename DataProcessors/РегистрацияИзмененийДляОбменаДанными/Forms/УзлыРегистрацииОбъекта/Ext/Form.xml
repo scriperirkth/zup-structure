@@ -16,34 +16,9 @@
 				<Representation>PictureAndText</Representation>
 				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.ИзменитьРегистрацию</CommandName>
-				<Picture>
-					<xr:Ref>StdPicture.Write</xr:Ref>
-					<xr:LoadTransparent>true</xr:LoadTransparent>
-				</Picture>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ДеревоУзловОбменаИзменитьРегистрациюExtendedTooltip" id="58"/>
 			</Button>
-			<ButtonGroup name="Группа1" id="48">
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Переключение пометок</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="Группа1ExtendedTooltip" id="59"/>
-				<ChildItems>
-					<Button name="ФормаУстановитьПометкуВсемУзлам" id="36">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ПометитьВсеУзлы</CommandName>
-						<ExtendedTooltip name="ФормаУстановитьПометкуВсемУзламExtendedTooltip" id="60"/>
-					</Button>
-					<Button name="ФормаСнятьПометкуВсемУзлам" id="37">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.СнятьПометкуВсемУзлам</CommandName>
-						<ExtendedTooltip name="ФормаСнятьПометкуВсемУзламExtendedTooltip" id="61"/>
-					</Button>
-				</ChildItems>
-			</ButtonGroup>
 			<ButtonGroup name="Группа2" id="56">
 				<Title>
 					<v8:item>
@@ -53,26 +28,11 @@
 				</Title>
 				<ExtendedTooltip name="Группа2ExtendedTooltip" id="62"/>
 				<ChildItems>
-					<Button name="ФормаПеречитатьДеревоУзлов" id="49">
-						<Type>CommandBarButton</Type>
-						<Representation>PictureAndText</Representation>
-						<CommandName>Form.Command.ПеречитатьДеревоУзлов</CommandName>
-						<Picture>
-							<xr:Ref>StdPicture.Refresh</xr:Ref>
-							<xr:LoadTransparent>true</xr:LoadTransparent>
-						</Picture>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Обновить</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ФормаПеречитатьДеревоУзловExtendedTooltip" id="63"/>
-					</Button>
 					<Button name="ФормаОткрытьФормуНастроек" id="57">
 						<Type>CommandBarButton</Type>
 						<Representation>PictureAndText</Representation>
 						<CommandName>Form.Command.ОткрытьФормуНастроек</CommandName>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 						<ExtendedTooltip name="ФормаОткрытьФормуНастроекExtendedTooltip" id="64"/>
 					</Button>
 				</ChildItems>
@@ -86,7 +46,7 @@
 	<ChildItems>
 		<Table name="ДеревоУзловОбмена" id="1">
 			<Representation>Tree</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
+			<CommandBarLocation>Top</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
@@ -102,7 +62,7 @@
 			<DataPath>ДеревоУзловОбмена</DataPath>
 			<RowPictureDataPath>ДеревоУзловОбмена.ИндексКартинки</RowPictureDataPath>
 			<RowsPicture>
-				<xr:Abs>RowsPicture.png</xr:Abs>
+				<xr:Abs>RowsPicture.zip</xr:Abs>
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</RowsPicture>
 			<Title>
@@ -125,6 +85,7 @@
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 				<ExcludedCommand>Tree</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>true</ShowCommandBar>
 			<ContextMenu name="ДеревоУзловОбменаКонтекстноеМеню" id="2">
 				<ChildItems>
 					<ButtonGroup name="ДеревоУзловОбменаКонтекстноеМенюГруппа1" id="40">
@@ -153,15 +114,6 @@
 									<xr:LoadTransparent>true</xr:LoadTransparent>
 								</Picture>
 								<ExtendedTooltip name="ДеревоУзловОбменаКонтекстноеМенюСнятьПометкуВсемУзламExtendedTooltip" id="67"/>
-							</Button>
-							<Button name="ДеревоУзловОбменаКонтекстноеМенюИнвертироватьПометкуВсемУзлам" id="43">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.ИнвертироватьПометкуВсемУзлам</CommandName>
-								<Picture>
-									<xr:Abs>Picture.png</xr:Abs>
-									<xr:LoadTransparent>false</xr:LoadTransparent>
-								</Picture>
-								<ExtendedTooltip name="ДеревоУзловОбменаКонтекстноеМенюИнвертироватьПометкуВсемУзламExtendedTooltip" id="68"/>
 							</Button>
 						</ChildItems>
 					</ButtonGroup>
@@ -201,6 +153,45 @@
 			</ContextMenu>
 			<AutoCommandBar name="ДеревоУзловОбменаКоманднаяПанель" id="3">
 				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ФормаПеречитатьДеревоУзлов" id="49">
+						<Type>CommandBarButton</Type>
+						<Representation>PictureAndText</Representation>
+						<CommandName>Form.Command.ПеречитатьДеревоУзлов</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.Refresh</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Обновить</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаПеречитатьДеревоУзловExtendedTooltip" id="63"/>
+					</Button>
+					<ButtonGroup name="Группа1" id="48">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Переключение пометок</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="Группа1ExtendedTooltip" id="59"/>
+						<ChildItems>
+							<Button name="ФормаУстановитьПометкуВсемУзлам" id="36">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ПометитьВсеУзлы</CommandName>
+								<ExtendedTooltip name="ФормаУстановитьПометкуВсемУзламExtendedTooltip" id="60"/>
+							</Button>
+							<Button name="ФормаСнятьПометкуВсемУзлам" id="37">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СнятьПометкуВсемУзлам</CommandName>
+								<ExtendedTooltip name="ФормаСнятьПометкуВсемУзламExtendedTooltip" id="61"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ДеревоУзловОбменаExtendedTooltip" id="73"/>
 			<SearchStringAddition name="ДеревоУзловОбменаСтрокаПоиска" id="83">
@@ -305,7 +296,7 @@
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
 							<ValuesPicture>
-								<xr:Abs>ValuesPicture.png</xr:Abs>
+								<xr:Abs>ValuesPicture.zip</xr:Abs>
 								<xr:LoadTransparent>false</xr:LoadTransparent>
 							</ValuesPicture>
 							<FileDragMode>AsFile</FileDragMode>
@@ -352,7 +343,7 @@
 						</v8:item>
 					</Title>
 					<Picture>
-						<xr:Abs>Picture.png</xr:Abs>
+						<xr:Abs>Picture.zip</xr:Abs>
 						<xr:LoadTransparent>false</xr:LoadTransparent>
 					</Picture>
 					<FileDragMode>AsFile</FileDragMode>
@@ -511,12 +502,9 @@
 					<v8:content>Изменить регистрацию</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.Write</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>ИзменитьРегистрацию</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПометитьВсеУзлы" id="2">
 			<Title>
@@ -556,22 +544,6 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>СнятьПометкуВсемУзлам</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="ИнвертироватьПометкуВсемУзлам" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Изменить пометку всех узлов</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Изменить пометку всех узлов</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ИнвертироватьПометкуВсемУзлам</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ОткрытьФормуРедактированияОтУзла" id="5">

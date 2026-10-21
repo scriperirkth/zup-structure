@@ -5,10 +5,20 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
-	<CommandBarLocation>None</CommandBarLocation>
+	<CommandBarLocation>Bottom</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ShowCommandBar>true</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="Печать" id="50">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Печать</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="51"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -51,7 +61,7 @@
 					<ChoiceListButton>false</ChoiceListButton>
 					<TextColor>#000080</TextColor>
 					<BackColor>#E7EAF6</BackColor>
-					<BorderColor>style:FormBackColor</BorderColor>
+					<BorderColor>pal:Gray</BorderColor>
 					<ContextMenu name="ДатаВремяОтправкиКонтекстноеМеню" id="3"/>
 					<ExtendedTooltip name="ДатаВремяОтправкиРасширеннаяПодсказка" id="23"/>
 				</InputField>
@@ -88,7 +98,7 @@
 					<ChoiceListButton>false</ChoiceListButton>
 					<TextColor>#000080</TextColor>
 					<BackColor>#E7EAF6</BackColor>
-					<BorderColor>style:FormBackColor</BorderColor>
+					<BorderColor>pal:Gray</BorderColor>
 					<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
 					<ContextMenu name="НадписьОтветЯвляетсяПоложительнымКонтекстноеМеню" id="10"/>
 					<ExtendedTooltip name="НадписьОтветЯвляетсяПоложительнымРасширеннаяПодсказка" id="26"/>
@@ -110,7 +120,6 @@
 			</ToolTip>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаСодержимоеРасширеннаяПодсказка" id="27"/>
 			<ChildItems>
 				<Table name="Приложения" id="12">
@@ -119,6 +128,7 @@
 					<ReadOnly>true</ReadOnly>
 					<ChangeRowSet>false</ChangeRowSet>
 					<ChangeRowOrder>false</ChangeRowOrder>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<Header>false</Header>
 					<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -182,23 +192,6 @@
 				</Table>
 			</ChildItems>
 		</UsualGroup>
-		<CommandBar name="ГруппаКоманднаяПанель" id="19">
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</ToolTip>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="40"/>
-			<ChildItems>
-				<Button name="Печать" id="50">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.Печать</CommandName>
-					<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="51"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -301,6 +294,7 @@
 			<Action>Печать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

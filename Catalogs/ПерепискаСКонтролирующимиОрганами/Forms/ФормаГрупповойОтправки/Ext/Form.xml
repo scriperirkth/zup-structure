@@ -11,11 +11,20 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
-	<CommandBarLocation>None</CommandBarLocation>
+	<CommandBarLocation>Top</CommandBarLocation>
 	<ShowTitle>false</ShowTitle>
-	<ShowCommandBar>false</ShowCommandBar>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1" DisplayImportance="VeryLow">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаОтравитьВсе" id="1">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ОтправитьВсе</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаОтравитьВсеРасширеннаяПодсказка" id="2"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -26,6 +35,7 @@
 			<Representation>List</Representation>
 			<CommandBarLocation>Top</CommandBarLocation>
 			<ChangeRowSet>false</ChangeRowSet>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -41,15 +51,6 @@
 			<ContextMenu name="ТаблицаПисемКонтекстноеМеню" id="4"/>
 			<AutoCommandBar name="ТаблицаПисемКоманднаяПанель" id="5">
 				<Autofill>false</Autofill>
-				<ChildItems>
-					<Button name="ФормаОтравитьВсе" id="1">
-						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.ОтправитьВсе</CommandName>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ФормаОтравитьВсеРасширеннаяПодсказка" id="2"/>
-					</Button>
-				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ТаблицаПисемРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="ТаблицаПисемСтрокаПоиска" id="7">
@@ -80,20 +81,13 @@
 				<Event name="Selection">ТаблицаПисемВыбор</Event>
 			</Events>
 			<ChildItems>
-				<InputField name="ТаблицаПисемТема" id="28">
-					<DataPath>ТаблицаПисем.Тема</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Письмо</v8:content>
-						</v8:item>
-					</Title>
+				<LabelField name="ТаблицаПисемСсылка" id="19">
+					<DataPath>ТаблицаПисем.Ссылка</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-					<ContextMenu name="ТаблицаПисемТемаКонтекстноеМеню" id="29"/>
-					<ExtendedTooltip name="ТаблицаПисемТемаРасширеннаяПодсказка" id="30"/>
-				</InputField>
+					<ContextMenu name="ТаблицаПисемСсылкаКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ТаблицаПисемСсылкаРасширеннаяПодсказка" id="21"/>
+				</LabelField>
 				<LabelField name="ТаблицаПисемКоличествоВложений" id="25">
 					<DataPath>ТаблицаПисем.КоличествоВложений</DataPath>
 					<EditMode>EnterOnInput</EditMode>
@@ -113,14 +107,6 @@
 					</Format>
 					<ContextMenu name="ТаблицаПисемРазмерВложенийКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ТаблицаПисемРазмерВложенийРасширеннаяПодсказка" id="24"/>
-				</LabelField>
-				<LabelField name="ТаблицаПисемСсылка" id="19">
-					<DataPath>ТаблицаПисем.Ссылка</DataPath>
-					<Visible>false</Visible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ТаблицаПисемСсылкаКонтекстноеМеню" id="20"/>
-					<ExtendedTooltip name="ТаблицаПисемСсылкаРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
@@ -279,6 +265,7 @@
 			</ToolTip>
 			<Action>ОтправитьВсе</Action>
 			<Representation>TextPicture</Representation>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

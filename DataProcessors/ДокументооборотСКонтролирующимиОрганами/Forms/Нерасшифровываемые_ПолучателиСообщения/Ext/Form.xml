@@ -10,13 +10,37 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<VerticalSpacing>Half</VerticalSpacing>
 	<AutoFillCheck>false</AutoFillCheck>
 	<Customizable>false</Customizable>
-	<CommandBarLocation>None</CommandBarLocation>
+	<CommandBarLocation>Bottom</CommandBarLocation>
 	<ConversationsRepresentation>DontShow</ConversationsRepresentation>
 	<ShowTitle>false</ShowTitle>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ShowCommandBar>true</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаТехническаяИнформация" id="150">
+				<Type>CommandBarHyperlink</Type>
+				<CommandName>Form.Command.ТехническаяИнформация</CommandName>
+				<ExtendedTooltip name="ФормаТехническаяИнформацияРасширеннаяПодсказка" id="151"/>
+			</Button>
+			<Button name="СообщенияРасшифровать" id="101">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Расшифровать</CommandName>
+				<ToolTipRepresentation>None</ToolTipRepresentation>
+				<ExtendedTooltip name="СообщенияРасшифроватьРасширеннаяПодсказка" id="102">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Попытаться расшифровать текущее собщение прямо сейчас</v8:content>
+						</v8:item>
+					</Title>
+				</ExtendedTooltip>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -26,18 +50,20 @@
 			<TitleLocation>None</TitleLocation>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<HorizontalStretch>true</HorizontalStretch>
-			<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+			<Font ref="style:TitleLevel3" kind="StyleItem"/>
 			<ContextMenu name="СообщениеОписаниеКонтекстноеМеню" id="74"/>
 			<ExtendedTooltip name="СообщениеОписаниеРасширеннаяПодсказка" id="75"/>
 		</LabelField>
 		<UsualGroup name="ГруппаОбеКолонки" id="114">
-			<Group>HorizontalIfPossible</Group>
+			<Group>AlwaysHorizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
+			<ThroughAlign>Use</ThroughAlign>
 			<ExtendedTooltip name="ГруппаОбеКолонкиРасширеннаяПодсказка" id="115"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаЛеваяКолонка" id="116">
+					<Width>50</Width>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
@@ -46,8 +72,17 @@
 					<ChildItems>
 						<LabelField name="СообщениеТип" id="91">
 							<DataPath>СообщениеТип</DataPath>
+							<Width>16</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<ContextMenu name="СообщениеТипКонтекстноеМеню" id="92"/>
 							<ExtendedTooltip name="СообщениеТипРасширеннаяПодсказка" id="93"/>
+						</LabelField>
+						<LabelField name="СообщениеОтправитель" id="76">
+							<DataPath>СообщениеОтправитель</DataPath>
+							<Width>22</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="СообщениеОтправительКонтекстноеМеню" id="77"/>
+							<ExtendedTooltip name="СообщениеОтправительРасширеннаяПодсказка" id="78"/>
 						</LabelField>
 						<LabelField name="СообщениеПолучено" id="85">
 							<DataPath>СообщениеПолучено</DataPath>
@@ -56,85 +91,60 @@
 						</LabelField>
 					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="ГруппаПраваяКолонка" id="118">
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПраваяКолонкаРасширеннаяПодсказка" id="119"/>
-					<ChildItems>
-						<LabelField name="СообщениеОтправитель" id="76">
-							<DataPath>СообщениеОтправитель</DataPath>
-							<ContextMenu name="СообщениеОтправительКонтекстноеМеню" id="77"/>
-							<ExtendedTooltip name="СообщениеОтправительРасширеннаяПодсказка" id="78"/>
-						</LabelField>
-					</ChildItems>
-				</UsualGroup>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаПоследняяРасшифровкаГор" id="103">
-			<Group>AlwaysHorizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПоследняяРасшифровкаГорРасширеннаяПодсказка" id="104"/>
-			<ChildItems>
-				<LabelField name="СообщениеПоследняяРасшифровка" id="88">
-					<DataPath>СообщениеПоследняяРасшифровка</DataPath>
-					<ContextMenu name="СообщениеПоследняяРасшифровкаКонтекстноеМеню" id="89"/>
-					<ExtendedTooltip name="СообщениеПоследняяРасшифровкаРасширеннаяПодсказка" id="90"/>
-				</LabelField>
-				<Button name="СообщенияРасшифровать" id="101">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.Расшифровать</CommandName>
-					<ToolTipRepresentation>None</ToolTipRepresentation>
-					<ExtendedTooltip name="СообщенияРасшифроватьРасширеннаяПодсказка" id="102">
-						<Title formatted="false">
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Попытаться расшифровать текущее собщение прямо сейчас</v8:content>
-							</v8:item>
-						</Title>
-					</ExtendedTooltip>
-				</Button>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаРасшифровыватьГор" id="99">
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаРасшифровыватьГорРасширеннаяПодсказка" id="100"/>
-			<ChildItems>
-				<CheckBoxField name="РасшифровыватьСообщение" id="54">
-					<DataPath>РасшифровыватьСообщение</DataPath>
+				<UsualGroup name="ГруппаПраваяКолонка" id="148">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа правая колонка</v8:content>
+						</v8:item>
+					</Title>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Включить или выключить расшифровку текущего сообщения</v8:content>
+							<v8:content>Группа правая колонка</v8:content>
 						</v8:item>
 					</ToolTip>
-					<ToolTipRepresentation>Button</ToolTipRepresentation>
-					<CheckBoxType>Tumbler</CheckBoxType>
-					<ContextMenu name="РасшифровыватьСообщениеКонтекстноеМеню" id="55"/>
-					<ExtendedTooltip name="РасшифровыватьСообщениеРасширеннаяПодсказка" id="56"/>
-					<Events>
-						<Event name="OnChange">РасшифровыватьСообщениеПриИзменении</Event>
-					</Events>
-				</CheckBoxField>
-				<LabelDecoration name="НадписьВнимание" id="111">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<HorizontalStretch>true</HorizontalStretch>
-					<TextColor>style:ЦветОшибкиОтправкиБРО</TextColor>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>расшифровка отключена</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="НадписьВниманиеКонтекстноеМеню" id="112"/>
-					<ExtendedTooltip name="НадписьВниманиеРасширеннаяПодсказка" id="113"/>
-				</LabelDecoration>
+					<Width>50</Width>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПраваяКолонкаРасширеннаяПодсказка" id="149"/>
+					<ChildItems>
+						<LabelField name="СообщениеПоследняяРасшифровка" id="88">
+							<DataPath>СообщениеПоследняяРасшифровка</DataPath>
+							<ContextMenu name="СообщениеПоследняяРасшифровкаКонтекстноеМеню" id="89"/>
+							<ExtendedTooltip name="СообщениеПоследняяРасшифровкаРасширеннаяПодсказка" id="90"/>
+						</LabelField>
+						<CheckBoxField name="РасшифровыватьСообщение" id="54">
+							<DataPath>РасшифровыватьСообщение</DataPath>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Включить или выключить расшифровку текущего сообщения</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<CheckBoxType>Switcher</CheckBoxType>
+							<ContextMenu name="РасшифровыватьСообщениеКонтекстноеМеню" id="55"/>
+							<ExtendedTooltip name="РасшифровыватьСообщениеРасширеннаяПодсказка" id="56"/>
+							<Events>
+								<Event name="OnChange">РасшифровыватьСообщениеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<LabelDecoration name="НадписьВнимание" id="111">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<TextColor>style:ЦветОшибкиОтправкиБРО</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>расшифровка отключена</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьВниманиеКонтекстноеМеню" id="112"/>
+							<ExtendedTooltip name="НадписьВниманиеРасширеннаяПодсказка" id="113"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 		<Table name="Сертификаты" id="57">
@@ -142,6 +152,7 @@
 			<CommandBarLocation>None</CommandBarLocation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -185,6 +196,7 @@
 					<DataPath>Сертификаты.Текущий</DataPath>
 					<Visible>false</Visible>
 					<Enabled>false</Enabled>
+					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<ValuesPicture>
@@ -197,48 +209,42 @@
 				</PictureField>
 				<InputField name="СертификатыОписание" id="70">
 					<DataPath>Сертификаты.Описание</DataPath>
+					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="СертификатыОписаниеКонтекстноеМеню" id="71"/>
 					<ExtendedTooltip name="СертификатыОписаниеРасширеннаяПодсказка" id="72"/>
 				</InputField>
 				<InputField name="СертификатыДополнительно" id="123">
 					<DataPath>Сертификаты.Дополнительно</DataPath>
+					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="СертификатыДополнительноКонтекстноеМеню" id="124"/>
 					<ExtendedTooltip name="СертификатыДополнительноРасширеннаяПодсказка" id="125"/>
 				</InputField>
 				<InputField name="СертификатыОтпечатокИлиСерийныйНомер" id="105">
 					<DataPath>Сертификаты.ОтпечатокИлиСерийныйНомер</DataPath>
+					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="СертификатыОтпечатокИлиСерийныйНомерКонтекстноеМеню" id="106"/>
 					<ExtendedTooltip name="СертификатыОтпечатокИлиСерийныйНомерРасширеннаяПодсказка" id="107"/>
 				</InputField>
 				<InputField name="СертификатыИздатель" id="82">
 					<DataPath>Сертификаты.Издатель</DataPath>
+					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="СертификатыИздательКонтекстноеМеню" id="83"/>
 					<ExtendedTooltip name="СертификатыИздательРасширеннаяПодсказка" id="84"/>
 				</InputField>
 			</ChildItems>
 		</Table>
-		<LabelDecoration name="СсылкаТехническаяИнформация" id="120">
-			<Title formatted="false">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Техническая информация</v8:content>
-				</v8:item>
-			</Title>
-			<Hyperlink>true</Hyperlink>
-			<ContextMenu name="СсылкаТехническаяИнформацияКонтекстноеМеню" id="121"/>
-			<ExtendedTooltip name="СсылкаТехническаяИнформацияРасширеннаяПодсказка" id="122"/>
-			<Events>
-				<Event name="Click">СсылкаТехническаяИнформацияНажатие</Event>
-			</Events>
-		</LabelDecoration>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -274,7 +280,12 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>xs:boolean</v8:Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
 			</Type>
 		</Attribute>
 		<Attribute name="ОбновитьСтроку" id="4">
@@ -516,6 +527,22 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Расшифровать</Action>
+			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="ТехническаяИнформация" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Техническая информация</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Техническая информация</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ТехническаяИнформация</Action>
 		</Command>
 	</Commands>
 	<Parameters>

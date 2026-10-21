@@ -11,11 +11,23 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
-			<Popup name="ВариантВерсионированияГруппа" id="24">
+			<Button name="КоличествоИОбъемХранимыхВерсийОбъектов" id="119">
+				<Type>CommandBarHyperlink</Type>
+				<CommandName>Form.Command.КоличествоИОбъемХранимыхВерсийОбъектов</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Установить когда сохранять версии</v8:content>
+						<v8:content>Количество и объем хранимых версий объектов</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="КоличествоИОбъемХранимыхВерсийОбъектовРасширеннаяПодсказка" id="120"/>
+			</Button>
+			<Popup name="ВариантВерсионированияГруппа" id="24" DisplayImportance="VeryHigh">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Установить вариант версионирования</v8:content>
 					</v8:item>
 				</Title>
 				<ToolTip>
@@ -98,7 +110,7 @@
 					</ButtonGroup>
 				</ChildItems>
 			</Popup>
-			<Popup name="УстановитьСрокХраненияВерсий" id="83">
+			<Popup name="УстановитьСрокХраненияВерсий" id="83" DisplayImportance="VeryHigh">
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
@@ -185,18 +197,6 @@
 				<CommandSource>Item.ДеревоОбъектовМетаданных</CommandSource>
 				<ExtendedTooltip name="КомандыСпискаРасширеннаяПодсказка" id="42"/>
 			</ButtonGroup>
-			<Button name="ДеревоОбъектовМетаданныхОбновить" id="35">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Обновить</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Обновить</v8:content>
-					</v8:item>
-				</Title>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ДеревоОбъектовМетаданныхОбновитьРасширеннаяПодсказка" id="43"/>
-			</Button>
 			<SearchStringAddition name="СтрокаПоиска" id="132">
 				<AdditionSource>
 					<Item>ДеревоОбъектовМетаданных</Item>
@@ -220,7 +220,6 @@
 	<ChildItems>
 		<Table name="ДеревоОбъектовМетаданных" id="11">
 			<Representation>Tree</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<SkipOnInput>false</SkipOnInput>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
@@ -250,6 +249,8 @@
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 				<ExcludedCommand>Tree</ExcludedCommand>
 			</CommandSet>
+			<SearchStringLocation>CommandBar</SearchStringLocation>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<ContextMenu name="ДеревоОбъектовМетаданныхКонтекстноеМеню" id="12">
 				<Autofill>false</Autofill>
 				<ChildItems>
@@ -413,7 +414,22 @@
 					</Popup>
 				</ChildItems>
 			</ContextMenu>
-			<AutoCommandBar name="ДеревоОбъектовМетаданныхКоманднаяПанель" id="13"/>
+			<AutoCommandBar name="ДеревоОбъектовМетаданныхКоманднаяПанель" id="13">
+				<ChildItems>
+					<Button name="ДеревоОбъектовМетаданныхОбновить" id="35">
+						<Type>CommandBarButton</Type>
+						<Representation>Text</Representation>
+						<CommandName>Form.Command.Обновить</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Обновить</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ДеревоОбъектовМетаданныхОбновитьРасширеннаяПодсказка" id="43"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
 			<ExtendedTooltip name="ДеревоОбъектовМетаданныхРасширеннаяПодсказка" id="49"/>
 			<SearchStringAddition name="ДеревоОбъектовМетаданныхСтрокаПоиска" id="121">
 				<AdditionSource>
@@ -439,9 +455,6 @@
 				<ContextMenu name="ДеревоОбъектовМетаданныхУправлениеПоискомКонтекстноеМеню" id="128"/>
 				<ExtendedTooltip name="ДеревоОбъектовМетаданныхУправлениеПоискомРасширеннаяПодсказка" id="129"/>
 			</SearchControlAddition>
-			<Events>
-				<Event name="BeforeRowChange">ДеревоОбъектовМетаданныхПередНачаломИзменения</Event>
-			</Events>
 			<ChildItems>
 				<ColumnGroup name="КартинкаНаименование" id="20">
 					<Title>
@@ -463,8 +476,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
-							<Width>2</Width>
-							<Height>1</Height>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<Border width="1">
 								<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
 							</Border>
@@ -481,64 +494,42 @@
 									<v8:content>Объект</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<Wrap>false</Wrap>
-							<BorderColor>style:BorderColor</BorderColor>
 							<ContextMenu name="НаименованиеОбъектаКонтекстноеМеню" id="15"/>
 							<ExtendedTooltip name="НаименованиеОбъектаРасширеннаяПодсказка" id="52"/>
 						</InputField>
 					</ChildItems>
 				</ColumnGroup>
-				<InputField name="ВариантВерсионирования" id="16">
+				<LabelField name="ВариантВерсионирования" id="16">
 					<DataPath>ДеревоОбъектовМетаданных.ВариантВерсионирования</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Когда сохранять версии</v8:content>
+							<v8:content>Когда сохранять</v8:content>
 						</v8:item>
 					</Title>
-					<Wrap>false</Wrap>
-					<ChoiceButton>false</ChoiceButton>
-					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
-					<ListChoiceMode>true</ListChoiceMode>
-					<ChooseType>false</ChooseType>
-					<TypeDomainEnabled>false</TypeDomainEnabled>
-					<TextEdit>false</TextEdit>
-					<BorderColor>style:BorderColor</BorderColor>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ВариантВерсионированияКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="ВариантВерсионированияРасширеннаяПодсказка" id="53"/>
-					<Events>
-						<Event name="OnChange">НастройкаПриИзменении</Event>
-					</Events>
-				</InputField>
-				<InputField name="СрокХраненияВерсий" id="54">
+				</LabelField>
+				<LabelField name="СрокХраненияВерсий" id="54">
 					<DataPath>ДеревоОбъектовМетаданных.СрокХраненияВерсий</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Срок хранения версий</v8:content>
+							<v8:content>Срок хранения</v8:content>
 						</v8:item>
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СрокХраненияВерсийКонтекстноеМеню" id="55"/>
 					<ExtendedTooltip name="СрокХраненияВерсийРасширеннаяПодсказка" id="56"/>
-					<Events>
-						<Event name="OnChange">НастройкаПриИзменении</Event>
-					</Events>
-				</InputField>
+				</LabelField>
 			</ChildItems>
 		</Table>
-		<Button name="КоличествоИОбъемХранимыхВерсийОбъектов" id="119">
-			<Type>Hyperlink</Type>
-			<CommandName>Form.Command.КоличествоИОбъемХранимыхВерсийОбъектов</CommandName>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Количество и объем хранимых версий объектов</v8:content>
-				</v8:item>
-			</Title>
-			<ExtendedTooltip name="КоличествоИОбъемХранимыхВерсийОбъектовРасширеннаяПодсказка" id="120"/>
-		</Button>
 		<UsualGroup name="ОчисткаУстаревшихВерсий" id="57">
 			<Title>
 				<v8:item>
@@ -546,9 +537,10 @@
 					<v8:content>Очистка устаревших версий</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
+			<Group>Vertical</Group>
+			<Behavior>Collapsible</Behavior>
+			<Collapsed>true</Collapsed>
+			<ControlRepresentation>Button</ControlRepresentation>
 			<ExtendedTooltip name="ОчисткаУстаревшихВерсийРасширеннаяПодсказка" id="58"/>
 			<ChildItems>
 				<LabelDecoration name="ИнформацияОбУстаревшихВерсиях" id="59">
@@ -573,75 +565,77 @@
 					</Title>
 					<ExtendedTooltip name="ОчиститьРасширеннаяПодсказка" id="63"/>
 				</Button>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="УдалениеВерсийПоРасписанию" id="64">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Удаление версий по расписанию</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="УдалениеВерсийПоРасписаниюРасширеннаяПодсказка" id="65"/>
-			<ChildItems>
-				<UsualGroup name="НастройкиУдаления" id="79">
+				<UsualGroup name="УдалениеВерсийПоРасписанию" id="64">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Настройки удаления</v8:content>
+							<v8:content>Удаление версий по расписанию</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="НастройкиУдаленияРасширеннаяПодсказка" id="80"/>
+					<ExtendedTooltip name="УдалениеВерсийПоРасписаниюРасширеннаяПодсказка" id="65"/>
 					<ChildItems>
-						<CheckBoxField name="АвтоматическиУдалятьУстаревшиеВерсии" id="66">
-							<DataPath>АвтоматическиУдалятьУстаревшиеВерсии</DataPath>
+						<UsualGroup name="НастройкиУдаления" id="79">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Автоматически удалять устаревшие версии</v8:content>
+									<v8:content>Настройки удаления</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Right</TitleLocation>
-							<ContextMenu name="АвтоматическиУдалятьУстаревшиеВерсииКонтекстноеМеню" id="67"/>
-							<ExtendedTooltip name="АвтоматическиУдалятьУстаревшиеВерсииРасширеннаяПодсказка" id="68"/>
-							<Events>
-								<Event name="OnChange">АвтоматическиУдалятьУстаревшиеВерсииПриИзменении</Event>
-							</Events>
-						</CheckBoxField>
-						<Button name="НастроитьРасписание" id="81">
-							<Type>Hyperlink</Type>
-							<CommandName>Form.Command.НастроитьРасписание</CommandName>
-							<Title>
+							<Group>HorizontalIfPossible</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="НастройкиУдаленияРасширеннаяПодсказка" id="80"/>
+							<ChildItems>
+								<CheckBoxField name="АвтоматическиУдалятьУстаревшиеВерсии" id="66">
+									<DataPath>АвтоматическиУдалятьУстаревшиеВерсии</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Автоматически удалять устаревшие версии</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="АвтоматическиУдалятьУстаревшиеВерсииКонтекстноеМеню" id="67"/>
+									<ExtendedTooltip name="АвтоматическиУдалятьУстаревшиеВерсииРасширеннаяПодсказка" id="68"/>
+									<Events>
+										<Event name="OnChange">АвтоматическиУдалятьУстаревшиеВерсииПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<Button name="НастроитьРасписание" id="81">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.НастроитьРасписание</CommandName>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Настроить расписание</v8:content>
+										</v8:item>
+									</Title>
+									<ButtonImportance>Supplementary</ButtonImportance>
+									<ExtendedTooltip name="НастроитьРасписаниеРасширеннаяПодсказка" id="82"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<LabelDecoration name="Расписание" id="74">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Настроить расписание</v8:content>
+									<v8:content>каждый  день, по дням недели [вторник, среда, четверг, пятница, суббота ]; с 3:00:00 один раз в день, завершать после 7:00:00</v8:content>
 								</v8:item>
 							</Title>
-							<ExtendedTooltip name="НастроитьРасписаниеРасширеннаяПодсказка" id="82"/>
-						</Button>
+							<VerticalAlign>Top</VerticalAlign>
+							<ContextMenu name="РасписаниеКонтекстноеМеню" id="75"/>
+							<ExtendedTooltip name="РасписаниеРасширеннаяПодсказка" id="76"/>
+						</LabelDecoration>
 					</ChildItems>
 				</UsualGroup>
-				<LabelDecoration name="Расписание" id="74">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<TextColor>style:ПоясняющийТекст</TextColor>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>каждый  день, по дням недели [вторник, среда, четверг, пятница, суббота ]; с 3:00:00 один раз в день, завершать после 7:00:00</v8:content>
-						</v8:item>
-					</Title>
-					<VerticalAlign>Top</VerticalAlign>
-					<ContextMenu name="РасписаниеКонтекстноеМеню" id="75"/>
-					<ExtendedTooltip name="РасписаниеРасширеннаяПодсказка" id="76"/>
-				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -804,7 +798,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>УстановитьНастройкиПоУмолчанию</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоОбъектовМетаданных</AssociatedTableElementId>
 		</Command>
 		<Command name="УстановитьВариантВерсионированияПриПроведении" id="2">
 			<Title>
@@ -820,7 +814,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>УстановитьВариантВерсионированияПриПроведении</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоОбъектовМетаданных</AssociatedTableElementId>
 		</Command>
 		<Command name="УстановитьВариантВерсионированияПриЗаписи" id="3">
 			<Title>
@@ -836,7 +830,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>УстановитьРежимВерсионированияПриЗаписи</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоОбъектовМетаданных</AssociatedTableElementId>
 		</Command>
 		<Command name="УстановитьВариантВерсионированияНеВерсионировать" id="4">
 			<Title>
@@ -852,7 +846,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>УстановитьВариантВерсионированияНеВерсионировать</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоОбъектовМетаданных</AssociatedTableElementId>
 		</Command>
 		<Command name="Обновить" id="5">
 			<Title>
@@ -921,7 +915,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаПоследнююНеделю</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоОбъектовМетаданных</AssociatedTableElementId>
 		</Command>
 		<Command name="ЗаПоследнийМесяц" id="9">
 			<Title>
@@ -937,7 +931,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаПоследнийМесяц</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоОбъектовМетаданных</AssociatedTableElementId>
 		</Command>
 		<Command name="ЗаПоследниеТриМесяца" id="10">
 			<Title>
@@ -953,7 +947,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаПоследниеТриМесяца</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоОбъектовМетаданных</AssociatedTableElementId>
 		</Command>
 		<Command name="ЗаПоследниеШестьМесяцев" id="11">
 			<Title>
@@ -969,7 +963,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаПоследниеШестьМесяцев</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоОбъектовМетаданных</AssociatedTableElementId>
 		</Command>
 		<Command name="ЗаПоследнийГод" id="12">
 			<Title>
@@ -985,7 +979,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаПоследнийГод</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоОбъектовМетаданных</AssociatedTableElementId>
 		</Command>
 		<Command name="Бессрочно" id="13">
 			<Title>
@@ -1001,7 +995,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Бессрочно</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоОбъектовМетаданных</AssociatedTableElementId>
 		</Command>
 		<Command name="ВерсионироватьПриСтарте" id="14">
 			<Title>
@@ -1017,7 +1011,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ВерсионироватьПриСтарте</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоОбъектовМетаданных</AssociatedTableElementId>
 		</Command>
 		<Command name="КоличествоИОбъемХранимыхВерсийОбъектов" id="15">
 			<Title>
@@ -1032,6 +1026,10 @@
 					<v8:content>Количество и объем хранимых версий объектов</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.МетаданныеОтчеты</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
 			<Action>КоличествоИОбъемХранимыхВерсийОбъектов</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>

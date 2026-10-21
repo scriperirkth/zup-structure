@@ -3,11 +3,72 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<Group>Vertical</Group>
-	<CommandSet>
-		<ExcludedCommand>Copy</ExcludedCommand>
-	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Popup name="ГрупповоеДобавление" id="73">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Добавить</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ГрупповоеДобавлениеРасширеннаяПодсказка" id="74"/>
+				<ChildItems>
+					<Button name="ДобавитьИзСервиса" id="79">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДобавитьИзСервиса</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Из сервиса...</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ДобавитьИзСервисаРасширеннаяПодсказка" id="80"/>
+					</Button>
+					<Button name="ДобавитьИзФайлов" id="75">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДобавитьИзФайлов</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Из файлов...</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ДобавитьИзФайловРасширеннаяПодсказка" id="76"/>
+					</Button>
+					<Button name="ДобавитьИзКаталога" id="77">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДобавитьИзКаталога</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Из каталога...</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ДобавитьИзКаталогаРасширеннаяПодсказка" id="78"/>
+					</Button>
+				</ChildItems>
+			</Popup>
+			<Button name="ФормаСоздать" id="69">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.StandardCommand.Create</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Добавить из файла...</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаСоздатьРасширеннаяПодсказка" id="70">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Добавить из файла на компьютере...</v8:content>
+						</v8:item>
+					</Title>
+				</ExtendedTooltip>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -44,7 +105,6 @@
 									<v8:content>Группа пользовательских настроек</v8:content>
 								</v8:item>
 							</Title>
-							<VerticalStretch>false</VerticalStretch>
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>WeakSeparation</Representation>
@@ -58,7 +118,7 @@
 									<v8:content>Быстрые отборы</v8:content>
 								</v8:item>
 							</Title>
-							<Group>HorizontalIfPossible</Group>
+							<Group>AutoScreenTypeSensitive</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -72,6 +132,8 @@
 											<v8:content>Показывать</v8:content>
 										</v8:item>
 									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<Width>21</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ListChoiceMode>true</ListChoiceMode>
@@ -136,142 +198,10 @@
 										<Event name="OnChange">ИспользованиеОтборПриИзменении</Event>
 									</Events>
 								</InputField>
-								<Button name="УдалитьНеиспользуемые" id="81">
-									<Type>UsualButton</Type>
-									<Visible>false</Visible>
-									<CommandName>Form.Command.УдалитьНеиспользуемые</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Удалить неиспользуемые</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="УдалитьНеиспользуемыеРасширеннаяПодсказка" id="82"/>
-								</Button>
 							</ChildItems>
 						</UsualGroup>
-						<CommandBar name="КоманднаяПанель" id="36">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Командная панель</v8:content>
-								</v8:item>
-							</Title>
-							<CommandSource>Form</CommandSource>
-							<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="37"/>
-							<ChildItems>
-								<Popup name="ГрупповоеДобавление" id="73">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Добавить</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ГрупповоеДобавлениеРасширеннаяПодсказка" id="74"/>
-									<ChildItems>
-										<Button name="ДобавитьИзСервиса" id="79">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.ДобавитьИзСервиса</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Из сервиса...</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ДобавитьИзСервисаРасширеннаяПодсказка" id="80"/>
-										</Button>
-										<Button name="ДобавитьИзФайлов" id="75">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.ДобавитьИзФайлов</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Из файлов...</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ДобавитьИзФайловРасширеннаяПодсказка" id="76"/>
-										</Button>
-										<Button name="ДобавитьИзКаталога" id="77">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.ДобавитьИзКаталога</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Из каталога...</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ДобавитьИзКаталогаРасширеннаяПодсказка" id="78"/>
-										</Button>
-									</ChildItems>
-								</Popup>
-								<Button name="ФормаСоздать" id="69">
-									<Type>CommandBarButton</Type>
-									<Visible>false</Visible>
-									<CommandName>Form.StandardCommand.Create</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Добавить из файла...</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ФормаСоздатьРасширеннаяПодсказка" id="70">
-										<Title formatted="false">
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Добавить из файла на компьютере...</v8:content>
-											</v8:item>
-										</Title>
-									</ExtendedTooltip>
-								</Button>
-								<ButtonGroup name="ГруппаДействие" id="65">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Действие</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ГруппаДействиеРасширеннаяПодсказка" id="66"/>
-									<ChildItems>
-										<Button name="ОбновитьССайта" id="67">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.ОбновитьССайта</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Обновить</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ОбновитьССайтаРасширеннаяПодсказка" id="68"/>
-										</Button>
-										<Button name="ФормаОбновитьИзФайла" id="58">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.ОбновитьИзФайла</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Обновить из файла...</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ФормаОбновитьИзФайлаРасширеннаяПодсказка" id="59"/>
-										</Button>
-										<Button name="ФормаСохранитьКак" id="60">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.СохранитьКак</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Сохранить как...</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ФормаСохранитьКакРасширеннаяПодсказка" id="61"/>
-										</Button>
-									</ChildItems>
-								</ButtonGroup>
-							</ChildItems>
-						</CommandBar>
 						<Table name="Список" id="3">
 							<Representation>List</Representation>
-							<CommandBarLocation>None</CommandBarLocation>
 							<DefaultItem>true</DefaultItem>
 							<MultipleChoice>true</MultipleChoice>
 							<RowSelectionMode>Cell</RowSelectionMode>
@@ -290,6 +220,7 @@
 								<ExcludedCommand>Copy</ExcludedCommand>
 								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 							</CommandSet>
+							<ShowCommandBar>auto</ShowCommandBar>
 							<AutoRefresh>false</AutoRefresh>
 							<AutoRefreshPeriod>60</AutoRefreshPeriod>
 							<Period>
@@ -331,7 +262,57 @@
 									</Button>
 								</ChildItems>
 							</ContextMenu>
-							<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
+							<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+								<ChildItems>
+									<Button name="ОбновитьССайта" id="67">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ОбновитьССайта</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Обновить с Портала 1С:ИТС</v8:content>
+											</v8:item>
+										</Title>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="ОбновитьССайтаРасширеннаяПодсказка" id="68"/>
+									</Button>
+									<Button name="ФормаОбновитьИзФайла" id="58">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ОбновитьИзФайла</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Обновить из файла...</v8:content>
+											</v8:item>
+										</Title>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="ФормаОбновитьИзФайлаРасширеннаяПодсказка" id="59"/>
+									</Button>
+									<Button name="ФормаСохранитьКак" id="60">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СохранитьКак</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Сохранить как...</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ФормаСохранитьКакРасширеннаяПодсказка" id="61"/>
+									</Button>
+									<Button name="УдалитьНеиспользуемые" id="81" DisplayImportance="High">
+										<Type>CommandBarButton</Type>
+										<Visible>false</Visible>
+										<CommandName>Form.Command.УдалитьНеиспользуемые</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Удалить неиспользуемые</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="УдалитьНеиспользуемыеРасширеннаяПодсказка" id="82"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
 							<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 							<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 								<AdditionSource>
@@ -363,12 +344,16 @@
 							<ChildItems>
 								<LabelField name="Идентификатор" id="25">
 									<DataPath>Список.Идентификатор</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<Width>25</Width>
 									<ContextMenu name="ИдентификаторКонтекстноеМеню" id="26"/>
 									<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="27"/>
 								</LabelField>
 								<LabelField name="Версия" id="22">
 									<DataPath>Список.Версия</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<Width>18</Width>
 									<ContextMenu name="ВерсияКонтекстноеМеню" id="23"/>
 									<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="24"/>
@@ -377,16 +362,20 @@
 									<DataPath>Список.ОбновлятьСПортала1СИТС</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<HorizontalAlign>Center</HorizontalAlign>
+									<EditMode>EnterOnInput</EditMode>
 									<HeaderPicture>
 										<xr:Ref>CommonPicture.ОбновлениеВнешнихКомпонентССайта</xr:Ref>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
 									</HeaderPicture>
 									<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ОбновлятьССайтаКонтекстноеМеню" id="29"/>
 									<ExtendedTooltip name="ОбновлятьССайтаРасширеннаяПодсказка" id="30"/>
 								</CheckBoxField>
 								<LabelField name="Наименование" id="52">
 									<DataPath>Список.Наименование</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="НаименованиеКонтекстноеМеню" id="53"/>
 									<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="54"/>
 								</LabelField>
@@ -395,6 +384,8 @@
 									<UserVisible>
 										<xr:Common>false</xr:Common>
 									</UserVisible>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<Width>1</Width>
 									<ContextMenu name="СсылкаКонтекстноеМеню" id="32"/>
 									<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="33"/>
@@ -435,6 +426,7 @@
 										<v8:content>Выполняется загрузка компонент из файлов...</v8:content>
 									</v8:item>
 								</Title>
+								<GroupVerticalAlign>Center</GroupVerticalAlign>
 							</ExtendedTooltip>
 						</PictureDecoration>
 					</ChildItems>
@@ -526,7 +518,9 @@
 			</Picture>
 			<Action>ОбновитьИзФайла</Action>
 			<Representation>Picture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="СохранитьКак" id="3">
 			<Title>
@@ -547,12 +541,14 @@
 			</Picture>
 			<Action>СохранитьКак</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ОбновитьССайта" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Обновить</v8:content>
+					<v8:content>Обновить с Портала 1С:ИТС...</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -567,7 +563,9 @@
 			</Picture>
 			<Action>ОбновитьСПортала</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ДобавитьИзФайлов" id="4">
 			<Title>
@@ -577,6 +575,7 @@
 				</v8:item>
 			</Title>
 			<Action>ДобавитьИзФайлов</Action>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="ДобавитьИзКаталога" id="5">
 			<Title>
@@ -586,6 +585,7 @@
 				</v8:item>
 			</Title>
 			<Action>ДобавитьИзКаталога</Action>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="ДобавитьИзСервиса" id="7">
 			<Title>
@@ -595,6 +595,7 @@
 				</v8:item>
 			</Title>
 			<Action>ДобавитьИзСервиса</Action>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="УдалитьНеиспользуемые" id="8">
 			<Title>

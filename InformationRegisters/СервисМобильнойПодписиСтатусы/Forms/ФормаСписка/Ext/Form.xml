@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
-	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="ФормаОбновитьСтатусы" id="49">
 				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.ОбновитьСтатусы</CommandName>
 				<Title>
 					<v8:item>
@@ -14,6 +14,7 @@
 						<v8:content>Обновить статусы</v8:content>
 					</v8:item>
 				</Title>
+				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаОбновитьСтатусыРасширеннаяПодсказка" id="50"/>
 			</Button>
 		</ChildItems>
@@ -37,7 +38,6 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -49,6 +49,8 @@
 				<ExcludedCommand>Copy</ExcludedCommand>
 				<ExcludedCommand>Create</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>auto</ShowCommandBar>
+			<AutoMaxCardHeight>false</AutoMaxCardHeight>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -65,9 +67,7 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
-				<Autofill>false</Autofill>
-			</AutoCommandBar>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -99,52 +99,72 @@
 			<ChildItems>
 				<LabelField name="ДатаОтправки" id="31">
 					<DataPath>Список.ДатаОтправки</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаОтправкиКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="ДатаОтправкиРасширеннаяПодсказка" id="33"/>
 				</LabelField>
 				<LabelField name="НаименованиеДокумента" id="34">
 					<DataPath>Список.НаименованиеДокумента</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НаименованиеДокументаКонтекстноеМеню" id="35"/>
 					<ExtendedTooltip name="НаименованиеДокументаРасширеннаяПодсказка" id="36"/>
 				</LabelField>
 				<LabelField name="Статус" id="19">
 					<DataPath>Список.Статус</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СтатусКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="ПодписанныйОбъект" id="37">
 					<DataPath>Список.ПодписанныйОбъект</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПодписанныйОбъектКонтекстноеМеню" id="38"/>
 					<ExtendedTooltip name="ПодписанныйОбъектРасширеннаяПодсказка" id="39"/>
 				</LabelField>
 				<LabelField name="Подписант" id="25">
 					<DataPath>Список.Подписант</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПодписантКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="ПодписантРасширеннаяПодсказка" id="27"/>
 				</LabelField>
 				<LabelField name="Отправитель" id="28">
 					<DataPath>Список.Отправитель</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОтправительКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ОтправительРасширеннаяПодсказка" id="30"/>
 				</LabelField>
 				<LabelField name="Доверенность" id="43">
 					<DataPath>Список.Доверенность</DataPath>
 					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДоверенностьКонтекстноеМеню" id="44"/>
 					<ExtendedTooltip name="ДоверенностьРасширеннаяПодсказка" id="45"/>
 				</LabelField>
 				<LabelField name="Комментарий" id="46">
 					<DataPath>Список.Комментарий</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КомментарийКонтекстноеМеню" id="47"/>
 					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="48"/>
 				</LabelField>
 				<LabelField name="Операция" id="40">
 					<DataPath>Список.Операция</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОперацияКонтекстноеМеню" id="41"/>
 					<ExtendedTooltip name="ОперацияРасширеннаяПодсказка" id="42"/>
 				</LabelField>
 				<LabelField name="ИдентификаторВСервисе" id="22">
 					<DataPath>Список.ИдентификаторВСервисе</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИдентификаторВСервисеКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ИдентификаторВСервисеРасширеннаяПодсказка" id="24"/>
 				</LabelField>
@@ -203,6 +223,9 @@
 			</Picture>
 			<Action>ОбновитьСтатусы</Action>
 			<Representation>TextPicture</Representation>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

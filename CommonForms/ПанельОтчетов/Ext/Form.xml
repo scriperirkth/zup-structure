@@ -3,13 +3,6 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<MobileDeviceCommandBarContent>
-		<xr:Item>
-			<xr:Presentation/>
-			<xr:CheckState>0</xr:CheckState>
-			<xr:Value xsi:type="xs:string">КоманднаяПанель</xr:Value>
-		</xr:Item>
-	</MobileDeviceCommandBarContent>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
@@ -25,6 +18,102 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Настроить" id="412">
+				<Type>CommandBarButton</Type>
+				<Width>12</Width>
+				<CommandName>Form.Command.Настроить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Настройка</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="НастроитьРасширеннаяПодсказка" id="413"/>
+			</Button>
+			<Button name="ФормаОбновить" id="414">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Обновить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обновить</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="415"/>
+			</Button>
+			<Button name="ФормаВсеОтчеты" id="416">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ВсеОтчеты</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Все отчеты...</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаВсеОтчетыРасширеннаяПодсказка" id="417"/>
+			</Button>
+			<ButtonGroup name="ГруппаСнимкиОтчетов" id="450">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Снимки отчетов</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ГруппаСнимкиОтчетовРасширеннаяПодсказка" id="451"/>
+				<ChildItems>
+					<Button name="СнимкиОтчетов" id="454">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СнимкиОтчетов</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Снимки отчетов</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="СнимкиОтчетовРасширеннаяПодсказка" id="455"/>
+					</Button>
+				</ChildItems>
+			</ButtonGroup>
+			<ButtonGroup name="Настройки" id="418">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Настройки</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="НастройкиРасширеннаяПодсказка" id="419"/>
+				<ChildItems>
+					<Button name="СброситьМоиНастройки" id="420">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СброситьМоиНастройки</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сбросить мои настройки</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="СброситьМоиНастройкиРасширеннаяПодсказка" id="421"/>
+					</Button>
+				</ChildItems>
+			</ButtonGroup>
+			<Button name="ФормаИзменитьФорму" id="422">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаИзменитьФормуРасширеннаяПодсказка" id="423"/>
+			</Button>
+			<Button name="Справка" id="426">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="427"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -40,70 +129,86 @@
 					<v8:content>Верхняя панель</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>AutoScreenTypeSensitive</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ВерхняяПанельРасширеннаяПодсказка" id="396"/>
 			<ChildItems>
-				<InputField name="СтрокаПоиска" id="397">
-					<DataPath>СтрокаПоиска</DataPath>
+				<UsualGroup name="ГруппаПоиск" id="459">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Поиск</v8:content>
 						</v8:item>
 					</Title>
-					<TitleLocation>None</TitleLocation>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Поиск отчетов по наименованиям, описаниям, именам авторов, а также по наименованиям полей и другим настройкам.</v8:content>
-						</v8:item>
-					</ToolTip>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>30</MaxWidth>
-					<Height>1</Height>
-					<DropListButton>true</DropListButton>
-					<ClearButton>true</ClearButton>
-					<InputHint>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Наименование, поле или автор отчета</v8:content>
-						</v8:item>
-					</InputHint>
-					<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="398"/>
-					<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="399"/>
-					<Events>
-						<Event name="OnChange">СтрокаПоискаПриИзменении</Event>
-						<Event name="TextEditEnd">СтрокаПоискаОкончаниеВводаТекста</Event>
-					</Events>
-				</InputField>
-				<Button name="ВыполнитьПоиск" id="400">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.ВыполнитьПоиск</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Найти</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ВыполнитьПоискРасширеннаяПодсказка" id="401"/>
-				</Button>
-				<UsualGroup name="ГруппаКоманднаяПанельПравая" id="405">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Командная панель правая</v8:content>
-						</v8:item>
-					</Title>
 					<HorizontalStretch>true</HorizontalStretch>
-					<Group>HorizontalIfPossible</Group>
+					<Group>AlwaysHorizontal</Group>
+					<HorizontalSpacing>Half</HorizontalSpacing>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПоискРасширеннаяПодсказка" id="460"/>
+					<ChildItems>
+						<InputField name="СтрокаПоиска" id="397">
+							<DataPath>СтрокаПоиска</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Поиск</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Поиск отчетов по наименованиям, описаниям, именам авторов, а также по наименованиям полей и другим настройкам.</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<DropListButton>true</DropListButton>
+							<ClearButton>true</ClearButton>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименование, поле или автор отчета</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="398"/>
+							<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="399"/>
+							<Events>
+								<Event name="OnChange">СтрокаПоискаПриИзменении</Event>
+								<Event name="TextEditEnd">СтрокаПоискаОкончаниеВводаТекста</Event>
+							</Events>
+						</InputField>
+						<Button name="ВыполнитьПоиск" id="400">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.ВыполнитьПоиск</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Найти</v8:content>
+								</v8:item>
+							</Title>
+							<ShapeRepresentation>None</ShapeRepresentation>
+							<ButtonImportance>Supplementary</ButtonImportance>
+							<ExtendedTooltip name="ВыполнитьПоискРасширеннаяПодсказка" id="401"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="НастройкиОтображения" id="405">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройки отображения</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AutoScreenTypeSensitive</Group>
 					<HorizontalAlign>Right</HorizontalAlign>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаКоманднаяПанельПраваяРасширеннаяПодсказка" id="406"/>
+					<ExtendedTooltip name="НастройкиОтображенияРасширеннаяПодсказка" id="406"/>
 					<ChildItems>
 						<CheckBoxField name="ОтображатьВсеВариантыОтчетов" id="447">
 							<DataPath>ОтображатьВсеВариантыОтчетов</DataPath>
@@ -116,6 +221,9 @@
 							</Title>
 							<TitleLocation>Right</TitleLocation>
 							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>Switcher</CheckBoxType>
 							<ContextMenu name="ОтображатьВсеВариантыОтчетовКонтекстноеМеню" id="448"/>
 							<ExtendedTooltip name="ОтображатьВсеВариантыОтчетовРасширеннаяПодсказка" id="449"/>
 							<Events>
@@ -133,120 +241,15 @@
 							</Title>
 							<TitleLocation>Right</TitleLocation>
 							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>Switcher</CheckBoxType>
 							<ContextMenu name="ПоказыватьПодсказкиКонтекстноеМеню" id="408"/>
 							<ExtendedTooltip name="ПоказыватьПодсказкиРасширеннаяПодсказка" id="409"/>
 							<Events>
 								<Event name="OnChange">ПоказыватьПодсказкиПриИзменении</Event>
 							</Events>
 						</CheckBoxField>
-						<CommandBar name="КоманднаяПанель" id="410">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Командная панель</v8:content>
-								</v8:item>
-							</Title>
-							<Width>26</Width>
-							<Height>1</Height>
-							<HorizontalStretch>false</HorizontalStretch>
-							<HorizontalLocation>Right</HorizontalLocation>
-							<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="411"/>
-							<ChildItems>
-								<Button name="Настроить" id="412">
-									<Type>CommandBarButton</Type>
-									<Width>12</Width>
-									<CommandName>Form.Command.Настроить</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Настройка</v8:content>
-										</v8:item>
-									</Title>
-									<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-									<ExtendedTooltip name="НастроитьРасширеннаяПодсказка" id="413"/>
-								</Button>
-								<Button name="ФормаОбновить" id="414">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.Обновить</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Обновить</v8:content>
-										</v8:item>
-									</Title>
-									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-									<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="415"/>
-								</Button>
-								<Button name="ФормаВсеОтчеты" id="416">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.ВсеОтчеты</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Все отчеты...</v8:content>
-										</v8:item>
-									</Title>
-									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-									<ExtendedTooltip name="ФормаВсеОтчетыРасширеннаяПодсказка" id="417"/>
-								</Button>
-								<ButtonGroup name="ГруппаСнимкиОтчетов" id="450">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Снимки отчетов</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ГруппаСнимкиОтчетовРасширеннаяПодсказка" id="451"/>
-									<ChildItems>
-										<Button name="СнимкиОтчетов" id="454">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.СнимкиОтчетов</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Снимки отчетов</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="СнимкиОтчетовРасширеннаяПодсказка" id="455"/>
-										</Button>
-									</ChildItems>
-								</ButtonGroup>
-								<ButtonGroup name="Настройки" id="418">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Настройки</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="НастройкиРасширеннаяПодсказка" id="419"/>
-									<ChildItems>
-										<Button name="СброситьМоиНастройки" id="420">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.СброситьМоиНастройки</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Сбросить мои настройки</v8:content>
-												</v8:item>
-											</Title>
-											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-											<ExtendedTooltip name="СброситьМоиНастройкиРасширеннаяПодсказка" id="421"/>
-										</Button>
-									</ChildItems>
-								</ButtonGroup>
-								<Button name="ФормаИзменитьФорму" id="422">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-									<ExtendedTooltip name="ФормаИзменитьФормуРасширеннаяПодсказка" id="423"/>
-								</Button>
-								<Button name="Справка" id="426">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.StandardCommand.Help</CommandName>
-									<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="427"/>
-								</Button>
-							</ChildItems>
-						</CommandBar>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -316,7 +319,6 @@
 								</PictureDecoration>
 								<LabelDecoration name="ДекорацияПоясняющийТекстДлительнойОперации" id="442">
 									<Width>30</Width>
-									<AutoMaxWidth>false</AutoMaxWidth>
 									<HorizontalStretch>true</HorizontalStretch>
 									<Title formatted="false">
 										<v8:item>
@@ -607,7 +609,7 @@
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<SkipOnInput>true</SkipOnInput>
 									<TextColor>style:ГруппаВариантовОтчетовЦвет</TextColor>
-									<Font ref="style:NormalTextFont" height="0" kind="StyleItem"/>
+									<Font ref="style:TextLevel3" kind="StyleItem" scale="100"/>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -684,7 +686,6 @@
 								<LabelDecoration name="РезультатыПоискаИзДругихРазделовШапка" id="383">
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<Height>2</Height>
-									<TextColor>style:FormTextColor</TextColor>
 									<Font ref="sys:DefaultGUIFont" faceName="Arial" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
 									<Title formatted="false">
 										<v8:item>
@@ -730,7 +731,7 @@
 			<ExtendedTooltip name="ПодвалФормыРасширеннаяПодсказка" id="312"/>
 			<ChildItems>
 				<Button name="СсылкаВсеОтчеты" id="261">
-					<Type>Hyperlink</Type>
+					<Type>UsualButton</Type>
 					<CommandName>Form.Command.ВсеОтчеты</CommandName>
 					<TextColor>style:ГиперссылкаЦвет</TextColor>
 					<Title>
@@ -739,6 +740,8 @@
 							<v8:content>Все отчеты...</v8:content>
 						</v8:item>
 					</Title>
+					<ShapeRepresentation>None</ShapeRepresentation>
+					<ButtonImportance>Supplementary</ButtonImportance>
 					<ExtendedTooltip name="СсылкаВсеОтчетыРасширеннаяПодсказка" id="304"/>
 				</Button>
 				<LabelDecoration name="Декорация2" id="389">

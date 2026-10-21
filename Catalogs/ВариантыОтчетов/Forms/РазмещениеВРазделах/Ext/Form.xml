@@ -4,57 +4,20 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
-			<ButtonGroup name="ФормаГруппаФлажки" id="102">
+			<Button name="Разместить" id="58">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Разместить</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Форма группа флажки</v8:content>
+						<v8:content>Разместить</v8:content>
 					</v8:item>
 				</Title>
-				<ExtendedTooltip name="ФормаГруппаФлажкиРасширеннаяПодсказка" id="103"/>
-				<ChildItems>
-					<Button name="Разместить" id="58">
-						<Type>CommandBarButton</Type>
-						<Representation>Text</Representation>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.Разместить</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Разместить</v8:content>
-							</v8:item>
-						</Title>
-						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="РазместитьРасширеннаяПодсказка" id="79"/>
-					</Button>
-					<Button name="ДеревоПодсистемСнятьФлажки" id="76">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.СнятьФлажки</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Снять флажки</v8:content>
-							</v8:item>
-						</Title>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="ДеревоПодсистемСнятьФлажкиРасширеннаяПодсказка" id="80"/>
-					</Button>
-				</ChildItems>
-			</ButtonGroup>
-			<SearchStringAddition name="СтрокаПоиска" id="99">
-				<AdditionSource>
-					<Item>ДеревоПодсистем</Item>
-					<Type>SearchStringRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="100"/>
-				<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="101"/>
-			</SearchStringAddition>
-			<Button name="ФормаСправка" id="104">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="105"/>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="РазместитьРасширеннаяПодсказка" id="79"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -65,7 +28,6 @@
 	<ChildItems>
 		<Table name="ДеревоПодсистем" id="7">
 			<Representation>Tree</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<ChangeRowOrder>false</ChangeRowOrder>
 			<SelectionMode>SingleRow</SelectionMode>
@@ -95,6 +57,7 @@
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 				<ExcludedCommand>Tree</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<ContextMenu name="ДеревоПодсистемКонтекстноеМеню" id="8">
 				<ChildItems>
 					<Button name="ДеревоПодсистемКонтекстноеМенюСнятьФлажки" id="78">
@@ -112,6 +75,28 @@
 			</ContextMenu>
 			<AutoCommandBar name="ДеревоПодсистемКоманднаяПанель" id="9">
 				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ДеревоПодсистемСнятьФлажки" id="76">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СнятьФлажки</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Снять отметки</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ДеревоПодсистемСнятьФлажкиРасширеннаяПодсказка" id="80"/>
+					</Button>
+					<SearchStringAddition name="СтрокаПоиска" id="99">
+						<AdditionSource>
+							<Item>ДеревоПодсистем</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="100"/>
+						<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="101"/>
+					</SearchStringAddition>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ДеревоПодсистемРасширеннаяПодсказка" id="85"/>
 			<SearchStringAddition name="ДеревоПодсистемСтрокаПоиска" id="90">
@@ -143,7 +128,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Колонок</v8:content>
+							<v8:content>Колонки</v8:content>
 						</v8:item>
 					</Title>
 					<Group>InCell</Group>
@@ -196,7 +181,6 @@
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<Width>8</Width>
 					<ChoiceButton>true</ChoiceButton>
 					<ClearButton>true</ClearButton>
 					<SpinButton>false</SpinButton>
@@ -361,6 +345,7 @@
 			</Picture>
 			<Action>Разместить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="СнятьФлажки" id="2">
 			<Title>

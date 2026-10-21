@@ -8,10 +8,35 @@
 	</Title>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
+	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowTitle>true</ShowTitle>
+	<ShowCommandBar>true</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Готово" id="9">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Готово</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="10"/>
+			</Button>
+			<Button name="Отмена" id="11">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отмена</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="12"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -25,6 +50,8 @@
 					<v8:content>Наименование</v8:content>
 				</v8:item>
 			</ToolTip>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<Width>40</Width>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<InputHint>
@@ -58,6 +85,8 @@
 							<v8:content>Описание</v8:content>
 						</v8:item>
 					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>40</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<Height>4</Height>
@@ -82,6 +111,8 @@
 					<v8:content>Описание (особое)</v8:content>
 				</v8:item>
 			</ToolTip>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<Width>40</Width>
 			<Height>3</Height>
 			<MultiLine>true</MultiLine>
@@ -94,33 +125,6 @@
 			<ContextMenu name="ОписаниеОсобоеКонтекстноеМеню" id="26"/>
 			<ExtendedTooltip name="ОписаниеОсобоеРасширеннаяПодсказка" id="27"/>
 		</InputField>
-		<UsualGroup name="ГруппаКоманды" id="7">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа команды</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Horizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="8"/>
-			<ChildItems>
-				<Button name="Готово" id="9">
-					<Type>UsualButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.Готово</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="10"/>
-				</Button>
-				<Button name="Отмена" id="11">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.Отмена</CommandName>
-					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="12"/>
-				</Button>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Наименование" id="1">
@@ -168,6 +172,18 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
+		<Attribute name="Объект" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ИнтеграцияС1СДокументооборот3</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="Готово" id="1">
@@ -185,22 +201,7 @@
 			</ToolTip>
 			<Action>Готово</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="Отмена" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Отмена</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

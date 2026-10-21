@@ -7,14 +7,50 @@
 		</v8:item>
 	</Title>
 	<Width>60</Width>
-	<Height>12</Height>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<HorizontalAlign>Center</HorizontalAlign>
+		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ТребуетсяПомощь" id="29">
+				<Type>CommandBarHyperlink</Type>
+				<CommandName>Form.Command.ТребуетсяПомощь</CommandName>
+				<ButtonImportance>Supplementary</ButtonImportance>
+				<ExtendedTooltip name="ТребуетсяПомощьРасширеннаяПодсказка" id="30"/>
+			</Button>
+			<Button name="ФормаОбновить" id="1">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+				<CommandName>Form.Command.Обновить</CommandName>
+				<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="2"/>
+			</Button>
+			<Button name="ФормаПродолжить" id="5">
+				<Type>CommandBarButton</Type>
+				<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+				<CommandName>Form.Command.ПродолжитьОтправку</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Пропустить</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаПродолжитьРасширеннаяПодсказка" id="6"/>
+			</Button>
+			<Button name="ФормаОтмена" id="3">
+				<Type>CommandBarButton</Type>
+				<AutoMaxWidth>false</AutoMaxWidth>
+				<AutoMaxHeight>false</AutoMaxHeight>
+				<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+				<CommandName>Form.Command.Отмена</CommandName>
+				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="4"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -88,69 +124,6 @@
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
-		<LabelDecoration name="ДекорацияПустая" id="25">
-			<ContextMenu name="ДекорацияПустаяКонтекстноеМеню" id="26"/>
-			<ExtendedTooltip name="ДекорацияПустаяРасширеннаяПодсказка" id="27"/>
-		</LabelDecoration>
-		<UsualGroup name="ГруппаКоманды" id="15">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команды</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalStretch>false</HorizontalStretch>
-			<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-			<Group>AlwaysHorizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="16"/>
-			<ChildItems>
-				<Button name="ФормаОбновить" id="1">
-					<Type>UsualButton</Type>
-					<Visible>false</Visible>
-					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-					<CommandName>Form.Command.Обновить</CommandName>
-					<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="2"/>
-				</Button>
-				<Button name="ФормаПродолжить" id="5">
-					<Type>UsualButton</Type>
-					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-					<CommandName>Form.Command.ПродолжитьОтправку</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Пропустить</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ФормаПродолжитьРасширеннаяПодсказка" id="6"/>
-				</Button>
-				<Button name="ФормаОтмена" id="3">
-					<Type>UsualButton</Type>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<AutoMaxHeight>false</AutoMaxHeight>
-					<CommandName>Form.Command.Отмена</CommandName>
-					<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="4"/>
-				</Button>
-				<LabelDecoration name="ТребуетсяПомощь" id="12">
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Требуется помощь?</v8:content>
-						</v8:item>
-					</Title>
-					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-					<Hyperlink>true</Hyperlink>
-					<HorizontalAlign>Right</HorizontalAlign>
-					<ContextMenu name="ТребуетсяПомощьКонтекстноеМеню" id="13"/>
-					<ExtendedTooltip name="ТребуетсяПомощьРасширеннаяПодсказка" id="14"/>
-					<Events>
-						<Event name="Click">ТребуетсяПомощьНажатие</Event>
-					</Events>
-				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -217,6 +190,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПродолжитьОтправку</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="2">
 			<Title>
@@ -232,6 +206,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Отмена</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Обновить" id="3">
 			<Title>
@@ -247,6 +222,23 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Обновить</Action>
+			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="ТребуетсяПомощь" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Требуется помощь?</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Требуется помощь</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ТребуетсяПомощь</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

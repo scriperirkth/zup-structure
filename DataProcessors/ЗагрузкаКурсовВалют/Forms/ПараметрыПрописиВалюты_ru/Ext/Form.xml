@@ -2,7 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Close</ExcludedCommand>
@@ -15,37 +14,27 @@
 		<ExcludedCommand>SaveValues</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="ФормаЗаписатьИЗакрыть" id="100">
+			<Button name="ФормаПрименить" id="115">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
+				<CommandName>Form.Command.Применить</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Записать и закрыть</v8:content>
+						<v8:content>Применить</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="101"/>
-			</Button>
-			<Button name="ФормаЗаписать" id="102">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Записать</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Записать</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="103"/>
+				<ExtendedTooltip name="ФормаПрименитьРасширеннаяПодсказка" id="116"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -56,7 +45,7 @@
 					<v8:content>Целая часть</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>AutoScreenTypeSensitive</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>WeakSeparation</Representation>
 			<Format>
@@ -75,11 +64,9 @@
 							<v8:content>Род</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
 					<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-					<Width>10</Width>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>15</MaxWidth>
-					<HorizontalStretch>false</HorizontalStretch>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ListChoiceMode>true</ListChoiceMode>
 					<ChooseType>false</ChooseType>
@@ -125,7 +112,6 @@
 							</xr:Value>
 						</xr:Item>
 					</ChoiceList>
-					<BorderColor>style:BorderColor</BorderColor>
 					<ContextMenu name="ЦелаяЧастьРодКонтекстноеМеню" id="25"/>
 					<ExtendedTooltip name="ЦелаяЧастьРодРасширеннаяПодсказка" id="85"/>
 					<Events>
@@ -140,12 +126,10 @@
 							<v8:content>Один</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
 					<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-					<Width>10</Width>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>15</MaxWidth>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
-					<BorderColor>style:BorderColor</BorderColor>
 					<ContextMenu name="ЦелаяЧастьОдинКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="ЦелаяЧастьОдинРасширеннаяПодсказка" id="86"/>
 					<Events>
@@ -161,12 +145,10 @@
 							<v8:content>Два</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
 					<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-					<Width>10</Width>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>15</MaxWidth>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
-					<BorderColor>style:BorderColor</BorderColor>
 					<ContextMenu name="ЦелаяЧастьДваКонтекстноеМеню" id="27"/>
 					<ExtendedTooltip name="ЦелаяЧастьДваРасширеннаяПодсказка" id="87"/>
 					<Events>
@@ -182,12 +164,10 @@
 							<v8:content>Пять</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
 					<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-					<Width>10</Width>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>15</MaxWidth>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
-					<BorderColor>style:BorderColor</BorderColor>
 					<ContextMenu name="ПолеПрописи3наРусскомКонтекстноеМеню" id="28"/>
 					<ExtendedTooltip name="ПолеПрописи3наРусскомРасширеннаяПодсказка" id="88"/>
 					<Events>
@@ -216,7 +196,7 @@
 							<v8:content>Склонение дробной части</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>AutoScreenTypeSensitive</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<Format>
@@ -236,11 +216,9 @@
 									<v8:content>Род</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
 							<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-							<Width>10</Width>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<MaxWidth>15</MaxWidth>
-							<HorizontalStretch>false</HorizontalStretch>
+							<AutoEditMode>true</AutoEditMode>
 							<Wrap>false</Wrap>
 							<ListChoiceMode>true</ListChoiceMode>
 							<ChooseType>false</ChooseType>
@@ -286,7 +264,6 @@
 									</xr:Value>
 								</xr:Item>
 							</ChoiceList>
-							<BorderColor>style:BorderColor</BorderColor>
 							<ContextMenu name="ДробнаяЧастьРодКонтекстноеМеню" id="29"/>
 							<ExtendedTooltip name="ДробнаяЧастьРодРасширеннаяПодсказка" id="91"/>
 							<Events>
@@ -301,12 +278,10 @@
 									<v8:content>Один</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
 							<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-							<Width>10</Width>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<MaxWidth>15</MaxWidth>
+							<AutoEditMode>true</AutoEditMode>
 							<Wrap>false</Wrap>
-							<BorderColor>style:BorderColor</BorderColor>
 							<ContextMenu name="ДробнаяЧастьОдинКонтекстноеМеню" id="30"/>
 							<ExtendedTooltip name="ДробнаяЧастьОдинРасширеннаяПодсказка" id="92"/>
 							<Events>
@@ -322,12 +297,10 @@
 									<v8:content>Два</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
 							<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-							<Width>10</Width>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<MaxWidth>15</MaxWidth>
+							<AutoEditMode>true</AutoEditMode>
 							<Wrap>false</Wrap>
-							<BorderColor>style:BorderColor</BorderColor>
 							<ContextMenu name="ДробнаяЧастьДваКонтекстноеМеню" id="31"/>
 							<ExtendedTooltip name="ДробнаяЧастьДваРасширеннаяПодсказка" id="93"/>
 							<Events>
@@ -343,12 +316,10 @@
 									<v8:content>Пять</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
 							<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-							<Width>10</Width>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<MaxWidth>15</MaxWidth>
+							<AutoEditMode>true</AutoEditMode>
 							<Wrap>false</Wrap>
-							<BorderColor>style:BorderColor</BorderColor>
 							<ContextMenu name="ДробнаяЧастьПятьКонтекстноеМеню" id="32"/>
 							<ExtendedTooltip name="ДробнаяЧастьПятьРасширеннаяПодсказка" id="94"/>
 							<Events>
@@ -379,9 +350,9 @@
 									<v8:content>Число разрядов дробной части</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
 							<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-							<Width>15</Width>
-							<HorizontalStretch>false</HorizontalStretch>
+							<AutoEditMode>true</AutoEditMode>
 							<Wrap>false</Wrap>
 							<ListChoiceMode>true</ListChoiceMode>
 							<ChooseType>false</ChooseType>
@@ -428,7 +399,6 @@
 									</xr:Value>
 								</xr:Item>
 							</ChoiceList>
-							<BorderColor>style:BorderColor</BorderColor>
 							<ContextMenu name="ДлинаДробнойЧастиКонтекстноеМеню" id="33"/>
 							<ExtendedTooltip name="ДлинаДробнойЧастиРасширеннаяПодсказка" id="96"/>
 							<Events>
@@ -446,7 +416,7 @@
 					<v8:content>Пример прописи суммы</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>AutoScreenTypeSensitive</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаПримерПрописиРасширеннаяПодсказка" id="97"/>
@@ -459,6 +429,8 @@
 							<v8:content>Сумма</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СуммаЧислоКонтекстноеМеню" id="60"/>
 					<ExtendedTooltip name="СуммаЧислоРасширеннаяПодсказка" id="98"/>
 					<Events>
@@ -474,6 +446,8 @@
 							<v8:content>Сумма прописью</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<TextEdit>false</TextEdit>
 					<ContextMenu name="СуммаПрописьюКонтекстноеМеню" id="63"/>
 					<ExtendedTooltip name="СуммаПрописьюРасширеннаяПодсказка" id="99"/>
@@ -665,35 +639,21 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ЗаписатьИЗакрыть" id="1">
+		<Command name="Применить" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Записать и закрыть</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Записать и закрыть</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ЗаписатьИЗакрыть</Action>
-		</Command>
-		<Command name="Записать" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Записать</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Записать</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Записать</Action>
+			<Action>Применить</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

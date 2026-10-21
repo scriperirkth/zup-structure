@@ -4,18 +4,18 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
-			<Button name="ФормаОК" id="15">
+			<Button name="ФормаПрименить" id="15">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ОК</CommandName>
+				<CommandName>Form.Command.Применить</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>ОК</v8:content>
+						<v8:content>Применить</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаОКРасширеннаяПодсказка" id="19"/>
+				<ExtendedTooltip name="ФормаПрименитьРасширеннаяПодсказка" id="19"/>
 			</Button>
 			<Button name="ФормаЗаполнить" id="14">
 				<Type>CommandBarButton</Type>
@@ -42,6 +42,8 @@
 					<v8:content>Сервер и каталог</v8:content>
 				</v8:item>
 			</Title>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<InputHint>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -61,7 +63,7 @@
 					<v8:content>Настройки номера порта и типа соединения</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -75,7 +77,8 @@
 							<v8:content>Порт</v8:content>
 						</v8:item>
 					</Title>
-					<SpinButton>true</SpinButton>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<EditFormat>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -87,13 +90,6 @@
 					<ContextMenu name="ПортКонтекстноеМеню" id="4"/>
 					<ExtendedTooltip name="ПортРасширеннаяПодсказка" id="23"/>
 				</InputField>
-				<LabelDecoration name="ДекорацияРазделитель" id="30">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>10</MaxWidth>
-					<HorizontalStretch>true</HorizontalStretch>
-					<ContextMenu name="ДекорацияРазделительКонтекстноеМеню" id="31"/>
-					<ExtendedTooltip name="ДекорацияРазделительРасширеннаяПодсказка" id="32"/>
-				</LabelDecoration>
 				<CheckBoxField name="ПассивноеСоединение" id="17">
 					<DataPath>ПассивноеСоединение</DataPath>
 					<Title>
@@ -103,6 +99,8 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПассивноеСоединениеКонтекстноеМеню" id="18"/>
 					<ExtendedTooltip name="ПассивноеСоединениеРасширеннаяПодсказка" id="27"/>
 				</CheckBoxField>
@@ -116,8 +114,8 @@
 					<v8:content>Логин</v8:content>
 				</v8:item>
 			</Title>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<MaxWidth>35</MaxWidth>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<ContextMenu name="ЛогинКонтекстноеМеню" id="6"/>
 			<ExtendedTooltip name="ЛогинРасширеннаяПодсказка" id="25"/>
 		</InputField>
@@ -135,11 +133,19 @@
 					<v8:content>Пароль FTP сервера.</v8:content>
 				</v8:item>
 			</ToolTip>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<MaxWidth>35</MaxWidth>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<PasswordMode>true</PasswordMode>
+			<ChoiceButton>true</ChoiceButton>
+			<ChoiceButtonPicture>
+				<xr:Ref>StdPicture.ShowPassword</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</ChoiceButtonPicture>
 			<ContextMenu name="ПарольКонтекстноеМеню" id="8"/>
 			<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="26"/>
+			<Events>
+				<Event name="StartChoice">ПарольНачалоВыбора</Event>
+			</Events>
 		</InputField>
 	</ChildItems>
 	<Attributes>
@@ -256,26 +262,23 @@
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
-		<Command name="ОК" id="2">
+		<Command name="Применить" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<Action>ОК</Action>
+			<Action>Применить</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

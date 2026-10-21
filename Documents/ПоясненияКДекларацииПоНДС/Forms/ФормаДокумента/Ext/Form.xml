@@ -3,7 +3,6 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<VerticalSpacing>Half</VerticalSpacing>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
 	<RepostOnWrite>true</RepostOnWrite>
@@ -55,7 +54,16 @@
 				<Type>CommandBarButton</Type>
 				<Width>11</Width>
 				<CommandName>Form.Command.ПечатьТребования</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.Print</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
 				<ExtendedTooltip name="ПечатьТребованияРасширеннаяПодсказка" id="1921"/>
+			</Button>
+			<Button name="ФормаВсеПояснения" id="2493">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ВсеПояснения</CommandName>
+				<ExtendedTooltip name="ФормаВсеПоясненияРасширеннаяПодсказка" id="2494"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -121,8 +129,7 @@
 							<ExtendedTooltip name="СостояниеОтправкиРасширеннаяПодсказка" id="315"/>
 							<ChildItems>
 								<LabelDecoration name="НаименованиеЭтапа" id="316">
-									<TextColor>style:FormTextColor</TextColor>
-									<Font ref="style:NormalTextFont" height="11" kind="StyleItem"/>
+									<Font ref="style:TitleLevel3" kind="StyleItem"/>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -319,6 +326,7 @@
 			<ExtendedTooltip name="ИнформационнаяПанельРасширеннаяПодсказка" id="1965"/>
 			<ChildItems>
 				<PictureDecoration name="ДекорацияКартинкаПредупреждения1" id="1966">
+					<Visible>false</Visible>
 					<Width>3</Width>
 					<Height>1</Height>
 					<Title formatted="false">
@@ -385,7 +393,6 @@
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<BackColor>#FFFFFE</BackColor>
 			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="1963"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаДекларация" id="1248">
@@ -402,187 +409,86 @@
 						</v8:item>
 					</ToolTip>
 					<Group>AlwaysHorizontal</Group>
+					<VerticalAlign>Center</VerticalAlign>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаДекларацияРасширеннаяПодсказка" id="1249"/>
 					<ChildItems>
-						<LabelDecoration name="ПредставлениеДекларацииЗаголовок" id="1944">
-							<Width>9</Width>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Декларация:</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="ПредставлениеДекларацииЗаголовокКонтекстноеМеню" id="1945"/>
-							<ExtendedTooltip name="ПредставлениеДекларацииЗаголовокРасширеннаяПодсказка" id="1946"/>
-						</LabelDecoration>
-						<LabelField name="ПредставлениеДекларации" id="1245">
+						<InputField name="ПредставлениеДекларации" id="1245">
 							<DataPath>ПредставлениеДекларации</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Декларация</v8:content>
+									<v8:content>Декларация по НДС</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>None</TitleLocation>
-							<AutoMaxWidth>false</AutoMaxWidth>
+							<ChoiceButton>true</ChoiceButton>
+							<OpenButton>false</OpenButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<TextEdit>false</TextEdit>
 							<ContextMenu name="ПредставлениеДекларацииКонтекстноеМеню" id="1246"/>
 							<ExtendedTooltip name="ПредставлениеДекларацииРасширеннаяПодсказка" id="1247"/>
 							<Events>
-								<Event name="URLProcessing">ПредставлениеДекларацииОбработкаНавигационнойСсылки</Event>
+								<Event name="StartChoice">ПредставлениеДекларацииНачалоВыбора</Event>
 							</Events>
-						</LabelField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаТребование" id="419">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Требование</v8:content>
-						</v8:item>
-					</Title>
-					<Group>AlwaysHorizontal</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаТребованиеРасширеннаяПодсказка" id="420"/>
-					<ChildItems>
-						<LabelDecoration name="ТребованиеЗаголовок" id="1947">
-							<Width>9</Width>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Ответ на:</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="ТребованиеЗаголовокКонтекстноеМеню" id="1948"/>
-							<ExtendedTooltip name="ТребованиеЗаголовокРасширеннаяПодсказка" id="1949"/>
-						</LabelDecoration>
-						<LabelField name="Требование" id="7">
+						</InputField>
+						<InputField name="Требование" id="7">
 							<DataPath>Объект.Требование</DataPath>
+							<ReadOnly>true</ReadOnly>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Ответ на</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>None</TitleLocation>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<Hiperlink>true</Hiperlink>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<TextEdit>false</TextEdit>
 							<ContextMenu name="ТребованиеКонтекстноеМеню" id="8"/>
 							<ExtendedTooltip name="ТребованиеРасширеннаяПодсказка" id="9"/>
-						</LabelField>
-						<LabelDecoration name="ДекорацияОтправленныеРанееПояснения" id="1208">
-							<TextColor>style:ЦветГиперссылкиБРО</TextColor>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Пояснения на другие строки требования</v8:content>
-								</v8:item>
-							</Title>
-							<Hyperlink>true</Hyperlink>
-							<ContextMenu name="ДекорацияОтправленныеРанееПоясненияКонтекстноеМеню" id="1209"/>
-							<ExtendedTooltip name="ДекорацияОтправленныеРанееПоясненияРасширеннаяПодсказка" id="1210"/>
-							<Events>
-								<Event name="Click">ДекорацияОтправленныеРанееПоясненияНажатие</Event>
-							</Events>
-						</LabelDecoration>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаОрганизация" id="1206">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Организация</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа организация</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Group>AlwaysHorizontal</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаОрганизацияРасширеннаяПодсказка" id="1207"/>
-					<ChildItems>
-						<LabelDecoration name="ОрганизацияЗаголовок" id="1950">
-							<Width>9</Width>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>От кого:</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="ОрганизацияЗаголовокКонтекстноеМеню" id="1951"/>
-							<ExtendedTooltip name="ОрганизацияЗаголовокРасширеннаяПодсказка" id="1952"/>
-						</LabelDecoration>
-						<LabelField name="Организация" id="365">
-							<DataPath>Объект.Организация</DataPath>
-							<ReadOnly>true</ReadOnly>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>От кого</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>None</TitleLocation>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="366"/>
-							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="367"/>
-						</LabelField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаНалоговыйОрган" id="636">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа налоговый орган</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа налоговый орган</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Group>AlwaysHorizontal</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаНалоговыйОрганРасширеннаяПодсказка" id="637"/>
-					<ChildItems>
-						<LabelDecoration name="НалоговыйОрганЗаголовок" id="1953">
-							<Width>9</Width>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Кому:</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="НалоговыйОрганЗаголовокКонтекстноеМеню" id="1954"/>
-							<ExtendedTooltip name="НалоговыйОрганЗаголовокРасширеннаяПодсказка" id="1955"/>
-						</LabelDecoration>
+						</InputField>
 						<InputField name="НалоговыйОрган" id="368">
 							<DataPath>Объект.НалоговыйОрган</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Кому</v8:content>
+									<v8:content>В ИФНС</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>None</TitleLocation>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
 							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 							<ContextMenu name="НалоговыйОрганКонтекстноеМеню" id="369"/>
 							<ExtendedTooltip name="НалоговыйОрганРасширеннаяПодсказка" id="370"/>
 						</InputField>
 					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ПанельКнопокВизуализации" id="1918">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отбор по контрагенту</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Панель кнопок визуализации</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HorizontalStretch>true</HorizontalStretch>
+					<Group>HorizontalIfPossible</Group>
+					<CollapsedRepresentationTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отбор по контрагенту</v8:content>
+						</v8:item>
+					</CollapsedRepresentationTitle>
+					<Collapsed>true</Collapsed>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ПанельКнопокВизуализацииРасширеннаяПодсказка" id="1919"/>
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
@@ -594,6 +500,7 @@
 				</v8:item>
 			</Title>
 			<Group>Horizontal</Group>
+			<VerticalAlign>Center</VerticalAlign>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -618,11 +525,11 @@
 				</PictureDecoration>
 				<LabelDecoration name="ДекорацияПредупрежедениеОбУточненнойДекларации" id="633">
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<TextColor>style:SpecialTextColor</TextColor>
+					<TextColor>pal:Red</TextColor>
 					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Изменилась сумма НДС. Внесите исправления в учетные данные и сформируйте корректирующую декларацию. &lt;link http://its.1c.ru/bmk/nds_decl_refinement&gt;Подробнее на ИТС&lt;/&gt;</v8:content>
+							<v8:content>Изменилась сумма НДС. Внесите исправления в учетные данные и отправьте корректирующую декларацию. Отправлять пояснение не нужно. &lt;link http://its.1c.ru/bmk/nds_decl_refinement&gt;?&lt;/&gt;</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTipRepresentation>Button</ToolTipRepresentation>
@@ -632,57 +539,6 @@
 						<Event name="URLProcessing">ДекорацияПредупрежедениеОбУточненнойДекларацииОбработкаНавигационнойСсылки</Event>
 					</Events>
 				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ПанельКнопокВизуализации" id="1918">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Панель кнопок визуализации</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Панель кнопок визуализации</v8:content>
-				</v8:item>
-			</ToolTip>
-			<HorizontalStretch>true</HorizontalStretch>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<BackColor>style:ЦветФонаНеначавшейсяОтправки</BackColor>
-			<ExtendedTooltip name="ПанельКнопокВизуализацииРасширеннаяПодсказка" id="1919"/>
-			<ChildItems>
-				<LabelDecoration name="ОтборПоКонтрагентуЗаголовок" id="1956">
-					<Width>14</Width>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Отбор по контрагенту:</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ОтборПоКонтрагентуЗаголовокКонтекстноеМеню" id="1957"/>
-					<ExtendedTooltip name="ОтборПоКонтрагентуЗаголовокРасширеннаяПодсказка" id="1958"/>
-				</LabelDecoration>
-				<InputField name="ОтборПоКонтрагенту" id="1907">
-					<DataPath>ОтборПоКонтрагенту</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<Width>35</Width>
-					<ClearButton>true</ClearButton>
-					<InputHint>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>По всем контрагентам</v8:content>
-						</v8:item>
-					</InputHint>
-					<ContextMenu name="ОтборПоКонтрагентуКонтекстноеМеню" id="1908"/>
-					<ExtendedTooltip name="ОтборПоКонтрагентуРасширеннаяПодсказка" id="1909"/>
-					<Events>
-						<Event name="OnChange">ОтборПоКонтрагентуПриИзменении</Event>
-					</Events>
-				</InputField>
 			</ChildItems>
 		</UsualGroup>
 		<Pages name="Страницы" id="10">
@@ -708,32 +564,71 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаКнигаПокупокРасширеннаяПодсказка" id="13"/>
 					<ChildItems>
-						<LabelDecoration name="ДекорацияНазваниеРаздела8" id="581">
-							<TextColor>style:ПоясняющийТекст</TextColor>
-							<Title formatted="false">
+						<UsualGroup name="ГруппаОтбор8" id="2440">
+							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Сведения из книги покупок</v8:content>
+									<v8:content>Группа отбор8</v8:content>
 								</v8:item>
 							</Title>
-							<ContextMenu name="ДекорацияНазваниеРаздела8КонтекстноеМеню" id="582"/>
-							<ExtendedTooltip name="ДекорацияНазваниеРаздела8РасширеннаяПодсказка" id="583"/>
-						</LabelDecoration>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор8</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтбор8РасширеннаяПодсказка" id="2441"/>
+							<ChildItems>
+								<LabelDecoration name="ДекорацияНазваниеРаздела8" id="581">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сведения из книги покупок</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияНазваниеРаздела8КонтекстноеМеню" id="582"/>
+									<ExtendedTooltip name="ДекорацияНазваниеРаздела8РасширеннаяПодсказка" id="583"/>
+								</LabelDecoration>
+								<InputField name="ОтборПоКонтрагенту8" id="1907">
+									<DataPath>ОтборПоКонтрагенту</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отбор</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Left</TitleLocation>
+									<ClearButton>true</ClearButton>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По всем контрагентам</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ОтборПоКонтрагенту8КонтекстноеМеню" id="1908"/>
+									<ExtendedTooltip name="ОтборПоКонтрагенту8РасширеннаяПодсказка" id="1909"/>
+									<Events>
+										<Event name="OnChange">ОтборПоКонтрагентуПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
 						<Table name="КнигаПокупок" id="14">
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
-							<HorizontalLinesBWA>false</HorizontalLinesBWA>
-							<VerticalLinesBWA>false</VerticalLinesBWA>
-							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<FileDragMode>AsFile</FileDragMode>
 							<DataPath>Объект.КнигаПокупок</DataPath>
 							<CommandSet>
 								<ExcludedCommand>MoveDown</ExcludedCommand>
 								<ExcludedCommand>MoveUp</ExcludedCommand>
-								<ExcludedCommand>SelectAll</ExcludedCommand>
-								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 							</CommandSet>
 							<ViewStatusLocation>Top</ViewStatusLocation>
 							<RowFilter xsi:nil="true"/>
@@ -794,6 +689,7 @@
 									<EditMode>EnterOnInput</EditMode>
 									<FixingInTable>Left</FixingInTable>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="КнигаПокупокНомерСтрокиКонтекстноеМеню" id="497"/>
 									<ExtendedTooltip name="КнигаПокупокНомерСтрокиРасширеннаяПодсказка" id="498"/>
 								</InputField>
@@ -807,8 +703,8 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<FixingInTable>Left</FixingInTable>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>20</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -830,6 +726,7 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>8</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="КнигаПокупокНомерСтрокиДекларацииКонтекстноеМеню" id="37"/>
@@ -846,6 +743,7 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>26</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="КнигаПокупокОшибкаПредставлениеКонтекстноеМеню" id="480"/>
@@ -867,6 +765,7 @@
 											<HorizontalAlign>Right</HorizontalAlign>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<TextColor>style:ЗаголовкиСтрокЦветТекстаБРО</TextColor>
@@ -881,6 +780,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<TextColor>style:ЗаголовкиСтрокЦветТекстаБРО</TextColor>
@@ -910,6 +810,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ChoiceButton>true</ChoiceButton>
 											<TextEdit>false</TextEdit>
 											<ContextMenu name="КнигаПокупокРеквизитыСчетаФактурыКонтекстноеМеню" id="303"/>
@@ -923,6 +824,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ChoiceButton>true</ChoiceButton>
 											<TextEdit>false</TextEdit>
 											<ContextMenu name="КнигаПокупокРеквизитыСчетаФактурыРасхождениеКонтекстноеМеню" id="427"/>
@@ -933,16 +835,16 @@
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
-								<ColumnGroup name="КнигаПокупокГруппаРеквизитыСчетаФактурыВСчетРанееПолученнойОплаты" id="2400">
+								<ColumnGroup name="КнигаПокупокГруппаРеквизитыСчетаФактурыВСчетРанееПолученнойОплаты" id="4433">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
 											<v8:content>Группа реквизиты счета-фактуры в счет ранее полученной оплаты</v8:content>
 										</v8:item>
 									</Title>
-									<ExtendedTooltip name="КнигаПокупокГруппаРеквизитыСчетаФактурыВСчетРанееПолученнойОплатыРасширеннаяПодсказка" id="2401"/>
+									<ExtendedTooltip name="КнигаПокупокГруппаРеквизитыСчетаФактурыВСчетРанееПолученнойОплатыРасширеннаяПодсказка" id="4434"/>
 									<ChildItems>
-										<InputField name="КнигаПокупокСчетФактураВСчетРанееПолученнойОплатыПредставление" id="2402">
+										<InputField name="КнигаПокупокСчетФактураВСчетРанееПолученнойОплатыПредставление" id="4435">
 											<DataPath>Объект.КнигаПокупок.СчетФактураВСчетРанееПолученнойОплатыПредставление</DataPath>
 											<Title>
 												<v8:item>
@@ -950,34 +852,23 @@
 													<v8:content>Номер и дата с/ф (частичная оплата)</v8:content>
 												</v8:item>
 											</Title>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Номер и дата счета-фактуры при отгрузке в счет ранее полученной оплаты (частичной оплаты)
-
-
-</v8:content>
-												</v8:item>
-											</ToolTip>
 											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ChoiceButton>true</ChoiceButton>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПокупокСчетФактураВСчетРанееПолученнойОплатыПредставлениеКонтекстноеМеню" id="2403"/>
-											<ExtendedTooltip name="КнигаПокупокСчетФактураВСчетРанееПолученнойОплатыПредставлениеРасширеннаяПодсказка" id="2404"/>
+											<ContextMenu name="КнигаПокупокСчетФактураВСчетРанееПолученнойОплатыПредставлениеКонтекстноеМеню" id="4436"/>
+											<ExtendedTooltip name="КнигаПокупокСчетФактураВСчетРанееПолученнойОплатыПредставлениеРасширеннаяПодсказка" id="4437"/>
 											<Events>
 												<Event name="StartChoice">КнигаПокупокСписокСчетовФактурНачалоВыбора</Event>
 											</Events>
 										</InputField>
-										<InputField name="КнигаПокупокСчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставление" id="2406">
+										<InputField name="КнигаПокупокСчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставление" id="4439">
 											<DataPath>Объект.КнигаПокупок.СчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставление</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
-											<AutoEditMode>true</AutoEditMode>
 											<ChoiceButton>true</ChoiceButton>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПокупокСчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставлениеКонтекстноеМеню" id="2407"/>
-											<ExtendedTooltip name="КнигаПокупокСчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставлениеРасширеннаяПодсказка" id="2408"/>
+											<ContextMenu name="КнигаПокупокСчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставлениеКонтекстноеМеню" id="4440"/>
+											<ExtendedTooltip name="КнигаПокупокСчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставлениеРасширеннаяПодсказка" id="4441"/>
 											<Events>
 												<Event name="StartChoice">КнигаПокупокСписокСчетовФактурНачалоВыбора</Event>
 											</Events>
@@ -1005,6 +896,7 @@
 											<TitleLocation>Top</TitleLocation>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>11</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1022,6 +914,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>11</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1050,6 +943,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1067,6 +961,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1102,6 +997,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>10</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1117,6 +1013,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>10</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1148,6 +1045,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПокупокСтоимостьКонтекстноеМеню" id="70"/>
@@ -1161,6 +1059,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПокупокСтоимостьРасхождениеКонтекстноеМеню" id="447"/>
@@ -1188,6 +1087,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПокупокСуммаНДСКонтекстноеМеню" id="483"/>
@@ -1201,6 +1101,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПокупокСуммаНДСРасхождениеКонтекстноеМеню" id="488"/>
@@ -1222,6 +1123,7 @@
 									</ToolTip>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="КнигаПокупокПериодОтраженияЗаписиПредставлениеКонтекстноеМеню" id="1251"/>
 									<ExtendedTooltip name="КнигаПокупокПериодОтраженияЗаписиПредставлениеРасширеннаяПодсказка" id="1252"/>
 								</InputField>
@@ -1241,6 +1143,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>20</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1258,6 +1161,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>20</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1298,6 +1202,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<OpenButton>true</OpenButton>
@@ -1314,6 +1219,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ChoiceButton>true</ChoiceButton>
@@ -1342,6 +1248,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<OpenButton>true</OpenButton>
@@ -1357,6 +1264,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ChoiceButton>true</ChoiceButton>
@@ -1392,6 +1300,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>20</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<OpenButton>true</OpenButton>
@@ -1407,6 +1316,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>20</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<OpenButton>true</OpenButton>
@@ -1442,6 +1352,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1457,6 +1368,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1484,32 +1396,71 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаКнигаПокупокДлРасширеннаяПодсказка" id="154"/>
 					<ChildItems>
-						<LabelDecoration name="ДекорацияНазваниеРаздела8_1" id="584">
-							<TextColor>style:ПоясняющийТекст</TextColor>
-							<Title formatted="false">
+						<UsualGroup name="ГруппаОтбор8_1" id="2442">
+							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Сведения из дополнительных листов книги покупок</v8:content>
+									<v8:content>Группа отбор8 1</v8:content>
 								</v8:item>
 							</Title>
-							<ContextMenu name="ДекорацияНазваниеРаздела8_1КонтекстноеМеню" id="585"/>
-							<ExtendedTooltip name="ДекорацияНазваниеРаздела8_1РасширеннаяПодсказка" id="586"/>
-						</LabelDecoration>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор8 1</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтбор8_1РасширеннаяПодсказка" id="2443"/>
+							<ChildItems>
+								<LabelDecoration name="ДекорацияНазваниеРаздела8_1" id="584">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сведения из дополнительных листов книги покупок</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияНазваниеРаздела8_1КонтекстноеМеню" id="585"/>
+									<ExtendedTooltip name="ДекорацияНазваниеРаздела8_1РасширеннаяПодсказка" id="586"/>
+								</LabelDecoration>
+								<InputField name="ОтборПоКонтрагенту8_1" id="2444">
+									<DataPath>ОтборПоКонтрагенту</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отбор</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Left</TitleLocation>
+									<ClearButton>true</ClearButton>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По всем контрагентам</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ОтборПоКонтрагенту8_1КонтекстноеМеню" id="2445"/>
+									<ExtendedTooltip name="ОтборПоКонтрагенту8_1РасширеннаяПодсказка" id="2446"/>
+									<Events>
+										<Event name="OnChange">ОтборПоКонтрагентуПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
 						<Table name="КнигаПокупокДл" id="155">
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
-							<HorizontalLinesBWA>false</HorizontalLinesBWA>
-							<VerticalLinesBWA>false</VerticalLinesBWA>
-							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<FileDragMode>AsFile</FileDragMode>
 							<DataPath>Объект.КнигаПокупокДл</DataPath>
 							<CommandSet>
 								<ExcludedCommand>MoveDown</ExcludedCommand>
 								<ExcludedCommand>MoveUp</ExcludedCommand>
-								<ExcludedCommand>SelectAll</ExcludedCommand>
-								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 							</CommandSet>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="КнигаПокупокДлКонтекстноеМеню" id="156"/>
@@ -1568,6 +1519,7 @@
 									<EditMode>EnterOnInput</EditMode>
 									<FixingInTable>Left</FixingInTable>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="КнигаПокупокДлНомерСтрокиКонтекстноеМеню" id="175"/>
 									<ExtendedTooltip name="КнигаПокупокДлНомерСтрокиРасширеннаяПодсказка" id="176"/>
 								</LabelField>
@@ -1581,8 +1533,8 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<FixingInTable>Left</FixingInTable>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>20</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -1603,6 +1555,7 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>8</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="КнигаПокупокДлНомерСтрокиДекларацииКонтекстноеМеню" id="642"/>
@@ -1613,6 +1566,7 @@
 									<ReadOnly>true</ReadOnly>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>26</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="КнигаПокупокДлОшибкаПредставлениеКонтекстноеМеню" id="645"/>
@@ -1634,6 +1588,7 @@
 											<HorizontalAlign>Right</HorizontalAlign>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<TextColor>style:ЗаголовкиСтрокЦветТекстаБРО</TextColor>
@@ -1649,6 +1604,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<TextColor>style:ЗаголовкиСтрокЦветТекстаБРО</TextColor>
@@ -1678,6 +1634,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ChoiceButton>true</ChoiceButton>
 											<TextEdit>false</TextEdit>
 											<ContextMenu name="КнигаПокупокДлРеквизитыСчетаФактурыКонтекстноеМеню" id="658"/>
@@ -1691,6 +1648,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ChoiceButton>true</ChoiceButton>
 											<TextEdit>false</TextEdit>
 											<ContextMenu name="КнигаПокупокДлРеквизитыСчетаФактурыРасхождениеКонтекстноеМеню" id="661"/>
@@ -1701,22 +1659,16 @@
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
-								<ColumnGroup name="КнигаПокупокДлГруппаРеквизитыСчетаФактурыВСчетРанееПолученнойОплаты" id="2410">
+								<ColumnGroup name="КнигаПокупокДлГруппаРеквизитыСчетаФактурыВСчетРанееПолученнойОплаты" id="4443">
 									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа реквизиты счета-фактуры в счет ранее полученной оплаты</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
 											<v8:content>Книга покупок дл группа реквизиты счета фактуры в счет ранее полученной оплаты</v8:content>
 										</v8:item>
-									</ToolTip>
-									<ExtendedTooltip name="КнигаПокупокДлГруппаРеквизитыСчетаФактурыВСчетРанееПолученнойОплатыРасширеннаяПодсказка" id="2411"/>
+									</Title>
+									<ExtendedTooltip name="КнигаПокупокДлГруппаРеквизитыСчетаФактурыВСчетРанееПолученнойОплатыРасширеннаяПодсказка" id="4444"/>
 									<ChildItems>
-										<InputField name="КнигаПокупокДлСчетФактураВСчетРанееПолученнойОплатыПредставление" id="2412">
+										<InputField name="КнигаПокупокДлСчетФактураВСчетРанееПолученнойОплатыПредставление" id="4445">
 											<DataPath>Объект.КнигаПокупокДл.СчетФактураВСчетРанееПолученнойОплатыПредставление</DataPath>
 											<Title>
 												<v8:item>
@@ -1731,24 +1683,22 @@
 												</v8:item>
 											</ToolTip>
 											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ChoiceButton>true</ChoiceButton>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПокупокДлСчетФактураВСчетРанееПолученнойОплатыПредставлениеКонтекстноеМеню" id="2413"/>
-											<ExtendedTooltip name="КнигаПокупокДлСчетФактураВСчетРанееПолученнойОплатыПредставлениеРасширеннаяПодсказка" id="2414"/>
+											<ContextMenu name="КнигаПокупокДлСчетФактураВСчетРанееПолученнойОплатыПредставлениеКонтекстноеМеню" id="4446"/>
+											<ExtendedTooltip name="КнигаПокупокДлСчетФактураВСчетРанееПолученнойОплатыПредставлениеРасширеннаяПодсказка" id="4447"/>
 											<Events>
 												<Event name="StartChoice">КнигаПокупокДлСписокСчетовФактурНачалоВыбора</Event>
 											</Events>
 										</InputField>
-										<InputField name="КнигаПокупокДлСчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставление" id="2416">
+										<InputField name="КнигаПокупокДлСчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставление" id="4449">
 											<DataPath>Объект.КнигаПокупокДл.СчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставление</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
-											<AutoEditMode>true</AutoEditMode>
 											<ChoiceButton>true</ChoiceButton>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПокупокДлСчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставлениеКонтекстноеМеню" id="2417"/>
-											<ExtendedTooltip name="КнигаПокупокДлСчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставлениеРасширеннаяПодсказка" id="2418"/>
+											<ContextMenu name="КнигаПокупокДлСчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставлениеКонтекстноеМеню" id="4450"/>
+											<ExtendedTooltip name="КнигаПокупокДлСчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставлениеРасширеннаяПодсказка" id="4451"/>
 											<Events>
 												<Event name="StartChoice">КнигаПокупокДлСписокСчетовФактурНачалоВыбора</Event>
 											</Events>
@@ -1775,6 +1725,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>11</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1792,6 +1743,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>11</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1819,6 +1771,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1836,6 +1789,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1864,6 +1818,7 @@
 											<ReadOnly>true</ReadOnly>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>10</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1879,6 +1834,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>10</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1904,6 +1860,7 @@
 											<ReadOnly>true</ReadOnly>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПокупокДлСтоимостьКонтекстноеМеню" id="690"/>
@@ -1917,6 +1874,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПокупокДлСтоимостьРасхождениеКонтекстноеМеню" id="693"/>
@@ -1944,6 +1902,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПокупокДлСуммаНДСКонтекстноеМеню" id="698"/>
@@ -1957,6 +1916,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПокупокДлСуммаНДСРасхождениеКонтекстноеМеню" id="701"/>
@@ -1978,6 +1938,7 @@
 									</ToolTip>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="КнигаПокупокДлПериодОтраженияЗаписиПредставлениеКонтекстноеМеню" id="1254"/>
 									<ExtendedTooltip name="КнигаПокупокДлПериодОтраженияЗаписиПредставлениеРасширеннаяПодсказка" id="1255"/>
 								</InputField>
@@ -1998,6 +1959,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>20</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -2014,6 +1976,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>20</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -2053,6 +2016,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<OpenButton>true</OpenButton>
@@ -2069,6 +2033,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ChoiceButton>true</ChoiceButton>
@@ -2097,6 +2062,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<OpenButton>true</OpenButton>
@@ -2112,6 +2078,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ChoiceButton>true</ChoiceButton>
@@ -2147,6 +2114,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>20</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<OpenButton>true</OpenButton>
@@ -2162,6 +2130,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>20</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<OpenButton>true</OpenButton>
@@ -2189,6 +2158,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -2204,6 +2174,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -2231,33 +2202,71 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаКнигаПродажРасширеннаяПодсказка" id="178"/>
 					<ChildItems>
-						<LabelDecoration name="ДекорацияНазваниеРаздела9" id="587">
-							<TextColor>style:ПоясняющийТекст</TextColor>
-							<Title formatted="false">
+						<UsualGroup name="ГруппаОтбор9" id="2448">
+							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Сведения из книги продаж</v8:content>
+									<v8:content>Группа отбор9</v8:content>
 								</v8:item>
 							</Title>
-							<ContextMenu name="ДекорацияНазваниеРаздела9КонтекстноеМеню" id="588"/>
-							<ExtendedTooltip name="ДекорацияНазваниеРаздела9РасширеннаяПодсказка" id="589"/>
-						</LabelDecoration>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор9</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтбор9РасширеннаяПодсказка" id="2449"/>
+							<ChildItems>
+								<LabelDecoration name="ДекорацияНазваниеРаздела9" id="587">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сведения из книги продаж</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияНазваниеРаздела9КонтекстноеМеню" id="588"/>
+									<ExtendedTooltip name="ДекорацияНазваниеРаздела9РасширеннаяПодсказка" id="589"/>
+								</LabelDecoration>
+								<InputField name="ОтборПоКонтрагенту9" id="2450">
+									<DataPath>ОтборПоКонтрагенту</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отбор</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Left</TitleLocation>
+									<ClearButton>true</ClearButton>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По всем контрагентам</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ОтборПоКонтрагенту9КонтекстноеМеню" id="2451"/>
+									<ExtendedTooltip name="ОтборПоКонтрагенту9РасширеннаяПодсказка" id="2452"/>
+									<Events>
+										<Event name="OnChange">ОтборПоКонтрагентуПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
 						<Table name="КнигаПродаж" id="179">
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
-							<HorizontalLinesBWA>false</HorizontalLinesBWA>
-							<VerticalLinesBWA>false</VerticalLinesBWA>
-							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<FileDragMode>AsFile</FileDragMode>
 							<DataPath>Объект.КнигаПродаж</DataPath>
 							<CommandSet>
 								<ExcludedCommand>Delete</ExcludedCommand>
 								<ExcludedCommand>MoveDown</ExcludedCommand>
 								<ExcludedCommand>MoveUp</ExcludedCommand>
-								<ExcludedCommand>SelectAll</ExcludedCommand>
-								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 							</CommandSet>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="КнигаПродажКонтекстноеМеню" id="180"/>
@@ -2316,6 +2325,7 @@
 									<EditMode>EnterOnInput</EditMode>
 									<FixingInTable>Left</FixingInTable>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="КнигаПродажНомерСтрокиКонтекстноеМеню" id="199"/>
 									<ExtendedTooltip name="КнигаПродажНомерСтрокиРасширеннаяПодсказка" id="200"/>
 								</LabelField>
@@ -2329,8 +2339,8 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<FixingInTable>Left</FixingInTable>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>20</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -2351,6 +2361,7 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>8</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="КнигаПродажНомерСтрокиДекларацииКонтекстноеМеню" id="751"/>
@@ -2367,6 +2378,7 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>26</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="КнигаПродажОшибкаПредставлениеКонтекстноеМеню" id="754"/>
@@ -2388,6 +2400,7 @@
 											<HorizontalAlign>Right</HorizontalAlign>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<TextColor>style:ЗаголовкиСтрокЦветТекстаБРО</TextColor>
@@ -2402,6 +2415,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<TextColor>style:ЗаголовкиСтрокЦветТекстаБРО</TextColor>
@@ -2431,6 +2445,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ChoiceButton>true</ChoiceButton>
 											<TextEdit>false</TextEdit>
 											<ContextMenu name="КнигаПродажРеквизитыСчетаФактурыКонтекстноеМеню" id="767"/>
@@ -2444,6 +2459,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ChoiceButton>true</ChoiceButton>
 											<TextEdit>false</TextEdit>
 											<ContextMenu name="КнигаПродажРеквизитыСчетаФактурыРасхождениеКонтекстноеМеню" id="770"/>
@@ -2454,22 +2470,16 @@
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
-								<ColumnGroup name="КнигаПродажГруппаРеквизитыСчетаФактурыПродавца" id="2462">
+								<ColumnGroup name="КнигаПродажГруппаРеквизитыСчетаФактурыПродавца" id="4453">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
 											<v8:content>Книга продаж группа реквизиты счета фактуры продавца</v8:content>
 										</v8:item>
 									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Книга продаж группа реквизиты счета фактуры продавца</v8:content>
-										</v8:item>
-									</ToolTip>
-									<ExtendedTooltip name="КнигаПродажГруппаРеквизитыСчетаФактурыПродавцаРасширеннаяПодсказка" id="2463"/>
+									<ExtendedTooltip name="КнигаПродажГруппаРеквизитыСчетаФактурыПродавцаРасширеннаяПодсказка" id="4454"/>
 									<ChildItems>
-										<InputField name="КнигаПродажСчетФактураПродавцаПредставление" id="2464">
+										<InputField name="КнигаПродажСчетФактураПродавцаПредставление" id="4455">
 											<DataPath>Объект.КнигаПродаж.СчетФактураПродавцаПредставление</DataPath>
 											<Title>
 												<v8:item>
@@ -2484,24 +2494,22 @@
 												</v8:item>
 											</ToolTip>
 											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ChoiceButton>true</ChoiceButton>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажСчетФактураПродавцаПредставлениеКонтекстноеМеню" id="2465"/>
-											<ExtendedTooltip name="КнигаПродажСчетФактураПродавцаПредставлениеРасширеннаяПодсказка" id="2466"/>
+											<ContextMenu name="КнигаПродажСчетФактураПродавцаПредставлениеКонтекстноеМеню" id="4456"/>
+											<ExtendedTooltip name="КнигаПродажСчетФактураПродавцаПредставлениеРасширеннаяПодсказка" id="4457"/>
 											<Events>
 												<Event name="StartChoice">КнигаПродажСписокСчетовФактурНачалоВыбора</Event>
 											</Events>
 										</InputField>
-										<InputField name="КнигаПродажСчетФактураПродавцаРасхождениеПредставление" id="2468">
+										<InputField name="КнигаПродажСчетФактураПродавцаРасхождениеПредставление" id="4459">
 											<DataPath>Объект.КнигаПродаж.СчетФактураПродавцаРасхождениеПредставление</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
-											<AutoEditMode>true</AutoEditMode>
 											<ChoiceButton>true</ChoiceButton>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажСчетФактураПродавцаРасхождениеПредставлениеКонтекстноеМеню" id="2469"/>
-											<ExtendedTooltip name="КнигаПродажСчетФактураПродавцаРасхождениеПредставлениеРасширеннаяПодсказка" id="2470"/>
+											<ContextMenu name="КнигаПродажСчетФактураПродавцаРасхождениеПредставлениеКонтекстноеМеню" id="4460"/>
+											<ExtendedTooltip name="КнигаПродажСчетФактураПродавцаРасхождениеПредставлениеРасширеннаяПодсказка" id="4461"/>
 											<Events>
 												<Event name="StartChoice">КнигаПродажСписокСчетовФактурНачалоВыбора</Event>
 											</Events>
@@ -2528,6 +2536,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>11</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -2545,6 +2554,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>11</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -2580,6 +2590,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -2597,6 +2608,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -2625,6 +2637,7 @@
 											<ReadOnly>true</ReadOnly>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>10</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -2640,6 +2653,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>10</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -2651,7 +2665,7 @@
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
-								<ColumnGroup name="КнигаПродажГруппаСтоимость22" id="2420">
+								<ColumnGroup name="КнигаПродажГруппаСтоимость22" id="4463">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -2664,9 +2678,9 @@
 											<v8:content>Книга продаж группа стоимость22</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ExtendedTooltip name="КнигаПродажГруппаСтоимость22РасширеннаяПодсказка" id="2421"/>
+									<ExtendedTooltip name="КнигаПродажГруппаСтоимость22РасширеннаяПодсказка" id="4464"/>
 									<ChildItems>
-										<InputField name="КнигаПродажСтоимость22" id="2428">
+										<InputField name="КнигаПродажСтоимость22" id="4465">
 											<DataPath>Объект.КнигаПродаж.Стоимость22</DataPath>
 											<Title>
 												<v8:item>
@@ -2675,26 +2689,24 @@
 												</v8:item>
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажСтоимость22КонтекстноеМеню" id="2429"/>
-											<ExtendedTooltip name="КнигаПродажСтоимость22РасширеннаяПодсказка" id="2430"/>
+											<ContextMenu name="КнигаПродажСтоимость22КонтекстноеМеню" id="4466"/>
+											<ExtendedTooltip name="КнигаПродажСтоимость22РасширеннаяПодсказка" id="4467"/>
 											<Events>
 												<Event name="OnChange">КнигаПродажСтоимость22ПриИзменении</Event>
 											</Events>
 										</InputField>
-										<InputField name="КнигаПродажСтоимость22Расхождение" id="2432">
+										<InputField name="КнигаПродажСтоимость22Расхождение" id="4469">
 											<DataPath>Объект.КнигаПродаж.Стоимость22Расхождение</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
-											<AutoEditMode>true</AutoEditMode>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажСтоимость22РасхождениеКонтекстноеМеню" id="2433"/>
-											<ExtendedTooltip name="КнигаПродажСтоимость22РасхождениеРасширеннаяПодсказка" id="2434"/>
+											<ContextMenu name="КнигаПродажСтоимость22РасхождениеКонтекстноеМеню" id="4470"/>
+											<ExtendedTooltip name="КнигаПродажСтоимость22РасхождениеРасширеннаяПодсказка" id="4471"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
-								<ColumnGroup name="КнигаПродажГруппаСуммаНДС22" id="2424">
+								<ColumnGroup name="КнигаПродажГруппаСуммаНДС22" id="4473">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -2707,9 +2719,9 @@
 											<v8:content>Книга продаж группа сумма НДС22</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ExtendedTooltip name="КнигаПродажГруппаСуммаНДС22РасширеннаяПодсказка" id="2425"/>
+									<ExtendedTooltip name="КнигаПродажГруппаСуммаНДС22РасширеннаяПодсказка" id="4474"/>
 									<ChildItems>
-										<InputField name="КнигаПродажСуммаНДС22" id="2444">
+										<InputField name="КнигаПродажСуммаНДС22" id="4475">
 											<DataPath>Объект.КнигаПродаж.СуммаНДС22</DataPath>
 											<Title>
 												<v8:item>
@@ -2718,29 +2730,27 @@
 												</v8:item>
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажСуммаНДС22КонтекстноеМеню" id="2445"/>
-											<ExtendedTooltip name="КнигаПродажСуммаНДС22РасширеннаяПодсказка" id="2446"/>
+											<ContextMenu name="КнигаПродажСуммаНДС22КонтекстноеМеню" id="4476"/>
+											<ExtendedTooltip name="КнигаПродажСуммаНДС22РасширеннаяПодсказка" id="4477"/>
 											<Events>
 												<Event name="OnChange">КнигаПродажСуммаНДС22ПриИзменении</Event>
 											</Events>
 										</InputField>
-										<InputField name="КнигаПродажСуммаНДС22Расхождение" id="2448">
+										<InputField name="КнигаПродажСуммаНДС22Расхождение" id="4479">
 											<DataPath>Объект.КнигаПродаж.СуммаНДС22Расхождение</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
-											<AutoEditMode>true</AutoEditMode>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажСуммаНДС22РасхождениеКонтекстноеМеню" id="2449"/>
-											<ExtendedTooltip name="КнигаПродажСуммаНДС22РасхождениеРасширеннаяПодсказка" id="2450"/>
+											<ContextMenu name="КнигаПродажСуммаНДС22РасхождениеКонтекстноеМеню" id="4480"/>
+											<ExtendedTooltip name="КнигаПродажСуммаНДС22РасхождениеРасширеннаяПодсказка" id="4481"/>
 											<Events>
 												<Event name="OnChange">КнигаПродажСуммаНДС22РасхождениеПриИзменении</Event>
 											</Events>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
-								<ColumnGroup name="КнигаПродажГруппаСтоимость1820" id="2422">
+								<ColumnGroup name="КнигаПродажГруппаСтоимость1820" id="4483">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -2753,9 +2763,9 @@
 											<v8:content>Книга продаж группа стоимость1820</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ExtendedTooltip name="КнигаПродажГруппаСтоимость1820РасширеннаяПодсказка" id="2423"/>
+									<ExtendedTooltip name="КнигаПродажГруппаСтоимость1820РасширеннаяПодсказка" id="4484"/>
 									<ChildItems>
-										<InputField name="КнигаПродажСтоимость1820" id="2440">
+										<InputField name="КнигаПродажСтоимость1820" id="4485">
 											<DataPath>Объект.КнигаПродаж.Стоимость1820</DataPath>
 											<Title>
 												<v8:item>
@@ -2764,26 +2774,24 @@
 												</v8:item>
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажСтоимость1820КонтекстноеМеню" id="2441"/>
-											<ExtendedTooltip name="КнигаПродажСтоимость1820РасширеннаяПодсказка" id="2442"/>
+											<ContextMenu name="КнигаПродажСтоимость1820КонтекстноеМеню" id="4486"/>
+											<ExtendedTooltip name="КнигаПродажСтоимость1820РасширеннаяПодсказка" id="4487"/>
 											<Events>
 												<Event name="OnChange">КнигаПродажСтоимость1820ПриИзменении</Event>
 											</Events>
 										</InputField>
-										<InputField name="КнигаПродажСтоимость1820Расхождение" id="2436">
+										<InputField name="КнигаПродажСтоимость1820Расхождение" id="4489">
 											<DataPath>Объект.КнигаПродаж.Стоимость1820Расхождение</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
-											<AutoEditMode>true</AutoEditMode>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажСтоимость1820РасхождениеКонтекстноеМеню" id="2437"/>
-											<ExtendedTooltip name="КнигаПродажСтоимость1820РасхождениеРасширеннаяПодсказка" id="2438"/>
+											<ContextMenu name="КнигаПродажСтоимость1820РасхождениеКонтекстноеМеню" id="4490"/>
+											<ExtendedTooltip name="КнигаПродажСтоимость1820РасхождениеРасширеннаяПодсказка" id="4491"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
-								<ColumnGroup name="КнигаПродажГруппаСуммаНДС1820" id="2426">
+								<ColumnGroup name="КнигаПродажГруппаСуммаНДС1820" id="4493">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -2796,9 +2804,9 @@
 											<v8:content>Книга продаж группа сумма НДС1820</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ExtendedTooltip name="КнигаПродажГруппаСуммаНДС1820РасширеннаяПодсказка" id="2427"/>
+									<ExtendedTooltip name="КнигаПродажГруппаСуммаНДС1820РасширеннаяПодсказка" id="4494"/>
 									<ChildItems>
-										<InputField name="КнигаПродажСуммаНДС1820" id="2452">
+										<InputField name="КнигаПродажСуммаНДС1820" id="4495">
 											<DataPath>Объект.КнигаПродаж.СуммаНДС1820</DataPath>
 											<Title>
 												<v8:item>
@@ -2807,22 +2815,20 @@
 												</v8:item>
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажСуммаНДС1820КонтекстноеМеню" id="2453"/>
-											<ExtendedTooltip name="КнигаПродажСуммаНДС1820РасширеннаяПодсказка" id="2454"/>
+											<ContextMenu name="КнигаПродажСуммаНДС1820КонтекстноеМеню" id="4496"/>
+											<ExtendedTooltip name="КнигаПродажСуммаНДС1820РасширеннаяПодсказка" id="4497"/>
 											<Events>
 												<Event name="OnChange">КнигаПродажСуммаНДС1820ПриИзменении</Event>
 											</Events>
 										</InputField>
-										<InputField name="КнигаПродажСуммаНДС1820Расхождение" id="2456">
+										<InputField name="КнигаПродажСуммаНДС1820Расхождение" id="4499">
 											<DataPath>Объект.КнигаПродаж.СуммаНДС1820Расхождение</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
-											<AutoEditMode>true</AutoEditMode>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажСуммаНДС1820РасхождениеКонтекстноеМеню" id="2457"/>
-											<ExtendedTooltip name="КнигаПродажСуммаНДС1820РасхождениеРасширеннаяПодсказка" id="2458"/>
+											<ContextMenu name="КнигаПродажСуммаНДС1820РасхождениеКонтекстноеМеню" id="4500"/>
+											<ExtendedTooltip name="КнигаПродажСуммаНДС1820РасхождениеРасширеннаяПодсказка" id="4501"/>
 											<Events>
 												<Event name="OnChange">КнигаПродажСуммаНДС1820РасхождениеПриИзменении</Event>
 											</Events>
@@ -2849,6 +2855,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажСтоимость20КонтекстноеМеню" id="1497"/>
@@ -2862,6 +2869,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ContextMenu name="КнигаПродажСтоимость20РасхождениеКонтекстноеМеню" id="1503"/>
 											<ExtendedTooltip name="КнигаПродажСтоимость20РасхождениеРасширеннаяПодсказка" id="1504"/>
 										</InputField>
@@ -2887,6 +2895,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажСуммаНДС20КонтекстноеМеню" id="1500"/>
@@ -2900,6 +2909,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ContextMenu name="КнигаПродажСуммаНДС20РасхождениеКонтекстноеМеню" id="1506"/>
 											<ExtendedTooltip name="КнигаПродажСуммаНДС20РасхождениеРасширеннаяПодсказка" id="1507"/>
 											<Events>
@@ -2928,6 +2938,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажСтоимость18КонтекстноеМеню" id="807"/>
@@ -2941,6 +2952,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажСтоимость18РасхождениеКонтекстноеМеню" id="810"/>
@@ -2968,6 +2980,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажСуммаНДС18КонтекстноеМеню" id="818"/>
@@ -2981,6 +2994,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажСуммаНДС18РасхождениеКонтекстноеМеню" id="815"/>
@@ -3017,6 +3031,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажСтоимость10КонтекстноеМеню" id="823"/>
@@ -3030,6 +3045,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажСтоимость10РасхождениеКонтекстноеМеню" id="826"/>
@@ -3063,6 +3079,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажСуммаНДС10КонтекстноеМеню" id="831"/>
@@ -3076,6 +3093,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажСуммаНДС10РасхождениеКонтекстноеМеню" id="834"/>
@@ -3112,6 +3130,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажСтоимость7КонтекстноеМеню" id="2010"/>
 											<ExtendedTooltip name="КнигаПродажСтоимость7РасширеннаяПодсказка" id="2011"/>
@@ -3124,6 +3143,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажСтоимость7РасхождениеКонтекстноеМеню" id="2013"/>
 											<ExtendedTooltip name="КнигаПродажСтоимость7РасхождениеРасширеннаяПодсказка" id="2014"/>
@@ -3156,6 +3176,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажСуммаНДС7КонтекстноеМеню" id="2016"/>
 											<ExtendedTooltip name="КнигаПродажСуммаНДС7РасширеннаяПодсказка" id="2017"/>
@@ -3168,6 +3189,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажСуммаНДС7РасхождениеКонтекстноеМеню" id="2019"/>
 											<ExtendedTooltip name="КнигаПродажСуммаНДС7РасхождениеРасширеннаяПодсказка" id="2020"/>
@@ -3203,6 +3225,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажСтоимость5КонтекстноеМеню" id="2022"/>
 											<ExtendedTooltip name="КнигаПродажСтоимость5РасширеннаяПодсказка" id="2023"/>
@@ -3215,6 +3238,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажСтоимость5РасхождениеКонтекстноеМеню" id="2025"/>
 											<ExtendedTooltip name="КнигаПродажСтоимость5РасхождениеРасширеннаяПодсказка" id="2026"/>
@@ -3247,6 +3271,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажСуммаНДС5КонтекстноеМеню" id="2028"/>
 											<ExtendedTooltip name="КнигаПродажСуммаНДС5РасширеннаяПодсказка" id="2029"/>
@@ -3259,6 +3284,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажСуммаНДС5РасхождениеКонтекстноеМеню" id="2031"/>
 											<ExtendedTooltip name="КнигаПродажСуммаНДС5РасхождениеРасширеннаяПодсказка" id="2032"/>
@@ -3288,6 +3314,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажСтоимость0КонтекстноеМеню" id="842"/>
@@ -3301,6 +3328,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажСтоимость0РасхождениеКонтекстноеМеню" id="839"/>
@@ -3328,6 +3356,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажСтоимостьОсвобождаемаяКонтекстноеМеню" id="847"/>
@@ -3341,6 +3370,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажСтоимостьОсвобождаемаяРасхождениеКонтекстноеМеню" id="850"/>
@@ -3368,6 +3398,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажСтоимостьВсегоКонтекстноеМеню" id="799"/>
@@ -3381,6 +3412,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажСтоимостьВсегоРасхождениеКонтекстноеМеню" id="802"/>
@@ -3414,6 +3446,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажСтоимостьРубВсегоКонтекстноеМеню" id="1996"/>
 											<ExtendedTooltip name="КнигаПродажСтоимостьРубВсегоРасширеннаяПодсказка" id="1997"/>
@@ -3426,6 +3459,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажСтоимостьРубВсегоРасхождениеКонтекстноеМеню" id="1999"/>
 											<ExtendedTooltip name="КнигаПродажСтоимостьРубВсегоРасхождениеРасширеннаяПодсказка" id="2000"/>
@@ -3443,6 +3477,7 @@
 									</ToolTip>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="КнигаПродажПериодОтраженияЗаписиПредставлениеКонтекстноеМеню" id="1257"/>
 									<ExtendedTooltip name="КнигаПродажПериодОтраженияЗаписиПредставлениеРасширеннаяПодсказка" id="1258"/>
 								</InputField>
@@ -3478,6 +3513,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<OpenButton>true</OpenButton>
@@ -3494,6 +3530,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<OpenButton>true</OpenButton>
@@ -3521,6 +3558,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<OpenButton>true</OpenButton>
@@ -3536,6 +3574,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<OpenButton>true</OpenButton>
@@ -3567,6 +3606,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -3582,6 +3622,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -3609,33 +3650,72 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаКнигаПродажДлРасширеннаяПодсказка" id="202"/>
 					<ChildItems>
-						<LabelDecoration name="ДекорацияНазваниеРаздела9_1" id="590">
-							<TextColor>style:ПоясняющийТекст</TextColor>
-							<Title formatted="false">
+						<UsualGroup name="ГруппаОтбор9_1" id="2454">
+							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Сведения из дополнительных листов книги продаж</v8:content>
+									<v8:content>Группа отбор9 1</v8:content>
 								</v8:item>
 							</Title>
-							<ContextMenu name="ДекорацияНазваниеРаздела9_1КонтекстноеМеню" id="591"/>
-							<ExtendedTooltip name="ДекорацияНазваниеРаздела9_1РасширеннаяПодсказка" id="592"/>
-						</LabelDecoration>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор9 1</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтбор9_1РасширеннаяПодсказка" id="2455"/>
+							<ChildItems>
+								<LabelDecoration name="ДекорацияНазваниеРаздела9_1" id="590">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сведения из дополнительных листов книги продаж</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияНазваниеРаздела9_1КонтекстноеМеню" id="591"/>
+									<ExtendedTooltip name="ДекорацияНазваниеРаздела9_1РасширеннаяПодсказка" id="592"/>
+								</LabelDecoration>
+								<InputField name="ОтборПоКонтрагенту9_1" id="2462">
+									<DataPath>ОтборПоКонтрагенту</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отбор</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Left</TitleLocation>
+									<ClearButton>true</ClearButton>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По всем контрагентам</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ОтборПоКонтрагенту9_1КонтекстноеМеню" id="2463"/>
+									<ExtendedTooltip name="ОтборПоКонтрагенту9_1РасширеннаяПодсказка" id="2464"/>
+									<Events>
+										<Event name="OnChange">ОтборПоКонтрагентуПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
 						<Table name="КнигаПродажДл" id="203">
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
-							<HorizontalLinesBWA>false</HorizontalLinesBWA>
-							<VerticalLinesBWA>false</VerticalLinesBWA>
-							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<FileDragMode>AsFile</FileDragMode>
 							<DataPath>Объект.КнигаПродажДл</DataPath>
 							<CommandSet>
 								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
 								<ExcludedCommand>MoveDown</ExcludedCommand>
 								<ExcludedCommand>MoveUp</ExcludedCommand>
-								<ExcludedCommand>SelectAll</ExcludedCommand>
-								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 							</CommandSet>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="КнигаПродажДлКонтекстноеМеню" id="204"/>
@@ -3694,6 +3774,7 @@
 									<EditMode>EnterOnInput</EditMode>
 									<FixingInTable>Left</FixingInTable>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="КнигаПродажДлНомерСтрокиКонтекстноеМеню" id="223"/>
 									<ExtendedTooltip name="КнигаПродажДлНомерСтрокиРасширеннаяПодсказка" id="224"/>
 								</LabelField>
@@ -3707,8 +3788,8 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<FixingInTable>Left</FixingInTable>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>20</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -3729,6 +3810,7 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>8</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="КнигаПродажДлНомерСтрокиДекларацииКонтекстноеМеню" id="894"/>
@@ -3745,6 +3827,7 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>26</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="КнигаПродажДлОшибкаПредставлениеКонтекстноеМеню" id="897"/>
@@ -3766,6 +3849,7 @@
 											<HorizontalAlign>Right</HorizontalAlign>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<TextColor>style:ЗаголовкиСтрокЦветТекстаБРО</TextColor>
@@ -3780,6 +3864,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<TextColor>style:ЗаголовкиСтрокЦветТекстаБРО</TextColor>
@@ -3809,6 +3894,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ChoiceButton>true</ChoiceButton>
 											<TextEdit>false</TextEdit>
 											<ContextMenu name="КнигаПродажДлРеквизитыСчетаФактурыКонтекстноеМеню" id="910"/>
@@ -3822,6 +3908,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ChoiceButton>true</ChoiceButton>
 											<TextEdit>false</TextEdit>
 											<ContextMenu name="КнигаПродажДлРеквизитыСчетаФактурыРасхождениеКонтекстноеМеню" id="913"/>
@@ -3832,7 +3919,7 @@
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
-								<ColumnGroup name="КнигаПродажДлГруппаРеквизитыСчетаФактурыПродавца" id="2460">
+								<ColumnGroup name="КнигаПродажДлГруппаРеквизитыСчетаФактурыПродавца" id="4503">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -3845,9 +3932,9 @@
 											<v8:content>Книга продаж дл группа реквизиты счета фактуры продавца</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ExtendedTooltip name="КнигаПродажДлГруппаРеквизитыСчетаФактурыПродавцаРасширеннаяПодсказка" id="2461"/>
+									<ExtendedTooltip name="КнигаПродажДлГруппаРеквизитыСчетаФактурыПродавцаРасширеннаяПодсказка" id="4504"/>
 									<ChildItems>
-										<InputField name="КнигаПродажДлСчетФактураПродавцаПредставление" id="2512">
+										<InputField name="КнигаПродажДлСчетФактураПродавцаПредставление" id="4505">
 											<DataPath>Объект.КнигаПродажДл.СчетФактураПродавцаПредставление</DataPath>
 											<Title>
 												<v8:item>
@@ -3862,24 +3949,22 @@
 												</v8:item>
 											</ToolTip>
 											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ChoiceButton>true</ChoiceButton>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажДлСчетФактураПродавцаПредставлениеКонтекстноеМеню" id="2513"/>
-											<ExtendedTooltip name="КнигаПродажДлСчетФактураПродавцаПредставлениеРасширеннаяПодсказка" id="2514"/>
+											<ContextMenu name="КнигаПродажДлСчетФактураПродавцаПредставлениеКонтекстноеМеню" id="4506"/>
+											<ExtendedTooltip name="КнигаПродажДлСчетФактураПродавцаПредставлениеРасширеннаяПодсказка" id="4507"/>
 											<Events>
 												<Event name="StartChoice">КнигаПродажДлСписокСчетовФактурНачалоВыбора</Event>
 											</Events>
 										</InputField>
-										<InputField name="КнигаПродажДлСчетФактураПродавцаРасхождениеПредставление" id="2516">
+										<InputField name="КнигаПродажДлСчетФактураПродавцаРасхождениеПредставление" id="4509">
 											<DataPath>Объект.КнигаПродажДл.СчетФактураПродавцаРасхождениеПредставление</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
-											<AutoEditMode>true</AutoEditMode>
 											<ChoiceButton>true</ChoiceButton>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажДлСчетФактураПродавцаРасхождениеПредставлениеКонтекстноеМеню" id="2517"/>
-											<ExtendedTooltip name="КнигаПродажДлСчетФактураПродавцаРасхождениеПредставлениеРасширеннаяПодсказка" id="2518"/>
+											<ContextMenu name="КнигаПродажДлСчетФактураПродавцаРасхождениеПредставлениеКонтекстноеМеню" id="4510"/>
+											<ExtendedTooltip name="КнигаПродажДлСчетФактураПродавцаРасхождениеПредставлениеРасширеннаяПодсказка" id="4511"/>
 											<Events>
 												<Event name="StartChoice">КнигаПродажДлСписокСчетовФактурНачалоВыбора</Event>
 											</Events>
@@ -3906,6 +3991,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>11</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -3923,6 +4009,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>11</Width>
 											<ChoiceButton>true</ChoiceButton>
 											<ChoiceListHeight>14</ChoiceListHeight>
@@ -3952,6 +4039,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -3969,6 +4057,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -3997,6 +4086,7 @@
 											<ReadOnly>true</ReadOnly>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>10</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -4012,6 +4102,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>10</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -4023,7 +4114,7 @@
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
-								<ColumnGroup name="КнигаПродажДлГруппаСтоимость22" id="2472">
+								<ColumnGroup name="КнигаПродажДлГруппаСтоимость22" id="4513">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -4036,9 +4127,9 @@
 											<v8:content>Книга продаж дл группа стоимость22</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ExtendedTooltip name="КнигаПродажДлГруппаСтоимость22РасширеннаяПодсказка" id="2473"/>
+									<ExtendedTooltip name="КнигаПродажДлГруппаСтоимость22РасширеннаяПодсказка" id="4514"/>
 									<ChildItems>
-										<InputField name="КнигаПродажДлСтоимость22" id="2480">
+										<InputField name="КнигаПродажДлСтоимость22" id="4517">
 											<DataPath>Объект.КнигаПродажДл.Стоимость22</DataPath>
 											<Title>
 												<v8:item>
@@ -4047,26 +4138,24 @@
 												</v8:item>
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажДлСтоимость22КонтекстноеМеню" id="2481"/>
-											<ExtendedTooltip name="КнигаПродажДлСтоимость22РасширеннаяПодсказка" id="2482"/>
+											<ContextMenu name="КнигаПродажДлСтоимость22КонтекстноеМеню" id="4518"/>
+											<ExtendedTooltip name="КнигаПродажДлСтоимость22РасширеннаяПодсказка" id="4519"/>
 											<Events>
 												<Event name="OnChange">КнигаПродажДлСтоимость22ПриИзменении</Event>
 											</Events>
 										</InputField>
-										<InputField name="КнигаПродажДлСтоимость22Расхождение" id="2484">
+										<InputField name="КнигаПродажДлСтоимость22Расхождение" id="4521">
 											<DataPath>Объект.КнигаПродажДл.Стоимость22Расхождение</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
-											<AutoEditMode>true</AutoEditMode>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажДлСтоимость22РасхождениеКонтекстноеМеню" id="2485"/>
-											<ExtendedTooltip name="КнигаПродажДлСтоимость22РасхождениеРасширеннаяПодсказка" id="2486"/>
+											<ContextMenu name="КнигаПродажДлСтоимость22РасхождениеКонтекстноеМеню" id="4522"/>
+											<ExtendedTooltip name="КнигаПродажДлСтоимость22РасхождениеРасширеннаяПодсказка" id="4523"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
-								<ColumnGroup name="КнигаПродажДлГруппаНДС22" id="2476">
+								<ColumnGroup name="КнигаПродажДлГруппаНДС22" id="4515">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -4079,9 +4168,9 @@
 											<v8:content>Книга продаж дл группа НДС22</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ExtendedTooltip name="КнигаПродажДлГруппаНДС22РасширеннаяПодсказка" id="2477"/>
+									<ExtendedTooltip name="КнигаПродажДлГруппаНДС22РасширеннаяПодсказка" id="4516"/>
 									<ChildItems>
-										<InputField name="КнигаПродажДлСуммаНДС22" id="2496">
+										<InputField name="КнигаПродажДлСуммаНДС22" id="4525">
 											<DataPath>Объект.КнигаПродажДл.СуммаНДС22</DataPath>
 											<Title>
 												<v8:item>
@@ -4090,29 +4179,27 @@
 												</v8:item>
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажДлСуммаНДС22КонтекстноеМеню" id="2497"/>
-											<ExtendedTooltip name="КнигаПродажДлСуммаНДС22РасширеннаяПодсказка" id="2498"/>
+											<ContextMenu name="КнигаПродажДлСуммаНДС22КонтекстноеМеню" id="4526"/>
+											<ExtendedTooltip name="КнигаПродажДлСуммаНДС22РасширеннаяПодсказка" id="4527"/>
 											<Events>
 												<Event name="OnChange">КнигаПродажДлСуммаНДС22ПриИзменении</Event>
 											</Events>
 										</InputField>
-										<InputField name="КнигаПродажДлСуммаНДС22Расхождение" id="2500">
+										<InputField name="КнигаПродажДлСуммаНДС22Расхождение" id="4529">
 											<DataPath>Объект.КнигаПродажДл.СуммаНДС22Расхождение</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
-											<AutoEditMode>true</AutoEditMode>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажДлСуммаНДС22РасхождениеКонтекстноеМеню" id="2501"/>
-											<ExtendedTooltip name="КнигаПродажДлСуммаНДС22РасхождениеРасширеннаяПодсказка" id="2502"/>
+											<ContextMenu name="КнигаПродажДлСуммаНДС22РасхождениеКонтекстноеМеню" id="4530"/>
+											<ExtendedTooltip name="КнигаПродажДлСуммаНДС22РасхождениеРасширеннаяПодсказка" id="4531"/>
 											<Events>
 												<Event name="OnChange">КнигаПродажДлСуммаНДС22РасхождениеПриИзменении</Event>
 											</Events>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
-								<ColumnGroup name="КнигаПродажДлГруппаСтоимость1820" id="2474">
+								<ColumnGroup name="КнигаПродажДлГруппаСтоимость1820" id="4533">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -4125,9 +4212,9 @@
 											<v8:content>Книга продаж дл группа стоимость1820</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ExtendedTooltip name="КнигаПродажДлГруппаСтоимость1820РасширеннаяПодсказка" id="2475"/>
+									<ExtendedTooltip name="КнигаПродажДлГруппаСтоимость1820РасширеннаяПодсказка" id="4534"/>
 									<ChildItems>
-										<InputField name="КнигаПродажДлСтоимость1820" id="2488">
+										<InputField name="КнигаПродажДлСтоимость1820" id="4537">
 											<DataPath>Объект.КнигаПродажДл.Стоимость1820</DataPath>
 											<Title>
 												<v8:item>
@@ -4136,26 +4223,24 @@
 												</v8:item>
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажДлСтоимость1820КонтекстноеМеню" id="2489"/>
-											<ExtendedTooltip name="КнигаПродажДлСтоимость1820РасширеннаяПодсказка" id="2490"/>
+											<ContextMenu name="КнигаПродажДлСтоимость1820КонтекстноеМеню" id="4538"/>
+											<ExtendedTooltip name="КнигаПродажДлСтоимость1820РасширеннаяПодсказка" id="4539"/>
 											<Events>
 												<Event name="OnChange">КнигаПродажДлСтоимость1820ПриИзменении</Event>
 											</Events>
 										</InputField>
-										<InputField name="КнигаПродажДлСтоимость1820Расхождение" id="2492">
+										<InputField name="КнигаПродажДлСтоимость1820Расхождение" id="4541">
 											<DataPath>Объект.КнигаПродажДл.Стоимость1820Расхождение</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
-											<AutoEditMode>true</AutoEditMode>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажДлСтоимость1820РасхождениеКонтекстноеМеню" id="2493"/>
-											<ExtendedTooltip name="КнигаПродажДлСтоимость1820РасхождениеРасширеннаяПодсказка" id="2494"/>
+											<ContextMenu name="КнигаПродажДлСтоимость1820РасхождениеКонтекстноеМеню" id="4542"/>
+											<ExtendedTooltip name="КнигаПродажДлСтоимость1820РасхождениеРасширеннаяПодсказка" id="4543"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
-								<ColumnGroup name="КнигаПродажДлГруппаНДС1820" id="2478">
+								<ColumnGroup name="КнигаПродажДлГруппаНДС1820" id="4535">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -4168,9 +4253,9 @@
 											<v8:content>Книга продаж дл группа НДС1820</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ExtendedTooltip name="КнигаПродажДлГруппаНДС1820РасширеннаяПодсказка" id="2479"/>
+									<ExtendedTooltip name="КнигаПродажДлГруппаНДС1820РасширеннаяПодсказка" id="4536"/>
 									<ChildItems>
-										<InputField name="КнигаПродажДлСуммаНДС1820" id="2504">
+										<InputField name="КнигаПродажДлСуммаНДС1820" id="4545">
 											<DataPath>Объект.КнигаПродажДл.СуммаНДС1820</DataPath>
 											<Title>
 												<v8:item>
@@ -4179,22 +4264,20 @@
 												</v8:item>
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажДлСуммаНДС1820КонтекстноеМеню" id="2505"/>
-											<ExtendedTooltip name="КнигаПродажДлСуммаНДС1820РасширеннаяПодсказка" id="2506"/>
+											<ContextMenu name="КнигаПродажДлСуммаНДС1820КонтекстноеМеню" id="4546"/>
+											<ExtendedTooltip name="КнигаПродажДлСуммаНДС1820РасширеннаяПодсказка" id="4547"/>
 											<Events>
 												<Event name="OnChange">КнигаПродажДлСуммаНДС1820ПриИзменении</Event>
 											</Events>
 										</InputField>
-										<InputField name="КнигаПродажДлСуммаНДС1820Расхождение" id="2508">
+										<InputField name="КнигаПродажДлСуммаНДС1820Расхождение" id="4549">
 											<DataPath>Объект.КнигаПродажДл.СуммаНДС1820Расхождение</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
-											<AutoEditMode>true</AutoEditMode>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="КнигаПродажДлСуммаНДС1820РасхождениеКонтекстноеМеню" id="2509"/>
-											<ExtendedTooltip name="КнигаПродажДлСуммаНДС1820РасхождениеРасширеннаяПодсказка" id="2510"/>
+											<ContextMenu name="КнигаПродажДлСуммаНДС1820РасхождениеКонтекстноеМеню" id="4550"/>
+											<ExtendedTooltip name="КнигаПродажДлСуммаНДС1820РасхождениеРасширеннаяПодсказка" id="4551"/>
 											<Events>
 												<Event name="OnChange">КнигаПродажДлСуммаНДС1820РасхождениеПриИзменении</Event>
 											</Events>
@@ -4227,6 +4310,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажДлСтоимость20КонтекстноеМеню" id="1513"/>
@@ -4240,6 +4324,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ContextMenu name="КнигаПродажДлСтоимость20РасхождениеКонтекстноеМеню" id="1519"/>
 											<ExtendedTooltip name="КнигаПродажДлСтоимость20РасхождениеРасширеннаяПодсказка" id="1520"/>
 										</InputField>
@@ -4271,6 +4356,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажДлСуммаНДС20КонтекстноеМеню" id="1516"/>
@@ -4284,6 +4370,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ContextMenu name="КнигаПродажДлСуммаНДС20РасхождениеКонтекстноеМеню" id="1522"/>
 											<ExtendedTooltip name="КнигаПродажДлСуммаНДС20РасхождениеРасширеннаяПодсказка" id="1523"/>
 											<Events>
@@ -4312,6 +4399,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажДлСтоимость18КонтекстноеМеню" id="948"/>
@@ -4325,6 +4413,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажДлСтоимость18РасхождениеКонтекстноеМеню" id="951"/>
@@ -4352,6 +4441,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажДлСуммаНДС18КонтекстноеМеню" id="963"/>
@@ -4365,6 +4455,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажДлСуммаНДС18РасхождениеКонтекстноеМеню" id="966"/>
@@ -4395,6 +4486,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ContextMenu name="КнигаПродажДлСтоимость10КонтекстноеМеню" id="960"/>
 											<ExtendedTooltip name="КнигаПродажДлСтоимость10РасширеннаяПодсказка" id="961"/>
 											<Events>
@@ -4406,6 +4498,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажДлСтоимость10РасхождениеКонтекстноеМеню" id="954"/>
@@ -4433,6 +4526,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажДлСуммаНДС10КонтекстноеМеню" id="957"/>
@@ -4446,6 +4540,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажДлСуммаНДС10РасхождениеКонтекстноеМеню" id="969"/>
@@ -4481,6 +4576,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажДлСтоимость7КонтекстноеМеню" id="2042"/>
 											<ExtendedTooltip name="КнигаПродажДлСтоимость7РасширеннаяПодсказка" id="2043"/>
@@ -4493,6 +4589,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажДлСтоимость7РасхождениеКонтекстноеМеню" id="2045"/>
 											<ExtendedTooltip name="КнигаПродажДлСтоимость7РасхождениеРасширеннаяПодсказка" id="2046"/>
@@ -4524,6 +4621,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажДлСуммаНДС7КонтекстноеМеню" id="2048"/>
 											<ExtendedTooltip name="КнигаПродажДлСуммаНДС7РасширеннаяПодсказка" id="2049"/>
@@ -4536,6 +4634,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажДлСуммаНДС7РасхождениеКонтекстноеМеню" id="2051"/>
 											<ExtendedTooltip name="КнигаПродажДлСуммаНДС7РасхождениеРасширеннаяПодсказка" id="2052"/>
@@ -4570,6 +4669,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажДлСтоимость5КонтекстноеМеню" id="2054"/>
 											<ExtendedTooltip name="КнигаПродажДлСтоимость5РасширеннаяПодсказка" id="2055"/>
@@ -4582,6 +4682,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажДлСтоимость5РасхождениеКонтекстноеМеню" id="2057"/>
 											<ExtendedTooltip name="КнигаПродажДлСтоимость5РасхождениеРасширеннаяПодсказка" id="2058"/>
@@ -4613,6 +4714,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажДлСуммаНДС5КонтекстноеМеню" id="2060"/>
 											<ExtendedTooltip name="КнигаПродажДлСуммаНДС5РасширеннаяПодсказка" id="2061"/>
@@ -4625,6 +4727,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажДлСуммаНДС5РасхождениеКонтекстноеМеню" id="2063"/>
 											<ExtendedTooltip name="КнигаПродажДлСуммаНДС5РасхождениеРасширеннаяПодсказка" id="2064"/>
@@ -4654,6 +4757,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажДлСтоимость0КонтекстноеМеню" id="974"/>
@@ -4667,6 +4771,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажДлСтоимость0РасхождениеКонтекстноеМеню" id="977"/>
@@ -4694,6 +4799,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажДлСтоимостьОсвобождаемаяКонтекстноеМеню" id="982"/>
@@ -4707,6 +4813,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажДлСтоимостьОсвобождаемаяРасхождениеКонтекстноеМеню" id="985"/>
@@ -4734,6 +4841,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажДлСтоимостьВсегоКонтекстноеМеню" id="993"/>
@@ -4747,6 +4855,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="КнигаПродажДлСтоимостьВсегоРасхождениеКонтекстноеМеню" id="990"/>
@@ -4780,6 +4889,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажДлСтоимостьРубВсегоКонтекстноеМеню" id="1988"/>
 											<ExtendedTooltip name="КнигаПродажДлСтоимостьРубВсегоРасширеннаяПодсказка" id="1989"/>
@@ -4792,6 +4902,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="КнигаПродажДлСтоимостьРубВсегоРасхождениеКонтекстноеМеню" id="1991"/>
 											<ExtendedTooltip name="КнигаПродажДлСтоимостьРубВсегоРасхождениеРасширеннаяПодсказка" id="1992"/>
@@ -4809,6 +4920,7 @@
 									</ToolTip>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="КнигаПродажДлПериодОтраженияЗаписиПредставлениеКонтекстноеМеню" id="1260"/>
 									<ExtendedTooltip name="КнигаПродажДлПериодОтраженияЗаписиПредставлениеРасширеннаяПодсказка" id="1261"/>
 								</InputField>
@@ -4838,6 +4950,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<OpenButton>true</OpenButton>
@@ -4854,6 +4967,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<OpenButton>true</OpenButton>
@@ -4881,6 +4995,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<OpenButton>true</OpenButton>
@@ -4896,6 +5011,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<OpenButton>true</OpenButton>
@@ -4927,6 +5043,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -4942,6 +5059,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -4969,32 +5087,71 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаЖурналУчетаВыставленныхСчетовФактурРасширеннаяПодсказка" id="226"/>
 					<ChildItems>
-						<LabelDecoration name="ДекорацияНазваниеРаздела10" id="593">
-							<TextColor>style:ПоясняющийТекст</TextColor>
-							<Title formatted="false">
+						<UsualGroup name="ГруппаОтбор10" id="2456">
+							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Сведения из журнала учета выставленных счетов-фактур</v8:content>
+									<v8:content>Группа отбор10</v8:content>
 								</v8:item>
 							</Title>
-							<ContextMenu name="ДекорацияНазваниеРаздела10КонтекстноеМеню" id="594"/>
-							<ExtendedTooltip name="ДекорацияНазваниеРаздела10РасширеннаяПодсказка" id="595"/>
-						</LabelDecoration>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор10</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтбор10РасширеннаяПодсказка" id="2457"/>
+							<ChildItems>
+								<LabelDecoration name="ДекорацияНазваниеРаздела10" id="593">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сведения из журнала учета выставленных СФ</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияНазваниеРаздела10КонтекстноеМеню" id="594"/>
+									<ExtendedTooltip name="ДекорацияНазваниеРаздела10РасширеннаяПодсказка" id="595"/>
+								</LabelDecoration>
+								<InputField name="ОтборПоКонтрагенту10" id="2466">
+									<DataPath>ОтборПоКонтрагенту</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отбор</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Left</TitleLocation>
+									<ClearButton>true</ClearButton>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По всем контрагентам</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ОтборПоКонтрагенту10КонтекстноеМеню" id="2467"/>
+									<ExtendedTooltip name="ОтборПоКонтрагенту10РасширеннаяПодсказка" id="2468"/>
+									<Events>
+										<Event name="OnChange">ОтборПоКонтрагентуПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
 						<Table name="ЖурналУчетаВыставленныхСчетовФактур" id="227">
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
-							<HorizontalLinesBWA>false</HorizontalLinesBWA>
-							<VerticalLinesBWA>false</VerticalLinesBWA>
-							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<FileDragMode>AsFile</FileDragMode>
 							<DataPath>Объект.ЖурналУчетаВыставленныхСчетовФактур</DataPath>
 							<CommandSet>
 								<ExcludedCommand>MoveDown</ExcludedCommand>
 								<ExcludedCommand>MoveUp</ExcludedCommand>
-								<ExcludedCommand>SelectAll</ExcludedCommand>
-								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 							</CommandSet>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="ЖурналУчетаВыставленныхСчетовФактурКонтекстноеМеню" id="228"/>
@@ -5053,6 +5210,7 @@
 									<EditMode>EnterOnInput</EditMode>
 									<FixingInTable>Left</FixingInTable>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="ЖурналУчетаВыставленныхСчетовФактурНомерСтрокиКонтекстноеМеню" id="247"/>
 									<ExtendedTooltip name="ЖурналУчетаВыставленныхСчетовФактурНомерСтрокиРасширеннаяПодсказка" id="248"/>
 								</LabelField>
@@ -5066,8 +5224,8 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<FixingInTable>Left</FixingInTable>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>20</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -5087,6 +5245,7 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>8</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="ЖурналУчетаВыставленныхСчетовФактурНомерСтрокиДекларацииКонтекстноеМеню" id="506"/>
@@ -5094,6 +5253,7 @@
 								</InputField>
 								<InputField name="ЖурналУчетаВыставленныхСчетовФактурОшибкаПредставление" id="508">
 									<DataPath>Объект.ЖурналУчетаВыставленныхСчетовФактур.ОшибкаПредставление</DataPath>
+									<ReadOnly>true</ReadOnly>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -5102,26 +5262,27 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>26</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="ЖурналУчетаВыставленныхСчетовФактурОшибкаПредставлениеКонтекстноеМеню" id="509"/>
 									<ExtendedTooltip name="ЖурналУчетаВыставленныхСчетовФактурОшибкаПредставлениеРасширеннаяПодсказка" id="510"/>
 								</InputField>
 								<ColumnGroup name="ЖурналУчетаВыставленныхСчетовФактурГруппаРасхождение" id="511">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content> Расхождения строк</v8:content>
-										</v8:item>
-									</Title>
 									<ExtendedTooltip name="ЖурналУчетаВыставленныхСчетовФактурГруппаРасхождениеРасширеннаяПодсказка" id="512"/>
 									<ChildItems>
 										<InputField name="ЖурналУчетаВыставленныхСчетовФактурНадписьПоДаннымФНС" id="516">
 											<DataPath>Объект.ЖурналУчетаВыставленныхСчетовФактур.НадписьПоДаннымФНС</DataPath>
 											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content> </v8:content>
+												</v8:item>
+											</Title>
 											<EditMode>EnterOnInput</EditMode>
-											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<TextColor>style:ЗаголовкиСтрокЦветТекстаБРО</TextColor>
@@ -5134,7 +5295,9 @@
 											<ReadOnly>true</ReadOnly>
 											<TitleLocation>None</TitleLocation>
 											<EditMode>EnterOnInput</EditMode>
+											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<TextColor>style:ЗаголовкиСтрокЦветТекстаБРО</TextColor>
@@ -5163,6 +5326,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ChoiceButton>true</ChoiceButton>
 											<TextEdit>false</TextEdit>
 											<ContextMenu name="ЖурналУчетаВыставленныхСчетовФактурРеквизитыСчетаФактурыКонтекстноеМеню" id="522"/>
@@ -5176,6 +5340,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ChoiceButton>true</ChoiceButton>
 											<TextEdit>false</TextEdit>
 											<ContextMenu name="ЖурналУчетаВыставленныхСчетовФактурРеквизитыСчетаФактурыРасхождениеКонтекстноеМеню" id="525"/>
@@ -5202,6 +5367,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<PasswordMode>false</PasswordMode>
 											<ChoiceButton>true</ChoiceButton>
@@ -5217,6 +5383,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -5244,6 +5411,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<CellHyperlink>true</CellHyperlink>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 											<Width>20</Width>
@@ -5264,6 +5432,7 @@
 											<CellHyperlink>true</CellHyperlink>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 											<Width>20</Width>
@@ -5299,6 +5468,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>11</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -5316,6 +5486,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>11</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -5340,6 +5511,7 @@
 									</ToolTip>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="ЖурналУчетаВыставленныхСчетовФактурПериодОтраженияЗаписиПредставлениеКонтекстноеМеню" id="1263"/>
 									<ExtendedTooltip name="ЖурналУчетаВыставленныхСчетовФактурПериодОтраженияЗаписиПредставлениеРасширеннаяПодсказка" id="1264"/>
 								</InputField>
@@ -5358,33 +5530,72 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаЖурналУчетаПолученныхСчетовФактурРасширеннаяПодсказка" id="250"/>
 					<ChildItems>
-						<LabelDecoration name="ДекорацияНазваниеРаздела11" id="596">
-							<TextColor>style:ПоясняющийТекст</TextColor>
-							<Title formatted="false">
+						<UsualGroup name="ГруппаОтбор11" id="2458">
+							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Сведения из журнала учета полученных счетов-фактур</v8:content>
+									<v8:content>Группа отбор11</v8:content>
 								</v8:item>
 							</Title>
-							<ContextMenu name="ДекорацияНазваниеРаздела11КонтекстноеМеню" id="597"/>
-							<ExtendedTooltip name="ДекорацияНазваниеРаздела11РасширеннаяПодсказка" id="598"/>
-						</LabelDecoration>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор11</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтбор11РасширеннаяПодсказка" id="2459"/>
+							<ChildItems>
+								<LabelDecoration name="ДекорацияНазваниеРаздела11" id="596">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сведения из журнала учета полученных СФ</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияНазваниеРаздела11КонтекстноеМеню" id="597"/>
+									<ExtendedTooltip name="ДекорацияНазваниеРаздела11РасширеннаяПодсказка" id="598"/>
+								</LabelDecoration>
+								<InputField name="ОтборПоКонтрагенту11" id="2470">
+									<DataPath>ОтборПоКонтрагенту</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отбор</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Left</TitleLocation>
+									<ClearButton>true</ClearButton>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По всем контрагентам</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ОтборПоКонтрагенту11КонтекстноеМеню" id="2471"/>
+									<ExtendedTooltip name="ОтборПоКонтрагенту11РасширеннаяПодсказка" id="2472"/>
+									<Events>
+										<Event name="OnChange">ОтборПоКонтрагентуПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
 						<Table name="ЖурналУчетаПолученныхСчетовФактур" id="251">
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
-							<HorizontalLinesBWA>false</HorizontalLinesBWA>
-							<VerticalLinesBWA>false</VerticalLinesBWA>
-							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<FileDragMode>AsFile</FileDragMode>
 							<DataPath>Объект.ЖурналУчетаПолученныхСчетовФактур</DataPath>
 							<CommandSet>
 								<ExcludedCommand>Delete</ExcludedCommand>
 								<ExcludedCommand>MoveDown</ExcludedCommand>
 								<ExcludedCommand>MoveUp</ExcludedCommand>
-								<ExcludedCommand>SelectAll</ExcludedCommand>
-								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 							</CommandSet>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурКонтекстноеМеню" id="252"/>
@@ -5446,6 +5657,7 @@
 									<EditMode>EnterOnInput</EditMode>
 									<FixingInTable>Left</FixingInTable>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурНомерСтрокиКонтекстноеМеню" id="271"/>
 									<ExtendedTooltip name="ЖурналУчетаПолученныхСчетовФактурНомерСтрокиРасширеннаяПодсказка" id="272"/>
 								</LabelField>
@@ -5459,8 +5671,8 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<FixingInTable>Left</FixingInTable>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>20</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -5481,6 +5693,7 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>8</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурНомерСтрокиДекларацииКонтекстноеМеню" id="1025"/>
@@ -5497,6 +5710,7 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>26</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурОшибкаПредставлениеКонтекстноеМеню" id="1028"/>
@@ -5518,6 +5732,7 @@
 											<HorizontalAlign>Right</HorizontalAlign>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<TextColor>style:ЗаголовкиСтрокЦветТекстаБРО</TextColor>
@@ -5533,6 +5748,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<TextColor>style:ЗаголовкиСтрокЦветТекстаБРО</TextColor>
@@ -5562,6 +5778,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ChoiceButton>true</ChoiceButton>
 											<TextEdit>false</TextEdit>
 											<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурРеквизитыСчетаФактурыКонтекстноеМеню" id="1041"/>
@@ -5576,6 +5793,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ChoiceButton>true</ChoiceButton>
 											<TextEdit>false</TextEdit>
 											<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурРеквизитыСчетаФактурыРасхождениеКонтекстноеМеню" id="1044"/>
@@ -5603,6 +5821,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -5618,6 +5837,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -5646,6 +5866,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -5661,6 +5882,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -5693,6 +5915,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>11</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурКодВидаСделкиКонтекстноеМеню" id="1049"/>
@@ -5706,6 +5929,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>11</Width>
 											<VerticalStretch>false</VerticalStretch>
 											<DropListButton>true</DropListButton>
@@ -5789,6 +6013,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>11</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -5806,6 +6031,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>11</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -5833,6 +6059,7 @@
 											<ReadOnly>true</ReadOnly>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>10</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -5848,6 +6075,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>10</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -5873,6 +6101,7 @@
 											<ReadOnly>true</ReadOnly>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурСтоимостьКонтекстноеМеню" id="1163"/>
@@ -5886,6 +6115,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурСтоимостьРасхождениеКонтекстноеМеню" id="1181"/>
@@ -5913,6 +6143,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурСуммаНДСКонтекстноеМеню" id="1166"/>
@@ -5926,6 +6157,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурСуммаНДСРасхождениеКонтекстноеМеню" id="1184"/>
@@ -5953,6 +6185,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурРазницаСтоимостиУвеличениеКонтекстноеМеню" id="1172"/>
@@ -5966,6 +6199,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурРазницаСтоимостиУвеличениеРасхождениеКонтекстноеМеню" id="1190"/>
@@ -5993,6 +6227,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурРазницаСуммыНДСУвеличениеКонтекстноеМеню" id="1178"/>
@@ -6006,6 +6241,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурРазницаСуммыНДСУвеличениеРасхождениеКонтекстноеМеню" id="1196"/>
@@ -6033,6 +6269,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурРазницаСтоимостиУменьшениеКонтекстноеМеню" id="1169"/>
@@ -6046,6 +6283,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурРазницаСтоимостиУменьшениеРасхождениеКонтекстноеМеню" id="1187"/>
@@ -6073,6 +6311,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурРазницаСуммыНДСУменьшениеКонтекстноеМеню" id="1175"/>
@@ -6086,6 +6325,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурРазницаСуммыНДСУменьшениеРасхождениеКонтекстноеМеню" id="1193"/>
@@ -6104,6 +6344,7 @@
 									</ToolTip>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="ЖурналУчетаПолученныхСчетовФактурПериодОтраженияЗаписиПредставлениеКонтекстноеМеню" id="1266"/>
 									<ExtendedTooltip name="ЖурналУчетаПолученныхСчетовФактурПериодОтраженияЗаписиПредставлениеРасширеннаяПодсказка" id="1267"/>
 								</InputField>
@@ -6122,33 +6363,71 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаВыставленныеСчетаФактурыНеплательщиковНДСРасширеннаяПодсказка" id="274"/>
 					<ChildItems>
-						<LabelDecoration name="ДекорацияНазваниеРаздела12" id="599">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<TextColor>style:ПоясняющийТекст</TextColor>
-							<Title formatted="false">
+						<UsualGroup name="ГруппаОтбор12" id="2478">
+							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Сведения из счетов-фактур, выставленных лицами, указанными в пункте 5 статьи 173 Налогового кодекса</v8:content>
+									<v8:content>Группа отбор12</v8:content>
 								</v8:item>
 							</Title>
-							<ContextMenu name="ДекорацияНазваниеРаздела12КонтекстноеМеню" id="600"/>
-							<ExtendedTooltip name="ДекорацияНазваниеРаздела12РасширеннаяПодсказка" id="601"/>
-						</LabelDecoration>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор12</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтбор12РасширеннаяПодсказка" id="2479"/>
+							<ChildItems>
+								<LabelDecoration name="ДекорацияНазваниеРаздела12" id="599">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сведения из СФ, выставленных лицами из п. 5 ст. 173 НК</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияНазваниеРаздела12КонтекстноеМеню" id="600"/>
+									<ExtendedTooltip name="ДекорацияНазваниеРаздела12РасширеннаяПодсказка" id="601"/>
+								</LabelDecoration>
+								<InputField name="ОтборПоКонтрагенту12" id="2474">
+									<DataPath>ОтборПоКонтрагенту</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отбор</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Left</TitleLocation>
+									<ClearButton>true</ClearButton>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По всем контрагентам</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ОтборПоКонтрагенту12КонтекстноеМеню" id="2475"/>
+									<ExtendedTooltip name="ОтборПоКонтрагенту12РасширеннаяПодсказка" id="2476"/>
+									<Events>
+										<Event name="OnChange">ОтборПоКонтрагентуПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
 						<Table name="ВыставленныеСчетаФактурыНеплательщиковНДС" id="275">
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
-							<HorizontalLinesBWA>false</HorizontalLinesBWA>
-							<VerticalLinesBWA>false</VerticalLinesBWA>
-							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<FileDragMode>AsFile</FileDragMode>
 							<DataPath>Объект.ВыставленныеСчетаФактурыНеплательщиковНДС</DataPath>
 							<CommandSet>
 								<ExcludedCommand>MoveDown</ExcludedCommand>
 								<ExcludedCommand>MoveUp</ExcludedCommand>
-								<ExcludedCommand>SelectAll</ExcludedCommand>
-								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 							</CommandSet>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="ВыставленныеСчетаФактурыНеплательщиковНДСКонтекстноеМеню" id="276"/>
@@ -6207,6 +6486,7 @@
 									<EditMode>EnterOnInput</EditMode>
 									<FixingInTable>Left</FixingInTable>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="ВыставленныеСчетаФактурыНеплательщиковНДСНомерСтрокиКонтекстноеМеню" id="295"/>
 									<ExtendedTooltip name="ВыставленныеСчетаФактурыНеплательщиковНДСНомерСтрокиРасширеннаяПодсказка" id="296"/>
 								</LabelField>
@@ -6220,8 +6500,8 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<FixingInTable>Left</FixingInTable>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>20</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -6242,6 +6522,7 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>26</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="ВыставленныеСчетаФактурыНеплательщиковНДСОшибкаПредставлениеКонтекстноеМеню" id="1082"/>
@@ -6263,6 +6544,7 @@
 											<HorizontalAlign>Right</HorizontalAlign>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<TextColor>style:ЗаголовкиСтрокЦветТекстаБРО</TextColor>
@@ -6277,6 +6559,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<TextColor>style:ЗаголовкиСтрокЦветТекстаБРО</TextColor>
@@ -6318,6 +6601,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ContextMenu name="ВыставленныеСчетаФактурыНеплательщиковНДСНомерСчетаФактурыКонтекстноеМеню" id="1099"/>
@@ -6331,6 +6615,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ContextMenu name="ВыставленныеСчетаФактурыНеплательщиковНДСНомерСчетаФактурыРасхождениеКонтекстноеМеню" id="1105"/>
@@ -6353,6 +6638,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ContextMenu name="ВыставленныеСчетаФактурыНеплательщиковНДСДатаСчетаФактурыКонтекстноеМеню" id="1102"/>
@@ -6366,6 +6652,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ContextMenu name="ВыставленныеСчетаФактурыНеплательщиковНДСДатаСчетаФактурыРасхождениеКонтекстноеМеню" id="1108"/>
@@ -6399,6 +6686,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>11</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
@@ -6413,6 +6701,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ChoiceButton>true</ChoiceButton>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<Font ref="style:NormalTextFont" kind="StyleItem" scale="100"/>
@@ -6438,6 +6727,7 @@
 											<ReadOnly>true</ReadOnly>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>10</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -6453,6 +6743,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>10</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -6479,6 +6770,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -6494,6 +6786,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>25</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -6521,6 +6814,7 @@
 											<ReadOnly>true</ReadOnly>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ВыставленныеСчетаФактурыНеплательщиковНДССтоимостьБезНДСКонтекстноеМеню" id="1129"/>
@@ -6534,6 +6828,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ВыставленныеСчетаФактурыНеплательщиковНДССтоимостьБезНДСРасхождениеКонтекстноеМеню" id="1132"/>
@@ -6561,6 +6856,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ВыставленныеСчетаФактурыНеплательщиковНДССуммаНДСКонтекстноеМеню" id="1137"/>
@@ -6574,6 +6870,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ВыставленныеСчетаФактурыНеплательщиковНДССуммаНДСРасхождениеКонтекстноеМеню" id="1140"/>
@@ -6598,6 +6895,7 @@
 											<ReadOnly>true</ReadOnly>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ВыставленныеСчетаФактурыНеплательщиковНДССтоимостьКонтекстноеМеню" id="1145"/>
@@ -6611,6 +6909,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ВыставленныеСчетаФактурыНеплательщиковНДССтоимостьРасхождениеКонтекстноеМеню" id="1148"/>
@@ -6629,6 +6928,7 @@
 									</ToolTip>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="ВыставленныеСчетаФактурыНеплательщиковНДСПериодОтраженияЗаписиПредставлениеКонтекстноеМеню" id="1269"/>
 									<ExtendedTooltip name="ВыставленныеСчетаФактурыНеплательщиковНДСПериодОтраженияЗаписиПредставлениеРасширеннаяПодсказка" id="1270"/>
 								</InputField>
@@ -6653,26 +6953,66 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаНетКнигаПродРасширеннаяПодсказка" id="1311"/>
 					<ChildItems>
-						<LabelDecoration name="ДекорацияНазваниеРаздела15" id="1365">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<TextColor>style:ПоясняющийТекст</TextColor>
-							<Title formatted="false">
+						<UsualGroup name="ГруппаОтборНетКнига" id="2460">
+							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Сведения, отсутствующие в книге продаж. Заполните вручную на основе файла требования.</v8:content>
+									<v8:content>Группа отбор нет книга</v8:content>
 								</v8:item>
 							</Title>
-							<ContextMenu name="ДекорацияНазваниеРаздела15КонтекстноеМеню" id="1366"/>
-							<ExtendedTooltip name="ДекорацияНазваниеРаздела15РасширеннаяПодсказка" id="1367"/>
-						</LabelDecoration>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор нет книга</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтборНетКнигаРасширеннаяПодсказка" id="2461"/>
+							<ChildItems>
+								<LabelDecoration name="ДекорацияНазваниеРаздела15" id="1365">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сведения, отсутствующие в книге продаж. Заполните вручную на основе файла требования.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияНазваниеРаздела15КонтекстноеМеню" id="1366"/>
+									<ExtendedTooltip name="ДекорацияНазваниеРаздела15РасширеннаяПодсказка" id="1367"/>
+								</LabelDecoration>
+								<InputField name="ОтборПоКонтрагентуНетКнига" id="2480">
+									<DataPath>ОтборПоКонтрагенту</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отбор</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Left</TitleLocation>
+									<ClearButton>true</ClearButton>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По всем контрагентам</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ОтборПоКонтрагентуНетКнигаКонтекстноеМеню" id="2481"/>
+									<ExtendedTooltip name="ОтборПоКонтрагентуНетКнигаРасширеннаяПодсказка" id="2482"/>
+									<Events>
+										<Event name="OnChange">ОтборПоКонтрагентуПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
 						<Table name="НетКнигаПрод" id="1312">
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
-							<HorizontalLinesBWA>false</HorizontalLinesBWA>
-							<VerticalLinesBWA>false</VerticalLinesBWA>
-							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -6739,6 +7079,7 @@
 									<EditMode>EnterOnInput</EditMode>
 									<FixingInTable>Left</FixingInTable>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>3</Width>
 									<ContextMenu name="НетКнигаПродНомерСтрокиКонтекстноеМеню" id="1326"/>
 									<ExtendedTooltip name="НетКнигаПродНомерСтрокиРасширеннаяПодсказка" id="1327"/>
@@ -6753,8 +7094,8 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<FixingInTable>Left</FixingInTable>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>20</Width>
 									<ListChoiceMode>true</ListChoiceMode>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -6811,6 +7152,7 @@
 											<HorizontalAlign>Right</HorizontalAlign>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<TextColor>style:ЗаголовкиСтрокЦветТекстаБРО</TextColor>
@@ -6825,6 +7167,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>17</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<TextColor>style:ЗаголовкиСтрокЦветТекстаБРО</TextColor>
@@ -6872,6 +7215,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>13</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ContextMenu name="НетКнигаПродНомерСчетаФактурыКонтекстноеМеню" id="1423"/>
@@ -6885,6 +7229,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>13</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ContextMenu name="НетКнигаПродНомерСчетаФактурыРасхождениеКонтекстноеМеню" id="1431"/>
@@ -6913,6 +7258,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>13</Width>
 													<ContextMenu name="НетКнигаПродДатаСчетаФактурыКонтекстноеМеню" id="1434"/>
 													<ExtendedTooltip name="НетКнигаПродДатаСчетаФактурыРасширеннаяПодсказка" id="1435"/>
@@ -6925,6 +7271,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>13</Width>
 													<ContextMenu name="НетКнигаПродДатаСчетаФактурыРасхождениеКонтекстноеМеню" id="1426"/>
 													<ExtendedTooltip name="НетКнигаПродДатаСчетаФактурыРасхождениеРасширеннаяПодсказка" id="1427"/>
@@ -6937,7 +7284,7 @@
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Покупатель</v8:content>
+											<v8:content>ИНН, КПП, наименование покупателя</v8:content>
 										</v8:item>
 									</Title>
 									<ToolTip>
@@ -6954,7 +7301,7 @@
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>ИНН</v8:content>
+													<v8:content>ИНН покупателя</v8:content>
 												</v8:item>
 											</Title>
 											<ToolTip>
@@ -6963,7 +7310,6 @@
 													<v8:content>Нет книга прод группа покупатель ИНН</v8:content>
 												</v8:item>
 											</ToolTip>
-											<ShowInHeader>true</ShowInHeader>
 											<ExtendedTooltip name="НетКнигаПродГруппаПокупательИННРасширеннаяПодсказка" id="1450"/>
 											<ChildItems>
 												<InputField name="НетКнигаПродПокупательИНН" id="1343">
@@ -6972,6 +7318,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ChoiceButton>true</ChoiceButton>
@@ -6987,6 +7334,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ChoiceButton>true</ChoiceButton>
@@ -7003,7 +7351,7 @@
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>КПП</v8:content>
+													<v8:content>КПП покупателя</v8:content>
 												</v8:item>
 											</Title>
 											<ToolTip>
@@ -7012,7 +7360,6 @@
 													<v8:content>Нет книга прод группа покупатель КПП</v8:content>
 												</v8:item>
 											</ToolTip>
-											<ShowInHeader>true</ShowInHeader>
 											<ExtendedTooltip name="НетКнигаПродГруппаПокупательКППРасширеннаяПодсказка" id="1452"/>
 											<ChildItems>
 												<InputField name="НетКнигаПродПокупательКПП" id="1453">
@@ -7021,6 +7368,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>9</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ChoiceButton>true</ChoiceButton>
@@ -7036,6 +7384,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>9</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ChoiceButton>true</ChoiceButton>
@@ -7054,11 +7403,13 @@
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Наименование или ФИО (по данным ФНС)</v8:content>
+													<v8:content>Наименование/ФИО по данным ФНС</v8:content>
 												</v8:item>
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
+											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ContextMenu name="НетКнигаПродНаименованиеКонтрагентаКонтекстноеМеню" id="1484"/>
 											<ExtendedTooltip name="НетКнигаПродНаименованиеКонтрагентаРасширеннаяПодсказка" id="1485"/>
 										</InputField>
@@ -7089,6 +7440,7 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>11</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -7106,6 +7458,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>11</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -7132,6 +7485,7 @@
 											<DataPath>Объект.НетКнигаПрод.Раздел</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>10</Width>
 											<ListChoiceMode>true</ListChoiceMode>
 											<ChoiceList>
@@ -7186,6 +7540,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ListChoiceMode>true</ListChoiceMode>
 											<ChoiceList>
 												<xr:Item>
@@ -7248,6 +7603,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="НетКнигаПродСтоимостьРубВсегоКонтекстноеМеню" id="1444"/>
@@ -7261,6 +7617,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="НетКнигаПродСтоимостьРубВсегоРасхождениеКонтекстноеМеню" id="1447"/>
@@ -7283,6 +7640,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="НетКнигаПродСтоимостьВсегоКонтекстноеМеню" id="1338"/>
@@ -7296,6 +7654,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="НетКнигаПродСтоимостьВсегоРасхождениеКонтекстноеМеню" id="1398"/>
@@ -7307,7 +7666,7 @@
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Посредник</v8:content>
+											<v8:content>ИНН, КПП посредника</v8:content>
 										</v8:item>
 									</Title>
 									<ToolTip>
@@ -7324,7 +7683,7 @@
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>ИНН</v8:content>
+													<v8:content>ИНН посредника</v8:content>
 												</v8:item>
 											</Title>
 											<ToolTip>
@@ -7333,7 +7692,6 @@
 													<v8:content>Нет книга прод группа посредник ИНН</v8:content>
 												</v8:item>
 											</ToolTip>
-											<ShowInHeader>true</ShowInHeader>
 											<ExtendedTooltip name="НетКнигаПродГруппаПосредникИННРасширеннаяПодсказка" id="1460"/>
 											<ChildItems>
 												<InputField name="НетКнигаПродПосредникИНН" id="1349">
@@ -7341,6 +7699,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ChoiceButton>true</ChoiceButton>
@@ -7356,6 +7715,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>12</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ChoiceButton>true</ChoiceButton>
@@ -7372,7 +7732,7 @@
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>КПП</v8:content>
+													<v8:content>КПП посредника</v8:content>
 												</v8:item>
 											</Title>
 											<ToolTip>
@@ -7381,7 +7741,6 @@
 													<v8:content>Нет книга прод группа посредник КПП</v8:content>
 												</v8:item>
 											</ToolTip>
-											<ShowInHeader>true</ShowInHeader>
 											<ExtendedTooltip name="НетКнигаПродГруппаПосредникКППРасширеннаяПодсказка" id="1462"/>
 											<ChildItems>
 												<InputField name="НетКнигаПродПосредникКПП" id="1463">
@@ -7389,6 +7748,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>9</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ChoiceButton>true</ChoiceButton>
@@ -7404,6 +7764,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
 													<AutoEditMode>true</AutoEditMode>
+													<AutoWidthInTable>None</AutoWidthInTable>
 													<Width>9</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ChoiceButton>true</ChoiceButton>
@@ -7441,7 +7802,6 @@
 					<ChildItems>
 						<LabelDecoration name="ДекорацияНазваниеРаздела14" id="1303">
 							<AutoMaxWidth>false</AutoMaxWidth>
-							<TextColor>style:ПоясняющийТекст</TextColor>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -7469,10 +7829,8 @@
 						<Table name="СведКС" id="1281">
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
-							<HorizontalLinesBWA>false</HorizontalLinesBWA>
-							<VerticalLinesBWA>false</VerticalLinesBWA>
-							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -7538,6 +7896,7 @@
 									<Visible>false</Visible>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<ContextMenu name="СведКСНомерСтрокиКонтекстноеМеню" id="1295"/>
 									<ExtendedTooltip name="СведКСНомерСтрокиРасширеннаяПодсказка" id="1296"/>
 								</LabelField>
@@ -7551,6 +7910,7 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<Width>6</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="СведКСНомКСКонтекстноеМеню" id="1298"/>
@@ -7587,6 +7947,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<AutoCellHeight>true</AutoCellHeight>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<OpenButton>true</OpenButton>
 											<ContextMenu name="СведКСКонтрольноеCоотношениеКонтекстноеМеню" id="1479"/>
 											<ExtendedTooltip name="СведКСКонтрольноеCоотношениеРасширеннаяПодсказка" id="1480"/>
@@ -7603,6 +7964,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<AutoCellHeight>true</AutoCellHeight>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<OpenButton>true</OpenButton>
 											<ContextMenu name="СведКСНормаЗаконаКонтекстноеМеню" id="1473"/>
 											<ExtendedTooltip name="СведКСНормаЗаконаРасширеннаяПодсказка" id="1474"/>
@@ -7613,6 +7975,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<AutoCellHeight>true</AutoCellHeight>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<OpenButton>true</OpenButton>
 											<ContextMenu name="СведКСФормулировкаНарушенияКонтекстноеМеню" id="1470"/>
 											<ExtendedTooltip name="СведКСФормулировкаНарушенияРасширеннаяПодсказка" id="1471"/>
@@ -7630,6 +7993,7 @@
 											<EditMode>EnterOnInput</EditMode>
 											<AutoCellHeight>true</AutoCellHeight>
 											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<OpenButton>true</OpenButton>
 											<ContextMenu name="СведКСДанныеДекларацииКонтекстноеМеню" id="1476"/>
 											<ExtendedTooltip name="СведКСДанныеДекларацииРасширеннаяПодсказка" id="1477"/>
@@ -7639,8 +8003,8 @@
 								<InputField name="СведКСПоясненКС" id="1300">
 									<DataPath>Объект.СведКС.ПоясненКС</DataPath>
 									<EditMode>EnterOnInput</EditMode>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
+									<AutoWidthInTable>None</AutoWidthInTable>
 									<MultiLine>true</MultiLine>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="СведКСПоясненКСКонтекстноеМеню" id="1301"/>
@@ -7669,7 +8033,6 @@
 					<ChildItems>
 						<LabelDecoration name="ДекорацияНазваниеРазделаНетКнигаПрод" id="1276">
 							<AutoMaxWidth>false</AutoMaxWidth>
-							<TextColor>style:ПоясняющийТекст</TextColor>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -7763,6 +8126,7 @@
 		</Pages>
 		<InputField name="Комментарий" id="1489">
 			<DataPath>Объект.Комментарий</DataPath>
+			<TitleLocation>Left</TitleLocation>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<InputHint>
 				<v8:item>
@@ -8690,22 +9054,7 @@
 							</v8:StringQualifiers>
 						</Type>
 					</Column>
-					<Column name="СчетФактураВСчетРанееПолученнойОплатыПредставление" id="37">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Реквизиты счета-фактуры</v8:content>
-							</v8:item>
-						</Title>
-						<Type>
-							<v8:Type>xs:string</v8:Type>
-							<v8:StringQualifiers>
-								<v8:Length>0</v8:Length>
-								<v8:AllowedLength>Variable</v8:AllowedLength>
-							</v8:StringQualifiers>
-						</Type>
-					</Column>
-					<Column name="СчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставление" id="38">
+					<Column name="СчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставление" id="37">
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -8720,7 +9069,7 @@
 							</v8:StringQualifiers>
 						</Type>
 					</Column>
-					<Column name="СчетФактураВСчетРанееПолученнойОплатыДанные" id="39">
+					<Column name="СчетФактураВСчетРанееПолученнойОплатыДанные" id="38">
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -8731,7 +9080,7 @@
 							<v8:Type>v8:ValueListType</v8:Type>
 						</Type>
 					</Column>
-					<Column name="СчетФактураВСчетРанееПолученнойОплатыРасхождениеДанные" id="40">
+					<Column name="СчетФактураВСчетРанееПолученнойОплатыРасхождениеДанные" id="39">
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -8740,6 +9089,21 @@
 						</Title>
 						<Type>
 							<v8:Type>v8:ValueListType</v8:Type>
+						</Type>
+					</Column>
+					<Column name="СчетФактураВСчетРанееПолученнойОплатыПредставление" id="40">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Реквизиты счета-фактуры</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
 						</Type>
 					</Column>
 				</AdditionalColumns>
@@ -9136,22 +9500,7 @@
 							</v8:StringQualifiers>
 						</Type>
 					</Column>
-					<Column name="СчетФактураПродавцаПредставление" id="29">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Реквизиты счета-фактуры</v8:content>
-							</v8:item>
-						</Title>
-						<Type>
-							<v8:Type>xs:string</v8:Type>
-							<v8:StringQualifiers>
-								<v8:Length>0</v8:Length>
-								<v8:AllowedLength>Variable</v8:AllowedLength>
-							</v8:StringQualifiers>
-						</Type>
-					</Column>
-					<Column name="СчетФактураПродавцаРасхождениеПредставление" id="30">
+					<Column name="СчетФактураПродавцаРасхождениеПредставление" id="29">
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -9166,7 +9515,7 @@
 							</v8:StringQualifiers>
 						</Type>
 					</Column>
-					<Column name="СчетФактураПродавцаДанные" id="31">
+					<Column name="СчетФактураПродавцаДанные" id="30">
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -9177,7 +9526,7 @@
 							<v8:Type>v8:ValueListType</v8:Type>
 						</Type>
 					</Column>
-					<Column name="СчетФактураПродавцаРасхождениеДанные" id="32">
+					<Column name="СчетФактураПродавцаРасхождениеДанные" id="31">
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -9186,6 +9535,21 @@
 						</Title>
 						<Type>
 							<v8:Type>v8:ValueListType</v8:Type>
+						</Type>
+					</Column>
+					<Column name="СчетФактураПродавцаПредставление" id="32">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Реквизиты счета-фактуры</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
 						</Type>
 					</Column>
 				</AdditionalColumns>
@@ -9694,22 +10058,7 @@
 							</v8:StringQualifiers>
 						</Type>
 					</Column>
-					<Column name="СчетФактураВСчетРанееПолученнойОплатыПредставление" id="36">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Реквизиты счета-фактуры</v8:content>
-							</v8:item>
-						</Title>
-						<Type>
-							<v8:Type>xs:string</v8:Type>
-							<v8:StringQualifiers>
-								<v8:Length>0</v8:Length>
-								<v8:AllowedLength>Variable</v8:AllowedLength>
-							</v8:StringQualifiers>
-						</Type>
-					</Column>
-					<Column name="СчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставление" id="38">
+					<Column name="СчетФактураВСчетРанееПолученнойОплатыРасхождениеПредставление" id="36">
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -9724,7 +10073,7 @@
 							</v8:StringQualifiers>
 						</Type>
 					</Column>
-					<Column name="СчетФактураВСчетРанееПолученнойОплатыДанные" id="39">
+					<Column name="СчетФактураВСчетРанееПолученнойОплатыДанные" id="38">
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -9735,7 +10084,7 @@
 							<v8:Type>v8:ValueListType</v8:Type>
 						</Type>
 					</Column>
-					<Column name="СчетФактураВСчетРанееПолученнойОплатыРасхождениеДанные" id="40">
+					<Column name="СчетФактураВСчетРанееПолученнойОплатыРасхождениеДанные" id="39">
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -9744,6 +10093,21 @@
 						</Title>
 						<Type>
 							<v8:Type>v8:ValueListType</v8:Type>
+						</Type>
+					</Column>
+					<Column name="СчетФактураВСчетРанееПолученнойОплатыПредставление" id="40">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Реквизиты счета-фактуры</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
 						</Type>
 					</Column>
 				</AdditionalColumns>
@@ -9896,12 +10260,6 @@
 						</Type>
 					</Column>
 					<Column name="НадписьПоДаннымФНС" id="5">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Надпись по данным ФНС</v8:content>
-							</v8:item>
-						</Title>
 						<Type>
 							<v8:Type>xs:string</v8:Type>
 							<v8:StringQualifiers>
@@ -10469,22 +10827,7 @@
 							</v8:StringQualifiers>
 						</Type>
 					</Column>
-					<Column name="СчетФактураПродавцаПредставление" id="29">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Реквизиты счета-фактуры</v8:content>
-							</v8:item>
-						</Title>
-						<Type>
-							<v8:Type>xs:string</v8:Type>
-							<v8:StringQualifiers>
-								<v8:Length>0</v8:Length>
-								<v8:AllowedLength>Variable</v8:AllowedLength>
-							</v8:StringQualifiers>
-						</Type>
-					</Column>
-					<Column name="СчетФактураПродавцаРасхождениеПредставление" id="30">
+					<Column name="СчетФактураПродавцаРасхождениеПредставление" id="29">
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -10499,7 +10842,7 @@
 							</v8:StringQualifiers>
 						</Type>
 					</Column>
-					<Column name="СчетФактураПродавцаДанные" id="31">
+					<Column name="СчетФактураПродавцаДанные" id="30">
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -10510,7 +10853,7 @@
 							<v8:Type>v8:ValueListType</v8:Type>
 						</Type>
 					</Column>
-					<Column name="СчетФактураПродавцаРасхождениеДанные" id="32">
+					<Column name="СчетФактураПродавцаРасхождениеДанные" id="31">
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -10519,6 +10862,21 @@
 						</Title>
 						<Type>
 							<v8:Type>v8:ValueListType</v8:Type>
+						</Type>
+					</Column>
+					<Column name="СчетФактураПродавцаПредставление" id="32">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Реквизиты счета-фактуры</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
 						</Type>
 					</Column>
 				</AdditionalColumns>
@@ -10592,7 +10950,11 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>v8ui:FormattedString</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
 		<Attribute name="ПояснениеОтправлено" id="8">
@@ -10728,6 +11090,7 @@
 			</ToolTip>
 			<Action>Отправить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ОтправитьНеотправленноеИзвещение" id="2">
 			<Title>
@@ -10776,6 +11139,7 @@
 			</ToolTip>
 			<Action>ПерезаполнитьПоТребованию</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПечатьТребования" id="6">
 			<Title>
@@ -10821,6 +11185,22 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ОтправкаПоясняющихДокументов</Action>
+			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="ВсеПояснения" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Все пояснения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Все пояснения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВсеПояснения</Action>
 		</Command>
 	</Commands>
 </Form>

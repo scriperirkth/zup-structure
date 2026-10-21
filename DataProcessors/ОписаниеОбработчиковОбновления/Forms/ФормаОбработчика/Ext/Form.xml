@@ -49,17 +49,17 @@
 				<Event name="OnCurrentPageChange">СтраницыФормыПриСменеСтраницы</Event>
 			</Events>
 			<ChildItems>
-				<Page name="СтраницаОписание" id="3">
+				<Page name="СтраницаГлавное" id="3">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Описание</v8:content>
+							<v8:content>Главное</v8:content>
 						</v8:item>
 					</Title>
 					<Shortcut>Alt+1</Shortcut>
 					<Group>Vertical</Group>
 					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаОписаниеРасширеннаяПодсказка" id="4"/>
+					<ExtendedTooltip name="СтраницаГлавноеРасширеннаяПодсказка" id="4"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаШапка" id="10">
 							<Title>
@@ -74,6 +74,98 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="11"/>
 							<ChildItems>
+								<InputField name="Процедура" id="16">
+									<DataPath>Объект.ОбработчикиОбновления[0].Процедура</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Процедура обработки</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="ПроцедураКонтекстноеМеню" id="17"/>
+									<ExtendedTooltip name="ПроцедураРасширеннаяПодсказка" id="18"/>
+									<Events>
+										<Event name="OnChange">ПроцедураПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ПроцедураЗаполненияДанныхОбновления" id="30">
+									<DataPath>Объект.ОбработчикиОбновления[0].ПроцедураЗаполненияДанныхОбновления</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Заполнение данных</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="ПроцедураЗаполненияДанныхОбновленияКонтекстноеМеню" id="31"/>
+									<ExtendedTooltip name="ПроцедураЗаполненияДанныхОбновленияРасширеннаяПодсказка" id="32"/>
+									<Events>
+										<Event name="OnChange">ПроцедураЗаполненияДанныхОбновленияПриИзменении</Event>
+									</Events>
+								</InputField>
+								<UsualGroup name="ГруппаПроцедураПроверкиИПредупреждение" id="805">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Процедура проверки и предупреждение</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<VerticalAlign>Bottom</VerticalAlign>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПроцедураПроверкиИПредупреждениеРасширеннаяПодсказка" id="806"/>
+									<ChildItems>
+										<InputField name="ПроцедураПроверки" id="33">
+											<DataPath>Объект.ОбработчикиОбновления[0].ПроцедураПроверки</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Проверка</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<ChoiceButton>true</ChoiceButton>
+											<ChoiceButtonPicture>
+												<xr:Ref>StdPicture.MoveLeft</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</ChoiceButtonPicture>
+											<ContextMenu name="ПроцедураПроверкиКонтекстноеМеню" id="34"/>
+											<ExtendedTooltip name="ПроцедураПроверкиРасширеннаяПодсказка" id="35"/>
+											<Events>
+												<Event name="OnChange">ПроцедураПроверкиПриИзменении</Event>
+												<Event name="StartChoice">ПроцедураПроверкиНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<PictureDecoration name="ДекорацияПредупреждение" id="807">
+											<Height>1</Height>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Декорация предупреждение</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<Picture>
+												<xr:Ref>StdPicture.AppearanceExclamationMarkIcon</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</Picture>
+											<ContextMenu name="ДекорацияПредупреждениеКонтекстноеМеню" id="808"/>
+											<ExtendedTooltip name="ДекорацияПредупреждениеРасширеннаяПодсказка" id="809"/>
+											<Events>
+												<Event name="Click">ДекорацияПредупреждениеНажатие</Event>
+											</Events>
+										</PictureDecoration>
+									</ChildItems>
+								</UsualGroup>
 								<UsualGroup name="ГруппаШапкаЛевоПраво" id="93">
 									<Title>
 										<v8:item>
@@ -81,7 +173,7 @@
 											<v8:content>Шапка лево право</v8:content>
 										</v8:item>
 									</Title>
-									<Group>AlwaysHorizontal</Group>
+									<Group>AutoScreenTypeSensitive</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
@@ -100,130 +192,22 @@
 											<ShowTitle>false</ShowTitle>
 											<ExtendedTooltip name="ГруппаШапкаЛевоРасширеннаяПодсказка" id="13"/>
 											<ChildItems>
-												<InputField name="ОсновнойОбъектМетаданных" id="772">
-													<DataPath>ОсновнойОбъектМетаданных</DataPath>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Объект метаданных</v8:content>
-														</v8:item>
-													</Title>
-													<ChoiceButton>true</ChoiceButton>
-													<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-													<ContextMenu name="ОсновнойОбъектМетаданныхКонтекстноеМеню" id="773"/>
-													<ExtendedTooltip name="ОсновнойОбъектМетаданныхРасширеннаяПодсказка" id="774"/>
-													<Events>
-														<Event name="AutoComplete">ОсновнойОбъектМетаданныхАвтоПодбор</Event>
-														<Event name="StartChoice">ОсновнойОбъектМетаданныхНачалоВыбора</Event>
-														<Event name="TextEditEnd">ОсновнойОбъектМетаданныхОкончаниеВводаТекста</Event>
-														<Event name="ChoiceProcessing">ОсновнойОбъектМетаданныхОбработкаВыбора</Event>
-													</Events>
-												</InputField>
-												<InputField name="Идентификатор" id="24">
-													<DataPath>Объект.ОбработчикиОбновления[0].Идентификатор</DataPath>
-													<ChoiceButton>true</ChoiceButton>
-													<ChoiceButtonPicture>
-														<xr:Ref>StdPicture.MoveLeft</xr:Ref>
-														<xr:LoadTransparent>true</xr:LoadTransparent>
-													</ChoiceButtonPicture>
-													<ContextMenu name="ИдентификаторКонтекстноеМеню" id="25"/>
-													<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="26"/>
-													<Events>
-														<Event name="StartChoice">ИдентификаторНачалоВыбора</Event>
-													</Events>
-												</InputField>
-												<InputField name="Процедура" id="16">
-													<DataPath>Объект.ОбработчикиОбновления[0].Процедура</DataPath>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Процедура обработки</v8:content>
-														</v8:item>
-													</Title>
+												<InputField name="Версия" id="19">
+													<DataPath>Объект.ОбработчикиОбновления[0].Версия</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<AutoMaxWidth>false</AutoMaxWidth>
-													<ContextMenu name="ПроцедураКонтекстноеМеню" id="17"/>
-													<ExtendedTooltip name="ПроцедураРасширеннаяПодсказка" id="18"/>
-													<Events>
-														<Event name="OnChange">ПроцедураПриИзменении</Event>
-													</Events>
+													<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+													<AutoMarkIncomplete>true</AutoMarkIncomplete>
+													<ContextMenu name="ВерсияКонтекстноеМеню" id="20"/>
+													<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="21"/>
 												</InputField>
-												<InputField name="ПроцедураЗаполненияДанныхОбновления" id="30">
-													<DataPath>Объект.ОбработчикиОбновления[0].ПроцедураЗаполненияДанныхОбновления</DataPath>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Заполнение данных</v8:content>
-														</v8:item>
-													</Title>
-													<AutoMaxWidth>false</AutoMaxWidth>
-													<ContextMenu name="ПроцедураЗаполненияДанныхОбновленияКонтекстноеМеню" id="31"/>
-													<ExtendedTooltip name="ПроцедураЗаполненияДанныхОбновленияРасширеннаяПодсказка" id="32"/>
-													<Events>
-														<Event name="OnChange">ПроцедураЗаполненияДанныхОбновленияПриИзменении</Event>
-													</Events>
-												</InputField>
-												<UsualGroup name="ГруппаПроцедураПроверкиИПредупреждение" id="805">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Процедура проверки и предупреждение</v8:content>
-														</v8:item>
-													</Title>
-													<Group>AlwaysHorizontal</Group>
-													<Behavior>Usual</Behavior>
-													<Representation>None</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаПроцедураПроверкиИПредупреждениеРасширеннаяПодсказка" id="806"/>
-													<ChildItems>
-														<InputField name="ПроцедураПроверки" id="33">
-															<DataPath>Объект.ОбработчикиОбновления[0].ПроцедураПроверки</DataPath>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Проверка</v8:content>
-																</v8:item>
-															</Title>
-															<AutoMaxWidth>false</AutoMaxWidth>
-															<ChoiceButton>true</ChoiceButton>
-															<ChoiceButtonPicture>
-																<xr:Ref>StdPicture.MoveLeft</xr:Ref>
-																<xr:LoadTransparent>true</xr:LoadTransparent>
-															</ChoiceButtonPicture>
-															<ContextMenu name="ПроцедураПроверкиКонтекстноеМеню" id="34"/>
-															<ExtendedTooltip name="ПроцедураПроверкиРасширеннаяПодсказка" id="35"/>
-															<Events>
-																<Event name="OnChange">ПроцедураПроверкиПриИзменении</Event>
-																<Event name="StartChoice">ПроцедураПроверкиНачалоВыбора</Event>
-															</Events>
-														</InputField>
-														<PictureDecoration name="ДекорацияПредупреждение" id="807">
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Декорация предупреждение</v8:content>
-																</v8:item>
-															</Title>
-															<GroupVerticalAlign>Center</GroupVerticalAlign>
-															<Hyperlink>true</Hyperlink>
-															<Picture>
-																<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
-																<xr:LoadTransparent>false</xr:LoadTransparent>
-															</Picture>
-															<ContextMenu name="ДекорацияПредупреждениеКонтекстноеМеню" id="808"/>
-															<ExtendedTooltip name="ДекорацияПредупреждениеРасширеннаяПодсказка" id="809"/>
-															<Events>
-																<Event name="Click">ДекорацияПредупреждениеНажатие</Event>
-															</Events>
-														</PictureDecoration>
-													</ChildItems>
-												</UsualGroup>
 												<InputField name="РежимВыполнения" id="39">
 													<DataPath>Объект.ОбработчикиОбновления[0].РежимВыполнения</DataPath>
 													<EditMode>EnterOnInput</EditMode>
-													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<AutoEditMode>true</AutoEditMode>
 													<Width>6</Width>
-													<MaxWidth>10</MaxWidth>
+													<AutoMaxWidth>false</AutoMaxWidth>
 													<ListChoiceMode>true</ListChoiceMode>
 													<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -260,19 +244,29 @@
 														<Event name="OnChange">РежимВыполненияПриИзменении</Event>
 													</Events>
 												</InputField>
-												<InputField name="КомментарийСлужебный" id="36">
-													<DataPath>Объект.ОбработчикиОбновления[0].Комментарий</DataPath>
-													<Visible>false</Visible>
-													<TitleLocation>Left</TitleLocation>
+												<InputField name="Идентификатор" id="24">
+													<DataPath>Объект.ОбработчикиОбновления[0].Идентификатор</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<AutoMaxWidth>false</AutoMaxWidth>
-													<Height>2</Height>
-													<VerticalStretch>false</VerticalStretch>
 													<ChoiceButton>true</ChoiceButton>
-													<ContextMenu name="КомментарийСлужебныйКонтекстноеМеню" id="37"/>
-													<ExtendedTooltip name="КомментарийСлужебныйРасширеннаяПодсказка" id="38"/>
+													<ChoiceButtonPicture>
+														<xr:Ref>StdPicture.MoveLeft</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</ChoiceButtonPicture>
+													<ContextMenu name="ИдентификаторКонтекстноеМеню" id="25"/>
+													<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="26"/>
 													<Events>
-														<Event name="StartChoice">КомментарийНачалоВыбора</Event>
+														<Event name="StartChoice">ИдентификаторНачалоВыбора</Event>
 													</Events>
+												</InputField>
+												<InputField name="ПриоритетВыполнения" id="810">
+													<DataPath>Объект.ОбработчикиОбновления[0].Порядок</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="ПриоритетВыполненияКонтекстноеМеню" id="811"/>
+													<ExtendedTooltip name="ПриоритетВыполненияРасширеннаяПодсказка" id="812"/>
 												</InputField>
 											</ChildItems>
 										</UsualGroup>
@@ -283,243 +277,97 @@
 													<v8:content>Шапка право</v8:content>
 												</v8:item>
 											</Title>
-											<Group>HorizontalIfPossible</Group>
+											<Group>Vertical</Group>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
 											<ExtendedTooltip name="ГруппаШапкаПравоРасширеннаяПодсказка" id="15"/>
 											<ChildItems>
-												<UsualGroup name="ГруппаПодсистема" id="22">
+												<InputField name="ОсновнойОбъектМетаданных" id="772">
+													<DataPath>ОсновнойОбъектМетаданных</DataPath>
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Подсистема</v8:content>
+															<v8:content>Объект метаданных</v8:content>
 														</v8:item>
 													</Title>
-													<Width>27</Width>
-													<Group>HorizontalIfPossible</Group>
-													<Behavior>Usual</Behavior>
-													<Representation>None</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаПодсистемаРасширеннаяПодсказка" id="23"/>
-													<ChildItems>
-														<InputField name="Подсистема" id="7">
-															<DataPath>Объект.ОбработчикиОбновления[0].Подсистема</DataPath>
-															<MarkRequiredComplete>true</MarkRequiredComplete>
-															<AutoMaxWidth>false</AutoMaxWidth>
-															<ListChoiceMode>true</ListChoiceMode>
-															<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
-															<AutoMarkIncomplete>true</AutoMarkIncomplete>
-															<ContextMenu name="ПодсистемаКонтекстноеМеню" id="8"/>
-															<ExtendedTooltip name="ПодсистемаРасширеннаяПодсказка" id="9"/>
-															<Events>
-																<Event name="OnChange">ПодсистемаПриИзменении</Event>
-															</Events>
-														</InputField>
-														<InputField name="ИмяОсновногоСерверногоМодуля" id="491">
-															<DataPath>Объект.ОбработчикиОбновления[0].ИмяОсновногоСерверногоМодуля</DataPath>
-															<ContextMenu name="ИмяОсновногоСерверногоМодуляКонтекстноеМеню" id="492"/>
-															<ExtendedTooltip name="ИмяОсновногоСерверногоМодуляРасширеннаяПодсказка" id="493"/>
-														</InputField>
-														<InputField name="Версия" id="19">
-															<DataPath>Объект.ОбработчикиОбновления[0].Версия</DataPath>
-															<MarkRequiredComplete>true</MarkRequiredComplete>
-															<AutoMaxWidth>false</AutoMaxWidth>
-															<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
-															<AutoMarkIncomplete>true</AutoMarkIncomplete>
-															<ContextMenu name="ВерсияКонтекстноеМеню" id="20"/>
-															<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="21"/>
-														</InputField>
-														<InputField name="РежимВыполненияОтложенных" id="496">
-															<DataPath>Объект.ОбработчикиОбновления[0].РежимВыполненияОтложенныхОбработчиков</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<MarkRequiredComplete>true</MarkRequiredComplete>
-															<AutoEditMode>true</AutoEditMode>
-															<Width>6</Width>
-															<MaxWidth>10</MaxWidth>
-															<ListChoiceMode>true</ListChoiceMode>
-															<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
-															<AutoMarkIncomplete>true</AutoMarkIncomplete>
-															<ChoiceList>
-																<xr:Item>
-																	<xr:Presentation/>
-																	<xr:CheckState>0</xr:CheckState>
-																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
-																		<Presentation/>
-																		<Value xsi:type="xs:string">Параллельно</Value>
-																	</xr:Value>
-																</xr:Item>
-																<xr:Item>
-																	<xr:Presentation/>
-																	<xr:CheckState>0</xr:CheckState>
-																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
-																		<Presentation/>
-																		<Value xsi:type="xs:string">Последовательно</Value>
-																	</xr:Value>
-																</xr:Item>
-															</ChoiceList>
-															<DropListWidth>10</DropListWidth>
-															<ContextMenu name="РежимВыполненияОтложенныхКонтекстноеМеню" id="497"/>
-															<ExtendedTooltip name="РежимВыполненияОтложенныхРасширеннаяПодсказка" id="498"/>
-															<Events>
-																<Event name="OnChange">РежимВыполненияПриИзменении</Event>
-															</Events>
-														</InputField>
-														<InputField name="ПриоритетВыполнения" id="810">
-															<DataPath>Объект.ОбработчикиОбновления[0].Порядок</DataPath>
-															<ContextMenu name="ПриоритетВыполненияКонтекстноеМеню" id="811"/>
-															<ExtendedTooltip name="ПриоритетВыполненияРасширеннаяПодсказка" id="812"/>
-														</InputField>
-													</ChildItems>
-												</UsualGroup>
-											</ChildItems>
-										</UsualGroup>
-									</ChildItems>
-								</UsualGroup>
-								<UsualGroup name="ГруппаПрочиеСвойства" id="91">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Прочие свойства</v8:content>
-										</v8:item>
-									</Title>
-									<Group>AlwaysHorizontal</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаПрочиеСвойстваРасширеннаяПодсказка" id="92"/>
-									<ChildItems>
-										<UsualGroup name="ГруппаПрочиеСвойстваЗаголовки" id="42">
-											<Visible>false</Visible>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Прочие свойства: заголовки</v8:content>
-												</v8:item>
-											</Title>
-											<Group>Vertical</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаПрочиеСвойстваЗаголовкиРасширеннаяПодсказка" id="43"/>
-											<ChildItems>
-												<LabelDecoration name="ГруппаУстанавливаемыеСвойстваЗаголовкиОтступ" id="44">
-													<ContextMenu name="ГруппаУстанавливаемыеСвойстваЗаголовкиОтступКонтекстноеМеню" id="45"/>
-													<ExtendedTooltip name="ГруппаУстанавливаемыеСвойстваЗаголовкиОтступРасширеннаяПодсказка" id="46"/>
-												</LabelDecoration>
-												<LabelDecoration name="ОчередьОтложеннойОбработкиЗаголовок" id="47">
-													<Title formatted="false">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Очередь отложенной обработки:</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="ОчередьОтложеннойОбработкиЗаголовокКонтекстноеМеню" id="48"/>
-													<ExtendedTooltip name="ОчередьОтложеннойОбработкиЗаголовокРасширеннаяПодсказка" id="49"/>
-												</LabelDecoration>
-												<LabelDecoration name="ОбязательныйЗаголовок" id="254">
-													<Title formatted="false">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Обязательный:</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="ОбязательныйЗаголовокКонтекстноеМеню" id="255"/>
-													<ExtendedTooltip name="ОбязательныйЗаголовокРасширеннаяПодсказка" id="256"/>
-												</LabelDecoration>
-												<LabelDecoration name="НачальноеЗаполнениеЗаголовок" id="260">
-													<Title formatted="false">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Начальное заполнение:</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="НачальноеЗаполнениеЗаголовокКонтекстноеМеню" id="261"/>
-													<ExtendedTooltip name="НачальноеЗаполнениеЗаголовокРасширеннаяПодсказка" id="262"/>
-												</LabelDecoration>
-												<LabelDecoration name="МногопоточныйЗаголовок" id="65">
-													<Title formatted="false">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Многопоточный:</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="МногопоточныйЗаголовокКонтекстноеМеню" id="66"/>
-													<ExtendedTooltip name="МногопоточныйЗаголовокРасширеннаяПодсказка" id="67"/>
-												</LabelDecoration>
-												<LabelDecoration name="ЗапускатьТолькоВГлавномУзлеЗаголовок" id="50">
-													<Title formatted="false">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Запускать только в главном узле:</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="ЗапускатьТолькоВГлавномУзлеЗаголовокКонтекстноеМеню" id="51"/>
-													<ExtendedTooltip name="ЗапускатьТолькоВГлавномУзлеЗаголовокРасширеннаяПодсказка" id="52"/>
-												</LabelDecoration>
-												<LabelDecoration name="ЗапускатьИВПодчиненномУзлеРИБСФильтрамиЗаголовок" id="53">
-													<Title formatted="false">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Запускать и в подчиненном узле РИБ с фильтрами:</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="ЗапускатьИВПодчиненномУзлеРИБСФильтрамиЗаголовокКонтекстноеМеню" id="54"/>
-													<ExtendedTooltip name="ЗапускатьИВПодчиненномУзлеРИБСФильтрамиЗаголовокРасширеннаяПодсказка" id="55"/>
-												</LabelDecoration>
-												<LabelDecoration name="ОбщиеДанныеЗаголовок" id="59">
-													<Title formatted="false">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Общие данные:</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="ОбщиеДанныеЗаголовокКонтекстноеМеню" id="60"/>
-													<ExtendedTooltip name="ОбщиеДанныеЗаголовокРасширеннаяПодсказка" id="61"/>
-												</LabelDecoration>
-												<LabelDecoration name="УправлениеОбработчикамиЗаголовок" id="62">
-													<Title formatted="false">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Управление обработчиками:</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="УправлениеОбработчикамиЗаголовокКонтекстноеМеню" id="63"/>
-													<ExtendedTooltip name="УправлениеОбработчикамиЗаголовокРасширеннаяПодсказка" id="64"/>
-												</LabelDecoration>
-												<LabelDecoration name="КомментарийЗаголовок" id="56">
-													<Visible>false</Visible>
-													<VerticalStretch>true</VerticalStretch>
-													<Title formatted="false">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Описание обработчика:</v8:content>
-														</v8:item>
-													</Title>
-													<VerticalAlign>Top</VerticalAlign>
-													<ContextMenu name="КомментарийЗаголовокКонтекстноеМеню" id="57"/>
-													<ExtendedTooltip name="КомментарийЗаголовокРасширеннаяПодсказка" id="58"/>
-												</LabelDecoration>
-											</ChildItems>
-										</UsualGroup>
-										<UsualGroup name="ГруппаПрочиеСвойстваЗначения" id="68">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Прочие свойства</v8:content>
-												</v8:item>
-											</Title>
-											<Group>Vertical</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>None</Representation>
-											<ExtendedTooltip name="ГруппаПрочиеСвойстваЗначенияРасширеннаяПодсказка" id="69"/>
-											<ChildItems>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ChoiceButton>true</ChoiceButton>
+													<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+													<ContextMenu name="ОсновнойОбъектМетаданныхКонтекстноеМеню" id="773"/>
+													<ExtendedTooltip name="ОсновнойОбъектМетаданныхРасширеннаяПодсказка" id="774"/>
+													<Events>
+														<Event name="AutoComplete">ОсновнойОбъектМетаданныхАвтоПодбор</Event>
+														<Event name="StartChoice">ОсновнойОбъектМетаданныхНачалоВыбора</Event>
+														<Event name="TextEditEnd">ОсновнойОбъектМетаданныхОкончаниеВводаТекста</Event>
+														<Event name="ChoiceProcessing">ОсновнойОбъектМетаданныхОбработкаВыбора</Event>
+													</Events>
+												</InputField>
+												<InputField name="Подсистема" id="7">
+													<DataPath>Объект.ОбработчикиОбновления[0].Подсистема</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ListChoiceMode>true</ListChoiceMode>
+													<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+													<AutoMarkIncomplete>true</AutoMarkIncomplete>
+													<ContextMenu name="ПодсистемаКонтекстноеМеню" id="8"/>
+													<ExtendedTooltip name="ПодсистемаРасширеннаяПодсказка" id="9"/>
+													<Events>
+														<Event name="OnChange">ПодсистемаПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="РежимВыполненияОтложенных" id="496">
+													<DataPath>Объект.ОбработчикиОбновления[0].РежимВыполненияОтложенныхОбработчиков</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<MarkRequiredComplete>false</MarkRequiredComplete>
+													<AutoEditMode>true</AutoEditMode>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ListChoiceMode>true</ListChoiceMode>
+													<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+													<AutoMarkIncomplete>true</AutoMarkIncomplete>
+													<ChoiceList>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xs:string">Параллельно</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xs:string">Последовательно</Value>
+															</xr:Value>
+														</xr:Item>
+													</ChoiceList>
+													<DropListWidth>10</DropListWidth>
+													<ContextMenu name="РежимВыполненияОтложенныхКонтекстноеМеню" id="497"/>
+													<ExtendedTooltip name="РежимВыполненияОтложенныхРасширеннаяПодсказка" id="498"/>
+													<Events>
+														<Event name="OnChange">РежимВыполненияПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="ИмяОсновногоСерверногоМодуля" id="491">
+													<DataPath>Объект.ОбработчикиОбновления[0].ИмяОсновногоСерверногоМодуля</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<ContextMenu name="ИмяОсновногоСерверногоМодуляКонтекстноеМеню" id="492"/>
+													<ExtendedTooltip name="ИмяОсновногоСерверногоМодуляРасширеннаяПодсказка" id="493"/>
+												</InputField>
 												<InputField name="ОчередьОтложеннойОбработки" id="70">
 													<DataPath>Объект.ОбработчикиОбновления[0].ОчередьОтложеннойОбработки</DataPath>
 													<Visible>false</Visible>
 													<ReadOnly>true</ReadOnly>
-													<TitleLocation>Left</TitleLocation>
-													<AutoMaxWidth>false</AutoMaxWidth>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<MaxWidth>5</MaxWidth>
 													<ContextMenu name="ОчередьОтложеннойОбработкиКонтекстноеМеню" id="71"/>
 													<ExtendedTooltip name="ОчередьОтложеннойОбработкиРасширеннаяПодсказка" id="72"/>
@@ -528,84 +376,120 @@
 													<DataPath>Объект.ОбработчикиОбновления[0].ВыполнятьВГруппеОбязательных</DataPath>
 													<Visible>false</Visible>
 													<TitleLocation>Left</TitleLocation>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="ОбязательныйКонтекстноеМеню" id="258"/>
 													<ExtendedTooltip name="ОбязательныйРасширеннаяПодсказка" id="259"/>
 												</CheckBoxField>
-												<CheckBoxField name="НачальноеЗаполнение" id="263">
-													<DataPath>Объект.ОбработчикиОбновления[0].НачальноеЗаполнение</DataPath>
-													<TitleLocation>Right</TitleLocation>
-													<ContextMenu name="НачальноеЗаполнениеКонтекстноеМеню" id="264"/>
-													<ExtendedTooltip name="НачальноеЗаполнениеРасширеннаяПодсказка" id="265"/>
-												</CheckBoxField>
-												<CheckBoxField name="Многопоточный" id="88">
-													<DataPath>Объект.ОбработчикиОбновления[0].Многопоточный</DataPath>
-													<TitleLocation>Right</TitleLocation>
-													<ContextMenu name="МногопоточныйКонтекстноеМеню" id="89"/>
-													<ExtendedTooltip name="МногопоточныйРасширеннаяПодсказка" id="90"/>
-												</CheckBoxField>
-												<CheckBoxField name="ЗапускатьТолькоВГлавномУзле" id="73">
-													<DataPath>Объект.ОбработчикиОбновления[0].ЗапускатьТолькоВГлавномУзле</DataPath>
-													<TitleLocation>Right</TitleLocation>
-													<ContextMenu name="ЗапускатьТолькоВГлавномУзлеКонтекстноеМеню" id="74"/>
-													<ExtendedTooltip name="ЗапускатьТолькоВГлавномУзлеРасширеннаяПодсказка" id="75"/>
-												</CheckBoxField>
-												<CheckBoxField name="ЗапускатьИВПодчиненномУзлеРИБСФильтрами" id="76">
-													<DataPath>Объект.ОбработчикиОбновления[0].ЗапускатьИВПодчиненномУзлеРИБСФильтрами</DataPath>
-													<TitleLocation>Right</TitleLocation>
-													<ContextMenu name="ЗапускатьИВПодчиненномУзлеРИБСФильтрамиКонтекстноеМеню" id="77"/>
-													<ExtendedTooltip name="ЗапускатьИВПодчиненномУзлеРИБСФильтрамиРасширеннаяПодсказка" id="78"/>
-												</CheckBoxField>
-												<CheckBoxField name="ОбщиеДанные" id="82">
-													<DataPath>Объект.ОбработчикиОбновления[0].ОбщиеДанные</DataPath>
-													<TitleLocation>Right</TitleLocation>
-													<ContextMenu name="ОбщиеДанныеКонтекстноеМеню" id="83"/>
-													<ExtendedTooltip name="ОбщиеДанныеРасширеннаяПодсказка" id="84"/>
-												</CheckBoxField>
-												<CheckBoxField name="УправлениеОбработчиками" id="85">
-													<DataPath>Объект.ОбработчикиОбновления[0].УправлениеОбработчиками</DataPath>
-													<TitleLocation>Right</TitleLocation>
-													<ContextMenu name="УправлениеОбработчикамиКонтекстноеМеню" id="86"/>
-													<ExtendedTooltip name="УправлениеОбработчикамиРасширеннаяПодсказка" id="87"/>
-												</CheckBoxField>
-												<CheckBoxField name="ТехническийПроект" id="781">
-													<DataPath>Объект.ОбработчикиОбновления[0].ТехническийПроект</DataPath>
-													<UserVisible>
-														<xr:Common>false</xr:Common>
-													</UserVisible>
-													<TitleLocation>Right</TitleLocation>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Обработчик технического проекта</v8:content>
-														</v8:item>
-													</ToolTip>
-													<ContextMenu name="ТехническийПроектКонтекстноеМеню" id="782"/>
-													<ExtendedTooltip name="ТехническийПроектРасширеннаяПодсказка" id="783"/>
-												</CheckBoxField>
 											</ChildItems>
 										</UsualGroup>
-										<InputField name="Комментарий" id="79">
-											<DataPath>Объект.ОбработчикиОбновления[0].Комментарий</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Описание обработчика</v8:content>
-												</v8:item>
-											</Title>
-											<TitleLocation>Top</TitleLocation>
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<Height>2</Height>
-											<MultiLine>true</MultiLine>
-											<ContextMenu name="КомментарийКонтекстноеМеню" id="80"/>
-											<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="81"/>
-											<Events>
-												<Event name="StartChoice">КомментарийНачалоВыбора</Event>
-											</Events>
-										</InputField>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаОписание" id="891">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Опции и описание</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаОписаниеРасширеннаяПодсказка" id="892"/>
+					<ChildItems>
+						<CheckBoxField name="НачальноеЗаполнение" id="263">
+							<DataPath>Объект.ОбработчикиОбновления[0].НачальноеЗаполнение</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
+							<ContextMenu name="НачальноеЗаполнениеКонтекстноеМеню" id="264"/>
+							<ExtendedTooltip name="НачальноеЗаполнениеРасширеннаяПодсказка" id="265"/>
+						</CheckBoxField>
+						<CheckBoxField name="Многопоточный" id="88">
+							<DataPath>Объект.ОбработчикиОбновления[0].Многопоточный</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
+							<ContextMenu name="МногопоточныйКонтекстноеМеню" id="89"/>
+							<ExtendedTooltip name="МногопоточныйРасширеннаяПодсказка" id="90"/>
+						</CheckBoxField>
+						<CheckBoxField name="ОбщиеДанные" id="82">
+							<DataPath>Объект.ОбработчикиОбновления[0].ОбщиеДанные</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
+							<ContextMenu name="ОбщиеДанныеКонтекстноеМеню" id="83"/>
+							<ExtendedTooltip name="ОбщиеДанныеРасширеннаяПодсказка" id="84"/>
+						</CheckBoxField>
+						<CheckBoxField name="УправлениеОбработчиками" id="85">
+							<DataPath>Объект.ОбработчикиОбновления[0].УправлениеОбработчиками</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
+							<ContextMenu name="УправлениеОбработчикамиКонтекстноеМеню" id="86"/>
+							<ExtendedTooltip name="УправлениеОбработчикамиРасширеннаяПодсказка" id="87"/>
+						</CheckBoxField>
+						<CheckBoxField name="ЗапускатьТолькоВГлавномУзле" id="73">
+							<DataPath>Объект.ОбработчикиОбновления[0].ЗапускатьТолькоВГлавномУзле</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
+							<ContextMenu name="ЗапускатьТолькоВГлавномУзлеКонтекстноеМеню" id="74"/>
+							<ExtendedTooltip name="ЗапускатьТолькоВГлавномУзлеРасширеннаяПодсказка" id="75"/>
+						</CheckBoxField>
+						<CheckBoxField name="ЗапускатьИВПодчиненномУзлеРИБСФильтрами" id="76">
+							<DataPath>Объект.ОбработчикиОбновления[0].ЗапускатьИВПодчиненномУзлеРИБСФильтрами</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
+							<ContextMenu name="ЗапускатьИВПодчиненномУзлеРИБСФильтрамиКонтекстноеМеню" id="77"/>
+							<ExtendedTooltip name="ЗапускатьИВПодчиненномУзлеРИБСФильтрамиРасширеннаяПодсказка" id="78"/>
+						</CheckBoxField>
+						<CheckBoxField name="ТехническийПроект" id="781">
+							<DataPath>Объект.ОбработчикиОбновления[0].ТехническийПроект</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обработчик технического проекта</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
+							<ContextMenu name="ТехническийПроектКонтекстноеМеню" id="782"/>
+							<ExtendedTooltip name="ТехническийПроектРасширеннаяПодсказка" id="783"/>
+						</CheckBoxField>
+						<InputField name="Комментарий" id="79">
+							<DataPath>Объект.ОбработчикиОбновления[0].Комментарий</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Описание обработчика</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Top</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>2</Height>
+							<MultiLine>true</MultiLine>
+							<ContextMenu name="КомментарийКонтекстноеМеню" id="80"/>
+							<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="81"/>
+							<Events>
+								<Event name="StartChoice">КомментарийНачалоВыбора</Event>
+							</Events>
+						</InputField>
 					</ChildItems>
 				</Page>
 				<Page name="СтраницаОбъекты" id="5">
@@ -648,6 +532,8 @@
 									<ChildItems>
 										<Table name="ЧитаемыеОбъекты" id="102">
 											<Representation>List</Representation>
+											<TitleLocation>Auto</TitleLocation>
+											<SelectionMode>SingleRow</SelectionMode>
 											<RowSelectionMode>Cell</RowSelectionMode>
 											<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 											<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -829,59 +715,10 @@
 												</CheckBoxField>
 											</ChildItems>
 										</Table>
-										<UsualGroup name="ГруппаИспользуемыеДанныеТаблицыКнопки" id="131">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Используемые данные таблицы кнопки</v8:content>
-												</v8:item>
-											</Title>
-											<Group>Vertical</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаИспользуемыеДанныеТаблицыКнопкиРасширеннаяПодсказка" id="132"/>
-											<ChildItems>
-												<LabelDecoration name="ГруппаИспользуемыеДанныеТаблицыКнопкиОтступ1" id="133">
-													<Height>2</Height>
-													<VerticalStretch>false</VerticalStretch>
-													<ContextMenu name="ГруппаИспользуемыеДанныеТаблицыКнопкиОтступ1КонтекстноеМеню" id="134"/>
-													<ExtendedTooltip name="ГруппаИспользуемыеДанныеТаблицыКнопкиОтступ1РасширеннаяПодсказка" id="135"/>
-												</LabelDecoration>
-												<Button name="ДобавитьИзменяемыйОбъектВЧитаемые" id="136">
-													<Type>UsualButton</Type>
-													<Visible>false</Visible>
-													<CommandName>Form.Command.ДобавитьИзменяемыйОбъектВЧитаемые</CommandName>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>&lt;--</v8:content>
-														</v8:item>
-													</Title>
-													<ExtendedTooltip name="ДобавитьИзменяемыйОбъектВЧитаемыеРасширеннаяПодсказка" id="137"/>
-												</Button>
-												<LabelDecoration name="ГруппаИспользуемыеДанныеТаблицыКнопкиОтступ2" id="138">
-													<Height>1</Height>
-													<VerticalStretch>false</VerticalStretch>
-													<ContextMenu name="ГруппаИспользуемыеДанныеТаблицыКнопкиОтступ2КонтекстноеМеню" id="139"/>
-													<ExtendedTooltip name="ГруппаИспользуемыеДанныеТаблицыКнопкиОтступ2РасширеннаяПодсказка" id="140"/>
-												</LabelDecoration>
-												<Button name="ДобавитьТипыРеквизитаОбъектаВЧитаемыеДанные" id="141">
-													<Type>UsualButton</Type>
-													<Visible>false</Visible>
-													<CommandName>Form.Command.ЗаписатьОбработчик</CommandName>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Записать</v8:content>
-														</v8:item>
-													</Title>
-													<ExtendedTooltip name="ДобавитьТипыРеквизитаОбъектаВЧитаемыеДанныеРасширеннаяПодсказка" id="142"/>
-												</Button>
-											</ChildItems>
-										</UsualGroup>
 										<Table name="ИзменяемыеОбъекты" id="143">
 											<Representation>List</Representation>
+											<TitleLocation>Auto</TitleLocation>
+											<SelectionMode>SingleRow</SelectionMode>
 											<RowSelectionMode>Cell</RowSelectionMode>
 											<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 											<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -1071,7 +908,9 @@
 							</ChildItems>
 						</UsualGroup>
 						<Table name="БлокируемыеОбъекты" id="181">
+							<TitleLocation>Auto</TitleLocation>
 							<HeightInTableRows>2</HeightInTableRows>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -1206,7 +1045,6 @@
 						<LabelDecoration name="Объявление" id="277">
 							<Visible>false</Visible>
 							<AutoMaxWidth>false</AutoMaxWidth>
-							<TextColor>style:SpecialTextColor</TextColor>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -1552,6 +1390,8 @@
 									<ReadOnly>true</ReadOnly>
 									<SkipOnInput>true</SkipOnInput>
 									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<AutoMaxHeight>false</AutoMaxHeight>
 									<BorderColor>style:FormBackColor</BorderColor>
@@ -1571,6 +1411,8 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<AutoMaxHeight>false</AutoMaxHeight>
 									<BorderColor>style:FormBackColor</BorderColor>
@@ -1589,6 +1431,8 @@
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<ContextMenu name="Обработчик1КонтекстноеМеню" id="371"/>
 									<ExtendedTooltip name="Обработчик1РасширеннаяПодсказка" id="372">
@@ -1606,6 +1450,8 @@
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<ContextMenu name="Обработчик2КонтекстноеМеню" id="374"/>
 									<ExtendedTooltip name="Обработчик2РасширеннаяПодсказка" id="375">
@@ -2093,6 +1939,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаписатьИЗакрыть</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ЗаписатьОбработчик" id="2">
 			<Title>
@@ -2108,6 +1955,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаписатьОбработчик</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ЗаполнитьОбработчик1" id="3">
 			<Title>

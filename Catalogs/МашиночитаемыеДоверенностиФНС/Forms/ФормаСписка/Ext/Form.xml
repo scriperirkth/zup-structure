@@ -5,21 +5,17 @@
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
-			<ButtonGroup name="ГруппаЗагрузить" id="37">
-				<ExtendedTooltip name="ГруппаЗагрузитьРасширеннаяПодсказка" id="38"/>
-				<ChildItems>
-					<Button name="Загрузить" id="39">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Загрузить</CommandName>
-						<ExtendedTooltip name="ЗагрузитьРасширеннаяПодсказка" id="40"/>
-					</Button>
-					<Button name="ФормаСправочникРегистрацииВНалоговомОрганеОткрытьСписокРегистраций" id="41">
-						<Type>CommandBarButton</Type>
-						<CommandName>Catalog.РегистрацииВНалоговомОргане.Command.ОткрытьСписокРегистраций</CommandName>
-						<ExtendedTooltip name="ФормаСправочникРегистрацииВНалоговомОрганеОткрытьСписокРегистрацийРасширеннаяПодсказка" id="42"/>
-					</Button>
-				</ChildItems>
-			</ButtonGroup>
+			<Button name="Загрузить" id="39">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Загрузить</CommandName>
+				<ExtendedTooltip name="ЗагрузитьРасширеннаяПодсказка" id="40"/>
+			</Button>
+			<Button name="ФормаСправочникРегистрацииВНалоговомОрганеОткрытьСписокРегистраций" id="41">
+				<Type>CommandBarButton</Type>
+				<CommandName>Catalog.РегистрацииВНалоговомОргане.Command.ОткрытьСписокРегистраций</CommandName>
+				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаСправочникРегистрацииВНалоговомОрганеОткрытьСписокРегистрацийРасширеннаяПодсказка" id="42"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -43,8 +39,9 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
+			<CommandBarLocation>Top</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -53,6 +50,7 @@
 			<SearchStringLocation>None</SearchStringLocation>
 			<ViewStatusLocation>None</ViewStatusLocation>
 			<SearchControlLocation>None</SearchControlLocation>
+			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -71,6 +69,20 @@
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
 				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="СписокНайти" id="110">
+						<Type>CommandBarButton</Type>
+						<Representation>Picture</Representation>
+						<CommandName>Form.Item.Список.StandardCommand.Find</CommandName>
+						<ExtendedTooltip name="СписокНайтиРасширеннаяПодсказка" id="111"/>
+					</Button>
+					<Button name="СписокОтменитьПоиск" id="112">
+						<Type>CommandBarButton</Type>
+						<Representation>Picture</Representation>
+						<CommandName>Form.Item.Список.StandardCommand.CancelSearch</CommandName>
+						<ExtendedTooltip name="СписокОтменитьПоискРасширеннаяПодсказка" id="113"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">

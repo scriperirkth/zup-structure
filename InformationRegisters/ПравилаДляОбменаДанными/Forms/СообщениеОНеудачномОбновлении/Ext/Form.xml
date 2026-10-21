@@ -11,6 +11,32 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Перезапустить" id="17">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Перезапустить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Перезапустить и продолжить</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ПерезапуститьРасширеннаяПодсказка" id="18"/>
+			</Button>
+			<Button name="ЗавершитьРаботу" id="15">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЗавершитьРаботу</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Завершить работу</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ЗавершитьРаботуРасширеннаяПодсказка" id="16"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -27,6 +53,7 @@
 			<Behavior>Usual</Behavior>
 			<Representation>NormalSeparation</Representation>
 			<ShowTitle>false</ShowTitle>
+			<BackColor>pal:FirstBrand</BackColor>
 			<ExtendedTooltip name="ГруппаНеудачнаяЗагрузкаРасширеннаяПодсказка" id="25"/>
 			<ChildItems>
 				<PictureDecoration name="Значок" id="26">
@@ -36,9 +63,10 @@
 							<v8:content>Значок</v8:content>
 						</v8:item>
 					</Title>
+					<GroupVerticalAlign>Top</GroupVerticalAlign>
 					<Picture>
-						<xr:Ref>CommonPicture.Ошибка32</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
+						<xr:Ref>StdPicture.DialogStop</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
 					</Picture>
 					<FileDragMode>AsFile</FileDragMode>
 					<ContextMenu name="ЗначокКонтекстноеМеню" id="27"/>
@@ -62,7 +90,7 @@
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>При выполнении правил регистрации для приложения
+									<v8:content>При выполнении правил регистрации для приложения 
 &lt;b&gt;%1&lt;/b&gt;
 возникла ошибка:
 %2</v8:content>
@@ -74,6 +102,12 @@
 						<Button name="ПерейтиВЖурналРегистрации" id="54">
 							<Type>Hyperlink</Type>
 							<CommandName>Form.Command.ПерейтиВЖурналРегистрации</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Техническая информация об ошибке</v8:content>
+								</v8:item>
+							</Title>
 							<ExtendedTooltip name="ПерейтиВЖурналРегистрацииРасширеннаяПодсказка" id="55"/>
 						</Button>
 					</ChildItems>
@@ -95,52 +129,20 @@
 			<ChildItems>
 				<LabelDecoration name="ТекстПравилаИзФайла" id="41">
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<Title formatted="false">
+					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Для приложения "%1"
-используются устаревшие правила %2, загруженные из файла. Рекомендуется
-использовать правила из конфигурации или загрузить новые правила из файла.</v8:content>
+							<v8:content>Для приложения "%1" используются устаревшие правила %2, загруженные из файла.</v8:content>
 						</v8:item>
 					</Title>
 					<ContextMenu name="ТекстПравилаИзФайлаКонтекстноеМеню" id="42"/>
 					<ExtendedTooltip name="ТекстПравилаИзФайлаРасширеннаяПодсказка" id="43"/>
+					<Events>
+						<Event name="URLProcessing">ТекстПравилаИзФайлаОбработкаНавигационнойСсылки</Event>
+					</Events>
 				</LabelDecoration>
-				<Button name="ЗагрузитьКомплектПравил" id="65">
-					<Type>Hyperlink</Type>
-					<CommandName>Form.Command.ЗагрузитьКомплектПравил</CommandName>
-					<Picture>
-						<xr:Ref>StdPicture.MoveRight</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</Picture>
-					<ExtendedTooltip name="ЗагрузитьКомплектПравилРасширеннаяПодсказка" id="66"/>
-				</Button>
 			</ChildItems>
 		</UsualGroup>
-		<CommandBar name="КоманднаяПанель" id="13">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="14"/>
-			<ChildItems>
-				<Button name="Перезапустить" id="17">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.Перезапустить</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ПерезапуститьРасширеннаяПодсказка" id="18"/>
-				</Button>
-				<Button name="ЗавершитьРаботу" id="15">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.ЗавершитьРаботу</CommandName>
-					<ExtendedTooltip name="ЗавершитьРаботуРасширеннаяПодсказка" id="16"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -205,6 +207,7 @@
 			</ToolTip>
 			<Action>Перезапустить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ЗавершитьРаботу" id="2">
 			<Title>
@@ -221,6 +224,7 @@
 			</ToolTip>
 			<Action>ЗавершитьРаботу</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПерейтиВЖурналРегистрации" id="4">
 			<Title>
@@ -236,22 +240,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПерейтиВЖурналРегистрации</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="ЗагрузитьКомплектПравил" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Загрузить новые правила</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Загрузить комплект правил</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ЗагрузитьКомплектПравил</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>

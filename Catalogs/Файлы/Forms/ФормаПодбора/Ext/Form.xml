@@ -10,37 +10,10 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandSet>
-		<ExcludedCommand>CancelSearch</ExcludedCommand>
-		<ExcludedCommand>Change</ExcludedCommand>
-		<ExcludedCommand>Copy</ExcludedCommand>
 		<ExcludedCommand>Create</ExcludedCommand>
 		<ExcludedCommand>CustomizeForm</ExcludedCommand>
-		<ExcludedCommand>Delete</ExcludedCommand>
-		<ExcludedCommand>Find</ExcludedCommand>
-		<ExcludedCommand>ListSettings</ExcludedCommand>
-		<ExcludedCommand>OutputList</ExcludedCommand>
-		<ExcludedCommand>Refresh</ExcludedCommand>
-		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
 	</CommandSet>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="Выбрать" id="39">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<SkipOnInput>false</SkipOnInput>
-				<CommandName>Form.StandardCommand.Choose</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="43"/>
-			</Button>
-			<Button name="Справка" id="40">
-				<Type>CommandBarButton</Type>
-				<SkipOnInput>false</SkipOnInput>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="44"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -67,7 +40,7 @@
 				</v8:item>
 			</Title>
 			<Height>10</Height>
-			<Group>HorizontalIfPossible</Group>
+			<Group>AutoScreenTypeSensitive</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -75,11 +48,10 @@
 			<ChildItems>
 				<Table name="Папки" id="11">
 					<Representation>Tree</Representation>
-					<TitleLocation>Top</TitleLocation>
 					<CommandBarLocation>None</CommandBarLocation>
 					<ReadOnly>true</ReadOnly>
 					<SkipOnInput>false</SkipOnInput>
-					<Width>22</Width>
+					<Width>30</Width>
 					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Row</RowSelectionMode>
 					<Header>false</Header>
@@ -164,6 +136,8 @@
 											<v8:content>Индекс картинки</v8:content>
 										</v8:item>
 									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ValuesPicture>
 										<xr:Ref>CommonPicture.Папки</xr:Ref>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -180,7 +154,9 @@
 											<v8:content>Папка</v8:content>
 										</v8:item>
 									</Title>
+									<EditMode>EnterOnInput</EditMode>
 									<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+									<AutoEditMode>true</AutoEditMode>
 									<Wrap>false</Wrap>
 									<BorderColor>style:BorderColor</BorderColor>
 									<ContextMenu name="ПапкиНаименованиеКонтекстноеМеню" id="15"/>
@@ -193,6 +169,8 @@
 							<UserVisible>
 								<xr:Common>false</xr:Common>
 							</UserVisible>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ПапкиСсылкаКонтекстноеМеню" id="59"/>
 							<ExtendedTooltip name="ПапкиСсылкаРасширеннаяПодсказка" id="60"/>
 						</LabelField>
@@ -203,7 +181,7 @@
 					<ReadOnly>true</ReadOnly>
 					<SkipOnInput>false</SkipOnInput>
 					<DefaultItem>true</DefaultItem>
-					<Width>65</Width>
+					<Width>70</Width>
 					<ChoiceMode>true</ChoiceMode>
 					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Row</RowSelectionMode>
@@ -215,6 +193,7 @@
 					<SearchStringLocation>Top</SearchStringLocation>
 					<ViewStatusLocation>None</ViewStatusLocation>
 					<SearchControlLocation>None</SearchControlLocation>
+					<ShowCommandBar>false</ShowCommandBar>
 					<AutoRefresh>false</AutoRefresh>
 					<AutoRefreshPeriod>60</AutoRefreshPeriod>
 					<Period>
@@ -277,7 +256,9 @@
 									<DataPath>Список.ИндексКартинки</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<ToolTipRepresentation>None</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
 									<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+									<AutoEditMode>true</AutoEditMode>
 									<Width>2</Width>
 									<Height>1</Height>
 									<ValuesPicture>
@@ -300,8 +281,10 @@
 											<v8:content>Наименование</v8:content>
 										</v8:item>
 									</Title>
+									<EditMode>EnterOnInput</EditMode>
 									<AutoCellHeight>true</AutoCellHeight>
 									<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+									<AutoEditMode>true</AutoEditMode>
 									<Width>20</Width>
 									<Wrap>false</Wrap>
 									<BorderColor>style:BorderColor</BorderColor>
@@ -311,7 +294,9 @@
 								<InputField name="СписокОписание" id="31">
 									<DataPath>Список.Описание</DataPath>
 									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
 									<AutoCellHeight>true</AutoCellHeight>
+									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<Wrap>false</Wrap>
 									<MultiLine>false</MultiLine>
@@ -322,7 +307,9 @@
 						</ColumnGroup>
 						<InputField name="СписокАвтор" id="21" DisplayImportance="Usual">
 							<DataPath>Список.Автор</DataPath>
+							<EditMode>EnterOnInput</EditMode>
 							<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+							<AutoEditMode>true</AutoEditMode>
 							<Width>14</Width>
 							<HorizontalStretch>false</HorizontalStretch>
 							<Wrap>false</Wrap>
@@ -332,7 +319,9 @@
 						</InputField>
 						<InputField name="СписокДатаСоздания" id="23" DisplayImportance="Usual">
 							<DataPath>Список.ДатаСоздания</DataPath>
+							<EditMode>EnterOnInput</EditMode>
 							<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+							<AutoEditMode>true</AutoEditMode>
 							<Width>15</Width>
 							<HorizontalStretch>false</HorizontalStretch>
 							<Wrap>false</Wrap>
@@ -345,6 +334,8 @@
 							<UserVisible>
 								<xr:Common>false</xr:Common>
 							</UserVisible>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<Width>1</Width>
 							<ContextMenu name="СписокСсылкаКонтекстноеМеню" id="42"/>
 							<ExtendedTooltip name="СписокСсылкаРасширеннаяПодсказка" id="57"/>

@@ -7,40 +7,22 @@
 		</v8:item>
 	</Title>
 	<Width>94</Width>
-	<Height>22</Height>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="Выбрать" id="8">
 				<Type>CommandBarButton</Type>
 				<Representation>PictureAndText</Representation>
+				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.Выбрать</CommandName>
-				<Picture>
-					<xr:Ref>StdPicture.ChooseValue</xr:Ref>
-					<xr:LoadTransparent>true</xr:LoadTransparent>
-				</Picture>
+				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ВыбратьExtendedTooltip" id="11"/>
 			</Button>
-			<ButtonGroup name="ГруппаОткрыть" id="9">
-				<ToolTip>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Группа открыть</v8:content>
-					</v8:item>
-				</ToolTip>
-				<ExtendedTooltip name="ГруппаОткрытьExtendedTooltip" id="12"/>
-				<ChildItems>
-					<Button name="ОткрытьСертификат" id="10">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Открыть</CommandName>
-						<ExtendedTooltip name="ОткрытьСертификатExtendedTooltip" id="13"/>
-					</Button>
-				</ChildItems>
-			</ButtonGroup>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -50,10 +32,11 @@
 	<ChildItems>
 		<Table name="Сертификаты" id="1">
 			<Representation>Tree</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
+			<CommandBarLocation>Top</CommandBarLocation>
 			<ReadOnly>true</ReadOnly>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -65,8 +48,18 @@
 			<SearchStringLocation>None</SearchStringLocation>
 			<ViewStatusLocation>None</ViewStatusLocation>
 			<SearchControlLocation>None</SearchControlLocation>
+			<ShowCommandBar>true</ShowCommandBar>
 			<ContextMenu name="СертификатыКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СертификатыКоманднаяПанель" id="3"/>
+			<AutoCommandBar name="СертификатыКоманднаяПанель" id="3">
+				<ChildItems>
+					<Button name="ОткрытьСертификат" id="10">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Открыть</CommandName>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+						<ExtendedTooltip name="ОткрытьСертификатExtendedTooltip" id="13"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СертификатыExtendedTooltip" id="14"/>
 			<SearchStringAddition name="СертификатыСтрокаПоиска" id="17">
 				<AdditionSource>
@@ -309,6 +302,7 @@
 			</ToolTip>
 			<Action>Выбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Открыть" id="2">
 			<Title>
@@ -329,7 +323,8 @@
 			</Picture>
 			<Action>ОткрытьСертификат</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Сертификаты</AssociatedTableElementId>
 		</Command>
 	</Commands>
 	<Parameters>

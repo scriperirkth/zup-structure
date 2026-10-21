@@ -21,41 +21,24 @@
 					<v8:content>Шапка</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>AutoScreenTypeSensitive</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>NormalSeparation</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="39"/>
 			<ChildItems>
-				<UsualGroup name="НаименованиеИСокращение" id="35">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Наименование и сокращение</v8:content>
-						</v8:item>
-					</Title>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="НаименованиеИСокращениеРасширеннаяПодсказка" id="40"/>
-					<ChildItems>
-						<InputField name="Наименование" id="3">
-							<DataPath>Объект.Description</DataPath>
-							<Wrap>false</Wrap>
-							<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
-							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="41"/>
-						</InputField>
-						<InputField name="КраткоеПредставление" id="33">
-							<DataPath>Объект.КраткоеПредставление</DataPath>
-							<TitleHeight>2</TitleHeight>
-							<ContextMenu name="КраткоеПредставлениеКонтекстноеМеню" id="34"/>
-							<ExtendedTooltip name="КраткоеПредставлениеРасширеннаяПодсказка" id="42"/>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
+				<InputField name="Наименование" id="3">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Wrap>false</Wrap>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="41"/>
+				</InputField>
 				<InputField name="Код" id="1">
 					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>8</Width>
 					<Wrap>false</Wrap>
 					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
@@ -63,43 +46,30 @@
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаНазначение" id="57">
+		<InputField name="КраткоеПредставление" id="33">
+			<DataPath>Объект.КраткоеПредставление</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<ContextMenu name="КраткоеПредставлениеКонтекстноеМеню" id="34"/>
+			<ExtendedTooltip name="КраткоеПредставлениеРасширеннаяПодсказка" id="42"/>
+		</InputField>
+		<InputField name="ВидПользователей" id="72">
+			<DataPath>ВидПользователей</DataPath>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Назначение</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаНазначениеРасширеннаяПодсказка" id="58"/>
-			<ChildItems>
-				<LabelDecoration name="ДекорацияНазначение" id="59">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Назначение:</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ДекорацияНазначениеКонтекстноеМеню" id="60"/>
-					<ExtendedTooltip name="ДекорацияНазначениеРасширеннаяПодсказка" id="61"/>
-				</LabelDecoration>
-				<Button name="ВыбратьНазначение" id="62">
-					<Type>Hyperlink</Type>
-					<CommandName>Form.Command.ВыбратьНазначение</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Выбрать назначение</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ВыбратьНазначениеРасширеннаяПодсказка" id="63"/>
-				</Button>
-			</ChildItems>
-		</UsualGroup>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ВидПользователейКонтекстноеМеню" id="73"/>
+			<ExtendedTooltip name="ВидПользователейРасширеннаяПодсказка" id="74"/>
+			<Events>
+				<Event name="StartChoice">ВидПользователейНачалоВыбора</Event>
+			</Events>
+		</InputField>
 		<UsualGroup name="ГруппаАдресации" id="23">
 			<Title>
 				<v8:item>
@@ -127,6 +97,8 @@
 							<v8:content>Роль может назначаться исполнителям без указания других объектов адресации (основного или дополнительного).</v8:content>
 						</v8:item>
 					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИспользуетсяБезКонтекстаДругихИзмеренийАдресацииКонтекстноеМеню" id="6"/>
 					<ExtendedTooltip name="ИспользуетсяБезКонтекстаДругихИзмеренийАдресацииРасширеннаяПодсказка" id="48"/>
 				</CheckBoxField>
@@ -146,6 +118,8 @@
 						</v8:item>
 					</ToolTip>
 					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИспользуетсяВКонтекстеДругихИзмеренийАдресацииКонтекстноеМеню" id="8"/>
 					<ExtendedTooltip name="ИспользуетсяВКонтекстеДругихИзмеренийАдресацииРасширеннаяПодсказка" id="50">
 						<Title formatted="false">
@@ -160,83 +134,52 @@
 						<Event name="OnChange">ИспользуетсяВКонтекстеДругихИзмеренийАдресацииПриИзменении</Event>
 					</Events>
 				</CheckBoxField>
-				<UsualGroup name="ГруппаАдресацииДополнительно" id="38">
+				<UsualGroup name="ГруппаТипыОбъектовАдресации" id="22">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Адресация задач исполнителям (дополнительно)</v8:content>
+							<v8:content>Типы объектов адресации</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаАдресацииДополнительноРасширеннаяПодсказка" id="49"/>
+					<ExtendedTooltip name="ГруппаТипыОбъектовАдресацииРасширеннаяПодсказка" id="51"/>
 					<ChildItems>
-						<LabelDecoration name="Пояснение" id="36">
-							<TextColor>style:ПоясняющийТекст</TextColor>
-							<ContextMenu name="ПояснениеКонтекстноеМеню" id="37"/>
-							<ExtendedTooltip name="ПояснениеРасширеннаяПодсказка" id="54"/>
-						</LabelDecoration>
-						<UsualGroup name="ГруппаТипыОбъектовАдресации" id="22">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Типы объектов адресации</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаТипыОбъектовАдресацииРасширеннаяПодсказка" id="51"/>
-							<ChildItems>
-								<InputField name="ТипыОсновногоОбъектаАдресации" id="18">
-									<DataPath>Объект.ТипыОсновногоОбъектаАдресации</DataPath>
-									<Wrap>false</Wrap>
-									<OpenButton>false</OpenButton>
-									<ContextMenu name="ТипыОсновногоОбъектаАдресацииКонтекстноеМеню" id="19"/>
-									<ExtendedTooltip name="ТипыОсновногоОбъектаАдресацииРасширеннаяПодсказка" id="52"/>
-								</InputField>
-								<InputField name="ТипыДополнительногоОбъектаАдресации" id="20">
-									<DataPath>Объект.ТипыДополнительногоОбъектаАдресации</DataPath>
-									<Wrap>false</Wrap>
-									<OpenButton>false</OpenButton>
-									<ContextMenu name="ТипыДополнительногоОбъектаАдресацииКонтекстноеМеню" id="21"/>
-									<ExtendedTooltip name="ТипыДополнительногоОбъектаАдресацииРасширеннаяПодсказка" id="53"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
+						<InputField name="ТипыОсновногоОбъектаАдресации" id="18">
+							<DataPath>Объект.ТипыОсновногоОбъектаАдресации</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Wrap>false</Wrap>
+							<OpenButton>false</OpenButton>
+							<ContextMenu name="ТипыОсновногоОбъектаАдресацииКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="ТипыОсновногоОбъектаАдресацииРасширеннаяПодсказка" id="52"/>
+						</InputField>
+						<InputField name="ТипыДополнительногоОбъектаАдресации" id="20">
+							<DataPath>Объект.ТипыДополнительногоОбъектаАдресации</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Wrap>false</Wrap>
+							<OpenButton>false</OpenButton>
+							<ContextMenu name="ТипыДополнительногоОбъектаАдресацииКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="ТипыДополнительногоОбъектаАдресацииРасширеннаяПодсказка" id="53"/>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаКомментарий" id="27">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Комментарий</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>NormalSeparation</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКомментарийРасширеннаяПодсказка" id="55"/>
-			<ChildItems>
-				<InputField name="Комментарий" id="25">
-					<DataPath>Объект.Комментарий</DataPath>
-					<TitleLocation>Left</TitleLocation>
-					<Height>2</Height>
-					<ChoiceButton>true</ChoiceButton>
-					<ContextMenu name="КомментарийКонтекстноеМеню" id="26"/>
-					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="56"/>
-					<Events>
-						<Event name="StartChoice">КомментарийНачалоВыбора</Event>
-					</Events>
-				</InputField>
-			</ChildItems>
-		</UsualGroup>
+		<InputField name="Комментарий" id="25">
+			<DataPath>Объект.Комментарий</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<ChoiceButton>true</ChoiceButton>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="26"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="56"/>
+			<Events>
+				<Event name="StartChoice">КомментарийНачалоВыбора</Event>
+			</Events>
+		</InputField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -249,23 +192,17 @@
 		<Attribute name="ПараметрыМультиязычныхРеквизитов" id="2">
 			<Type/>
 		</Attribute>
-	</Attributes>
-	<Commands>
-		<Command name="ВыбратьНазначение" id="1">
+		<Attribute name="ВидПользователей" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать назначение</v8:content>
+					<v8:content>Вид пользователей</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать назначение</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ВыбратьНазначение</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-	</Commands>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription"/>
+		</Attribute>
+	</Attributes>
 </Form>

@@ -2,6 +2,7 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
+	<VerticalSpacing>Half</VerticalSpacing>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
@@ -116,25 +117,15 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаНазначениеExtendedTooltip" id="172"/>
 			<ChildItems>
-				<LabelDecoration name="Декорация1" id="6">
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Назначение:                      </v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="Декорация1КонтекстноеМеню" id="7"/>
-					<ExtendedTooltip name="Декорация1ExtendedTooltip" id="173"/>
-				</LabelDecoration>
 				<CheckBoxField name="ПредназначенаДляДокументооборотаСФНС" id="1">
 					<DataPath>Объект.ПредназначенаДляДокументооборотаСФНС</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ФНС               </v8:content>
+							<v8:content>Назначение</v8:content>
 						</v8:item>
 					</Title>
-					<TitleLocation>Right</TitleLocation>
+					<TitleLocation>Left</TitleLocation>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -147,6 +138,16 @@
 						<Event name="OnChange">ПредназначенаДляДокументооборотаСФНСПриИзменении</Event>
 					</Events>
 				</CheckBoxField>
+				<LabelDecoration name="ДекорацияФНС" id="6">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ФНС</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияФНСКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="ДекорацияФНСРасширеннаяПодсказка" id="173"/>
+				</LabelDecoration>
 				<CheckBoxField name="ПредназначенаДляДокументооборотаСФСГС" id="91">
 					<DataPath>Объект.ПредназначенаДляДокументооборотаСФСГС</DataPath>
 					<Title>
@@ -216,33 +217,20 @@
 			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>WeakSeparation</Representation>
+			<ThroughAlign>Use</ThroughAlign>
 			<ExtendedTooltip name="Группа1ExtendedTooltip" id="177"/>
 			<ChildItems>
-				<LabelDecoration name="Декорация4" id="89">
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Оператор:      </v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Оператор электронного документооборота</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ContextMenu name="Декорация4КонтекстноеМеню" id="90"/>
-					<ExtendedTooltip name="Декорация4ExtendedTooltip" id="178"/>
-				</LabelDecoration>
 				<CheckBoxField name="ОбменНапрямую" id="8">
 					<DataPath>Объект.ОбменНапрямую</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>отсутствует</v8:content>
+							<v8:content>Оператор отсутствует</v8:content>
 						</v8:item>
 					</Title>
-					<TitleLocation>Right</TitleLocation>
+					<TitleLocation>Left</TitleLocation>
+					<CheckBoxType>Tumbler</CheckBoxType>
+					<TumblerRepresentation>Text</TumblerRepresentation>
 					<ContextMenu name="ОбменНапрямуюКонтекстноеМеню" id="9"/>
 					<ExtendedTooltip name="ОбменНапрямуюExtendedTooltip" id="179"/>
 					<Events>
@@ -275,6 +263,7 @@
 					<v8:content>Почтовый адрес</v8:content>
 				</v8:item>
 			</Title>
+			<TitleLocation>Left</TitleLocation>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<ContextMenu name="АдресЭлектроннойПочтыКонтекстноеМеню" id="11"/>
 			<ExtendedTooltip name="АдресЭлектроннойПочтыExtendedTooltip" id="181"/>
@@ -298,6 +287,7 @@
 							<v8:content>Идентификатор абонента</v8:content>
 						</v8:item>
 					</Title>
+					<TitleLocation>Left</TitleLocation>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<ContextMenu name="ИдентификаторАбонентаКонтекстноеМеню" id="14"/>
 					<ExtendedTooltip name="ИдентификаторАбонентаExtendedTooltip" id="183"/>
@@ -313,12 +303,14 @@
 							<v8:content>Индентификатор оператора</v8:content>
 						</v8:item>
 					</Title>
+					<TitleLocation>Left</TitleLocation>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Идентификатор оператора электронного документооборота</v8:content>
 						</v8:item>
 					</ToolTip>
+					<Width>3</Width>
 					<ContextMenu name="ИдентификаторСпецоператораКонтекстноеМеню" id="16"/>
 					<ExtendedTooltip name="ИдентификаторСпецоператораExtendedTooltip" id="184"/>
 				</InputField>
@@ -332,12 +324,14 @@
 					<v8:content>Организация</v8:content>
 				</v8:item>
 			</Title>
+			<TitleLocation>Left</TitleLocation>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<ContextMenu name="СписокОрганизацийКонтекстноеМеню" id="168"/>
 			<ExtendedTooltip name="СписокОрганизацийExtendedTooltip" id="185"/>
 		</LabelField>
 		<LabelField name="ГиперссылкаПользователей" id="81">
 			<DataPath>СписокПользователейСтрокой</DataPath>
+			<TitleLocation>Left</TitleLocation>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<Hiperlink>true</Hiperlink>
 			<ContextMenu name="ГиперссылкаПользователейКонтекстноеМеню" id="82"/>
@@ -363,6 +357,7 @@
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
+			<ThroughAlign>Use</ThroughAlign>
 			<ExtendedTooltip name="ГруппаАвтоматическаяНастройкаExtendedTooltip" id="187"/>
 			<ChildItems>
 				<InputField name="РежимАвтонастройки" id="18">
@@ -404,12 +399,14 @@
 				</v8:item>
 			</Title>
 			<Group>Vertical</Group>
+			<VerticalSpacing>Half</VerticalSpacing>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
+			<ThroughAlign>Use</ThroughAlign>
 			<ExtendedTooltip name="ГруппаУчастникиДокументооборотаExtendedTooltip" id="190"/>
 			<ChildItems>
 				<InputField name="СерверДокументооборота" id="22">
 					<DataPath>Объект.СерверДокументооборота</DataPath>
+					<TitleLocation>Left</TitleLocation>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<ContextMenu name="СерверДокументооборотаКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="СерверДокументооборотаExtendedTooltip" id="191"/>
@@ -419,6 +416,7 @@
 				</InputField>
 				<InputField name="НалоговыйОрган" id="24">
 					<DataPath>Объект.НалоговыйОрган</DataPath>
+					<TitleLocation>Left</TitleLocation>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<ContextMenu name="НалоговыйОрганКонтекстноеМеню" id="25"/>
 					<ExtendedTooltip name="НалоговыйОрганExtendedTooltip" id="192"/>
@@ -433,9 +431,11 @@
 				</v8:item>
 			</ToolTip>
 			<Group>Horizontal</Group>
+			<VerticalSpacing>Half</VerticalSpacing>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
+			<ThroughAlign>Use</ThroughAlign>
 			<ExtendedTooltip name="ГруппаДоступКСерверуExtendedTooltip" id="193"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаДоступКСерверуЛево" id="67">
@@ -446,6 +446,7 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Horizontal</Group>
+					<VerticalSpacing>Half</VerticalSpacing>
 					<Behavior>Usual</Behavior>
 					<Representation>NormalSeparation</Representation>
 					<United>false</United>
@@ -467,8 +468,8 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
+							<VerticalSpacing>Half</VerticalSpacing>
 							<Behavior>Usual</Behavior>
-							<Representation>WeakSeparation</Representation>
 							<ThroughAlign>Use</ThroughAlign>
 							<ExtendedTooltip name="ГруппаАдресСервераExtendedTooltip" id="198"/>
 							<ChildItems>
@@ -520,8 +521,8 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
+							<VerticalSpacing>Half</VerticalSpacing>
 							<Behavior>Usual</Behavior>
-							<Representation>WeakSeparation</Representation>
 							<ExtendedTooltip name="ГруппаПортExtendedTooltip" id="201"/>
 							<ChildItems>
 								<InputField name="ПортSMTP" id="32">
@@ -533,8 +534,9 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
+									<HorizontalAlign>Right</HorizontalAlign>
 									<Width>7</Width>
-									<SpinButton>true</SpinButton>
+									<SpinButton>false</SpinButton>
 									<ContextMenu name="ПортSMTPКонтекстноеМеню" id="33"/>
 									<ExtendedTooltip name="ПортSMTPExtendedTooltip" id="202"/>
 								</InputField>
@@ -547,8 +549,9 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
+									<HorizontalAlign>Right</HorizontalAlign>
 									<Width>7</Width>
-									<SpinButton>true</SpinButton>
+									<SpinButton>false</SpinButton>
 									<ContextMenu name="ПортPOP3КонтекстноеМеню" id="53"/>
 									<ExtendedTooltip name="ПортPOP3ExtendedTooltip" id="203"/>
 								</InputField>
@@ -568,8 +571,8 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
+							<VerticalSpacing>Half</VerticalSpacing>
 							<Behavior>Usual</Behavior>
-							<Representation>WeakSeparation</Representation>
 							<ExtendedTooltip name="ГруппаПользовательExtendedTooltip" id="204"/>
 							<ChildItems>
 								<UsualGroup name="ГруппаПодSMTP" id="80">
@@ -648,8 +651,8 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
+							<VerticalSpacing>Half</VerticalSpacing>
 							<Behavior>Usual</Behavior>
-							<Representation>WeakSeparation</Representation>
 							<ExtendedTooltip name="ГруппаПарольExtendedTooltip" id="209"/>
 							<ChildItems>
 								<InputField name="ПарольSMTP" id="28">
@@ -696,7 +699,7 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа</v8:content>
+									<v8:content> </v8:content>
 								</v8:item>
 							</Title>
 							<ToolTip>
@@ -706,33 +709,21 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
+							<VerticalSpacing>Half</VerticalSpacing>
 							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
 							<ThroughAlign>Use</ThroughAlign>
 							<ExtendedTooltip name="ГруппаДоступКСерверуКнопкаExtendedTooltip" id="212"/>
 							<ChildItems>
-								<LabelDecoration name="Декорация2" id="225">
-									<ContextMenu name="Декорация2КонтекстноеМеню" id="226"/>
-									<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="227"/>
-								</LabelDecoration>
 								<Button name="КнопкаПроверитьПараметрыДоступа" id="70">
 									<Type>UsualButton</Type>
 									<Representation>Text</Representation>
-									<Width>10</Width>
+									<Width>11</Width>
 									<Height>3</Height>
 									<CommandName>Form.Command.ПроверитьПараметрыДоступа</CommandName>
-									<Picture>
-										<xr:Abs>Picture.jpg</xr:Abs>
-										<xr:LoadTransparent>true</xr:LoadTransparent>
-										<xr:TransparentPixel x="0" y="30"/>
-									</Picture>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Проверить
-параметры
-доступа</v8:content>
+											<v8:content>Проверить</v8:content>
 										</v8:item>
 									</Title>
 									<ExtendedTooltip name="КнопкаПроверитьПараметрыДоступаExtendedTooltip" id="213"/>
@@ -743,7 +734,7 @@
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаСертификаты" id="320">
+		<UsualGroup name="ОдинСертификат" id="58">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -753,401 +744,368 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа сертификаты</v8:content>
+					<v8:content>Один сертификат</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
-			<ExtendedTooltip name="ГруппаСертификатыРасширеннаяПодсказка" id="321"/>
+			<Group>Vertical</Group>
+			<VerticalSpacing>Half</VerticalSpacing>
+			<ThroughAlign>Use</ThroughAlign>
+			<ExtendedTooltip name="ОдинСертификатРасширеннаяПодсказка" id="214"/>
 			<ChildItems>
-				<Pages name="СертификатыУчетки" id="285">
+				<InputField name="СертификатРуководителяПредставление" id="59">
+					<DataPath>СертификатРуководителяПредставление</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Сертификаты учетки</v8:content>
+							<v8:content>Руководитель</v8:content>
 						</v8:item>
 					</Title>
-					<ToolTip>
+					<TitleLocation>Left</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ChoiceButton>true</ChoiceButton>
+					<ClearButton>true</ClearButton>
+					<OpenButton>true</OpenButton>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="СертификатРуководителяПредставлениеКонтекстноеМеню" id="60"/>
+					<ExtendedTooltip name="СертификатРуководителяПредставлениеExtendedTooltip" id="215"/>
+					<Events>
+						<Event name="StartChoice">СертификатРуководителяПредставлениеНачалоВыбора</Event>
+						<Event name="Opening">СертификатРуководителяПредставлениеОткрытие</Event>
+						<Event name="Clearing">СертификатРуководителяПредставлениеОчистка</Event>
+					</Events>
+				</InputField>
+				<InputField name="СертификатГлавногоБухгалтераПредставление" id="61">
+					<DataPath>СертификатГлавногоБухгалтераПредставление</DataPath>
+					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Сертификаты учетки</v8:content>
+							<v8:content>Главный бухгалтер</v8:content>
 						</v8:item>
-					</ToolTip>
-					<PagesRepresentation>None</PagesRepresentation>
-					<ExtendedTooltip name="СертификатыУчеткиРасширеннаяПодсказка" id="286"/>
+					</Title>
+					<TitleLocation>Left</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ChoiceButton>true</ChoiceButton>
+					<ClearButton>true</ClearButton>
+					<OpenButton>true</OpenButton>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="СертификатГлавногоБухгалтераПредставлениеКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="СертификатГлавногоБухгалтераПредставлениеExtendedTooltip" id="216"/>
+					<Events>
+						<Event name="StartChoice">СертификатГлавногоБухгалтераПредставлениеНачалоВыбора</Event>
+						<Event name="Opening">СертификатГлавногоБухгалтераПредставлениеОткрытие</Event>
+						<Event name="Clearing">СертификатГлавногоБухгалтераПредставлениеОчистка</Event>
+					</Events>
+				</InputField>
+				<InputField name="СертификатШифрованиеПредставление" id="63">
+					<DataPath>СертификатШифрованиеПредставление</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Для целей шифрования</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Left</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ChoiceButton>true</ChoiceButton>
+					<ClearButton>true</ClearButton>
+					<OpenButton>true</OpenButton>
+					<TextEdit>false</TextEdit>
+					<ChoiceListButton>true</ChoiceListButton>
+					<ContextMenu name="СертификатШифрованиеПредставлениеКонтекстноеМеню" id="64"/>
+					<ExtendedTooltip name="СертификатШифрованиеПредставлениеExtendedTooltip" id="217"/>
+					<Events>
+						<Event name="StartChoice">СертификатШифрованиеПредставлениеНачалоВыбора</Event>
+						<Event name="Opening">СертификатШифрованиеПредставлениеОткрытие</Event>
+						<Event name="Clearing">СертификатШифрованиеПредставлениеОчистка</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="НесколькоСертификатов" id="287">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сертификаты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Несколько сертификатов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="НесколькоСертификатовРасширеннаяПодсказка" id="288"/>
+			<ChildItems>
+				<Table name="СертификатыЛичные" id="289">
+					<Representation>List</Representation>
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<SelectionMode>SingleRow</SelectionMode>
+					<RowSelectionMode>Cell</RowSelectionMode>
+					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<DataPath>СертификатыЛичные</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="СертификатыЛичныеКонтекстноеМеню" id="290"/>
+					<AutoCommandBar name="СертификатыЛичныеКоманднаяПанель" id="291">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="СертификатыЛичныеРасширеннаяПодсказка" id="292"/>
+					<SearchStringAddition name="СертификатыЛичныеСтрокаПоиска" id="293">
+						<AdditionSource>
+							<Item>СертификатыЛичные</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СертификатыЛичныеСтрокаПоискаКонтекстноеМеню" id="294"/>
+						<ExtendedTooltip name="СертификатыЛичныеСтрокаПоискаРасширеннаяПодсказка" id="295"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="СертификатыЛичныеСостояниеПросмотра" id="296">
+						<AdditionSource>
+							<Item>СертификатыЛичные</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СертификатыЛичныеСостояниеПросмотраКонтекстноеМеню" id="297"/>
+						<ExtendedTooltip name="СертификатыЛичныеСостояниеПросмотраРасширеннаяПодсказка" id="298"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="СертификатыЛичныеУправлениеПоиском" id="299">
+						<AdditionSource>
+							<Item>СертификатыЛичные</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="СертификатыЛичныеУправлениеПоискомКонтекстноеМеню" id="300"/>
+						<ExtendedTooltip name="СертификатыЛичныеУправлениеПоискомРасширеннаяПодсказка" id="301"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">СертификатыЛичныеВыбор</Event>
+					</Events>
 					<ChildItems>
-						<Page name="ОдинСертификат" id="58">
+						<PictureField name="СертификатыЛичныеКартинкаМестаХранения" id="376">
+							<DataPath>СертификатыЛичные.КартинкаМестаХранения</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Один сертификат</v8:content>
+									<v8:content> </v8:content>
 								</v8:item>
 							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Один сертификат</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>Vertical</Group>
-							<ScrollOnCompress>false</ScrollOnCompress>
-							<ExtendedTooltip name="ОдинСертификатРасширеннаяПодсказка" id="214"/>
-							<ChildItems>
-								<InputField name="СертификатРуководителяПредставление" id="59">
-									<DataPath>СертификатРуководителяПредставление</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Руководитель</v8:content>
-										</v8:item>
-									</Title>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<ChoiceButton>true</ChoiceButton>
-									<ClearButton>true</ClearButton>
-									<OpenButton>true</OpenButton>
-									<TextEdit>false</TextEdit>
-									<ContextMenu name="СертификатРуководителяПредставлениеКонтекстноеМеню" id="60"/>
-									<ExtendedTooltip name="СертификатРуководителяПредставлениеExtendedTooltip" id="215"/>
-									<Events>
-										<Event name="StartChoice">СертификатРуководителяПредставлениеНачалоВыбора</Event>
-										<Event name="Opening">СертификатРуководителяПредставлениеОткрытие</Event>
-										<Event name="Clearing">СертификатРуководителяПредставлениеОчистка</Event>
-									</Events>
-								</InputField>
-								<InputField name="СертификатГлавногоБухгалтераПредставление" id="61">
-									<DataPath>СертификатГлавногоБухгалтераПредставление</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Главный бухгалтер</v8:content>
-										</v8:item>
-									</Title>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<ChoiceButton>true</ChoiceButton>
-									<ClearButton>true</ClearButton>
-									<OpenButton>true</OpenButton>
-									<TextEdit>false</TextEdit>
-									<ContextMenu name="СертификатГлавногоБухгалтераПредставлениеКонтекстноеМеню" id="62"/>
-									<ExtendedTooltip name="СертификатГлавногоБухгалтераПредставлениеExtendedTooltip" id="216"/>
-									<Events>
-										<Event name="StartChoice">СертификатГлавногоБухгалтераПредставлениеНачалоВыбора</Event>
-										<Event name="Opening">СертификатГлавногоБухгалтераПредставлениеОткрытие</Event>
-										<Event name="Clearing">СертификатГлавногоБухгалтераПредставлениеОчистка</Event>
-									</Events>
-								</InputField>
-								<InputField name="СертификатШифрованиеПредставление" id="63">
-									<DataPath>СертификатШифрованиеПредставление</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Для целей шифрования</v8:content>
-										</v8:item>
-									</Title>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<ChoiceButton>true</ChoiceButton>
-									<ClearButton>true</ClearButton>
-									<OpenButton>true</OpenButton>
-									<TextEdit>false</TextEdit>
-									<ChoiceListButton>true</ChoiceListButton>
-									<ContextMenu name="СертификатШифрованиеПредставлениеКонтекстноеМеню" id="64"/>
-									<ExtendedTooltip name="СертификатШифрованиеПредставлениеExtendedTooltip" id="217"/>
-									<Events>
-										<Event name="StartChoice">СертификатШифрованиеПредставлениеНачалоВыбора</Event>
-										<Event name="Opening">СертификатШифрованиеПредставлениеОткрытие</Event>
-										<Event name="Clearing">СертификатШифрованиеПредставлениеОчистка</Event>
-									</Events>
-								</InputField>
-							</ChildItems>
-						</Page>
-						<Page name="НесколькоСертификатов" id="287">
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.ТипыСертификатовБРО</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<ContextMenu name="СертификатыЛичныеКартинкаМестаХраненияКонтекстноеМеню" id="377"/>
+							<ExtendedTooltip name="СертификатыЛичныеКартинкаМестаХраненияРасширеннаяПодсказка" id="378"/>
+						</PictureField>
+						<InputField name="СертификатыЛичныеПользователь" id="314">
+							<DataPath>СертификатыЛичные.Пользователь</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>30</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="СертификатыЛичныеПользовательКонтекстноеМеню" id="315"/>
+							<ExtendedTooltip name="СертификатыЛичныеПользовательРасширеннаяПодсказка" id="316"/>
+						</InputField>
+						<InputField name="СертификатыЛичныеПредставление" id="317">
+							<DataPath>СертификатыЛичные.Представление</DataPath>
+							<ReadOnly>true</ReadOnly>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Несколько сертификатов</v8:content>
+									<v8:content>Сертификат</v8:content>
 								</v8:item>
 							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Несколько сертификатов</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>Vertical</Group>
-							<ScrollOnCompress>false</ScrollOnCompress>
-							<ExtendedTooltip name="НесколькоСертификатовРасширеннаяПодсказка" id="288"/>
-							<ChildItems>
-								<Table name="СертификатыЛичные" id="289">
-									<Representation>List</Representation>
-									<ChangeRowSet>false</ChangeRowSet>
-									<ChangeRowOrder>false</ChangeRowOrder>
-									<RowSelectionMode>Cell</RowSelectionMode>
-									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-									<AutoInsertNewRow>true</AutoInsertNewRow>
-									<EnableStartDrag>true</EnableStartDrag>
-									<EnableDrag>true</EnableDrag>
-									<DataPath>СертификатыЛичные</DataPath>
-									<RowFilter xsi:nil="true"/>
-									<ContextMenu name="СертификатыЛичныеКонтекстноеМеню" id="290"/>
-									<AutoCommandBar name="СертификатыЛичныеКоманднаяПанель" id="291">
-										<Autofill>false</Autofill>
-									</AutoCommandBar>
-									<ExtendedTooltip name="СертификатыЛичныеРасширеннаяПодсказка" id="292"/>
-									<SearchStringAddition name="СертификатыЛичныеСтрокаПоиска" id="293">
-										<AdditionSource>
-											<Item>СертификатыЛичные</Item>
-											<Type>SearchStringRepresentation</Type>
-										</AdditionSource>
-										<ContextMenu name="СертификатыЛичныеСтрокаПоискаКонтекстноеМеню" id="294"/>
-										<ExtendedTooltip name="СертификатыЛичныеСтрокаПоискаРасширеннаяПодсказка" id="295"/>
-									</SearchStringAddition>
-									<ViewStatusAddition name="СертификатыЛичныеСостояниеПросмотра" id="296">
-										<AdditionSource>
-											<Item>СертификатыЛичные</Item>
-											<Type>ViewStatusRepresentation</Type>
-										</AdditionSource>
-										<ContextMenu name="СертификатыЛичныеСостояниеПросмотраКонтекстноеМеню" id="297"/>
-										<ExtendedTooltip name="СертификатыЛичныеСостояниеПросмотраРасширеннаяПодсказка" id="298"/>
-									</ViewStatusAddition>
-									<SearchControlAddition name="СертификатыЛичныеУправлениеПоиском" id="299">
-										<AdditionSource>
-											<Item>СертификатыЛичные</Item>
-											<Type>SearchControl</Type>
-										</AdditionSource>
-										<ContextMenu name="СертификатыЛичныеУправлениеПоискомКонтекстноеМеню" id="300"/>
-										<ExtendedTooltip name="СертификатыЛичныеУправлениеПоискомРасширеннаяПодсказка" id="301"/>
-									</SearchControlAddition>
-									<Events>
-										<Event name="Selection">СертификатыЛичныеВыбор</Event>
-									</Events>
-									<ChildItems>
-										<PictureField name="СертификатыЛичныеКартинкаМестаХранения" id="376">
-											<DataPath>СертификатыЛичные.КартинкаМестаХранения</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content> </v8:content>
-												</v8:item>
-											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ValuesPicture>
-												<xr:Ref>CommonPicture.ТипыСертификатовБРО</xr:Ref>
-												<xr:LoadTransparent>true</xr:LoadTransparent>
-											</ValuesPicture>
-											<ContextMenu name="СертификатыЛичныеКартинкаМестаХраненияКонтекстноеМеню" id="377"/>
-											<ExtendedTooltip name="СертификатыЛичныеКартинкаМестаХраненияРасширеннаяПодсказка" id="378"/>
-										</PictureField>
-										<InputField name="СертификатыЛичныеПользователь" id="314">
-											<DataPath>СертификатыЛичные.Пользователь</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<Width>30</Width>
-											<HorizontalStretch>false</HorizontalStretch>
-											<ContextMenu name="СертификатыЛичныеПользовательКонтекстноеМеню" id="315"/>
-											<ExtendedTooltip name="СертификатыЛичныеПользовательРасширеннаяПодсказка" id="316"/>
-										</InputField>
-										<InputField name="СертификатыЛичныеПредставление" id="317">
-											<DataPath>СертификатыЛичные.Представление</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Сертификат</v8:content>
-												</v8:item>
-											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<CellHyperlink>true</CellHyperlink>
-											<AutoEditMode>true</AutoEditMode>
-											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
-											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
-											<TextColor>style:ЦветГиперссылкиБРО</TextColor>
-											<ContextMenu name="СертификатыЛичныеПредставлениеКонтекстноеМеню" id="318"/>
-											<ExtendedTooltip name="СертификатыЛичныеПредставлениеРасширеннаяПодсказка" id="319"/>
-										</InputField>
-										<InputField name="СертификатыЛичныеОтпечаток" id="302">
-											<DataPath>СертификатыЛичные.Отпечаток</DataPath>
-											<UserVisible>
-												<xr:Common>false</xr:Common>
-											</UserVisible>
-											<ReadOnly>true</ReadOnly>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="СертификатыЛичныеОтпечатокКонтекстноеМеню" id="303"/>
-											<ExtendedTooltip name="СертификатыЛичныеОтпечатокРасширеннаяПодсказка" id="304"/>
-										</InputField>
-										<InputField name="СертификатыЛичныеСодержимое" id="305">
-											<DataPath>СертификатыЛичные.Содержимое</DataPath>
-											<UserVisible>
-												<xr:Common>false</xr:Common>
-											</UserVisible>
-											<ReadOnly>true</ReadOnly>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="СертификатыЛичныеСодержимоеКонтекстноеМеню" id="306"/>
-											<ExtendedTooltip name="СертификатыЛичныеСодержимоеРасширеннаяПодсказка" id="307"/>
-										</InputField>
-										<InputField name="СертификатыЛичныеКриптопровайдер" id="311">
-											<DataPath>СертификатыЛичные.Криптопровайдер</DataPath>
-											<UserVisible>
-												<xr:Common>false</xr:Common>
-											</UserVisible>
-											<ReadOnly>true</ReadOnly>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="СертификатыЛичныеКриптопровайдерКонтекстноеМеню" id="312"/>
-											<ExtendedTooltip name="СертификатыЛичныеКриптопровайдерРасширеннаяПодсказка" id="313"/>
-										</InputField>
-										<InputField name="СертификатыЛичныеМодельХраненияЗакрытогоКлюча" id="330">
-											<DataPath>СертификатыЛичные.МодельХраненияЗакрытогоКлюча</DataPath>
-											<UserVisible>
-												<xr:Common>false</xr:Common>
-											</UserVisible>
-											<ReadOnly>true</ReadOnly>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="СертификатыЛичныеМодельХраненияЗакрытогоКлючаКонтекстноеМеню" id="331"/>
-											<ExtendedTooltip name="СертификатыЛичныеМодельХраненияЗакрытогоКлючаРасширеннаяПодсказка" id="332"/>
-										</InputField>
-										<CheckBoxField name="СертификатыЛичныеТекущий" id="308">
-											<DataPath>СертификатыЛичные.Текущий</DataPath>
-											<UserVisible>
-												<xr:Common>false</xr:Common>
-											</UserVisible>
-											<ReadOnly>true</ReadOnly>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="СертификатыЛичныеТекущийКонтекстноеМеню" id="309"/>
-											<ExtendedTooltip name="СертификатыЛичныеТекущийРасширеннаяПодсказка" id="310"/>
-										</CheckBoxField>
-										<CheckBoxField name="СертификатыЛичныеЭлектроннаяПодписьВМоделиСервиса" id="333">
-											<DataPath>СертификатыЛичные.ЭлектроннаяПодписьВМоделиСервиса</DataPath>
-											<UserVisible>
-												<xr:Common>false</xr:Common>
-											</UserVisible>
-											<ReadOnly>true</ReadOnly>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="СертификатыЛичныеЭлектроннаяПодписьВМоделиСервисаКонтекстноеМеню" id="334"/>
-											<ExtendedTooltip name="СертификатыЛичныеЭлектроннаяПодписьВМоделиСервисаРасширеннаяПодсказка" id="335"/>
-										</CheckBoxField>
-									</ChildItems>
-								</Table>
-								<Table name="ВсеЛичныеСертификаты" id="336">
-									<UserVisible>
-										<xr:Common>false</xr:Common>
-									</UserVisible>
-									<RowSelectionMode>Cell</RowSelectionMode>
-									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-									<AutoInsertNewRow>true</AutoInsertNewRow>
-									<EnableStartDrag>true</EnableStartDrag>
-									<EnableDrag>true</EnableDrag>
-									<DataPath>Объект.СертификатыЛичные</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Все сертификаты</v8:content>
-										</v8:item>
-									</Title>
-									<RowFilter xsi:nil="true"/>
-									<ContextMenu name="ВсеЛичныеСертификатыКонтекстноеМеню" id="337"/>
-									<AutoCommandBar name="ВсеЛичныеСертификатыКоманднаяПанель" id="338"/>
-									<ExtendedTooltip name="ВсеЛичныеСертификатыРасширеннаяПодсказка" id="339"/>
-									<SearchStringAddition name="ВсеЛичныеСертификатыСтрокаПоиска" id="340">
-										<AdditionSource>
-											<Item>ВсеЛичныеСертификаты</Item>
-											<Type>SearchStringRepresentation</Type>
-										</AdditionSource>
-										<ContextMenu name="ВсеЛичныеСертификатыСтрокаПоискаКонтекстноеМеню" id="341"/>
-										<ExtendedTooltip name="ВсеЛичныеСертификатыСтрокаПоискаРасширеннаяПодсказка" id="342"/>
-									</SearchStringAddition>
-									<ViewStatusAddition name="ВсеЛичныеСертификатыСостояниеПросмотра" id="343">
-										<AdditionSource>
-											<Item>ВсеЛичныеСертификаты</Item>
-											<Type>ViewStatusRepresentation</Type>
-										</AdditionSource>
-										<ContextMenu name="ВсеЛичныеСертификатыСостояниеПросмотраКонтекстноеМеню" id="344"/>
-										<ExtendedTooltip name="ВсеЛичныеСертификатыСостояниеПросмотраРасширеннаяПодсказка" id="345"/>
-									</ViewStatusAddition>
-									<SearchControlAddition name="ВсеЛичныеСертификатыУправлениеПоиском" id="346">
-										<AdditionSource>
-											<Item>ВсеЛичныеСертификаты</Item>
-											<Type>SearchControl</Type>
-										</AdditionSource>
-										<ContextMenu name="ВсеЛичныеСертификатыУправлениеПоискомКонтекстноеМеню" id="347"/>
-										<ExtendedTooltip name="ВсеЛичныеСертификатыУправлениеПоискомРасширеннаяПодсказка" id="348"/>
-									</SearchControlAddition>
-									<ChildItems>
-										<LabelField name="СертификатыЛичные1НомерСтроки" id="349">
-											<DataPath>Объект.СертификатыЛичные.LineNumber</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="СертификатыЛичные1НомерСтрокиКонтекстноеМеню" id="350"/>
-											<ExtendedTooltip name="СертификатыЛичные1НомерСтрокиРасширеннаяПодсказка" id="351"/>
-										</LabelField>
-										<InputField name="СертификатыЛичные1СерийныйНомер" id="352">
-											<DataPath>Объект.СертификатыЛичные.СерийныйНомер</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="СертификатыЛичные1СерийныйНомерКонтекстноеМеню" id="353"/>
-											<ExtendedTooltip name="СертификатыЛичные1СерийныйНомерРасширеннаяПодсказка" id="354"/>
-										</InputField>
-										<InputField name="СертификатыЛичные1ПоставщикCN" id="355">
-											<DataPath>Объект.СертификатыЛичные.ПоставщикCN</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="СертификатыЛичные1ПоставщикCNКонтекстноеМеню" id="356"/>
-											<ExtendedTooltip name="СертификатыЛичные1ПоставщикCNРасширеннаяПодсказка" id="357"/>
-										</InputField>
-										<InputField name="СертификатыЛичные1Отпечаток" id="358">
-											<DataPath>Объект.СертификатыЛичные.Отпечаток</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="СертификатыЛичные1ОтпечатокКонтекстноеМеню" id="359"/>
-											<ExtendedTooltip name="СертификатыЛичные1ОтпечатокРасширеннаяПодсказка" id="360"/>
-										</InputField>
-										<CheckBoxField name="СертификатыЛичные1Текущий" id="361">
-											<DataPath>Объект.СертификатыЛичные.Текущий</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="СертификатыЛичные1ТекущийКонтекстноеМеню" id="362"/>
-											<ExtendedTooltip name="СертификатыЛичные1ТекущийРасширеннаяПодсказка" id="363"/>
-										</CheckBoxField>
-										<InputField name="СертификатыЛичные1Криптопровайдер" id="364">
-											<DataPath>Объект.СертификатыЛичные.Криптопровайдер</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="СертификатыЛичные1КриптопровайдерКонтекстноеМеню" id="365"/>
-											<ExtendedTooltip name="СертификатыЛичные1КриптопровайдерРасширеннаяПодсказка" id="366"/>
-										</InputField>
-										<InputField name="СертификатыЛичные1Пользователь" id="367">
-											<DataPath>Объект.СертификатыЛичные.Пользователь</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="СертификатыЛичные1ПользовательКонтекстноеМеню" id="368"/>
-											<ExtendedTooltip name="СертификатыЛичные1ПользовательРасширеннаяПодсказка" id="369"/>
-										</InputField>
-										<InputField name="СертификатыЛичные1МодельХраненияЗакрытогоКлюча" id="370">
-											<DataPath>Объект.СертификатыЛичные.МодельХраненияЗакрытогоКлюча</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="СертификатыЛичные1МодельХраненияЗакрытогоКлючаКонтекстноеМеню" id="371"/>
-											<ExtendedTooltip name="СертификатыЛичные1МодельХраненияЗакрытогоКлючаРасширеннаяПодсказка" id="372"/>
-										</InputField>
-										<CheckBoxField name="СертификатыЛичные1ЭлектроннаяПодписьВМоделиСервиса" id="373">
-											<DataPath>Объект.СертификатыЛичные.ЭлектроннаяПодписьВМоделиСервиса</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="СертификатыЛичные1ЭлектроннаяПодписьВМоделиСервисаКонтекстноеМеню" id="374"/>
-											<ExtendedTooltip name="СертификатыЛичные1ЭлектроннаяПодписьВМоделиСервисаРасширеннаяПодсказка" id="375"/>
-										</CheckBoxField>
-									</ChildItems>
-								</Table>
-							</ChildItems>
-						</Page>
+							<EditMode>EnterOnInput</EditMode>
+							<CellHyperlink>true</CellHyperlink>
+							<AutoEditMode>true</AutoEditMode>
+							<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
+							<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
+							<TextColor>style:ЦветГиперссылкиБРО</TextColor>
+							<ContextMenu name="СертификатыЛичныеПредставлениеКонтекстноеМеню" id="318"/>
+							<ExtendedTooltip name="СертификатыЛичныеПредставлениеРасширеннаяПодсказка" id="319"/>
+						</InputField>
+						<InputField name="СертификатыЛичныеОтпечаток" id="302">
+							<DataPath>СертификатыЛичные.Отпечаток</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СертификатыЛичныеОтпечатокКонтекстноеМеню" id="303"/>
+							<ExtendedTooltip name="СертификатыЛичныеОтпечатокРасширеннаяПодсказка" id="304"/>
+						</InputField>
+						<InputField name="СертификатыЛичныеСодержимое" id="305">
+							<DataPath>СертификатыЛичные.Содержимое</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СертификатыЛичныеСодержимоеКонтекстноеМеню" id="306"/>
+							<ExtendedTooltip name="СертификатыЛичныеСодержимоеРасширеннаяПодсказка" id="307"/>
+						</InputField>
+						<InputField name="СертификатыЛичныеКриптопровайдер" id="311">
+							<DataPath>СертификатыЛичные.Криптопровайдер</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СертификатыЛичныеКриптопровайдерКонтекстноеМеню" id="312"/>
+							<ExtendedTooltip name="СертификатыЛичныеКриптопровайдерРасширеннаяПодсказка" id="313"/>
+						</InputField>
+						<InputField name="СертификатыЛичныеМодельХраненияЗакрытогоКлюча" id="330">
+							<DataPath>СертификатыЛичные.МодельХраненияЗакрытогоКлюча</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СертификатыЛичныеМодельХраненияЗакрытогоКлючаКонтекстноеМеню" id="331"/>
+							<ExtendedTooltip name="СертификатыЛичныеМодельХраненияЗакрытогоКлючаРасширеннаяПодсказка" id="332"/>
+						</InputField>
+						<CheckBoxField name="СертификатыЛичныеТекущий" id="308">
+							<DataPath>СертификатыЛичные.Текущий</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СертификатыЛичныеТекущийКонтекстноеМеню" id="309"/>
+							<ExtendedTooltip name="СертификатыЛичныеТекущийРасширеннаяПодсказка" id="310"/>
+						</CheckBoxField>
+						<CheckBoxField name="СертификатыЛичныеЭлектроннаяПодписьВМоделиСервиса" id="333">
+							<DataPath>СертификатыЛичные.ЭлектроннаяПодписьВМоделиСервиса</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СертификатыЛичныеЭлектроннаяПодписьВМоделиСервисаКонтекстноеМеню" id="334"/>
+							<ExtendedTooltip name="СертификатыЛичныеЭлектроннаяПодписьВМоделиСервисаРасширеннаяПодсказка" id="335"/>
+						</CheckBoxField>
 					</ChildItems>
-				</Pages>
+				</Table>
+				<Table name="ВсеЛичныеСертификаты" id="336">
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<SelectionMode>SingleRow</SelectionMode>
+					<RowSelectionMode>Cell</RowSelectionMode>
+					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<DataPath>Объект.СертификатыЛичные</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Все сертификаты</v8:content>
+						</v8:item>
+					</Title>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ВсеЛичныеСертификатыКонтекстноеМеню" id="337"/>
+					<AutoCommandBar name="ВсеЛичныеСертификатыКоманднаяПанель" id="338"/>
+					<ExtendedTooltip name="ВсеЛичныеСертификатыРасширеннаяПодсказка" id="339"/>
+					<SearchStringAddition name="ВсеЛичныеСертификатыСтрокаПоиска" id="340">
+						<AdditionSource>
+							<Item>ВсеЛичныеСертификаты</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ВсеЛичныеСертификатыСтрокаПоискаКонтекстноеМеню" id="341"/>
+						<ExtendedTooltip name="ВсеЛичныеСертификатыСтрокаПоискаРасширеннаяПодсказка" id="342"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ВсеЛичныеСертификатыСостояниеПросмотра" id="343">
+						<AdditionSource>
+							<Item>ВсеЛичныеСертификаты</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ВсеЛичныеСертификатыСостояниеПросмотраКонтекстноеМеню" id="344"/>
+						<ExtendedTooltip name="ВсеЛичныеСертификатыСостояниеПросмотраРасширеннаяПодсказка" id="345"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ВсеЛичныеСертификатыУправлениеПоиском" id="346">
+						<AdditionSource>
+							<Item>ВсеЛичныеСертификаты</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ВсеЛичныеСертификатыУправлениеПоискомКонтекстноеМеню" id="347"/>
+						<ExtendedTooltip name="ВсеЛичныеСертификатыУправлениеПоискомРасширеннаяПодсказка" id="348"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<LabelField name="СертификатыЛичные1НомерСтроки" id="349">
+							<DataPath>Объект.СертификатыЛичные.LineNumber</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СертификатыЛичные1НомерСтрокиКонтекстноеМеню" id="350"/>
+							<ExtendedTooltip name="СертификатыЛичные1НомерСтрокиРасширеннаяПодсказка" id="351"/>
+						</LabelField>
+						<InputField name="СертификатыЛичные1СерийныйНомер" id="352">
+							<DataPath>Объект.СертификатыЛичные.СерийныйНомер</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СертификатыЛичные1СерийныйНомерКонтекстноеМеню" id="353"/>
+							<ExtendedTooltip name="СертификатыЛичные1СерийныйНомерРасширеннаяПодсказка" id="354"/>
+						</InputField>
+						<InputField name="СертификатыЛичные1ПоставщикCN" id="355">
+							<DataPath>Объект.СертификатыЛичные.ПоставщикCN</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СертификатыЛичные1ПоставщикCNКонтекстноеМеню" id="356"/>
+							<ExtendedTooltip name="СертификатыЛичные1ПоставщикCNРасширеннаяПодсказка" id="357"/>
+						</InputField>
+						<InputField name="СертификатыЛичные1Отпечаток" id="358">
+							<DataPath>Объект.СертификатыЛичные.Отпечаток</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СертификатыЛичные1ОтпечатокКонтекстноеМеню" id="359"/>
+							<ExtendedTooltip name="СертификатыЛичные1ОтпечатокРасширеннаяПодсказка" id="360"/>
+						</InputField>
+						<CheckBoxField name="СертификатыЛичные1Текущий" id="361">
+							<DataPath>Объект.СертификатыЛичные.Текущий</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СертификатыЛичные1ТекущийКонтекстноеМеню" id="362"/>
+							<ExtendedTooltip name="СертификатыЛичные1ТекущийРасширеннаяПодсказка" id="363"/>
+						</CheckBoxField>
+						<InputField name="СертификатыЛичные1Криптопровайдер" id="364">
+							<DataPath>Объект.СертификатыЛичные.Криптопровайдер</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СертификатыЛичные1КриптопровайдерКонтекстноеМеню" id="365"/>
+							<ExtendedTooltip name="СертификатыЛичные1КриптопровайдерРасширеннаяПодсказка" id="366"/>
+						</InputField>
+						<InputField name="СертификатыЛичные1Пользователь" id="367">
+							<DataPath>Объект.СертификатыЛичные.Пользователь</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СертификатыЛичные1ПользовательКонтекстноеМеню" id="368"/>
+							<ExtendedTooltip name="СертификатыЛичные1ПользовательРасширеннаяПодсказка" id="369"/>
+						</InputField>
+						<InputField name="СертификатыЛичные1МодельХраненияЗакрытогоКлюча" id="370">
+							<DataPath>Объект.СертификатыЛичные.МодельХраненияЗакрытогоКлюча</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СертификатыЛичные1МодельХраненияЗакрытогоКлючаКонтекстноеМеню" id="371"/>
+							<ExtendedTooltip name="СертификатыЛичные1МодельХраненияЗакрытогоКлючаРасширеннаяПодсказка" id="372"/>
+						</InputField>
+						<CheckBoxField name="СертификатыЛичные1ЭлектроннаяПодписьВМоделиСервиса" id="373">
+							<DataPath>Объект.СертификатыЛичные.ЭлектроннаяПодписьВМоделиСервиса</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СертификатыЛичные1ЭлектроннаяПодписьВМоделиСервисаКонтекстноеМеню" id="374"/>
+							<ExtendedTooltip name="СертификатыЛичные1ЭлектроннаяПодписьВМоделиСервисаРасширеннаяПодсказка" id="375"/>
+						</CheckBoxField>
+					</ChildItems>
+				</Table>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="Доверенности" id="325">
@@ -1165,7 +1123,7 @@
 			</ToolTip>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
+			<ThroughAlign>Use</ThroughAlign>
 			<ExtendedTooltip name="ДоверенностиРасширеннаяПодсказка" id="326"/>
 			<ChildItems>
 				<InputField name="ДоверенностьЦБ" id="327">
@@ -1176,6 +1134,8 @@
 							<v8:content>Доверенность для Банка России</v8:content>
 						</v8:item>
 					</Title>
+					<TitleLocation>Left</TitleLocation>
+					<TitleHeight>2</TitleHeight>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>

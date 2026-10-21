@@ -27,21 +27,22 @@
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="КнопкаОК" id="237">
+			<Button name="КнопкаДобавить" id="237">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.КнопкаОК</CommandName>
+				<CommandName>Form.Command.КнопкаДобавить</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Готово</v8:content>
+						<v8:content>Добавить</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="КнопкаОКРасширеннаяПодсказка" id="238"/>
+				<ExtendedTooltip name="КнопкаДобавитьРасширеннаяПодсказка" id="238"/>
 			</Button>
 			<Button name="КнопкаОтмена" id="239">
 				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
 				<CommandName>Form.StandardCommand.Close</CommandName>
 				<Title>
 					<v8:item>
@@ -67,9 +68,10 @@
 				</v8:item>
 			</Title>
 			<TitleLocation>Top</TitleLocation>
-			<MarkRequiredComplete>true</MarkRequiredComplete>
-			<Width>50</Width>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
+			<MaxWidth>80</MaxWidth>
 			<MultiLine>true</MultiLine>
 			<ExtendedEdit>true</ExtendedEdit>
 			<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -82,87 +84,99 @@
 			<ContextMenu name="ФормулировкаКонтекстноеМеню" id="142"/>
 			<ExtendedTooltip name="ФормулировкаРасширеннаяПодсказка" id="147"/>
 		</InputField>
-		<UsualGroup name="ГруппаВопросы" id="68">
+		<Table name="Вопросы" id="136">
+			<Representation>List</Representation>
+			<TitleLocation>Auto</TitleLocation>
+			<SkipOnInput>false</SkipOnInput>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MaxWidth>80</MaxWidth>
+			<Height>5</Height>
+			<RowSelectionMode>Cell</RowSelectionMode>
+			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Вопросы</DataPath>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Подбор вопросов. Укажите хотя бы один вопрос:</v8:content>
 				</v8:item>
 			</Title>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
-			<ExtendedTooltip name="ГруппаВопросыРасширеннаяПодсказка" id="176"/>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ВопросыКонтекстноеМеню" id="137"/>
+			<AutoCommandBar name="ВопросыКоманднаяПанель" id="138">
+				<ChildItems>
+					<Button name="ВопросыПереместитьВверх" id="256">
+						<Type>CommandBarButton</Type>
+						<Representation>Picture</Representation>
+						<CommandName>Form.Item.Вопросы.StandardCommand.MoveUp</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ВопросыПереместитьВверхРасширеннаяПодсказка" id="257"/>
+					</Button>
+					<Button name="ВопросыПереместитьВниз" id="258">
+						<Type>CommandBarButton</Type>
+						<Representation>Picture</Representation>
+						<CommandName>Form.Item.Вопросы.StandardCommand.MoveDown</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ВопросыПереместитьВнизРасширеннаяПодсказка" id="259"/>
+					</Button>
+					<Button name="ВопросыСкопировать" id="260">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Вопросы.StandardCommand.Copy</CommandName>
+						<ExtendedTooltip name="ВопросыСкопироватьРасширеннаяПодсказка" id="261"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ВопросыРасширеннаяПодсказка" id="177"/>
+			<SearchStringAddition name="ВопросыSearchString" id="228">
+				<AdditionSource>
+					<Item>Вопросы</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ВопросыSearchStringContextMenu" id="229"/>
+				<ExtendedTooltip name="ВопросыSearchStringExtendedTooltip" id="230"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ВопросыViewStatus" id="231">
+				<AdditionSource>
+					<Item>Вопросы</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ВопросыViewStatusContextMenu" id="232"/>
+				<ExtendedTooltip name="ВопросыViewStatusExtendedTooltip" id="233"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ВопросыSearchControl" id="234">
+				<AdditionSource>
+					<Item>Вопросы</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ВопросыSearchControlContextMenu" id="235"/>
+				<ExtendedTooltip name="ВопросыSearchControlExtendedTooltip" id="236"/>
+			</SearchControlAddition>
 			<ChildItems>
-				<Table name="Вопросы" id="136">
-					<Representation>List</Representation>
-					<SkipOnInput>false</SkipOnInput>
-					<RowSelectionMode>Cell</RowSelectionMode>
-					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-					<EnableStartDrag>true</EnableStartDrag>
-					<EnableDrag>true</EnableDrag>
-					<FileDragMode>AsFile</FileDragMode>
-					<DataPath>Вопросы</DataPath>
+				<InputField name="ВопросыВопрос" id="139">
+					<DataPath>Вопросы.ЭлементарныйВопрос</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Вопросы</v8:content>
+							<v8:content>Вопрос</v8:content>
 						</v8:item>
 					</Title>
-					<ViewStatusLocation>None</ViewStatusLocation>
-					<SearchControlLocation>None</SearchControlLocation>
-					<RowFilter xsi:nil="true"/>
-					<ContextMenu name="ВопросыКонтекстноеМеню" id="137"/>
-					<AutoCommandBar name="ВопросыКоманднаяПанель" id="138"/>
-					<ExtendedTooltip name="ВопросыРасширеннаяПодсказка" id="177"/>
-					<SearchStringAddition name="ВопросыSearchString" id="228">
-						<AdditionSource>
-							<Item>Вопросы</Item>
-							<Type>SearchStringRepresentation</Type>
-						</AdditionSource>
-						<ContextMenu name="ВопросыSearchStringContextMenu" id="229"/>
-						<ExtendedTooltip name="ВопросыSearchStringExtendedTooltip" id="230"/>
-					</SearchStringAddition>
-					<ViewStatusAddition name="ВопросыViewStatus" id="231">
-						<AdditionSource>
-							<Item>Вопросы</Item>
-							<Type>ViewStatusRepresentation</Type>
-						</AdditionSource>
-						<ContextMenu name="ВопросыViewStatusContextMenu" id="232"/>
-						<ExtendedTooltip name="ВопросыViewStatusExtendedTooltip" id="233"/>
-					</ViewStatusAddition>
-					<SearchControlAddition name="ВопросыSearchControl" id="234">
-						<AdditionSource>
-							<Item>Вопросы</Item>
-							<Type>SearchControl</Type>
-						</AdditionSource>
-						<ContextMenu name="ВопросыSearchControlContextMenu" id="235"/>
-						<ExtendedTooltip name="ВопросыSearchControlExtendedTooltip" id="236"/>
-					</SearchControlAddition>
-					<ChildItems>
-						<InputField name="ВопросыВопрос" id="139">
-							<DataPath>Вопросы.ЭлементарныйВопрос</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Вопрос</v8:content>
-								</v8:item>
-							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<DropListButton>false</DropListButton>
-							<ChoiceButton>true</ChoiceButton>
-							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-							<ContextMenu name="ВопросыВопросКонтекстноеМеню" id="140"/>
-							<ExtendedTooltip name="ВопросыВопросРасширеннаяПодсказка" id="178"/>
-							<Events>
-								<Event name="ChoiceProcessing">ВопросыВопросОбработкаВыбора</Event>
-							</Events>
-						</InputField>
-					</ChildItems>
-				</Table>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<DropListButton>false</DropListButton>
+					<ChoiceButton>true</ChoiceButton>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ContextMenu name="ВопросыВопросКонтекстноеМеню" id="140"/>
+					<ExtendedTooltip name="ВопросыВопросРасширеннаяПодсказка" id="178"/>
+					<Events>
+						<Event name="ChoiceProcessing">ВопросыВопросОбработкаВыбора</Event>
+					</Events>
+				</InputField>
 			</ChildItems>
-		</UsualGroup>
+		</Table>
 		<UsualGroup name="ГруппаПодсказка" id="241">
 			<Title>
 				<v8:item>
@@ -176,18 +190,6 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаПодсказкаРасширеннаяПодсказка" id="242"/>
 			<ChildItems>
-				<InputField name="СпособОтображенияПодсказки" id="243">
-					<DataPath>СпособОтображенияПодсказки</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Способ отображения подсказки</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalStretch>false</HorizontalStretch>
-					<ContextMenu name="СпособОтображенияПодсказкиКонтекстноеМеню" id="244"/>
-					<ExtendedTooltip name="СпособОтображенияПодсказкиРасширеннаяПодсказка" id="245"/>
-				</InputField>
 				<InputField name="Подсказка" id="246">
 					<DataPath>Подсказка</DataPath>
 					<Title>
@@ -196,11 +198,28 @@
 							<v8:content>Подсказка</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>80</MaxWidth>
+					<Height>2</Height>
 					<MultiLine>true</MultiLine>
 					<ExtendedEdit>true</ExtendedEdit>
 					<ContextMenu name="ПодсказкаКонтекстноеМеню" id="247"/>
 					<ExtendedTooltip name="ПодсказкаРасширеннаяПодсказка" id="248"/>
+				</InputField>
+				<InputField name="СпособОтображенияПодсказки" id="243">
+					<DataPath>СпособОтображенияПодсказки</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Способ отображения подсказки</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СпособОтображенияПодсказкиКонтекстноеМеню" id="244"/>
+					<ExtendedTooltip name="СпособОтображенияПодсказкиРасширеннаяПодсказка" id="245"/>
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
@@ -332,11 +351,11 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="КнопкаОК" id="1">
+		<Command name="КнопкаДобавить" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Готово</v8:content>
+					<v8:content>Добавить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -345,8 +364,9 @@
 					<v8:content>Закончить редактирование вопроса</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>КнопкаОК</Action>
+			<Action>КнопкаДобавить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

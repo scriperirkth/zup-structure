@@ -13,8 +13,19 @@
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
-		<Autofill>false</Autofill>
 		<ChildItems>
+			<Button name="Назад" id="105">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Command.Назад</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Назад</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="НазадРасширеннаяПодсказка" id="106"/>
+			</Button>
 			<Button name="СоздатьНачальныйОбраз" id="43">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
@@ -28,37 +39,6 @@
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="СоздатьНачальныйОбразРасширеннаяПодсказка" id="48"/>
-			</Button>
-			<Button name="Назад" id="105">
-				<Type>CommandBarButton</Type>
-				<Visible>false</Visible>
-				<CommandName>Form.Command.Назад</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>&lt; Назад</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="НазадРасширеннаяПодсказка" id="106"/>
-			</Button>
-			<Button name="Закрыть" id="44">
-				<Type>CommandBarButton</Type>
-				<Representation>Text</Representation>
-				<SkipOnInput>false</SkipOnInput>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Закрыть</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="49"/>
-			</Button>
-			<Button name="Справка" id="45">
-				<Type>CommandBarButton</Type>
-				<SkipOnInput>false</SkipOnInput>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="50"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -97,6 +77,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<RadioButtonType>Auto</RadioButtonType>
 							<ColumnsCount>1</ColumnsCount>
 							<ChoiceList>
@@ -142,7 +124,6 @@
 							</Title>
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
-							<Representation>WeakSeparation</Representation>
 							<ExtendedTooltip name="ПараметрыРасширеннаяПодсказка" id="52"/>
 							<ChildItems>
 								<Pages name="Страницы" id="4">
@@ -174,6 +155,8 @@
 															<v8:content>Язык (Страна)</v8:content>
 														</v8:item>
 													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<Wrap>false</Wrap>
 													<ListChoiceMode>true</ListChoiceMode>
 													<ChooseType>false</ChooseType>
@@ -190,6 +173,7 @@
 													<Group>Vertical</Group>
 													<Behavior>Usual</Behavior>
 													<Representation>WeakSeparation</Representation>
+													<ShowTitle>false</ShowTitle>
 													<ExtendedTooltip name="ГруппаПутьФайловойБазыРасширеннаяПодсказка" id="56"/>
 													<ChildItems>
 														<InputField name="ПолноеИмяФайловойБазы" id="35">
@@ -197,11 +181,13 @@
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>Для сервера 1С:Предприятия под управлением Microsoft Windows</v8:content>
+																	<v8:content>Полное имя файловой базы</v8:content>
 																</v8:item>
 															</Title>
 															<TitleLocation>Top</TitleLocation>
 															<TitleHeight>1</TitleHeight>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<AutoMaxWidth>false</AutoMaxWidth>
 															<MaxWidth>90</MaxWidth>
 															<ChoiceButton>true</ChoiceButton>
@@ -214,13 +200,16 @@
 														</InputField>
 														<InputField name="ПолноеИмяФайловойБазыLinux" id="38">
 															<DataPath>ПолноеИмяФайловойБазыLinux</DataPath>
+															<Visible>false</Visible>
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>Для сервера 1С:Предприятия под управлением Linux</v8:content>
+																	<v8:content>Полное имя файловой базы</v8:content>
 																</v8:item>
 															</Title>
 															<TitleLocation>Top</TitleLocation>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<AutoMaxWidth>false</AutoMaxWidth>
 															<MaxWidth>90</MaxWidth>
 															<ContextMenu name="ПолноеИмяФайловойБазыLinuxКонтекстноеМеню" id="39"/>
@@ -262,6 +251,8 @@
 																	<v8:content>Кластер серверов 1С:Предприятия</v8:content>
 																</v8:item>
 															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="СерверКонтекстноеМеню" id="10"/>
 															<ExtendedTooltip name="СерверРасширеннаяПодсказка" id="60"/>
 														</InputField>
@@ -273,6 +264,8 @@
 																	<v8:content>Имя администратора кластера</v8:content>
 																</v8:item>
 															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<Wrap>false</Wrap>
 															<ContextMenu name="ИмяАдминистратораКластераКонтекстноеМеню" id="100"/>
 															<ExtendedTooltip name="ИмяАдминистратораКластераРасширеннаяПодсказка" id="101"/>
@@ -285,6 +278,8 @@
 																	<v8:content>Пароль администратора кластера</v8:content>
 																</v8:item>
 															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<PasswordMode>true</PasswordMode>
 															<ContextMenu name="ПарольАдминистратораКластераКонтекстноеМеню" id="103"/>
 															<ExtendedTooltip name="ПарольАдминистратораКластераРасширеннаяПодсказка" id="104"/>
@@ -297,6 +292,8 @@
 																	<v8:content>Имя информационной базы в кластере</v8:content>
 																</v8:item>
 															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ИмяБазыКонтекстноеМеню" id="12"/>
 															<ExtendedTooltip name="ИмяБазыРасширеннаяПодсказка" id="61"/>
 														</InputField>
@@ -309,6 +306,8 @@
 																</v8:item>
 															</Title>
 															<WarningOnEditRepresentation>DontShow</WarningOnEditRepresentation>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<Width>20</Width>
 															<ListChoiceMode>true</ListChoiceMode>
 															<TextEdit>false</TextEdit>
@@ -364,6 +363,8 @@
 																	<v8:content>Язык (Страна)</v8:content>
 																</v8:item>
 															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<Wrap>false</Wrap>
 															<ListChoiceMode>true</ListChoiceMode>
 															<ChooseType>false</ChooseType>
@@ -379,6 +380,8 @@
 																</v8:item>
 															</Title>
 															<TitleLocation>Right</TitleLocation>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="УстановитьБлокировкуРегламентныхЗаданийКонтекстноеМеню" id="47"/>
 															<ExtendedTooltip name="УстановитьБлокировкуРегламентныхЗаданийРасширеннаяПодсказка" id="70"/>
 														</CheckBoxField>
@@ -406,6 +409,8 @@
 																</v8:item>
 															</Title>
 															<WarningOnEditRepresentation>DontShow</WarningOnEditRepresentation>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<Wrap>false</Wrap>
 															<ListChoiceMode>true</ListChoiceMode>
 															<ChooseType>false</ChooseType>
@@ -478,6 +483,8 @@
 																</v8:item>
 															</Title>
 															<WarningOnEditRepresentation>DontShow</WarningOnEditRepresentation>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<Wrap>false</Wrap>
 															<ContextMenu name="СерверБазыДанныхКонтекстноеМеню" id="18"/>
 															<ExtendedTooltip name="СерверБазыДанныхРасширеннаяПодсказка" id="64"/>
@@ -490,6 +497,8 @@
 																	<v8:content>Имя базы данных</v8:content>
 																</v8:item>
 															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<Wrap>false</Wrap>
 															<ContextMenu name="ИмяБазыДанныхКонтекстноеМеню" id="20"/>
 															<ExtendedTooltip name="ИмяБазыДанныхРасширеннаяПодсказка" id="65"/>
@@ -502,6 +511,8 @@
 																	<v8:content>Пользователь базы данных</v8:content>
 																</v8:item>
 															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<Wrap>false</Wrap>
 															<ContextMenu name="ПользовательБазыДанныхКонтекстноеМеню" id="22"/>
 															<ExtendedTooltip name="ПользовательБазыДанныхРасширеннаяПодсказка" id="66"/>
@@ -514,6 +525,8 @@
 																	<v8:content>Пароль пользователя</v8:content>
 																</v8:item>
 															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<Wrap>false</Wrap>
 															<PasswordMode>true</PasswordMode>
 															<ContextMenu name="ПарольПользователяКонтекстноеМеню" id="24"/>
@@ -527,6 +540,8 @@
 																	<v8:content>Смещение дат</v8:content>
 																</v8:item>
 															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ListChoiceMode>true</ListChoiceMode>
 															<ChooseType>false</ChooseType>
 															<ChoiceList>
@@ -572,12 +587,11 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Полное имя архива с файлами томов</v8:content>
+									<v8:content>Тома хранения файлов</v8:content>
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
-							<Representation>WeakSeparation</Representation>
 							<ExtendedTooltip name="ГруппаПутьКАрхивуСФайламиТомовРасширеннаяПодсказка" id="71"/>
 							<ChildItems>
 								<InputField name="ПутьКАрхивуСФайламиТомов" id="33">
@@ -585,10 +599,12 @@
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Для сервера 1С:Предприятия под управлением Microsoft Windows</v8:content>
+											<v8:content>Полное имя архива с файлами томов</v8:content>
 										</v8:item>
 									</Title>
 									<TitleLocation>Top</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>90</MaxWidth>
 									<ChoiceButton>true</ChoiceButton>
@@ -600,13 +616,16 @@
 								</InputField>
 								<InputField name="ПутьКАрхивуСФайламиТомовLinux" id="41">
 									<DataPath>ПутьКАрхивуСФайламиТомовLinux</DataPath>
+									<Visible>false</Visible>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Для сервера 1С:Предприятия под управлением Linux</v8:content>
+											<v8:content>Полное имя архива с файлами томов</v8:content>
 										</v8:item>
 									</Title>
 									<TitleLocation>Top</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>90</MaxWidth>
 									<ContextMenu name="ПутьКАрхивуСФайламиТомовLinuxКонтекстноеМеню" id="42"/>
@@ -658,6 +677,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ShowPercent>true</ShowPercent>
 							<ContextMenu name="ПроцентВыполненияКонтекстноеМеню" id="89"/>
 							<ExtendedTooltip name="ПроцентВыполненияРасширеннаяПодсказка" id="90"/>
@@ -671,6 +692,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ДопИнформацияВыполнениеЗагрузкаКонтекстноеМеню" id="92"/>
 							<ExtendedTooltip name="ДопИнформацияВыполнениеЗагрузкаРасширеннаяПодсказка" id="93"/>
 						</LabelField>
@@ -1048,12 +1071,13 @@
 			</ToolTip>
 			<Action>СоздатьНачальныйОбраз</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Назад" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>&lt; Назад</v8:content>
+					<v8:content>Назад</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -1062,7 +1086,13 @@
 					<v8:content>Назад</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GoBack</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>Назад</Action>
+			<Representation>TextPicture</Representation>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

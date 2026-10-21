@@ -21,17 +21,6 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаВыполнитьПереносРасширеннаяПодсказка" id="60"/>
 			</Button>
-			<Button name="ФормаЗакрыть" id="61">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Отмена</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="62"/>
-			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -39,64 +28,6 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<RadioButtonField name="Действие" id="1">
-			<DataPath>Действие</DataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Перенести файлы</v8:content>
-				</v8:item>
-			</Title>
-			<TitleLocation>Top</TitleLocation>
-			<RadioButtonType>RadioButtons</RadioButtonType>
-			<ColumnsCount>1</ColumnsCount>
-			<ChoiceList>
-				<xr:Item>
-					<xr:Presentation/>
-					<xr:CheckState>0</xr:CheckState>
-					<xr:Value xsi:type="FormChoiceListDesTimeValue">
-						<Presentation>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Между томами</v8:content>
-							</v8:item>
-						</Presentation>
-						<Value xsi:type="xs:string">ПеренестиМеждуТомами</Value>
-					</xr:Value>
-				</xr:Item>
-				<xr:Item>
-					<xr:Presentation/>
-					<xr:CheckState>0</xr:CheckState>
-					<xr:Value xsi:type="FormChoiceListDesTimeValue">
-						<Presentation>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Из базы данных в тома</v8:content>
-							</v8:item>
-						</Presentation>
-						<Value xsi:type="xs:string">ПеренестиВТома</Value>
-					</xr:Value>
-				</xr:Item>
-				<xr:Item>
-					<xr:Presentation/>
-					<xr:CheckState>0</xr:CheckState>
-					<xr:Value xsi:type="FormChoiceListDesTimeValue">
-						<Presentation>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Из томов в базу данных</v8:content>
-							</v8:item>
-						</Presentation>
-						<Value xsi:type="xs:string">ПеренестиВБазу</Value>
-					</xr:Value>
-				</xr:Item>
-			</ChoiceList>
-			<ContextMenu name="ДействиеКонтекстноеМеню" id="2"/>
-			<ExtendedTooltip name="ДействиеРасширеннаяПодсказка" id="3"/>
-			<Events>
-				<Event name="OnChange">ДействиеПриИзменении</Event>
-			</Events>
-		</RadioButtonField>
 		<UsualGroup name="Настройки" id="4">
 			<Title>
 				<v8:item>
@@ -104,347 +35,457 @@
 					<v8:content>Настройки</v8:content>
 				</v8:item>
 			</Title>
+			<HorizontalStretch>false</HorizontalStretch>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="НастройкиРасширеннаяПодсказка" id="5"/>
 			<ChildItems>
-				<UsualGroup name="НастройкиПриемника" id="6">
+				<RadioButtonField name="Действие" id="1">
+					<DataPath>Действие</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Настройки приемника</v8:content>
+							<v8:content>Перенести файлы</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<United>false</United>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="НастройкиПриемникаРасширеннаяПодсказка" id="7"/>
-					<ChildItems>
-						<CheckBoxField name="ПереноситьВТом" id="8">
-							<DataPath>ПереноситьВТом</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>В указанный том:</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>Right</TitleLocation>
-							<ContextMenu name="ПереноситьВТомКонтекстноеМеню" id="9"/>
-							<ExtendedTooltip name="ПереноситьВТомРасширеннаяПодсказка" id="10"/>
-						</CheckBoxField>
-						<InputField name="ТомХраненияПриемник" id="11">
-							<DataPath>ТомХраненияПриемник</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Том хранения приемник</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>None</TitleLocation>
-							<Width>35</Width>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<ChoiceParameters>
-								<app:item name="Отбор.СпособХраненияФайлов">
-									<app:value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation/>
-										<Value xsi:type="xr:DesignTimeRef">Enum.СпособыХраненияФайлов.EnumValue.ВСетевыхКаталогах</Value>
-									</app:value>
-								</app:item>
-								<app:item name="Отбор.ВидТомаХраненияФайлов">
-									<app:value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation/>
-										<Value xsi:type="xr:DesignTimeRef">Enum.ВидыХраненияФайлов.EnumValue.ОперационноеХранение</Value>
-									</app:value>
-								</app:item>
-							</ChoiceParameters>
-							<ContextMenu name="ТомХраненияПриемникКонтекстноеМеню" id="12"/>
-							<ExtendedTooltip name="ТомХраненияПриемникРасширеннаяПодсказка" id="13"/>
-							<Events>
-								<Event name="OnChange">ТомХраненияПриемникПриИзменении</Event>
-							</Events>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="НастройкиИсточника" id="14">
+					<TitleLocation>Top</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<RadioButtonType>Tumbler</RadioButtonType>
+					<ColumnsCount>3</ColumnsCount>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Между томами</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">ПеренестиМеждуТомами</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Из базы данных в тома</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">ПеренестиВТома</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Из томов в базу данных</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">ПеренестиВБазу</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ДействиеКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ДействиеРасширеннаяПодсказка" id="3"/>
+					<Events>
+						<Event name="OnChange">ДействиеПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<UsualGroup name="НастройкиПереноса" id="79">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Настройки источника</v8:content>
+							<v8:content>Настройки переноса</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<United>false</United>
+					<Group>AutoScreenTypeSensitive</Group>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="НастройкиИсточникаРасширеннаяПодсказка" id="15"/>
+					<ExtendedTooltip name="НастройкиПереносаРасширеннаяПодсказка" id="80"/>
 					<ChildItems>
-						<CheckBoxField name="ПереноситьИзТома" id="16">
-							<DataPath>ПереноситьИзТома</DataPath>
+						<UsualGroup name="НастройкиИсточника" id="14">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Из указанного тома:</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>Right</TitleLocation>
-							<ContextMenu name="ПереноситьИзТомаКонтекстноеМеню" id="17"/>
-							<ExtendedTooltip name="ПереноситьИзТомаРасширеннаяПодсказка" id="18"/>
-						</CheckBoxField>
-						<InputField name="ТомХраненияИсточник" id="19">
-							<DataPath>ТомХраненияИсточник</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Том хранения источник</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>None</TitleLocation>
-							<Width>35</Width>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<ChoiceParameters>
-								<app:item name="Отбор.СпособХраненияФайлов">
-									<app:value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation/>
-										<Value xsi:type="xr:DesignTimeRef">Enum.СпособыХраненияФайлов.EnumValue.ВСетевыхКаталогах</Value>
-									</app:value>
-								</app:item>
-								<app:item name="Отбор.ВидТомаХраненияФайлов">
-									<app:value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation/>
-										<Value xsi:type="xr:DesignTimeRef">Enum.ВидыХраненияФайлов.EnumValue.ОперационноеХранение</Value>
-									</app:value>
-								</app:item>
-							</ChoiceParameters>
-							<ContextMenu name="ТомХраненияИсточникКонтекстноеМеню" id="20"/>
-							<ExtendedTooltip name="ТомХраненияИсточникРасширеннаяПодсказка" id="21"/>
-							<Events>
-								<Event name="OnChange">ТомХраненияИсточникПриИзменении</Event>
-							</Events>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="НастройкиВладельца" id="22">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Настройки владельца</v8:content>
-						</v8:item>
-					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<United>false</United>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="НастройкиВладельцаРасширеннаяПодсказка" id="23"/>
-					<ChildItems>
-						<CheckBoxField name="ПереноситьФайлыВладельца" id="24">
-							<DataPath>ПереноситьФайлыВладельца</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Файлы указанного владельца:</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>Right</TitleLocation>
-							<ContextMenu name="ПереноситьФайлыВладельцаКонтекстноеМеню" id="25"/>
-							<ExtendedTooltip name="ПереноситьФайлыВладельцаРасширеннаяПодсказка" id="26"/>
-						</CheckBoxField>
-						<InputField name="ВладелецФайлов" id="27">
-							<DataPath>ВладелецФайлов</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Владелец файлов</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>None</TitleLocation>
-							<Width>35</Width>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<ListChoiceMode>true</ListChoiceMode>
-							<ContextMenu name="ВладелецФайловКонтекстноеМеню" id="28"/>
-							<ExtendedTooltip name="ВладелецФайловРасширеннаяПодсказка" id="29"/>
-							<Events>
-								<Event name="OnChange">ВладелецФайловПриИзменении</Event>
-							</Events>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="НастройкиДатыСоздания" id="30">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Настройки даты создания</v8:content>
-						</v8:item>
-					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<United>false</United>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="НастройкиДатыСозданияРасширеннаяПодсказка" id="31"/>
-					<ChildItems>
-						<CheckBoxField name="ПереноситьПоДатеСоздания" id="32">
-							<DataPath>ПереноситьПоДатеСоздания</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Созданные:</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>Right</TitleLocation>
-							<ContextMenu name="ПереноситьПоДатеСозданияКонтекстноеМеню" id="33"/>
-							<ExtendedTooltip name="ПереноситьПоДатеСозданияРасширеннаяПодсказка" id="34"/>
-						</CheckBoxField>
-						<UsualGroup name="НастройкиУточненияДаты" id="35">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Настройки уточнения даты</v8:content>
+									<v8:content>Настройки источника</v8:content>
 								</v8:item>
 							</Title>
 							<Group>AlwaysHorizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="НастройкиУточненияДатыРасширеннаяПодсказка" id="36"/>
+							<ExtendedTooltip name="НастройкиИсточникаРасширеннаяПодсказка" id="15"/>
 							<ChildItems>
-								<InputField name="УточнениеДатыСоздания" id="37">
-									<DataPath>УточнениеДатыСоздания</DataPath>
+								<CheckBoxField name="ПереноситьИзТома" id="16">
+									<DataPath>ПереноситьИзТома</DataPath>
+									<Visible>false</Visible>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Уточнение даты создания</v8:content>
+											<v8:content>Из указанного тома:</v8:content>
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<Width>5</Width>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<MaxWidth>5</MaxWidth>
-									<ListChoiceMode>true</ListChoiceMode>
-									<TextEdit>false</TextEdit>
-									<ChoiceList>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ПереноситьИзТомаКонтекстноеМеню" id="17"/>
+									<ExtendedTooltip name="ПереноситьИзТомаРасширеннаяПодсказка" id="18"/>
+								</CheckBoxField>
+								<InputField name="ТомХраненияИсточник" id="19">
+									<DataPath>ТомХраненияИсточник</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Том источник</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
+									<AutoEditMode>true</AutoEditMode>
+									<Width>35</Width>
+									<ChoiceParameters>
+										<app:item name="Отбор.СпособХраненияФайлов">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
 												<Presentation/>
-												<Value xsi:type="xs:string">до</Value>
-											</xr:Value>
-										</xr:Item>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Value xsi:type="xr:DesignTimeRef">Enum.СпособыХраненияФайлов.EnumValue.ВСетевыхКаталогах</Value>
+											</app:value>
+										</app:item>
+										<app:item name="Отбор.ВидТомаХраненияФайлов">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
 												<Presentation/>
-												<Value xsi:type="xs:string">после</Value>
-											</xr:Value>
-										</xr:Item>
-									</ChoiceList>
-									<ContextMenu name="УточнениеДатыСозданияКонтекстноеМеню" id="38"/>
-									<ExtendedTooltip name="УточнениеДатыСозданияРасширеннаяПодсказка" id="39"/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ВидыХраненияФайлов.EnumValue.ОперационноеХранение</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="ТомХраненияИсточникКонтекстноеМеню" id="20"/>
+									<ExtendedTooltip name="ТомХраненияИсточникРасширеннаяПодсказка" id="21"/>
 								</InputField>
-								<InputField name="ДатаСоздания" id="40">
-									<DataPath>ДатаСоздания</DataPath>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="НастройкиПриемника" id="6">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки приемника</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="НастройкиПриемникаРасширеннаяПодсказка" id="7"/>
+							<ChildItems>
+								<CheckBoxField name="ПереноситьВТом" id="8">
+									<DataPath>ПереноситьВТом</DataPath>
+									<Visible>false</Visible>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Дата создания</v8:content>
+											<v8:content>В указанный том</v8:content>
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<ContextMenu name="ДатаСозданияКонтекстноеМеню" id="41"/>
-									<ExtendedTooltip name="ДатаСозданияРасширеннаяПодсказка" id="42"/>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ПереноситьВТомКонтекстноеМеню" id="9"/>
+									<ExtendedTooltip name="ПереноситьВТомРасширеннаяПодсказка" id="10"/>
+								</CheckBoxField>
+								<InputField name="ТомХраненияПриемник" id="11">
+									<DataPath>ТомХраненияПриемник</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Том приемник</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
+									<AutoEditMode>true</AutoEditMode>
+									<Width>35</Width>
+									<ChoiceParameters>
+										<app:item name="Отбор.СпособХраненияФайлов">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.СпособыХраненияФайлов.EnumValue.ВСетевыхКаталогах</Value>
+											</app:value>
+										</app:item>
+										<app:item name="Отбор.ВидТомаХраненияФайлов">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ВидыХраненияФайлов.EnumValue.ОперационноеХранение</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="ТомХраненияПриемникКонтекстноеМеню" id="12"/>
+									<ExtendedTooltip name="ТомХраненияПриемникРасширеннаяПодсказка" id="13"/>
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="НастройкиРасширений" id="43">
+				<UsualGroup name="УсловияПереноса" id="77">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Настройки расширений</v8:content>
+							<v8:content>Условия переноса</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<United>false</United>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="НастройкиРасширенийРасширеннаяПодсказка" id="44"/>
+					<Group>Vertical</Group>
+					<ShowAsCard>true</ShowAsCard>
+					<ExtendedTooltip name="УсловияПереносаРасширеннаяПодсказка" id="78"/>
 					<ChildItems>
-						<CheckBoxField name="ПереноситьПоРасширению" id="45">
-							<DataPath>ПереноситьПоРасширению</DataPath>
+						<UsualGroup name="НастройкиВладельца" id="22">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>С указанным расширением:</v8:content>
+									<v8:content>Настройки владельца</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Right</TitleLocation>
-							<ContextMenu name="ПереноситьПоРасширениюКонтекстноеМеню" id="46"/>
-							<ExtendedTooltip name="ПереноситьПоРасширениюРасширеннаяПодсказка" id="47"/>
-						</CheckBoxField>
-						<InputField name="РасширенияФайлов" id="48">
-							<DataPath>РасширенияФайлов</DataPath>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="НастройкиВладельцаРасширеннаяПодсказка" id="23"/>
+							<ChildItems>
+								<CheckBoxField name="ПереноситьФайлыВладельца" id="24">
+									<DataPath>ПереноситьФайлыВладельца</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Файлы указанного владельца:</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ПереноситьФайлыВладельцаКонтекстноеМеню" id="25"/>
+									<ExtendedTooltip name="ПереноситьФайлыВладельцаРасширеннаяПодсказка" id="26"/>
+								</CheckBoxField>
+								<InputField name="ВладелецФайлов" id="27">
+									<DataPath>ВладелецФайлов</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Файлы указанного владельца</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<Width>35</Width>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ContextMenu name="ВладелецФайловКонтекстноеМеню" id="28"/>
+									<ExtendedTooltip name="ВладелецФайловРасширеннаяПодсказка" id="29"/>
+									<Events>
+										<Event name="OnChange">ВладелецФайловПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="НастройкиДатыСоздания" id="30">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Расширения файлов</v8:content>
+									<v8:content>Настройки даты создания</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>None</TitleLocation>
-							<Width>35</Width>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<DropListButton>true</DropListButton>
-							<ContextMenu name="РасширенияФайловКонтекстноеМеню" id="49"/>
-							<ExtendedTooltip name="РасширенияФайловРасширеннаяПодсказка" id="50"/>
-							<Events>
-								<Event name="OnChange">РасширенияФайловПриИзменении</Event>
-								<Event name="ChoiceProcessing">РасширенияФайловОбработкаВыбора</Event>
-							</Events>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="НастройкиДополнительныхПравил" id="51">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Настройки дополнительных правил</v8:content>
-						</v8:item>
-					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<United>false</United>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="НастройкиДополнительныхПравилРасширеннаяПодсказка" id="52"/>
-					<ChildItems>
-						<CheckBoxField name="ПереноситьПоУсловию" id="53">
-							<DataPath>ПереноситьПоУсловию</DataPath>
+							<Group>AlwaysHorizontal</Group>
+							<VerticalAlign>Center</VerticalAlign>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="НастройкиДатыСозданияРасширеннаяПодсказка" id="31"/>
+							<ChildItems>
+								<CheckBoxField name="ПереноситьПоДатеСоздания" id="32">
+									<DataPath>ПереноситьПоДатеСоздания</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Созданные:</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ПереноситьПоДатеСозданияКонтекстноеМеню" id="33"/>
+									<ExtendedTooltip name="ПереноситьПоДатеСозданияРасширеннаяПодсказка" id="34"/>
+								</CheckBoxField>
+								<UsualGroup name="НастройкиУточненияДаты" id="35">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Настройки уточнения даты</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AutoScreenTypeSensitive</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="НастройкиУточненияДатыРасширеннаяПодсказка" id="36"/>
+									<ChildItems>
+										<InputField name="УточнениеДатыСоздания" id="37">
+											<DataPath>УточнениеДатыСоздания</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Уточнение даты создания</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<ListChoiceMode>true</ListChoiceMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Созданные до даты</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">до</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Созданные после даты</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">после</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="УточнениеДатыСозданияКонтекстноеМеню" id="38"/>
+											<ExtendedTooltip name="УточнениеДатыСозданияРасширеннаяПодсказка" id="39"/>
+										</InputField>
+										<InputField name="ДатаСоздания" id="40">
+											<DataPath>ДатаСоздания</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Дата создания</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<ContextMenu name="ДатаСозданияКонтекстноеМеню" id="41"/>
+											<ExtendedTooltip name="ДатаСозданияРасширеннаяПодсказка" id="42"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="НастройкиРасширений" id="43">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>По дополнительным условиям:</v8:content>
+									<v8:content>Настройки расширений</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Right</TitleLocation>
-							<ContextMenu name="ПереноситьПоУсловиюКонтекстноеМеню" id="54"/>
-							<ExtendedTooltip name="ПереноситьПоУсловиюРасширеннаяПодсказка" id="55"/>
-						</CheckBoxField>
-						<InputField name="ДополнительныеУсловияНастройкиОтбор" id="56">
-							<DataPath>ДополнительныеУсловия.Settings.Filter</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<Width>35</Width>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<TextEdit>false</TextEdit>
-							<ContextMenu name="ДополнительныеУсловияНастройкиОтборКонтекстноеМеню" id="57"/>
-							<ExtendedTooltip name="ДополнительныеУсловияНастройкиОтборРасширеннаяПодсказка" id="58"/>
-						</InputField>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="НастройкиРасширенийРасширеннаяПодсказка" id="44"/>
+							<ChildItems>
+								<CheckBoxField name="ПереноситьПоРасширению" id="45">
+									<DataPath>ПереноситьПоРасширению</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>С указанным расширением:</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ПереноситьПоРасширениюКонтекстноеМеню" id="46"/>
+									<ExtendedTooltip name="ПереноситьПоРасширениюРасширеннаяПодсказка" id="47"/>
+								</CheckBoxField>
+								<InputField name="РасширенияФайлов" id="48">
+									<DataPath>РасширенияФайлов</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>С расширением</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<Width>35</Width>
+									<DropListButton>true</DropListButton>
+									<ContextMenu name="РасширенияФайловКонтекстноеМеню" id="49"/>
+									<ExtendedTooltip name="РасширенияФайловРасширеннаяПодсказка" id="50"/>
+									<Events>
+										<Event name="OnChange">РасширенияФайловПриИзменении</Event>
+										<Event name="ChoiceProcessing">РасширенияФайловОбработкаВыбора</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="НастройкиДополнительныхПравил" id="51">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки дополнительных правил</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="НастройкиДополнительныхПравилРасширеннаяПодсказка" id="52"/>
+							<ChildItems>
+								<CheckBoxField name="ПереноситьПоУсловию" id="53">
+									<DataPath>ПереноситьПоУсловию</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По дополнительным условиям:</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ПереноситьПоУсловиюКонтекстноеМеню" id="54"/>
+									<ExtendedTooltip name="ПереноситьПоУсловиюРасширеннаяПодсказка" id="55"/>
+								</CheckBoxField>
+								<InputField name="ДополнительныеУсловияНастройкиОтбор" id="56">
+									<DataPath>ДополнительныеУсловия.Settings.Filter</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные условия</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<Width>35</Width>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ДополнительныеУсловияНастройкиОтборКонтекстноеМеню" id="57"/>
+									<ExtendedTooltip name="ДополнительныеУсловияНастройкиОтборРасширеннаяПодсказка" id="58"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -666,6 +707,7 @@
 			</ToolTip>
 			<Action>ВыполнитьПеренос</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

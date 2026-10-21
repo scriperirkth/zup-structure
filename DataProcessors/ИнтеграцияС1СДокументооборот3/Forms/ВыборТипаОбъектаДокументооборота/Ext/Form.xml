@@ -6,12 +6,13 @@
 			<v8:content>Выбрать в 1С:Документообороте</v8:content>
 		</v8:item>
 	</Title>
-	<Width>45</Width>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
+	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
 	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
@@ -20,24 +21,19 @@
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.Готово</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Выбрать</v8:content>
-					</v8:item>
-				</Title>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="2"/>
-			</Button>
-			<Button name="Отмена" id="3">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Cancel</CommandName>
-				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="4"/>
 			</Button>
 			<Button name="Справка" id="21">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.StandardCommand.Help</CommandName>
+				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="22"/>
+			</Button>
+			<Button name="НастроитьПравило" id="35">
+				<Type>CommandBarHyperlink</Type>
+				<CommandName>Form.Command.НастроитьПравило</CommandName>
+				<ExtendedTooltip name="НастроитьПравилоРасширеннаяПодсказка" id="36"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -48,16 +44,22 @@
 		<Table name="ТипыОбъектов" id="5">
 			<Representation>List</Representation>
 			<ReadOnly>true</ReadOnly>
-			<RowSelectionMode>Cell</RowSelectionMode>
+			<DefaultItem>true</DefaultItem>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<HeightInTableRows>4</HeightInTableRows>
+			<SelectionMode>SingleRow</SelectionMode>
+			<RowSelectionMode>Row</RowSelectionMode>
 			<Header>false</Header>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
-			<EnableStartDrag>true</EnableStartDrag>
-			<EnableDrag>true</EnableDrag>
+			<InitialRowActivation>Activate</InitialRowActivation>
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>ТипыОбъектов</DataPath>
 			<RowFilter xsi:nil="true"/>
-			<ContextMenu name="ТипыОбъектовКонтекстноеМеню" id="6"/>
+			<ContextMenu name="ТипыОбъектовКонтекстноеМеню" id="6">
+				<Autofill>false</Autofill>
+			</ContextMenu>
 			<AutoCommandBar name="ТипыОбъектовКоманднаяПанель" id="7">
 				<Autofill>false</Autofill>
 			</AutoCommandBar>
@@ -105,41 +107,6 @@
 				</InputField>
 			</ChildItems>
 		</Table>
-		<UsualGroup name="ГруппаНастроитьПравило" id="23">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа настроить правило</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Horizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаНастроитьПравилоРасширеннаяПодсказка" id="24"/>
-			<ChildItems>
-				<LabelDecoration name="ДекорацияНастроитьПравило" id="25">
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Настроить правило</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Настроить правило интеграции для автоматического создания объектов 1С:Документооборота в будущем</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Hyperlink>true</Hyperlink>
-					<ContextMenu name="ДекорацияНастроитьПравилоКонтекстноеМеню" id="26"/>
-					<ExtendedTooltip name="ДекорацияНастроитьПравилоРасширеннаяПодсказка" id="27"/>
-					<Events>
-						<Event name="Click">ДекорацияНастроитьПравилоНажатие</Event>
-					</Events>
-				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -212,7 +179,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Создать</v8:content>
+					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -223,6 +190,17 @@
 			</ToolTip>
 			<Action>Готово</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="НастроитьПравило" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настроить правило</v8:content>
+				</v8:item>
+			</Title>
+			<Action>НастроитьПравило</Action>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

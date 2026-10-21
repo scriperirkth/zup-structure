@@ -6,17 +6,21 @@
 			<v8:content>Результаты поиска</v8:content>
 		</v8:item>
 	</Title>
-	<Width>140</Width>
+	<Width>200</Width>
+	<Height>100</Height>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
+	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Top</CommandBarLocation>
+	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="Выбрать" id="64">
 				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
 				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.Выбрать</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
@@ -42,7 +46,7 @@
 			<ChangeRowOrder>false</ChangeRowOrder>
 			<HeightInTableRows>1</HeightInTableRows>
 			<SelectionMode>SingleRow</SelectionMode>
-			<RowSelectionMode>Cell</RowSelectionMode>
+			<RowSelectionMode>Row</RowSelectionMode>
 			<Header>false</Header>
 			<HorizontalScrollBar>DontUse</HorizontalScrollBar>
 			<VerticalScrollBar>DontUse</VerticalScrollBar>
@@ -55,13 +59,20 @@
 			<DataPath>ПредставлениеУсловийПоиска</DataPath>
 			<CommandSet>
 				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>CancelSearch</ExcludedCommand>
 				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>ClearTableMarksAppearance</ExcludedCommand>
 				<ExcludedCommand>Copy</ExcludedCommand>
 				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
 				<ExcludedCommand>Delete</ExcludedCommand>
 				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>Find</ExcludedCommand>
+				<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
 				<ExcludedCommand>MoveDown</ExcludedCommand>
 				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>OutputList</ExcludedCommand>
+				<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 			</CommandSet>
@@ -72,7 +83,6 @@
 				</v8:item>
 			</ToolTip>
 			<SearchStringLocation>None</SearchStringLocation>
-			<ViewStatusLocation>None</ViewStatusLocation>
 			<SearchControlLocation>None</SearchControlLocation>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="ПредставлениеУсловийПоискаКонтекстноеМеню" id="101"/>
@@ -112,6 +122,9 @@
 					<DataPath>ПредставлениеУсловийПоиска.Представление</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
 					<ContextMenu name="ПредставлениеУсловийПоискаПредставлениеКонтекстноеМеню" id="144"/>
 					<ExtendedTooltip name="ПредставлениеУсловийПоискаПредставлениеРасширеннаяПодсказка" id="145"/>
 				</InputField>
@@ -136,10 +149,8 @@
 					<DefaultItem>true</DefaultItem>
 					<ChangeRowSet>false</ChangeRowSet>
 					<ChangeRowOrder>false</ChangeRowOrder>
-					<HeightInTableRows>21</HeightInTableRows>
 					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
-					<HorizontalScrollBar>DontUse</HorizontalScrollBar>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
 					<EnableStartDrag>true</EnableStartDrag>
@@ -159,7 +170,6 @@
 						<ExcludedCommand>SortListDesc</ExcludedCommand>
 					</CommandSet>
 					<SearchStringLocation>None</SearchStringLocation>
-					<ViewStatusLocation>None</ViewStatusLocation>
 					<SearchControlLocation>None</SearchControlLocation>
 					<RowFilter xsi:nil="true"/>
 					<ContextMenu name="НайденныеОбъектыКонтекстноеМеню" id="16"/>
@@ -206,7 +216,9 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<Width>40</Width>
+							<AutoWidthInTable>None</AutoWidthInTable>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
 							<ContextMenu name="nameКонтекстноеМеню" id="23"/>
 							<ExtendedTooltip name="nameРасширеннаяПодсказка" id="24"/>
 						</InputField>
@@ -220,7 +232,7 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<Width>20</Width>
+							<AutoWidthInTable>ByDataAndTitle</AutoWidthInTable>
 							<ContextMenu name="documentTypeКонтекстноеМеню" id="37"/>
 							<ExtendedTooltip name="documentTypeРасширеннаяПодсказка" id="38"/>
 						</InputField>
@@ -234,7 +246,9 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<Width>12</Width>
+							<AutoWidthInTable>None</AutoWidthInTable>
+							<Width>5</Width>
+							<HorizontalStretch>false</HorizontalStretch>
 							<ContextMenu name="regNumberКонтекстноеМеню" id="40"/>
 							<ExtendedTooltip name="regNumberРасширеннаяПодсказка" id="41"/>
 						</InputField>
@@ -243,12 +257,14 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Дата регистрации</v8:content>
+									<v8:content>Дата рег.</v8:content>
 								</v8:item>
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<Width>10</Width>
+							<AutoWidthInTable>None</AutoWidthInTable>
+							<Width>7</Width>
+							<HorizontalStretch>false</HorizontalStretch>
 							<ContextMenu name="regDateКонтекстноеМеню" id="43"/>
 							<ExtendedTooltip name="regDateРасширеннаяПодсказка" id="44"/>
 						</InputField>
@@ -262,7 +278,9 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<Width>10</Width>
+							<AutoWidthInTable>None</AutoWidthInTable>
+							<Width>9</Width>
+							<HorizontalStretch>false</HorizontalStretch>
 							<ContextMenu name="sumКонтекстноеМеню" id="46"/>
 							<ExtendedTooltip name="sumРасширеннаяПодсказка" id="47"/>
 						</InputField>
@@ -276,7 +294,7 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<Width>20</Width>
+							<AutoWidthInTable>ByDataAndTitle</AutoWidthInTable>
 							<ContextMenu name="organizationКонтекстноеМеню" id="49"/>
 							<ExtendedTooltip name="organizationРасширеннаяПодсказка" id="50"/>
 						</InputField>
@@ -290,7 +308,7 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<Width>24</Width>
+							<AutoWidthInTable>ByDataAndTitle</AutoWidthInTable>
 							<ContextMenu name="correspondentКонтекстноеМеню" id="52"/>
 							<ExtendedTooltip name="correspondentРасширеннаяПодсказка" id="53"/>
 						</InputField>
@@ -304,7 +322,7 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<Width>12</Width>
+							<AutoWidthInTable>ByDataAndTitle</AutoWidthInTable>
 							<ContextMenu name="innКонтекстноеМеню" id="147"/>
 							<ExtendedTooltip name="innРасширеннаяПодсказка" id="148"/>
 						</InputField>
@@ -318,7 +336,7 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<Width>9</Width>
+							<AutoWidthInTable>ByDataAndTitle</AutoWidthInTable>
 							<ContextMenu name="kppКонтекстноеМеню" id="150"/>
 							<ExtendedTooltip name="kppРасширеннаяПодсказка" id="151"/>
 						</InputField>
@@ -332,7 +350,7 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<Width>12</Width>
+							<AutoWidthInTable>ByDataAndTitle</AutoWidthInTable>
 							<ContextMenu name="birthDateКонтекстноеМеню" id="153"/>
 							<ExtendedTooltip name="birthDateРасширеннаяПодсказка" id="154"/>
 						</InputField>
@@ -346,6 +364,7 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<AutoWidthInTable>ByDataAndTitle</AutoWidthInTable>
 							<ContextMenu name="typeКонтекстноеМеню" id="174"/>
 							<ExtendedTooltip name="typeРасширеннаяПодсказка" id="175"/>
 						</InputField>
@@ -359,6 +378,7 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<AutoWidthInTable>ByDataAndTitle</AutoWidthInTable>
 							<ContextMenu name="startDateКонтекстноеМеню" id="177"/>
 							<ExtendedTooltip name="startDateРасширеннаяПодсказка" id="178"/>
 						</InputField>
@@ -372,6 +392,7 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<AutoWidthInTable>ByDataAndTitle</AutoWidthInTable>
 							<ContextMenu name="endDateКонтекстноеМеню" id="180"/>
 							<ExtendedTooltip name="endDateРасширеннаяПодсказка" id="181"/>
 						</InputField>
@@ -807,7 +828,7 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="УстановленныйОтбор" id="23">
+		<Attribute name="УстановленныйОтбор" id="5">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -887,8 +908,8 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>Выбрать</Action>
-			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ИзменитьУсловия" id="3">
 			<Title>
@@ -906,6 +927,7 @@
 			<Action>ИзменитьУсловия</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

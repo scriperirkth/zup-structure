@@ -14,6 +14,15 @@
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Печать" id="45">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Печать</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="89"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -56,6 +65,7 @@
 						<Table name="Ошибки" id="4">
 							<Representation>List</Representation>
 							<ReadOnly>true</ReadOnly>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<Header>false</Header>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -123,6 +133,7 @@
 							<Representation>Tree</Representation>
 							<TitleLocation>Top</TitleLocation>
 							<ReadOnly>true</ReadOnly>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<Header>false</Header>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -242,7 +253,7 @@
 									<TitleLocation>None</TitleLocation>
 									<TextEdit>false</TextEdit>
 									<BackColor>#EEF3FF</BackColor>
-									<BorderColor>style:FormBackColor</BorderColor>
+									<BorderColor>pal:Gray</BorderColor>
 									<ContextMenu name="ИмяОбрабФайлаКонтекстноеМеню" id="15"/>
 									<ExtendedTooltip name="ИмяОбрабФайлаРасширеннаяПодсказка" id="75"/>
 									<Events>
@@ -287,7 +298,7 @@
 									<TitleLocation>None</TitleLocation>
 									<TextEdit>false</TextEdit>
 									<BackColor>#EEF3FF</BackColor>
-									<BorderColor>style:FormBackColor</BorderColor>
+									<BorderColor>pal:Gray</BorderColor>
 									<ContextMenu name="ДатаВремяПредстКонтекстноеМеню" id="18"/>
 									<ExtendedTooltip name="ДатаВремяПредстРасширеннаяПодсказка" id="78"/>
 									<Events>
@@ -332,7 +343,7 @@
 									<TitleLocation>None</TitleLocation>
 									<TextEdit>false</TextEdit>
 									<BackColor>#EEF3FF</BackColor>
-									<BorderColor>style:FormBackColor</BorderColor>
+									<BorderColor>pal:Gray</BorderColor>
 									<ContextMenu name="ДатаПриемКонтекстноеМеню" id="21"/>
 									<ExtendedTooltip name="ДатаПриемРасширеннаяПодсказка" id="81"/>
 									<Events>
@@ -377,7 +388,7 @@
 									<TitleLocation>None</TitleLocation>
 									<TextEdit>false</TextEdit>
 									<BackColor>#EEF3FF</BackColor>
-									<BorderColor>style:FormBackColor</BorderColor>
+									<BorderColor>pal:Gray</BorderColor>
 									<ContextMenu name="КНДКонтекстноеМеню" id="24"/>
 									<ExtendedTooltip name="КНДРасширеннаяПодсказка" id="84"/>
 									<Events>
@@ -422,7 +433,7 @@
 									<TitleLocation>None</TitleLocation>
 									<TextEdit>false</TextEdit>
 									<BackColor>#EEF3FF</BackColor>
-									<BorderColor>style:FormBackColor</BorderColor>
+									<BorderColor>pal:Gray</BorderColor>
 									<ContextMenu name="НаимВидДокКонтекстноеМеню" id="27"/>
 									<ExtendedTooltip name="НаимВидДокРасширеннаяПодсказка" id="87"/>
 									<Events>
@@ -435,29 +446,6 @@
 				</Page>
 			</ChildItems>
 		</Pages>
-		<CommandBar name="ГруппаКоманднаяПанель" id="11">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа командная панель</v8:content>
-				</v8:item>
-			</ToolTip>
-			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="88"/>
-			<ChildItems>
-				<Button name="Печать" id="45">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.Печать</CommandName>
-					<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="89"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -702,6 +690,7 @@
 			<Action>Печать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

@@ -15,19 +15,19 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<ChildItems>
-			<Button name="ОК" id="7">
+			<Button name="Применить" id="7">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
 				<SkipOnInput>false</SkipOnInput>
-				<CommandName>Form.Command.ОК</CommandName>
+				<CommandName>Form.Command.Применить</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>ОК</v8:content>
+						<v8:content>Применить</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="48"/>
+				<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="48"/>
 			</Button>
 			<Button name="Отмена" id="8">
 				<Type>CommandBarButton</Type>
@@ -69,8 +69,8 @@
 						</v8:item>
 					</Title>
 					<ToolTipRepresentation>Button</ToolTipRepresentation>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>37</MaxWidth>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ListChoiceMode>true</ListChoiceMode>
 					<ChooseType>false</ChooseType>
 					<ChoiceList>
@@ -125,10 +125,11 @@
 					<v8:content>Настройки</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>AutoScreenTypeSensitive</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
+			<ShowAsCard>true</ShowAsCard>
 			<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="70"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаОсновное" id="24">
@@ -140,7 +141,6 @@
 					</Title>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
-					<Representation>WeakSeparation</Representation>
 					<ExtendedTooltip name="ГруппаОсновноеРасширеннаяПодсказка" id="62"/>
 					<ChildItems>
 						<InputField name="Разрешение" id="14">
@@ -152,8 +152,8 @@
 								</v8:item>
 							</Title>
 							<ToolTipRepresentation>Button</ToolTipRepresentation>
-							<Width>13</Width>
-							<HorizontalStretch>false</HorizontalStretch>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="РазрешениеКонтекстноеМеню" id="15"/>
 							<ExtendedTooltip name="РазрешениеРасширеннаяПодсказка" id="63">
 								<Title formatted="true">
@@ -176,8 +176,8 @@
 									<v8:content>Цветность</v8:content>
 								</v8:item>
 							</Title>
-							<Width>13</Width>
-							<HorizontalStretch>false</HorizontalStretch>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ЦветностьКонтекстноеМеню" id="17"/>
 							<ExtendedTooltip name="ЦветностьРасширеннаяПодсказка" id="64"/>
 						</InputField>
@@ -189,8 +189,8 @@
 									<v8:content>Поворот изображения</v8:content>
 								</v8:item>
 							</Title>
-							<Width>13</Width>
-							<HorizontalStretch>false</HorizontalStretch>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ПоворотКонтекстноеМеню" id="21"/>
 							<ExtendedTooltip name="ПоворотРасширеннаяПодсказка" id="65"/>
 						</InputField>
@@ -202,8 +202,8 @@
 									<v8:content>Размер бумаги</v8:content>
 								</v8:item>
 							</Title>
-							<Width>13</Width>
-							<HorizontalStretch>false</HorizontalStretch>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="РазмерБумагиКонтекстноеМеню" id="23"/>
 							<ExtendedTooltip name="РазмерБумагиРасширеннаяПодсказка" id="66"/>
 						</InputField>
@@ -216,6 +216,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>Right</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ДвустороннееСканированиеКонтекстноеМеню" id="29"/>
 							<ExtendedTooltip name="ДвустороннееСканированиеРасширеннаяПодсказка" id="67"/>
 						</CheckBoxField>
@@ -243,7 +245,6 @@
 							</Title>
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
-							<Representation>WeakSeparation</Representation>
 							<ExtendedTooltip name="ГруппаФорматХраненияОдиночныйРасширеннаяПодсказка" id="51"/>
 							<ChildItems>
 								<UsualGroup name="ГруппаФорматаСканирования" id="36">
@@ -253,7 +254,7 @@
 											<v8:content>Формата сканирования</v8:content>
 										</v8:item>
 									</Title>
-									<Group>HorizontalIfPossible</Group>
+									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
@@ -267,40 +268,23 @@
 													<v8:content>Сохранить как</v8:content>
 												</v8:item>
 											</Title>
-											<Width>9</Width>
-											<HorizontalStretch>false</HorizontalStretch>
+											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<DropListWidth>9</DropListWidth>
 											<ContextMenu name="ФорматСканированногоИзображенияКонтекстноеМеню" id="38"/>
-											<ExtendedTooltip name="ФорматСканированногоИзображенияРасширеннаяПодсказка" id="56"/>
+											<ExtendedTooltip name="ФорматСканированногоИзображенияРасширеннаяПодсказка" id="56">
+												<Title formatted="true">
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Подходит для большинства документов и изображений. Позволяет сжимать изображение с потерей качества. Можно настроить величину сжатия.</v8:content>
+													</v8:item>
+												</Title>
+											</ExtendedTooltip>
 											<Events>
 												<Event name="OnChange">ФорматСканированногоИзображенияПриИзменении</Event>
 											</Events>
 										</InputField>
-										<CheckBoxField name="ПреобразоватьВPDF" id="84">
-											<DataPath>СохранятьВPDF</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Преобразовать в PDF</v8:content>
-												</v8:item>
-											</Title>
-											<TitleLocation>Right</TitleLocation>
-											<ToolTipRepresentation>Button</ToolTipRepresentation>
-											<ContextMenu name="ПреобразоватьВPDFКонтекстноеМеню" id="85"/>
-											<ExtendedTooltip name="ПреобразоватьВPDFРасширеннаяПодсказка" id="86">
-												<Title formatted="true">
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>&lt;b&gt;JPG&lt;/&gt; подходит для большинства документов и изображений. Позволяет сжимать изображение с потерей качества. Можно настроить величину сжатия. 
-&lt;b&gt;PNG&lt;/&gt; подходит для большинства документов и изображений. Изображения без потери качества, файлы небольших размеров. 
-&lt;b&gt;TIF&lt;/&gt; позволяет сохранять изображение без потери качества, используется для хранения изображений для дальнейшей печати. Возможно хранение многостраничных изображений.
-&lt;b&gt;GIF&lt;/&gt; устаревший формат для хранения изображений в низком качестве. Файлы небольшого размера.
-
-&lt;b&gt;Преобразовать в PDF позволяет поместить отсканированное изображение в PDF-файл. Возможно хранение многостраничных изображений.</v8:content>
-													</v8:item>
-												</Title>
-											</ExtendedTooltip>
-										</CheckBoxField>
 									</ChildItems>
 								</UsualGroup>
 								<UsualGroup name="ГруппаКачествоJPG" id="73">
@@ -312,6 +296,7 @@
 									</Title>
 									<Height>2</Height>
 									<Group>AlwaysHorizontal</Group>
+									<VerticalAlign>Center</VerticalAlign>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаКачествоJPGРасширеннаяПодсказка" id="74"/>
@@ -336,6 +321,8 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>Top</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<Width>9</Width>
 											<ContextMenu name="КачествоJPGКонтекстноеМеню" id="79"/>
 											<ExtendedTooltip name="КачествоJPGРасширеннаяПодсказка" id="80"/>
@@ -364,25 +351,41 @@
 											<v8:content>Сжатие</v8:content>
 										</v8:item>
 									</Title>
-									<Width>9</Width>
-									<HorizontalStretch>false</HorizontalStretch>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<DropListWidth>9</DropListWidth>
 									<ContextMenu name="СжатиеTIFFКонтекстноеМеню" id="44"/>
 									<ExtendedTooltip name="СжатиеTIFFРасширеннаяПодсказка" id="59"/>
 								</InputField>
-								<LabelDecoration name="ОписаниеФорматаОдностраничногоДокумента" id="87">
-									<HorizontalStretch>true</HorizontalStretch>
-									<TextColor>style:ПоясняющийТекст</TextColor>
-									<Title formatted="true">
+								<CheckBoxField name="ПреобразоватьВPDF" id="84">
+									<DataPath>СохранятьВPDF</DataPath>
+									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Подходит для большинства документов и изображений. Позволяет сжимать изображение с потерей качества. Можно настроить величину сжатия.
-</v8:content>
+											<v8:content>Преобразовать в PDF</v8:content>
 										</v8:item>
 									</Title>
-									<ContextMenu name="ОписаниеФорматаОдностраничногоДокументаКонтекстноеМеню" id="88"/>
-									<ExtendedTooltip name="ОписаниеФорматаОдностраничногоДокументаРасширеннаяПодсказка" id="89"/>
-								</LabelDecoration>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ПреобразоватьВPDFКонтекстноеМеню" id="85"/>
+									<ExtendedTooltip name="ПреобразоватьВPDFРасширеннаяПодсказка" id="86">
+										<AutoMaxWidth>false</AutoMaxWidth>
+										<HorizontalStretch>true</HorizontalStretch>
+										<Title formatted="true">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>&lt;b&gt;JPG&lt;/&gt; подходит для большинства документов и изображений. Позволяет сжимать изображение с потерей качества. Можно настроить величину сжатия. 
+&lt;b&gt;PNG&lt;/&gt; подходит для большинства документов и изображений. Изображения без потери качества, файлы небольших размеров. 
+&lt;b&gt;TIF&lt;/&gt; позволяет сохранять изображение без потери качества, используется для хранения изображений для дальнейшей печати. Возможно хранение многостраничных изображений.
+&lt;b&gt;GIF&lt;/&gt; устаревший формат для хранения изображений в низком качестве. Файлы небольшого размера.
+
+&lt;b&gt;Преобразовать в PDF позволяет поместить отсканированное изображение в PDF-файл. Возможно хранение многостраничных изображений.</v8:content>
+											</v8:item>
+										</Title>
+									</ExtendedTooltip>
+								</CheckBoxField>
 							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="ГруппаФорматХраненияМногостраничный" id="45">
@@ -394,7 +397,6 @@
 							</Title>
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
-							<Representation>WeakSeparation</Representation>
 							<ExtendedTooltip name="ГруппаФорматХраненияМногостраничныйРасширеннаяПодсказка" id="60"/>
 							<ChildItems>
 								<InputField name="ФорматХраненияМногостраничный" id="46">
@@ -405,8 +407,8 @@
 											<v8:content>Формат</v8:content>
 										</v8:item>
 									</Title>
-									<Width>9</Width>
-									<HorizontalStretch>false</HorizontalStretch>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<DropListWidth>9</DropListWidth>
 									<ContextMenu name="ФорматХраненияМногостраничныйКонтекстноеМеню" id="47"/>
 									<ExtendedTooltip name="ФорматХраненияМногостраничныйРасширеннаяПодсказка" id="61"/>
@@ -568,21 +570,22 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ОК" id="2">
+		<Command name="Применить" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ОК</Action>
+			<Action>Применить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

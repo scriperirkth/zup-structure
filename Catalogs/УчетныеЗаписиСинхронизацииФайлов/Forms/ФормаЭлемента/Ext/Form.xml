@@ -14,6 +14,7 @@
 						<v8:content>Проверить настройки</v8:content>
 					</v8:item>
 				</Title>
+				<ButtonImportance>Supplementary</ButtonImportance>
 				<ExtendedTooltip name="ФормаПроверитьНастройкиРасширеннаяПодсказка" id="64"/>
 			</Button>
 		</ChildItems>
@@ -23,46 +24,6 @@
 		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаПредупреждениеОНебезопасномПротоколе" id="75">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Предупреждение о небезопасном протоколе</v8:content>
-				</v8:item>
-			</Title>
-			<Group>AlwaysHorizontal</Group>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<BackColor>style:ЦветФонаВнимание</BackColor>
-			<ExtendedTooltip name="ГруппаПредупреждениеОНебезопасномПротоколеРасширеннаяПодсказка" id="76"/>
-			<ChildItems>
-				<PictureDecoration name="ДекорацияКартинкаПредупреждениеОНебезопасномПротоколе" id="77">
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Декорация картинка предупреждение о небезопасном протоколе</v8:content>
-						</v8:item>
-					</Title>
-					<Picture>
-						<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</Picture>
-					<ContextMenu name="ДекорацияКартинкаПредупреждениеОНебезопасномПротоколеКонтекстноеМеню" id="78"/>
-					<ExtendedTooltip name="ДекорацияКартинкаПредупреждениеОНебезопасномПротоколеРасширеннаяПодсказка" id="79"/>
-				</PictureDecoration>
-				<LabelDecoration name="ДекорацияНадписьПредупреждениеОНебезопасномПротоколе" id="80">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Выбранный сервис работает по протоколу http - данные авторизации будут передаваться небезопасно.</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ДекорацияНадписьПредупреждениеОНебезопасномПротоколеКонтекстноеМеню" id="81"/>
-					<ExtendedTooltip name="ДекорацияНадписьПредупреждениеОНебезопасномПротоколеРасширеннаяПодсказка" id="82"/>
-				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
 		<UsualGroup name="ГруппаНаименованиеИНастройки" id="65">
 			<Title>
 				<v8:item>
@@ -99,7 +60,7 @@
 							<v8:content>Настройки</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
+					<Group>AutoScreenTypeSensitive</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -107,6 +68,8 @@
 					<ChildItems>
 						<InputField name="Сервис" id="69">
 							<DataPath>Объект.Сервис</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<DropListButton>true</DropListButton>
 							<ChooseType>false</ChooseType>
 							<ChoiceList>
@@ -173,52 +136,56 @@
 								</v8:item>
 							</ToolTip>
 							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="КорневаяПапкаКонтекстноеМеню" id="38"/>
 							<ExtendedTooltip name="КорневаяПапкаРасширеннаяПодсказка" id="39"/>
 						</InputField>
-						<UsualGroup name="ГруппаЛогинПароль" id="67">
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаЛогинПароль" id="67">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Логин, пароль</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AutoScreenTypeSensitive</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаЛогинПарольРасширеннаяПодсказка" id="68"/>
+					<ChildItems>
+						<InputField name="Логин" id="31">
+							<DataPath>Логин</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Логин, пароль</v8:content>
+									<v8:content>Логин</v8:content>
 								</v8:item>
 							</Title>
-							<Group>HorizontalIfPossible</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаЛогинПарольРасширеннаяПодсказка" id="68"/>
-							<ChildItems>
-								<InputField name="Логин" id="31">
-									<DataPath>Логин</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Логин</v8:content>
-										</v8:item>
-									</Title>
-									<HorizontalStretch>false</HorizontalStretch>
-									<ContextMenu name="ЛогинКонтекстноеМеню" id="32"/>
-									<ExtendedTooltip name="ЛогинРасширеннаяПодсказка" id="33"/>
-								</InputField>
-								<InputField name="Пароль" id="34">
-									<DataPath>Пароль</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Пароль</v8:content>
-										</v8:item>
-									</Title>
-									<HorizontalStretch>false</HorizontalStretch>
-									<PasswordMode>true</PasswordMode>
-									<ContextMenu name="ПарольКонтекстноеМеню" id="35"/>
-									<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="36"/>
-									<Events>
-										<Event name="OnChange">ПарольПриИзменении</Event>
-									</Events>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ЛогинКонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="ЛогинРасширеннаяПодсказка" id="33"/>
+						</InputField>
+						<InputField name="Пароль" id="34">
+							<DataPath>Пароль</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пароль</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<PasswordMode>true</PasswordMode>
+							<ContextMenu name="ПарольКонтекстноеМеню" id="35"/>
+							<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="36"/>
+							<Events>
+								<Event name="OnChange">ПарольПриИзменении</Event>
+							</Events>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -245,6 +212,8 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>Top</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<RadioButtonType>Auto</RadioButtonType>
 					<ColumnsCount>1</ColumnsCount>
 					<ChoiceList>
@@ -275,7 +244,7 @@
 							<v8:content>Автор пользователь</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -290,6 +259,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<RadioButtonType>Auto</RadioButtonType>
 							<ColumnsCount>1</ColumnsCount>
 							<ChoiceList>
@@ -323,6 +294,8 @@
 								</v8:item>
 							</ToolTip>
 							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<OpenButton>false</OpenButton>
 							<ContextMenu name="АвторФайловКонтекстноеМеню" id="45"/>
 							<ExtendedTooltip name="АвторФайловРасширеннаяПодсказка" id="46"/>
@@ -417,6 +390,7 @@
 			</ToolTip>
 			<Action>ПроверитьНастройки</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

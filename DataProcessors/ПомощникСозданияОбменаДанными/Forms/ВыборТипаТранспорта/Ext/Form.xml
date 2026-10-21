@@ -4,17 +4,56 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<SaveWindowSettings>false</SaveWindowSettings>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
+	<Scale>101</Scale>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаГотово" id="196">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Готово</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Готово</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаГотовоРасширеннаяПодсказка" id="197"/>
+			</Button>
+			<Button name="ФормаЗагрузитьНастройкиПодключения" id="198">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ЗагрузитьНастройкиПодключения</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Загрузить настройки подключения</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаЗагрузитьНастройкиПодключенияРасширеннаяПодсказка" id="199"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<LabelDecoration name="НадписьНачальнаяНастройка" id="178">
+			<Font ref="style:TextLevel3" kind="StyleItem"/>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Если это начальная настройка, которая выполняется в первом приложении, нажмите "Новая настройка". Если настройки в первом приложении выполнены, то нажмите "Продолжение настройки".</v8:content>
+				</v8:item>
+			</Title>
+			<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+			<ContextMenu name="НадписьНачальнаяНастройкаКонтекстноеМеню" id="179"/>
+			<ExtendedTooltip name="НадписьНачальнаяНастройкаРасширеннаяПодсказка" id="180"/>
+		</LabelDecoration>
 		<RadioButtonField name="ВариантРаботы" id="69">
 			<DataPath>ВариантРаботы</DataPath>
 			<Title>
@@ -24,6 +63,13 @@
 				</v8:item>
 			</Title>
 			<TitleLocation>None</TitleLocation>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполняется начальная настройка синхронизации данных, необходимо выбрать способ доставки сообщений.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
 			<RadioButtonType>Tumbler</RadioButtonType>
 			<EqualColumnsWidth>true</EqualColumnsWidth>
 			<ChoiceList>
@@ -70,65 +116,20 @@
 			<PagesRepresentation>None</PagesRepresentation>
 			<ExtendedTooltip name="ПанельОсновнаяРасширеннаяПодсказка" id="11"/>
 			<ChildItems>
-				<Page name="СтраницаНачальнаяНастройка" id="163">
+				<Page name="СтраницаТипыТранспортаНачало" id="211">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Страница начальная настройка</v8:content>
+							<v8:content>Страница типы транспорта начало</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаНачальнаяНастройкаРасширеннаяПодсказка" id="164"/>
+					<ExtendedTooltip name="СтраницаТипыТранспортаНачалоРасширеннаяПодсказка" id="212"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаИнформацияНачальнойНастройки" id="173">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Информация начальной настройки</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа информация новой настройки</v8:content>
-								</v8:item>
-							</ToolTip>
-							<HorizontalStretch>true</HorizontalStretch>
-							<Group>HorizontalIfPossible</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<BackColor>#CCFFCC</BackColor>
-							<ExtendedTooltip name="ГруппаИнформацияНачальнойНастройкиРасширеннаяПодсказка" id="174"/>
-							<ChildItems>
-								<PictureDecoration name="Декорация6" id="175">
-									<Width>5</Width>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<Height>2</Height>
-									<AutoMaxHeight>false</AutoMaxHeight>
-									<Zoomable>true</Zoomable>
-									<ImageScale>200</ImageScale>
-									<Picture>
-										<xr:Ref>StdPicture.Information</xr:Ref>
-										<xr:LoadTransparent>true</xr:LoadTransparent>
-									</Picture>
-									<ContextMenu name="Декорация6КонтекстноеМеню" id="176"/>
-									<ExtendedTooltip name="Декорация6РасширеннаяПодсказка" id="177"/>
-								</PictureDecoration>
-								<LabelDecoration name="Декорация9" id="178">
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Если это начальная настройка, которая выполняется в первом приложении, нажмите "Новая настройка". Если настройки в первом приложении выполнены, то нажмите "Продолжение настройки".</v8:content>
-										</v8:item>
-									</Title>
-									<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-									<GroupVerticalAlign>Center</GroupVerticalAlign>
-									<ContextMenu name="Декорация9КонтекстноеМеню" id="179"/>
-									<ExtendedTooltip name="Декорация9РасширеннаяПодсказка" id="180"/>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
+						<LabelDecoration name="Декорация1" id="213">
+							<VerticalStretch>false</VerticalStretch>
+							<ContextMenu name="Декорация1КонтекстноеМеню" id="214"/>
+							<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="215"/>
+						</LabelDecoration>
 					</ChildItems>
 				</Page>
 				<Page name="СтраницаТипыТранспортаНоваяНастройка" id="12">
@@ -142,49 +143,6 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаТипыТранспортаНоваяНастройкаРасширеннаяПодсказка" id="13"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаИнформацияНовойНастройки" id="165">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Информация новой настройки</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalStretch>true</HorizontalStretch>
-							<Group>HorizontalIfPossible</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<BackColor>#CCFFCC</BackColor>
-							<ExtendedTooltip name="ГруппаИнформацияНовойНастройкиРасширеннаяПодсказка" id="166"/>
-							<ChildItems>
-								<PictureDecoration name="Декорация5" id="167">
-									<Width>5</Width>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<Height>2</Height>
-									<AutoMaxHeight>false</AutoMaxHeight>
-									<Zoomable>true</Zoomable>
-									<ImageScale>200</ImageScale>
-									<Picture>
-										<xr:Ref>StdPicture.Information</xr:Ref>
-										<xr:LoadTransparent>true</xr:LoadTransparent>
-									</Picture>
-									<ContextMenu name="Декорация5КонтекстноеМеню" id="168"/>
-									<ExtendedTooltip name="Декорация5РасширеннаяПодсказка" id="169"/>
-								</PictureDecoration>
-								<LabelDecoration name="Декорация8" id="170">
-									<Height>2</Height>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Выполняется начальная настройка синхронизации данных, необходимо выбрать способ доставки сообщений.</v8:content>
-										</v8:item>
-									</Title>
-									<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-									<GroupVerticalAlign>Center</GroupVerticalAlign>
-									<ContextMenu name="Декорация8КонтекстноеМеню" id="171"/>
-									<ExtendedTooltip name="Декорация8РасширеннаяПодсказка" id="172"/>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
 						<UsualGroup name="ТипыТранспортаНоваяНастройка" id="93">
 							<Title>
 								<v8:item>
@@ -201,7 +159,9 @@
 							<Representation>List</Representation>
 							<ReadOnly>true</ReadOnly>
 							<SelectionMode>SingleRow</SelectionMode>
-							<RowSelectionMode>Cell</RowSelectionMode>
+							<RowSelectionMode>Row</RowSelectionMode>
+							<Header>false</Header>
+							<HorizontalLinesBWA>true</HorizontalLinesBWA>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
@@ -220,6 +180,7 @@
 							</AutoCommandBar>
 							<ExtendedTooltip name="ТаблицаНоваяНастройкаРасширеннаяПодсказка" id="108"/>
 							<SearchStringAddition name="ТаблицаНоваяНастройкаСтрокаПоиска" id="109">
+								<Enabled>false</Enabled>
 								<AdditionSource>
 									<Item>ТаблицаНоваяНастройка</Item>
 									<Type>SearchStringRepresentation</Type>
@@ -228,6 +189,7 @@
 								<ExtendedTooltip name="ТаблицаНоваяНастройкаСтрокаПоискаРасширеннаяПодсказка" id="111"/>
 							</SearchStringAddition>
 							<ViewStatusAddition name="ТаблицаНоваяНастройкаСостояниеПросмотра" id="112">
+								<Enabled>false</Enabled>
 								<AdditionSource>
 									<Item>ТаблицаНоваяНастройка</Item>
 									<Type>ViewStatusRepresentation</Type>
@@ -236,6 +198,7 @@
 								<ExtendedTooltip name="ТаблицаНоваяНастройкаСостояниеПросмотраРасширеннаяПодсказка" id="114"/>
 							</ViewStatusAddition>
 							<SearchControlAddition name="ТаблицаНоваяНастройкаУправлениеПоиском" id="115">
+								<Enabled>false</Enabled>
 								<AdditionSource>
 									<Item>ТаблицаНоваяНастройка</Item>
 									<Type>SearchControl</Type>
@@ -275,20 +238,6 @@
 									<ContextMenu name="ТаблицаНоваяНастройкаПсевдонимКонтекстноеМеню" id="122"/>
 									<ExtendedTooltip name="ТаблицаНоваяНастройкаПсевдонимРасширеннаяПодсказка" id="123"/>
 								</InputField>
-								<PictureField name="ТаблицаНоваяНастройкаКартинкаСправка" id="147">
-									<DataPath>ТаблицаНоваяНастройка.КартинкаСправка</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Картинка справка</v8:content>
-										</v8:item>
-									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<ShowInHeader>false</ShowInHeader>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ТаблицаНоваяНастройкаКартинкаСправкаКонтекстноеМеню" id="148"/>
-									<ExtendedTooltip name="ТаблицаНоваяНастройкаКартинкаСправкаРасширеннаяПодсказка" id="149"/>
-								</PictureField>
 							</ChildItems>
 						</Table>
 					</ChildItems>
@@ -304,49 +253,6 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаТипыТранспортаПродолжениеНастройкиРасширеннаяПодсказка" id="68"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаИнформацияПриПродолженииНастройки" id="97">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Информация при продолжении настройки</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalStretch>true</HorizontalStretch>
-							<Group>HorizontalIfPossible</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<BackColor>#CCFFCC</BackColor>
-							<ExtendedTooltip name="ГруппаИнформацияПриПродолженииНастройкиРасширеннаяПодсказка" id="98"/>
-							<ChildItems>
-								<PictureDecoration name="Декорация4" id="99">
-									<Width>5</Width>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<Height>2</Height>
-									<AutoMaxHeight>false</AutoMaxHeight>
-									<Zoomable>true</Zoomable>
-									<ImageScale>200</ImageScale>
-									<Picture>
-										<xr:Ref>StdPicture.Information</xr:Ref>
-										<xr:LoadTransparent>true</xr:LoadTransparent>
-									</Picture>
-									<ContextMenu name="Декорация4КонтекстноеМеню" id="100"/>
-									<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="101"/>
-								</PictureDecoration>
-								<LabelDecoration name="Декорация7" id="102">
-									<Height>2</Height>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Для продолжения настройки выберите тип транспорта и загрузите файл настроек, полученный в базе корреспонденте.</v8:content>
-										</v8:item>
-									</Title>
-									<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-									<GroupVerticalAlign>Center</GroupVerticalAlign>
-									<ContextMenu name="Декорация7КонтекстноеМеню" id="103"/>
-									<ExtendedTooltip name="Декорация7РасширеннаяПодсказка" id="104"/>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
 						<UsualGroup name="ТипыТранспортаПродолжениеНастройки" id="95">
 							<Title>
 								<v8:item>
@@ -363,7 +269,8 @@
 							<Representation>List</Representation>
 							<ReadOnly>true</ReadOnly>
 							<SelectionMode>SingleRow</SelectionMode>
-							<RowSelectionMode>Cell</RowSelectionMode>
+							<RowSelectionMode>Row</RowSelectionMode>
+							<Header>false</Header>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
@@ -382,6 +289,7 @@
 							</AutoCommandBar>
 							<ExtendedTooltip name="ТаблицаПродолжениеНастройкиРасширеннаяПодсказка" id="129"/>
 							<SearchStringAddition name="ТаблицаПродолжениеНастройкиСтрокаПоиска" id="130">
+								<Enabled>false</Enabled>
 								<AdditionSource>
 									<Item>ТаблицаПродолжениеНастройки</Item>
 									<Type>SearchStringRepresentation</Type>
@@ -390,6 +298,7 @@
 								<ExtendedTooltip name="ТаблицаПродолжениеНастройкиСтрокаПоискаРасширеннаяПодсказка" id="132"/>
 							</SearchStringAddition>
 							<ViewStatusAddition name="ТаблицаПродолжениеНастройкиСостояниеПросмотра" id="133">
+								<Enabled>false</Enabled>
 								<AdditionSource>
 									<Item>ТаблицаПродолжениеНастройки</Item>
 									<Type>ViewStatusRepresentation</Type>
@@ -398,6 +307,7 @@
 								<ExtendedTooltip name="ТаблицаПродолжениеНастройкиСостояниеПросмотраРасширеннаяПодсказка" id="135"/>
 							</ViewStatusAddition>
 							<SearchControlAddition name="ТаблицаПродолжениеНастройкиУправлениеПоиском" id="136">
+								<Enabled>false</Enabled>
 								<AdditionSource>
 									<Item>ТаблицаПродолжениеНастройки</Item>
 									<Type>SearchControl</Type>
@@ -437,128 +347,8 @@
 									<ContextMenu name="ТаблицаПродолжениеНастройкиПсевдонимКонтекстноеМеню" id="143"/>
 									<ExtendedTooltip name="ТаблицаПродолжениеНастройкиПсевдонимРасширеннаяПодсказка" id="144"/>
 								</InputField>
-								<PictureField name="ТаблицаПродолжениеНастройкиКартинкаСправка" id="150">
-									<DataPath>ТаблицаПродолжениеНастройки.КартинкаСправка</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Картинка справка</v8:content>
-										</v8:item>
-									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<ShowInHeader>false</ShowInHeader>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ТаблицаПродолжениеНастройкиКартинкаСправкаКонтекстноеМеню" id="151"/>
-									<ExtendedTooltip name="ТаблицаПродолжениеНастройкиКартинкаСправкаРасширеннаяПодсказка" id="152"/>
-								</PictureField>
 							</ChildItems>
 						</Table>
-					</ChildItems>
-				</Page>
-			</ChildItems>
-		</Pages>
-		<Pages name="ПанельКоманд" id="72">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Панель команд</v8:content>
-				</v8:item>
-			</Title>
-			<PagesRepresentation>None</PagesRepresentation>
-			<ExtendedTooltip name="ПанельКомандРасширеннаяПодсказка" id="73"/>
-			<ChildItems>
-				<Page name="ПанельКомандСтраницаНоваяНастройка" id="74">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Панель команд страница новая настройка</v8:content>
-						</v8:item>
-					</Title>
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="ПанельКомандСтраницаНоваяНастройкаРасширеннаяПодсказка" id="75"/>
-					<ChildItems>
-						<CommandBar name="КоманднаяПанельНоваяНастройка" id="78">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Командная панель новая настройка</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalLocation>Right</HorizontalLocation>
-							<ExtendedTooltip name="КоманднаяПанельНоваяНастройкаРасширеннаяПодсказка" id="79"/>
-							<ChildItems>
-								<Button name="Готово" id="84">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.Готово</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Готово</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="85"/>
-								</Button>
-								<Button name="Отмена" id="82">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.Отмена</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отмена</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="83"/>
-								</Button>
-							</ChildItems>
-						</CommandBar>
-					</ChildItems>
-				</Page>
-				<Page name="ПанельКомандСтраницаПродолжениеНастройки" id="76">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Панель команд страница продолжение настройки</v8:content>
-						</v8:item>
-					</Title>
-					<Group>Vertical</Group>
-					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="ПанельКомандСтраницаПродолжениеНастройкиРасширеннаяПодсказка" id="77"/>
-					<ChildItems>
-						<CommandBar name="КоманднаяПанельПродолжениеНастройки" id="80">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Командная панель продолжение настройки</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalLocation>Right</HorizontalLocation>
-							<ExtendedTooltip name="КоманднаяПанельПродолжениеНастройкиРасширеннаяПодсказка" id="81"/>
-							<ChildItems>
-								<Button name="ЗагрузитьНастройкиПодключения" id="86">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.ЗагрузитьНастройкиПодключения</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Загрузить настройки подключения</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="ЗагрузитьНастройкиПодключенияРасширеннаяПодсказка" id="87"/>
-								</Button>
-								<Button name="Отмена1" id="88">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.Отмена</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отмена</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="Отмена1РасширеннаяПодсказка" id="89"/>
-								</Button>
-							</ChildItems>
-						</CommandBar>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -664,12 +454,6 @@
 					</Type>
 				</Column>
 				<Column name="КартинкаСправка" id="5">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Картинка справка</v8:content>
-						</v8:item>
-					</Title>
 					<Type>
 						<v8:Type>v8ui:Picture</v8:Type>
 					</Type>
@@ -737,12 +521,6 @@
 					</Type>
 				</Column>
 				<Column name="КартинкаСправка" id="5">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Картинка справка</v8:content>
-						</v8:item>
-					</Title>
 					<Type>
 						<v8:Type>v8ui:Picture</v8:Type>
 					</Type>
@@ -799,21 +577,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Готово</Action>
-		</Command>
-		<Command name="Отмена" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Отмена</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ЗагрузитьНастройкиПодключения" id="4">
 			<Title>
@@ -829,6 +593,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗагрузитьНастройкиПодключения</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

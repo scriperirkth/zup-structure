@@ -3,8 +3,18 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<AutoURL>false</AutoURL>
-	<Group>Vertical</Group>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ShowTitle>true</ShowTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="СписокВзаимодействийДобавитьКомментарий" id="44">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ДобавитьКомментарий</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="СписокВзаимодействийДобавитьКомментарийРасширеннаяПодсказка" id="45"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -19,7 +29,6 @@
 			</Title>
 			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаСодержанияРасширеннаяПодсказка" id="4"/>
 			<ChildItems>
@@ -39,9 +48,8 @@
 						<Table name="СписокВзаимодействий" id="10">
 							<Representation>List</Representation>
 							<ReadOnly>true</ReadOnly>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Row</RowSelectionMode>
-							<Header>false</Header>
-							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -69,16 +77,10 @@
 							<AutoCommandBar name="СписокВзаимодействийКоманднаяПанель" id="12">
 								<Autofill>false</Autofill>
 								<ChildItems>
-									<Button name="СписокВзаимодействийДобавитьКомментарий" id="44">
-										<Type>CommandBarButton</Type>
-										<DefaultButton>true</DefaultButton>
-										<CommandName>Form.Command.ДобавитьКомментарий</CommandName>
-										<ButtonImportance>Main</ButtonImportance>
-										<ExtendedTooltip name="СписокВзаимодействийДобавитьКомментарийРасширеннаяПодсказка" id="45"/>
-									</Button>
 									<Button name="СписокВзаимодействийРассмотрено" id="72">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.Рассмотрено</CommandName>
+										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 										<ExtendedTooltip name="СписокВзаимодействийРассмотреноРасширеннаяПодсказка" id="73"/>
 									</Button>
 								</ChildItems>
@@ -121,6 +123,7 @@
 										</v8:item>
 									</Title>
 									<Group>InCell</Group>
+									<ShowTitle>true</ShowTitle>
 									<ExtendedTooltip name="СписокВзаимодействийГруппаКартинокРасширеннаяПодсказка" id="67"/>
 									<ChildItems>
 										<PictureField name="СписокВзаимодействийНомерКартинки" id="38">
@@ -128,7 +131,6 @@
 											<TitleLocation>None</TitleLocation>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
-											<Width>2</Width>
 											<ValuesPicture>
 												<xr:Ref>CommonPicture.ВзаимодействияИЦ</xr:Ref>
 												<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -142,6 +144,7 @@
 										</PictureField>
 										<InputField name="СписокВзаимодействийПояснениеККартинке" id="41">
 											<DataPath>СписокВзаимодействий.ПояснениеККартинке</DataPath>
+											<Visible>false</Visible>
 											<TitleLocation>None</TitleLocation>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
@@ -152,6 +155,12 @@
 								</ColumnGroup>
 								<InputField name="СписокВзаимодействийДата" id="35">
 									<DataPath>СписокВзаимодействий.Дата</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата</v8:content>
+										</v8:item>
+									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<Format>
@@ -176,6 +185,8 @@
 											<v8:content>Список взаимодействий группа описания</v8:content>
 										</v8:item>
 									</Title>
+									<Group>Horizontal</Group>
+									<ShowTitle>true</ShowTitle>
 									<ExtendedTooltip name="СписокВзаимодействийГруппаОписанияРасширеннаяПодсказка" id="69"/>
 									<ChildItems>
 										<InputField name="СписокВзаимодействийОписание" id="32">
@@ -183,7 +194,7 @@
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content> </v8:content>
+													<v8:content> Описание</v8:content>
 												</v8:item>
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
@@ -191,7 +202,6 @@
 											<AutoEditMode>true</AutoEditMode>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
-											<Height>3</Height>
 											<ContextMenu name="СписокВзаимодействийОписаниеКонтекстноеМеню" id="33"/>
 											<ExtendedTooltip name="СписокВзаимодействийОписаниеРасширеннаяПодсказка" id="34"/>
 										</InputField>
@@ -211,67 +221,13 @@
 								</PictureField>
 							</ChildItems>
 						</Table>
-						<UsualGroup name="ПодвалПереписки" id="49">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Подвал переписки</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Horizontal</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ПодвалПерепискиРасширеннаяПодсказка" id="50"/>
-							<ChildItems>
-								<LabelDecoration name="ПодвалДекорацияЛево" id="51">
-									<HorizontalStretch>true</HorizontalStretch>
-									<ContextMenu name="ПодвалДекорацияЛевоКонтекстноеМеню" id="52"/>
-									<ExtendedTooltip name="ПодвалДекорацияЛевоРасширеннаяПодсказка" id="53"/>
-								</LabelDecoration>
-								<PictureDecoration name="КнопкаЛево" id="54">
-									<Width>2</Width>
-									<Height>1</Height>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Кнопка лево</v8:content>
-										</v8:item>
-									</Title>
-									<FileDragMode>AsFile</FileDragMode>
-									<ContextMenu name="КнопкаЛевоКонтекстноеМеню" id="55"/>
-									<ExtendedTooltip name="КнопкаЛевоРасширеннаяПодсказка" id="56"/>
-									<Events>
-										<Event name="Click">КнопкаЛевоНажатие</Event>
-									</Events>
-								</PictureDecoration>
-								<LabelDecoration name="ТекущаяСтраница" id="57">
-									<ContextMenu name="ТекущаяСтраницаКонтекстноеМеню" id="58"/>
-									<ExtendedTooltip name="ТекущаяСтраницаРасширеннаяПодсказка" id="59"/>
-								</LabelDecoration>
-								<PictureDecoration name="КнопкаПраво" id="60">
-									<Width>2</Width>
-									<Height>1</Height>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Кнопка лево</v8:content>
-										</v8:item>
-									</Title>
-									<FileDragMode>AsFile</FileDragMode>
-									<ContextMenu name="КнопкаПравоКонтекстноеМеню" id="61"/>
-									<ExtendedTooltip name="КнопкаПравоРасширеннаяПодсказка" id="62"/>
-									<Events>
-										<Event name="Click">КнопкаПравоНажатие</Event>
-									</Events>
-								</PictureDecoration>
-								<LabelDecoration name="ПодвалДекорацияПраво" id="63">
-									<HorizontalStretch>true</HorizontalStretch>
-									<ContextMenu name="ПодвалДекорацияПравоКонтекстноеМеню" id="64"/>
-									<ExtendedTooltip name="ПодвалДекорацияПравоРасширеннаяПодсказка" id="65"/>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
+						<Button name="ПоказатьЕще" id="83">
+							<Type>UsualButton</Type>
+							<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+							<CommandName>Form.Command.ПоказатьЕще</CommandName>
+							<ButtonImportance>Supplementary</ButtonImportance>
+							<ExtendedTooltip name="ПоказатьЕщеРасширеннаяПодсказка" id="84"/>
+						</Button>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -484,35 +440,13 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
-		<ConditionalAppearance>
-			<dcsset:item>
-				<dcsset:selection>
-					<dcsset:item>
-						<dcsset:field>СписокВзаимодействий</dcsset:field>
-					</dcsset:item>
-				</dcsset:selection>
-				<dcsset:filter>
-					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">СписокВзаимодействий.Просмотрено</dcsset:left>
-						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
-					</dcsset:item>
-				</dcsset:filter>
-				<dcsset:appearance>
-					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>ЦветФона</dcscor:parameter>
-						<dcscor:value xsi:type="v8ui:Color">style:ReportLineColor</dcscor:value>
-					</dcscor:item>
-				</dcsset:appearance>
-			</dcsset:item>
-		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
 		<Command name="ДобавитьКомментарий" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Добавить комментарий</v8:content>
+					<v8:content>Создать</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -528,6 +462,7 @@
 			<Action>ДобавитьКомментарий</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="Рассмотрено" id="2">
 			<Title>
@@ -544,7 +479,23 @@
 			</ToolTip>
 			<Action>Рассмотрено</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">СписокВзаимодействий</AssociatedTableElementId>
+		</Command>
+		<Command name="ПоказатьЕще" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать еще</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать еще</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказатьЕще</Action>
 		</Command>
 	</Commands>
 	<Parameters>

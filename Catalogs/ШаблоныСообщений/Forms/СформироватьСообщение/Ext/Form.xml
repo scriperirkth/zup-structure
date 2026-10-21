@@ -36,40 +36,18 @@
 				</Title>
 				<ExtendedTooltip name="ФормаСформироватьИОтправитьРасширеннаяПодсказка" id="23"/>
 			</Button>
-			<ButtonGroup name="ФормаГруппаРедактирование" id="76">
+			<Button name="ФормаСоздать" id="58">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Создать</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Форма группа редактирование</v8:content>
+						<v8:content>Создать</v8:content>
 					</v8:item>
 				</Title>
-				<Representation>Compact</Representation>
-				<ExtendedTooltip name="ФормаГруппаРедактированиеРасширеннаяПодсказка" id="77"/>
-				<ChildItems>
-					<Button name="ФормаСоздать" id="58">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Создать</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Создать</v8:content>
-							</v8:item>
-						</Title>
-						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-						<ExtendedTooltip name="ФормаСоздатьРасширеннаяПодсказка" id="59"/>
-					</Button>
-					<Button name="ФормаСкопировать" id="78">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Шаблоны.StandardCommand.Copy</CommandName>
-						<ExtendedTooltip name="ФормаСкопироватьРасширеннаяПодсказка" id="79"/>
-					</Button>
-					<Button name="ФормаИзменить" id="74">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Шаблоны.StandardCommand.Change</CommandName>
-						<ExtendedTooltip name="ФормаИзменитьРасширеннаяПодсказка" id="75"/>
-					</Button>
-				</ChildItems>
-			</ButtonGroup>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаСоздатьРасширеннаяПодсказка" id="59"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -123,6 +101,7 @@
 						</v8:item>
 					</Title>
 					<CommandSet>
+						<ExcludedCommand>Change</ExcludedCommand>
 						<ExcludedCommand>Delete</ExcludedCommand>
 						<ExcludedCommand>EndEdit</ExcludedCommand>
 						<ExcludedCommand>MoveDown</ExcludedCommand>
@@ -135,6 +114,27 @@
 					<ContextMenu name="ШаблоныКонтекстноеМеню" id="40"/>
 					<AutoCommandBar name="ШаблоныКоманднаяПанель" id="41">
 						<Autofill>false</Autofill>
+						<ChildItems>
+							<Button name="ШаблоныИзменитьШаблон" id="182">
+								<Type>CommandBarButton</Type>
+								<DefaultButton>true</DefaultButton>
+								<CommandName>Form.Command.ИзменитьШаблон</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Изменить шаблон</v8:content>
+									</v8:item>
+								</Title>
+								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+								<ButtonImportance>Main</ButtonImportance>
+								<ExtendedTooltip name="ШаблоныИзменитьШаблонРасширеннаяПодсказка" id="183"/>
+							</Button>
+							<Button name="ШаблоныСкопировать" id="184">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.Шаблоны.StandardCommand.Copy</CommandName>
+								<ExtendedTooltip name="ШаблоныСкопироватьРасширеннаяПодсказка" id="185"/>
+							</Button>
+						</ChildItems>
 					</AutoCommandBar>
 					<ExtendedTooltip name="ШаблоныРасширеннаяПодсказка" id="42"/>
 					<SearchStringAddition name="ШаблоныСтрокаПоиска" id="43">
@@ -167,6 +167,7 @@
 						<Event name="BeforeDeleteRow">ШаблоныПередУдалением</Event>
 						<Event name="OnActivateRow">ШаблоныПриАктивизацииСтроки</Event>
 						<Event name="BeforeRowChange">ШаблоныПередНачаломИзменения</Event>
+						<Event name="OnHover">ШаблоныПриНаведении</Event>
 					</Events>
 					<ChildItems>
 						<InputField name="ШаблоныПредставление" id="55">
@@ -215,6 +216,8 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<Height>15</Height>
 									<ContextMenu name="ПредпросмотрОбычныйТекстКонтекстноеМеню" id="72"/>
 									<ExtendedTooltip name="ПредпросмотрОбычныйТекстРасширеннаяПодсказка" id="73"/>
@@ -242,6 +245,8 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxHeight>false</AutoMaxHeight>
 									<ContextMenu name="ПредпросмотрФорматированныйДокументКонтекстноеМеню" id="69"/>
 									<ExtendedTooltip name="ПредпросмотрФорматированныйДокументРасширеннаяПодсказка" id="70"/>
@@ -279,6 +284,9 @@
 									<ChildItems>
 										<Table name="Вложения" id="82">
 											<Representation>Tree</Representation>
+											<ChangeRowSet>false</ChangeRowSet>
+											<ChangeRowOrder>false</ChangeRowOrder>
+											<SelectionMode>SingleRow</SelectionMode>
 											<RowSelectionMode>Cell</RowSelectionMode>
 											<Header>false</Header>
 											<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -303,14 +311,14 @@
 												<ExcludedCommand>EndEdit</ExcludedCommand>
 												<ExcludedCommand>MoveDown</ExcludedCommand>
 												<ExcludedCommand>MoveUp</ExcludedCommand>
-												<ExcludedCommand>SelectAll</ExcludedCommand>
-												<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 												<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 												<ExcludedCommand>SortListAsc</ExcludedCommand>
 												<ExcludedCommand>SortListDesc</ExcludedCommand>
 											</CommandSet>
 											<ContextMenu name="ВложенияКонтекстноеМеню" id="83"/>
-											<AutoCommandBar name="ВложенияКоманднаяПанель" id="84"/>
+											<AutoCommandBar name="ВложенияКоманднаяПанель" id="84">
+												<Autofill>false</Autofill>
+											</AutoCommandBar>
 											<ExtendedTooltip name="ВложенияРасширеннаяПодсказка" id="85"/>
 											<SearchStringAddition name="ВложенияСтрокаПоиска" id="86">
 												<AdditionSource>
@@ -346,6 +354,8 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ThreeState>true</ThreeState>
 													<ContextMenu name="ВложенияВыбраноКонтекстноеМеню" id="145"/>
 													<ExtendedTooltip name="ВложенияВыбраноРасширеннаяПодсказка" id="146"/>
@@ -371,8 +381,8 @@
 																	<v8:content>Картинка вида вложения</v8:content>
 																</v8:item>
 															</Title>
-															<Width>3</Width>
-															<Height>1</Height>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<HorizontalStretch>false</HorizontalStretch>
 															<VerticalStretch>false</VerticalStretch>
 															<ContextMenu name="ВложенияКартинкаВидаВложенияКонтекстноеМеню" id="150"/>
@@ -396,6 +406,8 @@
 																			<v8:content>Индекс картинки</v8:content>
 																		</v8:item>
 																	</Title>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
 																	<Hyperlink>true</Hyperlink>
 																	<ValuesPicture>
 																		<xr:Ref>CommonPicture.КоллекцияПиктограммФайлов</xr:Ref>
@@ -434,6 +446,8 @@
 													<v8:content>Формат печатных форм</v8:content>
 												</v8:item>
 											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<Hiperlink>true</Hiperlink>
 											<ContextMenu name="ФорматВложенийКонтекстноеМеню" id="105"/>
 											<ExtendedTooltip name="ФорматВложенийРасширеннаяПодсказка" id="106"/>
@@ -464,6 +478,8 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>Right</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="УпаковатьВАрхивКонтекстноеМеню" id="108"/>
 											<ExtendedTooltip name="УпаковатьВАрхивРасширеннаяПодсказка" id="109"/>
 										</CheckBoxField>
@@ -483,6 +499,8 @@
 												</v8:item>
 											</ToolTip>
 											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ПереводитьИменаФайловВТранслитКонтекстноеМеню" id="111"/>
 											<ExtendedTooltip name="ПереводитьИменаФайловВТранслитРасширеннаяПодсказка" id="112"/>
 										</CheckBoxField>
@@ -495,6 +513,8 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>Right</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ПодписьИПечатьКонтекстноеМеню" id="116"/>
 											<ExtendedTooltip name="ПодписьИПечатьРасширеннаяПодсказка" id="117"/>
 										</CheckBoxField>
@@ -507,6 +527,8 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>Right</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ПодписатьКонтекстноеМеню" id="119"/>
 											<ExtendedTooltip name="ПодписатьРасширеннаяПодсказка" id="120"/>
 										</CheckBoxField>
@@ -714,7 +736,7 @@
 					<Type>
 						<v8:Type>xs:decimal</v8:Type>
 						<v8:NumberQualifiers>
-							<v8:Digits>0</v8:Digits>
+							<v8:Digits>1</v8:Digits>
 							<v8:FractionDigits>0</v8:FractionDigits>
 							<v8:AllowedSign>Any</v8:AllowedSign>
 						</v8:NumberQualifiers>
@@ -879,6 +901,7 @@
 			</ToolTip>
 			<Action>СформироватьИОтправить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Сформировать" id="2">
 			<Title>
@@ -895,6 +918,7 @@
 			</ToolTip>
 			<Action>Сформировать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Создать" id="3">
 			<Title>
@@ -915,6 +939,28 @@
 			</Picture>
 			<Action>Создать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Create</ActionPurpose>
+		</Command>
+		<Command name="ИзменитьШаблон" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить шаблон</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить шаблон</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Change</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ИзменитьШаблон</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Шаблоны</AssociatedTableElementId>
 		</Command>
 	</Commands>
 	<Parameters>

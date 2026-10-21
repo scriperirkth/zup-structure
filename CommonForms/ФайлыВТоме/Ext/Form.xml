@@ -9,13 +9,6 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<MobileDeviceCommandBarContent>
-		<xr:Item>
-			<xr:Presentation/>
-			<xr:CheckState>0</xr:CheckState>
-			<xr:Value xsi:type="xs:string">КоманднаяПанель</xr:Value>
-		</xr:Item>
-	</MobileDeviceCommandBarContent>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 	</AutoCommandBar>
@@ -31,6 +24,8 @@
 					<v8:content>Владелец файлов</v8:content>
 				</v8:item>
 			</Title>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<ChoiceButton>true</ChoiceButton>
 			<TextEdit>false</TextEdit>
 			<ContextMenu name="ПредставлениеХранилищаФайловКонтекстноеМеню" id="10"/>
@@ -52,21 +47,13 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="31"/>
 		</UsualGroup>
-		<CommandBar name="КоманднаяПанель" id="32">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="33"/>
-		</CommandBar>
 		<Table name="Список" id="11">
 			<Representation>List</Representation>
+			<CommandBarLocation>Top</CommandBarLocation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
 			<Height>8</Height>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -90,6 +77,7 @@
 			</CommandSet>
 			<ViewStatusLocation>None</ViewStatusLocation>
 			<SearchControlLocation>None</SearchControlLocation>
+			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -106,9 +94,7 @@
 			<UserSettingsGroup>ГруппаПользовательскихНастроек</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="12"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="13">
-				<Autofill>false</Autofill>
-			</AutoCommandBar>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="13"/>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="23"/>
 			<SearchStringAddition name="СписокSearchString" id="34">
 				<AdditionSource>
@@ -139,7 +125,7 @@
 				<Event name="BeforeRowChange">СписокПередНачаломИзменения</Event>
 			</Events>
 			<ChildItems>
-				<LabelField name="СписокНаименованиеФайла" id="43">
+				<LabelField name="СписокНаименованиеФайла" id="56">
 					<DataPath>Список.НаименованиеФайла</DataPath>
 					<Title>
 						<v8:item>
@@ -147,15 +133,15 @@
 							<v8:content>Имя файла</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="СписокНаименованиеФайлаКонтекстноеМеню" id="44"/>
-					<ExtendedTooltip name="СписокНаименованиеФайлаРасширеннаяПодсказка" id="45"/>
+					<ContextMenu name="СписокНаименованиеФайлаКонтекстноеМеню" id="57"/>
+					<ExtendedTooltip name="СписокНаименованиеФайлаРасширеннаяПодсказка" id="58"/>
 				</LabelField>
 				<LabelField name="СписокПутьКФайлу" id="18">
 					<DataPath>Список.ПутьКФайлу</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Путь к файлу в томе</v8:content>
+							<v8:content>Путь</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
@@ -164,6 +150,8 @@
 							<v8:content>Путь к файлу в томе (в пределах пути к тому)</v8:content>
 						</v8:item>
 					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>35</Width>
 					<ContextMenu name="СписокПутьКФайлуКонтекстноеМеню" id="19"/>
 					<ExtendedTooltip name="СписокПутьКФайлуРасширеннаяПодсказка" id="24"/>
@@ -176,6 +164,8 @@
 							<v8:content>Размер</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>13</Width>
 					<ContextMenu name="СписокРазмерКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="СписокРазмерРасширеннаяПодсказка" id="25"/>
@@ -188,6 +178,8 @@
 							<v8:content>Автор</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>20</Width>
 					<ContextMenu name="СписокАвторКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="СписокАвторРасширеннаяПодсказка" id="26"/>
@@ -203,6 +195,8 @@
 							<v8:content>Ссылка</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>1</Width>
 					<ContextMenu name="СписокСсылкаКонтекстноеМеню" id="28"/>
 					<ExtendedTooltip name="СписокСсылкаРасширеннаяПодсказка" id="29"/>

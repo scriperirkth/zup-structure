@@ -8,6 +8,33 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Применить" id="100">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Применить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Применить</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="101"/>
+			</Button>
+			<Button name="ПерейтиКРасширеннымНастройкам" id="104">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПерейтиКРасширеннымНастройкам</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Больше возможностей...</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Supplementary</ButtonImportance>
+				<ExtendedTooltip name="ПерейтиКРасширеннымНастройкамРасширеннаяПодсказка" id="105"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -17,6 +44,7 @@
 		<Table name="БыстрыеНастройки" id="1">
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Row</RowSelectionMode>
 			<Header>false</Header>
 			<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -43,8 +71,6 @@
 				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
 				<ExcludedCommand>Delete</ExcludedCommand>
 				<ExcludedCommand>EndEdit</ExcludedCommand>
-				<ExcludedCommand>SelectAll</ExcludedCommand>
-				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 			</CommandSet>
 			<SearchStringLocation>CommandBar</SearchStringLocation>
@@ -251,6 +277,7 @@
 							<TitleLocation>None</TitleLocation>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
 							<ContextMenu name="БыстрыеНастройкиПометкаКонтекстноеМеню" id="15"/>
 							<ExtendedTooltip name="БыстрыеНастройкиПометкаРасширеннаяПодсказка" id="16"/>
 							<Events>
@@ -319,83 +346,11 @@
 				</v8:item>
 			</Title>
 			<TitleLocation>Right</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<ContextMenu name="ВыводитьЗаголовкиНастроекКонтекстноеМеню" id="107"/>
 			<ExtendedTooltip name="ВыводитьЗаголовкиНастроекРасширеннаяПодсказка" id="108"/>
 		</CheckBoxField>
-		<UsualGroup name="КоманднаяПанель" id="96">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<Group>AlwaysHorizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>NormalSeparation</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="97"/>
-			<ChildItems>
-				<UsualGroup name="ДополнительныеВозможности" id="109">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Дополнительные возможности</v8:content>
-						</v8:item>
-					</Title>
-					<VerticalStretch>true</VerticalStretch>
-					<Group>Vertical</Group>
-					<VerticalAlign>Center</VerticalAlign>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ДополнительныеВозможностиРасширеннаяПодсказка" id="110"/>
-					<ChildItems>
-						<Button name="ПерейтиКРасширеннымНастройкам" id="104">
-							<Type>Hyperlink</Type>
-							<CommandName>Form.Command.ПерейтиКРасширеннымНастройкам</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Больше возможностей...</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ПерейтиКРасширеннымНастройкамРасширеннаяПодсказка" id="105"/>
-						</Button>
-					</ChildItems>
-				</UsualGroup>
-				<CommandBar name="КомандыОсновные" id="98">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Команды основные</v8:content>
-						</v8:item>
-					</Title>
-					<GroupVerticalAlign>Bottom</GroupVerticalAlign>
-					<HorizontalLocation>Right</HorizontalLocation>
-					<ExtendedTooltip name="КомандыОсновныеРасширеннаяПодсказка" id="99"/>
-					<ChildItems>
-						<Button name="Применить" id="100">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<CommandName>Form.Command.Применить</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Применить</v8:content>
-								</v8:item>
-							</Title>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="101"/>
-						</Button>
-						<Button name="Отмена" id="102">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.Cancel</CommandName>
-							<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="103"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="БыстрыеНастройки" id="1">
@@ -579,6 +534,7 @@
 				</v8:item>
 			</Title>
 			<Action>Применить</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПерейтиКРасширеннымНастройкам" id="4">
 			<Title>
@@ -594,6 +550,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПерейтиКРасширеннымНастройкам</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

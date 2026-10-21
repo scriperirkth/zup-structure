@@ -9,7 +9,6 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
@@ -23,9 +22,16 @@
 		<ExcludedCommand>SaveValues</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
+		<ChildItems>
+			<Button name="СправочникНовостиКомандаСписокНовостей" id="58">
+				<Type>CommandBarHyperlink</Type>
+				<CommandName>Catalog.Новости.Command.КомандаСписокНовостей</CommandName>
+				<TextColor>style:ГиперссылкаЦвет</TextColor>
+				<ExtendedTooltip name="СправочникНовостиКомандаСписокНовостейРасширеннаяПодсказка" id="59"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -33,43 +39,6 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаПоиск" id="60">
-			<Visible>false</Visible>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Поиск</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalStretch>true</HorizontalStretch>
-			<VerticalStretch>false</VerticalStretch>
-			<Group>Horizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПоискРасширеннаяПодсказка" id="61"/>
-			<ChildItems>
-				<InputField name="СтрокаПоиска" id="62">
-					<DataPath>СтрокаПоиска</DataPath>
-					<Shortcut>Alt+Shift+F</Shortcut>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<AutoMaxHeight>false</AutoMaxHeight>
-					<ClearButton>true</ClearButton>
-					<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="63"/>
-					<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="64"/>
-					<Events>
-						<Event name="OnChange">СтрокаПоискаПриИзменении</Event>
-						<Event name="Clearing">СтрокаПоискаОчистка</Event>
-					</Events>
-				</InputField>
-				<Button name="КомандаПоиск" id="65">
-					<Type>UsualButton</Type>
-					<SkipOnInput>true</SkipOnInput>
-					<CommandName>Form.Command.КомандаПоиск</CommandName>
-					<ExtendedTooltip name="КомандаПоискРасширеннаяПодсказка" id="66"/>
-				</Button>
-			</ChildItems>
-		</UsualGroup>
 		<Table name="ТаблицаНовостей" id="1">
 			<Representation>List</Representation>
 			<CommandBarLocation>Top</CommandBarLocation>
@@ -89,18 +58,26 @@
 			<DataPath>ТаблицаНовостей</DataPath>
 			<CommandSet>
 				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>CancelSearch</ExcludedCommand>
 				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>ClearTableMarksAppearance</ExcludedCommand>
 				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
 				<ExcludedCommand>Delete</ExcludedCommand>
 				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>Find</ExcludedCommand>
+				<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
 				<ExcludedCommand>MoveDown</ExcludedCommand>
 				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>OutputList</ExcludedCommand>
+				<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+				<ExcludedCommand>SearchHistory</ExcludedCommand>
+				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 			</CommandSet>
-			<SearchStringLocation>None</SearchStringLocation>
+			<SearchStringLocation>Top</SearchStringLocation>
 			<ViewStatusLocation>None</ViewStatusLocation>
-			<SearchControlLocation>None</SearchControlLocation>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="ТаблицаНовостейКонтекстноеМеню" id="2">
 				<ChildItems>
@@ -111,9 +88,7 @@
 					</Button>
 				</ChildItems>
 			</ContextMenu>
-			<AutoCommandBar name="ТаблицаНовостейКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
-			</AutoCommandBar>
+			<AutoCommandBar name="ТаблицаНовостейКоманднаяПанель" id="3"/>
 			<ExtendedTooltip name="ТаблицаНовостейExtendedTooltip" id="35"/>
 			<SearchStringAddition name="ТаблицаНовостейСтрокаПоиска" id="44">
 				<AdditionSource>
@@ -184,7 +159,6 @@
 									<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 									<Width>45</Width>
 									<TextColor>style:ГиперссылкаЦвет</TextColor>
-									<Font ref="style:ШрифтНовостей" kind="StyleItem"/>
 									<ContextMenu name="ТаблицаНовостейНаименованиеКонтекстноеМеню" id="9"/>
 									<ExtendedTooltip name="ТаблицаНовостейНаименованиеРасширеннаяПодсказка" id="37"/>
 								</InputField>
@@ -198,7 +172,6 @@
 							<AutoEditMode>true</AutoEditMode>
 							<Width>45</Width>
 							<BorderColor>style:FieldBackColor</BorderColor>
-							<Font ref="style:ШрифтНовостей" kind="StyleItem"/>
 							<ContextMenu name="ТаблицаНовостейПодзаголовокКонтекстноеМеню" id="11"/>
 							<ExtendedTooltip name="ТаблицаНовостейПодзаголовокРасширеннаяПодсказка" id="38"/>
 						</InputField>
@@ -209,7 +182,6 @@
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<Width>15</Width>
-					<Font ref="style:ШрифтНовостей" kind="StyleItem"/>
 					<ContextMenu name="ТаблицаНовостейЛентаНовостейКонтекстноеМеню" id="54"/>
 					<ExtendedTooltip name="ТаблицаНовостейЛентаНовостейРасширеннаяПодсказка" id="55"/>
 				</InputField>
@@ -226,36 +198,11 @@
 							<v8:content>ДФ=dd.MM.yyyy</v8:content>
 						</v8:item>
 					</Format>
-					<Font ref="style:ШрифтНовостей" kind="StyleItem"/>
 					<ContextMenu name="ТаблицаНовостейДатаПубликацииКонтекстноеМеню" id="25"/>
 					<ExtendedTooltip name="ТаблицаНовостейДатаПубликацииExtendedTooltip" id="39"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
-		<UsualGroup name="ГруппаНавигация" id="56">
-			<Visible>false</Visible>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Навигация</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalStretch>true</HorizontalStretch>
-			<VerticalStretch>false</VerticalStretch>
-			<Group>Horizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаНавигацияРасширеннаяПодсказка" id="57"/>
-			<ChildItems>
-				<Button name="СправочникНовостиКомандаСписокНовостей" id="58">
-					<Type>Hyperlink</Type>
-					<CommandName>Catalog.Новости.Command.КомандаСписокНовостей</CommandName>
-					<TextColor>style:ГиперссылкаЦвет</TextColor>
-					<ExtendedTooltip name="СправочникНовостиКомандаСписокНовостейРасширеннаяПодсказка" id="59"/>
-				</Button>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ТаблицаНовостей" id="1">
@@ -446,27 +393,6 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>КомандаОткрытьНовость</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="КомандаПоиск" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Найти</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Найти новости</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.Find</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<Action>КомандаПоиск</Action>
-			<Representation>Picture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>

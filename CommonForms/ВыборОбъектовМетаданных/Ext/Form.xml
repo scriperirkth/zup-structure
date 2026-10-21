@@ -10,6 +10,22 @@
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Выбрать" id="13">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Выбрать</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="16"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -30,20 +46,6 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="37"/>
 			<ChildItems>
-				<Button name="Выбрать" id="13">
-					<Type>UsualButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.Command.Выбрать</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Выбрать</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="16"/>
-				</Button>
 				<RadioButtonField name="СпособГруппировкиОбъектов" id="33">
 					<DataPath>СпособГруппировкиОбъектов</DataPath>
 					<Title>
@@ -53,7 +55,9 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>None</TitleLocation>
-					<RadioButtonType>Auto</RadioButtonType>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<RadioButtonType>Tumbler</RadioButtonType>
 					<ChoiceList>
 						<xr:Item>
 							<xr:Presentation/>
@@ -96,6 +100,7 @@
 			<SkipOnInput>false</SkipOnInput>
 			<DefaultItem>true</DefaultItem>
 			<ChangeRowSet>false</ChangeRowSet>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<Header>false</Header>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -118,7 +123,6 @@
 				<ExcludedCommand>List</ExcludedCommand>
 				<ExcludedCommand>MoveDown</ExcludedCommand>
 				<ExcludedCommand>MoveUp</ExcludedCommand>
-				<ExcludedCommand>SelectAll</ExcludedCommand>
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 				<ExcludedCommand>Tree</ExcludedCommand>
@@ -174,6 +178,9 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
 							<ThreeState>true</ThreeState>
 							<ContextMenu name="ПометкаКонтекстноеМеню" id="9"/>
 							<ExtendedTooltip name="ПометкаРасширеннаяПодсказка" id="21"/>
@@ -190,6 +197,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<Width>2</Width>
 							<Height>1</Height>
 							<HorizontalStretch>false</HorizontalStretch>
@@ -210,6 +219,8 @@
 									<v8:content>Объект метаданных</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<Wrap>false</Wrap>
 							<ContextMenu name="ПредставлениеКонтекстноеМеню" id="7"/>
 							<ExtendedTooltip name="ПредставлениеРасширеннаяПодсказка" id="23"/>
@@ -466,6 +477,7 @@
 			</ToolTip>
 			<Action>ВыбратьВыполнить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Закрыть" id="2">
 			<Title>

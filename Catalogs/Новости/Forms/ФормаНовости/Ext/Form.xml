@@ -10,6 +10,13 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<MobileDeviceCommandBarContent>
+		<xr:Item>
+			<xr:Presentation/>
+			<xr:CheckState>0</xr:CheckState>
+			<xr:Value xsi:type="xs:string">ГруппаКнопкиЗакрытия</xr:Value>
+		</xr:Item>
+	</MobileDeviceCommandBarContent>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
@@ -31,7 +38,7 @@
 			</Title>
 			<HorizontalStretch>true</HorizontalStretch>
 			<VerticalStretch>false</VerticalStretch>
-			<Group>AlwaysHorizontal</Group>
+			<Group>AutoScreenTypeSensitive</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -89,7 +96,6 @@
 											<v8:content>Напоминать об этой новости</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Right</TitleLocation>
 									<ToolTip>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -97,7 +103,6 @@
 										</v8:item>
 									</ToolTip>
 									<HorizontalAlign>Left</HorizontalAlign>
-									<VerticalAlign>Top</VerticalAlign>
 									<ContextMenu name="ОповещениеВключеноКонтекстноеМеню" id="56"/>
 									<ExtendedTooltip name="ОповещениеВключеноExtendedTooltip" id="62"/>
 									<Events>
@@ -108,6 +113,18 @@
 						</Page>
 					</ChildItems>
 				</Pages>
+				<LabelField name="ЛентаНовостей" id="188">
+					<DataPath>Объект.ЛентаНовостей</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HorizontalAlign>Right</HorizontalAlign>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<Hiperlink>true</Hiperlink>
+					<ContextMenu name="ЛентаНовостейКонтекстноеМеню" id="189"/>
+					<ExtendedTooltip name="ЛентаНовостейРасширеннаяПодсказка" id="190"/>
+					<Events>
+						<Event name="Click">ЛентаНовостейНажатие</Event>
+					</Events>
+				</LabelField>
 				<PictureField name="ПрочитатьПозже" id="149">
 					<DataPath>ПрочитатьПозже</DataPath>
 					<TitleLocation>None</TitleLocation>
@@ -173,41 +190,30 @@
 						<Event name="Click">ПометкаНажатие</Event>
 					</Events>
 				</PictureField>
-				<UsualGroup name="ГруппаУправлениеЛентойНовостей" id="147">
+				<Button name="КомандаПодписка" id="143">
+					<Type>UsualButton</Type>
+					<Width>2</Width>
+					<MaxWidth>25</MaxWidth>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<CommandName>Form.Command.КомандаПодписка</CommandName>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Управление лентой новостей</v8:content>
+							<v8:content>Подписаться</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AlwaysHorizontal</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаУправлениеЛентойНовостейРасширеннаяПодсказка" id="148"/>
-					<ChildItems>
-						<Button name="КомандаПодписка" id="143">
-							<Type>UsualButton</Type>
-							<Width>20</Width>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<MaxWidth>25</MaxWidth>
-							<AutoMaxHeight>false</AutoMaxHeight>
-							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-							<CommandName>Form.Command.КомандаПодписка</CommandName>
-							<ExtendedTooltip name="КомандаПодпискаРасширеннаяПодсказка" id="144"/>
-						</Button>
-						<Button name="КомандаОповещения" id="145">
-							<Type>UsualButton</Type>
-							<Width>20</Width>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<MaxWidth>25</MaxWidth>
-							<AutoMaxHeight>false</AutoMaxHeight>
-							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-							<CommandName>Form.Command.КомандаОповещения</CommandName>
-							<ExtendedTooltip name="КомандаОповещенияРасширеннаяПодсказка" id="146"/>
-						</Button>
-					</ChildItems>
-				</UsualGroup>
+					<ButtonImportance>Supplementary</ButtonImportance>
+					<ExtendedTooltip name="КомандаПодпискаРасширеннаяПодсказка" id="144"/>
+				</Button>
+				<Button name="КомандаОповещения" id="145">
+					<Type>UsualButton</Type>
+					<Width>2</Width>
+					<MaxWidth>25</MaxWidth>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<CommandName>Form.Command.КомандаОповещения</CommandName>
+					<ButtonImportance>Supplementary</ButtonImportance>
+					<ExtendedTooltip name="КомандаОповещенияРасширеннаяПодсказка" id="146"/>
+				</Button>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаТекстНовости" id="16">
@@ -291,21 +297,23 @@
 						</v8:item>
 					</Title>
 					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-					<Group>AlwaysHorizontal</Group>
+					<Group>AutoScreenTypeSensitive</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаКнопкиЗакрытияРасширеннаяПодсказка" id="85"/>
 					<ChildItems>
+						<Button name="КомандаПоказатьПозже" id="88">
+							<Type>UsualButton</Type>
+							<DefaultButton>true</DefaultButton>
+							<CommandName>Form.Command.КомандаПоказатьПозже</CommandName>
+							<ButtonImportance>Main</ButtonImportance>
+							<ExtendedTooltip name="КомандаПоказатьПозжеРасширеннаяПодсказка" id="89"/>
+						</Button>
 						<Button name="КомандаБольшеНеПоказывать" id="86">
 							<Type>UsualButton</Type>
 							<CommandName>Form.Command.КомандаБольшеНеПоказывать</CommandName>
 							<ExtendedTooltip name="КомандаБольшеНеПоказыватьРасширеннаяПодсказка" id="87"/>
-						</Button>
-						<Button name="КомандаПоказатьПозже" id="88">
-							<Type>UsualButton</Type>
-							<CommandName>Form.Command.КомандаПоказатьПозже</CommandName>
-							<ExtendedTooltip name="КомандаПоказатьПозжеРасширеннаяПодсказка" id="89"/>
 						</Button>
 						<Button name="КомандаЗакрыть" id="90">
 							<Type>UsualButton</Type>
@@ -737,7 +745,7 @@
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<Action>КомандаПодписка</Action>
-			<Representation>TextPicture</Representation>
+			<Representation>Picture</Representation>
 		</Command>
 		<Command name="КомандаОповещения" id="4">
 			<Title>
@@ -751,7 +759,7 @@
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<Action>КомандаОповещения</Action>
-			<Representation>TextPicture</Representation>
+			<Representation>Picture</Representation>
 		</Command>
 	</Commands>
 	<Parameters>

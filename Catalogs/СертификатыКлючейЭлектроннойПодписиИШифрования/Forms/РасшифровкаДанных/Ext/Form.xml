@@ -6,15 +6,14 @@
 			<v8:content>Расшифровка данных</v8:content>
 		</v8:item>
 	</Title>
-	<Width>56</Width>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
+	<CommandSet>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
-		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -45,6 +44,8 @@
 							<v8:content>Данные</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<HorizontalStretch>true</HorizontalStretch>
 					<Hiperlink>true</Hiperlink>
@@ -63,9 +64,8 @@
 					<v8:content>Введите пароль закрытого ключа сертификата</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
 			<ThroughAlign>Use</ThroughAlign>
 			<ExtendedTooltip name="ГруппаРасшифровкаРасширеннаяПодсказка" id="379"/>
 			<ChildItems>
@@ -90,6 +90,9 @@
 									<v8:content>Сертификат</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<DropListButton>false</DropListButton>
 							<ChoiceButton>true</ChoiceButton>
 							<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
@@ -115,7 +118,7 @@
 									<v8:content>Пароль</v8:content>
 								</v8:item>
 							</Title>
-							<Group>HorizontalIfPossible</Group>
+							<Group>AlwaysHorizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -129,7 +132,8 @@
 											<v8:content>Пароль</v8:content>
 										</v8:item>
 									</Title>
-									<HorizontalStretch>false</HorizontalStretch>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<Wrap>false</Wrap>
 									<PasswordMode>true</PasswordMode>
 									<ChoiceButton>true</ChoiceButton>
@@ -161,6 +165,8 @@
 										</v8:item>
 									</ToolTip>
 									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ЗапомнитьПарольКонтекстноеМеню" id="325"/>
 									<ExtendedTooltip name="ЗапомнитьПарольРасширеннаяПодсказка" id="326"/>
 									<Events>
@@ -192,11 +198,10 @@
 									<ChildItems>
 										<LabelDecoration name="ПояснениеУсиленногоПароля" id="440">
 											<AutoMaxWidth>false</AutoMaxWidth>
-											<TextColor>style:ПоясняющийТекст</TextColor>
-											<Title formatted="false">
+											<Title formatted="true">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Нажмите Расшифровать, чтобы перейти к вводу пароля.</v8:content>
+													<v8:content>Нажмите &lt;b&gt;Расшифровать&lt;/&gt;, чтобы перейти к вводу пароля.</v8:content>
 												</v8:item>
 											</Title>
 											<ToolTipRepresentation>Button</ToolTipRepresentation>
@@ -258,69 +263,45 @@
 				</v8:item>
 			</Title>
 			<HorizontalStretch>true</HorizontalStretch>
+			<VerticalStretch>true</VerticalStretch>
 			<Group>AlwaysHorizontal</Group>
+			<VerticalAlign>Bottom</VerticalAlign>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="460"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаКомандыПодтверждения" id="461">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Команды</v8:content>
-						</v8:item>
-					</Title>
-					<Group>AlwaysHorizontal</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаКомандыПодтвержденияРасширеннаяПодсказка" id="462"/>
-				</UsualGroup>
-				<CommandBar name="ГруппаОсновныеКоманды" id="463">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Основные команды</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalStretch>false</HorizontalStretch>
+				<Button name="ФормаРасшифровать" id="465">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
 					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-					<ExtendedTooltip name="ГруппаОсновныеКомандыРасширеннаяПодсказка" id="464"/>
-					<ChildItems>
-						<Button name="ФормаРасшифровать" id="465">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<CommandName>Form.Command.Расшифровать</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Расшифровать</v8:content>
-								</v8:item>
-							</Title>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ФормаРасшифроватьРасширеннаяПодсказка" id="466"/>
-						</Button>
-						<Button name="ФормаЗакрыть" id="467">
-							<Type>CommandBarButton</Type>
-							<Representation>Text</Representation>
-							<CommandName>Form.StandardCommand.Close</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Отмена</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="468"/>
-						</Button>
-						<Button name="ФормаСправка" id="469">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.Help</CommandName>
-							<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="470"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
+					<CommandName>Form.Command.Расшифровать</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расшифровать</v8:content>
+						</v8:item>
+					</Title>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ФормаРасшифроватьРасширеннаяПодсказка" id="466"/>
+				</Button>
 			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКомандыПодтверждения" id="461">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команды</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<VerticalStretch>true</VerticalStretch>
+			<Group>AlwaysHorizontal</Group>
+			<VerticalAlign>Bottom</VerticalAlign>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКомандыПодтвержденияРасширеннаяПодсказка" id="462"/>
 		</UsualGroup>
 	</ChildItems>
 	<Attributes>
@@ -499,6 +480,7 @@
 			</Title>
 			<Action>Расшифровать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

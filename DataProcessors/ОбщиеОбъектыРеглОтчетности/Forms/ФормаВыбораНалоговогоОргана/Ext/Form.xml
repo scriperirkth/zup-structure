@@ -7,7 +7,7 @@
 		</v8:item>
 	</Title>
 	<Width>60</Width>
-	<Height>15</Height>
+	<Height>22</Height>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
@@ -39,20 +39,10 @@
 			</Button>
 			<Button name="Закрыть" id="9">
 				<Type>CommandBarButton</Type>
-				<Representation>PictureAndText</Representation>
+				<Representation>Text</Representation>
 				<SkipOnInput>false</SkipOnInput>
 				<CommandName>Form.StandardCommand.Close</CommandName>
 				<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="24"/>
-			</Button>
-			<Button name="ТаблицаНОИзменитьРегистрацию" id="53">
-				<Type>CommandBarButton</Type>
-				<Representation>PictureAndText</Representation>
-				<CommandName>Form.Command.ИзменитьРегистрацию</CommandName>
-				<Picture>
-					<xr:Ref>StdPicture.Change</xr:Ref>
-					<xr:LoadTransparent>true</xr:LoadTransparent>
-				</Picture>
-				<ExtendedTooltip name="ТаблицаНОИзменитьРегистрациюРасширеннаяПодсказка" id="54"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -60,6 +50,29 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<CommandBar name="Панель" id="67">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Панель</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Панель</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ПанельРасширеннаяПодсказка" id="68"/>
+			<ChildItems>
+				<Button name="ТаблицаНОИзменитьРегистрацию" id="53">
+					<Type>CommandBarButton</Type>
+					<Representation>PictureAndText</Representation>
+					<CommandName>Form.Command.ИзменитьРегистрацию</CommandName>
+					<ExtendedTooltip name="ТаблицаНОИзменитьРегистрациюРасширеннаяПодсказка" id="54"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 		<Table name="ТаблицаНО" id="10">
 			<Representation>List</Representation>
 			<CommandBarLocation>Top</CommandBarLocation>
@@ -184,6 +197,7 @@
 					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="ТаблицаНОКППКонтекстноеМеню" id="16"/>
 					<ExtendedTooltip name="ТаблицаНОКППРасширеннаяПодсказка" id="36"/>
 				</InputField>
@@ -192,6 +206,7 @@
 					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="ТаблицаНОКодНОКонтекстноеМеню" id="18"/>
 					<ExtendedTooltip name="ТаблицаНОКодНОРасширеннаяПодсказка" id="37"/>
 				</InputField>
@@ -200,6 +215,7 @@
 					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="ТаблицаНОНаименованиеКонтекстноеМеню" id="22"/>
 					<ExtendedTooltip name="ТаблицаНОНаименованиеРасширеннаяПодсказка" id="39"/>
 				</InputField>
@@ -218,6 +234,7 @@
 					<EditMode>EnterOnInput</EditMode>
 					<AutoCellHeight>true</AutoCellHeight>
 					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="ТаблицаНОПредставительКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ТаблицаНОПредставительРасширеннаяПодсказка" id="38"/>
 				</InputField>
@@ -389,13 +406,10 @@
 					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>Выбрать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="УстановитьФлажки" id="3">
 			<Title>

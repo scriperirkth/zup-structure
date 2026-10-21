@@ -9,8 +9,33 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Center</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Обращение_ТекущиеФайлы" id="19">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+				<CommandName>Form.Command.Обращение_ТекущиеФайлы</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="Обращение_ТекущиеФайлыРасширеннаяПодсказка" id="20"/>
+			</Button>
+			<Button name="Обращение_Пропустить" id="55">
+				<Type>CommandBarButton</Type>
+				<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+				<CommandName>Form.Command.Обращение_Пропустить</CommandName>
+				<ExtendedTooltip name="Обращение_ПропуститьРасширеннаяПодсказка" id="56"/>
+			</Button>
+			<Button name="Отмена" id="26">
+				<Type>CommandBarButton</Type>
+				<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+				<CommandName>Form.Command.Отмена</CommandName>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="27"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -52,7 +77,6 @@
 						</LabelDecoration>
 						<InputField name="АдресОтвета" id="16">
 							<DataPath>АдресДляОтвета</DataPath>
-							<MarkRequiredComplete>true</MarkRequiredComplete>
 							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="АдресОтветаКонтекстноеМеню" id="17"/>
 							<ExtendedTooltip name="АдресОтветаРасширеннаяПодсказка" id="18"/>
@@ -64,20 +88,6 @@
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ExtendedTooltip name="ГруппаКомандаСервисРасширеннаяПодсказка" id="25"/>
-							<ChildItems>
-								<Button name="Обращение_ТекущиеФайлы" id="19">
-									<Type>UsualButton</Type>
-									<Height>1</Height>
-									<CommandName>Form.Command.Обращение_ТекущиеФайлы</CommandName>
-									<ExtendedTooltip name="Обращение_ТекущиеФайлыРасширеннаяПодсказка" id="20"/>
-								</Button>
-								<Button name="Отмена" id="26">
-									<Type>UsualButton</Type>
-									<Height>1</Height>
-									<CommandName>Form.Command.Отмена</CommandName>
-									<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="27"/>
-								</Button>
-							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
 				</Page>
@@ -163,6 +173,7 @@
 							<ChildItems>
 								<Button name="Перечень_ТекущиеФайлы" id="12">
 									<Type>UsualButton</Type>
+									<Visible>false</Visible>
 									<DefaultButton>true</DefaultButton>
 									<Height>1</Height>
 									<CommandName>Form.Command.Перечень_ТекущиеФайлы</CommandName>
@@ -177,6 +188,7 @@
 								</Button>
 								<Button name="ОтменаЛокально" id="28">
 									<Type>UsualButton</Type>
+									<Visible>false</Visible>
 									<Height>1</Height>
 									<CommandName>Form.Command.Отмена</CommandName>
 									<ExtendedTooltip name="ОтменаЛокальноРасширеннаяПодсказка" id="29"/>
@@ -212,12 +224,14 @@
 							<ChildItems>
 								<Button name="Обращение_Архив" id="40">
 									<Type>UsualButton</Type>
+									<Visible>false</Visible>
 									<Height>1</Height>
 									<CommandName>Form.Command.Перечень_ВсеФайлы</CommandName>
 									<ExtendedTooltip name="Обращение_АрхивРасширеннаяПодсказка" id="41"/>
 								</Button>
 								<Button name="ОтменаАрхив" id="42">
 									<Type>UsualButton</Type>
+									<Visible>false</Visible>
 									<Height>1</Height>
 									<CommandName>Form.Command.Отмена</CommandName>
 									<ExtendedTooltip name="ОтменаАрхивРасширеннаяПодсказка" id="43"/>
@@ -245,7 +259,6 @@
 						</LabelDecoration>
 						<InputField name="АдресОтветаВыгрузить" id="57">
 							<DataPath>АдресДляОтвета</DataPath>
-							<MarkRequiredComplete>true</MarkRequiredComplete>
 							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="АдресОтветаВыгрузитьКонтекстноеМеню" id="58"/>
 							<ExtendedTooltip name="АдресОтветаВыгрузитьРасширеннаяПодсказка" id="59"/>
@@ -260,18 +273,14 @@
 							<ChildItems>
 								<Button name="Обращение_Выгрузить" id="60">
 									<Type>UsualButton</Type>
+									<Visible>false</Visible>
 									<Height>1</Height>
 									<CommandName>Form.Command.Обращение_ТекущиеФайлы</CommandName>
 									<ExtendedTooltip name="Обращение_ВыгрузитьРасширеннаяПодсказка" id="61"/>
 								</Button>
-								<Button name="Обращение_Пропустить" id="55">
-									<Type>UsualButton</Type>
-									<Height>1</Height>
-									<CommandName>Form.Command.Обращение_Пропустить</CommandName>
-									<ExtendedTooltip name="Обращение_ПропуститьРасширеннаяПодсказка" id="56"/>
-								</Button>
 								<Button name="ОтменаВыгрузить" id="53">
 									<Type>UsualButton</Type>
+									<Visible>false</Visible>
 									<Height>1</Height>
 									<CommandName>Form.Command.Отмена</CommandName>
 									<ExtendedTooltip name="ОтменаВыгрузитьРасширеннаяПодсказка" id="54"/>
@@ -529,6 +538,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Обращение_ТекущиеФайлы</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПодключитьУСП" id="4">
 			<Title>
@@ -558,6 +568,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Отмена</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Обращение_Пропустить" id="6">
 			<Title>

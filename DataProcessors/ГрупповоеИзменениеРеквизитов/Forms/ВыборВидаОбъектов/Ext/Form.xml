@@ -37,12 +37,8 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="16"/>
 			</Button>
-			<Button name="ФормаСнятьФлажки" id="31">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Item.ДоступныеОбъектыДляИзменения.StandardCommand.UncheckAll</CommandName>
-				<ExtendedTooltip name="ФормаСнятьФлажкиРасширеннаяПодсказка" id="32"/>
-			</Button>
-			<SearchStringAddition name="СтрокаПоиска" id="35">
+			<SearchStringAddition name="СтрокаПоискаТакси" id="42">
+				<Visible>false</Visible>
 				<AdditionSource>
 					<Item>ДоступныеОбъектыДляИзменения</Item>
 					<Type>SearchStringRepresentation</Type>
@@ -50,11 +46,11 @@
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Поиск</v8:content>
+						<v8:content>Строка поиска такси</v8:content>
 					</v8:item>
 				</Title>
-				<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="36"/>
-				<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="37"/>
+				<ContextMenu name="СтрокаПоискаТаксиКонтекстноеМеню" id="43"/>
+				<ExtendedTooltip name="СтрокаПоискаТаксиРасширеннаяПодсказка" id="44"/>
 			</SearchStringAddition>
 		</ChildItems>
 	</AutoCommandBar>
@@ -66,7 +62,7 @@
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<MultipleChoice>true</MultipleChoice>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<Header>false</Header>
 			<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -95,10 +91,9 @@
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 			</CommandSet>
+			<SearchStringLocation>CommandBar</SearchStringLocation>
 			<ContextMenu name="ДоступныеОбъектыДляИзмененияКонтекстноеМеню" id="9"/>
-			<AutoCommandBar name="ДоступныеОбъектыДляИзмененияКоманднаяПанель" id="10">
-				<Autofill>false</Autofill>
-			</AutoCommandBar>
+			<AutoCommandBar name="ДоступныеОбъектыДляИзмененияКоманднаяПанель" id="10"/>
 			<ExtendedTooltip name="ДоступныеОбъектыДляИзмененияРасширеннаяПодсказка" id="11"/>
 			<SearchStringAddition name="ДоступныеОбъектыДляИзмененияСтрокаПоиска" id="17">
 				<AdditionSource>
@@ -149,6 +144,7 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
 							<ContextMenu name="ДоступныеОбъектыДляИзмененияПометкаКонтекстноеМеню" id="29"/>
 							<ExtendedTooltip name="ДоступныеОбъектыДляИзмененияПометкаРасширеннаяПодсказка" id="30"/>
 						</CheckBoxField>
@@ -188,7 +184,13 @@
 			<Type>
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
-			<Settings xsi:type="v8:TypeDescription"/>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Settings>
 		</Attribute>
 	</Attributes>
 	<Commands>
@@ -207,6 +209,7 @@
 			</ToolTip>
 			<Action>Выбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

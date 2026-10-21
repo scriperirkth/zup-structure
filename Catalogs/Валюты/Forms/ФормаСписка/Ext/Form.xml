@@ -2,15 +2,55 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<MobileDeviceCommandBarContent>
-		<xr:Item>
-			<xr:Presentation/>
-			<xr:CheckState>0</xr:CheckState>
-			<xr:Value xsi:type="xs:string">КоманднаяПанель</xr:Value>
-		</xr:Item>
-	</MobileDeviceCommandBarContent>
+	<CommandBarLocation>Top</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Popup name="Создать" id="77">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Создать</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="СоздатьРасширеннаяПодсказка" id="78"/>
+				<ChildItems>
+					<Button name="ФормаПодборИзКлассификатора" id="44">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПодборИзКлассификатора</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>По классификатору...</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаПодборИзКлассификатораРасширеннаяПодсказка" id="51"/>
+					</Button>
+					<Button name="СоздатьВалюту" id="85">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Create</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Новую</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="СоздатьВалютуРасширеннаяПодсказка" id="86"/>
+					</Button>
+				</ChildItems>
+			</Popup>
+			<Button name="ФормаЗагрузитьКурсыВалют" id="43">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЗагрузитьКурсыВалют</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Загрузить курсы валют...</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаЗагрузитьКурсыВалютРасширеннаяПодсказка" id="50"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
@@ -31,106 +71,9 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="67"/>
 		</UsualGroup>
-		<CommandBar name="КоманднаяПанель" id="64">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="65"/>
-			<ChildItems>
-				<Popup name="Создать" id="77">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Создать</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="СоздатьРасширеннаяПодсказка" id="78"/>
-					<ChildItems>
-						<Button name="ФормаПодборИзКлассификатора" id="44">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.ПодборИзКлассификатора</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>По классификатору...</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ФормаПодборИзКлассификатораРасширеннаяПодсказка" id="51"/>
-						</Button>
-						<Button name="СоздатьВалюту" id="85">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.StandardCommand.Create</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Новую</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="СоздатьВалютуРасширеннаяПодсказка" id="86"/>
-						</Button>
-					</ChildItems>
-				</Popup>
-				<ButtonGroup name="КомандыФормы" id="79">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Команды формы</v8:content>
-						</v8:item>
-					</Title>
-					<CommandSource>Form</CommandSource>
-					<ExtendedTooltip name="КомандыФормыРасширеннаяПодсказка" id="80"/>
-				</ButtonGroup>
-				<ButtonGroup name="ГруппаЗагрузитьКурсыВалют" id="87">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Загрузить курсы валют</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ГруппаЗагрузитьКурсыВалютРасширеннаяПодсказка" id="88"/>
-					<ChildItems>
-						<Button name="ФормаЗагрузитьКурсыВалют" id="43">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.ЗагрузитьКурсыВалют</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Загрузить курсы валют...</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ФормаЗагрузитьКурсыВалютРасширеннаяПодсказка" id="50"/>
-						</Button>
-					</ChildItems>
-				</ButtonGroup>
-				<Button name="Справка" id="81">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.StandardCommand.Help</CommandName>
-					<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="82"/>
-				</Button>
-				<SearchStringAddition name="СтрокаПоиска" id="89">
-					<AdditionSource>
-						<Item>Валюты</Item>
-						<Type>SearchStringRepresentation</Type>
-					</AdditionSource>
-					<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="90"/>
-					<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="91"/>
-				</SearchStringAddition>
-				<SearchControlAddition name="УправлениеПоиском" id="92">
-					<AdditionSource>
-						<Item>Валюты</Item>
-						<Type>SearchControl</Type>
-					</AdditionSource>
-					<ContextMenu name="УправлениеПоискомКонтекстноеМеню" id="93"/>
-					<ExtendedTooltip name="УправлениеПоискомРасширеннаяПодсказка" id="94"/>
-				</SearchControlAddition>
-			</ChildItems>
-		</CommandBar>
 		<Table name="Валюты" id="25">
-			<CommandBarLocation>None</CommandBarLocation>
 			<SkipOnInput>false</SkipOnInput>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
@@ -141,6 +84,7 @@
 					<v8:content>Валюты</v8:content>
 				</v8:item>
 			</Title>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -189,7 +133,8 @@
 			<ChildItems>
 				<InputField name="НаименованиеПолное" id="40" DisplayImportance="VeryHigh">
 					<DataPath>Список.НаименованиеПолное</DataPath>
-					<Width>20</Width>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ContextMenu name="НаименованиеПолноеКонтекстноеМеню" id="41"/>
 					<ExtendedTooltip name="НаименованиеПолноеРасширеннаяПодсказка" id="55"/>
@@ -202,7 +147,8 @@
 							<v8:content>Цифр. код</v8:content>
 						</v8:item>
 					</Title>
-					<Width>9</Width>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ContextMenu name="КодКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="53"/>
@@ -215,7 +161,8 @@
 							<v8:content>Симв. код</v8:content>
 						</v8:item>
 					</Title>
-					<Width>9</Width>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="33"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="54"/>
@@ -228,7 +175,8 @@
 							<v8:content>Курс</v8:content>
 						</v8:item>
 					</Title>
-					<Width>7</Width>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КурсКонтекстноеМеню" id="39"/>
 					<ExtendedTooltip name="КурсРасширеннаяПодсказка" id="56"/>
 				</LabelField>
@@ -246,7 +194,8 @@
 							<v8:content>Кратность равная единице не отображается</v8:content>
 						</v8:item>
 					</ToolTip>
-					<Width>7</Width>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КратностьКонтекстноеМеню" id="37"/>
 					<ExtendedTooltip name="КратностьРасширеннаяПодсказка" id="59"/>
 				</LabelField>
@@ -255,7 +204,8 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<Width>3</Width>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="62"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="63"/>
 				</LabelField>
@@ -327,6 +277,7 @@
 			</ToolTip>
 			<Action>ПодборИзКлассификатора</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="ЗагрузитьКурсыВалют" id="2">
 			<Title>

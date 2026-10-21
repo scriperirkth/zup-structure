@@ -1,9 +1,21 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
-	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВключитьВозможностьРедактирования" id="23">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ФормаВключитьВозможностьРедактирования</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Включить возможность редактирования</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаВключитьВозможностьРедактированияРасширеннаяПодсказка" id="24"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -18,38 +30,12 @@
 			</Title>
 			<VerticalStretch>false</VerticalStretch>
 			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
+			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="2"/>
 		</UsualGroup>
-		<CommandBar name="КоманднаяПанель" id="19">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="20"/>
-			<ChildItems>
-				<Button name="ФормаВключитьВозможностьРедактирования" id="23">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.ВключитьВозможностьРедактирования</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Включить возможность редактирования</v8:content>
-						</v8:item>
-					</Title>
-					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-					<ExtendedTooltip name="ФормаВключитьВозможностьРедактированияРасширеннаяПодсказка" id="24"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<ChoiceMode>true</ChoiceMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
@@ -64,6 +50,7 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -80,9 +67,7 @@
 			<UserSettingsGroup>ГруппаПользовательскихНастроек</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
-				<Autofill>false</Autofill>
-			</AutoCommandBar>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -112,15 +97,12 @@
 				<LabelField name="СписокНаименование" id="16">
 					<DataPath>Список.Description</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокНаименованиеКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="СписокНаименованиеРасширеннаяПодсказка" id="18"/>
 				</LabelField>
-				<LabelField name="СписокСписок" id="25">
-					<DataPath>Список.Список</DataPath>
-					<ContextMenu name="СписокСписокКонтекстноеМеню" id="26"/>
-					<ExtendedTooltip name="СписокСписокРасширеннаяПодсказка" id="27"/>
-				</LabelField>
-				<CheckBoxField name="ДляВнешнихПользователей" id="28">
+				<CheckBoxField name="СписокДляВнешнихПользователей" id="28">
 					<DataPath>Список.ДляВнешнихПользователей</DataPath>
 					<Title>
 						<v8:item>
@@ -128,21 +110,48 @@
 							<v8:content>ВП</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="ДляВнешнихПользователейКонтекстноеМеню" id="29"/>
-					<ExtendedTooltip name="ДляВнешнихПользователейРасширеннаяПодсказка" id="30"/>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<ContextMenu name="СписокДляВнешнихПользователейКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="СписокДляВнешнихПользователейРасширеннаяПодсказка" id="30"/>
 				</CheckBoxField>
-				<LabelField name="Хеш" id="31">
-					<DataPath>Список.Хеш</DataPath>
-					<ContextMenu name="ХешКонтекстноеМеню" id="32"/>
-					<ExtendedTooltip name="ХешРасширеннаяПодсказка" id="33"/>
+				<LabelField name="СписокСписок" id="25">
+					<DataPath>Список.Список</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокСписокКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="СписокСписокРасширеннаяПодсказка" id="27"/>
 				</LabelField>
-				<LabelField name="Ссылка" id="34">
+				<LabelField name="СписокНеИспользуетсяС" id="45">
+					<DataPath>Список.НеИспользуетсяС</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<ContextMenu name="СписокНеИспользуетсяСКонтекстноеМеню" id="46"/>
+					<ExtendedTooltip name="СписокНеИспользуетсяСРасширеннаяПодсказка" id="47"/>
+				</LabelField>
+				<LabelField name="СписокХеш" id="31">
+					<DataPath>Список.Хеш</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<HeaderHorizontalAlign>Right</HeaderHorizontalAlign>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<ContextMenu name="СписокХешКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="СписокХешРасширеннаяПодсказка" id="33"/>
+				</LabelField>
+				<LabelField name="СписокСсылка" id="34">
 					<DataPath>Список.Ref</DataPath>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<ContextMenu name="СсылкаКонтекстноеМеню" id="35"/>
-					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="36"/>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокСсылкаКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="СписокСсылкаРасширеннаяПодсказка" id="36"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
@@ -180,7 +189,7 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ВключитьВозможностьРедактирования" id="1">
+		<Command name="ФормаВключитьВозможностьРедактирования" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -193,7 +202,7 @@
 					<v8:content>Включить возможность редактирования только для целей поиска неисправности (требуется углубленное понимание работы механизма)</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ВключитьВозможностьРедактирования</Action>
+			<Action>ФормаВключитьВозможностьРедактирования</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>

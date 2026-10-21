@@ -11,6 +11,21 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаПодтверждаю" id="6">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Подтверждаю</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Подтверждаю</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаПодтверждаюРасширеннаяПодсказка" id="7"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -40,6 +55,8 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<ContextMenu name="ОписаниеКонтекстноеМеню" id="80"/>
 					<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="81"/>
@@ -69,6 +86,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<AutoMaxHeight>false</AutoMaxHeight>
 							<HorizontalStretch>true</HorizontalStretch>
@@ -121,7 +140,6 @@
 			</Title>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаЗаявлениеРасширеннаяПодсказка" id="24"/>
 			<ChildItems>
@@ -132,7 +150,6 @@
 							<v8:content>Табличный документ группа</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>WeakSeparation</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -147,10 +164,10 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<Width>100</Width>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<Height>20</Height>
-							<AutoMaxHeight>false</AutoMaxHeight>
+							<VerticalScrollBar>true</VerticalScrollBar>
 							<ContextMenu name="ПодтверждаемаяИнформацияКонтекстноеМеню" id="2"/>
 							<ExtendedTooltip name="ПодтверждаемаяИнформацияРасширеннаяПодсказка" id="3"/>
 						</SpreadSheetDocumentField>
@@ -164,9 +181,9 @@
 							<v8:content>Подтверждаю, что данные владельца не изменились с момента выпуска продлеваемого сертификата</v8:content>
 						</v8:item>
 					</Title>
-					<TitleLocation>Right</TitleLocation>
-					<TitleHeight>1</TitleHeight>
 					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СогласиеСПодтверждаемойИнформациейКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="СогласиеСПодтверждаемойИнформациейРасширеннаяПодсказка" id="18"/>
 				</CheckBoxField>
@@ -191,10 +208,10 @@
 					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>&lt;b&gt;Для передачи расписки в бумажном виде:
-&lt;/&gt;
- 1. Распечатайте и подпишите &lt;link ПечатьСертификата&gt;бланк квалифицированного сертификата&lt;/&gt;.
- 2. Передайте бланк сертификата обслуживающему вас партнеру.</v8:content>
+							<v8:content>&lt;b&gt;Для передачи расписки в бумажном виде:&lt;/&gt;
+
+ 1. Распечатайте и подпишите &lt;link ПечатьСертификата&gt;бланк квалифицированного сертификата&lt;/&gt;.
+ 2. Передайте бланк сертификата обслуживающему вас партнеру.</v8:content>
 						</v8:item>
 					</Title>
 					<ContextMenu name="ДекорацияИнструкцияКонтекстноеМеню" id="44"/>
@@ -225,7 +242,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
-							<TitleHeight>2</TitleHeight>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="СогласиеСПодтверждаемойИнформацией1КонтекстноеМеню" id="28"/>
 							<ExtendedTooltip name="СогласиеСПодтверждаемойИнформацией1РасширеннаяПодсказка" id="29"/>
 						</CheckBoxField>
@@ -238,7 +256,6 @@
 </v8:content>
 								</v8:item>
 							</Title>
-							<TitleHeight>2</TitleHeight>
 							<ContextMenu name="ДекорацияПодтверждениеКонтекстноеМеню" id="31"/>
 							<ExtendedTooltip name="ДекорацияПодтверждениеРасширеннаяПодсказка" id="32"/>
 							<Events>
@@ -269,98 +286,23 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
-							<TitleHeight>2</TitleHeight>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="СогласиеСПодтверждаемойИнформацией2КонтекстноеМеню" id="95"/>
 							<ExtendedTooltip name="СогласиеСПодтверждаемойИнформацией2РасширеннаяПодсказка" id="96"/>
 						</CheckBoxField>
 						<LabelDecoration name="ДекорацияПодтверждение1" id="97">
-							<Width>50</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<Title formatted="true">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Подтверждаю ознакомление с &lt;link http://ca.1c.ru/rukovodstvo.pdf&gt;руководством по обеспечению безопасности &lt;/&gt;использования квалифицированной электронной подписи и средств квалифицированной электронной подписи
+									<v8:content>Подтверждаю ознакомление с &lt;link https://ca.1c.ru/rukovodstvo.pdf&gt;руководством по обеспечению безопасности &lt;/&gt;использования квалифицированной электронной подписи и средств квалифицированной электронной подписи
 </v8:content>
 								</v8:item>
 							</Title>
-							<TitleHeight>2</TitleHeight>
 							<ContextMenu name="ДекорацияПодтверждение1КонтекстноеМеню" id="98"/>
 							<ExtendedTooltip name="ДекорацияПодтверждение1РасширеннаяПодсказка" id="99"/>
 						</LabelDecoration>
-					</ChildItems>
-				</UsualGroup>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ПодвалГруппа" id="10">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Подвал группа</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalStretch>true</HorizontalStretch>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
-			<United>false</United>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ПодвалГруппаРасширеннаяПодсказка" id="11"/>
-			<ChildItems>
-				<UsualGroup name="ГруппаКомандыПодтверждения" id="19">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Команды подтверждения</v8:content>
-						</v8:item>
-					</Title>
-					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-					<Group>HorizontalIfPossible</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>WeakSeparation</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаКомандыПодтвержденияРасширеннаяПодсказка" id="20"/>
-					<ChildItems>
-						<Button name="ФормаПодтверждаю" id="6">
-							<Type>UsualButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-							<CommandName>Form.Command.Подтверждаю</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Подтверждаю</v8:content>
-								</v8:item>
-							</Title>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ФормаПодтверждаюРасширеннаяПодсказка" id="7"/>
-						</Button>
-						<Button name="Отмена" id="14">
-							<Type>UsualButton</Type>
-							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-							<CommandName>Form.StandardCommand.Cancel</CommandName>
-							<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="15"/>
-						</Button>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаКомандыОшибки" id="82">
-					<Visible>false</Visible>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Команды ошибки</v8:content>
-						</v8:item>
-					</Title>
-					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-					<Group>HorizontalIfPossible</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>WeakSeparation</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаКомандыОшибкиРасширеннаяПодсказка" id="83"/>
-					<ChildItems>
-						<Button name="Закрыть" id="84">
-							<Type>UsualButton</Type>
-							<CommandName>Form.StandardCommand.Close</CommandName>
-							<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="85"/>
-						</Button>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -463,6 +405,7 @@
 				</v8:item>
 			</Title>
 			<Action>Подтверждаю</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

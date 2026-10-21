@@ -23,13 +23,6 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаОтборИЕщеРасширеннаяПодсказка" id="23"/>
 			<ChildItems>
-				<Button name="ФормаЗакрыть" id="20">
-					<Type>UsualButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.StandardCommand.Close</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="21"/>
-				</Button>
 				<InputField name="ИмяТаблицы" id="17">
 					<DataPath>ИмяТаблицы</DataPath>
 					<Title>
@@ -38,6 +31,8 @@
 							<v8:content>Имя таблицы</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ListChoiceMode>true</ListChoiceMode>
 					<ContextMenu name="ИмяТаблицыКонтекстноеМеню" id="18"/>
 					<ExtendedTooltip name="ИмяТаблицыРасширеннаяПодсказка" id="19"/>
@@ -45,16 +40,6 @@
 						<Event name="OnChange">ИмяТаблицыПриИзменении</Event>
 					</Events>
 				</InputField>
-				<CommandBar name="КоманднаяПанель" id="24">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Командная панель</v8:content>
-						</v8:item>
-					</Title>
-					<CommandSource>Item.Список</CommandSource>
-					<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="25"/>
-				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 		<LabelDecoration name="НадписьСводнаяИнформация" id="26">
@@ -65,11 +50,11 @@
 					<v8:content>Осталось обработать объектов %1 из %2, прогресс - %3. За указанный период обработано %4.</v8:content>
 				</v8:item>
 			</Title>
-			<BackColor>style:ToolTipBackColor</BackColor>
 			<ContextMenu name="НадписьСводнаяИнформацияКонтекстноеМеню" id="27"/>
 			<ExtendedTooltip name="НадписьСводнаяИнформацияРасширеннаяПодсказка" id="28"/>
 		</LabelDecoration>
 		<Table name="Список" id="1">
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<EnableStartDrag>true</EnableStartDrag>
 			<DataPath>Список</DataPath>
@@ -95,9 +80,7 @@
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
-			</AutoCommandBar>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="4"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="5">
 				<AdditionSource>

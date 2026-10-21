@@ -32,6 +32,7 @@
 			</Button>
 			<Button name="ФормаОтмена" id="10">
 				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
 				<CommandName>Form.Command.Отмена</CommandName>
 				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="11"/>
 			</Button>
@@ -116,7 +117,6 @@
 					<DataPath>Налог</DataPath>
 					<TitleLocation>None</TitleLocation>
 					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-					<MarkRequiredComplete>true</MarkRequiredComplete>
 					<Width>31</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>30</MaxWidth>
@@ -256,68 +256,10 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="НесколькоНалоговРасширеннаяПодсказка" id="13"/>
 									<ChildItems>
-										<UsualGroup name="КнопкиТаблицыНалогов" id="14">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Кнопки таблицы налогов</v8:content>
-												</v8:item>
-											</Title>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Кнопки таблицы налогов</v8:content>
-												</v8:item>
-											</ToolTip>
-											<Group>HorizontalIfPossible</Group>
-											<VerticalAlign>Center</VerticalAlign>
-											<Behavior>Usual</Behavior>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="КнопкиТаблицыНалоговРасширеннаяПодсказка" id="15"/>
-											<ChildItems>
-												<Button name="ТаблицаКБКиНалоговПодобрать" id="16">
-													<Type>UsualButton</Type>
-													<CommandName>Form.Command.Подобрать</CommandName>
-													<ExtendedTooltip name="ТаблицаКБКиНалоговПодобратьРасширеннаяПодсказка" id="17"/>
-												</Button>
-												<CommandBar name="НеважныеКнопки" id="18">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Неважные кнопки</v8:content>
-														</v8:item>
-													</Title>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Неважные кнопки</v8:content>
-														</v8:item>
-													</ToolTip>
-													<HorizontalStretch>false</HorizontalStretch>
-													<ExtendedTooltip name="НеважныеКнопкиРасширеннаяПодсказка" id="19"/>
-													<ChildItems>
-														<Button name="ТаблицаКБКиНалоговДобавить" id="20">
-															<Type>CommandBarButton</Type>
-															<Representation>Text</Representation>
-															<CommandName>Form.Item.ТаблицаКБКиНалогов.StandardCommand.Add</CommandName>
-															<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-															<ExtendedTooltip name="ТаблицаКБКиНалоговДобавитьРасширеннаяПодсказка" id="21"/>
-														</Button>
-														<Button name="ТаблицаКБКиНалоговИзменить" id="22">
-															<Type>CommandBarButton</Type>
-															<Representation>Text</Representation>
-															<CommandName>Form.Item.ТаблицаКБКиНалогов.StandardCommand.Change</CommandName>
-															<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-															<ExtendedTooltip name="ТаблицаКБКиНалоговИзменитьРасширеннаяПодсказка" id="23"/>
-														</Button>
-													</ChildItems>
-												</CommandBar>
-											</ChildItems>
-										</UsualGroup>
 										<Table name="ТаблицаКБКиНалогов" id="24">
 											<Representation>List</Representation>
 											<ChangeRowOrder>false</ChangeRowOrder>
+											<SelectionMode>SingleRow</SelectionMode>
 											<RowSelectionMode>Cell</RowSelectionMode>
 											<AutoInsertNewRow>true</AutoInsertNewRow>
 											<EnableStartDrag>true</EnableStartDrag>
@@ -328,6 +270,26 @@
 											<ContextMenu name="ТаблицаКБКиНалоговКонтекстноеМеню" id="25"/>
 											<AutoCommandBar name="ТаблицаКБКиНалоговКоманднаяПанель" id="26">
 												<Autofill>false</Autofill>
+												<ChildItems>
+													<Button name="ТаблицаКБКиНалоговПодобрать" id="16">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.Подобрать</CommandName>
+														<ExtendedTooltip name="ТаблицаКБКиНалоговПодобратьРасширеннаяПодсказка" id="17"/>
+													</Button>
+													<Button name="ТаблицаКБКиНалоговИзменить" id="22">
+														<Type>CommandBarButton</Type>
+														<Representation>Text</Representation>
+														<CommandName>Form.Item.ТаблицаКБКиНалогов.StandardCommand.Change</CommandName>
+														<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+														<ExtendedTooltip name="ТаблицаКБКиНалоговИзменитьРасширеннаяПодсказка" id="23"/>
+													</Button>
+													<Button name="ТаблицаКБКиНалоговДобавить" id="20">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.ТаблицаКБКиНалогов.StandardCommand.Add</CommandName>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="ТаблицаКБКиНалоговДобавитьРасширеннаяПодсказка" id="21"/>
+													</Button>
+												</ChildItems>
 											</AutoCommandBar>
 											<ExtendedTooltip name="ТаблицаКБКиНалоговРасширеннаяПодсказка" id="27"/>
 											<SearchStringAddition name="ТаблицаКБКиНалоговСтрокаПоиска" id="28">
@@ -635,6 +597,7 @@
 			</ToolTip>
 			<Action>Выбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="2">
 			<Title>
@@ -651,6 +614,7 @@
 			</ToolTip>
 			<Action>Отмена</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Подобрать" id="3">
 			<Title>

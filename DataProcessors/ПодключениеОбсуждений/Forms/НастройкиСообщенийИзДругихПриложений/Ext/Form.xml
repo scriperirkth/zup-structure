@@ -18,7 +18,7 @@
 				</Picture>
 				<ExtendedTooltip name="ПодменюСоздатьРасширеннаяПодсказка" id="30"/>
 				<ChildItems>
-					<Button name="ФормаСоздатьБотаMax" id="54">
+					<Button name="ФормаСоздатьБотаMax" id="87">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.СоздатьБотаMax</CommandName>
 						<Picture>
@@ -31,7 +31,7 @@
 								<v8:content>Чат Max</v8:content>
 							</v8:item>
 						</Title>
-						<ExtendedTooltip name="ФормаСоздатьБотаMaxРасширеннаяПодсказка" id="55"/>
+						<ExtendedTooltip name="ФормаСоздатьБотаMaxРасширеннаяПодсказка" id="88"/>
 					</Button>
 					<Button name="ФормаСоздатьБотаTelegram" id="31">
 						<Type>CommandBarButton</Type>
@@ -111,16 +111,11 @@
 					</Button>
 				</ChildItems>
 			</Popup>
-			<Button name="ФормаОбновить" id="41">
+			<Button name="ФормаСправка" id="74">
 				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Обновить</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Обновить</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="42"/>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="75"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -130,10 +125,13 @@
 	<ChildItems>
 		<Table name="СписокПодключений" id="1">
 			<Representation>Tree</Representation>
+			<CommandBarLocation>Top</CommandBarLocation>
 			<ReadOnly>true</ReadOnly>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
+			<Header>false</Header>
 			<InitialTreeView>ExpandAllLevels</InitialTreeView>
 			<DataPath>СписокПодключений</DataPath>
 			<Title>
@@ -142,9 +140,24 @@
 					<v8:content>Подключений</v8:content>
 				</v8:item>
 			</Title>
+			<SearchStringLocation>CommandBar</SearchStringLocation>
+			<ShowCommandBar>true</ShowCommandBar>
 			<ContextMenu name="СписокПодключенийКонтекстноеМеню" id="3"/>
 			<AutoCommandBar name="СписокПодключенийКоманднаяПанель" id="2">
-				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ФормаОбновить" id="41">
+						<Type>CommandBarButton</Type>
+						<Representation>Text</Representation>
+						<CommandName>Form.Command.Обновить</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Обновить</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="42"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокПодключенийРасширеннаяПодсказка" id="4"/>
 			<SearchStringAddition name="СписокПодключенийСтрокаПоиска" id="5">
@@ -175,46 +188,84 @@
 				<Event name="Selection">СписокПодключенийВыбор</Event>
 			</Events>
 			<ChildItems>
-				<PictureField name="СписокПодключенийАктивно" id="20">
-					<DataPath>СписокПодключений.Активно</DataPath>
+				<ColumnGroup name="СписокПодключенийЛоготипНаименование" id="65">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Активно</v8:content>
+							<v8:content>Подключений логотип наименование</v8:content>
 						</v8:item>
 					</Title>
-					<TitleLocation>None</TitleLocation>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Бот активирован</v8:content>
-						</v8:item>
-					</ToolTip>
-					<HeaderPicture>
-						<xr:Ref>CommonPicture.СостоянияРасширенийПодключено</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</HeaderPicture>
-					<HeaderHorizontalAlign>Auto</HeaderHorizontalAlign>
-					<Width>1</Width>
-					<PictureSize>Proportionally</PictureSize>
-					<ValuesPicture>
-						<xr:Ref>CommonPicture.СостоянияРасширенийКонфигурации</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</ValuesPicture>
-					<ContextMenu name="СписокПодключенийАктивноКонтекстноеМеню" id="21"/>
-					<ExtendedTooltip name="СписокПодключенийАктивноРасширеннаяПодсказка" id="22"/>
-				</PictureField>
-				<InputField name="СписокПодключенийНаименование" id="14">
-					<DataPath>СписокПодключений.Наименование</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Наименование</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="СписокПодключенийНаименованиеКонтекстноеМеню" id="15"/>
-					<ExtendedTooltip name="СписокПодключенийНаименованиеРасширеннаяПодсказка" id="16"/>
-				</InputField>
+					<Group>Horizontal</Group>
+					<ExtendedTooltip name="СписокПодключенийЛоготипНаименованиеРасширеннаяПодсказка" id="66"/>
+					<ChildItems>
+						<PictureField name="СписокПодключенийЛоготип" id="61">
+							<DataPath>СписокПодключений.Логотип</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Логотип</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СписокПодключенийЛоготипКонтекстноеМеню" id="62"/>
+							<ExtendedTooltip name="СписокПодключенийЛоготипРасширеннаяПодсказка" id="63"/>
+						</PictureField>
+						<ColumnGroup name="СписокПодключенийНаименованиеСостояние" id="58">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Подключений наименование состояние</v8:content>
+								</v8:item>
+							</Title>
+							<Group>InCell</Group>
+							<ExtendedTooltip name="СписокПодключенийНаименованиеСостояниеРасширеннаяПодсказка" id="59"/>
+							<ChildItems>
+								<PictureField name="СписокПодключенийАктивно" id="20">
+									<DataPath>СписокПодключений.Активно</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Активно</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Бот активирован</v8:content>
+										</v8:item>
+									</ToolTip>
+									<EditMode>EnterOnInput</EditMode>
+									<HeaderHorizontalAlign>Auto</HeaderHorizontalAlign>
+									<AutoEditMode>true</AutoEditMode>
+									<Width>1</Width>
+									<PictureSize>Proportionally</PictureSize>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.СостоянияРасширенийКонфигурации</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</ValuesPicture>
+									<ContextMenu name="СписокПодключенийАктивноКонтекстноеМеню" id="21"/>
+									<ExtendedTooltip name="СписокПодключенийАктивноРасширеннаяПодсказка" id="22"/>
+								</PictureField>
+								<InputField name="СписокПодключенийНаименование" id="14">
+									<DataPath>СписокПодключений.Наименование</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Наименование</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="СписокПодключенийНаименованиеКонтекстноеМеню" id="15"/>
+									<ExtendedTooltip name="СписокПодключенийНаименованиеРасширеннаяПодсказка" id="16"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+					</ChildItems>
+				</ColumnGroup>
 			</ChildItems>
 		</Table>
 	</ChildItems>
@@ -273,6 +324,17 @@
 				<Column name="Идентификатор" id="1">
 					<Type/>
 				</Column>
+				<Column name="Логотип" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Логотип</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8ui:Picture</v8:Type>
+					</Type>
+				</Column>
 			</Columns>
 		</Attribute>
 	</Attributes>
@@ -285,6 +347,7 @@
 				</v8:item>
 			</Title>
 			<Action>СоздатьБотаTelegram</Action>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="СоздатьБотаВКонтакте" id="2">
 			<Title>
@@ -294,6 +357,7 @@
 				</v8:item>
 			</Title>
 			<Action>СоздатьБотаВКонтакте</Action>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="Обновить" id="3">
 			<Title>
@@ -324,6 +388,7 @@
 				</v8:item>
 			</Title>
 			<Action>СоздатьБотаWhatsApp</Action>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="СоздатьВебЧат" id="5">
 			<Title>
@@ -333,6 +398,7 @@
 				</v8:item>
 			</Title>
 			<Action>СоздатьВебЧат</Action>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="СоздатьБотаWebhook" id="6">
 			<Title>
@@ -342,6 +408,7 @@
 				</v8:item>
 			</Title>
 			<Action>СоздатьБотаWebhook</Action>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="СоздатьБотаMax" id="7">
 			<Title>
@@ -351,6 +418,7 @@
 				</v8:item>
 			</Title>
 			<Action>СоздатьБотаMax</Action>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

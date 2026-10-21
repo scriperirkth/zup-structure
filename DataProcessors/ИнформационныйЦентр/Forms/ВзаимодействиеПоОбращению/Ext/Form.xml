@@ -4,13 +4,12 @@
 	<AutoTitle>false</AutoTitle>
 	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
+	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ФормаОтветить" id="36">
 				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.Ответить</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаОтветитьРасширеннаяПодсказка" id="37"/>
 			</Button>
 			<Button name="ФормаОбращение" id="38">
@@ -38,19 +37,84 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ОсновнаяГруппаРасширеннаяПодсказка" id="5"/>
 			<ChildItems>
-				<HTMLDocumentField name="Содержание" id="1">
-					<DataPath>Содержание</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<ContextMenu name="СодержаниеКонтекстноеМеню" id="2"/>
-					<ExtendedTooltip name="СодержаниеРасширеннаяПодсказка" id="3"/>
-					<Events>
-						<Event name="OnClick">СодержаниеПриНажатии</Event>
-					</Events>
-				</HTMLDocumentField>
+				<UsualGroup name="ГруппаСодержание" id="45">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа содержание</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа содержание</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаСодержаниеРасширеннаяПодсказка" id="46"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаТипВзаимодействия" id="47">
+							<Visible>false</Visible>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа тип взаимодействия</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа тип взаимодействия</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<HorizontalSpacing>Half</HorizontalSpacing>
+							<VerticalAlign>Center</VerticalAlign>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаТипВзаимодействияРасширеннаяПодсказка" id="48"/>
+							<ChildItems>
+								<PictureDecoration name="КартинкаТипВзаимодействия" id="49">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Картинка тип взаимодействия</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="КартинкаТипВзаимодействияКонтекстноеМеню" id="50"/>
+									<ExtendedTooltip name="КартинкаТипВзаимодействияРасширеннаяПодсказка" id="51"/>
+								</PictureDecoration>
+								<LabelDecoration name="НадписьТипВзаимодействия" id="52">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Комментарий входящий</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="НадписьТипВзаимодействияКонтекстноеМеню" id="53"/>
+									<ExtendedTooltip name="НадписьТипВзаимодействияРасширеннаяПодсказка" id="54"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<HTMLDocumentField name="Содержание" id="1">
+							<DataPath>Содержание</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СодержаниеКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="СодержаниеРасширеннаяПодсказка" id="3"/>
+							<Events>
+								<Event name="OnClick">СодержаниеПриНажатии</Event>
+							</Events>
+						</HTMLDocumentField>
+					</ChildItems>
+				</UsualGroup>
 				<Table name="Файлы" id="6">
 					<Representation>List</Representation>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
-					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
 					<EnableStartDrag>true</EnableStartDrag>
 					<EnableDrag>true</EnableDrag>
@@ -108,6 +172,7 @@
 								</v8:item>
 							</Title>
 							<Group>InCell</Group>
+							<ShowTitle>true</ShowTitle>
 							<ExtendedTooltip name="ФайлыГруппаКолонокРасширеннаяПодсказка" id="35"/>
 							<ChildItems>
 								<PictureField name="ФайлыКартинка" id="28">
@@ -124,6 +189,10 @@
 									<AutoEditMode>true</AutoEditMode>
 									<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 									<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.КоллекцияПиктограммФайлов</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</ValuesPicture>
 									<Border width="1">
 										<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
 									</Border>
@@ -324,6 +393,7 @@
 			<Action>Ответить</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="ПерейтиКОбращению" id="2">
 			<Title>

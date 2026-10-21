@@ -9,9 +9,39 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<CommandBarLocation>Bottom</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ОтключитьНаправление" id="26">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОтключитьНаправление</CommandName>
+				<ExtendedTooltip name="ОтключитьНаправлениеРасширеннаяПодсказка" id="41"/>
+			</Button>
+			<Button name="НастроитьНаправление" id="123">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Command.НастроитьНаправление</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Настроить</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="НастроитьНаправлениеРасширеннаяПодсказка" id="124"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="27">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<DefaultButton>true</DefaultButton>
+				<DefaultItem>true</DefaultItem>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="42"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -118,6 +148,7 @@
 							<v8:content>Доверенность</v8:content>
 						</v8:item>
 					</Title>
+					<TitleLocation>Left</TitleLocation>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -202,7 +233,9 @@
 							<v8:content>Представитель</v8:content>
 						</v8:item>
 					</Title>
+					<HorizontalStretch>false</HorizontalStretch>
 					<Group>Vertical</Group>
+					<VerticalSpacing>Half</VerticalSpacing>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -213,17 +246,25 @@
 							<ContextMenu name="ПредставлениеПредставителяОтступКонтекстноеМеню" id="145"/>
 							<ExtendedTooltip name="ПредставлениеПредставителяОтступExtendedTooltip" id="146"/>
 						</LabelDecoration>
-						<UsualGroup name="ГруппаСвойстваПредставителя" id="188">
+						<UsualGroup name="ГруппаСвойстваПредставителя" id="203">
 							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Представитель</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalStretch>false</HorizontalStretch>
 							<Group>AlwaysHorizontal</Group>
+							<VerticalSpacing>Half</VerticalSpacing>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаСвойстваПредставителяРасширеннаяПодсказка" id="189"/>
+							<ExtendedTooltip name="ГруппаСвойстваПредставителяРасширеннаяПодсказка" id="204"/>
 							<ChildItems>
 								<InputField name="Доверенность" id="147">
 									<DataPath>Доверенность</DataPath>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
+									<TitleLocation>Left</TitleLocation>
 									<Width>30</Width>
 									<ChoiceButton>true</ChoiceButton>
 									<ClearButton>true</ClearButton>
@@ -236,12 +277,12 @@
 										<Event name="OnChange">ДоверенностьПриИзменении</Event>
 									</Events>
 								</InputField>
-								<InputField name="Должность" id="185">
+								<InputField name="Должность" id="199">
 									<DataPath>Должность</DataPath>
 									<Width>15</Width>
 									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-									<ContextMenu name="ДолжностьКонтекстноеМеню" id="186"/>
-									<ExtendedTooltip name="ДолжностьРасширеннаяПодсказка" id="187"/>
+									<ContextMenu name="ДолжностьКонтекстноеМеню" id="200"/>
+									<ExtendedTooltip name="ДолжностьРасширеннаяПодсказка" id="201"/>
 									<Events>
 										<Event name="OnChange">ДолжностьПриИзменении</Event>
 									</Events>
@@ -332,6 +373,7 @@
 				<Table name="Подписанты" id="161">
 					<Representation>List</Representation>
 					<ChangeRowOrder>false</ChangeRowOrder>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -387,14 +429,14 @@
 							<ContextMenu name="ПодписантыДоверенностьКонтекстноеМеню" id="178"/>
 							<ExtendedTooltip name="ПодписантыДоверенностьРасширеннаяПодсказка" id="179"/>
 						</InputField>
-						<InputField name="ПодписантыДолжность" id="196">
+						<InputField name="ПодписантыДолжность" id="213">
 							<DataPath>Подписанты.Должность</DataPath>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
 							<Width>15</Width>
 							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-							<ContextMenu name="ПодписантыДолжностьКонтекстноеМеню" id="197"/>
-							<ExtendedTooltip name="ПодписантыДолжностьРасширеннаяПодсказка" id="198"/>
+							<ContextMenu name="ПодписантыДолжностьКонтекстноеМеню" id="214"/>
+							<ExtendedTooltip name="ПодписантыДолжностьРасширеннаяПодсказка" id="215"/>
 						</InputField>
 					</ChildItems>
 				</Table>
@@ -426,7 +468,7 @@
 		<LabelDecoration name="ДекорацияНижнийОтступ" id="120">
 			<Width>35</Width>
 			<AutoMaxWidth>false</AutoMaxWidth>
-			<Font ref="style:NormalTextFont" height="1" kind="StyleItem"/>
+			<Font ref="style:TitleLevel3" kind="StyleItem"/>
 			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -436,37 +478,6 @@
 			<ContextMenu name="ДекорацияНижнийОтступКонтекстноеМеню" id="121"/>
 			<ExtendedTooltip name="ДекорацияНижнийОтступРасширеннаяПодсказка" id="122"/>
 		</LabelDecoration>
-		<CommandBar name="ГруппаКнопок" id="25">
-			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="ГруппаКнопокExtendedTooltip" id="40"/>
-			<ChildItems>
-				<Button name="ОтключитьНаправление" id="26">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.ОтключитьНаправление</CommandName>
-					<ExtendedTooltip name="ОтключитьНаправлениеРасширеннаяПодсказка" id="41"/>
-				</Button>
-				<Button name="НастроитьНаправление" id="123">
-					<Type>CommandBarButton</Type>
-					<Visible>false</Visible>
-					<CommandName>Form.Command.НастроитьНаправление</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Настроить</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="НастроитьНаправлениеРасширеннаяПодсказка" id="124"/>
-				</Button>
-				<Button name="ФормаЗакрыть" id="27">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<DefaultItem>true</DefaultItem>
-					<CommandName>Form.StandardCommand.Close</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="42"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -730,6 +741,7 @@
 			</Title>
 			<Action>ОтключитьНаправление</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="НастроитьНаправление" id="1">
 			<Title>
@@ -745,6 +757,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>НастроитьНаправление</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

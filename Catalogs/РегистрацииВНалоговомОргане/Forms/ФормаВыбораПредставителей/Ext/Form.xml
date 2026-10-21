@@ -20,11 +20,6 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаСохранитьРасширеннаяПодсказка" id="66"/>
 			</Button>
-			<Button name="ФормаСправка" id="67">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<ExtendedTooltip name="ФормаСправкаExtendedTooltip" id="68"/>
-			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -49,7 +44,7 @@
 				<RadioButtonField name="ОтчетностьПодписываетПредставитель" id="3">
 					<DataPath>ОтчетностьПодписываетПредставитель</DataPath>
 					<TitleLocation>Left</TitleLocation>
-					<TitleHeight>2</TitleHeight>
+					<TitleHeight>1</TitleHeight>
 					<RadioButtonType>Auto</RadioButtonType>
 					<ColumnsCount>1</ColumnsCount>
 					<ChoiceList>
@@ -221,28 +216,9 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ПанельПодписантовРасширеннаяПодсказка" id="26"/>
 					<ChildItems>
-						<Button name="ПодписантыДобавитьПодписанта" id="27">
-							<Type>UsualButton</Type>
-							<GroupVerticalAlign>Center</GroupVerticalAlign>
-							<CommandName>Form.Command.ДобавитьПодписанта</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Добавить</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ПодписантыДобавитьПодписантаРасширеннаяПодсказка" id="28"/>
-						</Button>
-						<Button name="ПодписантыОчиститьПодписанта" id="29">
-							<Type>UsualButton</Type>
-							<GroupVerticalAlign>Center</GroupVerticalAlign>
-							<CommandName>Form.Command.УдалитьПодписанта</CommandName>
-							<ExtendedTooltip name="ПодписантыОчиститьПодписантаРасширеннаяПодсказка" id="30"/>
-						</Button>
 						<LabelDecoration name="ПодсказкаПоПодписантам" id="31">
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<HorizontalStretch>true</HorizontalStretch>
-							<TextColor>style:ПоясняющийТекст</TextColor>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -258,6 +234,7 @@
 				<Table name="Подписанты" id="34">
 					<Representation>List</Representation>
 					<ChangeRowOrder>false</ChangeRowOrder>
+					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -268,6 +245,26 @@
 					<ContextMenu name="ПодписантыКонтекстноеМеню" id="35"/>
 					<AutoCommandBar name="ПодписантыКоманднаяПанель" id="36">
 						<Autofill>false</Autofill>
+						<ChildItems>
+							<Button name="ПодписантыДобавитьПодписанта" id="27">
+								<Type>CommandBarButton</Type>
+								<GroupVerticalAlign>Center</GroupVerticalAlign>
+								<CommandName>Form.Command.ДобавитьПодписанта</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Добавить</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ПодписантыДобавитьПодписантаРасширеннаяПодсказка" id="28"/>
+							</Button>
+							<Button name="ПодписантыОчиститьПодписанта" id="29">
+								<Type>CommandBarButton</Type>
+								<GroupVerticalAlign>Center</GroupVerticalAlign>
+								<CommandName>Form.Command.УдалитьПодписанта</CommandName>
+								<ExtendedTooltip name="ПодписантыОчиститьПодписантаРасширеннаяПодсказка" id="30"/>
+							</Button>
+						</ChildItems>
 					</AutoCommandBar>
 					<ExtendedTooltip name="ПодписантыРасширеннаяПодсказка" id="37"/>
 					<SearchStringAddition name="ПодписантыСтрокаПоиска" id="38">
@@ -634,6 +631,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Сохранить</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ДобавитьПодписанта" id="2">
 			<Title>

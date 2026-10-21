@@ -9,17 +9,6 @@
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="ФормаПроверитьПодключение" id="1">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ПроверитьПодключение</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Проверить подключение</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаПроверитьПодключениеРасширеннаяПодсказка" id="2"/>
-			</Button>
 			<Button name="ФормаГотово" id="3">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
@@ -32,6 +21,17 @@
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаГотовоРасширеннаяПодсказка" id="4"/>
+			</Button>
+			<Button name="ФормаПроверитьПодключение" id="1">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПроверитьПодключение</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Проверить подключение</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаПроверитьПодключениеРасширеннаяПодсказка" id="2"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -47,7 +47,7 @@
 				<Title formatted="false">
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Например 'exchange’. Каталог должен быть уже создан в сервисе. Допустимо использовать только латинские символы </v8:content>
+						<v8:content>Например 'exchange/dsl’. Каталог должен быть уже создан в сервисе. Допустимо использовать только латинские символы </v8:content>
 					</v8:item>
 				</Title>
 			</ExtendedTooltip>
@@ -60,7 +60,7 @@
 				</v8:item>
 			</Title>
 			<Group>Vertical</Group>
-			<Behavior>Collapsible</Behavior>
+			<Behavior>Usual</Behavior>
 			<ControlRepresentation>Button</ControlRepresentation>
 			<Representation>None</Representation>
 			<ExtendedTooltip name="НастройкиДоступаРасширеннаяПодсказка" id="59"/>
@@ -124,7 +124,7 @@
 					<ContextMenu name="RefreshTokenКонтекстноеМеню" id="39"/>
 					<ExtendedTooltip name="RefreshTokenРасширеннаяПодсказка" id="40"/>
 				</InputField>
-				<InputField name="ExpiresIn" id="44">
+				<LabelField name="ExpiresIn" id="44">
 					<DataPath>Объект.ExpiresIn</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -133,18 +133,17 @@
 							<v8:content>Expires in (Истекает)</v8:content>
 						</v8:item>
 					</Title>
+					<TitleLocation>Left</TitleLocation>
+					<UseCopy>true</UseCopy>
 					<ContextMenu name="ExpiresInКонтекстноеМеню" id="45"/>
 					<ExtendedTooltip name="ExpiresInРасширеннаяПодсказка" id="46"/>
-				</InputField>
+				</LabelField>
 			</ChildItems>
 		</UsualGroup>
-		<LabelDecoration name="Декорация1" id="20">
-			<ContextMenu name="Декорация1КонтекстноеМеню" id="21"/>
-			<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="22"/>
-		</LabelDecoration>
 		<CheckBoxField name="СжиматьФайлИсходящегоСообщения" id="11">
 			<DataPath>Объект.СжиматьФайлИсходящегоСообщения</DataPath>
 			<TitleLocation>Right</TitleLocation>
+			<CheckBoxType>Switcher</CheckBoxType>
 			<ContextMenu name="СжиматьФайлИсходящегоСообщенияКонтекстноеМеню" id="12"/>
 			<ExtendedTooltip name="СжиматьФайлИсходящегоСообщенияРасширеннаяПодсказка" id="13"/>
 			<Events>
@@ -155,8 +154,16 @@
 			<DataPath>Объект.ПарольАрхиваСообщенияОбмена</DataPath>
 			<TitleLocation>Top</TitleLocation>
 			<PasswordMode>true</PasswordMode>
+			<ChoiceButton>true</ChoiceButton>
+			<ChoiceButtonPicture>
+				<xr:Ref>StdPicture.ShowPassword</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</ChoiceButtonPicture>
 			<ContextMenu name="ПарольАрхиваСообщенияОбменаКонтекстноеМеню" id="15"/>
 			<ExtendedTooltip name="ПарольАрхиваСообщенияОбменаРасширеннаяПодсказка" id="16"/>
+			<Events>
+				<Event name="StartChoice">ПарольАрхиваСообщенияОбменаНачалоВыбора</Event>
+			</Events>
 		</InputField>
 		<CheckBoxField name="Транслитерация" id="17">
 			<DataPath>Объект.Транслитерация</DataPath>
@@ -194,6 +201,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Готово</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПроверитьПодключение" id="2">
 			<Title>
@@ -209,6 +217,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПроверитьПодключение</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПолучитьТокен" id="4">
 			<Title>

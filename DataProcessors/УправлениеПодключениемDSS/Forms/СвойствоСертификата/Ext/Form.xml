@@ -10,15 +10,12 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Top</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+	</CommandSet>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="ФормаЗакрыть" id="110">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="111"/>
-			</Button>
 			<Button name="Проверить" id="73">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.Проверить</CommandName>
@@ -69,11 +66,7 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаОбщиеРасширеннаяПодсказка" id="4"/>
 					<ChildItems>
-						<LabelDecoration name="ДекорацияПусто1" id="96">
-							<ContextMenu name="ДекорацияПусто1КонтекстноеМеню" id="97"/>
-							<ExtendedTooltip name="ДекорацияПусто1РасширеннаяПодсказка" id="98"/>
-						</LabelDecoration>
-						<InputField name="КомуВыдан" id="20">
+						<LabelField name="КомуВыдан" id="20">
 							<DataPath>КомуВыдан</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<SkipOnInput>true</SkipOnInput>
@@ -84,12 +77,12 @@
 								</v8:item>
 							</Title>
 							<TitleFont ref="style:ВыделенныйЗаголовокПодтвержденияШрифт" kind="StyleItem"/>
-							<ChooseType>false</ChooseType>
-							<TextEdit>false</TextEdit>
-							<BorderColor>style:FormBackColor</BorderColor>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<UseCopy>true</UseCopy>
 							<ContextMenu name="КомуВыданКонтекстноеМеню" id="21"/>
 							<ExtendedTooltip name="КомуВыданРасширеннаяПодсказка" id="22"/>
-						</InputField>
+						</LabelField>
 						<UsualGroup name="ГруппаПрочее" id="18">
 							<Title>
 								<v8:item>
@@ -97,29 +90,61 @@
 									<v8:content>Прочее</v8:content>
 								</v8:item>
 							</Title>
+							<VerticalStretch>true</VerticalStretch>
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаПрочееРасширеннаяПодсказка" id="19"/>
 							<ChildItems>
-								<InputField name="КемВыдан" id="23">
-									<DataPath>КемВыдан</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<SkipOnInput>true</SkipOnInput>
+								<UsualGroup name="ГруппаКемВыданОтпечаток" id="124">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Кем выдан</v8:content>
+											<v8:content>Кем выдан отпечаток</v8:content>
 										</v8:item>
 									</Title>
-									<TitleFont ref="style:ВыделенныйЗаголовокПодтвержденияШрифт" kind="StyleItem"/>
-									<ChooseType>false</ChooseType>
-									<TextEdit>false</TextEdit>
-									<BorderColor>style:FormBackColor</BorderColor>
-									<ContextMenu name="КемВыданКонтекстноеМеню" id="24"/>
-									<ExtendedTooltip name="КемВыданРасширеннаяПодсказка" id="25"/>
-								</InputField>
+									<Group>AutoScreenTypeSensitive</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаКемВыданОтпечатокРасширеннаяПодсказка" id="125"/>
+									<ChildItems>
+										<LabelField name="КемВыдан" id="23">
+											<DataPath>КемВыдан</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<SkipOnInput>true</SkipOnInput>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Кем выдан</v8:content>
+												</v8:item>
+											</Title>
+											<TitleFont ref="style:ВыделенныйЗаголовокПодтвержденияШрифт" kind="StyleItem"/>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<UseCopy>true</UseCopy>
+											<ContextMenu name="КемВыданКонтекстноеМеню" id="24"/>
+											<ExtendedTooltip name="КемВыданРасширеннаяПодсказка" id="25"/>
+										</LabelField>
+										<LabelField name="Отпечаток" id="93">
+											<DataPath>Отпечаток</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<SkipOnInput>true</SkipOnInput>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Отпечаток</v8:content>
+												</v8:item>
+											</Title>
+											<TitleFont ref="style:ВыделенныйЗаголовокПодтвержденияШрифт" kind="StyleItem"/>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<UseCopy>true</UseCopy>
+											<ContextMenu name="ОтпечатокКонтекстноеМеню" id="94"/>
+											<ExtendedTooltip name="ОтпечатокРасширеннаяПодсказка" id="95"/>
+										</LabelField>
+									</ChildItems>
+								</UsualGroup>
 								<UsualGroup name="ГруппаДействителен" id="108">
 									<Title>
 										<v8:item>
@@ -127,13 +152,13 @@
 											<v8:content>Действителен</v8:content>
 										</v8:item>
 									</Title>
-									<Group>HorizontalIfPossible</Group>
+									<Group>AutoScreenTypeSensitive</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаДействителенРасширеннаяПодсказка" id="109"/>
 									<ChildItems>
-										<InputField name="ДействителенС" id="102">
+										<LabelField name="ДействителенС" id="102">
 											<DataPath>ДействителенС</DataPath>
 											<ReadOnly>true</ReadOnly>
 											<SkipOnInput>true</SkipOnInput>
@@ -144,14 +169,13 @@
 												</v8:item>
 											</Title>
 											<TitleFont ref="style:ВыделенныйЗаголовокПодтвержденияШрифт" kind="StyleItem"/>
-											<Width>10</Width>
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<ChooseType>false</ChooseType>
-											<BorderColor>style:FormBackColor</BorderColor>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<UseCopy>true</UseCopy>
 											<ContextMenu name="ДействителенСКонтекстноеМеню" id="103"/>
 											<ExtendedTooltip name="ДействителенСРасширеннаяПодсказка" id="104"/>
-										</InputField>
-										<InputField name="ДействителенПо" id="105">
+										</LabelField>
+										<LabelField name="ДействителенПо" id="105">
 											<DataPath>ДействителенПо</DataPath>
 											<ReadOnly>true</ReadOnly>
 											<SkipOnInput>true</SkipOnInput>
@@ -162,39 +186,16 @@
 												</v8:item>
 											</Title>
 											<TitleFont ref="style:ВыделенныйЗаголовокПодтвержденияШрифт" kind="StyleItem"/>
-											<Width>10</Width>
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<ChooseType>false</ChooseType>
-											<BorderColor>style:FormBackColor</BorderColor>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<UseCopy>true</UseCopy>
 											<ContextMenu name="ДействителенПоКонтекстноеМеню" id="106"/>
 											<ExtendedTooltip name="ДействителенПоРасширеннаяПодсказка" id="107"/>
-										</InputField>
+										</LabelField>
 									</ChildItems>
 								</UsualGroup>
-								<InputField name="Отпечаток" id="93">
-									<DataPath>Отпечаток</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<SkipOnInput>true</SkipOnInput>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отпечаток</v8:content>
-										</v8:item>
-									</Title>
-									<TitleFont ref="style:ВыделенныйЗаголовокПодтвержденияШрифт" kind="StyleItem"/>
-									<ChooseType>false</ChooseType>
-									<TextEdit>false</TextEdit>
-									<BorderColor>style:FormBackColor</BorderColor>
-									<ContextMenu name="ОтпечатокКонтекстноеМеню" id="94"/>
-									<ExtendedTooltip name="ОтпечатокРасширеннаяПодсказка" id="95"/>
-								</InputField>
 							</ChildItems>
 						</UsualGroup>
-						<LabelDecoration name="ДекорацияПусто" id="81">
-							<VerticalStretch>true</VerticalStretch>
-							<ContextMenu name="ДекорацияПустоКонтекстноеМеню" id="82"/>
-							<ExtendedTooltip name="ДекорацияПустоРасширеннаяПодсказка" id="83"/>
-						</LabelDecoration>
 						<UsualGroup name="ГруппаПинКод" id="34">
 							<Title>
 								<v8:item>
@@ -202,10 +203,13 @@
 									<v8:content>Пин-код</v8:content>
 								</v8:item>
 							</Title>
-							<Group>AlwaysHorizontal</Group>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Group>AutoScreenTypeSensitive</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
+							<BackColor>pal:LightBlue</BackColor>
+							<ShowAsCard>true</ShowAsCard>
 							<ExtendedTooltip name="ГруппаПинКодРасширеннаяПодсказка" id="35"/>
 							<ChildItems>
 								<PictureDecoration name="ДекорацияПинКод" id="36">
@@ -215,6 +219,7 @@
 											<v8:content>Декорация пин код</v8:content>
 										</v8:item>
 									</Title>
+									<PictureSize>Proportionally</PictureSize>
 									<Picture>
 										<xr:Ref>CommonPicture.Зашифрован</xr:Ref>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -336,29 +341,6 @@
 								</InputField>
 							</ChildItems>
 						</Table>
-						<InputField name="ТаблицаСоставаТекущееЗначение" id="66">
-							<DataPath>Items.ТаблицаСостава.CurrentData.Значение</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<Height>4</Height>
-							<MultiLine>true</MultiLine>
-							<ContextMenu name="ТаблицаСоставаТекущееЗначениеКонтекстноеМеню" id="67"/>
-							<ExtendedTooltip name="ТаблицаСоставаТекущееЗначениеРасширеннаяПодсказка" id="68"/>
-						</InputField>
-						<UsualGroup name="ГруппаКоманды" id="69">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Команды</v8:content>
-								</v8:item>
-							</Title>
-							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-							<Group>HorizontalIfPossible</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="70"/>
-						</UsualGroup>
 					</ChildItems>
 				</Page>
 			</ChildItems>

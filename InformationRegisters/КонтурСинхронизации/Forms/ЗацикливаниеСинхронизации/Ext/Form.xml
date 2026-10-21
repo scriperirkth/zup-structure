@@ -6,18 +6,16 @@
 	<Customizable>false</Customizable>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
-			<Button name="ФормаЗакрытьФорму" id="39">
+			<Button name="ФормаПереключитьКонтроль" id="145">
 				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ЗакрытьФорму</CommandName>
+				<CommandName>Form.Command.ПереключитьКонтроль</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Закрыть</v8:content>
+						<v8:content>Переключить контроль</v8:content>
 					</v8:item>
 				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаЗакрытьФормуРасширеннаяПодсказка" id="40"/>
+				<ExtendedTooltip name="ФормаПереключитьКонтрольРасширеннаяПодсказка" id="146"/>
 			</Button>
 			<ButtonGroup name="ФормаГруппаДополнительно" id="147">
 				<Title>
@@ -34,17 +32,6 @@
 				</ToolTip>
 				<ExtendedTooltip name="ФормаГруппаДополнительноРасширеннаяПодсказка" id="148"/>
 				<ChildItems>
-					<Button name="ФормаПереключитьКонтроль" id="145">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ПереключитьКонтроль</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Переключить контроль</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ФормаПереключитьКонтрольРасширеннаяПодсказка" id="146"/>
-					</Button>
 					<Button name="ФормаОтображатьПредупреждениеОЗацикливании" id="149">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.ОтображатьПредупреждениеОЗацикливании</CommandName>
@@ -78,11 +65,6 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<LabelDecoration name="ОтступЛево" id="41">
-			<Width>1</Width>
-			<ContextMenu name="ОтступЛевоКонтекстноеМеню" id="42"/>
-			<ExtendedTooltip name="ОтступЛевоРасширеннаяПодсказка" id="43"/>
-		</LabelDecoration>
 		<UsualGroup name="Группа1" id="47">
 			<Title>
 				<v8:item>
@@ -92,14 +74,9 @@
 			</Title>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="48"/>
 			<ChildItems>
-				<LabelDecoration name="ОтступВерх" id="51">
-					<ContextMenu name="ОтступВерхКонтекстноеМеню" id="52"/>
-					<ExtendedTooltip name="ОтступВерхРасширеннаяПодсказка" id="53"/>
-				</LabelDecoration>
 				<UsualGroup name="ГруппаКартинкаИнформация" id="49">
 					<Title>
 						<v8:item>
@@ -107,16 +84,18 @@
 							<v8:content>Картинка информация</v8:content>
 						</v8:item>
 					</Title>
+					<HorizontalStretch>true</HorizontalStretch>
 					<Group>HorizontalIfPossible</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
+					<BackColor>pal:FirstBrand</BackColor>
 					<ExtendedTooltip name="ГруппаКартинкаИнформацияРасширеннаяПодсказка" id="50"/>
 					<ChildItems>
 						<PictureDecoration name="КартинкаПредупреждение" id="79">
 							<Picture>
-								<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
+								<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
 							</Picture>
 							<ContextMenu name="КартинкаПредупреждениеКонтекстноеМеню" id="80"/>
 							<ExtendedTooltip name="КартинкаПредупреждениеРасширеннаяПодсказка" id="81"/>
@@ -181,6 +160,7 @@
 						<Table name="ТаблицаУзлов" id="103">
 							<Representation>List</Representation>
 							<Height>4</Height>
+							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -207,8 +187,6 @@
 								<ExcludedCommand>MoveUp</ExcludedCommand>
 								<ExcludedCommand>OutputList</ExcludedCommand>
 								<ExcludedCommand>SearchEverywhere</ExcludedCommand>
-								<ExcludedCommand>SelectAll</ExcludedCommand>
-								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 								<ExcludedCommand>SortListAsc</ExcludedCommand>
 								<ExcludedCommand>SortListDesc</ExcludedCommand>
@@ -220,6 +198,7 @@
 							</AutoCommandBar>
 							<ExtendedTooltip name="ТаблицаУзловРасширеннаяПодсказка" id="106"/>
 							<SearchStringAddition name="ТаблицаУзловСтрокаПоиска" id="107">
+								<Enabled>false</Enabled>
 								<AdditionSource>
 									<Item>ТаблицаУзлов</Item>
 									<Type>SearchStringRepresentation</Type>
@@ -228,6 +207,7 @@
 								<ExtendedTooltip name="ТаблицаУзловСтрокаПоискаРасширеннаяПодсказка" id="109"/>
 							</SearchStringAddition>
 							<ViewStatusAddition name="ТаблицаУзловСостояниеПросмотра" id="110">
+								<Enabled>false</Enabled>
 								<AdditionSource>
 									<Item>ТаблицаУзлов</Item>
 									<Type>ViewStatusRepresentation</Type>
@@ -236,6 +216,7 @@
 								<ExtendedTooltip name="ТаблицаУзловСостояниеПросмотраРасширеннаяПодсказка" id="112"/>
 							</ViewStatusAddition>
 							<SearchControlAddition name="ТаблицаУзловУправлениеПоиском" id="113">
+								<Enabled>false</Enabled>
 								<AdditionSource>
 									<Item>ТаблицаУзлов</Item>
 									<Type>SearchControl</Type>
@@ -253,7 +234,7 @@
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Узел информационной базы</v8:content>
+											<v8:content>Узел</v8:content>
 										</v8:item>
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
@@ -333,7 +314,7 @@
 							<Title formatted="true">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>&lt;colorstyle -16&gt;&lt;b&gt;Внимание!&lt;/&gt;&lt;/&gt; Включение регистрации при зацикливании может привести к избыточности отправляемых и получаемых данных, а также к увеличению времени обмена.</v8:content>
+									<v8:content>&lt;b&gt;&lt;colorpalette 2&gt;Внимание!&lt;/&gt;&lt;/&gt; Включение регистрации при зацикливании может привести к избыточности отправляемых и получаемых данных, а также к увеличению времени обмена.</v8:content>
 								</v8:item>
 							</Title>
 							<ContextMenu name="ИнформацияВозобновлениеРегистрацииКонтекстноеМеню" id="101"/>
@@ -359,7 +340,7 @@
 							<Title formatted="true">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>&lt;b&gt;&lt;colorstyle -16&gt;Внимание!&lt;/&gt;&lt;/&gt;</v8:content>
+									<v8:content>&lt;b&gt;&lt;colorpalette 2&gt;Внимание!&lt;/&gt;&lt;/&gt;</v8:content>
 								</v8:item>
 							</Title>
 							<ContextMenu name="ИнформацияДругаяБазаВниманиеКонтекстноеМеню" id="141"/>
@@ -378,17 +359,8 @@
 						</LabelDecoration>
 					</ChildItems>
 				</UsualGroup>
-				<LabelDecoration name="ОтступНиз" id="85">
-					<ContextMenu name="ОтступНизКонтекстноеМеню" id="86"/>
-					<ExtendedTooltip name="ОтступНизРасширеннаяПодсказка" id="87"/>
-				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
-		<LabelDecoration name="ОтступПраво" id="44">
-			<Width>1</Width>
-			<ContextMenu name="ОтступПравоКонтекстноеМеню" id="45"/>
-			<ExtendedTooltip name="ОтступПравоРасширеннаяПодсказка" id="46"/>
-		</LabelDecoration>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ТаблицаУзлов" id="1">
@@ -479,21 +451,6 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ЗакрытьФорму" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Закрыть</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Закрыть форму</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ЗакрытьФорму</Action>
-		</Command>
 		<Command name="КонтурСинхронизации" id="2">
 			<Title>
 				<v8:item>

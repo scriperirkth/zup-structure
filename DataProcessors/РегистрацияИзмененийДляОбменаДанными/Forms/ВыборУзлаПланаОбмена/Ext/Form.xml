@@ -25,17 +25,6 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаВыбратьУзелExtendedTooltip" id="36"/>
 			</Button>
-			<Button name="ФормаИзменитьУзел" id="30">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ИзменитьУзел</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Изменить</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаИзменитьУзелExtendedTooltip" id="37"/>
-			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -51,7 +40,7 @@
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
 			<SelectionMode>SingleRow</SelectionMode>
-			<RowSelectionMode>Cell</RowSelectionMode>
+			<RowSelectionMode>Row</RowSelectionMode>
 			<HorizontalLinesBWA>false</HorizontalLinesBWA>
 			<VerticalLinesBWA>false</VerticalLinesBWA>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -61,7 +50,7 @@
 			<DataPath>ДеревоУзловОбмена</DataPath>
 			<RowPictureDataPath>ДеревоУзловОбмена.ИндексКартинки</RowPictureDataPath>
 			<RowsPicture>
-				<xr:Abs>RowsPicture.png</xr:Abs>
+				<xr:Abs>RowsPicture.zip</xr:Abs>
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</RowsPicture>
 			<Title>
@@ -97,7 +86,7 @@
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
-								<v8:content>Выбрать узел</v8:content>
+								<v8:content>Выбрать</v8:content>
 							</v8:item>
 						</Title>
 						<ExtendedTooltip name="ДеревоУзловОбменаКонтекстноеМенюВыбратьУзелExtendedTooltip" id="38"/>
@@ -142,6 +131,20 @@
 			</ContextMenu>
 			<AutoCommandBar name="ДеревоУзловОбменаКоманднаяПанель" id="3">
 				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ФормаИзменитьУзел" id="30">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ИзменитьУзел</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Изменить</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+						<ExtendedTooltip name="ФормаИзменитьУзелExtendedTooltip" id="37"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ДеревоУзловОбменаExtendedTooltip" id="43"/>
 			<SearchStringAddition name="ДеревоУзловОбменаСтрокаПоиска" id="48">
@@ -321,12 +324,9 @@
 					<v8:content>Выбрать узел</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>ВыбратьУзел</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ИзменитьУзел" id="2">
 			<Title>
@@ -347,7 +347,8 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ИзменитьУзел</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоУзловОбмена</AssociatedTableElementId>
 		</Command>
 	</Commands>
 	<Parameters>

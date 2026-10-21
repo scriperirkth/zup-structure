@@ -6,39 +6,20 @@
 			<v8:content>Группы доступа</v8:content>
 		</v8:item>
 	</Title>
+	<Width>80</Width>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
-			<Button name="Выбрать" id="6">
+			<Button name="ФормаВыбрать" id="45" DisplayImportance="VeryHigh">
 				<Type>CommandBarButton</Type>
-				<Representation>PictureAndText</Representation>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Выбрать</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Выбрать</v8:content>
-					</v8:item>
-				</Title>
+				<CommandName>Form.Item.ГруппыДоступа.StandardCommand.Choose</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="7"/>
+				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="46"/>
 			</Button>
-			<SearchStringAddition name="СтрокаПоиск" id="25">
-				<AdditionSource>
-					<Item>ГруппыДоступа</Item>
-					<Type>SearchStringRepresentation</Type>
-				</AdditionSource>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Поиск</v8:content>
-					</v8:item>
-				</Title>
-				<ContextMenu name="СтрокаПоискКонтекстноеМеню" id="26"/>
-				<ExtendedTooltip name="СтрокаПоискРасширеннаяПодсказка" id="27"/>
-			</SearchStringAddition>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -47,7 +28,6 @@
 	<ChildItems>
 		<Table name="ГруппыДоступа" id="1">
 			<Representation>Tree</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<ReadOnly>true</ReadOnly>
 			<DefaultItem>true</DefaultItem>
 			<ChangeRowSet>false</ChangeRowSet>
@@ -55,7 +35,6 @@
 			<ChoiceMode>true</ChoiceMode>
 			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
-			<Header>false</Header>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
 			<FileDragMode>AsFile</FileDragMode>
@@ -85,9 +64,18 @@
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 				<ExcludedCommand>Tree</ExcludedCommand>
 			</CommandSet>
+			<SearchStringLocation>CommandBar</SearchStringLocation>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<ContextMenu name="ГруппыДоступаКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="ГруппыДоступаКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ГруппыДоступаВыбрать" id="47">
+						<Type>CommandBarButton</Type>
+						<Visible>false</Visible>
+						<CommandName>Form.Item.ГруппыДоступа.StandardCommand.Choose</CommandName>
+						<ExtendedTooltip name="ГруппыДоступаВыбратьРасширеннаяПодсказка" id="48"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ГруппыДоступаРасширеннаяПодсказка" id="8"/>
 			<SearchStringAddition name="ГруппыДоступаSearchString" id="10">
@@ -115,10 +103,11 @@
 				<ExtendedTooltip name="ГруппыДоступаSearchControlExtendedTooltip" id="18"/>
 			</SearchControlAddition>
 			<Events>
+				<Event name="ValueChoice">ГруппыДоступаВыборЗначения</Event>
 				<Event name="Selection">ГруппыДоступаВыбор</Event>
 			</Events>
 			<ChildItems>
-				<LabelField name="Наименование" id="4">
+				<LabelField name="ГруппыДоступаНаименование" id="4">
 					<DataPath>ГруппыДоступа.Наименование</DataPath>
 					<DefaultItem>true</DefaultItem>
 					<Title>
@@ -127,10 +116,26 @@
 							<v8:content>Наименование</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
-					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="9"/>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ГруппыДоступаНаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ГруппыДоступаНаименованиеРасширеннаяПодсказка" id="9"/>
 				</LabelField>
-				<InputField name="ГруппыДоступаСсылка" id="22">
+				<LabelField name="ГруппыДоступаКомментарий" id="51">
+					<DataPath>ГруппыДоступа.Комментарий</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoWidthInTable>None</AutoWidthInTable>
+					<ContextMenu name="ГруппыДоступаКомментарийКонтекстноеМеню" id="52"/>
+					<ExtendedTooltip name="ГруппыДоступаКомментарийРасширеннаяПодсказка" id="53"/>
+				</LabelField>
+				<LabelField name="ГруппыДоступаСсылка" id="22">
 					<DataPath>ГруппыДоступа.Ссылка</DataPath>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
@@ -145,18 +150,9 @@
 					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ГруппыДоступаСсылкаКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ГруппыДоступаСсылкаРасширеннаяПодсказка" id="24"/>
-				</InputField>
+				</LabelField>
 			</ChildItems>
 		</Table>
-		<InputField name="ГруппыДоступаКомментарий" id="19">
-			<DataPath>Items.ГруппыДоступа.CurrentData.Комментарий</DataPath>
-			<ReadOnly>true</ReadOnly>
-			<TitleLocation>Left</TitleLocation>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<MultiLine>true</MultiLine>
-			<ContextMenu name="ГруппыДоступаКомментарийКонтекстноеМеню" id="20"/>
-			<ExtendedTooltip name="ГруппыДоступаКомментарийРасширеннаяПодсказка" id="21"/>
-		</InputField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ГруппыДоступа" id="1">
@@ -229,22 +225,6 @@
 			</Columns>
 		</Attribute>
 	</Attributes>
-	<Commands>
-		<Command name="Выбрать" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать</v8:content>
-				</v8:item>
-			</Title>
-			<Picture>
-				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<Action>Выбрать</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-	</Commands>
 	<Parameters>
 		<Parameter name="Выбранные">
 			<Type/>

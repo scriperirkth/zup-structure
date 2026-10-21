@@ -228,20 +228,12 @@
 					<v8:content>Панель</v8:content>
 				</v8:item>
 			</Title>
-			<Group>Vertical</Group>
+			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ПанельРасширеннаяПодсказка" id="147"/>
 			<ChildItems>
-				<LabelField name="СтатусЭД" id="8">
-					<DataPath>ТекстСтатусЭД</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<Width>30</Width>
-					<Font ref="style:ЖирныйШрифтБЭД" kind="StyleItem"/>
-					<ContextMenu name="СтатусЭДКонтекстноеМеню" id="9"/>
-					<ExtendedTooltip name="СтатусЭДРасширеннаяПодсказка" id="150"/>
-				</LabelField>
 				<LabelField name="ТекстДокументИБВходящий" id="78">
 					<DataPath>ТекстДокументИБ</DataPath>
 					<Title>
@@ -257,6 +249,14 @@
 					<Events>
 						<Event name="Click">ТекстДокументИБНажатие</Event>
 					</Events>
+				</LabelField>
+				<LabelField name="СтатусЭД" id="8">
+					<DataPath>ТекстСтатусЭД</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Width>30</Width>
+					<Font ref="style:ЖирныйШрифтБЭД" kind="StyleItem"/>
+					<ContextMenu name="СтатусЭДКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="СтатусЭДРасширеннаяПодсказка" id="150"/>
 				</LabelField>
 			</ChildItems>
 		</UsualGroup>
@@ -331,6 +331,7 @@
 									<ReadOnly>true</ReadOnly>
 									<ChangeRowSet>false</ChangeRowSet>
 									<ChangeRowOrder>false</ChangeRowOrder>
+									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<HorizontalLinesBWA>false</HorizontalLinesBWA>
 									<VerticalLinesBWA>false</VerticalLinesBWA>
@@ -363,7 +364,6 @@
 										<ExcludedCommand>MoveDown</ExcludedCommand>
 										<ExcludedCommand>MoveUp</ExcludedCommand>
 										<ExcludedCommand>OutputList</ExcludedCommand>
-										<ExcludedCommand>SelectAll</ExcludedCommand>
 										<ExcludedCommand>SortListAsc</ExcludedCommand>
 										<ExcludedCommand>SortListDesc</ExcludedCommand>
 									</CommandSet>
@@ -417,15 +417,12 @@
 									<ChildItems>
 										<InputField name="ЭПКомуВыданСертификат" id="91">
 											<DataPath>ЭП.КомуВыданСертификат</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<AutoWidthInTable>None</AutoWidthInTable>
 											<ContextMenu name="ЭПКомуВыданСертификатКонтекстноеМеню" id="92"/>
 											<ExtendedTooltip name="ЭПКомуВыданСертификатРасширеннаяПодсказка" id="171"/>
 										</InputField>
 										<InputField name="ЭПДатаПодписи" id="93">
 											<DataPath>ЭП.ДатаПодписи</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<Width>14</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ЭПДатаПодписиКонтекстноеМеню" id="94"/>
@@ -433,8 +430,6 @@
 										</InputField>
 										<InputField name="ЭПСтатус" id="104">
 											<DataPath>ЭП.Представление</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<Width>18</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ЭПСтатусКонтекстноеМеню" id="105"/>
@@ -448,8 +443,6 @@
 													<v8:content>Кто установил</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ЭПУстановившийПодписьКонтекстноеМеню" id="305"/>
 											<ExtendedTooltip name="ЭПУстановившийПодписьРасширеннаяПодсказка" id="306"/>
 										</InputField>
@@ -509,6 +502,7 @@
 															<Representation>List</Representation>
 															<CommandBarLocation>None</CommandBarLocation>
 															<ReadOnly>true</ReadOnly>
+															<SelectionMode>SingleRow</SelectionMode>
 															<RowSelectionMode>Cell</RowSelectionMode>
 															<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 															<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -534,7 +528,6 @@
 																<ExcludedCommand>MoveDown</ExcludedCommand>
 																<ExcludedCommand>MoveUp</ExcludedCommand>
 																<ExcludedCommand>OutputList</ExcludedCommand>
-																<ExcludedCommand>SelectAll</ExcludedCommand>
 																<ExcludedCommand>SortListAsc</ExcludedCommand>
 																<ExcludedCommand>SortListDesc</ExcludedCommand>
 															</CommandSet>
@@ -570,20 +563,32 @@
 																<ExtendedTooltip name="СтатусыЭДУправлениеПоискомРасширеннаяПодсказка" id="269"/>
 															</SearchControlAddition>
 															<ChildItems>
-																<CheckBoxField name="СтатусыЭДПройден" id="74">
-																	<DataPath>СтатусыЭД.Пройден</DataPath>
-																	<EditMode>EnterOnInput</EditMode>
-																	<AutoEditMode>true</AutoEditMode>
-																	<ContextMenu name="СтатусыЭДПройденКонтекстноеМеню" id="75"/>
-																	<ExtendedTooltip name="СтатусыЭДПройденРасширеннаяПодсказка" id="179"/>
-																</CheckBoxField>
-																<InputField name="СтатусыЭДСтатус" id="72">
-																	<DataPath>СтатусыЭД.Статус</DataPath>
-																	<EditMode>EnterOnInput</EditMode>
-																	<AutoEditMode>true</AutoEditMode>
-																	<ContextMenu name="СтатусыЭДСтатусКонтекстноеМеню" id="73"/>
-																	<ExtendedTooltip name="СтатусыЭДСтатусРасширеннаяПодсказка" id="180"/>
-																</InputField>
+																<ColumnGroup name="СтатусыЭДГруппаСтатус" id="364">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Статусы ЭД</v8:content>
+																		</v8:item>
+																	</Title>
+																	<Group>InCell</Group>
+																	<ShowTitleInCard>false</ShowTitleInCard>
+																	<ExtendedTooltip name="СтатусыЭДГруппаСтатусРасширеннаяПодсказка" id="365"/>
+																	<ChildItems>
+																		<CheckBoxField name="СтатусыЭДПройден" id="74">
+																			<DataPath>СтатусыЭД.Пройден</DataPath>
+																			<TitleLocation>None</TitleLocation>
+																			<ShowInHeader>false</ShowInHeader>
+																			<ShowInFooter>false</ShowInFooter>
+																			<ContextMenu name="СтатусыЭДПройденКонтекстноеМеню" id="75"/>
+																			<ExtendedTooltip name="СтатусыЭДПройденРасширеннаяПодсказка" id="179"/>
+																		</CheckBoxField>
+																		<InputField name="СтатусыЭДСтатус" id="72">
+																			<DataPath>СтатусыЭД.Статус</DataPath>
+																			<ContextMenu name="СтатусыЭДСтатусКонтекстноеМеню" id="73"/>
+																			<ExtendedTooltip name="СтатусыЭДСтатусРасширеннаяПодсказка" id="180"/>
+																		</InputField>
+																	</ChildItems>
+																</ColumnGroup>
 															</ChildItems>
 														</Table>
 													</ChildItems>
@@ -646,6 +651,7 @@
 											<Representation>Tree</Representation>
 											<CommandBarLocation>None</CommandBarLocation>
 											<ReadOnly>true</ReadOnly>
+											<SelectionMode>SingleRow</SelectionMode>
 											<RowSelectionMode>Cell</RowSelectionMode>
 											<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 											<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -701,8 +707,6 @@
 															<v8:content>Группа / подписант</v8:content>
 														</v8:item>
 													</Title>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
 													<Width>25</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ContextMenu name="ДеревоМаршрутаПодписанияОсновноеЗначениеКонтекстноеМеню" id="323"/>
@@ -710,8 +714,6 @@
 												</InputField>
 												<InputField name="ДеревоМаршрутаПодписанияСертификат" id="325">
 													<DataPath>ДеревоМаршрутаПодписания.Сертификат</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
 													<DropListButton>false</DropListButton>
 													<ChoiceButton>true</ChoiceButton>
 													<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
@@ -1491,7 +1493,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Подтвердить платеж по SMS</v8:content>
+					<v8:content>Подтвердить по SMS</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -1640,19 +1642,19 @@
 	<CommandInterface>
 		<NavigationPanel>
 			<Item>
-				<Command>DataProcessor.ОбменСБанками.Command.Разобрать</Command>
+				<Command>CommonCommand.ПрисоединенныеФайлы</Command>
 				<Type>Auto</Type>
-				<CommandGroup>FormNavigationPanelImportant</CommandGroup>
+				<CommandGroup>FormNavigationPanelGoTo</CommandGroup>
+				<Index>2</Index>
 				<DefaultVisible>false</DefaultVisible>
 				<Visible>
 					<xr:Common>false</xr:Common>
 				</Visible>
 			</Item>
 			<Item>
-				<Command>CommonCommand.ПрисоединенныеФайлы</Command>
+				<Command>DataProcessor.ОбменСБанками.Command.Разобрать</Command>
 				<Type>Auto</Type>
-				<CommandGroup>FormNavigationPanelGoTo</CommandGroup>
-				<Index>2</Index>
+				<CommandGroup>FormNavigationPanelImportant</CommandGroup>
 				<DefaultVisible>false</DefaultVisible>
 				<Visible>
 					<xr:Common>false</xr:Common>

@@ -8,21 +8,26 @@
 			<xr:CheckState>0</xr:CheckState>
 			<xr:Value xsi:type="xs:string">СписокКоманднаяПанель</xr:Value>
 		</xr:Item>
-		<xr:Item>
-			<xr:Presentation/>
-			<xr:CheckState>0</xr:CheckState>
-			<xr:Value xsi:type="xs:string">КоманднаяПанель</xr:Value>
-		</xr:Item>
 	</MobileDeviceCommandBarContent>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВыбрать" id="46">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Item.Список.StandardCommand.Choose</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="47"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<Table name="Список" id="1">
 			<Representation>Tree</Representation>
+			<CommandBarLocation>Top</CommandBarLocation>
 			<Height>7</Height>
 			<ChoiceMode>true</ChoiceMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
@@ -48,6 +53,8 @@
 			<CommandSet>
 				<ExcludedCommand>Create</ExcludedCommand>
 			</CommandSet>
+			<SearchStringLocation>CommandBar</SearchStringLocation>
+			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -65,26 +72,32 @@
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
 				<ChildItems>
-					<ButtonGroup name="КоманднаяПанель" id="29">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Командная панель</v8:content>
-							</v8:item>
-						</Title>
-						<CommandSource>Form</CommandSource>
-						<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="30"/>
-					</ButtonGroup>
-					<Button name="СписокСоздатьГруппу" id="31">
+					<Button name="СписокВыбрать" id="49">
 						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.СоздатьГруппу</CommandName>
+						<Visible>false</Visible>
+						<CommandName>Form.Item.Список.StandardCommand.Choose</CommandName>
+						<ExtendedTooltip name="СписокВыбратьРасширеннаяПодсказка" id="50"/>
+					</Button>
+					<Button name="СписокСкопировать" id="60">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Список.StandardCommand.Copy</CommandName>
+						<ExtendedTooltip name="СписокСкопироватьРасширеннаяПодсказка" id="61"/>
+					</Button>
+					<Button name="СписокСоздатьГруппуФайлов" id="31">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СоздатьГруппуФайлов</CommandName>
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
 								<v8:content>Создать группу</v8:content>
 							</v8:item>
 						</Title>
-						<ExtendedTooltip name="СписокСоздатьГруппуРасширеннаяПодсказка" id="32"/>
+						<ExtendedTooltip name="СписокСоздатьГруппуФайловРасширеннаяПодсказка" id="32"/>
+					</Button>
+					<Button name="СписокОбновить" id="51">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
+						<ExtendedTooltip name="СписокОбновитьРасширеннаяПодсказка" id="52"/>
 					</Button>
 				</ChildItems>
 			</AutoCommandBar>
@@ -129,6 +142,8 @@
 					<ChildItems>
 						<PictureField name="СписокСтандартнаяКартинка" id="33">
 							<DataPath>Список.DefaultPicture</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<FileDragMode>AsFile</FileDragMode>
 							<ContextMenu name="СписокСтандартнаяКартинкаКонтекстноеМеню" id="34"/>
 							<ExtendedTooltip name="СписокСтандартнаяКартинкаРасширеннаяПодсказка" id="35"/>
@@ -141,6 +156,8 @@
 									<v8:content>Список наименование</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="СписокНаименованиеКонтекстноеМеню" id="21"/>
 							<ExtendedTooltip name="СписокНаименованиеРасширеннаяПодсказка" id="22"/>
 						</LabelField>
@@ -157,6 +174,8 @@
 							<v8:content>Ссылка</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокСсылкаКонтекстноеМеню" id="39"/>
 					<ExtendedTooltip name="СписокСсылкаРасширеннаяПодсказка" id="40"/>
 				</InputField>
@@ -181,15 +200,208 @@
 				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
 				<QueryText>ВЫБРАТЬ
-	ЗНАЧЕНИЕ(Справочник.Пользователи.ПустаяСсылка) КАК Ссылка,
+	ЗНАЧЕНИЕ(Справочник.Файлы.ПустаяСсылка) КАК Ссылка,
 	ЛОЖЬ КАК ПометкаУдаления,
 	1 КАК ИндексКартинки,
 	ВЫРАЗИТЬ("" КАК СТРОКА(150)) КАК Наименование,
 	ЛОЖЬ КАК ЭтоГруппа,
 	&amp;ВладелецФайла КАК ВладелецФайла
 ИЗ
-	Справочник.Пользователи КАК ИдентификаторыОбъектовМетаданныхПереопределяемый</QueryText>
-				<MainTable>Catalog.Пользователи</MainTable>
+	Справочник.Файлы КАК ИдентификаторыОбъектовМетаданныхПереопределяемый</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления1</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления1</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка удаления1</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наименование1</dcssch:dataPath>
+					<dcssch:field>Наименование1</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование1</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка1</dcssch:dataPath>
+					<dcssch:field>Ссылка1</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылка1</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИндексКартинки</dcssch:dataPath>
+					<dcssch:field>ИндексКартинки</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индекс картинки</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Предопределенный</dcssch:dataPath>
+					<dcssch:field>Предопределенный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылка</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИмяПредопределенныхДанных</dcssch:dataPath>
+					<dcssch:field>ИмяПредопределенныхДанных</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка удаления</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наименование</dcssch:dataPath>
+					<dcssch:field>Наименование</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтоГруппа</dcssch:dataPath>
+					<dcssch:field>ЭтоГруппа</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Это группа</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВладелецФайла</dcssch:dataPath>
+					<dcssch:field>ВладелецФайла</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Владелец файла</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДополнительныеРеквизиты</dcssch:dataPath>
+					<dcssch:field>ДополнительныеРеквизиты</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаСоздания</dcssch:dataPath>
+					<dcssch:field>ДатаСоздания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Описание</dcssch:dataPath>
+					<dcssch:field>Описание</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаЗаема</dcssch:dataPath>
+					<dcssch:field>ДатаЗаема</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Автор</dcssch:dataPath>
+					<dcssch:field>Автор</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаМодификацииУниверсальная</dcssch:dataPath>
+					<dcssch:field>ДатаМодификацииУниверсальная</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Зашифрован</dcssch:dataPath>
+					<dcssch:field>Зашифрован</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПодписанЭП</dcssch:dataPath>
+					<dcssch:field>ПодписанЭП</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Редактирует</dcssch:dataPath>
+					<dcssch:field>Редактирует</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Расширение</dcssch:dataPath>
+					<dcssch:field>Расширение</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Служебный</dcssch:dataPath>
+					<dcssch:field>Служебный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТекстХранилище</dcssch:dataPath>
+					<dcssch:field>ТекстХранилище</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТекущаяВерсия</dcssch:dataPath>
+					<dcssch:field>ТекущаяВерсия</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Изменил</dcssch:dataPath>
+					<dcssch:field>Изменил</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ФайлХранилище</dcssch:dataPath>
+					<dcssch:field>ФайлХранилище</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПутьКФайлу</dcssch:dataPath>
+					<dcssch:field>ПутьКФайлу</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТипХраненияФайла</dcssch:dataPath>
+					<dcssch:field>ТипХраненияФайла</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Размер</dcssch:dataPath>
+					<dcssch:field>Размер</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Том</dcssch:dataPath>
+					<dcssch:field>Том</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ХранитьВерсии</dcssch:dataPath>
+					<dcssch:field>ХранитьВерсии</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СтатусИзвлеченияТекста</dcssch:dataPath>
+					<dcssch:field>СтатусИзвлеченияТекста</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>ВладелецФайла</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Владелец файла</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<MainTable>Catalog.Файлы</MainTable>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
@@ -222,7 +434,7 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="СоздатьГруппу" id="1">
+		<Command name="СоздатьГруппуФайлов" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -232,7 +444,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Создать группу</v8:content>
+					<v8:content>Создать группу файлов</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>СоздатьГруппу</Action>

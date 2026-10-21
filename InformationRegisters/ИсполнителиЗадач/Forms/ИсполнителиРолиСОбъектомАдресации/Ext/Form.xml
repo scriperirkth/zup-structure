@@ -12,51 +12,7 @@
 	<CommandSet>
 		<ExcludedCommand>SwitchActivity</ExcludedCommand>
 	</CommandSet>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаПодбор" id="33">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Подобрать</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Подобрать</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаПодборРасширеннаяПодсказка" id="35"/>
-			</Button>
-			<Button name="ФормаПеречитать" id="34">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Reread</CommandName>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаПеречитатьРасширеннаяПодсказка" id="36"/>
-			</Button>
-			<ButtonGroup name="ГруппаКомандСписка" id="20">
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Команд списка</v8:content>
-					</v8:item>
-				</Title>
-				<CommandSource>Item.Список</CommandSource>
-				<ExtendedTooltip name="ГруппаКомандСпискаРасширеннаяПодсказка" id="37"/>
-			</ButtonGroup>
-			<SearchStringAddition name="СтрокаПоиска" id="52">
-				<AdditionSource>
-					<Item>Список</Item>
-					<Type>SearchStringRepresentation</Type>
-				</AdditionSource>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Поиск</v8:content>
-					</v8:item>
-				</Title>
-				<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="53"/>
-				<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="54"/>
-			</SearchStringAddition>
-		</ChildItems>
-	</AutoCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="AfterWrite">ПослеЗаписи</Event>
 		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
@@ -87,6 +43,8 @@
 							<v8:content>Основной объект адресации</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОсновнойОбъектАдресацииКонтекстноеМеню" id="19"/>
 					<ExtendedTooltip name="ОсновнойОбъектАдресацииРасширеннаяПодсказка" id="39"/>
 				</LabelField>
@@ -94,7 +52,6 @@
 		</UsualGroup>
 		<Table name="Список" id="22">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<SkipOnInput>false</SkipOnInput>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<Footer>true</Footer>
@@ -111,9 +68,30 @@
 			<CommandSet>
 				<ExcludedCommand>Copy</ExcludedCommand>
 			</CommandSet>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="СписокКонтекстноеМеню" id="23"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="24"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="24">
+				<ChildItems>
+					<Button name="ФормаПодбор" id="33">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Подобрать</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подобрать</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаПодборРасширеннаяПодсказка" id="35"/>
+					</Button>
+					<Button name="ФормаПеречитать" id="34">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Reread</CommandName>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ФормаПеречитатьРасширеннаяПодсказка" id="36"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="40"/>
 			<SearchStringAddition name="СписокSearchString" id="43">
 				<AdditionSource>
@@ -147,13 +125,8 @@
 			<ChildItems>
 				<InputField name="Исполнитель" id="27">
 					<DataPath>НаборЗаписей.Исполнитель</DataPath>
-					<FooterDataPath>НаборЗаписей.RowsCount</FooterDataPath>
-					<FooterText>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Всего исполнителей назначено:</v8:content>
-						</v8:item>
-					</FooterText>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ChooseType>false</ChooseType>
 					<ContextMenu name="ИсполнительКонтекстноеМеню" id="28"/>
@@ -161,6 +134,8 @@
 				</InputField>
 				<InputField name="ДополнительныйОбъектАдресации" id="31">
 					<DataPath>НаборЗаписей.ДополнительныйОбъектАдресации</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ContextMenu name="ДополнительныйОбъектАдресацииКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="ДополнительныйОбъектАдресацииРасширеннаяПодсказка" id="42"/>
@@ -241,10 +216,6 @@
 					<v8:content>Подобрать пользователей</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.Properties</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>Подобрать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>

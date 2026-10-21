@@ -10,26 +10,20 @@
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="ОК" id="17">
+			<Button name="Сохранить" id="17">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
 				<SkipOnInput>false</SkipOnInput>
 				<DefaultItem>true</DefaultItem>
-				<CommandName>Form.Command.ОК</CommandName>
+				<CommandName>Form.Command.Сохранить</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>ОК</v8:content>
+						<v8:content>Сохранить</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="19"/>
-			</Button>
-			<Button name="Отмена" id="18">
-				<Type>CommandBarButton</Type>
-				<SkipOnInput>false</SkipOnInput>
-				<CommandName>Form.StandardCommand.Cancel</CommandName>
-				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="20"/>
+				<ExtendedTooltip name="СохранитьРасширеннаяПодсказка" id="19"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -37,77 +31,6 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаШапка" id="50">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Шапка</v8:content>
-				</v8:item>
-			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="51"/>
-			<ChildItems>
-				<LabelDecoration name="ЗаголовокТаблицы" id="52">
-					<Visible>false</Visible>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Используемые команды:</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ЗаголовокТаблицыКонтекстноеМеню" id="53"/>
-					<ExtendedTooltip name="ЗаголовокТаблицыРасширеннаяПодсказка" id="54"/>
-				</LabelDecoration>
-				<CommandBar name="КнопкиТаблицы" id="48">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Кнопки таблицы</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="КнопкиТаблицыРасширеннаяПодсказка" id="49"/>
-					<ChildItems>
-						<ButtonGroup name="КоманднаяПанельТаблицы" id="46">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Командная панель таблицы</v8:content>
-								</v8:item>
-							</Title>
-							<Representation>Compact</Representation>
-							<ExtendedTooltip name="КоманднаяПанельТаблицыРасширеннаяПодсказка" id="47"/>
-							<ChildItems>
-								<Button name="УстановитьФлажки" id="42">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.УстановитьФлажки</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Установить флажки</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="УстановитьФлажкиРасширеннаяПодсказка" id="43"/>
-								</Button>
-								<Button name="СнятьФлажки" id="44">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.СнятьФлажки</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Снять флажки</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="СнятьФлажкиРасширеннаяПодсказка" id="45"/>
-								</Button>
-							</ChildItems>
-						</ButtonGroup>
-					</ChildItems>
-				</CommandBar>
-			</ChildItems>
-		</UsualGroup>
 		<Table name="ИспользуемыеКоманды" id="21">
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
@@ -118,7 +41,7 @@
 			<Header>false</Header>
 			<HorizontalLinesBWA>false</HorizontalLinesBWA>
 			<VerticalLinesBWA>false</VerticalLinesBWA>
-			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+			<RowActionsShowType>DontShow</RowActionsShowType>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
 			<FileDragMode>AsFile</FileDragMode>
@@ -129,11 +52,37 @@
 					<v8:content>Используемые команды</v8:content>
 				</v8:item>
 			</Title>
-			<SearchStringLocation>Top</SearchStringLocation>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="ИспользуемыеКомандыКонтекстноеМеню" id="22"/>
 			<AutoCommandBar name="ИспользуемыеКомандыКоманднаяПанель" id="23">
-				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="УстановитьФлажки" id="42">
+						<Type>CommandBarButton</Type>
+						<Representation>PictureAndText</Representation>
+						<CommandName>Form.Command.УстановитьФлажки</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Включить все</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="УстановитьФлажкиРасширеннаяПодсказка" id="43"/>
+					</Button>
+					<Button name="СнятьФлажки" id="44">
+						<Type>CommandBarButton</Type>
+						<Representation>PictureAndText</Representation>
+						<CommandName>Form.Command.СнятьФлажки</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отключить все</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="СнятьФлажкиРасширеннаяПодсказка" id="45"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ИспользуемыеКомандыРасширеннаяПодсказка" id="24"/>
 			<SearchStringAddition name="ИспользуемыеКомандыСтрокаПоиска" id="25">
@@ -181,6 +130,7 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>CheckBox</CheckBoxType>
 							<ContextMenu name="ИспользуемыеКомандыИспользованиеКонтекстноеМеню" id="38"/>
 							<ExtendedTooltip name="ИспользуемыеКомандыИспользованиеРасширеннаяПодсказка" id="39"/>
 						</CheckBoxField>
@@ -259,21 +209,22 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ОК" id="5">
+		<Command name="Сохранить" id="5">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Сохранить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Сохранить</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>ОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="УстановитьФлажки" id="6">
 			<Title>

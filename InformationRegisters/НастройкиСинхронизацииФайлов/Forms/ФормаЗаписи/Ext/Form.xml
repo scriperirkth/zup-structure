@@ -56,7 +56,7 @@
 					<v8:content>Основные параметры</v8:content>
 				</v8:item>
 			</Title>
-			<Group>Vertical</Group>
+			<Group>AutoScreenTypeSensitive</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -71,6 +71,8 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<CheckBoxType>CheckBox</CheckBoxType>
 					<ContextMenu name="СинхронизироватьКонтекстноеМеню" id="139"/>
 					<ExtendedTooltip name="СинхронизироватьРасширеннаяПодсказка" id="140"/>
@@ -78,14 +80,9 @@
 				<InputField name="УчетнаяЗапись" id="118">
 					<DataPath>Запись.УчетнаяЗапись</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<Width>40</Width>
-					<HorizontalStretch>false</HorizontalStretch>
-					<InputHint>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Выберите из списка</v8:content>
-						</v8:item>
-					</InputHint>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="УчетнаяЗаписьКонтекстноеМеню" id="119"/>
 					<ExtendedTooltip name="УчетнаяЗаписьРасширеннаяПодсказка" id="120">
 						<Title formatted="false">
@@ -109,6 +106,7 @@
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>WeakSeparation</Representation>
+			<ShowAsCard>true</ShowAsCard>
 			<ExtendedTooltip name="ГруппаОбъектСинхронизацииРасширеннаяПодсказка" id="68"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаСинхронизацияФайловОбъекта" id="72">
@@ -118,7 +116,7 @@
 							<v8:content>Синхронизация файлов объекта</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -129,10 +127,12 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Файлы, присоединенные к</v8:content>
+									<v8:content>Файлы, присоединенные к объекту</v8:content>
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<RadioButtonType>Auto</RadioButtonType>
 							<ColumnsCount>1</ColumnsCount>
 							<ChoiceList>
@@ -143,7 +143,7 @@
 										<Presentation>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
-												<v8:content>Все файлы, присоединенные к:</v8:content>
+												<v8:content>Все файлы, присоединенные к объекту:</v8:content>
 											</v8:item>
 										</Presentation>
 										<Value xsi:type="xs:string">ТолькоФайлыЭлемента</Value>
@@ -165,8 +165,9 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
-							<Width>35</Width>
-							<HorizontalStretch>false</HorizontalStretch>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<DropListButton>false</DropListButton>
 							<ContextMenu name="ЭлементСправочникаКонтекстноеМеню" id="116"/>
 							<ExtendedTooltip name="ЭлементСправочникаРасширеннаяПодсказка" id="117"/>
@@ -186,6 +187,8 @@
 					</Title>
 					<TitleLocation>None</TitleLocation>
 					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<RadioButtonType>Auto</RadioButtonType>
 					<ColumnsCount>1</ColumnsCount>
 					<ChoiceList>
@@ -196,7 +199,7 @@
 								<Presentation>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
-										<v8:content>Файлы %1 по заданным правилам синхронизации:</v8:content>
+										<v8:content>Все файлы "%1" с условием:</v8:content>
 									</v8:item>
 								</Presentation>
 								<Value xsi:type="xs:string">ВсеФайлы</Value>
@@ -209,253 +212,248 @@
 						<Event name="OnChange">ОбъектСинхронизацииПриИзменении</Event>
 					</Events>
 				</RadioButtonField>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ПравилоСинхронизацииГруппа" id="86">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Правило синхронизации группа</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ПравилоСинхронизацииГруппаРасширеннаяПодсказка" id="87"/>
-			<ChildItems>
-				<Table name="ПравилоНастройкиОтбор" id="10" DisplayImportance="VeryLow">
-					<Representation>Tree</Representation>
-					<Autofill>true</Autofill>
-					<RowSelectionMode>Cell</RowSelectionMode>
-					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-					<InitialTreeView>ExpandAllLevels</InitialTreeView>
-					<EnableStartDrag>true</EnableStartDrag>
-					<EnableDrag>true</EnableDrag>
-					<FileDragMode>AsFile</FileDragMode>
-					<DataPath>Правило.Settings.Filter</DataPath>
+				<UsualGroup name="ПравилоСинхронизацииГруппа" id="86">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Правило настройки отбор</v8:content>
+							<v8:content>Правило синхронизации группа</v8:content>
 						</v8:item>
 					</Title>
-					<CommandSet>
-						<ExcludedCommand>AddFilterItemGroup</ExcludedCommand>
-						<ExcludedCommand>Change</ExcludedCommand>
-						<ExcludedCommand>Copy</ExcludedCommand>
-						<ExcludedCommand>Detailed</ExcludedCommand>
-						<ExcludedCommand>EndEdit</ExcludedCommand>
-						<ExcludedCommand>HierarchicalList</ExcludedCommand>
-						<ExcludedCommand>List</ExcludedCommand>
-						<ExcludedCommand>MoveDown</ExcludedCommand>
-						<ExcludedCommand>MoveUp</ExcludedCommand>
-						<ExcludedCommand>SetPresentation</ExcludedCommand>
-						<ExcludedCommand>Tree</ExcludedCommand>
-						<ExcludedCommand>UseFieldAsValue</ExcludedCommand>
-						<ExcludedCommand>UserSettingItemProperties</ExcludedCommand>
-					</CommandSet>
-					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-					<CurrentRowUse>SelectionPresentationAndChoice</CurrentRowUse>
-					<ViewMode>All</ViewMode>
-					<SettingsNamedItemDetailedRepresentation>false</SettingsNamedItemDetailedRepresentation>
-					<ContextMenu name="ПравилоНастройкиОтборКонтекстноеМеню" id="11">
-						<ChildItems>
-							<ButtonGroup name="КонтекстноеМенюДобавить" id="151">
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Контекстное меню добавить</v8:content>
-									</v8:item>
-								</Title>
-								<ExtendedTooltip name="КонтекстноеМенюДобавитьРасширеннаяПодсказка" id="152"/>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ПравилоСинхронизацииГруппаРасширеннаяПодсказка" id="87"/>
+					<ChildItems>
+						<Table name="ПравилоНастройкиОтбор" id="10" DisplayImportance="VeryLow">
+							<Representation>Tree</Representation>
+							<Autofill>true</Autofill>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+							<InitialTreeView>ExpandAllLevels</InitialTreeView>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Правило.Settings.Filter</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Правило настройки отбор</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSet>
+								<ExcludedCommand>AddFilterItemGroup</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Detailed</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>HierarchicalList</ExcludedCommand>
+								<ExcludedCommand>List</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>SetPresentation</ExcludedCommand>
+								<ExcludedCommand>Tree</ExcludedCommand>
+								<ExcludedCommand>UseFieldAsValue</ExcludedCommand>
+								<ExcludedCommand>UserSettingItemProperties</ExcludedCommand>
+							</CommandSet>
+							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+							<CurrentRowUse>SelectionPresentationAndChoice</CurrentRowUse>
+							<ViewMode>All</ViewMode>
+							<SettingsNamedItemDetailedRepresentation>false</SettingsNamedItemDetailedRepresentation>
+							<ContextMenu name="ПравилоНастройкиОтборКонтекстноеМеню" id="11">
 								<ChildItems>
-									<Button name="ПравилоНастройкиОтборКонтекстноеМенюДобавитьЭлементОтбора" id="149">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Item.ПравилоНастройкиОтбор.StandardCommand.AddFilterItem</CommandName>
-										<ExtendedTooltip name="ПравилоНастройкиОтборКонтекстноеМенюДобавитьЭлементОтбораРасширеннаяПодсказка" id="150"/>
-									</Button>
-									<Button name="ПравилоНастройкиОтборКонтекстноеМенюДобавитьУсловиеПоДате" id="147">
-										<Type>CommandBarButton</Type>
-										<Enabled>false</Enabled>
-										<CommandName>Form.Command.ДобавитьУсловиеПоДате</CommandName>
+									<ButtonGroup name="КонтекстноеМенюДобавить" id="151">
 										<Title>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
-												<v8:content>Добавить условие по дате</v8:content>
+												<v8:content>Контекстное меню добавить</v8:content>
 											</v8:item>
 										</Title>
-										<ExtendedTooltip name="ПравилоНастройкиОтборКонтекстноеМенюДобавитьУсловиеПоДатеРасширеннаяПодсказка" id="148"/>
-									</Button>
-								</ChildItems>
-							</ButtonGroup>
-							<ButtonGroup name="КонтекстноеМенюСгруппировать" id="153">
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Контекстное меню сгруппировать</v8:content>
-									</v8:item>
-								</Title>
-								<ExtendedTooltip name="КонтекстноеМенюСгруппироватьРасширеннаяПодсказка" id="154"/>
-								<ChildItems>
-									<Button name="ПравилоНастройкиОтборКонтекстноеМенюСгруппироватьЭлементыОтбора" id="155">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Item.ПравилоНастройкиОтбор.StandardCommand.GroupFilterItems</CommandName>
-										<ExtendedTooltip name="ПравилоНастройкиОтборКонтекстноеМенюСгруппироватьЭлементыОтбораРасширеннаяПодсказка" id="156"/>
-									</Button>
-									<Button name="ПравилоНастройкиОтборКонтекстноеМенюРазгруппировать" id="157">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Item.ПравилоНастройкиОтбор.StandardCommand.Ungroup</CommandName>
-										<ExtendedTooltip name="ПравилоНастройкиОтборКонтекстноеМенюРазгруппироватьРасширеннаяПодсказка" id="158"/>
-									</Button>
-								</ChildItems>
-							</ButtonGroup>
-							<Button name="ПравилоНастройкиОтборКонтекстноеМенюУдалить" id="159">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Item.ПравилоНастройкиОтбор.StandardCommand.Delete</CommandName>
-								<ExtendedTooltip name="ПравилоНастройкиОтборКонтекстноеМенюУдалитьРасширеннаяПодсказка" id="160"/>
-							</Button>
-						</ChildItems>
-					</ContextMenu>
-					<AutoCommandBar name="ПравилоНастройкиОтборКоманднаяПанель" id="12">
-						<Autofill>false</Autofill>
-						<ChildItems>
-							<Popup name="МенюДобавить" id="44">
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Добавить</v8:content>
-									</v8:item>
-								</Title>
-								<ExtendedTooltip name="МенюДобавитьРасширеннаяПодсказка" id="45"/>
-								<ChildItems>
-									<Button name="ДобавитьЭлементОтбора" id="40">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Item.ПравилоНастройкиОтбор.StandardCommand.AddFilterItem</CommandName>
-										<ExtendedTooltip name="ДобавитьЭлементОтбораРасширеннаяПодсказка" id="41"/>
-									</Button>
-									<Button name="ДобавитьУсловиеПоДате" id="46">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ДобавитьУсловиеПоДате</CommandName>
+										<ExtendedTooltip name="КонтекстноеМенюДобавитьРасширеннаяПодсказка" id="152"/>
+										<ChildItems>
+											<Button name="ПравилоНастройкиОтборКонтекстноеМенюДобавитьЭлементОтбора" id="149">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.ПравилоНастройкиОтбор.StandardCommand.AddFilterItem</CommandName>
+												<ExtendedTooltip name="ПравилоНастройкиОтборКонтекстноеМенюДобавитьЭлементОтбораРасширеннаяПодсказка" id="150"/>
+											</Button>
+											<Button name="ПравилоНастройкиОтборКонтекстноеМенюДобавитьУсловиеПоДате" id="147">
+												<Type>CommandBarButton</Type>
+												<Enabled>false</Enabled>
+												<CommandName>Form.Command.ДобавитьУсловиеПоДате</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Добавить условие по дате</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ПравилоНастройкиОтборКонтекстноеМенюДобавитьУсловиеПоДатеРасширеннаяПодсказка" id="148"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<ButtonGroup name="КонтекстноеМенюСгруппировать" id="153">
 										<Title>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
-												<v8:content>Добавить условие по дате</v8:content>
+												<v8:content>Контекстное меню сгруппировать</v8:content>
 											</v8:item>
 										</Title>
-										<ExtendedTooltip name="ДобавитьУсловиеПоДатеРасширеннаяПодсказка" id="47"/>
+										<ExtendedTooltip name="КонтекстноеМенюСгруппироватьРасширеннаяПодсказка" id="154"/>
+										<ChildItems>
+											<Button name="ПравилоНастройкиОтборКонтекстноеМенюСгруппироватьЭлементыОтбора" id="155">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.ПравилоНастройкиОтбор.StandardCommand.GroupFilterItems</CommandName>
+												<ExtendedTooltip name="ПравилоНастройкиОтборКонтекстноеМенюСгруппироватьЭлементыОтбораРасширеннаяПодсказка" id="156"/>
+											</Button>
+											<Button name="ПравилоНастройкиОтборКонтекстноеМенюРазгруппировать" id="157">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.ПравилоНастройкиОтбор.StandardCommand.Ungroup</CommandName>
+												<ExtendedTooltip name="ПравилоНастройкиОтборКонтекстноеМенюРазгруппироватьРасширеннаяПодсказка" id="158"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<Button name="ПравилоНастройкиОтборКонтекстноеМенюУдалить" id="159">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.ПравилоНастройкиОтбор.StandardCommand.Delete</CommandName>
+										<ExtendedTooltip name="ПравилоНастройкиОтборКонтекстноеМенюУдалитьРасширеннаяПодсказка" id="160"/>
 									</Button>
 								</ChildItems>
-							</Popup>
-							<ButtonGroup name="МенюСгруппировать" id="145">
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Меню сгруппировать</v8:content>
-									</v8:item>
-								</Title>
-								<ExtendedTooltip name="МенюСгруппироватьРасширеннаяПодсказка" id="146"/>
+							</ContextMenu>
+							<AutoCommandBar name="ПравилоНастройкиОтборКоманднаяПанель" id="12">
+								<Autofill>false</Autofill>
 								<ChildItems>
-									<Button name="СгруппироватьЭлементыОтбора" id="42">
+									<Popup name="МенюДобавить" id="44">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Добавить</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="МенюДобавитьРасширеннаяПодсказка" id="45"/>
+										<ChildItems>
+											<Button name="ДобавитьЭлементОтбора" id="40">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.ПравилоНастройкиОтбор.StandardCommand.AddFilterItem</CommandName>
+												<ExtendedTooltip name="ДобавитьЭлементОтбораРасширеннаяПодсказка" id="41"/>
+											</Button>
+											<Button name="ДобавитьУсловиеПоДате" id="46">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ДобавитьУсловиеПоДате</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Добавить условие по дате</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ДобавитьУсловиеПоДатеРасширеннаяПодсказка" id="47"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+									<ButtonGroup name="МенюСгруппировать" id="145">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Меню сгруппировать</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="МенюСгруппироватьРасширеннаяПодсказка" id="146"/>
+										<ChildItems>
+											<Button name="СгруппироватьЭлементыОтбора" id="42">
+												<Type>CommandBarButton</Type>
+												<Representation>Text</Representation>
+												<CommandName>Form.Item.ПравилоНастройкиОтбор.StandardCommand.GroupFilterItems</CommandName>
+												<ExtendedTooltip name="СгруппироватьЭлементыОтбораРасширеннаяПодсказка" id="43"/>
+											</Button>
+											<Button name="РазгруппироватьЭлементыОтбора" id="143">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.ПравилоНастройкиОтбор.StandardCommand.Ungroup</CommandName>
+												<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+												<ExtendedTooltip name="РазгруппироватьЭлементыОтбораРасширеннаяПодсказка" id="144"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<Button name="ПравилоНастройкиОтборУдалить" id="141">
 										<Type>CommandBarButton</Type>
-										<Representation>Text</Representation>
-										<CommandName>Form.Item.ПравилоНастройкиОтбор.StandardCommand.GroupFilterItems</CommandName>
-										<ExtendedTooltip name="СгруппироватьЭлементыОтбораРасширеннаяПодсказка" id="43"/>
-									</Button>
-									<Button name="РазгруппироватьЭлементыОтбора" id="143">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Item.ПравилоНастройкиОтбор.StandardCommand.Ungroup</CommandName>
+										<CommandName>Form.Item.ПравилоНастройкиОтбор.StandardCommand.Delete</CommandName>
 										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-										<ExtendedTooltip name="РазгруппироватьЭлементыОтбораРасширеннаяПодсказка" id="144"/>
+										<ExtendedTooltip name="ПравилоНастройкиОтборУдалитьРасширеннаяПодсказка" id="142"/>
 									</Button>
+									<SearchStringAddition name="СтрокаПоиска" id="163">
+										<AdditionSource>
+											<Item>ПравилоНастройкиОтбор</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Поиск</v8:content>
+											</v8:item>
+										</Title>
+										<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="164"/>
+										<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="165"/>
+									</SearchStringAddition>
 								</ChildItems>
-							</ButtonGroup>
-							<Button name="ПравилоНастройкиОтборУдалить" id="141">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Item.ПравилоНастройкиОтбор.StandardCommand.Delete</CommandName>
-								<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-								<ExtendedTooltip name="ПравилоНастройкиОтборУдалитьРасширеннаяПодсказка" id="142"/>
-							</Button>
-							<SearchStringAddition name="СтрокаПоиска" id="163">
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПравилоНастройкиОтборРасширеннаяПодсказка" id="13">
+								<AutoMaxWidth>false</AutoMaxWidth>
+								<Title formatted="false">
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Заполнять условия отбора файлов не требуется, если необходимо синхронизировать все файлы %1.
+Либо задайте правила, в соответствие с которыми должны синхронизироваться файлы.</v8:content>
+									</v8:item>
+								</Title>
+							</ExtendedTooltip>
+							<SearchStringAddition name="ПравилоНастройкиОтборСтрокаПоиска" id="14">
 								<AdditionSource>
 									<Item>ПравилоНастройкиОтбор</Item>
 									<Type>SearchStringRepresentation</Type>
 								</AdditionSource>
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Поиск</v8:content>
-									</v8:item>
-								</Title>
-								<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="164"/>
-								<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="165"/>
+								<ContextMenu name="ПравилоНастройкиОтборСтрокаПоискаКонтекстноеМеню" id="17"/>
+								<ExtendedTooltip name="ПравилоНастройкиОтборСтрокаПоискаРасширеннаяПодсказка" id="18"/>
 							</SearchStringAddition>
-						</ChildItems>
-					</AutoCommandBar>
-					<ExtendedTooltip name="ПравилоНастройкиОтборРасширеннаяПодсказка" id="13">
-						<AutoMaxWidth>false</AutoMaxWidth>
-						<Title formatted="false">
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Заполнять условия отбора файлов не требуется, если необходимо синхронизировать все файлы %1.
-Либо задайте правила, в соответствие с которыми должны синхронизироваться файлы.</v8:content>
-							</v8:item>
-						</Title>
-					</ExtendedTooltip>
-					<SearchStringAddition name="ПравилоНастройкиОтборСтрокаПоиска" id="14">
-						<AdditionSource>
-							<Item>ПравилоНастройкиОтбор</Item>
-							<Type>SearchStringRepresentation</Type>
-						</AdditionSource>
-						<ContextMenu name="ПравилоНастройкиОтборСтрокаПоискаКонтекстноеМеню" id="17"/>
-						<ExtendedTooltip name="ПравилоНастройкиОтборСтрокаПоискаРасширеннаяПодсказка" id="18"/>
-					</SearchStringAddition>
-					<ViewStatusAddition name="ПравилоНастройкиОтборСостояниеПросмотра" id="19">
-						<AdditionSource>
-							<Item>ПравилоНастройкиОтбор</Item>
-							<Type>ViewStatusRepresentation</Type>
-						</AdditionSource>
-						<ContextMenu name="ПравилоНастройкиОтборСостояниеПросмотраКонтекстноеМеню" id="22"/>
-						<ExtendedTooltip name="ПравилоНастройкиОтборСостояниеПросмотраРасширеннаяПодсказка" id="23"/>
-					</ViewStatusAddition>
-					<SearchControlAddition name="ПравилоНастройкиОтборУправлениеПоиском" id="24">
-						<AdditionSource>
-							<Item>ПравилоНастройкиОтбор</Item>
-							<Type>SearchControl</Type>
-						</AdditionSource>
-						<ContextMenu name="ПравилоНастройкиОтборУправлениеПоискомКонтекстноеМеню" id="27"/>
-						<ExtendedTooltip name="ПравилоНастройкиОтборУправлениеПоискомРасширеннаяПодсказка" id="28"/>
-					</SearchControlAddition>
-				</Table>
-				<InputField name="Наименование" id="88" DisplayImportance="VeryHigh">
-					<DataPath>Запись.Наименование</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Краткое описание правила</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-					<InputHint>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Например, только файлы организации ООО Ромашка</v8:content>
-						</v8:item>
-					</InputHint>
-					<ContextMenu name="НаименованиеКонтекстноеМеню" id="89"/>
-					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="90"/>
-				</InputField>
+							<ViewStatusAddition name="ПравилоНастройкиОтборСостояниеПросмотра" id="19">
+								<AdditionSource>
+									<Item>ПравилоНастройкиОтбор</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПравилоНастройкиОтборСостояниеПросмотраКонтекстноеМеню" id="22"/>
+								<ExtendedTooltip name="ПравилоНастройкиОтборСостояниеПросмотраРасширеннаяПодсказка" id="23"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПравилоНастройкиОтборУправлениеПоиском" id="24">
+								<AdditionSource>
+									<Item>ПравилоНастройкиОтбор</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПравилоНастройкиОтборУправлениеПоискомКонтекстноеМеню" id="27"/>
+								<ExtendedTooltip name="ПравилоНастройкиОтборУправлениеПоискомРасширеннаяПодсказка" id="28"/>
+							</SearchControlAddition>
+						</Table>
+						<InputField name="Наименование" id="88" DisplayImportance="VeryHigh">
+							<DataPath>Запись.Наименование</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Краткое описание правила</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Например, только файлы организации ООО Ромашка</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="89"/>
+							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="90"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
 	<Attributes>
-		<Attribute name="Запись" id="1">
-			<Type>
-				<v8:Type>cfg:InformationRegisterRecordManager.НастройкиСинхронизацииФайлов</v8:Type>
-			</Type>
-			<MainAttribute>true</MainAttribute>
-			<SavedData>true</SavedData>
-		</Attribute>
 		<Attribute name="Правило" id="2">
 			<Type>
 				<v8:Type>dcsset:SettingsComposer</v8:Type>
@@ -514,6 +512,12 @@
 		</Attribute>
 		<Attribute name="ВозвращаемоеЗначение" id="9">
 			<Type/>
+		</Attribute>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.НастройкиСинхронизацииФайлов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
 		</Attribute>
 	</Attributes>
 	<Commands>

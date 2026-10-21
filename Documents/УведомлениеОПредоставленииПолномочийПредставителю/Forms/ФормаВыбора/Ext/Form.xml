@@ -9,20 +9,7 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<ButtonGroup name="ГруппаЗагрузить" id="36">
-				<ExtendedTooltip name="ГруппаЗагрузитьРасширеннаяПодсказка" id="37"/>
-				<ChildItems>
-					<Button name="Загрузить" id="34">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Загрузить</CommandName>
-						<ExtendedTooltip name="ЗагрузитьРасширеннаяПодсказка" id="35"/>
-					</Button>
-				</ChildItems>
-			</ButtonGroup>
-		</ChildItems>
-	</AutoCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -44,6 +31,7 @@
 		</UsualGroup>
 		<InputField name="ОрганизацияОтбора" id="59">
 			<DataPath>ОрганизацияОтбора</DataPath>
+			<TitleLocation>Left</TitleLocation>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<ChoiceButton>true</ChoiceButton>
 			<ClearButton>true</ClearButton>
@@ -55,9 +43,9 @@
 		</InputField>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<ChoiceMode>true</ChoiceMode>
+			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -66,6 +54,7 @@
 			<SearchStringLocation>None</SearchStringLocation>
 			<ViewStatusLocation>None</ViewStatusLocation>
 			<SearchControlLocation>None</SearchControlLocation>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -83,7 +72,13 @@
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
-				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="Загрузить" id="34">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Загрузить</CommandName>
+						<ExtendedTooltip name="ЗагрузитьРасширеннаяПодсказка" id="35"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">

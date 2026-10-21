@@ -15,22 +15,11 @@
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>ОК</v8:content>
+						<v8:content>Применить</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаКнопкаОКРасширеннаяПодсказка" id="28"/>
-			</Button>
-			<Button name="ФормаКнопкаОтмена" id="29">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КнопкаОтмена</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Отмена</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаКнопкаОтменаРасширеннаяПодсказка" id="30"/>
 			</Button>
 			<Button name="ФормаСправка" id="65">
 				<Type>CommandBarButton</Type>
@@ -82,6 +71,7 @@
 									<Representation>Tree</Representation>
 									<ChangeRowSet>false</ChangeRowSet>
 									<ChangeRowOrder>false</ChangeRowOrder>
+									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<Header>false</Header>
 									<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -135,6 +125,18 @@
 													</Button>
 												</ChildItems>
 											</ButtonGroup>
+											<Button name="ДеревоОтображаемыхДелДублироватьВЦентреОповещений" id="67">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ДополнительноВыводитьВЦентреОповещений</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Дополнительно выводить в центре оповещений</v8:content>
+													</v8:item>
+												</Title>
+												<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+												<ExtendedTooltip name="ДеревоОтображаемыхДелДублироватьВЦентреОповещенийРасширеннаяПодсказка" id="68"/>
+											</Button>
 											<ButtonGroup name="ГруппаПорядок" id="77">
 												<Title>
 													<v8:item>
@@ -171,17 +173,6 @@
 													</Button>
 												</ChildItems>
 											</ButtonGroup>
-											<Button name="ДеревоОтображаемыхДелДублироватьВЦентреОповещений" id="67">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ДополнительноВыводитьВЦентреОповещений</CommandName>
-												<Title>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Дополнительно выводить в центре оповещений</v8:content>
-													</v8:item>
-												</Title>
-												<ExtendedTooltip name="ДеревоОтображаемыхДелДублироватьВЦентреОповещенийРасширеннаяПодсказка" id="68"/>
-											</Button>
 											<SearchStringAddition name="СтрокаПоиск" id="72">
 												<AdditionSource>
 													<Item>ДеревоОтображаемыхДел</Item>
@@ -249,6 +240,7 @@
 													<TitleLocation>None</TitleLocation>
 													<EditMode>EnterOnInput</EditMode>
 													<AutoEditMode>true</AutoEditMode>
+													<CheckBoxType>CheckBox</CheckBoxType>
 													<ContextMenu name="ДеревоОтображаемыхДелПометкаКонтекстноеМеню" id="15"/>
 													<ExtendedTooltip name="ДеревоОтображаемыхДелПометкаРасширеннаяПодсказка" id="16"/>
 												</CheckBoxField>
@@ -288,6 +280,8 @@
 									<Visible>false</Visible>
 									<ReadOnly>true</ReadOnly>
 									<TitleLocation>Top</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<Height>3</Height>
 									<VerticalStretch>false</VerticalStretch>
 									<Wrap>false</Wrap>
@@ -318,7 +312,7 @@
 									<v8:content>Автообновление</v8:content>
 								</v8:item>
 							</Title>
-							<Group>HorizontalIfPossible</Group>
+							<Group>AutoScreenTypeSensitive</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -333,6 +327,8 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>Right</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ИспользоватьАвтообновлениеКонтекстноеМеню" id="46"/>
 									<ExtendedTooltip name="ИспользоватьАвтообновлениеРасширеннаяПодсказка" id="47"/>
 								</CheckBoxField>
@@ -346,7 +342,9 @@
 									</Title>
 									<TitleLocation>None</TitleLocation>
 									<Shortcut>Ctrl+S</Shortcut>
-									<Width>4</Width>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<HorizontalStretch>false</HorizontalStretch>
 									<ListChoiceMode>true</ListChoiceMode>
 									<ChoiceList>
 										<xr:Item>
@@ -620,7 +618,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -631,22 +629,7 @@
 			</ToolTip>
 			<Action>КнопкаОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="КнопкаОтмена" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Кнопка отмена</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>КнопкаОтмена</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПереместитьВверх" id="5">
 			<Title>
@@ -660,7 +643,9 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ПереместитьВверх</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоОтображаемыхДел</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="ПереместитьВниз" id="6">
 			<Title>
@@ -674,7 +659,9 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ПереместитьВниз</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоОтображаемыхДел</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="ДополнительноВыводитьВЦентреОповещений" id="7">
 			<Title>
@@ -694,6 +681,9 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ДублироватьВЦентреОповещений</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ДеревоОтображаемыхДел</AssociatedTableElementId>
+			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

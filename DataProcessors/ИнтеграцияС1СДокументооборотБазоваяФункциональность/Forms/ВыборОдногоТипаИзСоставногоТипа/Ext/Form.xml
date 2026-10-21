@@ -8,29 +8,21 @@
 	</Title>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
+	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="ФормаВыбрать" id="6">
 				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
 				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.Выбрать</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>ОК</v8:content>
-					</v8:item>
-				</Title>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаВыбратьExtendedTooltip" id="15"/>
-			</Button>
-			<Button name="Закрыть" id="9">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Отмена</CommandName>
-				<ExtendedTooltip name="ЗакрытьExtendedTooltip" id="16"/>
 			</Button>
 			<Button name="Справка" id="10">
 				<Type>CommandBarButton</Type>
@@ -61,14 +53,15 @@
 					<ChangeRowSet>false</ChangeRowSet>
 					<ChangeRowOrder>false</ChangeRowOrder>
 					<Width>35</Width>
-					<RowSelectionMode>Cell</RowSelectionMode>
+					<HeightInTableRows>5</HeightInTableRows>
+					<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+					<SelectionMode>SingleRow</SelectionMode>
+					<RowSelectionMode>Row</RowSelectionMode>
 					<Header>false</Header>
 					<HorizontalLinesBWA>false</HorizontalLinesBWA>
 					<VerticalLinesBWA>false</VerticalLinesBWA>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
-					<EnableStartDrag>true</EnableStartDrag>
-					<EnableDrag>true</EnableDrag>
 					<FileDragMode>AsFile</FileDragMode>
 					<DataPath>ДоступныеТипы</DataPath>
 					<Title>
@@ -77,11 +70,31 @@
 							<v8:content>Выберите тип значения</v8:content>
 						</v8:item>
 					</Title>
+					<CommandSet>
+						<ExcludedCommand>Add</ExcludedCommand>
+						<ExcludedCommand>Change</ExcludedCommand>
+						<ExcludedCommand>Copy</ExcludedCommand>
+						<ExcludedCommand>Delete</ExcludedCommand>
+						<ExcludedCommand>EndEdit</ExcludedCommand>
+						<ExcludedCommand>MoveDown</ExcludedCommand>
+						<ExcludedCommand>MoveUp</ExcludedCommand>
+						<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+						<ExcludedCommand>SortListAsc</ExcludedCommand>
+						<ExcludedCommand>SortListDesc</ExcludedCommand>
+					</CommandSet>
 					<SearchStringLocation>None</SearchStringLocation>
-					<ViewStatusLocation>None</ViewStatusLocation>
 					<SearchControlLocation>None</SearchControlLocation>
 					<RowFilter xsi:nil="true"/>
-					<ContextMenu name="ДоступныеТипыКонтекстноеМеню" id="2"/>
+					<ContextMenu name="ДоступныеТипыКонтекстноеМеню" id="2">
+						<ChildItems>
+							<Button name="ДоступныеТипыКонтекстноеМенюВыбрать" id="30">
+								<Type>CommandBarButton</Type>
+								<Representation>PictureAndText</Representation>
+								<CommandName>Form.Command.Выбрать</CommandName>
+								<ExtendedTooltip name="ДоступныеТипыКонтекстноеМенюВыбратьРасширеннаяПодсказка" id="31"/>
+							</Button>
+						</ChildItems>
+					</ContextMenu>
 					<AutoCommandBar name="ДоступныеТипыКоманднаяПанель" id="3">
 						<Autofill>false</Autofill>
 					</AutoCommandBar>
@@ -200,22 +213,12 @@
 					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>Выбрать</Action>
-		</Command>
-		<Command name="Отмена" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Отмена</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

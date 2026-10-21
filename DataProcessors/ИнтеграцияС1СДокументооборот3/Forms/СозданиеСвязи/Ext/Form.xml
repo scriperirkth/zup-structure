@@ -7,15 +7,75 @@
 		</v8:item>
 	</Title>
 	<Width>60</Width>
+	<Height>35</Height>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
-	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<SaveDataInSettings>UseList</SaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
+	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Top</CommandBarLocation>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Назад" id="38">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<Width>10</Width>
+				<Height>1</Height>
+				<CommandName>Form.Command.Назад</CommandName>
+				<Font ref="style:ВыделенноеОформление" kind="StyleItem"/>
+				<Picture>
+					<xr:Ref>StdPicture.GoBack</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Назад</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="НазадРасширеннаяПодсказка" id="39"/>
+			</Button>
+			<Button name="Готово" id="6">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<DefaultButton>true</DefaultButton>
+				<Height>1</Height>
+				<CommandName>Form.Command.Готово</CommandName>
+				<TextColor>style:ОтметкаПоложительногоВыполненияЗадачи</TextColor>
+				<Font ref="style:ВыделенноеОформление" kind="StyleItem"/>
+				<Picture>
+					<xr:Ref>StdPicture.GoForward</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Далее</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="7"/>
+			</Button>
+			<Button name="Отмена" id="8">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<Width>10</Width>
+				<Height>1</Height>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<TextColor>style:ОтметкаОтрицательногоВыполненияЗадачи</TextColor>
+				<Font ref="style:ВыделенноеОформление" kind="StyleItem"/>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отмена</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="9"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -40,6 +100,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
+					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаВыборОбъектаРасширеннаяПодсказка" id="37"/>
 					<ChildItems>
@@ -50,13 +111,16 @@
 							<ReadOnly>true</ReadOnly>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
-							<RowSelectionMode>Cell</RowSelectionMode>
+							<MaxWidth>2</MaxWidth>
+							<SelectionMode>SingleRow</SelectionMode>
+							<RowSelectionMode>Row</RowSelectionMode>
 							<Header>false</Header>
 							<HorizontalLinesBWA>false</HorizontalLinesBWA>
 							<VerticalLinesBWA>false</VerticalLinesBWA>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<InitialTreeView>ExpandAllLevels</InitialTreeView>
+							<InitialRowActivation>Activate</InitialRowActivation>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<FileDragMode>AsFile</FileDragMode>
@@ -84,8 +148,6 @@
 								<ExcludedCommand>MoveDown</ExcludedCommand>
 								<ExcludedCommand>MoveUp</ExcludedCommand>
 								<ExcludedCommand>OutputList</ExcludedCommand>
-								<ExcludedCommand>SelectAll</ExcludedCommand>
-								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 								<ExcludedCommand>SortListAsc</ExcludedCommand>
 								<ExcludedCommand>SortListDesc</ExcludedCommand>
@@ -143,6 +205,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
+					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаСозданиеСвязиРасширеннаяПодсказка" id="41"/>
 					<ChildItems>
@@ -155,6 +218,7 @@
 									<v8:content>Что связать</v8:content>
 								</v8:item>
 							</Title>
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<OpenButton>true</OpenButton>
 							<ContextMenu name="ИсходныйОбъектПредставлениеКонтекстноеМеню" id="68"/>
 							<ExtendedTooltip name="ИсходныйОбъектПредставлениеРасширеннаяПодсказка" id="69"/>
@@ -171,6 +235,7 @@
 									<v8:content>С чем связать</v8:content>
 								</v8:item>
 							</Title>
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<OpenButton>true</OpenButton>
 							<ContextMenu name="СвязанныйОбъектПредставлениеКонтекстноеМеню" id="71"/>
 							<ExtendedTooltip name="СвязанныйОбъектПредставлениеРасширеннаяПодсказка" id="72"/>
@@ -184,12 +249,15 @@
 							<ReadOnly>true</ReadOnly>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
-							<RowSelectionMode>Cell</RowSelectionMode>
+							<Height>1</Height>
+							<SelectionMode>SingleRow</SelectionMode>
+							<RowSelectionMode>Row</RowSelectionMode>
 							<Header>false</Header>
 							<HorizontalLinesBWA>false</HorizontalLinesBWA>
 							<VerticalLinesBWA>false</VerticalLinesBWA>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<InitialRowActivation>Activate</InitialRowActivation>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<DataPath>ТипыСвязейТаблица</DataPath>
@@ -214,8 +282,6 @@
 								<ExcludedCommand>OutputList</ExcludedCommand>
 								<ExcludedCommand>SearchEverywhere</ExcludedCommand>
 								<ExcludedCommand>SearchHistory</ExcludedCommand>
-								<ExcludedCommand>SelectAll</ExcludedCommand>
-								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 								<ExcludedCommand>SortListAsc</ExcludedCommand>
 								<ExcludedCommand>SortListDesc</ExcludedCommand>
@@ -285,66 +351,6 @@
 				</Page>
 			</ChildItems>
 		</Pages>
-		<UsualGroup name="ГруппаКоманды" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команды</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Horizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="5"/>
-			<ChildItems>
-				<Button name="Назад" id="38">
-					<Type>UsualButton</Type>
-					<Width>10</Width>
-					<Height>1</Height>
-					<CommandName>Form.Command.Назад</CommandName>
-					<Font ref="style:ВыделенноеОформление" kind="StyleItem"/>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>&lt; Назад</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="НазадРасширеннаяПодсказка" id="39"/>
-				</Button>
-				<Button name="Готово" id="6">
-					<Type>UsualButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<Height>1</Height>
-					<CommandName>Form.Command.Готово</CommandName>
-					<TextColor>style:ОтметкаПоложительногоВыполненияЗадачи</TextColor>
-					<Font ref="style:ВыделенноеОформление" kind="StyleItem"/>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Далее &gt;</v8:content>
-						</v8:item>
-					</Title>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="7"/>
-				</Button>
-				<Button name="Отмена" id="8">
-					<Type>UsualButton</Type>
-					<Width>10</Width>
-					<Height>1</Height>
-					<CommandName>Form.StandardCommand.Cancel</CommandName>
-					<TextColor>style:ОтметкаОтрицательногоВыполненияЗадачи</TextColor>
-					<Font ref="style:ВыделенноеОформление" kind="StyleItem"/>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Отмена</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="9"/>
-				</Button>
-			</ChildItems>
-		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -859,6 +865,7 @@
 			</ToolTip>
 			<Action>Готово</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Назад" id="4">
 			<Title>
@@ -875,6 +882,7 @@
 			</ToolTip>
 			<Action>Назад</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

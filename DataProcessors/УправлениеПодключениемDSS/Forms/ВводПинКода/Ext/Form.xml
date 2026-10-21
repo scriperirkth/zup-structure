@@ -10,8 +10,40 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+	</CommandSet>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<HorizontalAlign>Right</HorizontalAlign>
+		<ChildItems>
+			<Button name="ФормаПродолжить" id="13">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Продолжить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Продолжить</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаПродолжитьРасширеннаяПодсказка" id="14"/>
+			</Button>
+			<Button name="СменитьПинКод" id="41">
+				<Type>CommandBarHyperlink</Type>
+				<CommandName>Form.Command.СменитьПинКод</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сменить пин-код</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Supplementary</ButtonImportance>
+				<ExtendedTooltip name="СменитьПинКодРасширеннаяПодсказка" id="42"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -19,74 +51,50 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаЗаголовок" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Заголовок</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаЗаголовокРасширеннаяПодсказка" id="2"/>
-			<ChildItems>
-				<LabelDecoration name="ЗаголовокФормы" id="32">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Height>2</Height>
-					<AutoMaxHeight>false</AutoMaxHeight>
-					<HorizontalStretch>true</HorizontalStretch>
-					<VerticalStretch>false</VerticalStretch>
-					<VerticalAlign>Bottom</VerticalAlign>
-					<ContextMenu name="ЗаголовокФормыКонтекстноеМеню" id="33"/>
-					<ExtendedTooltip name="ЗаголовокФормыРасширеннаяПодсказка" id="34"/>
-				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаВвод" id="23">
+		<UsualGroup name="ГруппаВвод" id="50">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Ввод</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AlwaysHorizontal</Group>
-			<Behavior>Usual</Behavior>
+			<HorizontalStretch>false</HorizontalStretch>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаВводРасширеннаяПодсказка" id="24"/>
+			<ExtendedTooltip name="ГруппаВводРасширеннаяПодсказка" id="51"/>
 			<ChildItems>
-				<UsualGroup name="ПраваяКолонка" id="27">
+				<InputField name="СертификатПредставление" id="35">
+					<DataPath>СертификатПредставление</DataPath>
+					<SkipOnInput>true</SkipOnInput>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Правая</v8:content>
+							<v8:content>Сертификат</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<OpenButton>true</OpenButton>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="СертификатПредставлениеКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="СертификатПредставлениеРасширеннаяПодсказка" id="37"/>
+					<Events>
+						<Event name="Opening">СертификатПредставлениеОткрытие</Event>
+					</Events>
+				</InputField>
+				<UsualGroup name="ГруппаПароль" id="48">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пароль</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AutoScreenTypeSensitive</Group>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ПраваяКолонкаРасширеннаяПодсказка" id="28"/>
+					<ExtendedTooltip name="ГруппаПарольРасширеннаяПодсказка" id="49"/>
 					<ChildItems>
-						<InputField name="СертификатПредставление" id="35">
-							<DataPath>СертификатПредставление</DataPath>
-							<SkipOnInput>true</SkipOnInput>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Сертификат</v8:content>
-								</v8:item>
-							</Title>
-							<OpenButton>true</OpenButton>
-							<TextEdit>false</TextEdit>
-							<ContextMenu name="СертификатПредставлениеКонтекстноеМеню" id="36"/>
-							<ExtendedTooltip name="СертификатПредставлениеРасширеннаяПодсказка" id="37"/>
-							<Events>
-								<Event name="Opening">СертификатПредставлениеОткрытие</Event>
-							</Events>
-						</InputField>
 						<InputField name="Пароль" id="5">
 							<DataPath>Пароль</DataPath>
 							<Title>
@@ -95,6 +103,8 @@
 									<v8:content>Пин-код</v8:content>
 								</v8:item>
 							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<PasswordMode>true</PasswordMode>
 							<ChoiceButton>true</ChoiceButton>
 							<ContextMenu name="ПарольКонтекстноеМеню" id="6"/>
@@ -113,74 +123,13 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>Right</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="СохранитьКонтекстноеМеню" id="9"/>
 							<ExtendedTooltip name="СохранитьРасширеннаяПодсказка" id="10"/>
 						</CheckBoxField>
 					</ChildItems>
 				</UsualGroup>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаВсеКоманды" id="43">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Все команды</v8:content>
-				</v8:item>
-			</Title>
-			<Group>AlwaysHorizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаВсеКомандыРасширеннаяПодсказка" id="44"/>
-			<ChildItems>
-				<Button name="СменитьПинКод" id="41">
-					<Type>Hyperlink</Type>
-					<CommandName>Form.Command.СменитьПинКод</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Сменить пин код</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="СменитьПинКодРасширеннаяПодсказка" id="42"/>
-				</Button>
-				<CommandBar name="ГруппаКоманда" id="3">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Команды</v8:content>
-						</v8:item>
-					</Title>
-					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-					<HorizontalLocation>Right</HorizontalLocation>
-					<ExtendedTooltip name="ГруппаКомандаРасширеннаяПодсказка" id="4"/>
-					<ChildItems>
-						<Button name="ОК" id="13">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<CommandName>Form.Command.ОК</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>ОК</v8:content>
-								</v8:item>
-							</Title>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="14"/>
-						</Button>
-						<Button name="Отмена" id="15">
-							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.Отмена</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Отмена</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="16"/>
-						</Button>
-					</ChildItems>
-				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -269,50 +218,25 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ОК" id="1">
+		<Command name="Продолжить" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Продолжить</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОК</Action>
-		</Command>
-		<Command name="Отмена" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Отмена</Action>
+			<Action>ПодтвертитьПароль</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="СменитьПинКод" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сменить пин код</v8:content>
+					<v8:content>Сменить пин-код</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Сменить пин код</v8:content>
-				</v8:item>
-			</ToolTip>
 			<Action>СменитьПинКод</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

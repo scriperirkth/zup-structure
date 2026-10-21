@@ -21,12 +21,6 @@
 				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="88"/>
 			</Button>
-			<Button name="ФормаСправка" id="89">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="90"/>
-			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -40,9 +34,7 @@
 	<ChildItems>
 		<LabelField name="ЗагруженоССервера" id="113">
 			<DataPath>Объект.ЗагруженоССервера</DataPath>
-			<Visible>false</Visible>
 			<TitleTextColor>style:SpecialTextColor</TitleTextColor>
-			<TitleFont ref="style:ШрифтМикротекста" kind="StyleItem"/>
 			<TitleLocation>None</TitleLocation>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<AutoMaxHeight>false</AutoMaxHeight>
@@ -53,145 +45,180 @@
 					<v8:content>БЛ=; БИ='Эта категория загружена с сервера 1С. Настройка недоступна.'</v8:content>
 				</v8:item>
 			</Format>
-			<TextColor>style:ЦветМикротекста</TextColor>
-			<Font ref="style:ШрифтМикротекста" kind="StyleItem"/>
 			<ContextMenu name="ЗагруженоССервераКонтекстноеМеню" id="114"/>
 			<ExtendedTooltip name="ЗагруженоССервераExtendedTooltip" id="115"/>
 		</LabelField>
-		<InputField name="Код" id="1">
-			<DataPath>Объект.Code</DataPath>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Допустимы только английские символы, цифры, подчеркивание и минус</v8:content>
-				</v8:item>
-			</ToolTip>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<AutoMaxHeight>false</AutoMaxHeight>
-			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
-			<ExtendedTooltip name="КодExtendedTooltip" id="63"/>
-		</InputField>
-		<InputField name="Наименование" id="4">
-			<DataPath>Объект.Description</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<AutoMaxHeight>false</AutoMaxHeight>
-			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
-			<ExtendedTooltip name="НаименованиеExtendedTooltip" id="64"/>
-		</InputField>
-		<InputField name="Родитель" id="7">
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<ContextMenu name="РодительКонтекстноеМеню" id="8"/>
-			<ExtendedTooltip name="РодительExtendedTooltip" id="65"/>
-		</InputField>
-		<CheckBoxField name="ОтборНастраиваетсяНаСервере" id="61">
-			<DataPath>Объект.ОтборНастраиваетсяНаСервере</DataPath>
-			<TitleLocation>Left</TitleLocation>
-			<TitleHeight>2</TitleHeight>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор по этой категории может настраиваться на сервере.
-Это полезно для уменьшения трафика.
-В качестве условия сравнения в строке подключения используется поле Идентификатор.</v8:content>
-				</v8:item>
-			</ToolTip>
-			<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
-			<ContextMenu name="ОтборНастраиваетсяНаСервереКонтекстноеМеню" id="62"/>
-			<ExtendedTooltip name="ОтборНастраиваетсяНаСервереExtendedTooltip" id="66">
-				<HorizontalStretch>true</HorizontalStretch>
-			</ExtendedTooltip>
-		</CheckBoxField>
-		<CheckBoxField name="ЗаполняетсяАвтоматически" id="42">
-			<DataPath>Объект.ЗаполняетсяАвтоматически</DataPath>
+		<UsualGroup name="ГруппаКолонки" id="134">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Заполняется
-автоматически</v8:content>
+					<v8:content>Группа колонки</v8:content>
 				</v8:item>
 			</Title>
-			<TitleLocation>Left</TitleLocation>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Значение этой категории будет браться из свойств конфигурации,
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКолонкиРасширеннаяПодсказка" id="135"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаЛеваяКолонка" id="136">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа левая колонка</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаЛеваяКолонкаРасширеннаяПодсказка" id="137"/>
+					<ChildItems>
+						<InputField name="Код" id="1">
+							<DataPath>Объект.Code</DataPath>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Допустимы только английские символы, цифры, подчеркивание и минус</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="КодExtendedTooltip" id="63"/>
+						</InputField>
+						<InputField name="Наименование" id="4">
+							<DataPath>Объект.Description</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="НаименованиеExtendedTooltip" id="64"/>
+						</InputField>
+						<InputField name="Родитель" id="7">
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="РодительКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="РодительExtendedTooltip" id="65"/>
+						</InputField>
+						<InputField name="ТипЗначенияВспомогательный" id="10">
+							<DataPath>Объект.ТипЗначенияВспомогательный</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<ChooseType>false</ChooseType>
+							<TypeDomainEnabled>false</TypeDomainEnabled>
+							<AvailableTypes>
+								<v8:Type>xs:boolean</v8:Type>
+								<v8:Type>xs:string</v8:Type>
+								<v8:Type>cfg:CatalogRef.ЗначенияКатегорийНовостей</v8:Type>
+								<v8:Type>xs:dateTime</v8:Type>
+								<v8:Type>xs:decimal</v8:Type>
+								<v8:NumberQualifiers>
+									<v8:Digits>0</v8:Digits>
+									<v8:FractionDigits>0</v8:FractionDigits>
+									<v8:AllowedSign>Any</v8:AllowedSign>
+								</v8:NumberQualifiers>
+								<v8:StringQualifiers>
+									<v8:Length>0</v8:Length>
+									<v8:AllowedLength>Variable</v8:AllowedLength>
+								</v8:StringQualifiers>
+								<v8:DateQualifiers>
+									<v8:DateFractions>DateTime</v8:DateFractions>
+								</v8:DateQualifiers>
+							</AvailableTypes>
+							<ContextMenu name="ТипЗначенияВспомогательныйКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ТипЗначенияВспомогательныйExtendedTooltip" id="69"/>
+							<Events>
+								<Event name="OnChange">ТипЗначенияВспомогательныйПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаПраваяКолонка" id="138">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа правая колонка</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПраваяКолонкаРасширеннаяПодсказка" id="139"/>
+					<ChildItems>
+						<CheckBoxField name="ЗаполняетсяАвтоматически" id="42">
+							<DataPath>Объект.ЗаполняетсяАвтоматически</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Заполняется автоматически</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Значение этой категории будет браться из свойств конфигурации,
 то есть для него нет списка значений, заполняемого вручную.
 Значение этой категории равно </v8:content>
-				</v8:item>
-			</ToolTip>
-			<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
-			<ContextMenu name="ЗаполняетсяАвтоматическиКонтекстноеМеню" id="43"/>
-			<ExtendedTooltip name="ЗаполняетсяАвтоматическиExtendedTooltip" id="67">
-				<HorizontalStretch>true</HorizontalStretch>
-			</ExtendedTooltip>
-			<Events>
-				<Event name="OnChange">ЗаполняетсяАвтоматическиПриИзменении</Event>
-			</Events>
-		</CheckBoxField>
-		<CheckBoxField name="ОбновляетсяССервера" id="50">
-			<DataPath>Объект.ОбновляетсяССервера</DataPath>
-			<UserVisible>
-				<xr:Common>false</xr:Common>
-			</UserVisible>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Обновляется
-с сервера</v8:content>
-				</v8:item>
-			</Title>
-			<TitleLocation>Left</TitleLocation>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Значения этой категории обновляются автоматически,
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<ContextMenu name="ЗаполняетсяАвтоматическиКонтекстноеМеню" id="43"/>
+							<ExtendedTooltip name="ЗаполняетсяАвтоматическиExtendedTooltip" id="67">
+								<HorizontalStretch>true</HorizontalStretch>
+							</ExtendedTooltip>
+							<Events>
+								<Event name="OnChange">ЗаполняетсяАвтоматическиПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<CheckBoxField name="ОбновляетсяССервера" id="50">
+							<DataPath>Объект.ОбновляетсяССервера</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обновляется с сервера</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Значения этой категории обновляются автоматически,
 вручную править список доступных значений не обязательно</v8:content>
-				</v8:item>
-			</ToolTip>
-			<ContextMenu name="ОбновляетсяССервераКонтекстноеМеню" id="51"/>
-			<ExtendedTooltip name="ОбновляетсяССервераExtendedTooltip" id="68"/>
-			<Events>
-				<Event name="OnChange">ОбновляетсяССервераПриИзменении</Event>
-			</Events>
-		</CheckBoxField>
-		<InputField name="ТипЗначенияВспомогательный" id="10">
-			<DataPath>Объект.ТипЗначенияВспомогательный</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<AutoMaxHeight>false</AutoMaxHeight>
-			<ChooseType>false</ChooseType>
-			<TypeDomainEnabled>false</TypeDomainEnabled>
-			<AvailableTypes>
-				<v8:Type>xs:boolean</v8:Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:Type>cfg:CatalogRef.ЗначенияКатегорийНовостей</v8:Type>
-				<v8:Type>xs:dateTime</v8:Type>
-				<v8:Type>xs:decimal</v8:Type>
-				<v8:NumberQualifiers>
-					<v8:Digits>0</v8:Digits>
-					<v8:FractionDigits>0</v8:FractionDigits>
-					<v8:AllowedSign>Any</v8:AllowedSign>
-				</v8:NumberQualifiers>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
-				<v8:DateQualifiers>
-					<v8:DateFractions>DateTime</v8:DateFractions>
-				</v8:DateQualifiers>
-			</AvailableTypes>
-			<ContextMenu name="ТипЗначенияВспомогательныйКонтекстноеМеню" id="11"/>
-			<ExtendedTooltip name="ТипЗначенияВспомогательныйExtendedTooltip" id="69"/>
-			<Events>
-				<Event name="OnChange">ТипЗначенияВспомогательныйПриИзменении</Event>
-			</Events>
-		</InputField>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<ContextMenu name="ОбновляетсяССервераКонтекстноеМеню" id="51"/>
+							<ExtendedTooltip name="ОбновляетсяССервераExtendedTooltip" id="68"/>
+							<Events>
+								<Event name="OnChange">ОбновляетсяССервераПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<CheckBoxField name="ОтборНастраиваетсяНаСервере" id="61">
+							<DataPath>Объект.ОтборНастраиваетсяНаСервере</DataPath>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отбор по этой категории может настраиваться на сервере.
+Это полезно для уменьшения трафика.
+В качестве условия сравнения в строке подключения используется поле Идентификатор.</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<ContextMenu name="ОтборНастраиваетсяНаСервереКонтекстноеМеню" id="62"/>
+							<ExtendedTooltip name="ОтборНастраиваетсяНаСервереExtendedTooltip" id="66">
+								<HorizontalStretch>true</HorizontalStretch>
+							</ExtendedTooltip>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
 		<Pages name="ГруппаЗначенияКатегорий" id="13">
 			<Title>
 				<v8:item>
@@ -238,20 +265,19 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаСправочникExtendedTooltip" id="73"/>
 					<ChildItems>
-						<LabelDecoration name="ДекорацияТребуетсяОбновлениеССервера" id="55">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<AutoMaxHeight>false</AutoMaxHeight>
-							<HorizontalStretch>true</HorizontalStretch>
-							<VerticalAlign>Top</VerticalAlign>
-							<ContextMenu name="ДекорацияТребуетсяОбновлениеССервераКонтекстноеМеню" id="56"/>
-							<ExtendedTooltip name="ДекорацияТребуетсяОбновлениеССервераExtendedTooltip" id="74"/>
-							<Events>
-								<Event name="URLProcessing">ДекорацияТребуетсяОбновлениеССервераОбработкаНавигационнойСсылки</Event>
-							</Events>
-						</LabelDecoration>
+						<UsualGroup name="ГруппаПредупреждение" id="150">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа предупреждение</v8:content>
+								</v8:item>
+							</Title>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПредупреждениеРасширеннаяПодсказка" id="151"/>
+						</UsualGroup>
 						<Table name="ЗначенияКатегорийНовостейСправочник" id="29">
 							<Representation>Tree</Representation>
-							<TitleLocation>Top</TitleLocation>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<InitialListView>Beginning</InitialListView>
 							<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -266,8 +292,6 @@
 									<v8:content>Список доступных значений</v8:content>
 								</v8:item>
 							</Title>
-							<TitleTextColor>style:ЦветМикротекста</TitleTextColor>
-							<TitleFont ref="style:ШрифтЗаголовкаНастроекНовостей" kind="StyleItem"/>
 							<CommandSet>
 								<ExcludedCommand>Delete</ExcludedCommand>
 								<ExcludedCommand>DynamicListStandardSettings</ExcludedCommand>

@@ -3,7 +3,20 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВключитьВозможностьРедактирования" id="33">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ВключитьВозможностьРедактирования</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Включить возможность редактирования</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаВключитьВозможностьРедактированияРасширеннаяПодсказка" id="34"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -23,33 +36,8 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="2"/>
 		</UsualGroup>
-		<CommandBar name="КоманднаяПанель" id="31">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="32"/>
-			<ChildItems>
-				<Button name="ФормаВключитьВозможностьРедактирования" id="33">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.ВключитьВозможностьРедактирования</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Включить возможность редактирования</v8:content>
-						</v8:item>
-					</Title>
-					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-					<ExtendedTooltip name="ФормаВключитьВозможностьРедактированияРасширеннаяПодсказка" id="34"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<HeaderHeight>2</HeaderHeight>
@@ -63,6 +51,7 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
+			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -79,9 +68,7 @@
 			<UserSettingsGroup>ГруппаПользовательскихНастроек</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
-				<Autofill>false</Autofill>
-			</AutoCommandBar>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -122,17 +109,23 @@
 							<v8:content>Область данных</v8:content>
 						</v8:item>
 					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОбластьДанныхВспомогательныеДанныеКонтекстноеМеню" id="36"/>
 					<ExtendedTooltip name="ОбластьДанныхВспомогательныеДанныеРасширеннаяПодсказка" id="37"/>
 				</InputField>
 				<LabelField name="ИдентификаторОповещения" id="16">
 					<DataPath>Список.ИдентификаторОповещения</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИдентификаторОповещенияКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="ИдентификаторОповещенияРасширеннаяПодсказка" id="18"/>
 				</LabelField>
 				<LabelField name="ДатаДобавления" id="19">
 					<DataPath>Список.ДатаДобавления</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаДобавленияКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ДатаДобавленияРасширеннаяПодсказка" id="21"/>
 				</LabelField>
@@ -151,6 +144,8 @@
 							<v8:content>Дата добавления (миллисекунды)</v8:content>
 						</v8:item>
 					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаДобавленияМиллисекундыКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ДатаДобавленияМиллисекундыРасширеннаяПодсказка" id="24"/>
 				</LabelField>
@@ -163,6 +158,8 @@
 записи в СВ</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОтсрочкаЗаписиВСистемуВзаимодействияКонтекстноеМеню" id="39"/>
 					<ExtendedTooltip name="ОтсрочкаЗаписиВСистемуВзаимодействияРасширеннаяПодсказка" id="40"/>
 				</LabelField>
@@ -175,6 +172,8 @@
 в СВ</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаЗаписиВСистемуВзаимодействияКонтекстноеМеню" id="45"/>
 					<ExtendedTooltip name="ДатаЗаписиВСистемуВзаимодействияРасширеннаяПодсказка" id="46"/>
 				</LabelField>
@@ -192,22 +191,30 @@
 							<v8:content>Дата записи в СВ (миллисекунды)</v8:content>
 						</v8:item>
 					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаЗаписиВСистемуВзаимодействияМиллисекундыКонтекстноеМеню" id="48"/>
 					<ExtendedTooltip name="ДатаЗаписиВСистемуВзаимодействияМиллисекундыРасширеннаяПодсказка" id="49"/>
 				</LabelField>
 				<LabelField name="ИдентификаторГруппы" id="28">
 					<DataPath>Список.ИдентификаторГруппы</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИдентификаторГруппыКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ИдентификаторГруппыРасширеннаяПодсказка" id="30"/>
 				</LabelField>
 				<LabelField name="ВидОповещенияВГруппе" id="41">
 					<DataPath>Список.ВидОповещенияВГруппе</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ВидОповещенияВГруппеКонтекстноеМеню" id="42"/>
 					<ExtendedTooltip name="ВидОповещенияВГруппеРасширеннаяПодсказка" id="43"/>
 				</LabelField>
 				<LabelField name="Адресаты" id="50">
 					<DataPath>Список.Адресаты</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="АдресатыКонтекстноеМеню" id="51"/>
 					<ExtendedTooltip name="АдресатыРасширеннаяПодсказка" id="52"/>
 				</LabelField>

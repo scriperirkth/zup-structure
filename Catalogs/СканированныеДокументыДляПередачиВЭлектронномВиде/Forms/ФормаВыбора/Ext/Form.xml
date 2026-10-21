@@ -12,6 +12,22 @@
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ТаблицаДокументовСоздатьЭлемент" id="61">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.СоздатьЭлемент</CommandName>
+				<ExtendedTooltip name="ТаблицаДокументовСоздатьЭлементExtendedTooltip" id="68"/>
+			</Button>
+			<Button name="ФормаВыбрать" id="8">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаВыбратьExtendedTooltip" id="64"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -42,6 +58,7 @@
 				<InputField name="ОтборОрганизация" id="91">
 					<DataPath>ОтборОрганизация</DataPath>
 					<ReadOnly>true</ReadOnly>
+					<TitleLocation>Left</TitleLocation>
 					<Width>22</Width>
 					<ChoiceButton>false</ChoiceButton>
 					<OpenButton>false</OpenButton>
@@ -51,6 +68,7 @@
 				</InputField>
 				<InputField name="ОтборВидДокумента" id="88">
 					<DataPath>ОтборВидДокумента</DataPath>
+					<TitleLocation>Left</TitleLocation>
 					<Width>52</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ClearButton>true</ClearButton>
@@ -90,18 +108,16 @@
 			<AutoCommandBar name="ТаблицаДокументовКоманднаяПанель" id="3">
 				<Autofill>false</Autofill>
 				<ChildItems>
-					<Button name="ФормаВыбрать" id="8">
-						<Type>CommandBarButton</Type>
-						<Representation>Text</Representation>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.Выбрать</CommandName>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ФормаВыбратьExtendedTooltip" id="64"/>
-					</Button>
 					<Button name="ОтметитьВсеСтроки" id="9">
 						<Type>CommandBarButton</Type>
-						<Representation>Picture</Representation>
+						<Representation>PictureAndText</Representation>
 						<CommandName>Form.Command.ОтметитьВсеСтроки</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Выбрать все</v8:content>
+							</v8:item>
+						</Title>
 						<ExtendedTooltip name="ОтметитьВсеСтрокиExtendedTooltip" id="65"/>
 					</Button>
 					<Button name="СнятьОтметкуСоВсехСтрок" id="10">
@@ -118,12 +134,6 @@
 						</Picture>
 						<ExtendedTooltip name="ТаблицаДокументовВыборПериодаExtendedTooltip" id="67"/>
 					</Button>
-					<Button name="ТаблицаДокументовСоздатьЭлемент" id="61">
-						<Type>CommandBarButton</Type>
-						<Representation>PictureAndText</Representation>
-						<CommandName>Form.Command.СоздатьЭлемент</CommandName>
-						<ExtendedTooltip name="ТаблицаДокументовСоздатьЭлементExtendedTooltip" id="68"/>
-					</Button>
 					<Button name="ТаблицаДокументовКопироватьЭлемент" id="63">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.КопироватьЭлемент</CommandName>
@@ -138,11 +148,13 @@
 					<Button name="ТаблицаДокументовПометитьНаУдаление" id="62">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.ПометитьНаУдаление</CommandName>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 						<ExtendedTooltip name="ТаблицаДокументовПометитьНаУдалениеExtendedTooltip" id="71"/>
 					</Button>
 					<Button name="ТаблицаДокументовОбновить" id="40">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.Обновить</CommandName>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 						<ExtendedTooltip name="ТаблицаДокументовОбновитьExtendedTooltip" id="72"/>
 					</Button>
 					<Button name="ФормаЗагрузитьИзФайла" id="58">
@@ -438,6 +450,7 @@
 			<Action>Выбрать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ОтметитьВсеСтроки" id="2">
 			<Title>
@@ -570,6 +583,7 @@
 			</Picture>
 			<Action>СоздатьЭлемент</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="ПометитьНаУдаление" id="11">
 			<Title>

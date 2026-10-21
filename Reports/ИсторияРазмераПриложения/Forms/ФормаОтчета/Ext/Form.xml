@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
-	<WindowOpeningMode>DontBlock</WindowOpeningMode>
-	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
+	<CommandBarLocation>Top</CommandBarLocation>
 	<CommandSet>
 		<ExcludedCommand>Generate</ExcludedCommand>
 	</CommandSet>
-	<ShowCommandBar>false</ShowCommandBar>
+	<ShowTitle>true</ShowTitle>
+	<ShowCommandBar>true</ShowCommandBar>
 	<ReportResult>Результат</ReportResult>
 	<DetailsData>ДанныеРасшифровки</DetailsData>
 	<ReportFormType>Main</ReportFormType>
@@ -15,45 +14,34 @@
 	<ReportResultViewMode>Auto</ReportResultViewMode>
 	<ViewModeApplicationOnSetReportResult>Auto</ViewModeApplicationOnSetReportResult>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаСформироватьОтчет" id="33">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.СформироватьОтчет</CommandName>
+				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаСформироватьОтчетРасширеннаяПодсказка" id="34"/>
+			</Button>
+			<Button name="ЗагрузитьВариант" id="35">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.LoadVariant</CommandName>
+				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+				<ExtendedTooltip name="ЗагрузитьВариантРасширеннаяПодсказка" id="36"/>
+			</Button>
+			<Button name="НастройкиОтчета" id="37">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.ReportSettings</CommandName>
+				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+				<ExtendedTooltip name="НастройкиОтчетаРасширеннаяПодсказка" id="38"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<CommandBar name="ОсновнаяКоманднаяПанель" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Основная командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="ОсновнаяКоманднаяПанельРасширеннаяПодсказка" id="2"/>
-			<ChildItems>
-				<Button name="ФормаСформироватьОтчет" id="33">
-					<Type>CommandBarButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.СформироватьОтчет</CommandName>
-					<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ФормаСформироватьОтчетРасширеннаяПодсказка" id="34"/>
-				</Button>
-				<Button name="ЗагрузитьВариант" id="35">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.StandardCommand.LoadVariant</CommandName>
-					<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-					<ExtendedTooltip name="ЗагрузитьВариантРасширеннаяПодсказка" id="36"/>
-				</Button>
-				<Button name="НастройкиОтчета" id="37">
-					<Type>CommandBarButton</Type>
-					<CommandName>Form.StandardCommand.ReportSettings</CommandName>
-					<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-					<ExtendedTooltip name="НастройкиОтчетаРасширеннаяПодсказка" id="38"/>
-				</Button>
-			</ChildItems>
-		</CommandBar>
 		<UsualGroup name="КомпоновщикНастроекПользовательскиеНастройки" id="3">
 			<Title>
 				<v8:item>
@@ -64,7 +52,6 @@
 			<VerticalStretch>false</VerticalStretch>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="КомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="4"/>
 		</UsualGroup>
@@ -81,13 +68,6 @@
 			<ExtendedTooltip name="ГруппаПредопределенныеНастройкиРасширеннаяПодсказка" id="40"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаПериод" id="57">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа1</v8:content>
-						</v8:item>
-					</Title>
-					<Group>AlwaysHorizontal</Group>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ThroughAlign>DontUse</ThroughAlign>
@@ -95,6 +75,9 @@
 					<ChildItems>
 						<CheckBoxField name="ПериодИспользование" id="62">
 							<DataPath>ПериодИспользование</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<CheckBoxType>Switcher</CheckBoxType>
 							<ContextMenu name="ПериодИспользованиеКонтекстноеМеню" id="63"/>
 							<ExtendedTooltip name="ПериодИспользованиеРасширеннаяПодсказка" id="64"/>
 							<Events>
@@ -104,6 +87,8 @@
 						<InputField name="Период" id="59">
 							<DataPath>Период</DataPath>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ПериодКонтекстноеМеню" id="60"/>
 							<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="61"/>
 							<Events>
@@ -113,19 +98,14 @@
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="ГруппаДополнительныеНастройки" id="65">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа1</v8:content>
-						</v8:item>
-					</Title>
-					<Group>HorizontalIfPossible</Group>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаДополнительныеНастройкиРасширеннаяПодсказка" id="66"/>
 					<ChildItems>
 						<RadioButtonField name="ВариантСортировки" id="44">
 							<DataPath>ВариантСортировки</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<RadioButtonType>Tumbler</RadioButtonType>
 							<EqualColumnsWidth>true</EqualColumnsWidth>
 							<ChoiceList>
@@ -164,6 +144,8 @@
 						</RadioButtonField>
 						<CheckBoxField name="ОтображатьТолькоИзменившиеся" id="41">
 							<DataPath>ОтображатьТолькоИзменившиеся</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<CheckBoxType>Switcher</CheckBoxType>
 							<ContextMenu name="ОтображатьТолькоИзменившиесяКонтекстноеМеню" id="42"/>
 							<ExtendedTooltip name="ОтображатьТолькоИзменившиесяРасширеннаяПодсказка" id="43"/>
@@ -183,7 +165,6 @@
 				</v8:item>
 			</Title>
 			<HorizontalStretch>true</HorizontalStretch>
-			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -192,6 +173,8 @@
 				<LabelField name="ИнфоАктуальностьРасчета" id="20">
 					<DataPath>ИнфоАктуальностьРасчета</DataPath>
 					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИнфоАктуальностьРасчетаКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="ИнфоАктуальностьРасчетаРасширеннаяПодсказка" id="22"/>
 				</LabelField>
@@ -209,9 +192,10 @@
 					<ExtendedTooltip name="ГруппаРассчитатьРазмерРасширеннаяПодсказка" id="24"/>
 					<ChildItems>
 						<Button name="РассчитатьРазмерПриложения" id="18">
-							<Type>Hyperlink</Type>
+							<Type>UsualButton</Type>
 							<CommandName>Form.Command.РассчитатьРазмерПриложения</CommandName>
 							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<ButtonImportance>Supplementary</ButtonImportance>
 							<ExtendedTooltip name="РассчитатьРазмерПриложенияРасширеннаяПодсказка" id="19">
 								<Title formatted="false">
 									<v8:item>
@@ -244,10 +228,6 @@
 											<v8:content>Декорация выполнение</v8:content>
 										</v8:item>
 									</Title>
-									<Picture>
-										<xr:Ref>CommonPicture.СинхронизацияДанныхДлительнаяОперация</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
-									</Picture>
 									<ContextMenu name="ДекорацияВыполнениеКонтекстноеМеню" id="28"/>
 									<ExtendedTooltip name="ДекорацияВыполнениеРасширеннаяПодсказка" id="29"/>
 								</PictureDecoration>
@@ -272,6 +252,8 @@
 			<DataPath>Результат</DataPath>
 			<DefaultItem>true</DefaultItem>
 			<TitleLocation>None</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<Width>100</Width>
 			<ContextMenu name="РезультатКонтекстноеМеню" id="6"/>
 			<ExtendedTooltip name="РезультатРасширеннаяПодсказка" id="7"/>
@@ -428,7 +410,7 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>СформироватьОтчет</Action>
-			<Representation>Text</Representation>
+			<Representation>TextPicture</Representation>
 		</Command>
 	</Commands>
 </Form>

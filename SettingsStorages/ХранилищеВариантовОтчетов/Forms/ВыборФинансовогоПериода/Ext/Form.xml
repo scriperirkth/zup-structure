@@ -10,9 +10,16 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<HorizontalAlign>Center</HorizontalAlign>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаСправка" id="200">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="201"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -48,9 +55,14 @@
 					<ChildItems>
 						<Button name="ПерейтиНаГодНазадДоступно" id="90">
 							<Type>UsualButton</Type>
+							<Representation>Picture</Representation>
 							<Width>6</Width>
 							<CommandName>Form.Command.ПерейтиНаГодНазад</CommandName>
 							<Font ref="style:LargeTextFont" kind="StyleItem"/>
+							<Picture>
+								<xr:Ref>StdPicture.GoBack</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -81,6 +93,8 @@
 					</Title>
 					<TitleLocation>None</TitleLocation>
 					<HorizontalAlign>Center</HorizontalAlign>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Format>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -92,9 +106,14 @@
 				</LabelField>
 				<Button name="ПерейтиНаГодВперед" id="95">
 					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
 					<Width>6</Width>
 					<CommandName>Form.Command.ПерейтиНаГодВперед</CommandName>
 					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<Picture>
+						<xr:Ref>StdPicture.GoForward</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -131,6 +150,7 @@
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
+					<ShowAsCard>true</ShowAsCard>
 					<ExtendedTooltip name="МесяцыРасширеннаяПодсказка" id="179"/>
 					<ChildItems>
 						<UsualGroup name="Квартал1" id="150">
@@ -140,7 +160,7 @@
 									<v8:content>Квартал 1</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Horizontal</Group>
+							<Group>AlwaysHorizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<United>false</United>
@@ -195,7 +215,7 @@
 									<v8:content>Квартал 2</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Horizontal</Group>
+							<Group>AlwaysHorizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<United>false</United>
@@ -250,7 +270,7 @@
 									<v8:content>Квартал 3</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Horizontal</Group>
+							<Group>AlwaysHorizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<United>false</United>
@@ -305,7 +325,7 @@
 									<v8:content>Квартал 4</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Horizontal</Group>
+							<Group>AlwaysHorizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<United>false</United>
@@ -365,15 +385,15 @@
 					<HorizontalStretch>false</HorizontalStretch>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
-					<Representation>StrongSeparation</Representation>
+					<Representation>WeakSeparation</Representation>
 					<ShowTitle>false</ShowTitle>
+					<ShowAsCard>true</ShowAsCard>
 					<ExtendedTooltip name="КварталыРасширеннаяПодсказка" id="181"/>
 					<ChildItems>
 						<Button name="ВыбратьКвартал1" id="107">
 							<Type>UsualButton</Type>
 							<HorizontalStretch>true</HorizontalStretch>
 							<CommandName>Form.Command.ВыбратьКвартал1</CommandName>
-							<BackColor>style:ИтогиФонГруппы</BackColor>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -387,7 +407,6 @@
 							<Type>UsualButton</Type>
 							<HorizontalStretch>true</HorizontalStretch>
 							<CommandName>Form.Command.ВыбратьКвартал2</CommandName>
-							<BackColor>style:ИтогиФонГруппы</BackColor>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -401,7 +420,6 @@
 							<Type>UsualButton</Type>
 							<HorizontalStretch>true</HorizontalStretch>
 							<CommandName>Form.Command.ВыбратьКвартал3</CommandName>
-							<BackColor>style:ИтогиФонГруппы</BackColor>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -415,7 +433,6 @@
 							<Type>UsualButton</Type>
 							<HorizontalStretch>true</HorizontalStretch>
 							<CommandName>Form.Command.ВыбратьКвартал4</CommandName>
-							<BackColor>style:ИтогиФонГруппы</BackColor>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -439,6 +456,7 @@
 					<Behavior>Usual</Behavior>
 					<Representation>StrongSeparation</Representation>
 					<ShowTitle>false</ShowTitle>
+					<ShowAsCard>true</ShowAsCard>
 					<ExtendedTooltip name="НарастающимИтогомРасширеннаяПодсказка" id="183"/>
 					<ChildItems>
 						<Button name="ВыбратьДень" id="174">
@@ -497,7 +515,7 @@
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаОчиститьПериод" id="193">
+		<UsualGroup name="ГруппаОчиститьПериод" id="198">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -505,11 +523,10 @@
 				</v8:item>
 			</Title>
 			<Group>AlwaysHorizontal</Group>
-			<HorizontalAlign>Center</HorizontalAlign>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаОчиститьПериодРасширеннаяПодсказка" id="194"/>
+			<ExtendedTooltip name="ГруппаОчиститьПериодРасширеннаяПодсказка" id="199"/>
 			<ChildItems>
 				<Button name="ОчиститьПериод" id="189">
 					<Type>UsualButton</Type>
@@ -525,6 +542,7 @@
 				</Button>
 				<Button name="ПерейтиКСтандартномуВариантуПериода" id="195">
 					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
 					<CommandName>Form.Command.ПерейтиКСтандартномуВариантуПериода</CommandName>
 					<Title>
 						<v8:item>
@@ -973,6 +991,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ОчиститьПериод</Action>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПерейтиКСтандартномуВариантуПериода" id="24">
 			<Title>
@@ -987,8 +1006,13 @@
 					<v8:content>Перейти к стандартному варианту периода</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Calendar</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>ПерейтиКСтандартномуВариантуПериода</Action>
 			<Representation>Picture</Representation>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

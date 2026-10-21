@@ -6,10 +6,10 @@
 			<v8:content>Банковские счета</v8:content>
 		</v8:item>
 	</Title>
-	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandBarLocation>None</CommandBarLocation>
+	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
@@ -17,12 +17,6 @@
 	</Events>
 	<ChildItems>
 		<UsualGroup name="ГруппаОрганизацияБанк" id="44">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа организация банк</v8:content>
-				</v8:item>
-			</Title>
 			<Group>HorizontalIfPossible</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -36,28 +30,25 @@
 				</LabelField>
 				<LabelField name="Банк" id="41">
 					<DataPath>Банк</DataPath>
+					<TitleLocation>Left</TitleLocation>
 					<ContextMenu name="БанкКонтекстноеМеню" id="42"/>
 					<ExtendedTooltip name="БанкРасширеннаяПодсказка" id="43"/>
 				</LabelField>
 			</ChildItems>
 		</UsualGroup>
-		<CommandBar name="ГруппаКоманднаяПанель" id="54">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа командная панель</v8:content>
-				</v8:item>
-			</Title>
-			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="55"/>
+		<CommandBar name="ГруппаКоманднаяПанельТакси" id="54">
+			<ExtendedTooltip name="ГруппаКоманднаяПанельТаксиРасширеннаяПодсказка" id="55"/>
 			<ChildItems>
-				<Button name="Выбрать" id="56">
+				<Button name="ВыбратьТакси" id="56">
 					<Type>CommandBarButton</Type>
 					<DefaultButton>true</DefaultButton>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<AutoMaxHeight>false</AutoMaxHeight>
 					<CommandName>Form.Item.СписокСчетов.StandardCommand.Choose</CommandName>
 					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="57"/>
+					<ExtendedTooltip name="ВыбратьТаксиРасширеннаяПодсказка" id="57"/>
 				</Button>
-				<SearchStringAddition name="ДополнениеСтрокаПоиска" id="58">
+				<SearchStringAddition name="ДополнениеСтрокаПоискаТакси" id="58">
 					<AdditionSource>
 						<Item>СписокСчетов</Item>
 						<Type>SearchStringRepresentation</Type>
@@ -65,13 +56,13 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Дополнение строка поиска</v8:content>
+							<v8:content>Строка поиска</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="ДополнениеСтрокаПоискаКонтекстноеМеню" id="59"/>
-					<ExtendedTooltip name="ДополнениеСтрокаПоискаРасширеннаяПодсказка" id="60"/>
+					<ContextMenu name="ДополнениеСтрокаПоискаТаксиКонтекстноеМеню" id="59"/>
+					<ExtendedTooltip name="ДополнениеСтрокаПоискаТаксиРасширеннаяПодсказка" id="60"/>
 				</SearchStringAddition>
-				<SearchControlAddition name="ДополнениеУправлениеПоиском" id="61">
+				<SearchControlAddition name="ДополнениеУправлениеПоискомТакси" id="61">
 					<AdditionSource>
 						<Item>СписокСчетов</Item>
 						<Type>SearchControl</Type>
@@ -79,11 +70,11 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Дополнение управление поиском</v8:content>
+							<v8:content>Управление поиском</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="ДополнениеУправлениеПоискомКонтекстноеМеню" id="62"/>
-					<ExtendedTooltip name="ДополнениеУправлениеПоискомРасширеннаяПодсказка" id="63"/>
+					<ContextMenu name="ДополнениеУправлениеПоискомТаксиКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="ДополнениеУправлениеПоискомТаксиРасширеннаяПодсказка" id="63"/>
 				</SearchControlAddition>
 			</ChildItems>
 		</CommandBar>
@@ -91,13 +82,16 @@
 			<Representation>List</Representation>
 			<CommandBarLocation>None</CommandBarLocation>
 			<ReadOnly>true</ReadOnly>
+			<DefaultItem>true</DefaultItem>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<AutoMaxHeight>false</AutoMaxHeight>
 			<ChoiceMode>true</ChoiceMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
-			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<SearchOnInput>Use</SearchOnInput>
+			<HorizontalStretch>false</HorizontalStretch>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
 			<DataPath>СписокСчетов</DataPath>
@@ -116,6 +110,9 @@
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 			</CommandSet>
+			<SearchStringLocation>Top</SearchStringLocation>
+			<ShowCommandBar>false</ShowCommandBar>
+			<AutoMaxCardHeight>false</AutoMaxCardHeight>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="СписокСчетовКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="СписокСчетовКоманднаяПанель" id="3"/>
@@ -153,33 +150,33 @@
 					<DataPath>СписокСчетов.Ссылка</DataPath>
 					<Visible>false</Visible>
 					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>9</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>9</MaxWidth>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="СписокСчетовСсылкаКонтекстноеМеню" id="30"/>
 					<ExtendedTooltip name="СписокСчетовСсылкаРасширеннаяПодсказка" id="31"/>
 				</InputField>
 				<InputField name="СписокСчетовНомерСчета" id="23">
 					<DataPath>СписокСчетов.НомерСчета</DataPath>
 					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>10</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>10</MaxWidth>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="СписокСчетовНомерСчетаКонтекстноеМеню" id="24"/>
 					<ExtendedTooltip name="СписокСчетовНомерСчетаРасширеннаяПодсказка" id="25"/>
 				</InputField>
 				<InputField name="СписокСчетовНаименование" id="20">
 					<DataPath>СписокСчетов.Наименование</DataPath>
 					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>15</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>15</MaxWidth>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="СписокСчетовНаименованиеКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="СписокСчетовНаименованиеРасширеннаяПодсказка" id="22"/>
 				</InputField>
@@ -187,8 +184,8 @@
 					<DataPath>СписокСчетов.Банк</DataPath>
 					<Visible>false</Visible>
 					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="СписокСчетовБанкКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="СписокСчетовБанкРасширеннаяПодсказка" id="16"/>
 				</InputField>
@@ -202,11 +199,11 @@
 					</Title>
 					<HorizontalAlign>Right</HorizontalAlign>
 					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>15</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>15</MaxWidth>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="СписокСчетовСуммаОстаткаСтрокаКонтекстноеМеню" id="52"/>
 					<ExtendedTooltip name="СписокСчетовСуммаОстаткаСтрокаРасширеннаяПодсказка" id="53"/>
 				</InputField>
@@ -214,8 +211,8 @@
 					<DataPath>СписокСчетов.Организация</DataPath>
 					<Visible>false</Visible>
 					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="СписокСчетовОрганизацияКонтекстноеМеню" id="27"/>
 					<ExtendedTooltip name="СписокСчетовОрганизацияРасширеннаяПодсказка" id="28"/>
 				</InputField>
@@ -224,14 +221,29 @@
 					<EditMode>EnterOnInput</EditMode>
 					<ShowInHeader>false</ShowInHeader>
 					<ShowInFooter>false</ShowInFooter>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>2</Width>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="СписокСчетовОтступКонтекстноеМеню" id="49"/>
 					<ExtendedTooltip name="СписокСчетовОтступРасширеннаяПодсказка" id="50"/>
 				</InputField>
 			</ChildItems>
 		</Table>
+		<UsualGroup name="ГруппаКоманднаяПанельВыбор" id="104">
+			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельВыборРасширеннаяПодсказка" id="105"/>
+			<ChildItems>
+				<Button name="Выбрать" id="106">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Item.СписокСчетов.StandardCommand.Choose</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="107"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="СписокСчетов" id="2">

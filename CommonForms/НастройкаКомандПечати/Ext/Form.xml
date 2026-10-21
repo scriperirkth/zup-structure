@@ -36,60 +36,92 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="47"/>
 			</Button>
-			<Button name="ФормаПоказатьВСписке" id="48">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ПоказатьВСписке</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Перейти в список</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаПоказатьВСпискеРасширеннаяПодсказка" id="49"/>
-			</Button>
-			<ButtonGroup name="ФормаГруппаФлажки" id="53">
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Форма группа флажки</v8:content>
-					</v8:item>
-				</Title>
-				<Representation>Compact</Representation>
-				<ExtendedTooltip name="ФормаГруппаФлажкиРасширеннаяПодсказка" id="54"/>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="КомандыПечати" id="1">
+			<Representation>Tree</Representation>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<SelectionMode>SingleRow</SelectionMode>
+			<RowSelectionMode>Cell</RowSelectionMode>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>КомандыПечати</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команды печати</v8:content>
+				</v8:item>
+			</Title>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+			</CommandSet>
+			<SearchStringLocation>CommandBar</SearchStringLocation>
+			<ContextMenu name="КомандыПечатиКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="КомандыПечатиКоманднаяПанель" id="3">
 				<ChildItems>
-					<Button name="ФормаУстановитьФлажки" id="19">
+					<Button name="ФормаПоказатьВСписке" id="48" DisplayImportance="VeryHigh">
 						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.УстановитьФлажки</CommandName>
+						<CommandName>Form.Command.ПоказатьВСписке</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.ShowInList</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
-								<v8:content>Установить флажки</v8:content>
+								<v8:content>Перейти в список</v8:content>
 							</v8:item>
 						</Title>
-						<ExtendedTooltip name="ФормаУстановитьФлажкиРасширеннаяПодсказка" id="20"/>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ФормаПоказатьВСпискеРасширеннаяПодсказка" id="49"/>
 					</Button>
-					<Button name="ФормаСнятьФлажки" id="21">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.СнятьФлажки</CommandName>
+					<ButtonGroup name="ФормаГруппаФлажки" id="53">
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
-								<v8:content>Снять флажки</v8:content>
+								<v8:content>Форма группа флажки</v8:content>
 							</v8:item>
 						</Title>
-						<ExtendedTooltip name="ФормаСнятьФлажкиРасширеннаяПодсказка" id="22"/>
-					</Button>
-				</ChildItems>
-			</ButtonGroup>
-			<ButtonGroup name="ФормаГруппаПрочее" id="39">
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Прочее</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаГруппаПрочееРасширеннаяПодсказка" id="40"/>
-				<ChildItems>
+						<Representation>Compact</Representation>
+						<ExtendedTooltip name="ФормаГруппаФлажкиРасширеннаяПодсказка" id="54"/>
+						<ChildItems>
+							<Button name="ФормаУстановитьФлажки" id="19">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.УстановитьФлажки</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Установить флажки</v8:content>
+									</v8:item>
+								</Title>
+								<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+								<ExtendedTooltip name="ФормаУстановитьФлажкиРасширеннаяПодсказка" id="20"/>
+							</Button>
+							<Button name="ФормаСнятьФлажки" id="21">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СнятьФлажки</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Снять флажки</v8:content>
+									</v8:item>
+								</Title>
+								<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+								<ExtendedTooltip name="ФормаСнятьФлажкиРасширеннаяПодсказка" id="22"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
 					<Button name="ФормаУстановитьНастройкиПоУмолчанию" id="37">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.УстановитьНастройкиПоУмолчанию</CommandName>
@@ -103,47 +135,6 @@
 						<ExtendedTooltip name="ФормаУстановитьНастройкиПоУмолчаниюРасширеннаяПодсказка" id="38"/>
 					</Button>
 				</ChildItems>
-			</ButtonGroup>
-			<SearchStringAddition name="СтрокаПоиска" id="50">
-				<AdditionSource>
-					<Item>КомандыПечати</Item>
-					<Type>SearchStringRepresentation</Type>
-				</AdditionSource>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Поиск</v8:content>
-					</v8:item>
-				</Title>
-				<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="51"/>
-				<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="52"/>
-			</SearchStringAddition>
-		</ChildItems>
-	</AutoCommandBar>
-	<Events>
-		<Event name="BeforeClose">ПередЗакрытием</Event>
-		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
-	</Events>
-	<ChildItems>
-		<Table name="КомандыПечати" id="1">
-			<Representation>Tree</Representation>
-			<ChangeRowSet>false</ChangeRowSet>
-			<ChangeRowOrder>false</ChangeRowOrder>
-			<RowSelectionMode>Cell</RowSelectionMode>
-			<AutoInsertNewRow>true</AutoInsertNewRow>
-			<EnableStartDrag>true</EnableStartDrag>
-			<EnableDrag>true</EnableDrag>
-			<FileDragMode>AsFile</FileDragMode>
-			<DataPath>КомандыПечати</DataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Команды печати</v8:content>
-				</v8:item>
-			</Title>
-			<ContextMenu name="КомандыПечатиКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="КомандыПечатиКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
 			</AutoCommandBar>
 			<ExtendedTooltip name="КомандыПечатиРасширеннаяПодсказка" id="4"/>
 			<SearchStringAddition name="КомандыПечатиСтрокаПоиска" id="23">
@@ -213,7 +204,6 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<OpenButton>true</OpenButton>
 							<ContextMenu name="КомандыПечатиПредставлениеКонтекстноеМеню" id="9"/>
 							<ExtendedTooltip name="КомандыПечатиПредставлениеРасширеннаяПодсказка" id="10"/>
 						</InputField>
@@ -406,7 +396,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Установить настройки по умолчанию</v8:content>
+					<v8:content>Перечитать</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -437,6 +427,7 @@
 			</ToolTip>
 			<Action>ЗаписатьИЗакрыть</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПоказатьВСписке" id="5">
 			<Title>
@@ -452,7 +443,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПоказатьВСписке</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">КомандыПечати</AssociatedTableElementId>
 		</Command>
 	</Commands>
 	<Parameters>

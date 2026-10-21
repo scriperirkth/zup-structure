@@ -2,10 +2,43 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
+		<ChildItems>
+			<Button name="Применить" id="7">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.Применить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Применить</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="50"/>
+			</Button>
+			<Button name="Отмена" id="8">
+				<Type>CommandBarButton</Type>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="51"/>
+			</Button>
+			<Button name="УстановитьСтандартныеНастройки" id="204">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.УстановитьСтандартныеНастройки</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Установить стандартные параметры</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="УстановитьСтандартныеНастройкиРасширеннаяПодсказка" id="205"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -47,8 +80,8 @@
 									<v8:content>Сканер</v8:content>
 								</v8:item>
 							</Title>
-							<Width>35</Width>
-							<HorizontalStretch>false</HorizontalStretch>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<DropListButton>true</DropListButton>
 							<ListChoiceMode>true</ListChoiceMode>
 							<TextEdit>false</TextEdit>
@@ -60,20 +93,6 @@
 								<Event name="ChoiceProcessing">ИмяУстройстваОбработкаВыбора</Event>
 							</Events>
 						</InputField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаДиалога" id="137">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Диалога</v8:content>
-						</v8:item>
-					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаДиалогаРасширеннаяПодсказка" id="138"/>
-					<ChildItems>
 						<InputField name="ПоказыватьДиалогСканера" id="142">
 							<DataPath>ПоказыватьДиалогСканера</DataPath>
 							<Title>
@@ -83,8 +102,8 @@
 								</v8:item>
 							</Title>
 							<ToolTipRepresentation>Button</ToolTipRepresentation>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<MaxWidth>37</MaxWidth>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ListChoiceMode>true</ListChoiceMode>
 							<ChooseType>false</ChooseType>
 							<ChoiceList>
@@ -132,6 +151,18 @@
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
+				<UsualGroup name="ГруппаДиалога" id="137">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Диалога</v8:content>
+						</v8:item>
+					</Title>
+					<Group>HorizontalIfPossible</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДиалогаРасширеннаяПодсказка" id="138"/>
+				</UsualGroup>
 				<UsualGroup name="ГруппаПараметры" id="106">
 					<Title>
 						<v8:item>
@@ -139,9 +170,10 @@
 							<v8:content>Параметры</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
+					<Group>AutoScreenTypeSensitive</Group>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
+					<ShowAsCard>true</ShowAsCard>
 					<ExtendedTooltip name="ГруппаПараметрыРасширеннаяПодсказка" id="107"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаОсновное" id="81">
@@ -166,7 +198,6 @@
 									</Title>
 									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
-									<Representation>NormalSeparation</Representation>
 									<ExtendedTooltip name="ГруппаПараметрыСканированияРасширеннаяПодсказка" id="71"/>
 									<ChildItems>
 										<InputField name="Разрешение" id="14">
@@ -184,8 +215,8 @@
 												</v8:item>
 											</ToolTip>
 											<ToolTipRepresentation>Button</ToolTipRepresentation>
-											<Width>13</Width>
-											<HorizontalStretch>false</HorizontalStretch>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="РазрешениеКонтекстноеМеню" id="15"/>
 											<ExtendedTooltip name="РазрешениеРасширеннаяПодсказка" id="72">
 												<Title formatted="true">
@@ -207,8 +238,8 @@
 													<v8:content>Цветность</v8:content>
 												</v8:item>
 											</Title>
-											<Width>13</Width>
-											<HorizontalStretch>false</HorizontalStretch>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ЦветностьКонтекстноеМеню" id="17"/>
 											<ExtendedTooltip name="ЦветностьРасширеннаяПодсказка" id="73"/>
 										</InputField>
@@ -220,8 +251,8 @@
 													<v8:content>Поворот</v8:content>
 												</v8:item>
 											</Title>
-											<Width>13</Width>
-											<HorizontalStretch>false</HorizontalStretch>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ПоворотКонтекстноеМеню" id="21"/>
 											<ExtendedTooltip name="ПоворотРасширеннаяПодсказка" id="74"/>
 										</InputField>
@@ -233,8 +264,8 @@
 													<v8:content>Размер бумаги</v8:content>
 												</v8:item>
 											</Title>
-											<Width>13</Width>
-											<HorizontalStretch>false</HorizontalStretch>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="РазмерБумагиКонтекстноеМеню" id="23"/>
 											<ExtendedTooltip name="РазмерБумагиРасширеннаяПодсказка" id="75"/>
 										</InputField>
@@ -260,6 +291,8 @@
 													</Title>
 													<TitleLocation>Right</TitleLocation>
 													<ToolTipRepresentation>Button</ToolTipRepresentation>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="ДвустороннееСканированиеКонтекстноеМеню" id="29"/>
 													<ExtendedTooltip name="ДвустороннееСканированиеРасширеннаяПодсказка" id="76">
 														<Title formatted="false">
@@ -279,6 +312,8 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>Right</TitleLocation>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="АвтоматическаяПодачаДокументовКонтекстноеМеню" id="173"/>
 													<ExtendedTooltip name="АвтоматическаяПодачаДокументовРасширеннаяПодсказка" id="174"/>
 												</CheckBoxField>
@@ -321,7 +356,6 @@
 									</Title>
 									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
-									<Representation>NormalSeparation</Representation>
 									<ExtendedTooltip name="ГруппаФорматСканированногоИзображенияРасширеннаяПодсказка" id="60"/>
 									<ChildItems>
 										<UsualGroup name="ГруппаФорматаСканированногоИзображения" id="44">
@@ -331,7 +365,7 @@
 													<v8:content>Формата сканированного изображения</v8:content>
 												</v8:item>
 											</Title>
-											<Group>HorizontalIfPossible</Group>
+											<Group>Vertical</Group>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
@@ -345,57 +379,25 @@
 															<v8:content>Сохранить как</v8:content>
 														</v8:item>
 													</Title>
-													<Width>9</Width>
-													<HorizontalStretch>false</HorizontalStretch>
+													<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<DropListWidth>9</DropListWidth>
 													<ContextMenu name="ФорматСканированногоИзображенияКонтекстноеМеню" id="43"/>
-													<ExtendedTooltip name="ФорматСканированногоИзображенияРасширеннаяПодсказка" id="62"/>
+													<ExtendedTooltip name="ФорматСканированногоИзображенияРасширеннаяПодсказка" id="62">
+														<Title formatted="true">
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Подходит для большинства документов и изображений. Позволяет сжимать изображение с потерей качества. Можно настроить величину сжатия.</v8:content>
+															</v8:item>
+														</Title>
+													</ExtendedTooltip>
 													<Events>
 														<Event name="OnChange">ФорматСканированногоИзображенияПриИзменении</Event>
 													</Events>
 												</InputField>
-												<CheckBoxField name="ПреобразоватьВPDF" id="112">
-													<DataPath>СохранятьВPDF</DataPath>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Преобразовать в PDF</v8:content>
-														</v8:item>
-													</Title>
-													<TitleLocation>Right</TitleLocation>
-													<ToolTipRepresentation>Button</ToolTipRepresentation>
-													<ContextMenu name="ПреобразоватьВPDFКонтекстноеМеню" id="113"/>
-													<ExtendedTooltip name="ПреобразоватьВPDFРасширеннаяПодсказка" id="114">
-														<Title formatted="true">
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>&lt;b&gt;JPG&lt;/&gt; подходит для большинства документов и изображений. Позволяет сжимать изображение с потерей качества. Можно настроить величину сжатия. 
-&lt;b&gt;PNG&lt;/&gt; подходит для большинства документов и изображений. Изображения без потери качества, файлы небольших размеров. 
-&lt;b&gt;TIF&lt;/&gt; позволяет сохранять изображение без потери качества, используется для хранения изображений для дальнейшей печати. Возможно хранение многостраничных изображений.
-&lt;b&gt;GIF&lt;/&gt; устаревший формат для хранения изображений в низком качестве. Файлы небольшого размера.
-
-&lt;b&gt;Преобразовать в PDF&lt;/&gt; позволяет поместить отсканированное изображение в PDF-файл. Возможно хранение многостраничных изображений.</v8:content>
-															</v8:item>
-														</Title>
-													</ExtendedTooltip>
-												</CheckBoxField>
 											</ChildItems>
 										</UsualGroup>
-										<LabelDecoration name="ОписаниеФорматаОдностраничногоДокумента" id="115">
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<MaxWidth>50</MaxWidth>
-											<HorizontalStretch>true</HorizontalStretch>
-											<TextColor>style:ПоясняющийТекст</TextColor>
-											<Title formatted="true">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Подходит для большинства документов и изображений. Позволяет сжимать изображение с потерей качества. Можно настроить величину сжатия.
-</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="ОписаниеФорматаОдностраничногоДокументаКонтекстноеМеню" id="116"/>
-											<ExtendedTooltip name="ОписаниеФорматаОдностраничногоДокументаРасширеннаяПодсказка" id="117"/>
-										</LabelDecoration>
 										<UsualGroup name="ГруппаКачествоJPG" id="121">
 											<Title>
 												<v8:item>
@@ -403,14 +405,13 @@
 													<v8:content>Качество</v8:content>
 												</v8:item>
 											</Title>
-											<Height>2</Height>
 											<Group>AlwaysHorizontal</Group>
+											<VerticalAlign>Center</VerticalAlign>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
 											<ExtendedTooltip name="ГруппаКачествоJPGРасширеннаяПодсказка" id="122"/>
 											<ChildItems>
 												<LabelDecoration name="ДекорацияСжатиеJPG" id="126">
-													<VerticalStretch>true</VerticalStretch>
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -431,7 +432,9 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>Top</TitleLocation>
-													<Width>35</Width>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<Width>26</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ContextMenu name="КачествоJPGКонтекстноеМеню" id="31"/>
 													<ExtendedTooltip name="КачествоJPGРасширеннаяПодсказка" id="67"/>
@@ -440,7 +443,6 @@
 													</Events>
 												</TrackBarField>
 												<LabelDecoration name="ДекорацияКачествоJPG" id="123">
-													<VerticalStretch>true</VerticalStretch>
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -462,12 +464,39 @@
 													<v8:content>Сжатие</v8:content>
 												</v8:item>
 											</Title>
-											<Width>9</Width>
-											<HorizontalStretch>false</HorizontalStretch>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<DropListWidth>9</DropListWidth>
 											<ContextMenu name="СжатиеTIFFКонтекстноеМеню" id="33"/>
 											<ExtendedTooltip name="СжатиеTIFFРасширеннаяПодсказка" id="68"/>
 										</InputField>
+										<CheckBoxField name="ПреобразоватьВPDF" id="112">
+											<DataPath>СохранятьВPDF</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Преобразовать в PDF</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>Right</TitleLocation>
+											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<ContextMenu name="ПреобразоватьВPDFКонтекстноеМеню" id="113"/>
+											<ExtendedTooltip name="ПреобразоватьВPDFРасширеннаяПодсказка" id="114">
+												<Title formatted="true">
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>&lt;b&gt;JPG&lt;/&gt; подходит для большинства документов и изображений. Позволяет сжимать изображение с потерей качества. Можно настроить величину сжатия. 
+&lt;b&gt;PNG&lt;/&gt; подходит для большинства документов и изображений. Изображения без потери качества, файлы небольших размеров. 
+&lt;b&gt;TIF&lt;/&gt; позволяет сохранять изображение без потери качества, используется для хранения изображений для дальнейшей печати. Возможно хранение многостраничных изображений.
+&lt;b&gt;GIF&lt;/&gt; устаревший формат для хранения изображений в низком качестве. Файлы небольшого размера.
+
+&lt;b&gt;Преобразовать в PDF&lt;/&gt; позволяет поместить отсканированное изображение в PDF-файл. Возможно хранение многостраничных изображений.</v8:content>
+													</v8:item>
+												</Title>
+											</ExtendedTooltip>
+										</CheckBoxField>
 									</ChildItems>
 								</UsualGroup>
 								<UsualGroup name="ГруппаФорматХраненияМногостраничный" id="39">
@@ -479,7 +508,6 @@
 									</Title>
 									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
-									<Representation>NormalSeparation</Representation>
 									<ExtendedTooltip name="ГруппаФорматХраненияМногостраничныйРасширеннаяПодсказка" id="69"/>
 									<ChildItems>
 										<InputField name="ФорматХраненияМногостраничный" id="40">
@@ -498,8 +526,8 @@ TIF - Не все браузеры отображают этот формат.</
 												</v8:item>
 											</ToolTip>
 											<ToolTipRepresentation>None</ToolTipRepresentation>
-											<Width>9</Width>
-											<HorizontalStretch>false</HorizontalStretch>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<DropListWidth>9</DropListWidth>
 											<ContextMenu name="ФорматХраненияМногостраничныйКонтекстноеМеню" id="41"/>
 											<ExtendedTooltip name="ФорматХраненияМногостраничныйРасширеннаяПодсказка" id="70"/>
@@ -553,6 +581,8 @@ TIF - Не все браузеры отображают этот формат.</
 																</v8:item>
 															</Title>
 															<ToolTipRepresentation>Button</ToolTipRepresentation>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<RadioButtonType>Auto</RadioButtonType>
 															<ChoiceList>
 																<xr:Item>
@@ -629,7 +659,8 @@ TIF - Не все браузеры отображают этот формат.</
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
-											<Width>50</Width>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ChoiceButton>true</ChoiceButton>
 											<InputHint>
 												<v8:item>
@@ -666,7 +697,6 @@ TIF - Не все браузеры отображают этот формат.</
 					</CollapsedRepresentationTitle>
 					<Collapsed>true</Collapsed>
 					<ControlRepresentation>Button</ControlRepresentation>
-					<Representation>NormalSeparation</Representation>
 					<ExtendedTooltip name="ГруппаДиагностикаПроблемРасширеннаяПодсказка" id="161"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаКаталогЖурналаДиагностики" id="168">
@@ -676,7 +706,7 @@ TIF - Не все браузеры отображают этот формат.</
 									<v8:content>Каталог журнала диагностики</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Vertical</Group>
+							<Group>AutoScreenTypeSensitive</Group>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаКаталогЖурналаДиагностикиРасширеннаяПодсказка" id="169"/>
@@ -686,10 +716,12 @@ TIF - Не все браузеры отображают этот формат.</
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Сохранять информацию для технической поддержки:</v8:content>
+											<v8:content>Сохранять информацию для технической поддержки</v8:content>
 										</v8:item>
 									</Title>
 									<TitleLocation>Right</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ИспользоватьКаталогЖурналаСканированияКонтекстноеМеню" id="163"/>
 									<ExtendedTooltip name="ИспользоватьКаталогЖурналаСканированияРасширеннаяПодсказка" id="164"/>
 									<Events>
@@ -701,21 +733,13 @@ TIF - Не все браузеры отображают этот формат.</
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Каталог журнала сканирования</v8:content>
-										</v8:item>
-									</Title>
-									<TitleLocation>None</TitleLocation>
-									<ToolTipRepresentation>Button</ToolTipRepresentation>
-									<Width>60</Width>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<HorizontalStretch>false</HorizontalStretch>
-									<ChoiceButton>true</ChoiceButton>
-									<InputHint>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
 											<v8:content>Каталог журнала диагностики</v8:content>
 										</v8:item>
-									</InputHint>
+									</Title>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ChoiceButton>true</ChoiceButton>
 									<ContextMenu name="КаталогЖурналаСканированияКонтекстноеМеню" id="158"/>
 									<ExtendedTooltip name="КаталогЖурналаСканированияРасширеннаяПодсказка" id="159">
 										<Title formatted="false">
@@ -732,183 +756,61 @@ TIF - Не все браузеры отображают этот формат.</
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
-					</ChildItems>
-				</UsualGroup>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ОшибкаСканирования" id="145">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Ошибка сканирования</v8:content>
-				</v8:item>
-			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ОшибкаСканированияРасширеннаяПодсказка" id="146"/>
-			<ChildItems>
-				<PictureDecoration name="КартинкаОшибкиСканирования" id="147">
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Картинка ошибки сканирования</v8:content>
-						</v8:item>
-					</Title>
-					<Picture>
-						<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</Picture>
-					<ContextMenu name="КартинкаОшибкиСканированияКонтекстноеМеню" id="148"/>
-					<ExtendedTooltip name="КартинкаОшибкиСканированияРасширеннаяПодсказка" id="149"/>
-				</PictureDecoration>
-				<LabelDecoration name="ТекстОшибкиСканирования" id="150">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Сканирование завершилось аварийно. При возникновении затруднений обратитесь в службу поддержки фирмы "1С".</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ТекстОшибкиСканированияКонтекстноеМеню" id="151"/>
-					<ExtendedTooltip name="ТекстОшибкиСканированияРасширеннаяПодсказка" id="152"/>
-				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаПодвал" id="153">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Подвал</v8:content>
-				</v8:item>
-			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПодвалРасширеннаяПодсказка" id="154"/>
-			<ChildItems>
-				<UsualGroup name="ГруппаТребуетсяПомощь" id="177">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Требуется помощь?</v8:content>
-						</v8:item>
-					</Title>
-					<GroupVerticalAlign>Center</GroupVerticalAlign>
-					<Group>Vertical</Group>
-					<Behavior>PopUp</Behavior>
-					<Representation>WeakSeparation</Representation>
-					<ExtendedTooltip name="ГруппаТребуетсяПомощьРасширеннаяПодсказка" id="178"/>
-					<ChildItems>
-						<LabelDecoration name="Рекомендации" id="179">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<Title formatted="true">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Попробуйте одно из следующих действий:
-
-</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="РекомендацииКонтекстноеМеню" id="180"/>
-							<ExtendedTooltip name="РекомендацииРасширеннаяПодсказка" id="181"/>
-							<Events>
-								<Event name="URLProcessing">РекомендацииОбработкаНавигационнойСсылки</Event>
-							</Events>
-						</LabelDecoration>
-						<UsualGroup name="ГруппаОбращенияВТехническуюПоддержку" id="182">
+						<UsualGroup name="ГруппаТребуетсяПомощь" id="177">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Обращения в техническую поддержку</v8:content>
+									<v8:content>Требуется помощь?</v8:content>
 								</v8:item>
 							</Title>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
 							<Group>Vertical</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаОбращенияВТехническуюПоддержкуРасширеннаяПодсказка" id="183"/>
+							<Behavior>PopUp</Behavior>
+							<ExtendedTooltip name="ГруппаТребуетсяПомощьРасширеннаяПодсказка" id="178"/>
 							<ChildItems>
-								<LabelDecoration name="ОписаниеОбращенияВПоддержку" id="184">
-									<Width>55</Width>
+								<LabelDecoration name="Рекомендации" id="179">
 									<AutoMaxWidth>false</AutoMaxWidth>
-									<ContextMenu name="ОписаниеОбращенияВПоддержкуКонтекстноеМеню" id="185"/>
-									<ExtendedTooltip name="ОписаниеОбращенияВПоддержкуРасширеннаяПодсказка" id="186"/>
+									<Title formatted="true">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Попробуйте одно из следующих действий:
+
+</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="РекомендацииКонтекстноеМеню" id="180"/>
+									<ExtendedTooltip name="РекомендацииРасширеннаяПодсказка" id="181"/>
 									<Events>
-										<Event name="URLProcessing">ОписаниеОбращенияВПоддержкуОбработкаНавигационнойСсылки</Event>
+										<Event name="URLProcessing">РекомендацииОбработкаНавигационнойСсылки</Event>
 									</Events>
 								</LabelDecoration>
+								<UsualGroup name="ГруппаОбращенияВТехническуюПоддержку" id="182">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Обращения в техническую поддержку</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОбращенияВТехническуюПоддержкуРасширеннаяПодсказка" id="183"/>
+									<ChildItems>
+										<LabelDecoration name="ОписаниеОбращенияВПоддержку" id="184">
+											<Width>55</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<ContextMenu name="ОписаниеОбращенияВПоддержкуКонтекстноеМеню" id="185"/>
+											<ExtendedTooltip name="ОписаниеОбращенияВПоддержкуРасширеннаяПодсказка" id="186"/>
+											<Events>
+												<Event name="URLProcessing">ОписаниеОбращенияВПоддержкуОбработкаНавигационнойСсылки</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
-				<CommandBar name="ГруппаКоманднаяПанель" id="155">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Командная панель</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalLocation>Right</HorizontalLocation>
-					<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="156"/>
-					<ChildItems>
-						<Button name="ОК" id="7">
-							<Type>CommandBarButton</Type>
-							<DefaultButton>true</DefaultButton>
-							<SkipOnInput>false</SkipOnInput>
-							<CommandName>Form.Command.ОК</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>ОК</v8:content>
-								</v8:item>
-							</Title>
-							<ButtonImportance>Main</ButtonImportance>
-							<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="50"/>
-						</Button>
-						<Button name="Отмена" id="8">
-							<Type>CommandBarButton</Type>
-							<SkipOnInput>false</SkipOnInput>
-							<CommandName>Form.StandardCommand.Cancel</CommandName>
-							<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="51"/>
-						</Button>
-						<Button name="Справка" id="9">
-							<Type>CommandBarButton</Type>
-							<SkipOnInput>false</SkipOnInput>
-							<CommandName>Form.StandardCommand.Help</CommandName>
-							<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="52"/>
-						</Button>
-						<Popup name="ГруппаЕще" id="94">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Еще</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ГруппаЕщеРасширеннаяПодсказка" id="95"/>
-							<ChildItems>
-								<Button name="УстановитьСтандартныеНастройки" id="25">
-									<Type>CommandBarButton</Type>
-									<SkipOnInput>false</SkipOnInput>
-									<CommandName>Form.Command.УстановитьСтандартныеНастройки</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Установить стандартные параметры</v8:content>
-										</v8:item>
-									</Title>
-									<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-									<ExtendedTooltip name="УстановитьСтандартныеНастройкиРасширеннаяПодсказка" id="78"/>
-								</Button>
-								<Button name="ИзменитьФорму" id="170">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-									<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-									<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="171"/>
-								</Button>
-							</ChildItems>
-						</Popup>
-					</ChildItems>
-				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -1204,15 +1106,22 @@ TIF - Не все браузеры отображают этот формат.</
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ОК" id="2">
+		<Command name="Применить" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ОК</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
-			<Action>ОК</Action>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Применить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Применить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="УстановитьСтандартныеНастройки" id="1">
 			<Title>
